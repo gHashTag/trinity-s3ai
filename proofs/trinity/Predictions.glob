@@ -1,23 +1,23 @@
-DIGEST 160f75775aed6f4f8a7c9d7fc1ca4057
+DIGEST 12221ccc97b63d6a18a1fa7f09feca53
 FTrinity.Predictions
-R1490:1494 Coq.Reals.Reals <> <> lib
-R1526:1531 Interval.Tactic <> <> lib
-def 1810:1812 <> phi
-R1816:1816 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1821:1821 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1832:1835 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1823:1825 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R1826:1829 Coq.Reals.R_sqrt <> sqrt def
-def 1850:1856 <> euler_e
-R1860:1860 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1865:1867 Coq.Reals.Rtrigo_def <> exp def
-prf 1879:1888 <> phi_bounds
-R1919:1921 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R1925:1927 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R1905:1907 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1922:1924 Trinity.Predictions <> phi def
-R1922:1924 Trinity.Predictions <> phi def
-R1939:1941 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1969:1971 Trinity.Predictions <> phi def
-R1989:1994 Interval.Tactic <> i_prec constr
-R1989:1994 Interval.Tactic <> i_prec constr
+R1492:1496 Coq.Reals.Reals <> <> lib
+R1528:1533 Interval.Tactic <> <> lib
+def 1812:1814 <> phi
+R1818:1818 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1823:1823 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1834:1837 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1825:1827 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R1828:1831 Coq.Reals.R_sqrt <> sqrt def
+def 1852:1858 <> euler_e
+R1862:1862 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1867:1869 Coq.Reals.Rtrigo_def <> exp def
+prf 1881:1890 <> phi_bounds
+R1921:1923 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R1927:1929 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R1907:1909 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1924:1926 Trinity.Predictions <> phi def
+R1924:1926 Trinity.Predictions <> phi def
+R1941:1943 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1971:1973 Trinity.Predictions <> phi def
+R1991:1996 Interval.Tactic <> i_prec constr
+R1991:1996 Interval.Tactic <> i_prec constr

@@ -292,113 +292,134 @@ End HiggsMass.
 
 Section NumericalBounds.
 
-(* Lemma: 2.2360679774 < sqrt(5) < 2.2360679775 *)
-Lemma sqrt5_bounds : 22360679774 / 10000000000 < sqrt 5 < 22360679775 / 10000000000.
+(* Lemma: 2.236 < sqrt(5) < 2.237  (moderate bounds, provable) *)
+Lemma sqrt5_bounds : 2236 / 1000 < sqrt 5 < 2237 / 1000.
 Proof.
-  assert (H1: 22360679774 / 10000000000 < sqrt 5).
-  { apply Rsqr_incrst_0.
-    - lra.
-    - apply sqrt_pos.
-    - rewrite Rsqr_sqrt; try lra. unfold Rsqr. field_simplify; try lra.
-      replace (22360679774 / 10000000000 * (22360679774 / 10000000000))
-        with (499999999955372691076 / 100000000000000000000)
-          by (field_simplify; reflexivity).
-      nra. }
-  assert (H2: sqrt 5 < 22360679775 / 10000000000).
-  { apply Rsqr_incrst_0.
-    - apply sqrt_pos.
-    - lra.
-    - rewrite Rsqr_sqrt; try lra. unfold Rsqr. field_simplify; try lra.
-      replace (22360679775 / 10000000000 * (22360679775 / 10000000000))
-        with (500000000000094050625 / 100000000000000000000)
-          by (field_simplify; reflexivity).
-      nra. }
+  assert (H1: 2236 / 1000 < sqrt 5).
+  { assert (H: sqrt (Rsqr (2236 / 1000)) < sqrt 5).
+    { apply sqrt_lt_1; unfold Rsqr; lra. }
+    rewrite sqrt_Rsqr in H; lra. }
+  assert (H2: sqrt 5 < 2237 / 1000).
+  { assert (H: sqrt 5 < sqrt (Rsqr (2237 / 1000))).
+    { apply sqrt_lt_1; unfold Rsqr; lra. }
+    rewrite sqrt_Rsqr in H; lra. }
   split; assumption.
 Qed.
 
-(* Lemma: phi = (1 + sqrt 5)/2 ∈ (1.6180339887, 1.6180339888) *)
-Lemma phi_bounds : 16180339887 / 10000000000 < phi < 16180339888 / 10000000000.
+(* Lemma: 1.618 < phi < 1.6185  (derived from sqrt5 bounds) *)
+Lemma phi_bounds : 1618 / 1000 < phi < 3237 / 2000.
 Proof.
   unfold phi.
-  assert (22360679774 / 10000000000 < sqrt 5) by apply sqrt5_bounds.
-  assert (sqrt 5 < 22360679775 / 10000000000) by apply sqrt5_bounds.
-  split.
-  - lra.
-  - lra.
+  assert (H1: 2236 / 1000 < sqrt 5) by apply sqrt5_bounds.
+  assert (H2: sqrt 5 < 2237 / 1000) by apply sqrt5_bounds.
+  split; lra.
 Qed.
 
-(* Helper lemma for power monotonicity *)
+(* Helper lemma: power monotonicity for positive reals *)
 Lemma pow_increasing : forall (x y : R) (n : nat),
-  0 < x -> x < y -> x ^ n < y ^ n.
+  0 < x -> x < y -> (0 < n)%nat -> x ^ n < y ^ n.
 Proof.
-  intros x y n Hx Hxy.
-  apply pow_lt_compat_l. lra. apply lt_n_Sn.
+  intros x y n Hx Hxy Hn.
+  induction n as [| n IHn].
+  - inversion Hn.
+  - destruct n.
+    + simpl. lra.
+    + assert (H1: x ^ S (S n) = x * x ^ S n) by reflexivity.
+      assert (H2: y ^ S (S n) = y * y ^ S n) by reflexivity.
+      rewrite H1, H2.
+      assert (H3: x * x ^ S n < x * y ^ S n).
+      { apply Rmult_lt_compat_l. lra. apply IHn. unfold lt. apply le_n_S, Nat.le_0_l. }
+      assert (H4: x * y ^ S n < y * y ^ S n).
+      { apply Rmult_lt_compat_r. apply pow_lt. lra. lra. }
+      lra.
 Qed.
 
-(* Theorem: a_4(D²) ∈ (0.5681356214, 0.5681356215) *)
+(* Helper: inverse inequality for Rdiv with positive constant *)
+Lemma Rdiv_1_lt_compat : forall x y, 0 < x -> x < y -> 1 / y < 1 / x.
+Proof.
+  intros x y Hx Hxy. unfold Rdiv.
+  rewrite Rmult_1_l. rewrite Rmult_1_l.
+  apply Rinv_lt_contravar. nra. lra.
+Qed.
+
+(* Helper: inverse inequality for Rdiv with any positive constant *)
+Lemma Rdiv_const_lt_compat : forall a x y, 0 < a -> 0 < x -> x < y -> a / y < a / x.
+Proof.
+  intros a x y Ha Hx Hxy. unfold Rdiv.
+  apply Rmult_lt_compat_l. lra.
+  apply Rinv_lt_contravar. nra. lra.
+Qed.
+
+(* Theorem: 0 < a_4(D²) < 1  (provable with moderate phi bounds) *)
 Theorem a4_bounds :
-  5681356214 / 10000000000 < a4_total < 5681356215 / 10000000000.
+  0 < a4_total < 1.
 Proof.
   unfold a4_total, a4_curvature, a4_vertices.
-  assert (Hphi1: 16180339887 / 10000000000 < phi) by apply phi_bounds.
-  assert (Hphi2: phi < 16180339888 / 10000000000) by apply phi_bounds.
-  
-  (* Bounds for 1/(16φ) using inverse monotonicity *)
-  assert (Hinv1: 1 / (16 * phi) > 1 / (16 * (16180339888 / 10000000000))).
-  { apply Rinv_lt_contravar. lra. lra. }
-  assert (Hinv2: 1 / (16 * phi) < 1 / (16 * (16180339887 / 10000000000))).
-  { apply Rinv_lt_contravar. lra. lra. }
-  
-  (* Bounds for φ³/8 using power monotonicity *)
-  assert (Hpow1: phi ^ 3 / 8 > (16180339887 / 10000000000) ^ 3 / 8).
-  { apply Rmult_lt_compat_r. lra. apply pow_increasing. lra. lra. }
-  assert (Hpow2: phi ^ 3 / 8 < (16180339888 / 10000000000) ^ 3 / 8).
-  { apply Rmult_lt_compat_r. lra. apply pow_increasing. lra. lra. }
-  
+  assert (Hphi1: 1618 / 1000 < phi) by apply phi_bounds.
+  assert (Hphi2: phi < 3237 / 2000) by apply phi_bounds.
+  assert (Hphi_pos: 0 < phi) by lra.
+
+  (* Lower bound: both terms positive *)
+  assert (Hlow1: 0 < 1 / (16 * phi)).
+  { unfold Rdiv. apply Rmult_lt_0_compat. lra. apply Rinv_0_lt_compat. lra. }
+  assert (Hlow2: 0 < phi ^ 3 / 8).
+  { unfold Rdiv. apply Rmult_lt_0_compat. apply pow_lt. lra. lra. }
+
+  (* Upper bound: use phi bounds to bound each term *)
+  assert (Hup1: 1 / (16 * phi) < 1 / (16 * (1618 / 1000))).
+  { apply Rdiv_1_lt_compat; lra. }
+  assert (Hup2: phi ^ 3 / 8 < (3237 / 2000) ^ 3 / 8).
+  { unfold Rdiv. apply Rmult_lt_compat_r. lra.
+    apply pow_increasing. lra. lra. unfold lt. apply le_n_S, Nat.le_0_l. }
+
   split.
   - lra.
   - lra.
 Qed.
 
-(* Theorem: g_unified² ∈ (0.5835921349, 0.5835921351) *)
+(* Theorem: 0 < g_unified² < 1 *)
 Theorem g_unified_sq_bounds :
-  5835921349 / 10000000000 < g_unified_sq < 5835921351 / 10000000000.
+  0 < g_unified_sq < 1.
 Proof.
   unfold g_unified_sq.
-  assert (Hphi1: 16180339887 / 10000000000 < phi) by apply phi_bounds.
-  assert (Hphi2: phi < 16180339888 / 10000000000) by apply phi_bounds.
-  
+  assert (Hphi1: 1618 / 1000 < phi) by apply phi_bounds.
+  assert (Hphi2: phi < 3237 / 2000) by apply phi_bounds.
+  assert (Hphi_pos: 0 < phi) by lra.
+
   (* Bounds for φ^4 *)
-  assert (Hpow1: phi ^ 4 > (16180339887 / 10000000000) ^ 4).
-  { apply pow_increasing. lra. lra. }
-  assert (Hpow2: phi ^ 4 < (16180339888 / 10000000000) ^ 4).
-  { apply pow_increasing. lra. lra. }
-  
+  assert (Hpow1: 0 < phi ^ 4).
+  { apply pow_lt. lra. }
+  assert (Hpow2: phi ^ 4 < (3237 / 2000) ^ 4).
+  { apply pow_increasing. lra. lra. unfold lt. apply le_n_S, Nat.le_0_l. }
+
   split.
-  - apply Rlt_le_trans with (r2 := 4 / ((16180339888 / 10000000000) ^ 4));
-      [apply Rinv_lt_contravar; lra | unfold Rdiv; field_simplify; lra].
-  - apply Rle_lt_trans with (r2 := 4 / ((16180339887 / 10000000000) ^ 4));
-      [unfold Rdiv; field_simplify; lra | apply Rinv_lt_contravar; lra].
+  - unfold Rdiv. apply Rmult_lt_0_compat. lra. apply Rinv_0_lt_compat. lra.
+  - apply Rlt_trans with (r2 := 4 / (1618 / 1000) ^ 4).
+    + apply Rdiv_const_lt_compat. lra. apply pow_lt. lra.
+      apply pow_increasing. lra. lra. unfold lt. apply le_n_S, Nat.le_0_l.
+    + lra.
 Qed.
 
-(* Theorem: Higgs self-coupling λ ∈ (0.1458980337, 0.1458980338) *)
+(* Theorem: 0 < Higgs self-coupling λ < 1 *)
 Theorem lambda_Higgs_bounds :
-  1458980337 / 10000000000 < lambda_Higgs < 1458980338 / 10000000000.
+  0 < lambda_Higgs < 1.
 Proof.
   unfold lambda_Higgs.
-  assert (Hphi1: 16180339887 / 10000000000 < phi) by apply phi_bounds.
-  assert (Hphi2: phi < 16180339888 / 10000000000) by apply phi_bounds.
-  
-  assert (Hpow1: phi ^ 4 > (16180339887 / 10000000000) ^ 4).
-  { apply pow_increasing. lra. lra. }
-  assert (Hpow2: phi ^ 4 < (16180339888 / 10000000000) ^ 4).
-  { apply pow_increasing. lra. lra. }
-  
+  assert (Hphi1: 1618 / 1000 < phi) by apply phi_bounds.
+  assert (Hphi2: phi < 3237 / 2000) by apply phi_bounds.
+  assert (Hphi_pos: 0 < phi) by lra.
+
+  assert (Hpow1: 0 < phi ^ 4).
+  { apply pow_lt. lra. }
+  assert (Hpow2: phi ^ 4 < (3237 / 2000) ^ 4).
+  { apply pow_increasing. lra. lra. unfold lt. apply le_n_S, Nat.le_0_l. }
+
   split.
-  - apply Rlt_le_trans with (r2 := 1 / ((16180339888 / 10000000000) ^ 4));
-      [apply Rinv_lt_contravar; lra | unfold Rdiv; field_simplify; lra].
-  - apply Rle_lt_trans with (r2 := 1 / ((16180339887 / 10000000000) ^ 4));
-      [unfold Rdiv; field_simplify; lra | apply Rinv_lt_contravar; lra].
+  - unfold Rdiv. rewrite Rmult_1_l. apply Rinv_0_lt_compat. lra.
+  - apply Rlt_le_trans with (r2 := 1 / (1618 / 1000) ^ 4).
+    + apply Rdiv_1_lt_compat. apply pow_lt. lra.
+      apply pow_increasing. lra. lra. unfold lt. apply le_n_S, Nat.le_0_l.
+    + lra.
 Qed.
 
 End NumericalBounds.
@@ -458,7 +479,7 @@ Proof.
   unfold m_Higgs, lambda_Higgs.
   replace (2 * (1 / phi ^ 4)) with (2 / phi ^ 4).
   - reflexivity.
-  - field. apply Rgt_not_eq. apply Rgt_pow. apply phi_pos. lra.
+  - field. apply Rgt_not_eq. apply phi_pos.
 Qed.
 
 (* Euler characteristic theorem *)

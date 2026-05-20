@@ -120,20 +120,23 @@ Proof.
   (* Cancel 10^33 on left: a/(b*c)*c = a/b *)
   assert (Hcancel: 355687428096000%R / (169266594447360%R * 10^33) * 10^33
             = 355687428096000%R / 169266594447360%R).
-  { unfold Rdiv. rewrite Rinv_mult.
-    repeat rewrite Rmult_assoc.
-    rewrite Rinv_l. 2: apply Rgt_not_eq; apply pow_lt; lra.
-    rewrite Rmult_1_r. reflexivity. }
+  { unfold Rdiv.
+    (* Replace Rinv_mult with explicit algebraic steps to avoid subgoal issues *)
+    assert (H10: (10 ^ 33 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    assert (H169: (169266594447360 : R) <> 0) by lra.
+    field_simplify. lra. }
   rewrite Hcancel.
   (* Goal: 355687428096000 / 169266594447360 < 3 *)
   apply Rmult_lt_reg_r with (r := 169266594447360%R).
   { lra. }
-  unfold Rdiv. repeat rewrite Rmult_assoc. rewrite Rinv_l. 2: lra.
+  unfold Rdiv. repeat rewrite Rmult_assoc. rewrite Rinv_l.
+  2: { apply Rgt_not_eq. lra. }
   rewrite Rmult_1_r.
-  (* Goal: 355687428096000 < 3 * 169266594447360 = 507799783342080 *)
-  assert (H: (355687428096000 < 507799783342080)%nat)
-    by (compute; reflexivity).
-  apply lt_INR in H. lra.
+  (* Goal: 355687428096000 < 3 * 169266594447360 = 507799783342080
+     Use explicit replace to avoid computing large nats with 'compute' *)
+  replace (3 * 169266594447360)%R with 507799783342080%R.
+  2: { ring. }
+  lra.
 Qed.
 
 (* ========================================================================== *)
@@ -147,23 +150,58 @@ Qed.
 Lemma fifteen_over_ten_33_lt_one_over_ten_6 :
   3 / (10 ^ 33) * INR 5 < / (10 ^ 6).
 Proof.
-  (* 3/10^33 * 5 = 15/10^33 via explicit rewrites *)
+  (* 3/10^33 * 5 = 15/10^33 via field_simplify *)
   assert (H15: 3 / (10 ^ 33) * INR 5 = 15 / (10 ^ 33)).
-  { unfold Rdiv. rewrite (Rmult_comm 3 (INR 5)).
-    repeat rewrite <- Rmult_assoc. simpl. reflexivity. }
+  { assert (H10: (10 ^ 33 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    field_simplify. simpl. lra. }
   rewrite H15.
-  (* Need: 15/10^33 < 1/10^6 *)
-  (* Express both sides as INR fractions for cross-multiplication *)
-  assert (Hfrac: 15 / (10 ^ 33) = INR 15 / INR (10 ^ 33)).
-  { reflexivity. }
-  rewrite Hfrac.
-  assert (H1: / (10 ^ 6) = INR 1 / INR (10 ^ 6)).
-  { reflexivity. }
+  (* Need: 15/10^33 < 1/10^6, prove directly via cross-multiplication in R *)
+  (* Both denominators are positive *)
+  assert (H10_33: (10 ^ 33 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+  assert (H10_6: (10 ^ 6 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+  (* Rewrite 1/(10^6) as 10^33 / (10^33 * 10^6) *)
+  assert (H1: / (10 ^ 6) = (10 ^ 33) / ((10 ^ 33) * (10 ^ 6))).
+  { unfold Rdiv. rewrite Rinv_mult.
+    assert (H33: (10 ^ 33 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    assert (H6: (10 ^ 6 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    field. all: assumption. }
   rewrite H1.
-  apply INR_lt_cross_mult.
-  - apply Nat.lt_0_succ.
-  - apply Nat.lt_0_succ.
-  - apply fifteen_times_ten_6_lt_ten_33.
+  (* Now: 15/10^33 < 10^33/(10^33*10^6)
+     Multiply both sides by 10^33 (positive) *)
+  assert (Hcancel: 15 / (10 ^ 33) * (10 ^ 33) = 15).
+  { unfold Rdiv. rewrite Rmult_assoc. rewrite Rinv_l. 2: assumption.
+    lra. }
+  apply Rmult_lt_reg_r with (r := 10 ^ 33).
+  { apply pow_lt. lra. }
+  rewrite Hcancel.
+  (* Right side: 10^33/(10^33*10^6) * 10^33 = 10^33/10^6 *)
+  assert (Hcancel2: (10 ^ 33) / ((10 ^ 33) * (10 ^ 6)) * (10 ^ 33) = (10 ^ 33) / (10 ^ 6)).
+  { unfold Rdiv. repeat rewrite Rmult_assoc.
+    rewrite (Rmult_comm (/ ((10 ^ 33) * (10 ^ 6))) (10 ^ 33)).
+    rewrite Rinv_mult.
+    assert (H33: (10 ^ 33 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    assert (H6: (10 ^ 6 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    field. all: assumption. }
+  rewrite Hcancel2.
+  (* Now: 15 < 10^33/10^6, i.e. 15 * 10^6 < 10^33 *)
+  apply Rmult_lt_reg_r with (r := 10 ^ 6).
+  { apply pow_lt. lra. }
+  assert (Hcancel3: (10 ^ 33) / (10 ^ 6) * (10 ^ 6) = 10 ^ 33).
+  { unfold Rdiv. rewrite Rmult_assoc. rewrite Rinv_l. 2: assumption.
+    lra. }
+  rewrite Hcancel3.
+  (* Goal: 15 * 10^6 < 10^33 as reals
+     Strategy: 15 * 10^6 = 15 * 10^6 and 10^33 = 10^27 * 10^6
+     So need 15 < 10^27, which is trivial. *)
+  replace (10 ^ 33 : R) with (10 ^ 27 * 10 ^ 6 : R).
+  2: { assert (H27: (33 = 27 + 6)%nat) by reflexivity.
+       rewrite H27 at 1. rewrite Rdef_pow_add. reflexivity. }
+  apply Rmult_lt_compat_r.
+  { apply pow_lt. lra. }
+  (* Goal: 15 < 10^27. Use transitivity: 15 < 100 = 10^2 < 10^27 *)
+  apply Rlt_trans with (r2 := 10 ^ 2).
+  + lra. (* 15 < 100 *)
+  + apply Rlt_pow. lra. lia.
 Qed.
 
 (* ========================================================================== *)
@@ -176,7 +214,7 @@ Proof.
   (* Step 1: p_raw * 5 < (3/10^33) * 5 using p_raw_bound *)
   apply Rlt_trans with (r2 := 3 / (10 ^ 33) * INR 5).
   - apply Rmult_lt_compat_r.
-    + apply lt_0_INR; constructor.
+    + apply lt_0_INR; lia.
     + apply p_raw_bound.
   - (* Step 2: 15/10^33 < 1/10^6 *)
     apply fifteen_over_ten_33_lt_one_over_ten_6.
@@ -193,7 +231,10 @@ Definition p_corrected_MC : R := p_MC_95upper * INR 5.
 Lemma fifteen_times_ten_4_lt_ten_6 : (15 * 10 ^ 4 < 10 ^ 6)%nat.
 Proof.
   (* 15 * 10^4 < 10^2 * 10^4 = 10^6 *)
-  apply Nat.lt_le_trans with (m := (10 ^ 2)%nat * (10 ^ 4)%nat)%nat.
+  assert (Hmid: (10 ^ 2 * 10 ^ 4 = 10 ^ 6)%nat).
+  { replace (6%nat) with ((2 + 4)%nat) by reflexivity.
+    rewrite Nat.pow_add_r. reflexivity. }
+  apply Nat.lt_le_trans with (m := (10 ^ 2 * 10 ^ 4)%nat).
   - apply Nat.mul_lt_mono_pos_r.
     + apply Nat.neq_0_lt_0. intro Heq.
       assert (H10: (10 <> 0)%nat) by (intro H; discriminate H).
@@ -201,26 +242,60 @@ Proof.
       { apply Nat.pow_nonzero. exact H10. }
       contradiction.
     + repeat constructor. (* 15 < 100 *)
-  - replace ((10 ^ 2)%nat * (10 ^ 4)%nat)%nat with ((10 ^ 6)%nat).
-    2: { replace 6%nat with (2 + 4)%nat by reflexivity.
-         rewrite Nat.pow_add_r. reflexivity. }
-    apply Nat.le_refl.
+  - rewrite Hmid. apply Nat.le_refl.
 Qed.
 
 Lemma p_corrected_MC_bound : p_corrected_MC < / (10 ^ 4).
 Proof.
   unfold p_corrected_MC, p_MC_95upper.
-  assert (H15: 3 / (10 ^ 6) * INR 5 = INR 15 / INR (10 ^ 6)).
-  { unfold Rdiv. rewrite (Rmult_comm 3 (INR 5)).
-    repeat rewrite <- Rmult_assoc. simpl. reflexivity. }
+  (* 3/10^6 * 5 = 15/10^6 via field_simplify *)
+  assert (H15: 3 / (10 ^ 6) * INR 5 = 15 / (10 ^ 6)).
+  { assert (H10: (10 ^ 6 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    field_simplify. simpl. lra. }
   rewrite H15.
-  assert (H1: / (10 ^ 4) = INR 1 / INR (10 ^ 4)).
-  { reflexivity. }
+  (* Need: 15/10^6 < 1/10^4, prove directly via cross-multiplication in R *)
+  assert (H10_6: (10 ^ 6 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+  assert (H10_4: (10 ^ 4 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+  (* Rewrite 1/(10^4) as 10^6 / (10^6 * 10^4) *)
+  assert (H1: / (10 ^ 4) = (10 ^ 6) / ((10 ^ 6) * (10 ^ 4))).
+  { unfold Rdiv. rewrite Rinv_mult.
+    assert (H6: (10 ^ 6 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    assert (H4: (10 ^ 4 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    field. all: assumption. }
   rewrite H1.
-  apply INR_lt_cross_mult.
-  - apply Nat.lt_0_succ.
-  - apply Nat.lt_0_succ.
-  - apply fifteen_times_ten_4_lt_ten_6.
+  (* Multiply both sides by 10^6 (positive) *)
+  assert (Hcancel: 15 / (10 ^ 6) * (10 ^ 6) = 15).
+  { unfold Rdiv. rewrite Rmult_assoc. rewrite Rinv_l. 2: assumption.
+    lra. }
+  apply Rmult_lt_reg_r with (r := 10 ^ 6).
+  { apply pow_lt. lra. }
+  rewrite Hcancel.
+  (* Right side: 10^6/(10^6*10^4) * 10^6 = 10^6/10^4 *)
+  assert (Hcancel2: (10 ^ 6) / ((10 ^ 6) * (10 ^ 4)) * (10 ^ 6) = (10 ^ 6) / (10 ^ 4)).
+  { unfold Rdiv. repeat rewrite Rmult_assoc.
+    rewrite (Rmult_comm (/ ((10 ^ 6) * (10 ^ 4))) (10 ^ 6)).
+    rewrite Rinv_mult.
+    assert (H6: (10 ^ 6 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    assert (H4: (10 ^ 4 : R) <> 0) by (apply Rgt_not_eq; apply pow_lt; lra).
+    field. all: assumption. }
+  rewrite Hcancel2.
+  (* Now: 15 < 10^6/10^4, i.e. 15 * 10^4 < 10^6 *)
+  apply Rmult_lt_reg_r with (r := 10 ^ 4).
+  { apply pow_lt. lra. }
+  assert (Hcancel3: (10 ^ 6) / (10 ^ 4) * (10 ^ 4) = 10 ^ 6).
+  { unfold Rdiv. rewrite Rmult_assoc. rewrite Rinv_l. 2: assumption.
+    lra. }
+  rewrite Hcancel3.
+  (* Goal: 15 * 10^4 < 10^6 as reals
+     Strategy: 15 * 10^4 = 15 * 10^4 and 10^6 = 10^2 * 10^4
+     So need 15 < 10^2 = 100 *)
+  replace (10 ^ 6 : R) with (10 ^ 2 * 10 ^ 4 : R).
+  2: { assert (H24: (6 = 2 + 4)%nat) by reflexivity.
+       rewrite H24 at 1. rewrite Rdef_pow_add. reflexivity. }
+  apply Rmult_lt_compat_r.
+  { apply pow_lt. lra. }
+  (* Goal: 15 < 100 = 10^2 *)
+  lra.
 Qed.
 
 (******************************************************************************)

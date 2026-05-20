@@ -8,3 +8,37 @@ R1970:1972 Coq.micromega.Lra <> <> lib
 R1990:1993 Coq.Lists.List <> <> lib
 R2011:2019 Coq.Sets.Ensembles <> <> lib
 R2037:2051 Interval.Tactic <> <> lib
+R2069:2075 Trinity.CorePhi <> <> lib
+R2127:2139 Coq.Lists.List ListNotations <> mod
+def 3079:3090 <> E6_exponents
+R3094:3097 Coq.Init.Datatypes <> list ind
+R3099:3099 Coq.Numbers.BinNums <> Z ind
+R3104:3104 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3106:3107 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3109:3110 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3112:3113 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3115:3116 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3118:3119 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3122:3122 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 3409:3418 <> E6_degrees
+R3422:3425 Coq.Init.Datatypes <> list ind
+R3427:3427 Coq.Numbers.BinNums <> Z ind
+R3432:3432 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3434:3435 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3437:3438 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3440:3441 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3443:3444 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3446:3447 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3450:3450 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 3662:3678 <> E6_Coxeter_number
+R3682:3682 Coq.Numbers.BinNums <> Z ind
+def 3818:3830 <> E6_Weyl_order
+R3834:3834 Coq.Numbers.BinNums <> Z ind
+prf 4097:4115 <> E6_degrees_positive
+binder 4128:4128 <> d:1
+R4146:4149 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4131:4132 Coq.Sets.Ensembles <> In def
+R4136:4145 Trinity.E6vsH4 <> E6_degrees def
+R4134:4134 Trinity.E6vsH4 <> d:1 var
+R4151:4153 Coq.ZArith.BinInt <> ::Z_scope:x_'<'_x not
+R4154:4154 Trinity.E6vsH4 <> d:1 var

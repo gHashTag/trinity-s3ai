@@ -2,3 +2,4 @@ DIGEST 10870c2e42b7a35a73f2ddcf9e256600
 FTrinity.H4Lagrangian
 R359:363 Coq.Reals.Reals <> <> lib
 R381:386 Coq.ZArith.ZArith <> <> lib
+R425:431 Trinity.CorePhi <> <> lib

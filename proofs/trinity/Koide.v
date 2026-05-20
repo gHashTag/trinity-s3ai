@@ -52,7 +52,7 @@ Lemma phi_bounds :
 Proof.
   unfold phi.
   interval_intro (sqrt 5) with (i_prec 80) as [Hlo Hhi].
-  lra.
+  psatz R.
 Qed.
 
 Lemma L01_bounds :
@@ -60,7 +60,7 @@ Lemma L01_bounds :
 Proof.
   unfold L01, phi.
   interval_intro (sqrt 5) with (i_prec 120) as [Hlo Hhi].
-  lra.
+  psatz R.
 Qed.
 
 Lemma L03_bounds :
@@ -68,7 +68,7 @@ Lemma L03_bounds :
 Proof.
   unfold L03, phi.
   interval_intro (sqrt 5) with (i_prec 140) as [Hlo Hhi].
-  lra.
+  psatz R.
 Qed.
 
 (******************************************************************************)
@@ -90,7 +90,7 @@ Lemma Koide_formula_bounds :
 Proof.
   unfold Koide_formula, L01, L03, phi.
   interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
-  lra.
+  psatz R.
 Qed.
 
 (* Honest error quantification: |Koide_formula - 2/3| / (2/3) ~ 4.0% *)
@@ -99,7 +99,7 @@ Lemma Koide_relative_error_upper_bound :
 Proof.
   unfold Koide_formula, L01, L03, phi.
   interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
-  lra.
+  psatz R.
 Qed.
 
 Lemma Koide_relative_error_positive :
@@ -107,7 +107,7 @@ Lemma Koide_relative_error_positive :
 Proof.
   unfold Koide_formula, L01, L03, phi.
   interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
-  lra.
+  psatz R.
 Qed.
 
 (******************************************************************************)
@@ -139,7 +139,7 @@ Proof.
   split.
   - (* Not equal -- honest inequality *)
     intro Heq. rewrite Heq in Khi.
-    lra.
+    psatz R.
   - apply Koide_relative_error_upper_bound.
 Qed.
 
@@ -172,7 +172,7 @@ Proof.
   interval_intro (sqrt 0.5109989461) with (i_prec 120) as [He_lo He_hi].
   interval_intro (sqrt 105.6583745) with (i_prec 120) as [Hmu_lo Hmu_hi].
   interval_intro (sqrt 1776.86) with (i_prec 120) as [Ht_lo Ht_hi].
-  lra.
+  psatz R.
 Qed.
 
 Theorem H4_is_4x_worse_than_raw_data :
@@ -186,7 +186,7 @@ Proof.
   interval_intro (sqrt 0.5109989461) with (i_prec 120) as [He_lo He_hi].
   interval_intro (sqrt 105.6583745) with (i_prec 120) as [Hmu_lo Hmu_hi].
   interval_intro (sqrt 1776.86) with (i_prec 120) as [Ht_lo Ht_hi].
-  lra.
+  psatz R.
 Qed.
 
 (******************************************************************************)

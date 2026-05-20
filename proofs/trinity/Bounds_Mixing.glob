@@ -1,4 +1,4 @@
-DIGEST ee73f8044be8c5bc3309d8e654d74a0a
+DIGEST 377fa2a1e8f7ff682b8b70c1e46bd633
 FTrinity.Bounds_Mixing
-R668:672 Coq.Reals.Reals <> <> lib
-R690:704 Interval.Tactic <> <> lib
+R671:675 Coq.Reals.Reals <> <> lib
+R693:707 Interval.Tactic <> <> lib

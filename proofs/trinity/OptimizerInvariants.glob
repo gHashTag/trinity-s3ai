@@ -1,3 +1,44 @@
 DIGEST 788e7c248483469cebfabe7aad6a2f2f
 FTrinity.OptimizerInvariants
 R227:231 Coq.Reals.Reals <> <> lib
+R270:276 Trinity.CorePhi <> <> lib
+def 934:945 <> phi_inv_cube
+R949:949 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R955:957 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R961:961 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R958:960 Trinity.CorePhi <> phi def
+def 976:985 <> muon_lr_H4
+R989:989 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1006:1008 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R994:1005 Trinity.OptimizerInvariants <> phi_inv_cube def
+def 1668:1683 <> base_lr_scale_H4
+R1687:1687 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1695:1697 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R1698:1709 Trinity.OptimizerInvariants <> phi_inv_cube def
+def 2359:2370 <> wsd_decay_H4
+R2374:2374 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2380:2382 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2384:2387 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2401:2401 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2395:2397 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2390:2392 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2393:2394 Coq.Reals.Rtrigo1 <> PI def
+R2398:2400 Trinity.CorePhi <> phi def
+def 2981:2989 <> ttt_lr_H4
+R3002:3002 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 2992:2998 <> base_lr:1
+R3007:3007 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3019:3021 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3012:3018 Trinity.OptimizerInvariants <> base_lr:1 var
+R3022:3033 Trinity.OptimizerInvariants <> phi_inv_cube def
+def 3608:3630 <> projection_defect_ratio
+R3634:3634 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3640:3642 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+prf 4146:4168 <> muon_lr_is_phi_inv_cube
+R4200:4202 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R4174:4177 Coq.Reals.Rbasic_fun <> Rabs def
+R4190:4192 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R4180:4189 Trinity.OptimizerInvariants <> muon_lr_H4 def
+R4226:4235 Trinity.OptimizerInvariants <> muon_lr_H4 def
+R4238:4249 Trinity.OptimizerInvariants <> phi_inv_cube def
+R4252:4254 Trinity.CorePhi <> phi def
