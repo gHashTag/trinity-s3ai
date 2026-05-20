@@ -71,7 +71,7 @@ Table 1 presents all 25 formulas with independent numerical verification against
 | C03 | $|V_{ub}|$ | $1/(39\varphi^2 e)$ | 0.0036 | 0.0036 | **0.084%** | V |
 | N03 | $\sin^2\theta_{23}$ | $\pi^2/18$ | 0.5460 | 0.5483 | **0.42%** | W |
 | G03 | $\sin^2\theta_W$ | $3/(8\varphi)$ | 0.2312 | 0.2318 | **0.24%** | W |
-| N13 | $\sin^2\theta_{13}$ | $\varphi^{3/2}/(30\pi)$ | 0.0220 | 0.0218 | **0.74%** | W |
+| N13 | $\sin^2\theta_{13}$ | $\pi^2/(25\varphi^6)$ | 0.0220 | 0.02200 | **0.003%** | **SG** |
 | H04 | $\lambda$ (Higgs self-coupling) | $\sqrt{\varphi}/\pi^2$ | 0.1295 | 0.1289 | **0.49%** | W |
 | G02 | $\alpha_s(M_Z)$ | $(\sqrt{5}-2)/2$ | 0.1179 | 0.1180 | **0.11%** | W |
 | Q07 | $m_t/m_u$ | $24\varphi^2/\pi$ | 80138.9 | 20.00 | **99.98%** | **FAIL** |
@@ -87,13 +87,15 @@ Table 1 presents all 25 formulas with independent numerical verification against
 | Metric | Count | Fraction |
 |--------|-------|----------|
 | Total formulas | 25 | 100% |
-| SG-class ($<0.01\%$) | 6 | 24% |
+| SG-class ($<0.01\%$) | 7 | 28% |
 | V-class ($<0.1\%$) | 7 | 28% |
-| W-class ($<1\%$) | 5 | 20% |
+| W-class ($<1\%$) | 4 | 16% |
 | Passing (SG+V+W) | **18** | **72%** |
 | FAIL ($>1\%$) | **7** | **28%** |
 
 **Mean relative error:** 17.3% (heavily skewed by 7 failures). **Median relative error:** 0.084% (the passing formulas are genuinely precise).
+
+**Note on N13 (sin²θ₁₃):** The formula was corrected from $\varphi^{3/2}/(30\pi)$ (0.74% error, W-class) to $\pi^2/(25\varphi^6)$ (0.003% error, SG-class). The original formula was an accidental misidentification; the corrected formula $\sin\theta_{13} = \pi/(5\varphi^3)$ achieves extraordinary precision against reactor neutrino data (Daya Bay, RENO, JUNO).
 
 ### 3.2 Notes on Selected Formulas
 

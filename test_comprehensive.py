@@ -297,12 +297,13 @@ def run_exact_tests() -> List[TestResult]:
 def run_bonus_tests() -> List[TestResult]:
     """Test bonus V-class formulas from formula search v3.4."""
     results = []
-    # Sin13_V: sin^2(theta_13) = phi^(3/2)/(30*PI)
-    sin13 = PHI**1.5 / (30 * PI)
+    # Sin13_SG: sin^2(theta_13) = PI^2/(25*PHI^6) — CORRECTED 2025-07-28
+    # Previous: phi^1.5/(30*PI), error 0.74%. New formula achieves 0.003% (SG-class).
+    sin13 = PI**2 / (25 * PHI**6)
     err = err_pct(sin13, EXP["sin2_theta13"])
-    results.append(TestResult("Sin13_V", "phi^1.5/(30*PI)", "Bonus",
-        sin13, EXP["sin2_theta13"], err, TOL_V, err <= 0.1,
-        f"sin^2(theta_13) = {sin13:.6f} (exp: {EXP['sin2_theta13']})"))
+    results.append(TestResult("Sin13_SG", "PI^2/(25*PHI^6)", "Bonus",
+        sin13, EXP["sin2_theta13"], err, TOL_SG, err <= TOL_SG,
+        f"sin^2(theta_13) = {sin13:.6f} (exp: {EXP['sin2_theta13']}) — SG-class"))
     # Lambda_V: Higgs self-coupling lambda = sqrt(phi)/PI^2
     lambda_higgs = math.sqrt(PHI) / PI**2
     # No direct experimental comparison; theoretical value ~0.129

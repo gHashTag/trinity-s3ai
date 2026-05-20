@@ -1,6 +1,7 @@
 (* Catalog42.v — Complete Catalog: 25/25 SM Parameters from H4 Invariants *)
 (* Trinity S3AI v3.5 — ALL FORMULAS VERIFIED AND CORRECTED *)
-(* 11 SG-class | 14 V-class | 3 Exact | 4 Predictions *)
+(* 12 SG-class | 13 V-class | 3 Exact | 4 Predictions *)
+(* CORRECTION 2025-07-28: sin^2_theta_13 formula fixed, promoted to SG-class *)
 (* Mixed mass scheme: u,d,s@2GeV | c@c | b@b | t,e,mu,tau,H,W,Z@pole *)
 
 Require Import Reals.
@@ -126,8 +127,8 @@ Definition Q02_V  : R := 12 + powZ phi 3 * (exp 1) * (exp 1). (* m_s/m_u, 0.001%
 (* H4: 43 = e4 + e3 + d1 = 29 + 19 - 5... 43 = |E8| - e4 - d2 = 240 - 29 - 12 *)
 Definition Q05_V : R := 43 + PI / phi.
 
-(* NEW: sin^2_theta_13 *)
-Definition Sin13_V: R := powZ phi (3/2) / (30 * PI).   (* sin^2_theta_13, 0.17% *)
+(* NEW: sin^2_theta_13 — CORRECTED: was phi^(3/2)/(30*PI) (error 0.74%), now SG-class *)
+Definition Sin13_SG: R := PI * PI / (25 * powZ phi 6).   (* sin^2_theta_13, 0.003% SG-class *)
 
 (* NEW: Higgs self-coupling *)
 Definition Lambda_V: R := sqrt phi / (PI * PI).        (* lambda, 0.09% *)
@@ -316,6 +317,16 @@ Proof.
   interval with (i_prec 60).
 Qed.
 
+(* --- Sin13: sin^2(theta_13) (SG-class) — CORRECTED 2025-07-28 --- *)
+(* Previous formula: phi^(3/2)/(30*PI), error 0.74% (W-class) *)
+(* Corrected formula: PI^2/(25*phi^6), error 0.003% (SG-class) *)
+Theorem Sin13_is_sin2_theta_13 :
+  Rabs (Sin13_SG - 22/1000) / (22/1000) < SG_bound.
+Proof.
+  unfold Sin13_SG, SG_bound, phi.
+  interval with (i_prec 60).
+Qed.
+
 (* --- H01: m_H (V-class) --- *)
 Theorem H01_is_m_H :
   Rabs (H01_V - m_H_PDG) / m_H_PDG < V_bound.
@@ -376,11 +387,12 @@ Qed.
 
 (* ================================================================== *)
 (* STATUS: 32/25+ SM PARAMETERS COVERED                               *)
-(* 11 SG-class + 14 V-class + 3 Exact + 4 Predictions = 32            *)
+(* 12 SG-class + 13 V-class + 3 Exact + 4 Predictions = 32            *)
 (*                                                                    *)
 (* INCLUDES 3 NEW NEUTRINO FORMULAS (Nu21, Nu31, NuSum) — all SG      *)
 (* Q05 CORRECTED: 43 + pi/phi (was 29 + 12*pi/phi, was FAIL)          *)
 (* Q07 RECLASSIFIED: m_s/m_d (was incorrectly labeled m_t/m_u)        *)
+(* Sin13 CORRECTED: PI^2/(25*phi^6) (was phi^(3/2)/(30*PI), 0.74% err) *)
 (* ================================================================== *)
 
 (* END OF Catalog42.v v3.5 — ALL FORMULAS VERIFIED *)

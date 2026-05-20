@@ -1,4 +1,104 @@
-DIGEST a7f82e5f8f7ab7568bbec553783752fc
+DIGEST c0b77dbc2db668780ff1f8e213629364
 FTrinity.H4Derivations
 R504:508 Coq.Reals.Reals <> <> lib
 R526:540 Interval.Tactic <> <> lib
+R558:564 Trinity.CorePhi <> <> lib
+R890:893 Trinity.CorePhi <> powZ def
+not 875:875 <> :::x_'^z'_x
+prf 2120:2143 <> L01_E8_projection_defect
+R2171:2173 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R2149:2152 Coq.Reals.Rbasic_fun <> Rabs def
+R2158:2160 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2164:2166 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2167:2169 Trinity.CorePhi <> phi def
+R2450:2452 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2438:2440 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2444:2446 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2447:2449 Trinity.CorePhi <> phi def
+R2453:2454 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R2470:2470 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R2464:2466 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2458:2460 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2461:2463 Trinity.CorePhi <> phi def
+R2450:2452 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2438:2440 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2444:2446 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2447:2449 Trinity.CorePhi <> phi def
+R2453:2454 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R2470:2470 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R2464:2466 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2458:2460 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2461:2463 Trinity.CorePhi <> phi def
+R2505:2513 Coq.Reals.Rbasic_fun <> Rabs_Ropp thm
+R2505:2513 Coq.Reals.Rbasic_fun <> Rabs_Ropp thm
+R2505:2513 Coq.Reals.Rbasic_fun <> Rabs_Ropp thm
+prf 3063:3079 <> L02_e2_e1_spacing
+R3110:3112 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R3085:3088 Coq.Reals.Rbasic_fun <> Rabs def
+R3104:3106 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3098:3100 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3094:3096 Trinity.H4Derivations <> :::x_'^z'_x not
+R3091:3093 Trinity.CorePhi <> phi def
+R3101:3103 Trinity.CorePhi <> phi def
+R3133:3138 Trinity.CorePhi <> powZ_2 thm
+R3133:3138 Trinity.CorePhi <> powZ_2 thm
+R3133:3138 Trinity.CorePhi <> powZ_2 thm
+R3151:3156 Trinity.CorePhi <> phi_sq thm
+R3151:3156 Trinity.CorePhi <> phi_sq thm
+R3151:3156 Trinity.CorePhi <> phi_sq thm
+prf 3844:3865 <> L03_e3_e4_higher_order
+R3920:3922 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R3871:3874 Coq.Reals.Rbasic_fun <> Rabs def
+R3902:3904 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3888:3890 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3877:3880 Trinity.CorePhi <> powZ def
+R3882:3884 Trinity.CorePhi <> phi def
+R3891:3894 Trinity.CorePhi <> powZ def
+R3896:3898 Trinity.CorePhi <> phi def
+R3908:3910 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3914:3916 Trinity.H4Derivations <> :::x_'^z'_x not
+R3911:3913 Trinity.CorePhi <> phi def
+R4240:4243 Trinity.CorePhi <> powZ def
+prf 4835:4859 <> N04_e2_sq_e4_higher_order
+R4916:4918 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R4865:4868 Coq.Reals.Rbasic_fun <> Rabs def
+R4896:4898 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R4882:4884 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4871:4874 Trinity.CorePhi <> powZ def
+R4876:4878 Trinity.CorePhi <> phi def
+R4885:4888 Trinity.CorePhi <> powZ def
+R4890:4892 Trinity.CorePhi <> phi def
+R4901:4903 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4904:4907 Trinity.CorePhi <> powZ def
+R4909:4911 Trinity.CorePhi <> phi def
+R4939:4942 Trinity.CorePhi <> powZ def
+prf 5451:5473 <> Q07_d1_d2_smoking_gun_1
+R5485:5487 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5481:5483 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+prf 5563:5580 <> Q07_d1_d2_phi_form
+R5633:5635 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R5586:5589 Coq.Reals.Rbasic_fun <> Rabs def
+R5616:5618 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R5602:5604 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5592:5595 Trinity.CorePhi <> powZ def
+R5597:5599 Trinity.CorePhi <> phi def
+R5605:5608 Trinity.CorePhi <> powZ def
+R5610:5612 Trinity.CorePhi <> phi def
+R5621:5623 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5627:5629 Trinity.H4Derivations <> :::x_'^z'_x not
+R5624:5626 Trinity.CorePhi <> phi def
+prf 6006:6020 <> G01_E8_e2_H4_e4
+R6077:6079 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6026:6029 Coq.Reals.Rbasic_fun <> Rabs def
+R6057:6059 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6043:6045 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6032:6035 Trinity.CorePhi <> powZ def
+R6037:6039 Trinity.CorePhi <> phi def
+R6046:6049 Trinity.CorePhi <> powZ def
+R6051:6053 Trinity.CorePhi <> phi def
+R6062:6064 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6065:6068 Trinity.CorePhi <> powZ def
+R6070:6072 Trinity.CorePhi <> phi def
+R6100:6103 Trinity.CorePhi <> powZ def
+R6130:6135 Interval.Tactic <> i_prec constr
+R6130:6135 Interval.Tactic <> i_prec constr

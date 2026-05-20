@@ -2,3 +2,85 @@ DIGEST ce3ebbdacbab54de3675a955a981c0e0
 FTrinity.Unitarity
 R665:669 Coq.Reals.Reals <> <> lib
 R687:701 Interval.Tactic <> <> lib
+R719:725 Trinity.CorePhi <> <> lib
+def 1650:1662 <> m_nue_formula
+R1666:1666 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1672:1675 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1683:1683 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1677:1679 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R1680:1682 Trinity.CorePhi <> phi def
+prf 2021:2037 <> m_nue_value_lower
+R2056:2058 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R2043:2055 Trinity.Unitarity <> m_nue_formula def
+R2082:2094 Trinity.Unitarity <> m_nue_formula def
+R2097:2099 Trinity.CorePhi <> phi def
+R2119:2124 Interval.Tactic <> i_prec constr
+R2119:2124 Interval.Tactic <> i_prec constr
+prf 2145:2161 <> m_nue_value_upper
+R2180:2182 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R2167:2179 Trinity.Unitarity <> m_nue_formula def
+R2206:2218 Trinity.Unitarity <> m_nue_formula def
+R2221:2223 Trinity.CorePhi <> phi def
+R2243:2248 Interval.Tactic <> i_prec constr
+R2243:2248 Interval.Tactic <> i_prec constr
+prf 2290:2301 <> m_nue_bounds
+R2312:2314 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2328:2330 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2315:2327 Trinity.Unitarity <> m_nue_formula def
+R2315:2327 Trinity.Unitarity <> m_nue_formula def
+R2364:2380 Trinity.Unitarity <> m_nue_value_lower thm
+R2364:2380 Trinity.Unitarity <> m_nue_value_lower thm
+R2393:2409 Trinity.Unitarity <> m_nue_value_upper thm
+R2393:2409 Trinity.Unitarity <> m_nue_value_upper thm
+def 2752:2772 <> KATRIN_II_sensitivity
+R2776:2776 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+prf 2845:2865 <> m_nue_below_KATRIN_II
+R2884:2886 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R2871:2883 Trinity.Unitarity <> m_nue_formula def
+R2887:2907 Trinity.Unitarity <> KATRIN_II_sensitivity def
+R2926:2938 Trinity.Unitarity <> m_nue_formula def
+R2941:2961 Trinity.Unitarity <> KATRIN_II_sensitivity def
+R2964:2966 Trinity.CorePhi <> phi def
+R2986:2991 Interval.Tactic <> i_prec constr
+R2986:2991 Interval.Tactic <> i_prec constr
+prf 3240:3258 <> m_nue_KATRIN_margin
+R3301:3303 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R3285:3287 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3264:3284 Trinity.Unitarity <> KATRIN_II_sensitivity def
+R3288:3300 Trinity.Unitarity <> m_nue_formula def
+R3326:3338 Trinity.Unitarity <> m_nue_formula def
+R3341:3361 Trinity.Unitarity <> KATRIN_II_sensitivity def
+R3364:3366 Trinity.CorePhi <> phi def
+R3386:3391 Interval.Tactic <> i_prec constr
+R3386:3391 Interval.Tactic <> i_prec constr
+prf 3693:3706 <> m_nue_phi_form
+R3725:3727 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3712:3724 Trinity.Unitarity <> m_nue_formula def
+R3728:3728 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3736:3739 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3732:3734 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3729:3731 Trinity.CorePhi <> phi def
+R3759:3771 Trinity.Unitarity <> m_nue_formula def
+R3787:3793 Trinity.CorePhi <> phi_inv thm
+R3787:3793 Trinity.CorePhi <> phi_inv thm
+R3787:3793 Trinity.CorePhi <> phi_inv thm
+R3813:3822 Coq.Reals.RIneq <> Rgt_not_eq thm
+R3825:3832 Trinity.CorePhi <> phi_gt_0 thm
+R3813:3822 Coq.Reals.RIneq <> Rgt_not_eq thm
+R3825:3832 Trinity.CorePhi <> phi_gt_0 thm
+prf 3912:3931 <> m_nue_phi_form_value
+R3942:3944 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R3958:3960 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R3945:3945 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3953:3956 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3949:3951 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3946:3948 Trinity.CorePhi <> phi def
+R3945:3945 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3953:3956 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3949:3951 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3946:3948 Trinity.CorePhi <> phi def
+R3988:4001 Trinity.Unitarity <> m_nue_phi_form thm
+R3988:4001 Trinity.Unitarity <> m_nue_phi_form thm
+R3988:4001 Trinity.Unitarity <> m_nue_phi_form thm
+R4012:4023 Trinity.Unitarity <> m_nue_bounds thm
+R4012:4023 Trinity.Unitarity <> m_nue_bounds thm

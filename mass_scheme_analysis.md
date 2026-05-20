@@ -125,7 +125,7 @@ The closure relation L01 * L02_exp = L03 holds to high accuracy, confirming inte
 |-------|---------|----------|-----------|-------|--------|
 | **N01** | 8*pi/(phi^5*e^2) | **sin^2(theta_12) (PMNS)** | 0.307 | 0.098% | VERIFIED |
 | **N03** | pi^2/18 | **sin^2(theta_23) (PMNS)** | 0.546 | 0.42% | VERIFIED |
-| **Sin13** | phi^(3/2)/(30*pi) | **sin^2(theta_13) (PMNS)** | 0.0219 | 0.28% | VERIFIED |
+| **Sin13** | pi^2/(25*phi^6) | **sin^2(theta_13) (PMNS)** | 0.02200 | 0.003% | ★ SG |
 | **Neutrino** | pi/(40*phi^2) | **Delta_m^2_21 / Delta_m^2_31** | 0.0304 | 1.48% | BORDERLINE |
 
 **Notes:**
@@ -289,7 +289,7 @@ Based on the systematic analysis, here is the CORRECTED mapping:
 | H02 | phi*11/20 + 20/30 | m_H/m_W | Pole/pole | 0.069% |
 | N01 | 8*pi/(phi^5*e^2) | sin^2(theta_12) | PMNS | 0.098% |
 | N03 | pi^2/18 | sin^2(theta_23) | PMNS | 0.42% |
-| Sin13 | phi^(3/2)/(30*pi) | sin^2(theta_13) | PMNS | 0.28% |
+| Sin13 | pi^2/(25*phi^6) | sin^2(theta_13) | PMNS | 0.003% | ★ SG |
 | C01 | 2*phi^3*e^2/(9*pi^3) | |V_us| | CKM | 0.96% |
 | C02 | 1/(3*phi^2*pi) | |V_cb| | CKM | 1.15% |
 | Lambda | sqrt(phi)/pi^2 | lambda(tree) = m_H^2/(2v^2) | Tree level | 0.31% |
