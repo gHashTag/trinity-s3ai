@@ -11,6 +11,7 @@
 
 Require Import Reals.
 From Interval Require Import Tactic.
+Require Import Psatz.
 
 Open Scope R_scope.
 
@@ -49,19 +50,25 @@ Definition Koide_formula : R :=
 Lemma phi_bounds :
   16180339887 / 10000000000 < phi < 16180339889 / 10000000000.
 Proof.
-  unfold phi. interval with (i_prec 80).
+  unfold phi.
+  interval_intro (sqrt 5) with (i_prec 80) as [Hlo Hhi].
+  lra.
 Qed.
 
 Lemma L01_bounds :
-  429446507 / 100000000000 < L01 < 429446509 / 100000000000.
+  75988559243 / 1000000000000 < L01 < 75988559245 / 1000000000000.
 Proof.
-  unfold L01, phi. interval with (i_prec 120).
+  unfold L01, phi.
+  interval_intro (sqrt 5) with (i_prec 120) as [Hlo Hhi].
+  lra.
 Qed.
 
 Lemma L03_bounds :
-  257667905 / 100000000000000 < L03 < 257667907 / 100000000000000.
+  455931355468 / 1000000000000000 < L03 < 455931355470 / 1000000000000000.
 Proof.
-  unfold L03, phi. interval with (i_prec 140).
+  unfold L03, phi.
+  interval_intro (sqrt 5) with (i_prec 140) as [Hlo Hhi].
+  lra.
 Qed.
 
 (******************************************************************************)
@@ -69,45 +76,46 @@ Qed.
 (*                                                                            *)
 (* Target: Koide_formula = 2/3                                                *)
 (* H4-derived value:                                                          *)
-(*   Koide_formula ≈ 0.666692...                                              *)
+(*   Koide_formula ~ 0.639887...                                              *)
 (*   2/3         = 0.666666...                                                *)
-(*   Relative error ≈ 0.0038%                                                 *)
+(*   Relative error ~ 4.0%                                                    *)
 (*                                                                            *)
-(* This is 4x worse than the raw data fit (0.0009%) because H4-derived        *)
-(* mass ratios carry approximation error from the compactification model.     *)
+(* Note: The H4-derived L01, L03 produce Koide_formula ~ 0.64, which is       *)
+(* significantly below 2/3 ~ 0.667. This reflects the approximation level     *)
+(* of the H4 compactification model for lepton mass ratios.                   *)
 (******************************************************************************)
 
 Lemma Koide_formula_bounds :
-  666692 / 1000000 < Koide_formula < 666694 / 1000000.
+  639886771 / 1000000000 < Koide_formula < 639886773 / 1000000000.
 Proof.
   unfold Koide_formula, L01, L03, phi.
-  interval with (i_prec 160, i_bisect_taylor sqrt 8).
+  interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
+  lra.
 Qed.
 
-Lemma two_thirds_exact : 2/3 = 6666666667 / 10000000000.
-Proof. field. Qed.
-
-(* Honest error quantification: |Koide_formula - 2/3| / (2/3) ≈ 0.0038% *)
+(* Honest error quantification: |Koide_formula - 2/3| / (2/3) ~ 4.0% *)
 Lemma Koide_relative_error_upper_bound :
-  Rabs (Koide_formula - 2/3) / (2/3) < 1/25000.
+  Rabs (Koide_formula - 2/3) / (2/3) < 1/24.
 Proof.
   unfold Koide_formula, L01, L03, phi.
-  interval with (i_prec 160, i_bisect_taylor sqrt 8).
+  interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
+  lra.
 Qed.
 
 Lemma Koide_relative_error_positive :
   1/30000 < Rabs (Koide_formula - 2/3) / (2/3).
 Proof.
   unfold Koide_formula, L01, L03, phi.
-  interval with (i_prec 160, i_bisect_taylor sqrt 8).
+  interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
+  lra.
 Qed.
 
 (******************************************************************************)
 (* Section 5: Verdict -- EXPLICIT honesty statement                            *)
 (******************************************************************************)
 
-(* The H4-derived Koide value deviates from 2/3 by ~0.0038%.                  *)
-(* This is consistent at the 4-sigma level but NOT exact.                     *)
+(* The H4-derived Koide value deviates from 2/3 by ~4.0%.                     *)
+(* This is a significant deviation, reflecting model approximation.            *)
 (*                                                                            *)
 (* Claim status:                                                              *)
 (*   "Koide derivation from H4"        --> OVERCLAIM (rejected)               *)
@@ -115,7 +123,7 @@ Qed.
 (******************************************************************************)
 
 Lemma Koide_consistency_verdict :
-  1/30000 < Rabs (Koide_formula - 2/3) / (2/3) < 1/25000.
+  1/30000 < Rabs (Koide_formula - 2/3) / (2/3) < 1/24.
 Proof.
   split.
   - apply Koide_relative_error_positive.
@@ -124,14 +132,13 @@ Qed.
 
 Theorem Koide_is_consistency_check_not_derivation :
   Koide_formula <> 2/3 /\
-  Rabs (Koide_formula - 2/3) / (2/3) < 1/25000.
+  Rabs (Koide_formula - 2/3) / (2/3) < 1/24.
 Proof.
-  assert (Klo: 666692 / 1000000 < Koide_formula) by apply Koide_formula_bounds.
-  assert (Khi: Koide_formula < 666694 / 1000000) by apply Koide_formula_bounds.
+  assert (Klo: 639886771 / 1000000000 < Koide_formula) by apply Koide_formula_bounds.
+  assert (Khi: Koide_formula < 639886773 / 1000000000) by apply Koide_formula_bounds.
   split.
   - (* Not equal -- honest inequality *)
-    intro Heq. rewrite Heq in Klo.
-    assert (2/3 < 666694 / 1000000) by (apply Rlt_trans with (r2 := 666692 / 1000000); lra).
+    intro Heq. rewrite Heq in Khi.
     lra.
   - apply Koide_relative_error_upper_bound.
 Qed.
@@ -144,10 +151,10 @@ Qed.
 (*   m_mu  = 105.6583745(24)                                                  *)
 (*   m_tau = 1776.86(12)                                                      *)
 (*                                                                            *)
-(* Raw-data Koide: Q_raw = 0.666661(6) → error ~0.0009%                      *)
-(* H4-derived:     Q_H4  = 0.666693(1) → error ~0.0038%                      *)
+(* Raw-data Koide: Q_raw = 0.666661(6) -> error ~0.001%                       *)
+(* H4-derived:     Q_H4  = 0.639887(1) -> error ~4.0%                         *)
 (*                                                                            *)
-(* H4 is ~4x worse because L01, L03 are model-derived, not fitted.            *)
+(* H4 model produces Koide_formula ~0.64, far from both 2/3 and raw-data Q.   *)
 (******************************************************************************)
 
 Definition m_e_raw   : R := 0.5109989461.
@@ -159,32 +166,39 @@ Definition Koide_raw : R :=
   (sqrt m_e_raw + sqrt m_mu_raw + sqrt m_tau_raw)^2.
 
 Lemma Koide_raw_bounds :
-  666660 / 1000000 < Koide_raw < 666662 / 1000000.
+  666660511 / 1000000000 < Koide_raw < 666660513 / 1000000000.
 Proof.
   unfold Koide_raw, m_e_raw, m_mu_raw, m_tau_raw.
-  interval with (i_prec 120, i_bisect_taylor sqrt 6).
+  interval_intro (sqrt 0.5109989461) with (i_prec 120) as [He_lo He_hi].
+  interval_intro (sqrt 105.6583745) with (i_prec 120) as [Hmu_lo Hmu_hi].
+  interval_intro (sqrt 1776.86) with (i_prec 120) as [Ht_lo Ht_hi].
+  lra.
 Qed.
 
 Theorem H4_is_4x_worse_than_raw_data :
   let err_H4  := Rabs (Koide_formula - 2/3) / (2/3) in
   let err_raw := Rabs (Koide_raw - 2/3) / (2/3) in
-  3 < err_H4 / err_raw < 5.
+  4000 < err_H4 / err_raw < 5000.
 Proof.
   unfold Koide_formula, Koide_raw, L01, L03, phi,
          m_e_raw, m_mu_raw, m_tau_raw.
-  interval with (i_prec 160, i_bisect_taylor sqrt 8).
+  interval_intro (sqrt 5) with (i_prec 160) as [H5_lo H5_hi].
+  interval_intro (sqrt 0.5109989461) with (i_prec 120) as [He_lo He_hi].
+  interval_intro (sqrt 105.6583745) with (i_prec 120) as [Hmu_lo Hmu_hi].
+  interval_intro (sqrt 1776.86) with (i_prec 120) as [Ht_lo Ht_hi].
+  lra.
 Qed.
 
 (******************************************************************************)
 (* Section 7: Summary metadata                                               *)
 (******************************************************************************)
 (*                                                                            *)
-(* Koide_formula = 0.666693(1)                                                *)
+(* Koide_formula = 0.639887(1)                                                *)
 (* 2/3           = 0.666666...                                                *)
-(* Relative error = 0.0038%                                                   *)
+(* Relative error = 4.0%                                                      *)
 (*                                                                            *)
-(* VERDICT: Consistency check PASSED (deviation within 0.01%)                 *)
-(*          Derivation claim FAILED (nonzero deviation proven)                *)
+(* VERDICT: H4 model produces Koide_formula ~0.64 (far from 2/3 ~ 0.667)      *)
+(*          This is an honest consistency check, not a derivation.            *)
 (*                                                                            *)
 (* This is honest science. The model predicts; experiment decides.            *)
 (******************************************************************************)

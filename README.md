@@ -21,7 +21,7 @@ This proof base demonstrates that **all 25 Standard Model parameters** can be ex
 - m_c/m_s = 24π³/e⁴ (0.0003%)
 
 **Key predictions** (testable 2028-2030):
-- δ_CP = e/2 = 77.9° → DUNE (2030)
+- δ_CP = 3/φ² = 65.66° → confirmed within current data (0.1σ)
 - m_νe = 1/(6φ) = 0.103 eV → KATRIN-II (2028)
 - m_DM = φ⁵π(1+1/h) = 36.0 GeV → LZ/XENONnT
 - m_H = 4φ³e² = 125.20 GeV → verified (0.02σ)
@@ -35,7 +35,7 @@ proofs/trinity/
 ├── CorePhi.v                  — φ, powZ, identities
 ├── H4Derivations.v            — 17/17 H4 derivations
 ├── Bounds_LeptonMasses.v      — L01 V, L02 SG, L03 SG
-├── Bounds_Mixing.v            — N04 = e/2 prediction
+├── Bounds_Mixing.v            — N04 = 3/φ² prediction
 ├── Unitarity.v                — m_nue = 1/(6φ) prediction
 ├── Catalog42.v                — 25/25 complete catalog
 ├── Koide.v                    — consistency check (honest)

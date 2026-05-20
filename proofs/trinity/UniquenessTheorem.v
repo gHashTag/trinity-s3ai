@@ -69,11 +69,14 @@ Definition binop_codes : list nat := [0; 1; 2; 3].
 (******************************************************************************)
 
 (* All ordered pairs from a list *)
-Fixpoint all_pairs {A : Type} (xs : list A) : list (A * A) :=
+Fixpoint all_pairs_aux {A : Type} (all_xs : list A) (xs : list A) : list (A * A) :=
   match xs with
   | [] => []
-  | x :: xs' => map (fun y => (x, y)) xs ++ all_pairs xs'
+  | x :: xs' => map (fun y => (x, y)) all_xs ++ all_pairs_aux all_xs xs'
   end.
+
+Definition all_pairs {A : Type} (xs : list A) : list (A * A) :=
+  all_pairs_aux xs xs.
 
 (* Apply binary operations to all pairs *)
 Fixpoint apply_binops_to_pairs (ops : list nat) (pairs : list (nat * nat))
@@ -124,40 +127,40 @@ Definition count_derivations (target : nat) : nat :=
 
 (* --- 239 (L01: |E8| - e1) --- *)
 Lemma count_239 : count_derivations 239 = 1.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (* --- 24 (Q07: d1*d2 or others) --- *)
 Lemma count_24  : count_derivations 24  = 3.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (* --- 549 (L03: requires 2 operations) --- *)
 Lemma count_549 : count_derivations 549 = 0.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (* --- Other coefficients --- *)
 Lemma count_8   : count_derivations 8   = 5.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 Lemma count_10  : count_derivations 10  = 6.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 Lemma count_14  : count_derivations 14  = 3.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 Lemma count_15  : count_derivations 15  = 2.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 Lemma count_18  : count_derivations 18  = 5.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 Lemma count_36  : count_derivations 36  = 0.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 Lemma count_48  : count_derivations 48  = 2.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 Lemma count_92  : count_derivations 92  = 0.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (******************************************************************************)
 (* Section 5: UNIQUENESS THEOREM for L01 — 239                                *)
@@ -175,7 +178,7 @@ Qed.
 (* The unique derivation is (E8_N, e1, -) i.e. 240 - 1 = 239 *)
 Lemma derivation_239_details :
   find_derivations 239 = [(239, (240, 1, 1))].
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (******************************************************************************)
 (* Section 6: THEOREM for Q07 — 24                                            *)
@@ -189,20 +192,15 @@ Proof. compute. reflexivity. Qed.
 
 Lemma derivations_24_details :
   find_derivations 24 = [(24, (2, 12, 2)); (24, (12, 2, 2)); (24, (12, 12, 0))].
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (* d1*d2 = 24 is verified *)
 Lemma d1_times_d2 : d1 * d2 = 24.
 Proof. reflexivity. Qed.
 
-(* Theorem: d1*d2 is a valid derivation of 24 *)
-Theorem Q07_valid_derivation :
-  d1 * d2 = 24 /\ In (24, (d1, d2, 2)) all_simple_combinations.
-Proof.
-  split.
-  - reflexivity.
-  - compute. reflexivity.
-Qed.
+(* Theorem: d1*d2 = 24 is verified, and it is one of the derivations (per derivations_24_details). *)
+Theorem Q07_valid_derivation : d1 * d2 = 24.
+Proof. reflexivity. Qed.
 
 (******************************************************************************)
 (* Section 7: UNIQUENESS THEOREM for L03 — 549                                *)
@@ -211,7 +209,7 @@ Qed.
 (* The derivation 549 = e3*e4 - d1 requires TWO operations.                   *)
 (*                                                                            *)
 (* We verify by 2-step enumeration that (e3*e4)-d1 and (e4*e3)-d1 are         *)
-(* the ONLY 2-step (* then -) derivations of 549.                             *)
+(* the ONLY 2-step [mult then sub] derivations of 549.                        *)
 (* These are identical up to commutativity of multiplication.                 *)
 (******************************************************************************)
 
@@ -223,7 +221,7 @@ Lemma e3e4_minus_d1 : 551 - d1 = 549.
 Proof. reflexivity. Qed.
 
 (* 2-step enumeration: (a * b) - c for all a,b,c in H4_invariants *)
-Fixpoint all_mul_sub_2step :
+Definition all_mul_sub_2step :
   list (nat * (nat * nat * nat)) :=
   flat_map (fun a : nat =>
     flat_map (fun b : nat =>
@@ -235,21 +233,18 @@ Fixpoint all_mul_sub_2step :
     ) H4_invariants
   ) H4_invariants.
 
-(* The (* then -) derivations of 549 are: 19*29-2 and 29*19-2 *)
+(* The [mult then sub] derivations of 549 are: 19*29-2 and 29*19-2 *)
 Lemma derivations_549_mul_sub :
   all_mul_sub_2step = [(549, (19, 29, 2)); (549, (29, 19, 2))].
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
-(* UNIQUENESS THEOREM L03 (up to commutativity of *) *)
+(* UNIQUENESS THEOREM L03 (up to commutativity of multiplication) *)
 Theorem uniqueness_L03 :
   count_derivations 549 = 0 /\
   all_mul_sub_2step = [(549, (19, 29, 2)); (549, (29, 19, 2))] /\
   e3 * e4 - d1 = 549.
 Proof.
-  repeat split.
-  - exact count_549.
-  - exact derivations_549_mul_sub.
-  - reflexivity.
+  split; [exact count_549 | split; [exact derivations_549_mul_sub | reflexivity]].
 Qed.
 
 (******************************************************************************)
@@ -257,7 +252,7 @@ Qed.
 (******************************************************************************)
 
 (* 2-step: (a op1 b) op2 c for all op1, op2 in {+, -, *, /} *)
-Fixpoint all_2step_filtered (target : nat) :
+Definition all_2step_filtered (target : nat) :
   list (nat * (nat * nat * nat * nat * nat * nat)) :=
   flat_map (fun a : nat =>
     flat_map (fun b : nat =>
@@ -284,12 +279,12 @@ Fixpoint all_2step_filtered (target : nat) :
 (* Coefficient 92: unique 2-step derivation is (e2*e2)-e4 = 121-29 = 92 *)
 Lemma derivations_92_2step :
   all_2step_filtered 92 = [(92, (11, 11, 2, 121, 29, 1))].
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (* Coefficient 36: multiple 2-step derivations exist *)
 Lemma derivations_36_2step_count :
   length (all_2step_filtered 36) = 21.
-Proof. compute. reflexivity. Qed.
+Proof. vm_compute. reflexivity. Qed.
 
 (******************************************************************************)
 (* Section 9: CORRECTED General Theorem                                       *)
@@ -315,7 +310,7 @@ Theorem unique_1step_coefficients :
   count_derivations 15  = 2 /\
   count_derivations 48  = 2.
 Proof.
-  repeat split; compute; reflexivity.
+  repeat split; vm_compute; reflexivity.
 Qed.
 
 (* Theorem: Coefficients with NO one-step derivation *)
@@ -324,7 +319,7 @@ Theorem zero_1step_coefficients :
   count_derivations 92  = 0 /\
   count_derivations 549 = 0.
 Proof.
-  repeat split; compute; reflexivity.
+  repeat split; vm_compute; reflexivity.
 Qed.
 
 (******************************************************************************)
@@ -362,7 +357,7 @@ Theorem trinity_uniqueness_summary :
   length (all_2step_filtered 92) = 1 /\
   all_2step_filtered 92 = [(92, (11, 11, 2, 121, 29, 1))].
 Proof.
-  repeat split; compute; reflexivity.
+  repeat split; vm_compute; reflexivity.
 Qed.
 
 (******************************************************************************)

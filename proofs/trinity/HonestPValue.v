@@ -1,186 +1,227 @@
 (******************************************************************************)
 (* HonestPValue.v - Trinity V33                                               *)
-(*                                                                            *)
-(* Rigorous upper bound on the p-value for the Trinity V33 formula discovery. *)
-(*                                                                            *)
-(* This file proves that the corrected p-value is < 1e-6 using:               *)
-(*   1. Exact enumeration of the search space                                 *)
-(*   2. Analytical probability bounds                                         *)
-(*   3. Bonferroni correction for multiple testing                            *)
-(*                                                                            *)
-(* HONEST COMMENT:                                                            *)
-(* "This is an upper bound, exact p-value requires full enumeration.          *)
-(*  The Monte Carlo simulation (1,000,000 trials) found 0 matches, giving     *)
-(*  empirical p < 1e-6. The analytical bound is much stronger: p < 1e-32."   *)
 (******************************************************************************)
 
 Require Import Reals.
 Require Import Lra.
+Require Import Psatz.
+Require Import Interval.Tactic.
 
 Open Scope R_scope.
 
 (* ========================================================================== *)
-(* SECTION 1: Search Space Parameters (verified by Python enumeration)       *)
+(* SECTION 1: Search Space Parameters                                         *)
 (* ========================================================================== *)
 
-(* Base H4 invariants: {1, 2, 7, 11, 12, 19, 20, 29, 30, 120, 240} *)
-(* After 3 operations (+, -, *, /, sq), ALL integers 1-600 are reachable.   *)
-(* This was verified by exhaustive enumeration in honest_pvalue.py            *)
-
 Definition N_search_space : nat := 600.
-(* All 600 integers in range [1,600] are reachable from H4 invariants
-   with up to 3 operations.                                                   *)
-
-(* Number of Coxeter groups tested (for Bonferroni correction)               *)
 Definition n_groups_tested : nat := 5.
-(* Groups: H3, H4, F4, E8, D4                                                *)
-
-(* Number of coefficients in Trinity formula                                  *)
 Definition n_coefficients : nat := 17.
 
 (* ========================================================================== *)
-(* SECTION 2: Probability Model                                              *)
+(* SECTION 2: Probability Model                                               *)
 (* ========================================================================== *)
 
-(* Probability of randomly picking the correct set of 17 coefficients.       *)
-(* We pick 17 values uniformly at random from 600 possibilities.               *)
-
-(* The probability of a single exact match: 1 / N^17                          *)
-(* This is the most conservative analytical bound.                            *)
-
-(* However, we can be more generous: there may be up to 17! permutations      *)
-(* of the formula coefficients that are considered "matching".                *)
-(* So: P(match any permutation) <= 17! / N^17                                 *)
-
-(* Compute 17! (factorial)                                                    *)
 Fixpoint factorial (n : nat) : nat :=
   match n with
   | 0 => 1
   | S n' => n * factorial n'
   end.
 
-(* 17! = 355687428096000                                                      *)
 Definition factorial_17 : nat := factorial 17.
 
-(* Helper: natural number power                                               *)
 Fixpoint nat_pow (base exp : nat) : nat :=
   match exp with
   | 0 => 1
   | S e' => base * nat_pow base e'
   end.
 
-(* N^17 = 600^17                                                              *)
 Definition N_to_17 : nat := nat_pow 600 17.
 
 (* ========================================================================== *)
-(* SECTION 3: Coq-real number computations                                     *)
+(* SECTION 3: Real number definitions                                          *)
 (* ========================================================================== *)
 
-(* 17! as real                                                                *)
+(* 17! as real *)
 Definition fact17_R : R := 355687428096000%R.
 
-(* 600^17 as real:                                                            *)
-(* 600^17 = 600^10 * 600^7                                                    *)
-(*        = 6046617600000000000000 * 27993600000000000                        *)
-(*        = 169266594447360000000000000000000000000000000000                  *)
-Definition N600_to_17_R : R :=
-  169266594447360000000000000000000000000000000000%R.
+(* 600^17 = 169266594447360 * 10^33 as real.
+   We write it as a product to enable algebraic cancellation of 10^33. *)
+Definition N600_to_17_R : R := 169266594447360%R * 10 ^ 33.
 
-(* Raw p-value: generous upper bound with 17! permutations                    *)
+(* Raw p-value: generous upper bound *)
 Definition p_raw_generous : R := fact17_R / N600_to_17_R.
 
-(* Bonferroni correction: multiply by number of groups tested                 *)
+(* Bonferroni correction *)
 Definition p_corrected : R := p_raw_generous * INR 5.
 
 (* ========================================================================== *)
-(* SECTION 4: Proof that p_corrected < 1e-6                                   *)
+(* SECTION 4: Helper lemmas                                                   *)
 (* ========================================================================== *)
 
-(* Helper lemma: show p_raw_generous is small                                 *)
-Lemma p_raw_bound : p_raw_generous < 1 / (10 ^ 33).
+(** Cross-multiplication for INR fractions.
+    Avoids stack overflow from computing huge %R constants. *)
+Lemma INR_lt_cross_mult : forall a b c d : nat,
+  (0 < b)%nat -> (0 < d)%nat -> (a * d < c * b)%nat ->
+  INR a / INR b < INR c / INR d.
+Proof.
+  intros a b c d Hb Hd H.
+  apply lt_INR in H. repeat rewrite mult_INR in H.
+  apply Rmult_lt_reg_r with (r := INR d).
+  { apply lt_0_INR. auto with arith. }
+  apply Rmult_lt_reg_r with (r := INR b).
+  { apply lt_0_INR. auto with arith. }
+  field_simplify; try (apply Rgt_not_eq; apply lt_0_INR; auto with arith).
+  lra.
+Qed.
+
+(** 15 * 10^6 < 10^33, proved algebraically without computing huge powers.
+    Strategy: 15 * 10^6 < 10^2 * 10^6 = 10^(2+6) = 10^8 < 10^33. *)
+Lemma fifteen_times_ten_6_lt_ten_33 : (15 * 10 ^ 6 < 10 ^ 33)%nat.
+Proof.
+  (* Use transitivity through 10^8 (all in nat scope) *)
+  apply Nat.lt_trans with (m := (10 ^ 8)%nat).
+  - (* Show 15 * 10^6 < 10^8 = 10^2 * 10^6 *)
+    replace ((10 ^ 8)%nat) with ((10 ^ 2)%nat * (10 ^ 6)%nat)%nat.
+    2: { replace 8%nat with (2 + 6)%nat by reflexivity.
+         rewrite Nat.pow_add_r. reflexivity. }
+    apply Nat.mul_lt_mono_pos_r.
+    + (* Show 0 < 10^6 *)
+      apply Nat.neq_0_lt_0. intro Heq.
+      assert (H10: (10 <> 0)%nat) by (intro H; discriminate H).
+      assert (Hpow: ((10 ^ 6)%nat <> 0)%nat).
+      { apply Nat.pow_nonzero. exact H10. }
+      contradiction.
+    + (* Show 15 < 10^2 = 100 *)
+      repeat constructor.
+  - (* Show 10^8 < 10^33 *)
+    apply Nat.pow_lt_mono_r.
+    + lia. (* 1 < 10 *)
+    + lia. (* 8 < 33 *)
+Qed.
+
+(* ========================================================================== *)
+(* SECTION 5: p_raw_bound via algebraic cancellation                          *)
+(* ========================================================================== *)
+
+(** p_raw_generous < 3/10^33
+    
+    Proof: p_raw = 355687428096000 / (169266594447360 * 10^33)
+           We show 355687428096000 / (169266594447360 * 10^33) < 3 / 10^33
+           Multiply by 10^33: 355687428096000 / 169266594447360 < 3
+           Cross multiply: 355687428096000 < 3 * 169266594447360
+           = 355687428096000 < 507799783342080  (true by compute) *)
+Lemma p_raw_bound : p_raw_generous < 3 / (10 ^ 33).
 Proof.
   unfold p_raw_generous, fact17_R, N600_to_17_R.
-  (* fact17 = 355687428096000                                 *)
-  (* N600^17 = 169266594447360000000000000000000000000000000000 *)
-  (* p_raw = 355687428096000 / 16926659444736...                *)
-  (*       < 1 / 10^33                                          *)
-  lra.
+  (* Goal: 355687428096000 / (169266594447360 * 10^33) < 3 / 10^33 *)
+  (* Multiply both sides by 10^33 (positive) *)
+  apply Rmult_lt_reg_r with (r := 10 ^ 33).
+  { apply pow_lt. lra. }
+  (* Cancel 10^33 on left: a/(b*c)*c = a/b *)
+  assert (Hcancel: 355687428096000%R / (169266594447360%R * 10^33) * 10^33
+            = 355687428096000%R / 169266594447360%R).
+  { unfold Rdiv. rewrite Rinv_mult.
+    repeat rewrite Rmult_assoc.
+    rewrite Rinv_l. 2: apply Rgt_not_eq; apply pow_lt; lra.
+    rewrite Rmult_1_r. reflexivity. }
+  rewrite Hcancel.
+  (* Goal: 355687428096000 / 169266594447360 < 3 *)
+  apply Rmult_lt_reg_r with (r := 169266594447360%R).
+  { lra. }
+  unfold Rdiv. repeat rewrite Rmult_assoc. rewrite Rinv_l. 2: lra.
+  rewrite Rmult_1_r.
+  (* Goal: 355687428096000 < 3 * 169266594447360 = 507799783342080 *)
+  assert (H: (355687428096000 < 507799783342080)%nat)
+    by (compute; reflexivity).
+  apply lt_INR in H. lra.
 Qed.
 
-(* Main theorem: Bonferroni-corrected p-value < 10^-6                         *)
-(*                                                                            *)
-(* HONEST COMMENT: This is an upper bound, exact p-value requires full        *)
-(* enumeration. The Monte Carlo simulation (1,000,000 trials) found 0         *)
-(* matches, giving empirical p < 1e-6 (conservative). The analytical          *)
-(* bound shown here is much stronger: p < 1e-32.                              *)
-(*                                                                            *)
-(* The actual probability is likely even smaller since:                       *)
-(*   - Not all 17! permutations produce valid formulas                        *)
-(*   - The formula must satisfy additional algebraic constraints               *)
-(*   - The coefficients must appear in a specific structure                    *)
+(* ========================================================================== *)
+(* SECTION 6: Key inequality 15/10^33 < 1/10^6                                *)
+(* ========================================================================== *)
+
+(** 3/10^33 * 5 = 15/10^33 < 1/10^6
+    
+    Proof: Cross multiply: 15 * 10^6 < 10^33
+           Proved via fifteen_times_ten_6_lt_ten_33 (algebraic, no compute) *)
+Lemma fifteen_over_ten_33_lt_one_over_ten_6 :
+  3 / (10 ^ 33) * INR 5 < / (10 ^ 6).
+Proof.
+  (* 3/10^33 * 5 = 15/10^33 via explicit rewrites *)
+  assert (H15: 3 / (10 ^ 33) * INR 5 = 15 / (10 ^ 33)).
+  { unfold Rdiv. rewrite (Rmult_comm 3 (INR 5)).
+    repeat rewrite <- Rmult_assoc. simpl. reflexivity. }
+  rewrite H15.
+  (* Need: 15/10^33 < 1/10^6 *)
+  (* Express both sides as INR fractions for cross-multiplication *)
+  assert (Hfrac: 15 / (10 ^ 33) = INR 15 / INR (10 ^ 33)).
+  { reflexivity. }
+  rewrite Hfrac.
+  assert (H1: / (10 ^ 6) = INR 1 / INR (10 ^ 6)).
+  { reflexivity. }
+  rewrite H1.
+  apply INR_lt_cross_mult.
+  - apply Nat.lt_0_succ.
+  - apply Nat.lt_0_succ.
+  - apply fifteen_times_ten_6_lt_ten_33.
+Qed.
+
+(* ========================================================================== *)
+(* SECTION 7: Main Theorem                                                    *)
+(* ========================================================================== *)
+
 Theorem honest_pvalue_bound : p_corrected < / (10 ^ 6).
 Proof.
-  unfold p_corrected, p_raw_generous.
-  (* p_corrected = (17! / 600^17) * 5                                          *)
-  (*                                                                            *)
-  (* We know: 17! = 355,687,428,096,000                                         *)
-  (*          600^17 = 169,266,594,447,360,000,000,000,000,000,000,000,000,000  *)
-  (*                                                                            *)
-  (* p_raw = 355,687,428,096,000 /                                              *)
-  (*         169,266,594,447,360,000,000,000,000,000,000,000,000,000            *)
-  (*       < 2.1 * 10^-33                                                       *)
-  (*                                                                            *)
-  (* p_corrected = 5 * p_raw < 10.5 * 10^-33 = 1.05 * 10^-32                  *)
-  (*                                                                            *)
-  (* Since 10^-32 < 10^-6, we have p_corrected < 10^-6.                        *)
-  
-  (* Prove by numerical comparison                                              *)
-  unfold fact17_R, N600_to_17_R.
-  lra.
+  unfold p_corrected.
+  (* Step 1: p_raw * 5 < (3/10^33) * 5 using p_raw_bound *)
+  apply Rlt_trans with (r2 := 3 / (10 ^ 33) * INR 5).
+  - apply Rmult_lt_compat_r.
+    + apply lt_0_INR; constructor.
+    + apply p_raw_bound.
+  - (* Step 2: 15/10^33 < 1/10^6 *)
+    apply fifteen_over_ten_33_lt_one_over_ten_6.
 Qed.
 
 (* ========================================================================== *)
-(* SECTION 5: Alternative bound using MC result                               *)
+(* SECTION 8: Alternative Monte Carlo bound                                   *)
 (* ========================================================================== *)
-
-(* From Monte Carlo: 0 matches in 1,000,000 trials                            *)
-(* The 95% confidence upper bound (Clopper-Pearson): p < 3/n = 3e-6           *)
-(* With Bonferroni: p_corrected < 5 * 3e-6 = 1.5e-5                           *)
-(*                                                                            *)
-(* This is weaker than the analytical bound but empirically validated.        *)
 
 Definition p_MC_95upper : R := 3 / (10 ^ 6).
 Definition p_corrected_MC : R := p_MC_95upper * INR 5.
 
+(** 15 * 10^4 < 10^6, i.e. 150000 < 1000000 *)
+Lemma fifteen_times_ten_4_lt_ten_6 : (15 * 10 ^ 4 < 10 ^ 6)%nat.
+Proof.
+  (* 15 * 10^4 < 10^2 * 10^4 = 10^6 *)
+  apply Nat.lt_le_trans with (m := (10 ^ 2)%nat * (10 ^ 4)%nat)%nat.
+  - apply Nat.mul_lt_mono_pos_r.
+    + apply Nat.neq_0_lt_0. intro Heq.
+      assert (H10: (10 <> 0)%nat) by (intro H; discriminate H).
+      assert (Hpow: ((10 ^ 4)%nat <> 0)%nat).
+      { apply Nat.pow_nonzero. exact H10. }
+      contradiction.
+    + repeat constructor. (* 15 < 100 *)
+  - replace ((10 ^ 2)%nat * (10 ^ 4)%nat)%nat with ((10 ^ 6)%nat).
+    2: { replace 6%nat with (2 + 4)%nat by reflexivity.
+         rewrite Nat.pow_add_r. reflexivity. }
+    apply Nat.le_refl.
+Qed.
+
 Lemma p_corrected_MC_bound : p_corrected_MC < / (10 ^ 4).
 Proof.
   unfold p_corrected_MC, p_MC_95upper.
-  lra.
+  assert (H15: 3 / (10 ^ 6) * INR 5 = INR 15 / INR (10 ^ 6)).
+  { unfold Rdiv. rewrite (Rmult_comm 3 (INR 5)).
+    repeat rewrite <- Rmult_assoc. simpl. reflexivity. }
+  rewrite H15.
+  assert (H1: / (10 ^ 4) = INR 1 / INR (10 ^ 4)).
+  { reflexivity. }
+  rewrite H1.
+  apply INR_lt_cross_mult.
+  - apply Nat.lt_0_succ.
+  - apply Nat.lt_0_succ.
+  - apply fifteen_times_ten_4_lt_ten_6.
 Qed.
-
-(* ========================================================================== *)
-(* SECTION 6: Summary and Honest Assessment                                    *)
-(* ========================================================================== *)
-
-(* We have THREE bounds, in decreasing order of strength:                     *)
-(*                                                                            *)
-(* 1. ANALYTICAL (rigorous):                                                  *)
-(*    P_corrected <= 5 * 17! / 600^17 < 1.1 * 10^-32                          *)
-(*    This is a mathematical upper bound.                                     *)
-(*                                                                            *)
-(* 2. MONTE CARLO (empirical):                                                *)
-(*    P_corrected < 1.5 * 10^-5  (95% confidence)                             *)
-(*    Based on 0 matches in 1,000,000 random trials.                          *)
-(*                                                                            *)
-(* 3. CONSERVATIVE (reporting):                                               *)
-(*    P_corrected < 10^-6                                                     *)
-(*    Used for publication (the theorem proven above).                        *)
-
-(* The theorem honest_pvalue_bound establishes:                               *)
-(*    p_corrected < 10^-6                                                     *)
-(*                                                                            *)
-(* VERDICT: The Trinity V33 formula is statistically significant.             *)
-(* The probability of discovering it by chance is < 1 in a million.           *)
 
 (******************************************************************************)
 (* End of HonestPValue.v                                                      *)

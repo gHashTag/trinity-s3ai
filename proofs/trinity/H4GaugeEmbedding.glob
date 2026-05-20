@@ -1,11 +1,324 @@
-DIGEST cbd90aa9d150851580437a282ee94449
+DIGEST 86e613a99b2499d1d84894db9ad068a5
 FTrinity.H4GaugeEmbedding
 R1004:1008 Coq.Reals.Reals <> <> lib
 R1010:1015 Coq.ZArith.ZArith <> <> lib
 R1017:1019 Coq.micromega.Lia <> <> lib
 R1021:1024 Coq.Lists.List <> <> lib
-R1056:1061 Interval.Tactic <> <> lib
-def 2066:2073 <> H4_order
-R2077:2079 Coq.Init.Datatypes <> nat ind
-def 2102:2108 <> H4_rank
-R2113:2115 Coq.Init.Datatypes <> nat ind
+R1026:1028 Coq.micromega.Lra <> <> lib
+R1060:1065 Interval.Tactic <> <> lib
+R1096:1108 Coq.Lists.List ListNotations <> mod
+def 2092:2099 <> H4_order
+R2103:2105 Coq.Init.Datatypes <> nat ind
+def 2128:2134 <> H4_rank
+R2139:2141 Coq.Init.Datatypes <> nat ind
+def 2210:2219 <> H4_degrees
+R2223:2226 Coq.Init.Datatypes <> list ind
+R2228:2230 Coq.Init.Datatypes <> nat ind
+R2235:2235 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2241:2242 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2249:2250 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2257:2258 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2265:2265 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 2322:2335 <> coxeter_number
+R2339:2341 Coq.Init.Datatypes <> nat ind
+prf 2357:2384 <> coxeter_number_factorization
+R2404:2406 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2390:2403 Trinity.H4GaugeEmbedding <> coxeter_number def
+R2413:2415 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R2409:2411 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+prf 2456:2482 <> coxeter_number_from_degrees
+R2502:2504 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2488:2501 Trinity.H4GaugeEmbedding <> coxeter_number def
+prf 2621:2633 <> H4_degree_sum
+R2669:2671 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2637:2646 Coq.Lists.List <> fold_right def
+R2659:2668 Trinity.H4GaugeEmbedding <> H4_degrees def
+R2648:2651 Coq.Init.Peano <> plus abbrev
+def 3609:3611 <> phi
+R3615:3615 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3620:3620 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3631:3634 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3622:3624 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3625:3628 Coq.Reals.R_sqrt <> sqrt def
+prf 3645:3665 <> phi_irrational_over_Q
+R3685:3685 Coq.Numbers.BinNums <> Z ind
+binder 3679:3679 <> p:1
+binder 3681:3681 <> q:2
+R3697:3700 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3690:3693 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R3689:3689 Trinity.H4GaugeEmbedding <> q:2 var
+R3704:3707 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R3701:3703 Trinity.H4GaugeEmbedding <> phi def
+R3713:3715 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3708:3710 Coq.Reals.Rdefinitions <> IZR def
+R3712:3712 Trinity.H4GaugeEmbedding <> p:1 var
+R3716:3718 Coq.Reals.Rdefinitions <> IZR def
+R3720:3720 Trinity.H4GaugeEmbedding <> q:2 var
+R3807:3809 Trinity.H4GaugeEmbedding <> phi def
+R3850:3852 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3844:3847 Coq.Reals.R_sqrt <> sqrt def
+R3875:3877 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3854:3857 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3874:3874 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3858:3858 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3869:3872 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3860:3862 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3863:3866 Coq.Reals.R_sqrt <> sqrt def
+R3850:3852 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3844:3847 Coq.Reals.R_sqrt <> sqrt def
+R3875:3877 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3854:3857 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3874:3874 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3858:3858 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3869:3872 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3860:3862 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3863:3866 Coq.Reals.R_sqrt <> sqrt def
+R3970:3970 Coq.Numbers.BinNums <> Z ind
+binder 3964:3964 <> r:3
+binder 3966:3966 <> s:4
+R3981:3984 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3974:3977 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R3973:3973 Trinity.H4GaugeEmbedding <> s:4 var
+R3991:3994 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R3985:3988 Coq.Reals.R_sqrt <> sqrt def
+R4000:4002 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3995:3997 Coq.Reals.Rdefinitions <> IZR def
+R3999:3999 Trinity.H4GaugeEmbedding <> r:3 var
+R4003:4005 Coq.Reals.Rdefinitions <> IZR def
+R4007:4007 Trinity.H4GaugeEmbedding <> s:4 var
+R3970:3970 Coq.Numbers.BinNums <> Z ind
+binder 3964:3964 <> r:5
+binder 3966:3966 <> s:6
+R3981:3984 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3974:3977 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R3973:3973 Trinity.H4GaugeEmbedding <> s:6 var
+R3991:3994 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R3985:3988 Coq.Reals.R_sqrt <> sqrt def
+R4000:4002 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3995:3997 Coq.Reals.Rdefinitions <> IZR def
+R3999:3999 Trinity.H4GaugeEmbedding <> r:5 var
+R4003:4005 Coq.Reals.Rdefinitions <> IZR def
+R4007:4007 Trinity.H4GaugeEmbedding <> s:6 var
+R4110:4112 Coq.ZArith.BinInt <> ::Z_scope:x_'-'_x not
+R4108:4108 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+R4110:4112 Coq.ZArith.BinInt <> ::Z_scope:x_'-'_x not
+R4108:4108 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+def 5176:5189 <> A_dynkin_edges
+R5196:5198 Coq.Init.Datatypes <> nat ind
+binder 5192:5192 <> n:7
+R5203:5206 Coq.Init.Datatypes <> list ind
+R5212:5214 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R5209:5211 Coq.Init.Datatypes <> nat ind
+R5215:5217 Coq.Init.Datatypes <> nat ind
+R5231:5231 Trinity.H4GaugeEmbedding <> n:7 var
+R5242:5242 Coq.Init.Datatypes <> O constr
+R5247:5249 Coq.Init.Datatypes <> nil constr
+R5255:5255 Coq.Init.Datatypes <> S constr
+R5291:5291 Coq.Init.Datatypes <> O constr
+R5296:5298 Coq.Init.Datatypes <> nil constr
+R5314:5314 Coq.Init.Datatypes <> S constr
+R5321:5323 Coq.Init.Datatypes <> app def
+R5345:5345 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R5358:5358 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R5346:5346 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5352:5353 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5357:5357 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5354:5354 Coq.Init.Datatypes <> S constr
+R5326:5339 Trinity.H4GaugeEmbedding <> A_dynkin_edges:8 def
+def 5437:5444 <> A4_edges
+R5448:5451 Coq.Init.Datatypes <> list ind
+R5457:5459 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R5454:5456 Coq.Init.Datatypes <> nat ind
+R5460:5462 Coq.Init.Datatypes <> nat ind
+R5470:5470 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5485:5486 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5501:5502 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5517:5517 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5471:5471 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5477:5478 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5484:5484 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5487:5487 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5493:5494 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5500:5500 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5503:5503 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5509:5510 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5516:5516 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+prf 5604:5615 <> Aut_A4_outer
+R5619:5622 Coq.Init.Logic <> True ind
+def 6800:6809 <> W_A2_order
+R6813:6815 Coq.Init.Datatypes <> nat ind
+def 6851:6865 <> W_A2_x_A2_order
+R6869:6871 Coq.Init.Datatypes <> nat ind
+R6887:6889 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R6877:6886 Trinity.H4GaugeEmbedding <> W_A2_order def
+R6890:6899 Trinity.H4GaugeEmbedding <> W_A2_order def
+prf 6923:6946 <> WA2A2_sem_direct_product
+R6977:6979 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6968:6970 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R6953:6967 Trinity.H4GaugeEmbedding <> W_A2_x_A2_order def
+def 7070:7084 <> A2_x_A2_coxeter
+R7088:7090 Coq.Init.Datatypes <> nat ind
+prf 7109:7125 <> A2_coxeter_number
+R7144:7146 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7129:7143 Trinity.H4GaugeEmbedding <> A2_x_A2_coxeter def
+R7149:7151 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+def 8087:8096 <> W_A4_order
+R8100:8102 Coq.Init.Datatypes <> nat ind
+prf 8142:8151 <> W_A4_is_S5
+R8165:8167 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8155:8164 Trinity.H4GaugeEmbedding <> W_A4_order def
+def 8262:8273 <> Aut_A4_order
+R8277:8279 Coq.Init.Datatypes <> nat ind
+prf 8300:8319 <> Aut_A4_order_correct
+R8337:8339 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8325:8336 Trinity.H4GaugeEmbedding <> Aut_A4_order def
+R8342:8344 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R8345:8354 Trinity.H4GaugeEmbedding <> W_A4_order def
+def 9215:9226 <> h30_factor_2
+R9230:9232 Coq.Init.Datatypes <> nat ind
+R9251:9253 Coq.Arith.PeanoNat <> ::nat_scope:x_'/'_x not
+R9237:9250 Trinity.H4GaugeEmbedding <> coxeter_number def
+def 9280:9291 <> h30_factor_3
+R9295:9297 Coq.Init.Datatypes <> nat ind
+R9316:9318 Coq.Arith.PeanoNat <> ::nat_scope:x_'/'_x not
+R9302:9315 Trinity.H4GaugeEmbedding <> coxeter_number def
+def 9345:9356 <> h30_factor_5
+R9360:9362 Coq.Init.Datatypes <> nat ind
+R9381:9383 Coq.Arith.PeanoNat <> ::nat_scope:x_'/'_x not
+R9367:9380 Trinity.H4GaugeEmbedding <> coxeter_number def
+prf 9406:9421 <> h30_gauge_groups
+R9447:9450 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R9439:9441 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9427:9438 Trinity.H4GaugeEmbedding <> h30_factor_2 def
+R9471:9474 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R9463:9465 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9451:9462 Trinity.H4GaugeEmbedding <> h30_factor_3 def
+R9487:9489 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9475:9486 Trinity.H4GaugeEmbedding <> h30_factor_5 def
+R9513:9524 Trinity.H4GaugeEmbedding <> h30_factor_2 def
+R9527:9538 Trinity.H4GaugeEmbedding <> h30_factor_3 def
+R9541:9552 Trinity.H4GaugeEmbedding <> h30_factor_5 def
+R9555:9568 Trinity.H4GaugeEmbedding <> coxeter_number def
+def 10345:10360 <> degree_U1_charge
+R10365:10367 Coq.Init.Datatypes <> nat ind
+def 10386:10402 <> degree_matter_gen
+R10406:10408 Coq.Init.Datatypes <> nat ind
+def 10462:10477 <> degree_SU5_Higgs
+R10482:10484 Coq.Init.Datatypes <> nat ind
+def 10533:10550 <> degree_unification
+R10554:10556 Coq.Init.Datatypes <> nat ind
+prf 10572:10593 <> degrees_are_H4_degrees
+R10674:10678 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10599:10599 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10616:10617 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10635:10636 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10653:10654 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10673:10673 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10600:10615 Trinity.H4GaugeEmbedding <> degree_U1_charge def
+R10618:10634 Trinity.H4GaugeEmbedding <> degree_matter_gen def
+R10637:10652 Trinity.H4GaugeEmbedding <> degree_SU5_Higgs def
+R10655:10672 Trinity.H4GaugeEmbedding <> degree_unification def
+R10679:10688 Trinity.H4GaugeEmbedding <> H4_degrees def
+prf 10792:10818 <> matter_degree_factorization
+R10841:10843 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10824:10840 Trinity.H4GaugeEmbedding <> degree_matter_gen def
+R10846:10848 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+prf 10947:10972 <> Higgs_degree_factorization
+R10994:10996 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10978:10993 Trinity.H4GaugeEmbedding <> degree_SU5_Higgs def
+R10999:11001 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+def 11943:11960 <> alpha1_inv_unified
+R11964:11964 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R11977:11979 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R11971:11973 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11974:11976 Trinity.H4GaugeEmbedding <> phi def
+def 11994:12011 <> alpha2_inv_unified
+R12015:12015 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12028:12030 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12022:12024 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R12025:12027 Trinity.H4GaugeEmbedding <> phi def
+def 12045:12062 <> alpha3_inv_unified
+R12066:12066 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12079:12081 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12072:12075 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R12076:12078 Trinity.H4GaugeEmbedding <> phi def
+prf 12092:12115 <> alpha_unification_ratios
+R12168:12173 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R12160:12162 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12139:12141 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12121:12138 Trinity.H4GaugeEmbedding <> alpha1_inv_unified def
+R12142:12159 Trinity.H4GaugeEmbedding <> alpha2_inv_unified def
+R12164:12166 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12213:12215 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12192:12194 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12174:12191 Trinity.H4GaugeEmbedding <> alpha2_inv_unified def
+R12195:12212 Trinity.H4GaugeEmbedding <> alpha3_inv_unified def
+R12217:12219 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12239:12256 Trinity.H4GaugeEmbedding <> alpha1_inv_unified def
+R12259:12276 Trinity.H4GaugeEmbedding <> alpha2_inv_unified def
+R12279:12296 Trinity.H4GaugeEmbedding <> alpha3_inv_unified def
+R12318:12321 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R12315:12317 Trinity.H4GaugeEmbedding <> phi def
+R12336:12338 Trinity.H4GaugeEmbedding <> phi def
+R12356:12361 Interval.Tactic <> i_prec constr
+R12318:12321 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R12315:12317 Trinity.H4GaugeEmbedding <> phi def
+R12356:12361 Interval.Tactic <> i_prec constr
+R12383:12383 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R12389:12393 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R12388:12388 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12383:12383 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R12389:12393 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R12388:12388 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+prf 12483:12499 <> alpha1_inv_bounds
+R12517:12519 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R12538:12540 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R12510:12512 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12520:12537 Trinity.H4GaugeEmbedding <> alpha1_inv_unified def
+R12520:12537 Trinity.H4GaugeEmbedding <> alpha1_inv_unified def
+R12546:12548 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12571:12588 Trinity.H4GaugeEmbedding <> alpha1_inv_unified def
+R12591:12593 Trinity.H4GaugeEmbedding <> phi def
+R12618:12623 Interval.Tactic <> i_prec constr
+R12618:12623 Interval.Tactic <> i_prec constr
+R12618:12623 Interval.Tactic <> i_prec constr
+prf 12642:12658 <> alpha2_inv_bounds
+R12675:12677 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R12696:12698 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R12668:12670 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12678:12695 Trinity.H4GaugeEmbedding <> alpha2_inv_unified def
+R12678:12695 Trinity.H4GaugeEmbedding <> alpha2_inv_unified def
+R12703:12705 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12728:12745 Trinity.H4GaugeEmbedding <> alpha2_inv_unified def
+R12748:12750 Trinity.H4GaugeEmbedding <> phi def
+R12775:12780 Interval.Tactic <> i_prec constr
+R12775:12780 Interval.Tactic <> i_prec constr
+R12775:12780 Interval.Tactic <> i_prec constr
+prf 12799:12815 <> alpha3_inv_bounds
+R12832:12834 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R12853:12855 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R12825:12827 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12835:12852 Trinity.H4GaugeEmbedding <> alpha3_inv_unified def
+R12835:12852 Trinity.H4GaugeEmbedding <> alpha3_inv_unified def
+R12860:12862 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12885:12902 Trinity.H4GaugeEmbedding <> alpha3_inv_unified def
+R12905:12907 Trinity.H4GaugeEmbedding <> phi def
+R12932:12937 Interval.Tactic <> i_prec constr
+R12932:12937 Interval.Tactic <> i_prec constr
+R12932:12937 Interval.Tactic <> i_prec constr
+prf 15376:15392 <> H4_phi_uniqueness
+R15396:15399 Coq.Init.Logic <> True ind
+R15415:15415 Coq.Init.Logic <> I constr
+R15415:15415 Coq.Init.Logic <> I constr
+prf 15482:15498 <> H4_degrees_unique
+R15514:15516 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15504:15513 Trinity.H4GaugeEmbedding <> H4_degrees def
+R15517:15517 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15523:15524 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15531:15532 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15539:15540 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15547:15547 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+prf 15733:15749 <> coxeter_30_groups
+R15769:15771 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15755:15768 Trinity.H4GaugeEmbedding <> coxeter_number def
+R17388:17411 Trinity.H4GaugeEmbedding <> alpha_unification_ratios thm

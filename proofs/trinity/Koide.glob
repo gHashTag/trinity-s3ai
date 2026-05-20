@@ -1,50 +1,66 @@
-DIGEST fe90f17047f2b543856b64f2acb28514
+DIGEST dac8687f38cd985a7de70e99f0fabc8a
 FTrinity.Koide
 R825:829 Coq.Reals.Reals <> <> lib
 R861:866 Interval.Tactic <> <> lib
-def 1632:1634 <> phi
-R1638:1638 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1643:1643 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1654:1657 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1645:1647 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R1648:1651 Coq.Reals.R_sqrt <> sqrt def
-def 1731:1733 <> L01
-R1737:1737 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1753:1755 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1742:1742 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R1750:1751 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R1744:1746 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R1747:1749 Trinity.Koide <> phi def
-def 1791:1793 <> L03
-R1797:1797 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1813:1815 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1802:1802 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R1810:1811 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R1804:1806 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R1807:1809 Trinity.Koide <> phi def
-def 2502:2514 <> Koide_formula
-R2518:2518 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R2525:2525 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R2539:2542 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R2533:2535 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R2527:2529 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R2530:2532 Trinity.Koide <> L01 def
-R2536:2538 Trinity.Koide <> L03 def
-R2543:2543 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R2567:2568 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R2556:2558 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R2545:2547 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R2548:2551 Coq.Reals.R_sqrt <> sqrt def
-R2553:2555 Trinity.Koide <> L01 def
-R2559:2562 Coq.Reals.R_sqrt <> sqrt def
-R2564:2566 Trinity.Koide <> L03 def
-prf 2823:2832 <> phi_bounds
-R2863:2865 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R2869:2871 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R2849:2851 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R2866:2868 Trinity.Koide <> phi def
-R2866:2868 Trinity.Koide <> phi def
-R2883:2885 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R2915:2917 Trinity.Koide <> phi def
-R2935:2940 Interval.Tactic <> i_prec constr
-R2935:2940 Interval.Tactic <> i_prec constr
+R884:888 Coq.micromega.Psatz <> <> lib
+def 1654:1656 <> phi
+R1660:1660 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1665:1665 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1676:1679 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1667:1669 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R1670:1673 Coq.Reals.R_sqrt <> sqrt def
+def 1753:1755 <> L01
+R1759:1759 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1775:1777 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1764:1764 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R1772:1773 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R1766:1768 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R1769:1771 Trinity.Koide <> phi def
+def 1813:1815 <> L03
+R1819:1819 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1835:1837 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1824:1824 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R1832:1833 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R1826:1828 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R1829:1831 Trinity.Koide <> phi def
+def 2524:2536 <> Koide_formula
+R2540:2540 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2547:2547 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2561:2564 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2555:2557 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2549:2551 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2552:2554 Trinity.Koide <> L01 def
+R2558:2560 Trinity.Koide <> L03 def
+R2565:2565 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R2589:2590 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R2578:2580 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2567:2569 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2570:2573 Coq.Reals.R_sqrt <> sqrt def
+R2575:2577 Trinity.Koide <> L01 def
+R2581:2584 Coq.Reals.R_sqrt <> sqrt def
+R2586:2588 Trinity.Koide <> L03 def
+prf 2845:2854 <> phi_bounds
+R2885:2887 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2891:2893 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2871:2873 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2888:2890 Trinity.Koide <> phi def
+R2888:2890 Trinity.Koide <> phi def
+R2905:2907 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2937:2939 Trinity.Koide <> phi def
+R2960:2963 Coq.Reals.R_sqrt <> sqrt def
+R2974:2979 Interval.Tactic <> i_prec constr
+R2960:2963 Coq.Reals.R_sqrt <> sqrt def
+R2974:2979 Interval.Tactic <> i_prec constr
+prf 3018:3027 <> L01_bounds
+R3060:3062 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R3066:3068 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R3044:3046 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3063:3065 Trinity.Koide <> L01 def
+R3063:3065 Trinity.Koide <> L01 def
+R3080:3082 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3114:3116 Trinity.Koide <> L01 def
+R3119:3121 Trinity.Koide <> phi def
+R3142:3145 Coq.Reals.R_sqrt <> sqrt def
+R3156:3161 Interval.Tactic <> i_prec constr
+R3142:3145 Coq.Reals.R_sqrt <> sqrt def
+R3156:3161 Interval.Tactic <> i_prec constr

@@ -80,8 +80,7 @@ Qed.
 Lemma sqrt4_eq_2 : sqrt 4 = 2.
 Proof.
   assert (sqrt 4 = sqrt (2 * 2)) by (replace 4 with (2 * 2) by ring; reflexivity).
-  rewrite H. rewrite sqrt_mult; try lra.
-  rewrite sqrt_square; lra.
+  rewrite H. rewrite sqrt_square; lra.
 Qed.
 
 (* φ > 1 *)
@@ -96,7 +95,8 @@ Qed.
 (* φ^4 = 3φ + 2 (derived from φ^2 = φ + 1) *)
 Lemma phi_fourth : phi ^ 4 = 3 * phi + 2.
 Proof.
-  assert (H2: phi ^ 2 = phi + 1) by apply phi_squared.
+  assert (H2: phi ^ 2 = phi + 1).
+  { replace (phi ^ 2) with (phi * phi) by ring. apply phi_squared. }
   assert (H3: phi ^ 3 = phi * phi ^ 2) by ring.
   rewrite H2 in H3. replace (phi * (phi + 1)) with (phi ^ 2 + phi) in H3 by ring.
   rewrite H2 in H3. replace (phi + 1 + phi) with (2 * phi + 1) in H3 by ring.
@@ -109,17 +109,22 @@ Qed.
 (* 1/φ^2 = 2 - φ *)
 Lemma inv_phi_sq : 1 / phi ^ 2 = 2 - phi.
 Proof.
-  replace (phi ^ 2) with (phi * phi) by ring.
-  rewrite phi_squared.
+  assert (H2: phi * phi = phi + 1) by apply phi_squared.
   assert (H1: (phi + 1) * (2 - phi) = 1).
-  { unfold phi. replace (((1 + sqrt 5) / 2 + 1) * (2 - (1 + sqrt 5) / 2))
-      with ((3 + sqrt 5) / 2 * (3 - sqrt 5) / 2) by field.
-    replace (((3 + sqrt 5) / 2) * ((3 - sqrt 5) / 2)) with ((9 - sqrt 5 * sqrt 5) / 4) by field.
-    rewrite sqrt5_sq. lra. }
-  replace (1 / (phi + 1)) with ((phi + 1) * (2 - phi) / (phi + 1)).
-  - field. intro H0. assert (phi + 1 = 0) by lra.
-    unfold phi in H0. lra.
-  - rewrite H1. field.
+  { replace ((phi + 1) * (2 - phi)) with (2 + phi - phi * phi) by ring.
+    rewrite H2. ring. }
+  assert (Hnpos: phi + 1 <> 0).
+  { unfold phi. assert (0 < sqrt 5) by (apply sqrt_lt_R0; lra). lra. }
+  assert (Heq: phi ^ 2 = phi + 1).
+  { replace (phi ^ 2) with (phi * phi) by ring. apply H2. }
+  rewrite Heq.
+  replace (1 / (phi + 1)) with (2 - phi).
+  - reflexivity.
+  - unfold Rdiv. assert ((phi + 1) * (2 - phi) = 1) by exact H1.
+    apply Rmult_eq_reg_l with (r := phi + 1).
+    + field_simplify_eq; try assumption.
+      lra.
+    + assumption.
 Qed.
 
 End GoldenRatio.
@@ -200,15 +205,12 @@ Proof.
   unfold a4_total, a4_curvature, a4_vertices, a4_simplified.
   (* Multiply both sides by 16φ: LHS becomes 1 + 2φ⁴, RHS becomes 5 + 6φ *)
   (* Using φ⁴ = 3φ + 2: 1 + 2(3φ+2) = 5 + 6φ ✓ *)
+  assert (H16: 16 * phi > 0).
+  { pose proof phi_pos. apply Rmult_lt_0_compat; [lra | assumption]. }
   apply Rmult_eq_reg_l with (r := 16 * phi).
-  - field_simplify; [ | apply Rgt_not_eq, phi_pos
-                       | apply Rgt_not_eq, phi_pos
-                       | apply Rgt_not_eq, phi_pos
-                       | apply Rgt_not_eq, phi_pos
-                       | apply Rgt_not_eq, phi_pos
-                       | apply Rgt_not_eq, phi_pos].
-    rewrite phi_fourth. ring.
-  - apply Rgt_not_eq, phi_pos.
+  - field_simplify; try (apply Rgt_not_eq; lra).
+    rewrite phi_fourth. field; apply Rgt_not_eq; lra.
+  - apply Rgt_not_eq; lra.
 Qed.
 
 (* Alternative simplified form *)
@@ -293,10 +295,24 @@ Section NumericalBounds.
 (* Lemma: 2.2360679774 < sqrt(5) < 2.2360679775 *)
 Lemma sqrt5_bounds : 22360679774 / 10000000000 < sqrt 5 < 22360679775 / 10000000000.
 Proof.
-  assert (22360679774 / 10000000000 < sqrt 5).
-  { apply sqrt_lt_R0_iff. lra. }
-  assert (sqrt 5 < 22360679775 / 10000000000).
-  { apply sqrt_lt_R0_iff. lra. }
+  assert (H1: 22360679774 / 10000000000 < sqrt 5).
+  { apply Rsqr_incrst_0.
+    - lra.
+    - apply sqrt_pos.
+    - rewrite Rsqr_sqrt; try lra. unfold Rsqr. field_simplify; try lra.
+      replace (22360679774 / 10000000000 * (22360679774 / 10000000000))
+        with (499999999955372691076 / 100000000000000000000)
+          by (field_simplify; reflexivity).
+      nra. }
+  assert (H2: sqrt 5 < 22360679775 / 10000000000).
+  { apply Rsqr_incrst_0.
+    - apply sqrt_pos.
+    - lra.
+    - rewrite Rsqr_sqrt; try lra. unfold Rsqr. field_simplify; try lra.
+      replace (22360679775 / 10000000000 * (22360679775 / 10000000000))
+        with (500000000000094050625 / 100000000000000000000)
+          by (field_simplify; reflexivity).
+      nra. }
   split; assumption.
 Qed.
 
@@ -304,8 +320,8 @@ Qed.
 Lemma phi_bounds : 16180339887 / 10000000000 < phi < 16180339888 / 10000000000.
 Proof.
   unfold phi.
-  assert (22360679774 / 10000000000 < sqrt 5) by (apply sqrt_lt_R0_iff; lra).
-  assert (sqrt 5 < 22360679775 / 10000000000) by (apply sqrt_lt_R0_iff; lra).
+  assert (22360679774 / 10000000000 < sqrt 5) by apply sqrt5_bounds.
+  assert (sqrt 5 < 22360679775 / 10000000000) by apply sqrt5_bounds.
   split.
   - lra.
   - lra.

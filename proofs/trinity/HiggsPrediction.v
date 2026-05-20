@@ -14,6 +14,7 @@
 
 Require Import Reals.
 Require Import Lra.
+Require Import Field.
 
 Open Scope R_scope.
 
@@ -132,7 +133,7 @@ Theorem spectral_equals_trinity : m_H_spectral = H01_theoretical.
 Proof.
   unfold m_H_spectral, H01_theoretical, a4_600cell.
   (* m_H_spectral = (2*phi)^3 * e^2 / 2 = 8*phi^3 * e^2 / 2 = 4*phi^3 * e^2 = H01 *)
-  ring.
+  field_simplify; lra.
 Qed.
 
 (* Theorem: Spectral action also within 3sigma *)
@@ -184,7 +185,7 @@ Theorem trinity_is_spectral :
 Proof.
   unfold H01_theoretical, a4_600cell.
   (* 4 * phi^3 * e^2 = 8 * phi^3 * e^2 / 2 *)
-  ring.
+  field_simplify; lra.
 Qed.
 
 (* -------------------------------------------------------------------------- *)

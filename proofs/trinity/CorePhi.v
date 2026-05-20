@@ -107,23 +107,27 @@ Qed.
 Lemma phi_inv : /phi = phi - 1.
 Proof.
   assert (H: phi <> 0) by (apply Rgt_not_eq; apply phi_gt_0).
-  unfold phi.
-  assert (H1: /((1 + sqrt 5) / 2) = 2 / (1 + sqrt 5)) by (field; lra).
-  assert (H2: (1 + sqrt 5) / 2 - 1 = (sqrt 5 - 1) / 2) by (field; lra).
-  assert (H3: sqrt 5 * sqrt 5 = 5) by (apply Rsqr_sqrt; lra).
-  assert (H4: 2 / (1 + sqrt 5) = (sqrt 5 - 1) / 2).
-  { field_simplify. rewrite H3. field; lra. intro H5. lra. }
-  rewrite H1, H2.
-  exact H4.
+  apply Rmult_eq_reg_r with (r := phi).
+  - field_simplify; [ | assumption].
+    unfold phi.
+    assert (H2: sqrt 5 * sqrt 5 = 5) by (apply Rsqr_sqrt; lra).
+    lra.
+  - assumption.
 Qed.
 
 (* phi^3 in closed form for use in bounds *)
 Lemma phi_cubed_alt : powZ phi 3 = 2 * phi + 1.
 Proof.
   unfold powZ. simpl.
-  replace (phi * phi * phi) with ((phi * phi) * phi) by ring.
+  assert (H1: phi * (phi * (phi * 1)) = (phi * phi) * phi).
+  { ring. }
+  rewrite H1.
   rewrite phi_sq.
-  ring.
+  assert (H2: (phi + 1) * phi = phi * phi + phi).
+  { ring. }
+  rewrite H2.
+  rewrite phi_sq.
+  lra.
 Qed.
 
 (******************************************************************************)
@@ -133,7 +137,7 @@ Qed.
 Lemma phi_approx : 1.618033 < phi < 1.618034.
 Proof.
   unfold phi.
-  interval with (i_prec 60).
+  split; interval with (i_prec 60).
 Qed.
 
 (******************************************************************************)
@@ -168,7 +172,7 @@ Qed.
 Lemma powZ_neg1 (r : R) : r <> 0 -> powZ r (-1) = /r.
 Proof.
   intros Hr.
-  unfold powZ. simpl. field.
+  unfold powZ. simpl. field. assumption.
 Qed.
 
 (******************************************************************************)
@@ -182,19 +186,17 @@ Lemma phi_psi_product : phi * psi = -1.
 Proof.
   unfold phi, psi.
   field_simplify.
-  rewrite Rsqr_sqrt; lra.
+  assert (H: sqrt 5 * sqrt 5 = 5) by (apply Rsqr_sqrt; lra).
+  lra.
 Qed.
 
 Lemma psi_inv : psi = -/phi.
 Proof.
-  unfold psi, phi.
-  field_simplify.
-  rewrite Rsqr_sqrt; [ | lra].
-  field_simplify.
-  - lra.
-  - intro H. assert (H2: sqrt 5 = -1) by lra.
-    assert (H3: 0 <= sqrt 5) by apply sqrt_pos.
-    lra.
+  assert (H: phi <> 0) by (apply Rgt_not_eq; apply phi_gt_0).
+  rewrite phi_inv.
+  unfold phi, psi.
+  assert (H2: sqrt 5 * sqrt 5 = 5) by (apply Rsqr_sqrt; lra).
+  field_simplify; lra.
 Qed.
 
 (******************************************************************************)

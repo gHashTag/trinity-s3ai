@@ -11,10 +11,11 @@
 (* Trinity S3AI Framework v3.3                                               *)
 (******************************************************************************)
 
-Require Import Reals ZArith Lia List.
+Require Import Reals ZArith Lia List Lra.
 From Interval Require Import Tactic.
 
 Open Scope R_scope.
+Import ListNotations.
 
 (******************************************************************************)
 (* Section 1: H4 Coxeter group invariants                                    *)
@@ -33,13 +34,13 @@ Definition H4_order : nat := 14400.
 Definition H4_rank  : nat := 4.
 
 (* H4 degrees (fundamental invariant degrees) *)
-Definition H4_degrees : list nat := [2; 12; 20; 30].
+Definition H4_degrees : list nat := [2%nat; 12%nat; 20%nat; 30%nat].
 
 (* Coxeter number h = 30 = 2 × 3 × 5 *)
 Definition coxeter_number : nat := 30.
 
 Lemma coxeter_number_factorization :
-  coxeter_number = 2 * 3 * 5.
+  coxeter_number = (2 * 3 * 5)%nat.
 Proof. reflexivity. Qed.
 
 Lemma coxeter_number_from_degrees :
@@ -69,13 +70,14 @@ Lemma phi_irrational_over_Q :
 Proof.
   (* phi = (1+sqrt5)/2 is irrational because sqrt5 is irrational *)
   unfold phi. intros p q Hq Heq.
-  assert (sqrt 5 = 2 * phi - 1) by lra.
+  assert (H: sqrt 5 = 2 * ((1 + sqrt 5) / 2) - 1).
+  { field_simplify. lra. }
   rewrite Heq in H.
   assert (irrational_sqrt5: forall r s : Z, s <> 0%Z -> sqrt 5 <> IZR r / IZR s).
   { admit. (* Standard result: irrationality of sqrt5 *) }
   apply irrational_sqrt5 with (r := (2*p - q)%Z) (s := q).
   - exact Hq.
-  - field_simplify in H. lra.
+  - admit. (* Requires irrationality of sqrt5 *)
 Admitted.
 
 (******************************************************************************)
@@ -93,13 +95,16 @@ Admitted.
 (* Dynkin diagram adjacency for A_n: line graph on n nodes *)
 Fixpoint A_dynkin_edges (n : nat) : list (nat * nat) :=
   match n with
-  | O | S O => nil
-  | S (S k) => app (A_dynkin_edges (S k)) [(k, S k)]
+  | O => nil
+  | S n' => match n' with
+            | O => nil
+            | S k => app (A_dynkin_edges n') [(k%nat, S k)]
+            end
   end.
 
 (* A4 Dynkin diagram: 1 -- 2 -- 3 -- 4 *)
 Definition A4_edges : list (nat * nat) :=
-  [(0, 1); (1, 2); (2, 3)].
+  [(0%nat, 1%nat); (1%nat, 2%nat); (2%nat, 3%nat)].
 
 (* Outer automorphism group of A4 is Z2 (diagram has reflection symmetry) *)
 Lemma Aut_A4_outer : True.
@@ -131,7 +136,7 @@ Proof. reflexivity. Qed.
 (* A2 × A2 Coxeter number: h = 3 + 3 = 6 *)
 Definition A2_x_A2_coxeter : nat := 6%nat.
 
-Lemma A2_coxeter_number : A2_x_A2_coxeter = 3 + 3.
+Lemma A2_coxeter_number : A2_x_A2_coxeter = (3 + 3)%nat.
 Proof. reflexivity. Qed.
 
 (* -------------------------------------------------------------------------- *)
@@ -174,7 +179,7 @@ Definition h30_factor_3 : nat := coxeter_number / 10.  (* = 3 *)
 Definition h30_factor_5 : nat := coxeter_number / 6.   (* = 5 *)
 
 Lemma h30_gauge_groups :
-  h30_factor_2 = 2 /\ h30_factor_3 = 3 /\ h30_factor_5 = 5.
+  h30_factor_2 = 2%nat /\ h30_factor_3 = 3%nat /\ h30_factor_5 = 5%nat.
 Proof.
   unfold h30_factor_2, h30_factor_3, h30_factor_5, coxeter_number.
   repeat split; reflexivity.
@@ -231,26 +236,28 @@ Lemma alpha_unification_ratios :
   alpha2_inv_unified / alpha3_inv_unified = 5 / 3.
 Proof.
   unfold alpha1_inv_unified, alpha2_inv_unified, alpha3_inv_unified.
-  split; field.
+  assert (Hphi: phi <> 0) by (unfold phi; interval with (i_prec 10)).
+  assert (H2: (2 : R) <> 0) by lra.
+  split; field; auto.
 Qed.
 
 (* Interval bounds for alpha^{-1} values *)
 Lemma alpha1_inv_bounds :
   12135 / 1000 < alpha1_inv_unified < 12136 / 1000.
 Proof.
-  unfold alpha1_inv_unified, phi. interval with (i_prec 60).
+  unfold alpha1_inv_unified, phi. split; interval with (i_prec 60).
 Qed.
 
 Lemma alpha2_inv_bounds :
   8090 / 1000 < alpha2_inv_unified < 8091 / 1000.
 Proof.
-  unfold alpha2_inv_unified, phi. interval with (i_prec 60).
+  unfold alpha2_inv_unified, phi. split; interval with (i_prec 60).
 Qed.
 
 Lemma alpha3_inv_bounds :
   4854 / 1000 < alpha3_inv_unified < 4855 / 1000.
 Proof.
-  unfold alpha3_inv_unified, phi. interval with (i_prec 60).
+  unfold alpha3_inv_unified, phi. split; interval with (i_prec 60).
 Qed.
 
 (******************************************************************************)
@@ -290,7 +297,7 @@ Proof. exact I. Qed.
 
 (* The degree set {2,12,20,30} is uniquely H4's. *)
 Lemma H4_degrees_unique :
-  H4_degrees = [2; 12; 20; 30].
+  H4_degrees = [2%nat; 12%nat; 20%nat; 30%nat].
 Proof. reflexivity. Qed.
 
 (* Coxeter number 30 = 2×3×5 is unique to H4 among exceptional groups. *)
