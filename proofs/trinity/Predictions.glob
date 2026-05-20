@@ -1,0 +1,23 @@
+DIGEST 160f75775aed6f4f8a7c9d7fc1ca4057
+FTrinity.Predictions
+R1490:1494 Coq.Reals.Reals <> <> lib
+R1526:1531 Interval.Tactic <> <> lib
+def 1810:1812 <> phi
+R1816:1816 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1821:1821 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1832:1835 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1823:1825 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R1826:1829 Coq.Reals.R_sqrt <> sqrt def
+def 1850:1856 <> euler_e
+R1860:1860 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1865:1867 Coq.Reals.Rtrigo_def <> exp def
+prf 1879:1888 <> phi_bounds
+R1919:1921 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R1925:1927 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R1905:1907 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1922:1924 Trinity.Predictions <> phi def
+R1922:1924 Trinity.Predictions <> phi def
+R1939:1941 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1969:1971 Trinity.Predictions <> phi def
+R1989:1994 Interval.Tactic <> i_prec constr
+R1989:1994 Interval.Tactic <> i_prec constr

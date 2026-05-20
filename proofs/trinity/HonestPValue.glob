@@ -1,0 +1,59 @@
+DIGEST 0b6299165a9ad7cc343b5519658ce055
+FTrinity.HonestPValue
+R1230:1234 Coq.Reals.Reals <> <> lib
+R1252:1254 Coq.micromega.Lra <> <> lib
+def 1764:1777 <> N_search_space
+R1781:1783 Coq.Init.Datatypes <> nat ind
+def 2036:2050 <> n_groups_tested
+R2054:2056 Coq.Init.Datatypes <> nat ind
+def 2237:2250 <> n_coefficients
+R2254:2256 Coq.Init.Datatypes <> nat ind
+def 3169:3177 <> factorial
+R3184:3186 Coq.Init.Datatypes <> nat ind
+binder 3180:3180 <> n:1
+R3191:3193 Coq.Init.Datatypes <> nat ind
+R3206:3206 Trinity.HonestPValue <> n:1 var
+R3228:3228 Coq.Init.Datatypes <> S constr
+R3237:3239 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R3236:3236 Trinity.HonestPValue <> n:1 var
+R3240:3248 Trinity.HonestPValue <> factorial:2 def
+def 3353:3364 <> factorial_17
+R3368:3370 Coq.Init.Datatypes <> nat ind
+R3375:3383 Trinity.HonestPValue <> factorial def
+def 3480:3486 <> nat_pow
+R3500:3502 Coq.Init.Datatypes <> nat ind
+binder 3489:3492 <> base:4
+binder 3494:3496 <> exp:5
+R3507:3509 Coq.Init.Datatypes <> nat ind
+R3522:3524 Trinity.HonestPValue <> exp:5 var
+R3546:3546 Coq.Init.Datatypes <> S constr
+R3558:3560 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R3554:3557 Trinity.HonestPValue <> base:4 var
+R3561:3567 Trinity.HonestPValue <> nat_pow:6 def
+R3569:3572 Trinity.HonestPValue <> base:4 var
+def 3677:3683 <> N_to_17
+R3687:3689 Coq.Init.Datatypes <> nat ind
+R3694:3700 Trinity.HonestPValue <> nat_pow def
+def 4048:4055 <> fact17_R
+R4059:4059 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 4419:4430 <> N600_to_17_R
+R4434:4434 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 4586:4599 <> p_raw_generous
+R4603:4603 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4616:4618 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R4608:4615 Trinity.HonestPValue <> fact17_R def
+R4619:4630 Trinity.HonestPValue <> N600_to_17_R def
+def 4726:4736 <> p_corrected
+R4740:4740 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4759:4761 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4745:4758 Trinity.HonestPValue <> p_raw_generous def
+R4762:4764 Coq.Reals.Raxioms <> INR def
+prf 5101:5111 <> p_raw_bound
+R5129:5131 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R5115:5128 Trinity.HonestPValue <> p_raw_generous def
+R5133:5136 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R5144:5144 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R5139:5141 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R5163:5176 Trinity.HonestPValue <> p_raw_generous def
+R5179:5186 Trinity.HonestPValue <> fact17_R def
+R5189:5200 Trinity.HonestPValue <> N600_to_17_R def

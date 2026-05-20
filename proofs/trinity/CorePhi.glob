@@ -1,0 +1,74 @@
+DIGEST 9a254cc77d61ac7d7d0e851cb4e70fed
+FTrinity.CorePhi
+R424:428 Coq.Reals.Reals <> <> lib
+R446:448 Coq.micromega.Lra <> <> lib
+R466:480 Interval.Tactic <> <> lib
+def 839:841 <> phi
+R845:845 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R850:850 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R861:864 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R852:854 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R855:858 Coq.Reals.R_sqrt <> sqrt def
+def 1253:1259 <> pow_pos
+R1266:1266 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 1262:1262 <> r:1
+R1274:1276 Coq.Init.Datatypes <> nat ind
+binder 1270:1270 <> n:2
+R1281:1281 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1294:1294 Trinity.CorePhi <> n:2 var
+R1305:1305 Coq.Init.Datatypes <> O constr
+R1316:1316 Coq.Init.Datatypes <> S constr
+R1325:1327 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R1324:1324 Trinity.CorePhi <> r:1 var
+R1328:1334 Trinity.CorePhi <> pow_pos:3 def
+R1336:1336 Trinity.CorePhi <> r:1 var
+def 1360:1363 <> powZ
+R1370:1370 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 1366:1366 <> r:5
+R1378:1378 Coq.Numbers.BinNums <> Z ind
+binder 1374:1374 <> n:6
+R1383:1383 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1396:1396 Trinity.CorePhi <> n:6 var
+R1407:1408 Coq.Numbers.BinNums <> Z0 constr
+R1419:1422 Coq.Numbers.BinNums <> Zpos constr
+R1429:1435 Trinity.CorePhi <> pow_pos def
+R1437:1437 Trinity.CorePhi <> r:5 var
+R1440:1449 Coq.PArith.BinPos Pos to_nat def
+R1458:1461 Coq.Numbers.BinNums <> Zneg constr
+R1468:1469 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R1470:1476 Trinity.CorePhi <> pow_pos def
+R1478:1478 Trinity.CorePhi <> r:5 var
+R1481:1490 Coq.PArith.BinPos Pos to_nat def
+prf 1753:1760 <> phi_gt_0
+R1765:1767 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1768:1770 Trinity.CorePhi <> phi def
+R1789:1791 Trinity.CorePhi <> phi def
+R1808:1810 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1811:1814 Coq.Reals.R_sqrt <> sqrt def
+R1829:1838 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
+R1808:1810 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1811:1814 Coq.Reals.R_sqrt <> sqrt def
+R1829:1838 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
+prf 1866:1873 <> phi_gt_1
+R1878:1880 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1881:1883 Trinity.CorePhi <> phi def
+R1902:1904 Trinity.CorePhi <> phi def
+R1921:1923 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1924:1927 Coq.Reals.R_sqrt <> sqrt def
+R1921:1923 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1924:1927 Coq.Reals.R_sqrt <> sqrt def
+prf 2374:2379 <> phi_sq
+R2392:2394 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2386:2388 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2383:2385 Trinity.CorePhi <> phi def
+R2389:2391 Trinity.CorePhi <> phi def
+R2398:2400 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2395:2397 Trinity.CorePhi <> phi def
+R2420:2422 Trinity.CorePhi <> phi def
+R2555:2563 Coq.Reals.R_sqrt <> Rsqr_sqrt thm
+R2555:2563 Coq.Reals.R_sqrt <> Rsqr_sqrt thm
+nitions <> ::R_scope:x_'<='_x not
+R2041:2053 Coq.Reals.R_sqr <> Rsqr_incrst_1 thm
+R2058:2061 Coq.Reals.R_sqrt <> sqrt def
+R2041:2053 Coq.Reals.R_sqr <> Rsqr_incrst_1 thm
+R2058:2061 Coq.Reals.R_sqrt <> sqrt def

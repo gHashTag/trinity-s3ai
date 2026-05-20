@@ -5,6 +5,7 @@
 (******************************************************************************)
 
 Require Import Reals.
+Require Import Lra.
 Require Import Interval.Tactic.
 
 Open Scope R_scope.
@@ -51,13 +52,7 @@ Lemma phi_gt_1 : 1 < phi.
 Proof.
   unfold phi.
   assert (H: 2 < sqrt 5).
-  { assert (H2: 2^2 < 5) by lra.
-    assert (H3: 0 <= 2) by lra.
-    assert (H4: 0 <= 5) by lra.
-    apply (Rsqr_incrst_1 2 (sqrt 5)) in H2; auto.
-    - rewrite Rsqr_sqrt in H2; lra.
-    - apply sqrt_lem_1; lra.
-  }
+  { interval. }
   lra.
 Qed.
 

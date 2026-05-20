@@ -1,5 +1,5 @@
-DIGEST 14a7aded8beded3b7f5f13e6156e4801
-FSpectralAction600Cell
+DIGEST 47c9215b06a87f75a6fda3c5df151ab0
+FTrinity.SpectralAction600Cell
 R905:909 Coq.Reals.Reals <> <> lib
 R936:938 Coq.micromega.Lra <> <> lib
 sec 1215:1226 <> H4RootSystem
@@ -29,11 +29,11 @@ R1705:1707 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
 def 1803:1813 <> edge_length
 R1817:1817 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
 R1823:1825 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1826:1828 SpectralAction600Cell <> phi def
+R1826:1828 Trinity.SpectralAction600Cell <> phi def
 def 1882:1893 <> circumradius
 R1897:1897 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1902:1904 SpectralAction600Cell <> phi def
-R1912:1923 SpectralAction600Cell H4RootSystem <> sec
+R1902:1904 Trinity.SpectralAction600Cell <> phi def
+R1912:1923 Trinity.SpectralAction600Cell H4RootSystem <> sec
 sec 2179:2189 <> GoldenRatio
 prf 2262:2269 <> sqrt5_sq
 R2288:2290 Coq.Init.Logic <> ::type_scope:x_'='_x not
@@ -57,25 +57,25 @@ R2360:2368 Coq.Reals.R_sqrt <> pow2_sqrt thm
 prf 2405:2415 <> phi_squared
 R2428:2430 Coq.Init.Logic <> ::type_scope:x_'='_x not
 R2422:2424 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R2419:2421 SpectralAction600Cell <> phi def
-R2425:2427 SpectralAction600Cell <> phi def
+R2419:2421 Trinity.SpectralAction600Cell <> phi def
+R2425:2427 Trinity.SpectralAction600Cell <> phi def
 R2434:2436 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R2431:2433 SpectralAction600Cell <> phi def
-R2456:2458 SpectralAction600Cell <> phi def
+R2431:2433 Trinity.SpectralAction600Cell <> phi def
+R2456:2458 Trinity.SpectralAction600Cell <> phi def
 R2489:2491 Coq.Init.Logic <> ::type_scope:x_'='_x not
 R2480:2482 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
 R2474:2477 Coq.Reals.R_sqrt <> sqrt def
 R2483:2486 Coq.Reals.R_sqrt <> sqrt def
-R2504:2511 SpectralAction600Cell <> sqrt5_sq thm
+R2504:2511 Trinity.SpectralAction600Cell <> sqrt5_sq thm
 R2489:2491 Coq.Init.Logic <> ::type_scope:x_'='_x not
 R2480:2482 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
 R2474:2477 Coq.Reals.R_sqrt <> sqrt def
 R2483:2486 Coq.Reals.R_sqrt <> sqrt def
-R2504:2511 SpectralAction600Cell <> sqrt5_sq thm
+R2504:2511 Trinity.SpectralAction600Cell <> sqrt5_sq thm
 prf 2546:2552 <> phi_pos
 R2557:2559 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2560:2562 SpectralAction600Cell <> phi def
-R2581:2583 SpectralAction600Cell <> phi def
+R2560:2562 Trinity.SpectralAction600Cell <> phi def
+R2581:2583 Trinity.SpectralAction600Cell <> phi def
 R2595:2597 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
 R2598:2601 Coq.Reals.R_sqrt <> sqrt def
 R2616:2625 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
@@ -85,19 +85,20 @@ R2616:2625 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
 prf 2678:2687 <> sqrt4_eq_2
 R2697:2699 Coq.Init.Logic <> ::type_scope:x_'='_x not
 R2691:2694 Coq.Reals.R_sqrt <> sqrt def
-hi def
-R2702:2704 SpectralAction600Cell <> phi def
-R2716:2718 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2719:2722 Coq.Reals.R_sqrt <> sqrt def
-R2716:2718 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2719:2722 Coq.Reals.R_sqrt <> sqrt def
-R2746:2748 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2740:2743 Coq.Reals.R_sqrt <> sqrt def
-R2749:2752 Coq.Reals.R_sqrt <> sqrt def
-R2746:2748 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2740:2743 Coq.Reals.R_sqrt <> sqrt def
-R2749:2752 Coq.Reals.R_sqrt <> sqrt def
-R2766:2774 Coq.Reals.R_sqrt <> sqrt_lt_1 thm
-R2766:2774 Coq.Reals.R_sqrt <> sqrt_lt_1 thm
-R2798:2801 Coq.Reals.R_sqrt <> sqrt def
-R2798:2801 Coq.Reals.R_sqrt <> sqrt def
+R2726:2728 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2720:2723 Coq.Reals.R_sqrt <> sqrt def
+R2729:2732 Coq.Reals.R_sqrt <> sqrt def
+R2736:2738 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2764:2766 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2726:2728 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2720:2723 Coq.Reals.R_sqrt <> sqrt def
+R2729:2732 Coq.Reals.R_sqrt <> sqrt def
+R2736:2738 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2764:2766 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2814:2822 Coq.Reals.R_sqrt <> sqrt_mult thm
+R2814:2822 Coq.Reals.R_sqrt <> sqrt_mult thm
+R2814:2822 Coq.Reals.R_sqrt <> sqrt_mult thm
+R2814:2822 Coq.Reals.R_sqrt <> sqrt_mult thm
+R2814:2822 Coq.Reals.R_sqrt <> sqrt_mult thm
+R2844:2854 Coq.Reals.R_sqrt <> sqrt_square thm
+R2844:2854 Coq.Reals.R_sqrt <> sqrt_square thm

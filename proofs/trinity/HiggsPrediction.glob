@@ -1,0 +1,103 @@
+DIGEST ee6d3b3f33b1708458670b1c05a340d7
+FTrinity.HiggsPrediction
+R1069:1073 Coq.Reals.Reals <> <> lib
+R1091:1093 Coq.micromega.Lra <> <> lib
+def 1416:1418 <> phi
+R1422:1422 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1427:1427 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1438:1441 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1429:1431 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R1432:1435 Coq.Reals.R_sqrt <> sqrt def
+def 1524:1530 <> e_const
+R1534:1534 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1539:1541 Coq.Reals.Rtrigo_def <> exp def
+def 1593:1599 <> m_H_exp
+R1603:1603 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 1627:1635 <> sigma_exp
+R1639:1639 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 1743:1744 <> d1
+R1748:1748 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 1767:1768 <> d2
+R1772:1772 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 1792:1793 <> d3
+R1797:1797 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 1817:1818 <> d4
+R1822:1822 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 1880:1882 <> m_W
+R1886:1886 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 2219:2226 <> H4_order
+R2230:2230 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 2289:2292 <> h_H4
+R2296:2296 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 2382:2397 <> vertices_600cell
+R2401:2401 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 2422:2434 <> edges_600cell
+R2438:2438 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 2459:2471 <> faces_600cell
+R2475:2475 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 2497:2509 <> cells_600cell
+R2513:2513 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 3265:3279 <> H01_theoretical
+R3283:3283 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3297:3299 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3289:3291 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3295:3295 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R3292:3294 Trinity.HiggsPrediction <> phi def
+R3300:3300 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R3306:3307 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R3301:3303 Coq.Reals.Rtrigo_def <> exp def
+prf 3854:3870 <> H01_within_3sigma
+R3916:3918 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R3906:3908 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3874:3877 Coq.Reals.Rbasic_fun <> Rabs def
+R3895:3897 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3880:3894 Trinity.HiggsPrediction <> H01_theoretical def
+R3898:3904 Trinity.HiggsPrediction <> m_H_exp def
+R3909:3915 Trinity.HiggsPrediction <> m_H_exp def
+R4504:4518 Trinity.HiggsPrediction <> H01_theoretical def
+R4521:4527 Trinity.HiggsPrediction <> m_H_exp def
+R4530:4532 Trinity.HiggsPrediction <> phi def
+prf 4779:4797 <> H01_within_1percent
+R4843:4845 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R4833:4835 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R4801:4804 Coq.Reals.Rbasic_fun <> Rabs def
+R4822:4824 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R4807:4821 Trinity.HiggsPrediction <> H01_theoretical def
+R4825:4831 Trinity.HiggsPrediction <> m_H_exp def
+R4836:4842 Trinity.HiggsPrediction <> m_H_exp def
+R4939:4953 Trinity.HiggsPrediction <> H01_theoretical def
+R4956:4962 Trinity.HiggsPrediction <> m_H_exp def
+R4965:4967 Trinity.HiggsPrediction <> phi def
+prf 5058:5080 <> H01_within_point1_sigma
+R5116:5118 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R5084:5087 Coq.Reals.Rbasic_fun <> Rabs def
+R5105:5107 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R5090:5104 Trinity.HiggsPrediction <> H01_theoretical def
+R5108:5114 Trinity.HiggsPrediction <> m_H_exp def
+R5122:5124 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5125:5133 Trinity.HiggsPrediction <> sigma_exp def
+R5384:5398 Trinity.HiggsPrediction <> H01_theoretical def
+R5401:5407 Trinity.HiggsPrediction <> m_H_exp def
+R5410:5418 Trinity.HiggsPrediction <> sigma_exp def
+R5421:5423 Trinity.HiggsPrediction <> phi def
+def 6428:6437 <> a4_600cell
+R6441:6441 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R6446:6446 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R6454:6455 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R6448:6450 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6451:6453 Trinity.HiggsPrediction <> phi def
+def 6471:6482 <> m_H_spectral
+R6486:6486 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R6513:6515 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6501:6503 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6491:6500 Trinity.HiggsPrediction <> a4_600cell def
+R6504:6504 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R6510:6511 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R6505:6507 Coq.Reals.Rtrigo_def <> exp def
+prf 6604:6626 <> spectral_equals_trinity
+R6642:6644 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6630:6641 Trinity.HiggsPrediction <> m_H_spectral def
+R6645:6659 Trinity.HiggsPrediction <> H01_theoretical def
+R6678:6689 Trinity.HiggsPrediction <> m_H_spectral def
+R6692:6706 Trinity.HiggsPrediction <> H01_theoretical def
+R6709:6718 Trinity.HiggsPrediction <> a4_600cell def

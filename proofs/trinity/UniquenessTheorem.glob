@@ -1,0 +1,234 @@
+DIGEST 673238e4b8b0a39c732a69bc58685e24
+FTrinity.UniquenessTheorem
+R1476:1479 Coq.Lists.List <> <> lib
+R1497:1501 Coq.Arith.Arith <> <> lib
+R1519:1521 Coq.micromega.Lia <> <> lib
+R1532:1544 Coq.Lists.List ListNotations <> mod
+def 1862:1863 <> e1
+R1867:1869 Coq.Init.Datatypes <> nat ind
+def 1920:1921 <> e2
+R1925:1927 Coq.Init.Datatypes <> nat ind
+def 1975:1976 <> e3
+R1980:1982 Coq.Init.Datatypes <> nat ind
+def 2029:2030 <> e4
+R2034:2036 Coq.Init.Datatypes <> nat ind
+def 2085:2086 <> d1
+R2090:2092 Coq.Init.Datatypes <> nat ind
+def 2137:2138 <> d2
+R2142:2144 Coq.Init.Datatypes <> nat ind
+def 2190:2191 <> d3
+R2195:2197 Coq.Init.Datatypes <> nat ind
+def 2242:2243 <> d4
+R2247:2249 Coq.Init.Datatypes <> nat ind
+def 2313:2313 <> h
+R2318:2320 Coq.Init.Datatypes <> nat ind
+def 2367:2370 <> E8_N
+R2374:2376 Coq.Init.Datatypes <> nat ind
+def 2488:2500 <> H4_invariants
+R2504:2507 Coq.Init.Datatypes <> list ind
+R2509:2511 Coq.Init.Datatypes <> nat ind
+R2516:2519 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2522:2523 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2526:2527 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2530:2531 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2534:2537 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2540:2541 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2544:2545 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2548:2549 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2552:2555 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2557:2558 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2563:2564 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R2520:2521 Trinity.UniquenessTheorem <> e1 def
+R2524:2525 Trinity.UniquenessTheorem <> e2 def
+R2528:2529 Trinity.UniquenessTheorem <> e3 def
+R2532:2533 Trinity.UniquenessTheorem <> e4 def
+R2538:2539 Trinity.UniquenessTheorem <> d1 def
+R2542:2543 Trinity.UniquenessTheorem <> d2 def
+R2546:2547 Trinity.UniquenessTheorem <> d3 def
+R2550:2551 Trinity.UniquenessTheorem <> d4 def
+R2556:2556 Trinity.UniquenessTheorem <> h def
+R2559:2562 Trinity.UniquenessTheorem <> E8_N def
+def 2883:2887 <> binop
+R2895:2897 Coq.Init.Datatypes <> nat ind
+binder 2890:2891 <> op:1
+R2907:2909 Coq.Init.Datatypes <> nat ind
+binder 2901:2901 <> x:2
+binder 2903:2903 <> y:3
+R2914:2919 Coq.Init.Datatypes <> option ind
+R2921:2923 Coq.Init.Datatypes <> nat ind
+R2936:2937 Trinity.UniquenessTheorem <> op:1 var
+R2953:2956 Coq.Init.Datatypes <> Some constr
+R2960:2962 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R2959:2959 Trinity.UniquenessTheorem <> x:2 var
+R2963:2963 Trinity.UniquenessTheorem <> y:3 var
+R2975:2978 Coq.Init.Datatypes <> Some constr
+R2982:2984 Coq.Init.Peano <> ::nat_scope:x_'-'_x not
+R2981:2981 Trinity.UniquenessTheorem <> x:2 var
+R2985:2985 Trinity.UniquenessTheorem <> y:3 var
+R2997:3000 Coq.Init.Datatypes <> Some constr
+R3004:3006 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R3003:3003 Trinity.UniquenessTheorem <> x:2 var
+R3007:3007 Trinity.UniquenessTheorem <> y:3 var
+R3022:3028 Coq.Arith.PeanoNat Nat eqb def
+R3030:3030 Trinity.UniquenessTheorem <> y:3 var
+R3049:3052 Coq.Init.Datatypes <> Some constr
+R3055:3061 Coq.Arith.PeanoNat Nat div def
+R3063:3063 Trinity.UniquenessTheorem <> x:2 var
+R3065:3065 Trinity.UniquenessTheorem <> y:3 var
+R3039:3042 Coq.Init.Datatypes <> None constr
+R3077:3080 Coq.Init.Datatypes <> None constr
+def 3101:3111 <> binop_codes
+R3115:3118 Coq.Init.Datatypes <> list ind
+R3120:3122 Coq.Init.Datatypes <> nat ind
+R3127:3127 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3129:3130 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3132:3133 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3135:3136 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3138:3138 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 3431:3439 <> all_pairs
+binder 3442:3442 <> A:5
+R3458:3461 Coq.Init.Datatypes <> list ind
+R3463:3463 Trinity.UniquenessTheorem <> A:5 var
+binder 3453:3454 <> xs:6
+R3468:3471 Coq.Init.Datatypes <> list ind
+R3475:3477 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R3474:3474 Trinity.UniquenessTheorem <> A:5 var
+R3478:3478 Trinity.UniquenessTheorem <> A:5 var
+R3492:3493 Trinity.UniquenessTheorem <> xs:6 var
+R3504:3505 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3510:3511 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3518:3521 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R3553:3556 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R3529:3531 Coq.Lists.List <> map def
+R3551:3552 Trinity.UniquenessTheorem <> xs:6 var
+binder 3538:3538 <> y:9
+R3543:3543 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3545:3546 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3548:3548 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3547:3547 Trinity.UniquenessTheorem <> y:9 var
+R3557:3565 Trinity.UniquenessTheorem <> all_pairs:7 def
+def 3631:3651 <> apply_binops_to_pairs
+R3660:3663 Coq.Init.Datatypes <> list ind
+R3665:3667 Coq.Init.Datatypes <> nat ind
+binder 3654:3656 <> ops:10
+R3679:3682 Coq.Init.Datatypes <> list ind
+R3688:3690 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R3685:3687 Coq.Init.Datatypes <> nat ind
+R3691:3693 Coq.Init.Datatypes <> nat ind
+binder 3671:3675 <> pairs:11
+R3701:3704 Coq.Init.Datatypes <> list ind
+R3710:3713 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R3729:3729 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R3707:3709 Coq.Init.Datatypes <> nat ind
+R3723:3725 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R3717:3719 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R3714:3716 Coq.Init.Datatypes <> nat ind
+R3720:3722 Coq.Init.Datatypes <> nat ind
+R3726:3728 Coq.Init.Datatypes <> nat ind
+R3743:3747 Trinity.UniquenessTheorem <> pairs:11 var
+R3758:3759 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3764:3765 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3777:3780 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R3771:3771 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3773:3774 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3776:3776 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3816:3819 Coq.Init.Datatypes <> list ind
+R3821:3823 Coq.Init.Datatypes <> nat ind
+binder 3809:3812 <> ops':14
+R3843:3846 Trinity.UniquenessTheorem <> ops':14 var
+R3863:3864 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3869:3889 Trinity.UniquenessTheorem <> apply_binops_to_pairs:12 def
+R3891:3893 Trinity.UniquenessTheorem <> ops:10 var
+R3910:3913 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R3941:3945 Trinity.UniquenessTheorem <> binop def
+R3973:3976 Coq.Init.Datatypes <> Some constr
+R3998:4001 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R3983:3983 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3985:3986 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3997:3997 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3987:3987 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3989:3990 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3992:3993 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3996:3996 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4002:4010 Trinity.UniquenessTheorem <> apply_ops:15 var
+R4032:4035 Coq.Init.Datatypes <> None constr
+R4040:4048 Trinity.UniquenessTheorem <> apply_ops:15 var
+R4085:4087 Trinity.UniquenessTheorem <> ops:10 var
+def 4154:4176 <> all_simple_combinations
+R4182:4185 Coq.Init.Datatypes <> list ind
+R4191:4194 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4210:4210 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4188:4190 Coq.Init.Datatypes <> nat ind
+R4204:4206 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4198:4200 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4195:4197 Coq.Init.Datatypes <> nat ind
+R4201:4203 Coq.Init.Datatypes <> nat ind
+R4207:4209 Coq.Init.Datatypes <> nat ind
+R4218:4238 Trinity.UniquenessTheorem <> apply_binops_to_pairs def
+R4240:4250 Trinity.UniquenessTheorem <> binop_codes def
+R4253:4261 Trinity.UniquenessTheorem <> all_pairs def
+R4263:4275 Trinity.UniquenessTheorem <> H4_invariants def
+def 4318:4333 <> filter_by_target
+R4345:4347 Coq.Init.Datatypes <> nat ind
+binder 4336:4341 <> target:17
+R4358:4361 Coq.Init.Datatypes <> list ind
+R4367:4370 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4386:4386 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4364:4366 Coq.Init.Datatypes <> nat ind
+R4380:4382 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4374:4376 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4371:4373 Coq.Init.Datatypes <> nat ind
+R4377:4379 Coq.Init.Datatypes <> nat ind
+R4383:4385 Coq.Init.Datatypes <> nat ind
+binder 4353:4354 <> cs:18
+R4394:4397 Coq.Init.Datatypes <> list ind
+R4403:4406 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4422:4422 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4400:4402 Coq.Init.Datatypes <> nat ind
+R4416:4418 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4410:4412 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4407:4409 Coq.Init.Datatypes <> nat ind
+R4413:4415 Coq.Init.Datatypes <> nat ind
+R4419:4421 Coq.Init.Datatypes <> nat ind
+R4436:4437 Trinity.UniquenessTheorem <> cs:18 var
+R4448:4449 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R4454:4455 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R4470:4473 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4461:4461 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4463:4464 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4469:4469 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4490:4496 Coq.Arith.PeanoNat Nat eqb def
+R4500:4505 Trinity.UniquenessTheorem <> target:17 var
+R4564:4579 Trinity.UniquenessTheorem <> filter_by_target:19 def
+R4581:4586 Trinity.UniquenessTheorem <> target:17 var
+R4521:4524 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4512:4512 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4514:4515 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4520:4520 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4525:4540 Trinity.UniquenessTheorem <> filter_by_target:19 def
+R4542:4547 Trinity.UniquenessTheorem <> target:17 var
+def 4611:4626 <> find_derivations
+R4638:4640 Coq.Init.Datatypes <> nat ind
+binder 4629:4634 <> target:21
+R4647:4650 Coq.Init.Datatypes <> list ind
+R4656:4659 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4675:4675 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4653:4655 Coq.Init.Datatypes <> nat ind
+R4669:4671 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4663:4665 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4660:4662 Coq.Init.Datatypes <> nat ind
+R4666:4668 Coq.Init.Datatypes <> nat ind
+R4672:4674 Coq.Init.Datatypes <> nat ind
+R4683:4698 Trinity.UniquenessTheorem <> filter_by_target def
+R4700:4705 Trinity.UniquenessTheorem <> target:21 var
+R4707:4729 Trinity.UniquenessTheorem <> all_simple_combinations def
+def 4744:4760 <> count_derivations
+R4772:4774 Coq.Init.Datatypes <> nat ind
+binder 4763:4768 <> target:22
+R4779:4781 Coq.Init.Datatypes <> nat ind
+R4788:4793 Coq.Init.Datatypes <> length def
+R4796:4811 Trinity.UniquenessTheorem <> find_derivations def
+R4813:4818 Trinity.UniquenessTheorem <> target:22 var
+prf 5351:5359 <> count_239
+R5384:5386 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5363:5379 Trinity.UniquenessTheorem <> count_derivations def

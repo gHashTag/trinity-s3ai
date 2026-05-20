@@ -1,0 +1,10 @@
+DIGEST e5919957343c0fcfe0c92baa94313a7a
+FTrinity.E6vsH4
+R1882:1886 Coq.Reals.Reals <> <> lib
+R1904:1909 Coq.QArith.QArith <> <> lib
+R1927:1932 Coq.ZArith.ZArith <> <> lib
+R1950:1952 Coq.micromega.Lia <> <> lib
+R1970:1972 Coq.micromega.Lra <> <> lib
+R1990:1993 Coq.Lists.List <> <> lib
+R2011:2019 Coq.Sets.Ensembles <> <> lib
+R2037:2051 Interval.Tactic <> <> lib

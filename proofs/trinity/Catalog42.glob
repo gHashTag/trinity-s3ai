@@ -1,0 +1,8 @@
+DIGEST 13c0150e6badf657e2a9642bc336ab57
+FTrinity.Catalog42
+R254:258 Coq.Reals.Reals <> <> lib
+def 872:877 <> Q07_SG
+R881:881 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R896:898 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R888:890 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R894:894 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
