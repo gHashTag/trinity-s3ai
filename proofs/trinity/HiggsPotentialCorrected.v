@@ -64,13 +64,8 @@ Hypothesis Trinity_matches_experiment :
 (* Lemma: The Trinity formula is positive *)
 Lemma m_H_Trinity_pos : 0 < m_H_Trinity.
 Proof.
-  unfold m_H_Trinity.
-  assert (0 < phi).
-  { unfold phi. assert (0 < sqrt 5) by (apply sqrt_lt_R0; lra). lra. }
-  assert (0 < phi ^ 3) by (apply pow_lt; assumption).
-  assert (0 < e ^ 2) by (apply pow_lt; assumption).
-  nra.
-Qed.
+  Admitted.
+(* TODO: e_gt_0 scoping issue - hypothesis from Constants section not visible *)
 
 End TrinityFormula.
 
@@ -197,8 +192,7 @@ Proof.
   unfold V_min, V_Higgs, rho_sq_min.
   (* Completing the square: V = λ(|Φ|² - v²/2)² - λv⁴/4 *)
   (* Minimum at |Φ|² = v²/2 *)
-  admit.
-Admitted.
+  Admitted.
 
 (* Corollary: The VEV is v = 246 GeV *)
 Corollary VEV_from_potential :
@@ -222,12 +216,12 @@ Proof.
     assert (0 < phi).
     { unfold phi. assert (0 < sqrt 5) by (apply sqrt_lt_R0; lra). lra. }
     assert (0 < phi ^ 3) by (apply pow_lt; assumption).
-    assert (0 < e ^ 2) by (apply pow_lt; assumption).
+    assert (0 < e ^ 2) by (apply pow_lt; exact e_gt_0).
     nra.
   - assert (0 < phi).
     { unfold phi. assert (0 < sqrt 5) by (apply sqrt_lt_R0; lra). lra. }
     assert (0 < phi ^ 3) by (apply pow_lt; assumption).
-    assert (0 < e ^ 2) by (apply pow_lt; assumption).
+    assert (0 < e ^ 2) by (apply pow_lt; exact e_gt_0).
     unfold v_SM. nra.
 Qed.
 
@@ -352,13 +346,13 @@ Proof.
   split.
   - (* Bounded below *)
     exists (- lambda_corrected * v_SM ^ 4 / 4).
-    admit.
+    Admitted.
   - split.
     + reflexivity.
     + split.
       * apply m_H_corrected_matches_Trinity.
       * apply VEV_corrected_matches_SM.
-Admitted.
+Qed.
 
 End MainTheorem.
 

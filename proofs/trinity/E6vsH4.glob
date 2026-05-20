@@ -1,4 +1,4 @@
-DIGEST e5919957343c0fcfe0c92baa94313a7a
+DIGEST 226792293cd9fedf05be25bb0deb0be1
 FTrinity.E6vsH4
 R1882:1886 Coq.Reals.Reals <> <> lib
 R1904:1909 Coq.QArith.QArith <> <> lib
@@ -6,39 +6,80 @@ R1927:1932 Coq.ZArith.ZArith <> <> lib
 R1950:1952 Coq.micromega.Lia <> <> lib
 R1970:1972 Coq.micromega.Lra <> <> lib
 R1990:1993 Coq.Lists.List <> <> lib
-R2011:2019 Coq.Sets.Ensembles <> <> lib
-R2037:2051 Interval.Tactic <> <> lib
-R2069:2075 Trinity.CorePhi <> <> lib
-R2127:2139 Coq.Lists.List ListNotations <> mod
-def 3079:3090 <> E6_exponents
-R3094:3097 Coq.Init.Datatypes <> list ind
-R3099:3099 Coq.Numbers.BinNums <> Z ind
-R3104:3104 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3106:3107 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3109:3110 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3112:3113 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3115:3116 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3118:3119 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3122:3122 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-def 3409:3418 <> E6_degrees
-R3422:3425 Coq.Init.Datatypes <> list ind
-R3427:3427 Coq.Numbers.BinNums <> Z ind
-R3432:3432 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3434:3435 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3437:3438 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3440:3441 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3443:3444 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3446:3447 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R3450:3450 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-def 3662:3678 <> E6_Coxeter_number
-R3682:3682 Coq.Numbers.BinNums <> Z ind
-def 3818:3830 <> E6_Weyl_order
-R3834:3834 Coq.Numbers.BinNums <> Z ind
-prf 4097:4115 <> E6_degrees_positive
-binder 4128:4128 <> d:1
-R4146:4149 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4131:4132 Coq.Sets.Ensembles <> In def
-R4136:4145 Trinity.E6vsH4 <> E6_degrees def
-R4134:4134 Trinity.E6vsH4 <> d:1 var
-R4151:4153 Coq.ZArith.BinInt <> ::Z_scope:x_'<'_x not
-R4154:4154 Trinity.E6vsH4 <> d:1 var
+R2011:2025 Interval.Tactic <> <> lib
+R2056:2062 Trinity.CorePhi <> <> lib
+R2114:2126 Coq.Lists.List ListNotations <> mod
+def 3066:3077 <> E6_exponents
+R3081:3084 Coq.Init.Datatypes <> list ind
+R3086:3086 Coq.Numbers.BinNums <> Z ind
+R3091:3091 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3093:3094 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3096:3097 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3099:3100 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3102:3103 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3105:3106 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3109:3109 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 3396:3405 <> E6_degrees
+R3409:3412 Coq.Init.Datatypes <> list ind
+R3414:3414 Coq.Numbers.BinNums <> Z ind
+R3419:3419 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3421:3422 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3424:3425 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3427:3428 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3430:3431 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3433:3434 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R3437:3437 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 3649:3665 <> E6_Coxeter_number
+R3669:3669 Coq.Numbers.BinNums <> Z ind
+def 3805:3817 <> E6_Weyl_order
+R3821:3821 Coq.Numbers.BinNums <> Z ind
+prf 4084:4102 <> E6_degrees_positive
+binder 4115:4115 <> d:1
+R4133:4136 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4118:4119 Coq.Lists.List <> In def
+R4123:4132 Trinity.E6vsH4 <> E6_degrees def
+R4121:4121 Trinity.E6vsH4 <> d:1 var
+R4138:4140 Coq.ZArith.BinInt <> ::Z_scope:x_'<'_x not
+R4141:4141 Trinity.E6vsH4 <> d:1 var
+R4175:4184 Trinity.E6vsH4 <> E6_degrees def
+prf 4611:4626 <> E6_sum_exponents
+R4652:4654 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4647:4649 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R4643:4645 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R4639:4641 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R4635:4637 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+R4631:4633 Coq.ZArith.BinInt <> ::Z_scope:x_'+'_x not
+prf 5008:5025 <> E6_product_degrees
+R5051:5053 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5046:5048 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+R5042:5044 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+R5038:5040 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+R5034:5036 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+R5030:5032 Coq.ZArith.BinInt <> ::Z_scope:x_'*'_x not
+prf 6061:6082 <> E6_all_degrees_integer
+binder 6095:6095 <> d:2
+R6113:6116 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6098:6099 Coq.Lists.List <> In def
+R6103:6112 Trinity.E6vsH4 <> E6_degrees def
+R6101:6101 Trinity.E6vsH4 <> d:2 var
+R6117:6123 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R6129:6130 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R6128:6128 Coq.Numbers.BinNums <> Z ind
+binder 6124:6124 <> n:3
+R6132:6134 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6131:6131 Trinity.E6vsH4 <> d:2 var
+R6135:6135 Trinity.E6vsH4 <> n:3 var
+prf 6852:6870 <> sqrt_5_not_rational
+R6887:6887 Coq.Numbers.BinNums <> Z ind
+binder 6881:6881 <> p:4
+binder 6883:6883 <> q:5
+R6896:6901 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6891:6894 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R6890:6890 Trinity.E6vsH4 <> q:5 var
+R6908:6911 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R6902:6905 Coq.Reals.R_sqrt <> sqrt def
+R6917:6919 Coq.ZArith.BinInt <> ::Z_scope:x_'/'_x not
+R6912:6914 Coq.Reals.Rdefinitions <> IZR def
+R6916:6916 Trinity.E6vsH4 <> p:4 var
+R6920:6922 Coq.Reals.Rdefinitions <> IZR def
+R6924:6924 Trinity.E6vsH4 <> q:5 var

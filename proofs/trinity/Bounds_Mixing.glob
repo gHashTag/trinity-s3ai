@@ -1,51 +1,146 @@
-DIGEST 377fa2a1e8f7ff682b8b70c1e46bd633
+DIGEST 041b29b83f8357ced7f4a272d6c6b166
 FTrinity.Bounds_Mixing
 R671:675 Coq.Reals.Reals <> <> lib
-R693:707 Interval.Tactic <> <> lib
-R725:731 Trinity.CorePhi <> <> lib
-def 1467:1476 <> deg_to_rad
-R1485:1485 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-binder 1479:1481 <> deg:1
-R1490:1490 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1503:1505 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1498:1500 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R1495:1497 Trinity.Bounds_Mixing <> deg:1 var
-R1501:1502 Coq.Reals.Rtrigo1 <> PI def
-def 1523:1532 <> rad_to_deg
-R1541:1541 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-binder 1535:1537 <> rad:2
-R1546:1546 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R1560:1562 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1554:1556 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R1551:1553 Trinity.Bounds_Mixing <> rad:2 var
-R1563:1564 Coq.Reals.Rtrigo1 <> PI def
-def 2607:2621 <> N04_formula_rad
-R2625:2625 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R2631:2633 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R2637:2637 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R2634:2636 Trinity.CorePhi <> phi def
-def 2678:2692 <> N04_formula_deg
-R2696:2696 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R2701:2710 Trinity.Bounds_Mixing <> rad_to_deg def
-R2712:2726 Trinity.Bounds_Mixing <> N04_formula_rad def
-prf 3023:3038 <> N04_radian_value
-R3049:3051 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R3067:3069 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R3052:3066 Trinity.Bounds_Mixing <> N04_formula_rad def
-R3052:3066 Trinity.Bounds_Mixing <> N04_formula_rad def
-R3093:3107 Trinity.Bounds_Mixing <> N04_formula_rad def
-R3117:3119 Trinity.CorePhi <> phi def
-R3146:3151 Interval.Tactic <> i_prec constr
-R3146:3151 Interval.Tactic <> i_prec constr
-R3146:3151 Interval.Tactic <> i_prec constr
-prf 3216:3231 <> N04_degree_value
-R3241:3243 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R3259:3261 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R3244:3258 Trinity.Bounds_Mixing <> N04_formula_deg def
-R3244:3258 Trinity.Bounds_Mixing <> N04_formula_deg def
-R3284:3298 Trinity.Bounds_Mixing <> N04_formula_deg def
-R3301:3315 Trinity.Bounds_Mixing <> N04_formula_rad def
-R3318:3327 Trinity.Bounds_Mixing <> rad_to_deg def
-R3339:3341 Trinity.CorePhi <> phi def
-R3359:3364 Interval.Tactic <> i_prec constr
-R3359:3364 Interval.Tactic <> i_prec constr
+R693:695 Coq.micromega.Lra <> <> lib
+R713:727 Interval.Tactic <> <> lib
+R758:764 Trinity.CorePhi <> <> lib
+def 1500:1509 <> deg_to_rad
+R1518:1518 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 1512:1514 <> deg:1
+R1523:1523 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1536:1538 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1531:1533 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R1528:1530 Trinity.Bounds_Mixing <> deg:1 var
+R1534:1535 Coq.Reals.Rtrigo1 <> PI def
+def 1556:1565 <> rad_to_deg
+R1574:1574 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 1568:1570 <> rad:2
+R1579:1579 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1593:1595 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R1587:1589 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R1584:1586 Trinity.Bounds_Mixing <> rad:2 var
+R1596:1597 Coq.Reals.Rtrigo1 <> PI def
+def 2640:2654 <> N04_formula_rad
+R2658:2658 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2664:2666 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2670:2670 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R2667:2669 Trinity.CorePhi <> phi def
+def 2711:2725 <> N04_formula_deg
+R2729:2729 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2734:2743 Trinity.Bounds_Mixing <> rad_to_deg def
+R2745:2759 Trinity.Bounds_Mixing <> N04_formula_rad def
+prf 3056:3071 <> N04_radian_value
+R3082:3084 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R3100:3102 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R3085:3099 Trinity.Bounds_Mixing <> N04_formula_rad def
+R3085:3099 Trinity.Bounds_Mixing <> N04_formula_rad def
+def 4324:4351 <> delta_CP_experimental_center
+R4355:4355 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 4410:4442 <> delta_CP_experimental_uncertainty
+R4446:4446 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+prf 4484:4512 <> N04_within_experimental_range
+R4571:4573 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R4518:4521 Coq.Reals.Rbasic_fun <> Rabs def
+R4539:4541 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R4524:4538 Trinity.Bounds_Mixing <> N04_formula_deg def
+R4542:4569 Trinity.Bounds_Mixing <> delta_CP_experimental_center def
+R4574:4606 Trinity.Bounds_Mixing <> delta_CP_experimental_uncertainty def
+def 4961:4987 <> delta_CP_experimental_lower
+R4991:4991 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+prf 5009:5036 <> N04_above_experimental_lower
+R5057:5059 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R5042:5056 Trinity.Bounds_Mixing <> N04_formula_deg def
+R5060:5086 Trinity.Bounds_Mixing <> delta_CP_experimental_lower def
+prf 5234:5252 <> N04_mixing_verified
+R5287:5289 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R5258:5261 Coq.Reals.Rbasic_fun <> Rabs def
+R5279:5281 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R5264:5278 Trinity.Bounds_Mixing <> N04_formula_deg def
+def 5768:5780 <> sin2_theta_12
+R5784:5784 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R5790:5790 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+def 5805:5817 <> sin2_theta_23
+R5821:5821 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R5827:5827 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+def 5842:5854 <> sin2_theta_13
+R5858:5858 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R5864:5864 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+prf 6036:6051 <> theta_12_from_H4
+R6083:6085 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6057:6060 Coq.Reals.Rbasic_fun <> Rabs def
+R6076:6078 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6063:6075 Trinity.Bounds_Mixing <> sin2_theta_12 def
+R6080:6080 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6109:6121 Trinity.Bounds_Mixing <> sin2_theta_12 def
+R6133:6136 Coq.Reals.Rbasic_fun <> Rabs def
+R6151:6159 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R6165:6167 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6163:6163 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6169:6169 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6151:6159 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R6165:6167 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6163:6163 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6169:6169 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+prf 6194:6209 <> theta_23_from_H4
+R6241:6243 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6215:6218 Coq.Reals.Rbasic_fun <> Rabs def
+R6234:6236 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6221:6233 Trinity.Bounds_Mixing <> sin2_theta_23 def
+R6238:6238 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6267:6279 Trinity.Bounds_Mixing <> sin2_theta_23 def
+R6291:6294 Coq.Reals.Rbasic_fun <> Rabs def
+R6309:6317 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R6323:6325 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6321:6321 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6327:6327 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6309:6317 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R6323:6325 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6321:6321 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6327:6327 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+prf 6352:6367 <> theta_13_from_H4
+R6400:6402 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6373:6376 Coq.Reals.Rbasic_fun <> Rabs def
+R6392:6394 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6379:6391 Trinity.Bounds_Mixing <> sin2_theta_13 def
+R6396:6396 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6426:6438 Trinity.Bounds_Mixing <> sin2_theta_13 def
+R6450:6453 Coq.Reals.Rbasic_fun <> Rabs def
+R6468:6476 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R6483:6485 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6480:6480 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6487:6487 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6468:6476 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R6483:6485 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6480:6480 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6487:6487 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+prf 6756:6777 <> mixing_bounds_verified
+R6816:6821 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6812:6814 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6783:6786 Coq.Reals.Rbasic_fun <> Rabs def
+R6804:6806 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6789:6803 Trinity.Bounds_Mixing <> N04_formula_deg def
+R6856:6861 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6848:6850 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6822:6825 Coq.Reals.Rbasic_fun <> Rabs def
+R6841:6843 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6828:6840 Trinity.Bounds_Mixing <> sin2_theta_12 def
+R6845:6845 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6896:6901 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6888:6890 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6862:6865 Coq.Reals.Rbasic_fun <> Rabs def
+R6881:6883 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6868:6880 Trinity.Bounds_Mixing <> sin2_theta_23 def
+R6885:6885 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6929:6931 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6902:6905 Coq.Reals.Rbasic_fun <> Rabs def
+R6921:6923 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6908:6920 Trinity.Bounds_Mixing <> sin2_theta_13 def
+R6925:6925 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6969:6987 Trinity.Bounds_Mixing <> N04_mixing_verified prfax
+R6997:7012 Trinity.Bounds_Mixing <> theta_12_from_H4 thm
+R7022:7037 Trinity.Bounds_Mixing <> theta_23_from_H4 thm
+R7047:7062 Trinity.Bounds_Mixing <> theta_13_from_H4 thm
+R6969:6987 Trinity.Bounds_Mixing <> N04_mixing_verified prfax
+R6997:7012 Trinity.Bounds_Mixing <> theta_12_from_H4 thm
+R7022:7037 Trinity.Bounds_Mixing <> theta_23_from_H4 thm
+R7047:7062 Trinity.Bounds_Mixing <> theta_13_from_H4 thm

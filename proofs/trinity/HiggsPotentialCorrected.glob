@@ -1,4 +1,4 @@
-DIGEST 12a3480b2ecfb109b06c3dd988810105
+DIGEST 7e05aafd30f3a711802eb43b071a6a64
 FTrinity.HiggsPotentialCorrected
 R1155:1159 Coq.Reals.Reals <> <> lib
 R1186:1188 Coq.micromega.Lra <> <> lib
@@ -37,31 +37,69 @@ R2699:2710 Trinity.HiggsPotentialCorrected <> m_H_measured def
 prf 2816:2830 <> m_H_Trinity_pos
 R2835:2837 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
 R2838:2848 Trinity.HiggsPotentialCorrected <> m_H_Trinity def
-R2867:2877 Trinity.HiggsPotentialCorrected <> m_H_Trinity def
-R2891:2893 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2894:2896 Trinity.HiggsPotentialCorrected <> phi def
-R2891:2893 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2894:2896 Trinity.HiggsPotentialCorrected <> phi def
-R2911:2913 Trinity.HiggsPotentialCorrected <> phi def
-R2925:2927 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2928:2931 Coq.Reals.R_sqrt <> sqrt def
-R2946:2955 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
-R2925:2927 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2928:2931 Coq.Reals.R_sqrt <> sqrt def
-R2946:2955 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
-R2982:2984 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2988:2990 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R2985:2987 Trinity.HiggsPotentialCorrected <> phi def
-R3004:3009 Coq.Reals.Rfunctions <> pow_lt thm
-R2982:2984 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R2988:2990 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R2985:2987 Trinity.HiggsPotentialCorrected <> phi def
-R3004:3009 Coq.Reals.Rfunctions <> pow_lt thm
-R3036:3038 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R3040:3042 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R3039:3039 Trinity.HiggsPotentialCorrected <> e defax
-R3056:3061 Coq.Reals.Rfunctions <> pow_lt thm
-R3036:3038 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R3040:3042 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R3039:3039 Trinity.HiggsPotentialCorrected <> e defax
-R3056:3061 Coq.Reals.Rfunctions <> pow_lt thm
+R2956:2969 Trinity.HiggsPotentialCorrected TrinityFormula <> sec
+sec 3227:3240 <> VEVGapAnalysis
+def 3369:3379 <> lambda_bare
+R3383:3383 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3389:3391 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3395:3397 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R3392:3394 Trinity.HiggsPotentialCorrected <> phi def
+def 3512:3517 <> v_bare
+R3521:3521 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3537:3539 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3526:3536 Trinity.HiggsPotentialCorrected <> m_H_Trinity def
+R3540:3543 Coq.Reals.R_sqrt <> sqrt def
+R3547:3549 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3550:3560 Trinity.HiggsPotentialCorrected <> lambda_bare def
+prf 3640:3653 <> VEV_gap_exists
+R3665:3667 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R3659:3664 Trinity.HiggsPotentialCorrected <> v_bare def
+R3668:3671 Trinity.HiggsPotentialCorrected <> v_SM def
+R3816:3821 Trinity.HiggsPotentialCorrected <> v_bare def
+R3824:3834 Trinity.HiggsPotentialCorrected <> m_H_Trinity def
+R3837:3847 Trinity.HiggsPotentialCorrected <> lambda_bare def
+R3850:3853 Trinity.HiggsPotentialCorrected <> v_SM def
+def 3976:3985 <> gap_factor
+R3989:3989 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4000:4002 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3994:3999 Trinity.HiggsPotentialCorrected <> v_bare def
+R4003:4006 Trinity.HiggsPotentialCorrected <> v_SM def
+var 4055:4073 VEVGapAnalysis gap_approx_6percent
+R4088:4090 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R4101:4103 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R4082:4084 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R4091:4100 Trinity.HiggsPotentialCorrected <> gap_factor def
+R4091:4100 Trinity.HiggsPotentialCorrected <> gap_factor def
+R4107:4109 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R4450:4463 Trinity.HiggsPotentialCorrected VEVGapAnalysis <> sec
+sec 4721:4739 <> CorrectedDerivation
+def 4854:4869 <> lambda_corrected
+R4873:4873 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R4893:4896 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R4909:4909 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R4889:4891 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R4878:4888 Trinity.HiggsPotentialCorrected <> m_H_Trinity def
+R4898:4900 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4905:4907 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R4901:4904 Trinity.HiggsPotentialCorrected <> v_SM def
+def 5150:5164 <> mu_sq_corrected
+R5168:5168 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R5189:5191 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5173:5188 Trinity.HiggsPotentialCorrected <> lambda_corrected def
+R5196:5198 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R5192:5195 Trinity.HiggsPotentialCorrected <> v_SM def
+def 5267:5277 <> v_corrected
+R5281:5281 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R5286:5289 Coq.Reals.R_sqrt <> sqrt def
+R5307:5309 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R5292:5306 Trinity.HiggsPotentialCorrected <> mu_sq_corrected def
+R5310:5325 Trinity.HiggsPotentialCorrected <> lambda_corrected def
+prf 5398:5421 <> VEV_corrected_matches_SM
+R5438:5440 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5427:5437 Trinity.HiggsPotentialCorrected <> v_corrected def
+R5441:5444 Trinity.HiggsPotentialCorrected <> v_SM def
+R5463:5473 Trinity.HiggsPotentialCorrected <> v_corrected def
+R5476:5490 Trinity.HiggsPotentialCorrected <> mu_sq_corrected def
+R5493:5508 Trinity.HiggsPotentialCorrected <> lambda_corrected def
+R5541:5551 Coq.Reals.R_sqrt <> sqrt_square thm
+R5541:5551 Coq.Reals.R_sqrt <> sqrt_square thm

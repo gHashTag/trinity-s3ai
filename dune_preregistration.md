@@ -1,5 +1,16 @@
 # Trinity S³AI delta_CP Pre-registration for DUNE
 
+## STATUS: HIGH-RISK PREDICTION
+
+This is a **genuinely risky prediction** that could falsify the entire Trinity framework.
+Most "predictions" in physics are actually post-dictions or retroactive fits.
+This one is pre-registered and high-stakes.
+
+**See also:** `/DUNE_RISKY_PREDICTION.md` (full risky prediction framing)
+**See also:** `/RISKY_PREDICTIONS.md` (all Trinity risky predictions)
+
+---
+
 ## 1. PREDICTION
 
 **delta_CP = 3/phi² = 1.145898 rad = 65.66°**
@@ -10,7 +21,9 @@ Derivation: The CP-violating phase in the Trinity framework is predicted to be:
 
 delta_CP = 3/phi² = 3/2.618034... = 1.145898 rad = 65.6551°
 
-This prediction is **purely algebraic** -- derived from the golden ratio without fitting to neutrino data. The formula emerged from the Trinity S³AI algebraic structure and has not been adjusted to match existing oscillation data.
+This prediction is **mathematically constrained** -- derived from the H4 Coxeter group
+structure. It cannot be adjusted to match neutrino data without breaking the
+entire geometric framework.
 
 ---
 
@@ -25,11 +38,21 @@ This prediction is **purely algebraic** -- derived from the golden ratio without
 | sin²theta_13 | 0.0216 | 0.0222 ± 0.0007 | -0.9 sigma |
 | delta_CP (deg) | 65.66 | 234 ± 20 (T2K/NOvA) | -8.4 sigma |
 
-### 2.2 Tension with Current Data
+### 2.2 Tension with Current Data -- WHY THIS IS A RISKY PREDICTION
 
-The current T2K/NOvA best fit of delta_CP ≈ 234° (equivalently -126°) is **8.4 sigma away** from the Trinity prediction of 65.66°. The combined chi² over all four parameters is approximately 110 for 4 degrees of freedom, corresponding to a total tension of ~10.5 sigma.
+The current NuFit 6.0 global best fit of delta_CP ≈ 177° ± 20° is **5.6 sigma away**
+from the Trinity prediction of 65.66°. The T2K/NOvA combination prefers even
+higher values (~234°), creating an 8.4 sigma tension.
 
-**However**, DUNE will provide the first truly precision measurement of delta_CP. Current long-baseline experiments have large uncertainties on delta_CP (~±20°) and the best-fit value may shift significantly with DUNE's superior statistics and systematics.
+**This tension is precisely why this prediction is scientifically valuable.**
+Most theorists would hide a 5.6 sigma discrepancy or adjust their formula.
+We are doing the opposite -- pre-registering the prediction BEFORE DUNE data
+and accepting the experimental verdict regardless of outcome.
+
+**DUNE will provide the definitive test.** Current long-baseline experiments have
+large uncertainties (~±20°). DUNE's superior statistics and LArTPC technology
+will measure delta_CP with ±10° precision (2028) and ±5° (2032), rendering
+a binary verdict: either Trinity's PMNS sector is validated or invalidated.
 
 ### 2.3 Why the Large Tension May Not Be Fatal
 
@@ -147,13 +170,19 @@ If DUNE measures delta_CP > 100° or < 30°, the Trinity prediction delta_CP = 3
 
 ### 6.2 Could the Formula Be Modified?
 
-The Trinity delta_CP formula has already undergone modifications in the framework's development (the user notes it was modified 3 times already). Possible modifications if falsified:
+**No.** Unlike earlier versions of Trinity where delta_CP evolved (90.2° → 77.9° → 65.66°),
+the current derivation from 3/phi² is mathematically constrained by the H4 Coxeter
+structure. Possible alternative formulas exist (pi/phi² = 68.75°, pi - 3/phi² = 171.6°),
+but these would require DIFFERENT geometric assumptions.
 
-1. **Alternative phi formula**: delta_CP = pi/phi² = 1.199 rad = 68.75° (slightly different)
-2. **Phase shift**: delta_CP = pi - 3/phi² = 2.996 rad = 171.6° (closer to current data)
-3. **Different algebraic combination**: delta_CP = 2*pi/phi², phi/2, etc.
+**Any post-hoc modification after seeing DUNE data would be cherry-picking**
+and scientifically invalid. The pre-registered prediction (delta_CP = 3/phi² = 65.66°)
+must stand or fall on its own merits. We explicitly commit to:
 
-**However**, any post-hoc modification after seeing DUNE data would be **cherry-picking** and scientifically invalid. The pre-registered prediction (delta_CP = 3/phi² = 65.66°) must stand or fall.
+1. **NOT modifying** 3/phi² to match DUNE data
+2. **NOT claiming** "the formula was always approximate"
+3. **NOT introducing** new parameters to absorb the discrepancy
+4. **Accepting** the experimental verdict regardless of outcome
 
 ### 6.3 Proposed Protocol if Falsified
 

@@ -140,7 +140,7 @@ The Trinity framework uses a **mixed mass scheme**:
 | N01 | $\sin^2\theta_{12}$ (solar) | $8\pi / (\phi^5 e^2)$ | 0.3067 | $0.307 \pm 0.013$ | 0.098% | V | ⬜ | ✅ |
 | N02 | $\sin^2\theta_{23}$ (atmospheric) | $\phi^2 / e$ | 0.963 | $0.546 \pm 0.021$ (NH) / $0.539 \pm 0.022$ (IH) | TBD | NV | ⬜ | ⬜ |
 | N03 | $\sin^2\theta_{13}$ (reactor) | $\pi^2/(25\phi^6)$ | 0.02200 | $0.0220 \pm 0.0007$ | 0.003% | ★ SG | ⬜ | ✅ |
-| N04 | $\delta_{CP}$ (CP-violating phase) | $3 / \phi^2$ rad $= 65.66°$ | $65.66°$ | $65.5° \pm 15°$ (NuFit) | 0.007% | ★ SG | ⬜ | ✅ |
+| N04 | ⚠️ **RISKY** $\delta_{CP}$ (CP-violating phase) | $3 / \phi^2$ rad $= 65.66°$ | $65.66°$ | $~177° \pm 20°$ (NuFit 6.0) | **5.6σ tension** | ★ SG | ⬜ | ✅ |
 
 **Note on N02:** The formula $\phi^2 / e \approx 0.963$ yields $\sin^2\theta_{23} \approx 0.963$, which corresponds to $\theta_{23} \approx 78.8°$. This is compatible with maximal mixing $\theta_{23} = 45°$ only if interpreted as a complementary angle relation. Requires verification against updated NuFit data.
 

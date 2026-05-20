@@ -1,4 +1,4 @@
-DIGEST 12221ccc97b63d6a18a1fa7f09feca53
+DIGEST e3a19ff9054b1f2556311b9db7014acd
 FTrinity.Predictions
 R1492:1496 Coq.Reals.Reals <> <> lib
 R1528:1533 Interval.Tactic <> <> lib
@@ -18,6 +18,23 @@ R1907:1909 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
 R1924:1926 Trinity.Predictions <> phi def
 R1924:1926 Trinity.Predictions <> phi def
 R1941:1943 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R1971:1973 Trinity.Predictions <> phi def
-R1991:1996 Interval.Tactic <> i_prec constr
-R1991:1996 Interval.Tactic <> i_prec constr
+def 2073:2085 <> delta_CP_pred
+R2089:2089 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2095:2097 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2101:2101 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R2098:2100 Trinity.Predictions <> phi def
+def 2116:2131 <> delta_CP_degrees
+R2135:2135 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2159:2161 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2153:2155 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2140:2152 Trinity.Predictions <> delta_CP_pred def
+R2162:2163 Coq.Reals.Rtrigo1 <> PI def
+prf 2173:2195 <> delta_CP_degrees_bounds
+R2206:2208 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2225:2227 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2209:2224 Trinity.Predictions <> delta_CP_degrees def
+R2209:2224 Trinity.Predictions <> delta_CP_degrees def
+prf 2296:2313 <> m_nue_approx_0_103
+R2333:2335 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2346:2348 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R2324:2326 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not

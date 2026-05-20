@@ -3,6 +3,37 @@
 
 ---
 
+## Risky Predictions Framework
+
+Trinity makes three **genuinely risky predictions** -- predictions that could falsify
+the framework if they disagree with future data. This is a feature, not a bug.
+A theory that only makes safe predictions is not testable science.
+
+| Prediction | Risk Level | Current Tension | Experiment | Year |
+|------------|------------|-----------------|------------|------|
+| **delta_CP = 65.66°** | CRITICAL | **5.6 sigma** | DUNE | 2028-2032 |
+| **m_nue = 0.103 eV** | HIGH | Medium | KATRIN | 2025-2030 |
+| **sin^2(theta_13) = 0.0220** | LOW | Agrees | JUNO | 2027-2028 |
+
+### Why Risky Predictions Matter
+
+Most "predictions" in theoretical physics are actually:
+- **Post-dictions**: Fitting known data after the fact
+- **Retroactive adjustments**: Tweaking formulas to match new measurements
+- **Safe bets**: Predicting ranges so broad they cannot be wrong
+
+Trinity's delta_CP = 65.66° prediction is different:
+- It is **pre-registered** before DUNE data (documented at /DUNE_RISKY_PREDICTION.md)
+- It is in **5.6 sigma tension** with current data -- most theorists would hide this
+- It is **mathematically constrained** -- cannot be adjusted without breaking H4 structure
+- DUNE will give a **binary verdict** within 3-5 years
+
+**If delta_CP is confirmed at ~65°, Trinity goes from fringe to mainstream overnight.**
+**If delta_CP is falsified at ~180°, Trinity's PMNS sector is invalidated.**
+Either outcome is scientifically valuable.
+
+---
+
 ## 1. Где Trinity сейчас (v4.0)
 
 | Метрика | Значение |

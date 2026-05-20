@@ -28,6 +28,7 @@ VFILES := \
 	HiggsPrediction.v \
 	OptimizerInvariants.v \
 	UniquenessTheorem.v \
+	UniquenessStructural.v \
 	HonestPValue.v \
 	E6vsH4.v
 
