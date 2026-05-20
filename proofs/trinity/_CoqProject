@@ -1,0 +1,8 @@
+-Q . Trinity
+
+CorePhi.v
+H4Derivations.v
+Bounds_LeptonMasses.v
+Bounds_Mixing.v
+Unitarity.v
+Catalog42.v
