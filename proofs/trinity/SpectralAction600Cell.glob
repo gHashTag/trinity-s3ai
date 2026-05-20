@@ -1,4 +1,4 @@
-DIGEST 5e857e018ee70523a39790f3be172f1c
+DIGEST 194793fbf5e5782d3a28b9da41db0c40
 FTrinity.SpectralAction600Cell
 R905:909 Coq.Reals.Reals <> <> lib
 R936:938 Coq.micromega.Lra <> <> lib
@@ -1273,7 +1273,10 @@ R17235:17237 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
 R17232:17234 Trinity.SpectralAction600Cell <> phi def
 R17276:17285 Coq.Reals.RIneq <> Rgt_not_eq thm
 R17276:17285 Coq.Reals.RIneq <> Rgt_not_eq thm
-R17294:17299 Coq.Reals.RIneq <> Rlt_gt thm
-R17302:17307 Coq.Reals.Rfunctions <> pow_lt thm
-R17294:17299 Coq.Reals.RIneq <> Rlt_gt thm
-R17302:17307 Coq.Reals.Rfunctions <> pow_lt thm
+R17294:17300 Trinity.SpectralAction600Cell <> phi_pos thm
+R17294:17300 Trinity.SpectralAction600Cell <> phi_pos thm
+prf 17352:17368 <> EulerChar_600Cell
+R17383:17385 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17374:17382 Trinity.SpectralAction600Cell <> euler_600 def
+R17405:17413 Trinity.SpectralAction600Cell <> euler_600 def
+R17432:17442 Trinity.SpectralAction600Cell GaugeGroups <> sec

@@ -11,7 +11,7 @@
 
 Require Import Reals.
 From Interval Require Import Tactic.
-Require Import Psatz.
+Require Import Lra.
 
 Open Scope R_scope.
 
@@ -51,24 +51,21 @@ Lemma phi_bounds :
   16180339887 / 10000000000 < phi < 16180339889 / 10000000000.
 Proof.
   unfold phi.
-  interval_intro (sqrt 5) with (i_prec 80) as [Hlo Hhi].
-  psatz R.
+  split; interval with (i_prec 80).
 Qed.
 
 Lemma L01_bounds :
   75988559243 / 1000000000000 < L01 < 75988559245 / 1000000000000.
 Proof.
   unfold L01, phi.
-  interval_intro (sqrt 5) with (i_prec 120) as [Hlo Hhi].
-  psatz R.
+  split; interval with (i_prec 120).
 Qed.
 
 Lemma L03_bounds :
   455931355468 / 1000000000000000 < L03 < 455931355470 / 1000000000000000.
 Proof.
   unfold L03, phi.
-  interval_intro (sqrt 5) with (i_prec 140) as [Hlo Hhi].
-  psatz R.
+  split; interval with (i_prec 140).
 Qed.
 
 (******************************************************************************)
@@ -89,8 +86,7 @@ Lemma Koide_formula_bounds :
   639886771 / 1000000000 < Koide_formula < 639886773 / 1000000000.
 Proof.
   unfold Koide_formula, L01, L03, phi.
-  interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
-  psatz R.
+  split; interval with (i_prec 160).
 Qed.
 
 (* Honest error quantification: |Koide_formula - 2/3| / (2/3) ~ 4.0% *)
@@ -98,16 +94,14 @@ Lemma Koide_relative_error_upper_bound :
   Rabs (Koide_formula - 2/3) / (2/3) < 1/24.
 Proof.
   unfold Koide_formula, L01, L03, phi.
-  interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
-  psatz R.
+  interval with (i_prec 160).
 Qed.
 
 Lemma Koide_relative_error_positive :
   1/30000 < Rabs (Koide_formula - 2/3) / (2/3).
 Proof.
   unfold Koide_formula, L01, L03, phi.
-  interval_intro (sqrt 5) with (i_prec 160) as [Hlo Hhi].
-  psatz R.
+  interval with (i_prec 160).
 Qed.
 
 (******************************************************************************)
@@ -139,7 +133,7 @@ Proof.
   split.
   - (* Not equal -- honest inequality *)
     intro Heq. rewrite Heq in Khi.
-    psatz R.
+    lra.
   - apply Koide_relative_error_upper_bound.
 Qed.
 
@@ -169,10 +163,35 @@ Lemma Koide_raw_bounds :
   666660511 / 1000000000 < Koide_raw < 666660513 / 1000000000.
 Proof.
   unfold Koide_raw, m_e_raw, m_mu_raw, m_tau_raw.
-  interval_intro (sqrt 0.5109989461) with (i_prec 120) as [He_lo He_hi].
-  interval_intro (sqrt 105.6583745) with (i_prec 120) as [Hmu_lo Hmu_hi].
-  interval_intro (sqrt 1776.86) with (i_prec 120) as [Ht_lo Ht_hi].
-  psatz R.
+  split; interval with (i_prec 120).
+Qed.
+
+(* Separate lemma for err_raw bounds, proved by interval arithmetic *)
+Lemma err_raw_bounds :
+  let err_raw := Rabs (Koide_raw - 2/3) / (2/3) in
+  1/150000 < err_raw < 1/50000.
+Proof.
+  intros err_raw.
+  assert (Hkr: 666660511 / 1000000000 < Koide_raw < 666660513 / 1000000000)
+    by apply Koide_raw_bounds.
+  assert (Habs: Rabs (Koide_raw - 2/3) = 2/3 - Koide_raw).
+  { rewrite Rabs_left1. ring. lra. }
+  unfold err_raw. rewrite Habs.
+  assert (Hkr_lo: 2/3 - 666660513 / 1000000000 < 2/3 - Koide_raw < 2/3 - 666660511 / 1000000000).
+  { destruct Hkr as [H1 H2]. split; lra. }
+  destruct Hkr_lo as [Hlo Hhi].
+  assert (Hlo_pos: 2/3 - 666660513 / 1000000000 > 0) by lra.
+  assert (Hhi_pos: 2/3 - 666660511 / 1000000000 > 0) by lra.
+  (* err_raw = (2/3 - Koide_raw) / (2/3) = (2/3 - Koide_raw) * (3/2) *)
+  assert (Heq: (2/3 - Koide_raw) / (2/3) = (2/3 - Koide_raw) * (3/2)).
+  { field_simplify. lra. }
+  rewrite Heq. split.
+  - apply Rlt_le_trans with (r2 := (2/3 - 666660513 / 1000000000) * (3/2)).
+    + interval with (i_prec 60).
+    + apply Rmult_le_compat_r. lra. lra.
+  - apply Rle_lt_trans with (r2 := (2/3 - 666660511 / 1000000000) * (3/2)).
+    + apply Rmult_le_compat_r. lra. lra.
+    + interval with (i_prec 60).
 Qed.
 
 Theorem H4_is_4x_worse_than_raw_data :
@@ -180,13 +199,56 @@ Theorem H4_is_4x_worse_than_raw_data :
   let err_raw := Rabs (Koide_raw - 2/3) / (2/3) in
   4000 < err_H4 / err_raw < 5000.
 Proof.
-  unfold Koide_formula, Koide_raw, L01, L03, phi,
-         m_e_raw, m_mu_raw, m_tau_raw.
-  interval_intro (sqrt 5) with (i_prec 160) as [H5_lo H5_hi].
-  interval_intro (sqrt 0.5109989461) with (i_prec 120) as [He_lo He_hi].
-  interval_intro (sqrt 105.6583745) with (i_prec 120) as [Hmu_lo Hmu_hi].
-  interval_intro (sqrt 1776.86) with (i_prec 120) as [Ht_lo Ht_hi].
-  psatz R.
+  assert (H4_hi: Rabs (Koide_formula - 2/3) / (2/3) < 1/24) by apply Koide_relative_error_upper_bound.
+  assert (H4_lo: 1/30000 < Rabs (Koide_formula - 2/3) / (2/3)) by apply Koide_relative_error_positive.
+  assert (Hraw: 1/150000 < Rabs (Koide_raw - 2/3) / (2/3) < 1/50000)
+    by apply err_raw_bounds.
+  destruct Hraw as [Hraw_lo Hraw_hi].
+  split.
+  - (* Lower bound on ratio *)
+    apply Rmult_lt_reg_r with (r := Rabs (Koide_raw - 2/3) / (2/3)).
+    { unfold Rdiv. apply Rmult_lt_0_compat.
+      - apply Rabs_pos_lt. intro H0.
+        assert (Hkr: 666660511 / 1000000000 < Koide_raw < 666660513 / 1000000000)
+          by apply Koide_raw_bounds.
+        lra.
+      - apply Rinv_0_lt_compat. lra. }
+    apply Rle_lt_trans with (r2 := 4000 * (Rabs (Koide_raw - 2/3) / (2/3))).
+    { right. field. }
+    replace (Rabs (Koide_formula - 2/3) * / (2/3) * (Rabs (Koide_raw - 2/3) * / (2/3)))
+      with (Rabs (Koide_formula - 2/3) * Rabs (Koide_raw - 2/3) * (/ (2/3) * / (2/3)))
+      by (unfold Rdiv; ring).
+    apply Rle_lt_trans with (r2 := (1/24) * (1/40000) * (/ (2/3) * / (2/3))).
+    + apply Rmult_le_compat.
+      * apply Rmult_le_pos. apply Rabs_pos. apply Rabs_pos.
+      * apply Rmult_le_pos. apply Rabs_pos. apply Rabs_pos.
+      * apply H4_hi.
+      * apply Hraw_hi.
+    + replace (/ (2/3) * / (2/3)) with (9/4) by (field; lra).
+      interval.
+  - (* Upper bound on ratio *)
+    apply Rmult_lt_reg_r with (r := Rabs (Koide_raw - 2/3) / (2/3)).
+    { unfold Rdiv. apply Rmult_lt_0_compat.
+      - apply Rabs_pos_lt. intro H0.
+        assert (Hkr: 666660511 / 1000000000 < Koide_raw < 666660513 / 1000000000)
+          by apply Koide_raw_bounds.
+        lra.
+      - apply Rinv_0_lt_compat. lra. }
+    apply Rlt_le_trans with (r2 := 5000 * (Rabs (Koide_raw - 2/3) / (2/3))).
+    + replace (Rabs (Koide_formula - 2/3) * / (2/3) * (Rabs (Koide_raw - 2/3) * / (2/3)))
+        with (Rabs (Koide_formula - 2/3) * Rabs (Koide_raw - 2/3) * (/ (2/3) * / (2/3)))
+        by (unfold Rdiv; ring).
+      apply Rle_lt_trans with (r2 := (1/24) * (1/80000) * (/ (2/3) * / (2/3))).
+      * apply Rmult_le_compat_r.
+        { apply Rmult_le_pos. apply Rle_refl. apply Rle_refl. }
+        apply Rmult_le_compat.
+        { apply Rabs_pos. }
+        { apply Rabs_pos. }
+        { apply Rlt_le. apply H4_hi. }
+        { apply Rlt_le. apply Hraw_lo. }
+      * replace (/ (2/3) * / (2/3)) with (9/4) by (field; lra).
+        interval.
+    + right. field. lra.
 Qed.
 
 (******************************************************************************)
