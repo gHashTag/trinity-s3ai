@@ -2,6 +2,7 @@
 
 CorePhi.v
 H4Derivations.v
+E6vsH4.v
 Bounds_LeptonMasses.v
 Bounds_Mixing.v
 Unitarity.v
