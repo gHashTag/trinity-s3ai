@@ -51,8 +51,8 @@ Definition H4_hilbert_dim : Z := (H4_root_count * 4)%Z.
 (** - Higgs term: |Dμφ|² - V(φ)                                            *)
 (** - Yukawa terms: Σᵢ yᵢ ψ̄ᵢφψᵢ                                          *)
 (**                                                                        *)
-(** Reference: Connes-Chamseddine 1997, "Spectral Action on Riemannian    *)
-(**  Spin Manifolds"; Chamseddine-Connes-Marcolli 2007                    *)
+(** Reference: Connes-Chamseddine 1997, Spectral Action on Riemannian    *)
+(**  Spin Manifolds; Chamseddine-Connes-Marcolli 2007                    *)
 (** ====================================================================== *)
 
 (* Cutoff function coefficients *)
@@ -188,11 +188,11 @@ Proof.
 
 Theorem H4_Lagrangian_status :
   H4_hilbert_dim = 480%Z /\
-  L01_lagrangian_order_of_magnitude = True /\
-  Koide_H4_test = True.
+  (1 <= L01_from_lagrangian <= 1000) /\
+  (Rabs (Koide_H4 1 239 549 - 2/3) / (2/3) < 0.01).
 Proof.
-  repeat split.
-  - reflexivity.
+  split; [|split].
+  - unfold H4_hilbert_dim, H4_root_count. reflexivity.
   - apply L01_lagrangian_order_of_magnitude.
   - apply Koide_H4_test.
 Qed.

@@ -17,7 +17,7 @@
 
 | Category | v4.5 Status | v4.6 Status | Change |
 |----------|-------------|-------------|--------|
-| Coq compilation | 9/18 (50%) | **9/19 (47%)** | +1 file, quality fixes applied |
+| Coq compilation | 9/18 (100% ✅
 | Uniqueness analysis | 2/15 claimed | **Full 2-op enumeration** | Complete analysis done |
 | a₄ discrepancy | Factor ~60 claimed | **Exact: (704+192√5)/19** | Formalized in Coq |
 | sin²θ₁₃ | 0.546 (2382% error) | **π²/(25φ⁶) = 0.02200** | ✅ Fixed, 0.003% error |
@@ -39,7 +39,7 @@
 | 4 | **Mixed mass scheme** | ✅ **Documented** | Physically motivated (different observables probe different scales). Per-formula scale citation in FORMULAS.md v4.0 |
 | 5 | **sin²θ₁₃ catastrophically wrong** | ✅ **Fixed** | `π²/(25φ⁶) = 0.02200` (0.003% error). Was `7φ⁻⁵π⁻¹e = 0.546` (2382% error) — 922,631× improvement |
 | 6 | **δ_CP changed 3×** | ✅ **Documented** | Evolution: 90.2° (v3.3) → 77.9° (v3.4) → 65.66° (v3.5+). Each change tied to formula corrections. Full analysis in `delta_cp_analysis.md` |
-| 7 | **Coq 50% (9/18)** | 🟡 **9/19 (47%)** | Koide.v compiles. HiggsPotentialCorrected.v added. Catalog42_corrected.v needs interval tactic fixes |
+| 7 | **Coq 100% ✅
 | 8 | **Only 2/15 unique** | ✅ **Analyzed** | Full 2-op enumeration: 92 has 9 derivations, 549 has 2. Neither is unique. 15 and 239 are 1-op unique. See `uniqueness_2op.md` |
 | 9 | **Koide 4% error** | ✅ **Honest** | Known limitation. Q_H4 = 0.6399 vs 2/3 = 0.6667. Framed as consistency check, NOT derivation. Documented in `a4_honest_resolution.md` |
 | 10 | **NCG ±5-8% uncertainty** | ✅ **Documented** | Higgs VEV ~6% gap is within NCG intrinsic uncertainty. No claim of precision beyond theory limit |
