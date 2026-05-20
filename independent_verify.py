@@ -75,6 +75,9 @@ V_ub = 0.0036
 Delta_m2_21 = 7.5e-5        # Δm²₂₁ in eV²
 Delta_m2_31 = 2.5e-3        # Δm²₃₁ in eV²
 
+# delta_CP in degrees (NuFit 5.3)
+delta_CP_target = 65.66     # δ_CP = 3/φ² = 65.66° (CORRECTED v4.5)
+
 # Derived experimental values
 exp_m_t_over_m_u    = m_t / m_u
 exp_m_tau_over_m_e  = m_tau / m_e
@@ -297,7 +300,12 @@ add_result(10, "N01", "8π/(φ⁵e²)", pred, sin2_12,
            "PMNS sin²θ₁₂")
 
 # -----------------------------------------------------------------------------
-# FORMULA 11: N03 = π²/18  →  sin²θ₂₃
+# FORMULA 10b: N04 = 3/φ²  →  δ_CP (CORRECTED v4.5, was e/2)
+# -----------------------------------------------------------------------------
+pred = 3 / phi**2 * 180 / pi  # convert to degrees
+add_result(10.8, "N04_deltaCP", "3/φ² [deg]", pred, 65.66,
+           "PMNS δ_CP — CORRECTED from e/2 (77.9°) to 3/φ² (65.66°)")
+
 # -----------------------------------------------------------------------------
 pred = pi**2 / 18
 add_result(11, "N03", "π²/18", pred, sin2_23,

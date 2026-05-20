@@ -30,7 +30,7 @@ Require Import Lra.
 Require Import List.
 Require Import Ensembles.
 Require Import Interval.Tactic.
-Require Import CorePhi.
+From Trinity Require Import CorePhi.
 
 Open Scope R_scope.
 Open Scope Z_scope.

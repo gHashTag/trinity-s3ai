@@ -8,8 +8,8 @@ Require Import Reals.
 Require Import ZArith.
 Open Scope R_scope.
 
-Require Import CorePhi.
-Require Import H4Derivations.
+From Trinity Require Import CorePhi.
+From Trinity Require Import H4Derivations.
 
 (** ====================================================================== *)
 (** Section 1: H4 Spectral Triple (Connes-Morató Construction)             *)

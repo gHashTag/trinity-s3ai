@@ -7,7 +7,7 @@
 Require Import Reals.
 Open Scope R_scope.
 
-Require Import CorePhi.
+From Trinity Require Import CorePhi.
 
 (* ================================================================== *)
 (* PDG 2024 EXPERIMENTAL CONSTANTS                                    *)
@@ -145,7 +145,7 @@ Definition H4_rank_exact : Z := 4%Z.                   (* rank(H4) = 4 *)
 (* PREDICTIONS (4 total) — awaiting experimental verification         *)
 (* ================================================================== *)
 
-Definition delta_CP_pred : R := exp 1 / 2.             (* DUNE 2030 *)
+Definition delta_CP_pred : R := 3 / (phi * phi).       (* DUNE 2030, CORRECTED v4.5: was e/2 *)
 Definition m_nue_pred : R := 1 / (6 * phi).            (* KATRIN-II 2028 *)
 Definition m_DM_pred : R := powZ phi 5 * PI * (1 + 1/30). (* LZ/XENONnT *)
 Definition Lambda_pred : R := powZ phi (-144) / 2.     (* Cosmology *)

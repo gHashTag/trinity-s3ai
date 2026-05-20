@@ -193,8 +193,8 @@ formulas['N02'] = {
 }
 
 formulas['N03'] = {
-    'name': 'N03: sin²θ₁₃ = 7φ⁻⁵π⁻¹e',
-    'formula': lambda: 7 * φ**(-5) * π**(-1) * e,
+    'name': 'N03: sin²θ₁₃ = π²/(25φ⁶) [CORRECTED v4.5]',
+    'formula': lambda: π**2 / (25 * φ**6),
     'target': targets['PMNS_N03'],
     'tag': 'Mixing'
 }

@@ -9,7 +9,7 @@
 
 Require Import Reals.
 Require Import Interval.Tactic.
-Require Import CorePhi.
+From Trinity Require Import CorePhi.
 
 Open Scope R_scope.
 

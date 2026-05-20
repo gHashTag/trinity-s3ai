@@ -5,7 +5,7 @@
 Require Import Reals.
 Open Scope R_scope.
 
-Require Import CorePhi.
+From Trinity Require Import CorePhi.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* INV-OPT-1: Muon LR = φ⁻³ × 0.1 ≈ 0.0236                          *)

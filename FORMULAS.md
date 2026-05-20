@@ -115,7 +115,7 @@ The Trinity framework uses a **mixed mass scheme**:
 | ID | Parameter | Formula | Predicted Value | PDG / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|------------------|-------|-------|-----------|--------|
 | Q01 | $m_u / m_d$ | $2\phi / 7$ | 0.462 | $0.46 - 0.48$ (lattice) | 0.05% | V | ⬜ | ✅ |
-| Q02 | $m_s / m_u$ | $(12 + \phi^3 e^2) / 10$ | 43.30 | $43.2 \pm 1.4$ (FLAG) | 0.14% | P | ⬜ | ✅ |
+| Q02 | $m_s / m_u$ | $12 + \phi^3 e^2$ | 43.30 | $43.2 \pm 1.4$ (FLAG) | 0.14% | P | ⬜ | ✅ |
 | Q03 | $m_c / m_d$ | $19\pi e^2 / \phi$ | 272.6 | $272.0 \pm 5.0$ | 0.08% | V | ⬜ | ✅ |
 | Q04 | $m_c / m_s$ | $24\pi^3 / e^4$ | 13.63 | $13.633 \pm 0.020$ | 0.0003% | ★ SG | ⬜ | ✅ |
 | Q05 | $m_b / m_s$ | $43 + \pi / \phi$ | 44.94 | $44.94 \pm 0.10$ | 0.004% | ★ SG | ⬜ | ✅ |
@@ -742,6 +742,11 @@ def test_lepton_masses():
     L03 = 549 * E * PI**2 / PHI**3
     assert abs(L03 - 3477) < 0.5, f"L03 failed: {L03}"
 
+def test_neutrino_delta_m2():
+    """Tier 1G: Neutrino mass-squared differences"""
+    nu02 = (PHI * E / PI)**6 * 1e-5
+    assert abs(nu02 - 7.53e-5) < 1e-7, f"nu02 failed: {nu02}"
+
 def test_quark_masses():
     """Tier 1B: Quark mass ratios"""
     Q01 = 2 * PHI / 7
@@ -777,6 +782,7 @@ if __name__ == "__main__":
     test_gauge_couplings()
     test_higgs()
     test_neutrino()
+    test_neutrino_delta_m2()
     print("All tests passed!")
 ```
 
