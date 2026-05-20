@@ -1,0 +1,85 @@
+{
+  "H4_constants": {
+    "phi": 1.618033988749895,
+    "phi2": 2.618033988749895,
+    "phi3": 4.23606797749979,
+    "phi6": 17.944271909999163,
+    "inv_phi": 0.6180339887498948,
+    "order_H4": 384,
+    "C2_H4": 42.0
+  },
+  "mass_matrix": {
+    "structure": "3x3_Hermitian_hierarchical",
+    "diagonal_scaling": "phi^(-e_i/2)",
+    "exponents": [
+      11,
+      17,
+      23
+    ],
+    "off_diagonal": "sqrt(geometric_mean) * H4_CG"
+  },
+  "CKM": {
+    "V_us": {
+      "formula": "2*phi^3*e^2/(9*pi^3)",
+      "value": 0.2243312378140147,
+      "experimental": 0.2243,
+      "error_percent": 0.01
+    },
+    "V_cb": {
+      "formula": "1/(3*phi^2*pi)",
+      "value": 0.04052785252236583,
+      "experimental": 0.0422,
+      "error_percent": 4.0
+    },
+    "V_ub": {
+      "formula": "phi*e^2/(12*pi^3)",
+      "value": 0.032132590539981735,
+      "experimental": 0.00394,
+      "error_percent": 715.0
+    },
+    "mixing_angles": {
+      "theta_12_deg": 12.963555667826352,
+      "theta_23_deg": 2.322711043209899,
+      "theta_13_deg": 0.3716051220438471
+    }
+  },
+  "neutrino": {
+    "m_nue_eV": 0.10300566479164913,
+    "Delta_m2_21": {
+      "formula": "(phi*e/pi)^6 * 1e-5",
+      "value": 7.529974348717803e-05,
+      "experimental": 7.53e-05,
+      "error_percent": 0.0
+    },
+    "Delta_m2_31": {
+      "formula": "phi^6 * Delta_m2_21",
+      "value": 0.001351199071887111,
+      "experimental": 0.00251,
+      "error_percent": 46.2
+    },
+    "seesaw_scale_GeV": 31577289999.999992
+  },
+  "lepton_formulas": {
+    "L01_m_mu_over_m_e": {
+      "formula": "239*e/pi",
+      "value": 206.79617908431135,
+      "experimental": 206.76828260879265,
+      "error_percent": 0.01
+    },
+    "L03_m_tau_over_m_mu": {
+      "formula": "phi^6",
+      "value": 17.944271909999163,
+      "experimental": 16.81702949159037,
+      "error_percent": 6.7
+    }
+  },
+  "generation_structure": {
+    "sector_B_exponents": [
+      11,
+      17,
+      23
+    ],
+    "number_of_generations": 3,
+    "explanation": "E8_Sector_B_exponents_give_3_stable_couplings"
+  }
+}

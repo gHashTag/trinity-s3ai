@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "polytope": "600-cell",
+    "vertices": 120,
+    "edges": 720,
+    "faces": 1200,
+    "cells": 600,
+    "euler_characteristic": 0,
+    "betti_numbers": {
+      "b0": 1,
+      "b1": 0,
+      "b2": 0,
+      "b3": 1
+    },
+    "golden_ratio_phi": 1.618033988749895,
+    "symmetry_group_order": 14400,
+    "binary_icosahedral_group_order": 120
+  },
+  "laplacian_0form": [
+    {
+      "eigenvalue": 0.0,
+      "multiplicity": 1,
+      "closed_form": "0"
+    },
+    {
+      "eigenvalue": 2.2917960675006306,
+      "multiplicity": 4,
+      "closed_form": "12-6\u03c6"
+    },
+    {
+      "eigenvalue": 5.52786404500042,
+      "multiplicity": 9,
+      "closed_form": "4(3-\u03c6)"
+    },
+    {
+      "eigenvalue": 9.0,
+      "multiplicity": 16,
+      "closed_form": "9"
+    },
+    {
+      "eigenvalue": 12.0,
+      "multiplicity": 25,
+      "closed_form": "12"
+    },
+    {
+      "eigenvalue": 14.0,
+      "multiplicity": 36,
+      "closed_form": "14"
+    },
+    {
+      "eigenvalue": 14.47213595499958,
+      "multiplicity": 9,
+      "closed_form": "4(2+\u03c6)"
+    },
+    {
+      "eigenvalue": 15.0,
+      "multiplicity": 16,
+      "closed_form": "15"
+    },
+    {
+      "eigenvalue": 15.70820393249937,
+      "multiplicity": 4,
+      "closed_form": "6\u03c6\u00b2"
+    }
+  ],
+  "clifford_dirac": [
+    {
+      "abs_eigenvalue": 0.4721359549995794,
+      "multiplicity": 72,
+      "ratio_to_min": 1.0,
+      "closed_form": "2/\u03c6\u00b3"
+    },
+    {
+      "abs_eigenvalue": 0.7082039324993691,
+      "multiplicity": 32,
+      "ratio_to_min": 1.5,
+      "closed_form": "3/\u03c6\u00b3"
+    },
+    {
+      "abs_eigenvalue": 1.0,
+      "multiplicity": 96,
+      "ratio_to_min": 2.118033988749895,
+      "closed_form": "1"
+    },
+    {
+      "abs_eigenvalue": 2.0,
+      "multiplicity": 120,
+      "ratio_to_min": 4.23606797749979,
+      "closed_form": "2"
+    },
+    {
+      "abs_eigenvalue": 2.2917960675006306,
+      "multiplicity": 8,
+      "ratio_to_min": 4.854101966249685,
+      "closed_form": "12-6\u03c6"
+    },
+    {
+      "abs_eigenvalue": 3.0,
+      "multiplicity": 80,
+      "ratio_to_min": 6.354101966249685,
+      "closed_form": "3"
+    },
+    {
+      "abs_eigenvalue": 3.23606797749979,
+      "multiplicity": 24,
+      "ratio_to_min": 6.854101966249686,
+      "closed_form": "2\u03c6"
+    },
+    {
+      "abs_eigenvalue": 4.23606797749979,
+      "multiplicity": 48,
+      "ratio_to_min": 7.354101966249686,
+      "closed_form": "2\u03c6+1"
+    }
+  ],
+  "trinity_comparison": {
+    "trinity_mu_over_e": 206.79617908431135,
+    "trinity_tau_over_mu": 16.817017308598597,
+    "trinity_tau_over_e": 3476.9916761472723,
+    "phi_approximations": {
+      "phi^6": {
+        "value": 17.944271909999163,
+        "ratio": "m_tau/m_mu_approx",
+        "error_pct": 6.7
+      },
+      "phi^11": {
+        "value": 199.0050249987407,
+        "ratio": "m_mu/m_e_approx",
+        "error_pct": 3.77
+      },
+      "phi^17": {
+        "value": 3571.000280033584,
+        "ratio": "m_tau/m_e_approx",
+        "error_pct": 2.7
+      }
+    },
+    "two_G_minus_one": {
+      "value": 239,
+      "formula": "2\u00d7120 - 1",
+      "exact_match": true
+    }
+  }
+}

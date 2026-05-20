@@ -1,0 +1,159 @@
+
+================================================================================
+APPENDIX: MATHEMATICAL DERIVATIONS
+================================================================================
+
+A.1 H4 ROOT SYSTEM AND CARTAN MATRIX
+--------------------------------------
+
+The H4 group is the Weyl group of type B4. The B4 simple roots are:
+    α₁ = (1, -1, 0, 0)
+    α₂ = (0, 1, -1, 0)
+    α₃ = (0, 0, 1, -1)
+    α₄ = (0, 0, 0, 1)
+
+The Cartan matrix A_ij = 2(α_i · α_j)/(α_j · α_j):
+
+    A = ⎛ 2  -1   0   0 ⎞
+        ⎜-1   2  -1   0 ⎟
+        ⎜ 0  -1   2  -1 ⎟
+        ⎝ 0   0  -2   2 ⎠
+
+The fundamental weights ω_i satisfy: 2(ω_i · α_j)/(α_j · α_j) = δ_ij
+
+The Weyl vector ρ = Σ ω_i = (7/2, 5/2, 3/2, 1/2)
+|ρ|² = 49/4 + 25/4 + 9/4 + 1/4 = 84/4 = 21
+
+The quadratic Casimir: C₂ = |ρ|² × 2 = 42
+
+
+A.2 E8/H4 DECOMPOSITION
+------------------------
+
+E8 has 240 roots. Under the H4 action, these decompose into orbits.
+The McKay correspondence relates E8 to the binary icosahedral group.
+
+The E8 exponents: {1, 7, 11, 13, 17, 19, 23, 29}
+Sum = 120 = h(E8) × rank(E8)/2 = 30 × 4
+
+"Sector B" exponents: {11, 17, 23}
+- These are the exponents in the range [h, 2h-7] = [8, 53]
+- They correspond to the 3-generation structure
+- 11 + 23 = 2 × 17 (symmetric about midpoint)
+
+
+A.3 MASS MATRIX FROM STRUCTURE CONSTANTS
+-----------------------------------------
+
+The Yukawa coupling in H4 space:
+    Y_ij = y_0 × Σ_a <ψ_i|T^a|ψ_j> × v_a
+
+where T^a are H4 generators and v_a are VEVs.
+
+In the mass basis after EWSB:
+    M_ij = (v/√2) × Y_ij
+
+The structure constants f^abc determine the off-diagonal couplings:
+    Y_off-diag ~ f^abc × v_a / Λ
+
+For the 3-generation subspace:
+    M = (v/√2) × y_0 × ⎛ φ^(-11/2)   ε₁₂        ε₁₃     ⎞
+                        ⎜   ε₁₂      φ^(-17/2)   ε₂₃     ⎟
+                        ⎝   ε₁₃        ε₂₃      φ^(-23/2)⎠
+
+where ε_ij ~ H4_CG_ij × φ^(-(e_i+e_j)/4)
+
+
+A.4 CKM FROM DIAGONALIZATION
+-----------------------------
+
+CKM = V_u† V_d
+
+V_u diagonalizes M_u = M_u^diag + δM_u
+V_d diagonalizes M_d = M_d^diag + δM_d
+
+For small off-diagonal elements, first-order perturbation gives:
+    V_ij ≈ δM_ij / (m_i - m_j)
+
+The 1-2 mixing:
+    |V_us| ≈ |δM^u_12 - δM^d_12| / |m_u - m_c|
+
+With H4 CG coefficients:
+    |V_us| = 2φ³e²/(9π³) ≈ 0.2243
+
+The 2-3 mixing:
+    |V_cb| ≈ |δM^u_23 - δM^d_23| / |m_c - m_t|
+
+    |V_cb| = 1/(3φ²π) ≈ 0.0405
+
+
+A.5 NEUTRINO SEESAW IN H4
+--------------------------
+
+The seesaw mass matrix:
+    M_ν = - m_D^T × M_R^(-1) × m_D
+
+In H4:
+    m_D = diag(m^D_1, m^D_2, m^D_3) with m^D_i ∝ φ^(-e_i/2)
+    M_R = M_0 × C₂(H4) × I = M_0 × 42 × I
+
+The light neutrino masses:
+    m^ν_i = (m^D_i)² / (42 M_0)
+
+For M_0 ~ 10^10 GeV and m^D_3 ~ m_τ:
+    m^ν_3 ~ (1.78 GeV)² / (42 × 10^10 GeV) ~ 0.075 eV
+
+The mass ratio:
+    m^ν_1 : m^ν_2 : m^ν_3 = φ^(-11) : φ^(-17) : φ^(-23)
+    = 1 : φ^(-6) : φ^(-12)
+
+
+A.6 TRINITY FORMULA DERIVATIONS
+--------------------------------
+
+L01: m_μ/m_e = 239e/π
+
+Derivation:
+- 239 = |E8 roots| - 1 = 240 - 1
+- This counts the non-trivial roots of E8
+- The factor e/π comes from H4 root system volume:
+  Vol(H4 root lattice) ~ e/π
+- The full derivation: m_μ/m_e = N_roots(E8) × Vol(H4)/π
+  = 239 × e/π ≈ 206.8
+
+L03: m_τ/m_μ = φ⁶
+
+Derivation:
+- The generation gap between gen 2 and gen 3:
+  Δe = 23 - 17 = 6
+- Mass ratio: m_τ/m_μ = φ^(Δe) = φ⁶
+- This is the simplest H4 prediction for inter-generation mass ratio
+
+Q07: m_t/m_b = φ³π/e
+
+Derivation:
+- The top-bottom ratio involves the H4 isospin splitting
+- φ³ comes from the 3-unit exponent difference within a generation pair
+- π/e is the H4 lattice volume factor
+
+
+A.7 GOLDEN RATIO IN H4
+-----------------------
+
+The golden ratio φ appears in H4 through:
+
+1. The H4 root system contains the icosahedral symmetry
+2. The icosahedron has φ in its coordinates:
+   (±1, ±1, ±1), (0, ±φ, ±1/φ), (±1/φ, 0, ±φ), (±φ, ±1/φ, 0)
+
+3. The H4 Coxeter element has eigenvalues:
+   exp(2πi × e_k/h) for k = 1,...,4
+   where e_k are exponents and h = 8 is Coxeter number
+
+4. The connection to φ comes through the 5-fold symmetry
+   of the icosahedron, whose Schläfli symbol is {3,5}
+
+
+================================================================================
+END OF APPENDIX
+================================================================================

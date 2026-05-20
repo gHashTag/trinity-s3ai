@@ -15,6 +15,7 @@
 Require Import Reals.
 Require Import Lra.
 Require Import Field.
+Require Import Interval.Tactic.
 
 Open Scope R_scope.
 
@@ -88,18 +89,16 @@ Proof.
   (* H01 = 4 * 4.2360679775 * 7.3890560989 ≈ 125.2021757                    *)
   (* |125.2021757 - 125.20| / 125.20 ≈ 0.00001738 < 0.01                    *)
   unfold H01_theoretical, m_H_exp, phi.
-  (* This would require numerical computation in Coq — admitted for now     *)
-  (* as the bound is verified computationally in Python.                    *)
-  admit.
-Admitted.
+  interval with (i_prec 60).
+Qed.
 
 (* Stronger theorem: within 1% of a 0.1% error bound *)
 Theorem H01_within_1percent : Rabs (H01_theoretical - m_H_exp) / m_H_exp < 0.001.
 Proof.
   (* Actual error is ~0.001738%, so 0.1% bound is easily satisfied *)
   unfold H01_theoretical, m_H_exp, phi.
-  admit.
-Admitted.
+  interval with (i_prec 60).
+Qed.
 
 (* Sigma-level theorem: deviation is less than 0.1 sigma *)
 Theorem H01_within_point1_sigma : Rabs (H01_theoretical - m_H_exp) < 0.1 * sigma_exp.
@@ -108,8 +107,8 @@ Proof.
   (* 0.1 * sigma_exp = 0.1 * 0.11 = 0.011 GeV                            *)
   (* 0.002176 < 0.011, so theorem holds                                    *)
   unfold H01_theoretical, m_H_exp, sigma_exp, phi.
-  admit.
-Admitted.
+  interval with (i_prec 60).
+Qed.
 
 (* -------------------------------------------------------------------------- *)
 (* PREDICTION 2: SPECTRAL ACTION a4(600-cell)                                 *)
@@ -200,8 +199,8 @@ Theorem Trinity_formula_verified :
 Proof.
   (* |125.202176 - 125.20| = 0.002176 < 0.01 *)
   unfold H01_theoretical, phi.
-  admit.
-Admitted.
+  interval with (i_prec 60).
+Qed.
 
 (* ========================================================================== *)
 (* NUMERICAL SUMMARY (computed values)                                        *)
