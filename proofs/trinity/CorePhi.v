@@ -65,18 +65,13 @@ Qed.
 Lemma phi_sq : phi * phi = phi + 1.
 Proof.
   unfold phi.
-  (* Expand ((1 + sqrt 5) / 2)^2 *)
-  field_simplify.
-  - (* Show that the expanded form equals (1 + sqrt 5)/2 + 1 *)
-    rewrite Rsqr_sqrt; [ | lra ].
-    field_simplify.
-    + ring.
-    + lra.
-  - (* sqrt 5 <> -1 is trivial since sqrt 5 > 0 *)
-    intro H.
-    assert (Hpos: 0 <= sqrt 5) by apply sqrt_pos.
-    assert (Hpos': 0 < sqrt 5) by (apply sqrt_lt_R0; lra).
-    lra.
+  assert (H1: (1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2) = (1 + 2 * sqrt 5 + sqrt 5 * sqrt 5) / 4)
+    by (field; lra).
+  assert (H2: (1 + sqrt 5) / 2 + 1 = (3 + sqrt 5) / 2)
+    by (field; lra).
+  assert (H3: sqrt 5 * sqrt 5 = 5) by (apply Rsqr_sqrt; lra).
+  rewrite H1, H2, H3.
+  field; lra.
 Qed.
 
 (******************************************************************************)
@@ -86,9 +81,9 @@ Qed.
 (* Higher powers of phi can be reduced using phi_sq.                         *)
 Lemma phi_cubed : phi * phi * phi = 2 * phi + 1.
 Proof.
-  rewrite <- Rmult_assoc.
+  replace (phi * phi * phi) with ((phi * phi) * phi) by ring.
   rewrite phi_sq.
-  field_simplify.
+  replace ((phi + 1) * phi) with (phi * phi + phi) by ring.
   rewrite phi_sq.
   ring.
 Qed.
@@ -97,13 +92,14 @@ Qed.
 Lemma phi_fourth : powZ phi 4 = 3 * phi + 2.
 Proof.
   unfold powZ. simpl.
-  (* phi^4 = (phi^2)^2 = (phi+1)^2 = phi^2 + 2*phi + 1 = (phi+1) + 2*phi + 1 *)
-  (* = 3*phi + 2 *)
-  replace (phi * phi * phi * phi) with ((phi * phi) * (phi * phi)) by ring.
-  rewrite phi_sq.
+  (* phi^4 = (phi^2)^2 = (phi+1)^2 *)
+  assert (H1: phi * (phi * (phi * (phi * 1))) = (phi * phi) * (phi * phi)) by ring.
+  rewrite H1.
+  assert (H2: phi * phi = phi + 1) by apply phi_sq.
+  rewrite H2.
   (* (phi + 1)^2 *)
-  replace ((phi + 1) * (phi + 1)) with (phi^2 + 2*phi + 1) by ring.
-  rewrite phi_sq.
+  replace ((phi + 1) * (phi + 1)) with (phi * phi + 2 * phi + 1) by ring.
+  rewrite H2.
   ring.
 Qed.
 
@@ -111,7 +107,7 @@ Qed.
 Lemma phi_inv : /phi = phi - 1.
 Proof.
   assert (H: phi <> 0) by (apply Rgt_not_eq; apply phi_gt_0).
-  field_simplify_eq; [ | assumption | assumption ].
+  field_simplify_eq; try assumption.
   (* phi * (phi - 1) = 1 *)
   rewrite phi_sq.
   ring.

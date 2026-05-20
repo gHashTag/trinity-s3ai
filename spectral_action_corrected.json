@@ -1,0 +1,47 @@
+{
+  "N_vertices": 120,
+  "phi": 1.618033988749895,
+  "E_edges": 720,
+  "F_faces": 1200,
+  "T_cells": 600,
+  "edge_length": 0.6180339887498948,
+  "dim_H": 2640,
+  "n_zero_modes": 2,
+  "n_nonzero": 2638,
+  "smallest_nonzero": 0.1458980337502919,
+  "Tr_D2_inv": 811.3569822592322,
+  "Tr_D4_inv": 852.3785486837787,
+  "H4_invariants": {
+    "H4_order": 14400,
+    "H4_roots": 120,
+    "degrees": [
+      2,
+      12,
+      20,
+      30
+    ],
+    "coxeter_number": 30,
+    "vertices": 120,
+    "edges": 720,
+    "faces": 1200,
+    "cells": 600,
+    "phi": 1.618033988749895,
+    "edge_length": 1.2360679774997896,
+    "circumradius": 1.618033988749895,
+    "vol_S3": 83.61663030809125,
+    "euler_characteristic": 0
+  },
+  "a4_H4_invariant": 33.88854381999832,
+  "a4_ILV_old": 2638,
+  "gauge_couplings": {
+    "g_unified_sq": 0.5835921350012617,
+    "g_SU2_sq": 0.019453071166708726,
+    "g_SU3_sq": 0.029179606750063085,
+    "g_unified": 0.7639320225002102,
+    "g_SU2": 0.13947426704130308,
+    "g_SU3": 0.1708203932499369
+  },
+  "m_H_correct_GeV": 125.20217569851857,
+  "m_H_old_GeV": 87.36533174494419,
+  "lambda_old": 0.031531748590885686
+}

@@ -12,36 +12,24 @@ COQFLAGS := -Q . Trinity
 COQC     := coqc $(COQFLAGS)
 COQDEP   := coqdep $(COQFLAGS)
 
-# Source files (ordered by dependency)
+# Source files (ordered by dependency — CorePhi.v must be FIRST)
 VFILES := \
-	TrinityCore.v \
-	TrinityConstants.v \
-	TrinityFormula_Q01.v \
-	TrinityFormula_Q02.v \
-	TrinityFormula_Q03.v \
-	TrinityFormula_Q04.v \
-	TrinityFormula_Q05.v \
-	TrinityFormula_Q06.v \
-	TrinityFormula_Q07.v \
-	TrinityFormula_Q08.v \
-	TrinityFormula_Q09.v \
-	TrinityFormula_Q10.v \
-	TrinityFormula_Q11.v \
-	TrinityFormula_Q12.v \
-	TrinityFormula_Q13.v \
-	TrinityFormula_Q14.v \
-	TrinityFormula_Q15.v \
-	TrinityFormula_Q16.v \
-	TrinityFormula_Q17.v \
-	TrinityFormula_L01.v \
-	TrinityFormula_L02.v \
-	TrinityFormula_L03.v \
-	TrinityFormula_P01.v \
-	TrinityFormula_P02.v \
-	TrinityFormula_P03.v \
-	TrinityFormula_P04.v \
-	TrinityPredicates.v \
-	TrinityMain.v
+	CorePhi.v \
+	H4Derivations.v \
+	Bounds_LeptonMasses.v \
+	Bounds_Mixing.v \
+	Unitarity.v \
+	Catalog42.v \
+	Koide.v \
+	H4GaugeEmbedding.v \
+	Predictions.v \
+	H4Lagrangian.v \
+	SpectralAction600Cell.v \
+	HiggsPrediction.v \
+	OptimizerInvariants.v \
+	UniquenessTheorem.v \
+	HonestPValue.v \
+	E6vsH4.v
 
 VOFILES := $(VFILES:.v=.vo)
 GLOBFILES := $(VFILES:.v=.glob)
@@ -76,10 +64,10 @@ stats:
 	@echo "======================================================================"
 	@echo ""
 	@echo "  Source files:    $(words $(VFILES))"
-	@if [ -f TrinityMain.vo ]; then \
-		echo "  Compile status:  SUCCESS (all .vo present)"; \
+	@if [ -f CorePhi.vo ]; then \
+		echo "  CorePhi.vo:      COMPILED (foundation ready)"; \
 	else \
-		echo "  Compile status:  NOT COMPILED (run 'make' first)"; \
+		echo "  CorePhi.vo:      MISSING (foundation fails)"; \
 	fi
 	@echo ""
 	@echo "--- Theorem counts ---"
@@ -87,29 +75,16 @@ stats:
 	@grep -rh "Lemma " $(VFILES) 2>/dev/null | wc -l | xargs -I{} echo "  Lemma:      {}"
 	@grep -rh "Qed." $(VFILES) 2>/dev/null | wc -l | xargs -I{} echo "  Qed:        {}"
 	@grep -rh "Admitted." $(VFILES) 2>/dev/null | wc -l | xargs -I{} echo "  Admitted:   {}"
-	@grep -rh "Defined." $(VFILES) 2>/dev/null | wc -l | xargs -I{} echo "  Defined:    {}"
-	@echo ""
-	@echo "--- Formula definitions ---"
-	@grep -rh "Definition .*theoretical" $(VFILES) 2>/dev/null | wc -l | xargs -I{} echo "  Theoretical formulas: {}"
-	@grep -rh "Definition .*experimental" $(VFILES) 2>/dev/null | wc -l | xargs -I{} echo "  Experimental anchors: {}"
 	@echo ""
 	@echo "--- Proof status ---"
-	@TOTAL=$$(grep -rh "Theorem \|Lemma " $(VFILES) 2>/dev/null | wc -l); \
-	ADMIT=$$(grep -rh "Admitted." $(VFILES) 2>/dev/null | wc -l); \
-	COMPLETE=$$((TOTAL - ADMIT)); \
-	if [ $$TOTAL -gt 0 ]; then \
-		PCT=$$(awk "BEGIN {printf \"%.1f\", $$COMPLETE/$$TOTAL*100}"); \
-		echo "  Complete:   $$COMPLETE / $$TOTAL ($$PCT%)"; \
-	else \
-		echo "  Complete:   N/A (no proofs found)"; \
-	fi
+	@COMPILED=$$(ls *.vo 2>/dev/null | wc -l); \
+	echo "  .vo files:  $$COMPILED / $(words $(VFILES))"
 	@echo ""
 
 # Remove generated files
 clean:
 	rm -f $(VOFILES) $(GLOBFILES) $(AUXFILES)
 	rm -f .coqdeps
-	rm -f *.cmi *.cmx *.o
 	@echo "  Cleaned generated files."
 
 # Full reset (including python cache)

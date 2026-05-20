@@ -1,0 +1,254 @@
+{
+  "N_vertices": 120,
+  "phi": 1.618033988749895,
+  "E_edges": 720,
+  "edge_length": 0.6180339887498948,
+  "vertex_degree": 12,
+  "F_faces": 1200,
+  "T_cells": 600,
+  "euler_characteristic": 0,
+  "dim_H": 2640,
+  "n_zero_modes": 2,
+  "n_nonzero": 2638,
+  "smallest_nonzero": 0.1458980337502919,
+  "largest_eigenvalue": 15.708203932499382,
+  "zeta_D2_0": 2638,
+  "zeta_D2_1": 811.3569822592322,
+  "zeta_D2_2": 852.3785486837787,
+  "zeta_D2_4": 18882.153131570078,
+  "Tr_D2": 14879.999999999998,
+  "Tr_D4": 111840.0,
+  "Tr_Dinv2": 811.3569822592322,
+  "Tr_Dinv4": 852.3785486837787,
+  "Tr_Dinv6": 3207.929810310375,
+  "graded_Tr_inv2": 1.1937117960769683e-12,
+  "graded_Tr_inv4": 1.801936377887614e-11,
+  "spectrum": [
+    {
+      "eigenvalue": 0.0,
+      "multiplicity": 2
+    },
+    {
+      "eigenvalue": 0.1458980338,
+      "multiplicity": 8
+    },
+    {
+      "eigenvalue": 0.3819660113,
+      "multiplicity": 18
+    },
+    {
+      "eigenvalue": 0.527864045,
+      "multiplicity": 12
+    },
+    {
+      "eigenvalue": 0.6972243623,
+      "multiplicity": 32
+    },
+    {
+      "eigenvalue": 1.0745770822,
+      "multiplicity": 50
+    },
+    {
+      "eigenvalue": 1.1458980338,
+      "multiplicity": 32
+    },
+    {
+      "eigenvalue": 1.4818013007,
+      "multiplicity": 72
+    },
+    {
+      "eigenvalue": 1.7639320225,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 1.9331896665,
+      "multiplicity": 60
+    },
+    {
+      "eigenvalue": 2.2087121525,
+      "multiplicity": 32
+    },
+    {
+      "eigenvalue": 2.2917960675,
+      "multiplicity": 8
+    },
+    {
+      "eigenvalue": 2.3819660113,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 2.6180339887,
+      "multiplicity": 18
+    },
+    {
+      "eigenvalue": 2.8074175964,
+      "multiplicity": 96
+    },
+    {
+      "eigenvalue": 2.82180592,
+      "multiplicity": 72
+    },
+    {
+      "eigenvalue": 3.0,
+      "multiplicity": 80
+    },
+    {
+      "eigenvalue": 3.4480705698,
+      "multiplicity": 50
+    },
+    {
+      "eigenvalue": 3.5563271765,
+      "multiplicity": 60
+    },
+    {
+      "eigenvalue": 3.5857864376,
+      "multiplicity": 96
+    },
+    {
+      "eigenvalue": 3.6972243623,
+      "multiplicity": 80
+    },
+    {
+      "eigenvalue": 4.0,
+      "multiplicity": 108
+    },
+    {
+      "eigenvalue": 4.3027756377,
+      "multiplicity": 32
+    },
+    {
+      "eigenvalue": 4.3819660113,
+      "multiplicity": 60
+    },
+    {
+      "eigenvalue": 4.6180339887,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 4.7639320225,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 5.0,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 5.527864045,
+      "multiplicity": 18
+    },
+    {
+      "eigenvalue": 6.0,
+      "multiplicity": 16
+    },
+    {
+      "eigenvalue": 6.2360679775,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 6.3819660113,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 6.4142135624,
+      "multiplicity": 96
+    },
+    {
+      "eigenvalue": 6.477352348,
+      "multiplicity": 50
+    },
+    {
+      "eigenvalue": 6.6180339887,
+      "multiplicity": 60
+    },
+    {
+      "eigenvalue": 6.6963927793,
+      "multiplicity": 72
+    },
+    {
+      "eigenvalue": 6.7912878475,
+      "multiplicity": 32
+    },
+    {
+      "eigenvalue": 6.8541019662,
+      "multiplicity": 8
+    },
+    {
+      "eigenvalue": 7.0,
+      "multiplicity": 144
+    },
+    {
+      "eigenvalue": 7.3027756377,
+      "multiplicity": 80
+    },
+    {
+      "eigenvalue": 7.4436728235,
+      "multiplicity": 60
+    },
+    {
+      "eigenvalue": 7.8541019662,
+      "multiplicity": 32
+    },
+    {
+      "eigenvalue": 8.0,
+      "multiplicity": 50
+    },
+    {
+      "eigenvalue": 8.1925824036,
+      "multiplicity": 96
+    },
+    {
+      "eigenvalue": 8.6180339887,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 9.0,
+      "multiplicity": 64
+    },
+    {
+      "eigenvalue": 9.0668103335,
+      "multiplicity": 60
+    },
+    {
+      "eigenvalue": 9.2360679775,
+      "multiplicity": 48
+    },
+    {
+      "eigenvalue": 9.472135955,
+      "multiplicity": 12
+    },
+    {
+      "eigenvalue": 12.0,
+      "multiplicity": 50
+    },
+    {
+      "eigenvalue": 14.0,
+      "multiplicity": 72
+    },
+    {
+      "eigenvalue": 14.472135955,
+      "multiplicity": 18
+    },
+    {
+      "eigenvalue": 15.0,
+      "multiplicity": 32
+    },
+    {
+      "eigenvalue": 15.7082039325,
+      "multiplicity": 8
+    }
+  ],
+  "K_0": 2640,
+  "K_inf": 2,
+  "Tr_omega_S4": 0.16666666666666669,
+  "Tr_omega_600cell": 0.0,
+  "Tr_omega_product": 440.00000000000006,
+  "a4_ILV": 2638.0,
+  "a4_S4": 0.28888888888888886,
+  "a4_combined": 8282.666666666672,
+  "gauge_coupling_g": 0.110291967389769,
+  "gauge_coupling_alpha": 0.0009680056751474533,
+  "higgs_quartic": 0.031531748590885686,
+  "higgs_mass_GeV": 87.36533174494419,
+  "ratio_Tr4_Tr2sq": 0.0012948174859728015,
+  "effective_radius": 1.1441228056353725
+}

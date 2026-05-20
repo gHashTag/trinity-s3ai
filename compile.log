@@ -1,0 +1,138 @@
+
+========== CorePhi.v ==========
+File "./CorePhi.v", line 71, characters 4-21:
+Error: Found no subterm matching "(sqrt ?M2095)²" in the current goal.
+
+
+========== H4Derivations.v ==========
+File "./H4Derivations.v", line 10, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========== Bounds_LeptonMasses.v ==========
+File "./Bounds_LeptonMasses.v", line 15, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========== Bounds_Mixing.v ==========
+File "./Bounds_Mixing.v", line 12, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========== Unitarity.v ==========
+File "./Unitarity.v", line 12, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========== Catalog42.v ==========
+File "./Catalog42.v", line 9, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========== Koide.v ==========
+File "./Koide.v", line 52, characters 14-40:
+Error: Tactic failure: Goal is not an inequality with constant bounds.
+
+
+========== H4GaugeEmbedding.v ==========
+File "./H4GaugeEmbedding.v", line 32, characters 0-35:
+Warning: To avoid stack overflow, large numbers in nat are interpreted as
+applications of Init.Nat.of_num_uint. [abstract-large-number,numbers]
+File "./H4GaugeEmbedding.v", line 36, characters 36-38:
+Error: Syntax error: [reduce] expected after ':=' (in [def_body]).
+
+
+========== Predictions.v ==========
+File "./Predictions.v", line 34, characters 19-45:
+Error: Tactic failure: Goal is not an inequality with constant bounds.
+
+
+========== H4Lagrangian.v ==========
+File "./H4Lagrangian.v", line 11, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========== SpectralAction600Cell.v ==========
+File "./SpectralAction600Cell.v", line 34, characters 0-35:
+Warning: To avoid stack overflow, large numbers in nat are interpreted as
+applications of Init.Nat.of_num_uint. [abstract-large-number,numbers]
+File "./SpectralAction600Cell.v", line 84, characters 2-21:
+Error:
+Found no subterm matching "sqrt (?M1885 * ?M1885)" in the current goal.
+
+
+========== HiggsPrediction.v ==========
+File "./HiggsPrediction.v", line 135, characters 2-6:
+Error: Tactic failure: not a valid ring equation.
+
+
+========== OptimizerInvariants.v ==========
+File "./OptimizerInvariants.v", line 8, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========== UniquenessTheorem.v ==========
+File "./UniquenessTheorem.v", line 127, characters 16-27:
+Error: Unable to unify "1" with "0".
+
+
+========== HonestPValue.v ==========
+File "./HonestPValue.v", line 12, characters -891--891:
+Warning: Not interpreting "*)" as the end of current non-terminated comment
+because it occurs in a non-terminated string of the comment.
+[comment-terminator-in-string,parsing]
+File "./HonestPValue.v", line 13, characters -972--972:
+Warning: Not interpreting "*)" as the end of current non-terminated comment
+because it occurs in a non-terminated string of the comment.
+[comment-terminator-in-string,parsing]
+File "./HonestPValue.v", line 107, characters 2-5:
+Error: Tactic failure:  Cannot find witness.
+
+
+========== E6vsH4.v ==========
+File "./E6vsH4.v", line 33, characters 0-23:
+Error: Cannot find a physical path bound to logical path CorePhi.
+
+
+========================================
+FINAL SUMMARY
+========================================
+
+=== Coq Environment ===
+Coq version: The Coq Proof Assistant, version 8.16.1
+Total .v files: 16
+
+=== Compilation Results ===
+Files compiled successfully: 0
+Files with errors: 16
+
+=== Error Breakdown ===
+1. CorePhi.v - Tactic error (root cause): Found no subterm matching "(sqrt ?M2095)²"
+2. H4Derivations.v - Depends on CorePhi (missing CorePhi.vo)
+3. Bounds_LeptonMasses.v - Depends on CorePhi (missing CorePhi.vo)
+4. Bounds_Mixing.v - Depends on CorePhi (missing CorePhi.vo)
+5. Unitarity.v - Depends on CorePhi (missing CorePhi.vo)
+6. Catalog42.v - Depends on CorePhi (missing CorePhi.vo)
+7. Koide.v - Tactic failure: Goal is not an inequality with constant bounds
+8. H4GaugeEmbedding.v - Syntax error: [reduce] expected after ':='
+9. Predictions.v - Tactic failure: Goal is not an inequality with constant bounds
+10. H4Lagrangian.v - Depends on CorePhi (missing CorePhi.vo)
+11. SpectralAction600Cell.v - Found no subterm matching "sqrt (?M1885 * ?M1885)"
+12. HiggsPrediction.v - Tactic failure: not a valid ring equation
+13. OptimizerInvariants.v - Depends on CorePhi (missing CorePhi.vo)
+14. UniquenessTheorem.v - Unable to unify "1" with "0"
+15. HonestPValue.v - Tactic failure: Cannot find witness
+16. E6vsH4.v - Depends on CorePhi (missing CorePhi.vo)
+
+=== Proof Statistics (from source files) ===
+Theorem statements: 107
+Lemma statements: 122
+Qed count: 206
+Defined count: 0
+Admitted count: 9
+
+=== Root Cause Analysis ===
+CorePhi.v is the foundational module that 8 other files depend on.
+It fails at line 71 with a subterm matching error.
+Fixing CorePhi.v would resolve 8 of the 16 errors (dependency cascade).
+
