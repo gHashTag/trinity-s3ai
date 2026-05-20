@@ -107,10 +107,14 @@ Qed.
 Lemma phi_inv : /phi = phi - 1.
 Proof.
   assert (H: phi <> 0) by (apply Rgt_not_eq; apply phi_gt_0).
-  field_simplify_eq; try assumption.
-  (* phi * (phi - 1) = 1 *)
-  rewrite phi_sq.
-  ring.
+  unfold phi.
+  assert (H1: /((1 + sqrt 5) / 2) = 2 / (1 + sqrt 5)) by (field; lra).
+  assert (H2: (1 + sqrt 5) / 2 - 1 = (sqrt 5 - 1) / 2) by (field; lra).
+  assert (H3: sqrt 5 * sqrt 5 = 5) by (apply Rsqr_sqrt; lra).
+  assert (H4: 2 / (1 + sqrt 5) = (sqrt 5 - 1) / 2).
+  { field_simplify. rewrite H3. field; lra. intro H5. lra. }
+  rewrite H1, H2.
+  exact H4.
 Qed.
 
 (* phi^3 in closed form for use in bounds *)

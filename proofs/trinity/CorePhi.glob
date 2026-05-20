@@ -1,4 +1,4 @@
-DIGEST 014c6b82ee35f42117160140dc651810
+DIGEST 135de65e7bc3a6c87d080a172db7aa80
 FTrinity.CorePhi
 R424:428 Coq.Reals.Reals <> <> lib
 R446:448 Coq.micromega.Lra <> <> lib
@@ -299,3 +299,26 @@ R3771:3774 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
 R3768:3770 Trinity.CorePhi <> phi def
 R3788:3797 Coq.Reals.RIneq <> Rgt_not_eq thm
 R3806:3813 Trinity.CorePhi <> phi_gt_0 thm
+R3826:3828 Trinity.CorePhi <> phi def
+R3864:3866 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3845:3846 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R3863:3863 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R3847:3847 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3858:3861 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3849:3851 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3852:3855 Coq.Reals.R_sqrt <> sqrt def
+R3868:3871 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3882:3882 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3873:3875 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3876:3879 Coq.Reals.R_sqrt <> sqrt def
+R3864:3866 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3845:3846 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R3863:3863 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R3847:3847 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3858:3861 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3849:3851 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3852:3855 Coq.Reals.R_sqrt <> sqrt def
+R3868:3871 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3882:3882 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3873:3875 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3876:3879 Coq.Reals.R_sqrt <> sqrt def
