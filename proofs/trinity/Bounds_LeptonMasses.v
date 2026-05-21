@@ -60,7 +60,10 @@ Definition L01_target : R := 0.51099895000.
 Theorem L01_bounds :
   Rabs (L01_formula - L01_target) / L01_target < 0.001.
 Proof.
-  (* TODO: numerical verification *)
+  (* NOTE: interval fails — L01_formula = 239*e_charge/PI ≈ 1.22e-17
+     but L01_target = 0.510999 MeV. The formula uses e_charge in Coulombs
+     but lacks the MeV conversion factor. The bound is not numerically
+     satisfied as stated; the formula needs a unit-scaling correction. *)
 Admitted.
 
 (* ==================================================================== *)
@@ -72,20 +75,28 @@ Admitted.
 Theorem L01_numerical_value :
   239 * e_charge / PI > 0.510.
 Proof.
-  (* TODO: numerical verification *)
+  (* NOTE: interval fails — 239*e_charge/PI ≈ 1.22e-17 ≪ 0.510.
+     e_charge = 1.602e-19 C gives a result 17 orders of magnitude too small.
+     The formula needs a unit conversion to MeV/c^2. *)
 Admitted.
 
 Theorem L02_numerical_lower :
   L02_formula > 105.658.
 Proof.
-  (* TODO: numerical verification *)
+  (* NOTE: interval fails — L02_formula = 239*phi^4/PI^4 ≈ 16.817,
+     which is far below 105.658. The formula does not produce the
+     claimed muon mass value. *)
 Admitted.
 
 Theorem L02_numerical_upper :
   L02_formula < 105.659.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  (* NOTE: L02_formula ≈ 16.817 < 105.659 is true. This is a trivial
+     upper bound; the formula value is nowhere near the target muon
+     mass of ~105.658 MeV/c^2. *)
+  unfold L02_formula. simpl. unfold powZ, phi.
+  interval with (i_prec 80).
+Qed.
 
 (******************************************************************************)
 (* Section 4: L03 — Tau Mass (MeV/c^2)                                       *)
@@ -102,13 +113,17 @@ Definition L03_target : R := 1776.86.
 Theorem L03_bounds :
   Rabs (L03_formula - L03_target) / L03_target < 0.0001.
 Proof.
-  (* TODO: numerical verification *)
+  (* NOTE: interval fails — L03_formula = 549*e_charge*PI^2/phi^3 ≈ 2.05e-16
+     but L03_target = 1776.86 MeV. The formula uses e_charge in Coulombs
+     without conversion to MeV/c^2; the numerical value is 18 orders of
+     magnitude too small. *)
 Admitted.
 
 Theorem L03_numerical_value :
   1776.8 < L03_formula < 1777.0.
 Proof.
-  (* TODO: numerical verification *)
+  (* NOTE: interval fails — L03_formula ≈ 2.05e-16, nowhere near 1776.8–1777.0.
+     Same unit conversion issue as L03_bounds. *)
 Admitted.
 
 (******************************************************************************)
@@ -123,8 +138,10 @@ Admitted.
 Theorem chain_L01_L02_approx_L03 :
   Rabs (L01_formula * L02_formula - L03_formula) / L03_formula < 0.01.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  unfold L01_formula, L02_formula, L03_formula, e_charge.
+  unfold powZ, phi. simpl.
+  interval with (i_prec 80).
+Qed.
 
 (******************************************************************************)
 (* Section 6: Koide Consistency Check (NOT a derivation)                     *)
@@ -144,7 +161,11 @@ Definition Koide_rhs : R :=
 Theorem Koide_consistency_check :
   Rabs (Koide_lhs - Koide_rhs) / Koide_rhs < 0.00038.
 Proof.
-  (* TODO: numerical verification *)
+  (* NOTE: interval fails — the Koide relation requires the lepton masses
+     to be in the correct MeV/c^2 range. With the current formulas producing
+     incorrect mass values (L01≈1e-17, L02≈16.8, L03≈2e-16), the Koide
+     ratio evaluates to ~0.5 (50% error), not < 0.038%.
+     The underlying mass formulas need unit-scaling correction first. *)
 Admitted.
 
 (******************************************************************************)

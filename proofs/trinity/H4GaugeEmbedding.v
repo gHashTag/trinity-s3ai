@@ -73,12 +73,99 @@ Proof.
   assert (H: sqrt 5 = 2 * ((1 + sqrt 5) / 2) - 1).
   { field_simplify. lra. }
   rewrite Heq in H.
-  assert (irrational_sqrt5: forall r s : Z, s <> 0%Z -> sqrt 5 <> IZR r / IZR s).
-  { admit. (* Standard result: irrationality of sqrt5 *) }
-  apply irrational_sqrt5 with (r := (2*p - q)%Z) (s := q).
-  - exact Hq.
-  - admit. (* Requires irrationality of sqrt5 *)
-Admitted.
+  assert (irrational_sqrt5: forall (r s : Z), s <> 0%Z -> sqrt 5 <> IZR r / IZR s).
+  { clear p q Hq Heq H. intros r s Hs Heq.
+    assert (Hsq: sqrt 5 * sqrt 5 = IZR r / IZR s * (IZR r / IZR s)).
+    { rewrite Heq. reflexivity. }
+    rewrite Rsqr_sqrt in Hsq by lra.
+    assert (Hfrac: IZR r / IZR s * (IZR r / IZR s) = (IZR r * IZR r) / (IZR s * IZR s)).
+    { field. apply not_0_IZR. exact Hs. }
+    rewrite Hfrac in Hsq.
+    assert (Hcross: 5 * (IZR s * IZR s) = IZR r * IZR r).
+    { apply Rmult_eq_reg_r with (r := IZR s * IZR s).
+      - field_simplify in Hsq. lra.
+      - apply Rgt_not_eq. apply Rmult_lt_0_compat; apply IZR_lt; lia. }
+    assert (Hint: (r * r = 5 * s * s)%Z).
+    { repeat rewrite <- mult_IZR in Hcross. apply eq_IZR. lia. }
+    (* Proof by infinite descent on |r|: if r*r = 5*s*s with s<>0,
+       then 5|r and 5|s, giving smaller solution k*k = 5*m*m. *)
+    assert (Hdesc: forall (fuel : nat) (r s : Z),
+      s <> 0%Z -> (r * r = 5 * s * s)%Z ->
+      (Z.abs r <= Z.of_nat fuel)%Z -> False).
+    { fix IH 1. intros fuel r s Hs' Heq' Hfuel.
+      destruct fuel.
+      - (* |r| = 0, so r = 0, thus s = 0: contradiction *)
+        assert (Hr0: r = 0%Z) by (apply Z.abs_eq_0; lia).
+        rewrite Hr0 in Heq'.
+        assert (Hs0: s = 0%Z).
+        { assert (H: (s * s = 0)%Z) by lia.
+          apply Zmult_integral in H.
+          destruct H as [H | H]; exact H. }
+        contradiction.
+      - (* fuel > 0: show r mod 5 = 0 by case analysis *)
+        assert (Hrm0: (r mod 5 = 0)%Z).
+        { assert (Hrr: ((r * r) mod 5 = 0)%Z).
+          { rewrite <- Heq'.
+            apply Z.mod_divide. lia.
+            exists (s * s)%Z. ring. }
+          assert (Hcases: r mod 5 = 0%Z \/ r mod 5 = 1%Z \/
+                   r mod 5 = 2%Z \/ r mod 5 = 3%Z \/ r mod 5 = 4%Z).
+          { assert (H0: (0 <= r mod 5 < 5)%Z).
+            { split; [apply Z.mod_pos_bound; lia |
+                      apply Z.mod_pos_bound; lia]. }
+            lia. }
+          destruct Hcases as [H0 | [H1 | [H2 | [H3 | H4]]]].
+          + exact H0.
+          + rewrite H1 in Hrr. simpl in Hrr. discriminate.
+          + rewrite H2 in Hrr. simpl in Hrr. discriminate.
+          + rewrite H3 in Hrr. simpl in Hrr. discriminate.
+          + rewrite H4 in Hrr. simpl in Hrr. discriminate. }
+        assert (H5r: (5 | r)%Z).
+        { apply Z.mod_divide. lia. exact Hrm0. }
+        destruct H5r as [k Hk].
+        rewrite Hk in Heq'.
+        assert (Hsk: (s * s = 5 * k * k)%Z) by lia.
+        (* Similarly s mod 5 = 0 *)
+        assert (Hsm0: (s mod 5 = 0)%Z).
+        { assert (Hss: ((s * s) mod 5 = 0)%Z).
+          { rewrite Hsk.
+            apply Z.mod_divide. lia.
+            exists (k * k)%Z. ring. }
+          assert (Hcases: s mod 5 = 0%Z \/ s mod 5 = 1%Z \/
+                   s mod 5 = 2%Z \/ s mod 5 = 3%Z \/ s mod 5 = 4%Z).
+          { assert (H0: (0 <= s mod 5 < 5)%Z).
+            { split; [apply Z.mod_pos_bound; lia |
+                      apply Z.mod_pos_bound; lia]. }
+            lia. }
+          destruct Hcases as [H0 | [H1 | [H2 | [H3 | H4]]]].
+          + exact H0.
+          + rewrite H1 in Hss. simpl in Hss. discriminate.
+          + rewrite H2 in Hss. simpl in Hss. discriminate.
+          + rewrite H3 in Hss. simpl in Hss. discriminate.
+          + rewrite H4 in Hss. simpl in Hss. discriminate. }
+        assert (H5s: (5 | s)%Z).
+        { apply Z.mod_divide. lia. exact Hsm0. }
+        destruct H5s as [m Hm].
+        assert (Hkm: (k * k = 5 * m * m)%Z).
+        { rewrite Hm in Hsk. lia. }
+        assert (Hm0: m <> 0%Z).
+        { intro Hm0'. rewrite Hm0' in Hm. rewrite Hm in Hs'. lia. }
+        assert (Hlt: (Z.abs k <= Z.of_nat fuel)%Z).
+        { rewrite Hk in Hfuel. rewrite Z.abs_mul in Hfuel.
+          simpl (Z.abs 5) in Hfuel. lia. }
+        apply (IH fuel k m Hm0 Hkm Hlt). }
+    apply (Hdesc (Z.abs_nat r) r s Hs Hint).
+    lia. }
+  apply (irrational_sqrt5 (2 * p - q)%Z q Hq).
+  assert (H2: sqrt 5 = IZR (2 * p - q) / IZR q).
+  { rewrite H.
+    replace (2 * IZR p / IZR q - 1) with ((2 * IZR p - IZR q) / IZR q).
+    - replace (2 * IZR p - IZR q) with (IZR (2 * p - q)).
+      + reflexivity.
+      + rewrite <- minus_IZR. rewrite <- mult_IZR. reflexivity.
+    - field. apply not_0_IZR. exact Hq. }
+  exact H2.
+Qed.
 
 (******************************************************************************)
 (* Section 3: Symmetry breaking chain                                         *)

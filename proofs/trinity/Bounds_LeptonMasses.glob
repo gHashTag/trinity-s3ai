@@ -1,4 +1,4 @@
-DIGEST 89848cdfe73088c853c404dd573044c4
+DIGEST 620cf5d2f10c44416c83ba8798794dd4
 FTrinity.Bounds_LeptonMasses
 R907:911 Coq.Reals.Reals <> <> lib
 R929:943 Interval.Tactic <> <> lib
@@ -37,129 +37,142 @@ R2976:2978 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
 R2965:2975 Trinity.Bounds_LeptonMasses <> L01_formula def
 R2979:2988 Trinity.Bounds_LeptonMasses <> L01_target def
 R2993:3002 Trinity.Bounds_LeptonMasses <> L01_target def
-prf 3458:3476 <> L01_numerical_value
-R3501:3503 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
-R3496:3498 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R3485:3487 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R3488:3495 Trinity.Bounds_LeptonMasses <> e_charge def
-R3499:3500 Trinity.Bounds_LeptonMasses <> :::'PI' not
-prf 3574:3592 <> L02_numerical_lower
-R3609:3611 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
-R3598:3608 Trinity.Bounds_LeptonMasses <> L02_formula def
-prf 3684:3702 <> L02_numerical_upper
-R3719:3721 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R3708:3718 Trinity.Bounds_LeptonMasses <> L02_formula def
-def 4357:4367 <> L03_formula
-R4371:4371 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R4397:4399 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R4390:4392 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R4379:4381 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R4382:4389 Trinity.Bounds_LeptonMasses <> e_charge def
-R4395:4395 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
-R4393:4394 Trinity.Bounds_LeptonMasses <> :::'PI' not
-R4400:4403 Trinity.CorePhi <> powZ def
-R4405:4407 Trinity.CorePhi <> phi def
-def 4424:4433 <> L03_target
-R4437:4437 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-prf 4460:4469 <> L03_bounds
-R4519:4521 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R4506:4508 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R4475:4478 Coq.Reals.Rbasic_fun <> Rabs def
-R4492:4494 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R4481:4491 Trinity.Bounds_LeptonMasses <> L03_formula def
-R4495:4504 Trinity.Bounds_LeptonMasses <> L03_target def
-R4509:4518 Trinity.Bounds_LeptonMasses <> L03_target def
-prf 4593:4611 <> L03_numerical_value
-R4623:4625 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R4637:4639 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
-R4626:4636 Trinity.Bounds_LeptonMasses <> L03_formula def
-R4626:4636 Trinity.Bounds_LeptonMasses <> L03_formula def
-prf 5359:5382 <> chain_L01_L02_approx_L03
-R5448:5450 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R5434:5436 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R5388:5391 Coq.Reals.Rbasic_fun <> Rabs def
-R5419:5421 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R5405:5407 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R5394:5404 Trinity.Bounds_LeptonMasses <> L01_formula def
-R5408:5418 Trinity.Bounds_LeptonMasses <> L02_formula def
-R5422:5432 Trinity.Bounds_LeptonMasses <> L03_formula def
-R5437:5447 Trinity.Bounds_LeptonMasses <> L03_formula def
-def 6165:6173 <> Koide_lhs
-R6177:6177 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R6219:6221 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R6200:6202 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R6184:6187 Coq.Reals.R_sqrt <> sqrt def
-R6189:6199 Trinity.Bounds_LeptonMasses <> L01_formula def
-R6203:6206 Coq.Reals.R_sqrt <> sqrt def
-R6208:6218 Trinity.Bounds_LeptonMasses <> L02_formula def
-R6222:6225 Coq.Reals.R_sqrt <> sqrt def
-R6227:6237 Trinity.Bounds_LeptonMasses <> L03_formula def
-def 6252:6260 <> Koide_rhs
-R6264:6264 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
-R6272:6274 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R6275:6278 Coq.Reals.R_sqrt <> sqrt def
-R6306:6308 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R6292:6294 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
-R6281:6291 Trinity.Bounds_LeptonMasses <> L01_formula def
-R6295:6305 Trinity.Bounds_LeptonMasses <> L02_formula def
-R6309:6319 Trinity.Bounds_LeptonMasses <> L03_formula def
-prf 6332:6354 <> Koide_consistency_check
-R6400:6402 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R6388:6390 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R6360:6363 Coq.Reals.Rbasic_fun <> Rabs def
-R6375:6377 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R6366:6374 Trinity.Bounds_LeptonMasses <> Koide_lhs def
-R6378:6386 Trinity.Bounds_LeptonMasses <> Koide_rhs def
-R6391:6399 Trinity.Bounds_LeptonMasses <> Koide_rhs def
-prf 6719:6744 <> all_lepton_bounds_verified
-R6802:6807 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R6794:6796 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R6781:6783 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R6750:6753 Coq.Reals.Rbasic_fun <> Rabs def
-R6767:6769 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R6756:6766 Trinity.Bounds_LeptonMasses <> L01_formula def
-R6770:6779 Trinity.Bounds_LeptonMasses <> L01_target def
-R6784:6793 Trinity.Bounds_LeptonMasses <> L01_target def
-R6829:6832 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R6819:6821 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
-R6808:6818 Trinity.Bounds_LeptonMasses <> L02_formula def
-R6854:6859 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R6844:6846 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R6833:6843 Trinity.Bounds_LeptonMasses <> L02_formula def
-R6913:6918 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R6904:6906 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R6891:6893 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R6860:6863 Coq.Reals.Rbasic_fun <> Rabs def
-R6877:6879 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R6866:6876 Trinity.Bounds_LeptonMasses <> L03_formula def
-R6880:6889 Trinity.Bounds_LeptonMasses <> L03_target def
-R6894:6903 Trinity.Bounds_LeptonMasses <> L03_target def
-R6986:6991 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R6979:6981 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R6965:6967 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R6919:6922 Coq.Reals.Rbasic_fun <> Rabs def
-R6950:6952 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R6936:6938 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
-R6925:6935 Trinity.Bounds_LeptonMasses <> L01_formula def
-R6939:6949 Trinity.Bounds_LeptonMasses <> L02_formula def
-R6953:6963 Trinity.Bounds_LeptonMasses <> L03_formula def
-R6968:6978 Trinity.Bounds_LeptonMasses <> L03_formula def
-R7032:7034 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
-R7020:7022 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
-R6992:6995 Coq.Reals.Rbasic_fun <> Rabs def
-R7007:7009 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
-R6998:7006 Trinity.Bounds_LeptonMasses <> Koide_lhs def
-R7010:7018 Trinity.Bounds_LeptonMasses <> Koide_rhs def
-R7023:7031 Trinity.Bounds_LeptonMasses <> Koide_rhs def
-R7074:7083 Trinity.Bounds_LeptonMasses <> L01_bounds prfax
-R7093:7111 Trinity.Bounds_LeptonMasses <> L02_numerical_lower prfax
-R7121:7139 Trinity.Bounds_LeptonMasses <> L02_numerical_upper prfax
-R7149:7158 Trinity.Bounds_LeptonMasses <> L03_bounds prfax
-R7168:7191 Trinity.Bounds_LeptonMasses <> chain_L01_L02_approx_L03 prfax
-R7201:7223 Trinity.Bounds_LeptonMasses <> Koide_consistency_check prfax
-R7074:7083 Trinity.Bounds_LeptonMasses <> L01_bounds prfax
-R7093:7111 Trinity.Bounds_LeptonMasses <> L02_numerical_lower prfax
-R7121:7139 Trinity.Bounds_LeptonMasses <> L02_numerical_upper prfax
-R7149:7158 Trinity.Bounds_LeptonMasses <> L03_bounds prfax
-R7168:7191 Trinity.Bounds_LeptonMasses <> chain_L01_L02_approx_L03 prfax
-R7201:7223 Trinity.Bounds_LeptonMasses <> Koide_consistency_check prfax
+prf 3713:3731 <> L01_numerical_value
+R3756:3758 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R3751:3753 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R3740:3742 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3743:3750 Trinity.Bounds_LeptonMasses <> e_charge def
+R3754:3755 Trinity.Bounds_LeptonMasses <> :::'PI' not
+prf 3995:4013 <> L02_numerical_lower
+R4030:4032 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R4019:4029 Trinity.Bounds_LeptonMasses <> L02_formula def
+prf 4238:4256 <> L02_numerical_upper
+R4273:4275 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R4262:4272 Trinity.Bounds_LeptonMasses <> L02_formula def
+R4474:4484 Trinity.Bounds_LeptonMasses <> L02_formula def
+R4501:4504 Trinity.CorePhi <> powZ def
+R4507:4509 Trinity.CorePhi <> phi def
+R4529:4534 Interval.Tactic <> i_prec constr
+R4529:4534 Interval.Tactic <> i_prec constr
+def 5118:5128 <> L03_formula
+R5132:5132 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R5158:5160 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R5151:5153 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5140:5142 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5143:5150 Trinity.Bounds_LeptonMasses <> e_charge def
+R5156:5156 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R5154:5155 Trinity.Bounds_LeptonMasses <> :::'PI' not
+R5161:5164 Trinity.CorePhi <> powZ def
+R5166:5168 Trinity.CorePhi <> phi def
+def 5185:5194 <> L03_target
+R5198:5198 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+prf 5221:5230 <> L03_bounds
+R5280:5282 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R5267:5269 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R5236:5239 Coq.Reals.Rbasic_fun <> Rabs def
+R5253:5255 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R5242:5252 Trinity.Bounds_LeptonMasses <> L03_formula def
+R5256:5265 Trinity.Bounds_LeptonMasses <> L03_target def
+R5270:5279 Trinity.Bounds_LeptonMasses <> L03_target def
+prf 5572:5590 <> L03_numerical_value
+R5602:5604 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R5616:5618 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R5605:5615 Trinity.Bounds_LeptonMasses <> L03_formula def
+R5605:5615 Trinity.Bounds_LeptonMasses <> L03_formula def
+prf 6437:6460 <> chain_L01_L02_approx_L03
+R6526:6528 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R6512:6514 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R6466:6469 Coq.Reals.Rbasic_fun <> Rabs def
+R6497:6499 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6483:6485 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6472:6482 Trinity.Bounds_LeptonMasses <> L01_formula def
+R6486:6496 Trinity.Bounds_LeptonMasses <> L02_formula def
+R6500:6510 Trinity.Bounds_LeptonMasses <> L03_formula def
+R6515:6525 Trinity.Bounds_LeptonMasses <> L03_formula def
+R6551:6561 Trinity.Bounds_LeptonMasses <> L01_formula def
+R6564:6574 Trinity.Bounds_LeptonMasses <> L02_formula def
+R6577:6587 Trinity.Bounds_LeptonMasses <> L03_formula def
+R6590:6597 Trinity.Bounds_LeptonMasses <> e_charge def
+R6609:6612 Trinity.CorePhi <> powZ def
+R6615:6617 Trinity.CorePhi <> phi def
+R6644:6649 Interval.Tactic <> i_prec constr
+R6644:6649 Interval.Tactic <> i_prec constr
+def 7315:7323 <> Koide_lhs
+R7327:7327 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R7369:7371 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R7350:7352 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R7334:7337 Coq.Reals.R_sqrt <> sqrt def
+R7339:7349 Trinity.Bounds_LeptonMasses <> L01_formula def
+R7353:7356 Coq.Reals.R_sqrt <> sqrt def
+R7358:7368 Trinity.Bounds_LeptonMasses <> L02_formula def
+R7372:7375 Coq.Reals.R_sqrt <> sqrt def
+R7377:7387 Trinity.Bounds_LeptonMasses <> L03_formula def
+def 7402:7410 <> Koide_rhs
+R7414:7414 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R7422:7424 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R7425:7428 Coq.Reals.R_sqrt <> sqrt def
+R7456:7458 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R7442:7444 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R7431:7441 Trinity.Bounds_LeptonMasses <> L01_formula def
+R7445:7455 Trinity.Bounds_LeptonMasses <> L02_formula def
+R7459:7469 Trinity.Bounds_LeptonMasses <> L03_formula def
+prf 7482:7504 <> Koide_consistency_check
+R7550:7552 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R7538:7540 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R7510:7513 Coq.Reals.Rbasic_fun <> Rabs def
+R7525:7527 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R7516:7524 Trinity.Bounds_LeptonMasses <> Koide_lhs def
+R7528:7536 Trinity.Bounds_LeptonMasses <> Koide_rhs def
+R7541:7549 Trinity.Bounds_LeptonMasses <> Koide_rhs def
+prf 8191:8216 <> all_lepton_bounds_verified
+R8274:8279 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8266:8268 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R8253:8255 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8222:8225 Coq.Reals.Rbasic_fun <> Rabs def
+R8239:8241 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R8228:8238 Trinity.Bounds_LeptonMasses <> L01_formula def
+R8242:8251 Trinity.Bounds_LeptonMasses <> L01_target def
+R8256:8265 Trinity.Bounds_LeptonMasses <> L01_target def
+R8301:8304 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8291:8293 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R8280:8290 Trinity.Bounds_LeptonMasses <> L02_formula def
+R8326:8331 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8316:8318 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R8305:8315 Trinity.Bounds_LeptonMasses <> L02_formula def
+R8385:8390 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8376:8378 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R8363:8365 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8332:8335 Coq.Reals.Rbasic_fun <> Rabs def
+R8349:8351 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R8338:8348 Trinity.Bounds_LeptonMasses <> L03_formula def
+R8352:8361 Trinity.Bounds_LeptonMasses <> L03_target def
+R8366:8375 Trinity.Bounds_LeptonMasses <> L03_target def
+R8458:8463 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8451:8453 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R8437:8439 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8391:8394 Coq.Reals.Rbasic_fun <> Rabs def
+R8422:8424 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R8408:8410 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8397:8407 Trinity.Bounds_LeptonMasses <> L01_formula def
+R8411:8421 Trinity.Bounds_LeptonMasses <> L02_formula def
+R8425:8435 Trinity.Bounds_LeptonMasses <> L03_formula def
+R8440:8450 Trinity.Bounds_LeptonMasses <> L03_formula def
+R8504:8506 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R8492:8494 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8464:8467 Coq.Reals.Rbasic_fun <> Rabs def
+R8479:8481 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R8470:8478 Trinity.Bounds_LeptonMasses <> Koide_lhs def
+R8482:8490 Trinity.Bounds_LeptonMasses <> Koide_rhs def
+R8495:8503 Trinity.Bounds_LeptonMasses <> Koide_rhs def
+R8546:8555 Trinity.Bounds_LeptonMasses <> L01_bounds prfax
+R8565:8583 Trinity.Bounds_LeptonMasses <> L02_numerical_lower prfax
+R8593:8611 Trinity.Bounds_LeptonMasses <> L02_numerical_upper thm
+R8621:8630 Trinity.Bounds_LeptonMasses <> L03_bounds prfax
+R8640:8663 Trinity.Bounds_LeptonMasses <> chain_L01_L02_approx_L03 thm
+R8673:8695 Trinity.Bounds_LeptonMasses <> Koide_consistency_check prfax
+R8546:8555 Trinity.Bounds_LeptonMasses <> L01_bounds prfax
+R8565:8583 Trinity.Bounds_LeptonMasses <> L02_numerical_lower prfax
+R8593:8611 Trinity.Bounds_LeptonMasses <> L02_numerical_upper thm
+R8621:8630 Trinity.Bounds_LeptonMasses <> L03_bounds prfax
+R8640:8663 Trinity.Bounds_LeptonMasses <> chain_L01_L02_approx_L03 thm
+R8673:8695 Trinity.Bounds_LeptonMasses <> Koide_consistency_check prfax

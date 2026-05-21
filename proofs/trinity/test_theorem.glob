@@ -1,0 +1,41 @@
+DIGEST 9e82b89069af398b459f7583746ffec2
+FTrinity.test_theorem
+R15:19 Coq.Reals.Reals <> <> lib
+R57:71 Interval.Tactic <> <> lib
+R102:108 Trinity.CorePhi <> <> lib
+def 123:129 <> m_s_PDG
+R133:133 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 155:161 <> m_d_PDG
+R165:165 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 187:194 <> SG_bound
+R198:198 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R203:203 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+def 222:227 <> Q07_SG
+R231:231 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R250:252 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R244:246 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R238:240 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R241:243 Trinity.CorePhi <> phi def
+R247:249 Trinity.CorePhi <> phi def
+R253:254 Coq.Reals.Rtrigo1 <> PI def
+prf 266:284 <> Q07_is_m_s_over_m_d
+R347:349 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R325:328 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R346:346 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R290:293 Coq.Reals.Rbasic_fun <> Rabs def
+R302:305 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R323:323 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R296:301 Trinity.test_theorem <> Q07_SG def
+R313:315 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R306:312 Trinity.test_theorem <> m_s_PDG def
+R316:322 Trinity.test_theorem <> m_d_PDG def
+R336:338 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R329:335 Trinity.test_theorem <> m_s_PDG def
+R339:345 Trinity.test_theorem <> m_d_PDG def
+R350:357 Trinity.test_theorem <> SG_bound def
+R376:381 Trinity.test_theorem <> Q07_SG def
+R384:390 Trinity.test_theorem <> m_s_PDG def
+R393:399 Trinity.test_theorem <> m_d_PDG def
+R402:409 Trinity.test_theorem <> SG_bound def
+R429:434 Interval.Tactic <> i_prec constr
+R429:434 Interval.Tactic <> i_prec constr

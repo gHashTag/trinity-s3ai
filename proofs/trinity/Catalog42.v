@@ -186,136 +186,153 @@ Definition V_bound : R := /1000.
 Theorem Q07_is_m_s_over_m_d :
   Rabs (Q07_SG - (m_s_PDG / m_d_PDG)) / (m_s_PDG / m_d_PDG) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Q07_SG, m_s_PDG, m_d_PDG, SG_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- L03: m_tau/m_e = 549*e*pi^2/phi^3 --- *)
 Theorem L03_is_m_tau_over_m_e :
   Rabs (L03_SG - (m_tau_PDG / m_e_PDG)) / (m_tau_PDG / m_e_PDG) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold L03_SG, m_tau_PDG, m_e_PDG, SG_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- L02: m_tau/m_mu = 239*phi^4/pi^4 --- *)
 Theorem L02_is_m_tau_over_m_mu :
   Rabs (L02_SG - (m_tau_PDG / m_mu_PDG)) / (m_tau_PDG / m_mu_PDG) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold L02_SG, m_tau_PDG, m_mu_PDG, SG_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- H02: m_H/m_W --- *)
 Theorem H02_is_m_H_over_m_W :
   Rabs (H02_SG - (m_H_PDG / m_W_PDG)) / (m_H_PDG / m_W_PDG) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold H02_SG, m_H_PDG, m_W_PDG, SG_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- Neutrino ratio: Delta_m2_21 / Delta_m2_31 --- *)
 Theorem Neutrino_is_ratio :
   Rabs (Neutrino_SG - (delta_m21_sq_PDG / delta_m31_sq_PDG)) / (delta_m21_sq_PDG / delta_m31_sq_PDG) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Neutrino_SG, delta_m21_sq_PDG, delta_m31_sq_PDG, SG_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- Q03: m_c/m_d = 19*pi*e^2/phi --- *)
 Theorem Q03_is_m_c_over_m_d :
   Rabs (Q03_SG - (m_c_PDG / m_d_PDG)) / (m_c_PDG / m_d_PDG) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Q03_SG, m_c_PDG, m_d_PDG, SG_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- Q04: m_c/m_s = 24*pi^3/e^4 --- *)
 Theorem Q04_is_m_c_over_m_s :
   Rabs (Q04_SG - (m_c_PDG / m_s_PDG)) / (m_c_PDG / m_s_PDG) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Q04_SG, m_c_PDG, m_s_PDG, SG_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- Nu21: Delta_m2_21 --- *)
 Theorem Nu21_is_delta_m21_sq :
   Rabs (Nu21_SG - delta_m21_sq_PDG) / delta_m21_sq_PDG < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Nu21_SG, delta_m21_sq_PDG, SG_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- Nu31: Delta_m2_31 --- *)
 Theorem Nu31_is_delta_m31_sq :
   Rabs (Nu31_SG - delta_m31_sq_PDG) / delta_m31_sq_PDG < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Nu31_SG, delta_m31_sq_PDG, SG_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- NuSum: sum of neutrino masses --- *)
 Theorem NuSum_is_sum_m_nu :
   Rabs (NuSum_SG - sum_m_nu_PDG) / sum_m_nu_PDG < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold NuSum_SG, sum_m_nu_PDG, SG_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- Q05: m_b/m_s = 43 + pi/phi (V-class) --- *)
 Theorem Q05_is_m_b_over_m_s :
   Rabs (Q05_V - (m_b_PDG / m_s_PDG)) / (m_b_PDG / m_s_PDG) < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Q05_V, m_b_PDG, m_s_PDG, V_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- L01: m_mu/m_e (V-class) --- *)
 Theorem L01_is_m_mu_over_m_e :
   Rabs (L01_V - (m_mu_PDG / m_e_PDG)) / (m_mu_PDG / m_e_PDG) < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold L01_V, m_mu_PDG, m_e_PDG, V_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- G01: 1/alpha (V-class) --- *)
 Theorem G01_is_alpha_inv :
   Rabs (G01_V - alpha_inv_PDG) / alpha_inv_PDG < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold G01_V, alpha_inv_PDG, V_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- Q01: m_u/m_d (V-class) --- *)
 Theorem Q01_is_m_u_over_m_d :
   Rabs (Q01_V - (m_u_PDG / m_d_PDG)) / (m_u_PDG / m_d_PDG) < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Q01_V, m_u_PDG, m_d_PDG, V_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- Q02: m_s/m_u (V-class) --- *)
 Theorem Q02_is_m_s_over_m_u :
   Rabs (Q02_V - (m_s_PDG / m_u_PDG)) / (m_s_PDG / m_u_PDG) < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Q02_V, m_s_PDG, m_u_PDG, V_bound, phi, powZ.
+  simpl. interval with (i_prec 400).
+Qed.
 (* Was: Qed. *)
 
 (* --- N01: sin^2(theta_12) (V-class) --- *)
 Theorem N01_is_sin2_theta_12 :
   Rabs (N01_V - sin2_theta_12_PDG) / sin2_theta_12_PDG < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold N01_V, sin2_theta_12_PDG, V_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- N03: sin^2(theta_23) (V-class) --- *)
 Theorem N03_is_sin2_theta_23 :
   Rabs (N03_V - sin2_theta_23_PDG) / sin2_theta_23_PDG < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold N03_V, sin2_theta_23_PDG, V_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- Sin13: sin^2(theta_13) (SG-class) — CORRECTED 2025-07-28 --- *)
@@ -324,32 +341,36 @@ Proof.
 Theorem Sin13_is_sin2_theta_13 :
   Rabs (Sin13_SG - 22/1000) / (22/1000) < SG_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold Sin13_SG, SG_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- H01: m_H (V-class) --- *)
 Theorem H01_is_m_H :
   Rabs (H01_V - m_H_PDG) / m_H_PDG < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold H01_V, m_H_PDG, V_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* --- H03: m_H/m_Z (V-class) --- *)
 Theorem H03_is_m_H_over_m_Z :
   Rabs (H03_V - (m_H_PDG / m_Z_PDG)) / (m_H_PDG / m_Z_PDG) < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold H03_V, m_H_PDG, m_Z_PDG, V_bound, phi.
+  interval with (i_prec 100).
+Qed.
 (* Was: Qed. *)
 
 (* --- C01: |V_us| (V-class) --- *)
 Theorem C01_is_V_us :
   Rabs (C01_V - V_us_PDG) / V_us_PDG < V_bound.
 Proof.
-  (* Numerical verification via interval - TODO *)
-  Admitted.
+  unfold C01_V, V_us_PDG, V_bound, phi, powZ.
+  simpl. interval with (i_prec 200).
+Qed.
 (* Was: Qed. *)
 
 (* ================================================================== *)

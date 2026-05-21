@@ -1,0 +1,125 @@
+DIGEST 031d4cf91d7b9166865b15b0066983cd
+FTrinity.test_scratch
+R15:19 Coq.Reals.Reals <> <> lib
+R46:48 Coq.micromega.Lra <> <> lib
+R66:70 Coq.setoid_ring.Field <> <> lib
+def 106:108 <> phi
+R112:112 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R117:117 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R128:131 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R119:121 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R122:125 Coq.Reals.R_sqrt <> sqrt def
+ax 146:146 <> e
+R150:150 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+ax 164:169 <> e_gt_0
+R174:176 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R177:177 Trinity.test_scratch <> e defax
+def 192:195 <> v_SM
+R199:199 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 220:230 <> m_H_Trinity
+R234:234 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R250:252 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R240:242 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R246:248 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R243:245 Trinity.test_scratch <> phi def
+R254:256 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R253:253 Trinity.test_scratch <> e defax
+def 271:286 <> lambda_corrected
+R290:290 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R310:313 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R326:326 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R306:308 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R295:305 Trinity.test_scratch <> m_H_Trinity def
+R315:317 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R322:324 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R318:321 Trinity.test_scratch <> v_SM def
+def 340:354 <> mu_sq_corrected
+R358:358 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R379:381 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R363:378 Trinity.test_scratch <> lambda_corrected def
+R386:388 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R382:385 Trinity.test_scratch <> v_SM def
+def 403:413 <> v_corrected
+R417:417 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R422:425 Coq.Reals.R_sqrt <> sqrt def
+R443:445 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R428:442 Trinity.test_scratch <> mu_sq_corrected def
+R446:461 Trinity.test_scratch <> lambda_corrected def
+def 476:488 <> m_H_corrected
+R492:492 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R524:526 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R497:500 Coq.Reals.R_sqrt <> sqrt def
+R504:506 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R507:522 Trinity.test_scratch <> lambda_corrected def
+R527:530 Trinity.test_scratch <> v_SM def
+prf 540:546 <> phi_pos
+R551:553 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R554:556 Trinity.test_scratch <> phi def
+R573:575 Trinity.test_scratch <> phi def
+R587:589 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R590:593 Coq.Reals.R_sqrt <> sqrt def
+R608:617 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
+R587:589 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R590:593 Coq.Reals.R_sqrt <> sqrt def
+R608:617 Coq.Reals.R_sqrt <> sqrt_lt_R0 thm
+prf 643:650 <> phi3_pos
+R655:657 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R661:663 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R658:660 Trinity.test_scratch <> phi def
+R680:685 Coq.Reals.Rfunctions <> pow_lt thm
+R680:685 Coq.Reals.Rfunctions <> pow_lt thm
+R694:700 Trinity.test_scratch <> phi_pos thm
+R694:700 Trinity.test_scratch <> phi_pos thm
+prf 715:720 <> e2_pos
+R725:727 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R729:731 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R728:728 Trinity.test_scratch <> e defax
+R748:753 Coq.Reals.Rfunctions <> pow_lt thm
+R748:753 Coq.Reals.Rfunctions <> pow_lt thm
+R762:767 Trinity.test_scratch <> e_gt_0 prfax
+R762:767 Trinity.test_scratch <> e_gt_0 prfax
+prf 782:796 <> m_H_Trinity_pos
+R801:803 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R804:814 Trinity.test_scratch <> m_H_Trinity def
+R833:843 Trinity.test_scratch <> m_H_Trinity def
+R857:859 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R861:863 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R860:860 Trinity.test_scratch <> e defax
+R877:882 Coq.Reals.Rfunctions <> pow_lt thm
+R891:896 Trinity.test_scratch <> e_gt_0 prfax
+R857:859 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R861:863 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R860:860 Trinity.test_scratch <> e defax
+R877:882 Coq.Reals.Rfunctions <> pow_lt thm
+R891:896 Trinity.test_scratch <> e_gt_0 prfax
+R911:913 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R917:919 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R914:916 Trinity.test_scratch <> phi def
+R933:938 Coq.Reals.Rfunctions <> pow_lt thm
+R947:953 Trinity.test_scratch <> phi_pos thm
+R911:913 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R917:919 Coq.Reals.Rfunctions <> ::R_scope:x_'^'_x not
+R914:916 Trinity.test_scratch <> phi def
+R933:938 Coq.Reals.Rfunctions <> pow_lt thm
+R947:953 Trinity.test_scratch <> phi_pos thm
+prf 976:990 <> m_H_Trinity_neq
+R1005:1008 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R994:1004 Trinity.test_scratch <> m_H_Trinity def
+R1028:1030 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1031:1041 Trinity.test_scratch <> m_H_Trinity def
+R1053:1067 Trinity.test_scratch <> m_H_Trinity_pos thm
+R1028:1030 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1031:1041 Trinity.test_scratch <> m_H_Trinity def
+R1053:1067 Trinity.test_scratch <> m_H_Trinity_pos thm
+prf 1087:1106 <> lambda_corrected_pos
+R1111:1113 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R1114:1129 Trinity.test_scratch <> lambda_corrected def
+R1148:1163 Trinity.test_scratch <> lambda_corrected def
+R1172:1188 Coq.Reals.RIneq <> Rmult_lt_0_compat thm
+R1172:1188 Coq.Reals.RIneq <> Rmult_lt_0_compat thm
+R1201:1206 Coq.Reals.Rfunctions <> pow_lt thm
+R1201:1206 Coq.Reals.Rfunctions <> pow_lt thm
+R1215:1229 Trinity.test_scratch <> m_H_Trinity_pos thm
+R1215:1229 Trinity.test_scratch <> m_H_Trinity_pos thm
+R1242:1257 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R1242:1257 Coq.Reals.RIneq <> Rinv_0_lt_compat thm

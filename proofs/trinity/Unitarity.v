@@ -38,14 +38,14 @@ Definition m_nue_formula : R := 1 / (6 * phi).
 Theorem m_nue_value_lower :
   m_nue_formula > 0.102.
 Proof.
-  (* Numerical verification - TODO *)
-  Admitted.
+  unfold m_nue_formula. interval with (i_prec 60).
+Qed.
 
 Theorem m_nue_value_upper :
   m_nue_formula < 0.104.
 Proof.
-  (* Numerical verification - TODO *)
-  Admitted.
+  unfold m_nue_formula. interval with (i_prec 60).
+Qed.
 
 (* Combined bound *)
 Theorem m_nue_bounds :
@@ -67,8 +67,8 @@ Definition KATRIN_II_sensitivity : R := 0.2.
 Theorem m_nue_below_KATRIN_II :
   m_nue_formula < KATRIN_II_sensitivity.
 Proof.
-  (* Numerical verification - TODO *)
-  Admitted.
+  unfold m_nue_formula, KATRIN_II_sensitivity. interval with (i_prec 60).
+Qed.
 
 (* ==================================================================== *)
 (* Margin: how far below KATRIN-II sensitivity                            *)
@@ -77,8 +77,8 @@ Proof.
 Theorem m_nue_KATRIN_margin :
   KATRIN_II_sensitivity - m_nue_formula > 0.09.
 Proof.
-  (* Numerical verification - TODO *)
-  Admitted.
+  unfold m_nue_formula, KATRIN_II_sensitivity. interval with (i_prec 60).
+Qed.
 
 (******************************************************************************)
 (* Section 4: Alternative Formula — 1/(6*phi) in closed form                *)
@@ -112,8 +112,8 @@ Definition sum_m_nu_formula : R := 1 / phi.
 Theorem sum_m_nu_bounds :
   0.61 < sum_m_nu_formula < 0.62.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  unfold sum_m_nu_formula. split; interval with (i_prec 60).
+Qed.
 
 (* Sum of neutrino masses below cosmological bound (0.12 eV is typical)      *)
 (* Note: This is a consistency check — the sum formula gives a different      *)
@@ -128,8 +128,8 @@ Definition cosmological_sum_bound : R := 0.12.  (* eV, typical Planck+BAO bound 
 Theorem neutrino_hierarchy_suppression :
   sum_m_nu_formula / 3 > m_nue_formula.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  unfold sum_m_nu_formula, m_nue_formula. interval with (i_prec 60).
+Qed.
 
 (******************************************************************************)
 (* Section 6: KATRIN-I Current Sensitivity (for comparison)                  *)
@@ -141,8 +141,8 @@ Definition KATRIN_I_sensitivity : R := 0.8.
 Theorem m_nue_below_KATRIN_I :
   m_nue_formula < KATRIN_I_sensitivity.
 Proof.
-  (* Numerical verification - TODO *)
-  Admitted.
+  unfold m_nue_formula, KATRIN_I_sensitivity. interval with (i_prec 60).
+Qed.
 
 (******************************************************************************)
 (* Section 7: Summary                                                        *)
