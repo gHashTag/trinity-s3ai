@@ -48,8 +48,9 @@ Definition projection_defect_ratio : R := 1 / 240.
 Theorem muon_lr_is_phi_inv_cube :
   Rabs (muon_lr_H4 - 0.0236) < 0.001.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  unfold muon_lr_H4, phi_inv_cube.
+  interval with (i_prec 60).
+Qed.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* Theorem: Base LR scale ≈ 85.06 (error < 0.1)                     *)
@@ -57,8 +58,9 @@ Admitted.
 Theorem base_lr_is_360_phi_inv_cube :
   Rabs (base_lr_scale_H4 - 85.06) < 0.1.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  unfold base_lr_scale_H4, phi_inv_cube.
+  interval with (i_prec 60).
+Qed.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* Theorem: WSD decay ≈ 1.013 (error < 0.001)                       *)
@@ -66,8 +68,9 @@ Admitted.
 Theorem wsd_decay_is_loop_correction :
   Rabs (wsd_decay_H4 - 1.013) < 0.001.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  unfold wsd_decay_H4.
+  interval with (i_prec 60).
+Qed.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* Theorem: Projection defect = 1/240                                *)
@@ -84,8 +87,8 @@ Qed.
 Theorem ttt_lr_is_phi_inv_cube_scaled :
   forall base_lr, ttt_lr_H4 base_lr = base_lr / phi^3.
 Proof.
-  (* TODO: numerical verification *)
-Admitted.
+  intros. unfold ttt_lr_H4, phi_inv_cube. field.
+Qed.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* Master: All 5 optimizer invariants QED                            *)
@@ -97,7 +100,12 @@ Theorem optimizer_invariants_v33_complete :
   projection_defect_ratio = 1 / (IZR 240) /\
   (forall base_lr, ttt_lr_H4 base_lr = base_lr / phi^3).
 Proof.
-  Admitted.
-(* TODO: Fix proof - individual theorems compile but combining them fails *)
+  split; [|split; [|split; [|split]]].
+  - apply muon_lr_is_phi_inv_cube.
+  - apply base_lr_is_360_phi_inv_cube.
+  - apply wsd_decay_is_loop_correction.
+  - apply defect_ratio_is_e8_projection.
+  - apply ttt_lr_is_phi_inv_cube_scaled.
+Qed.
 
 (* END OF OptimizerInvariants.v — 5/5 QED *)

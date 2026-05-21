@@ -6,6 +6,7 @@
 
 Require Import Reals.
 Require Import ZArith.
+Require Import Interval.Tactic.
 Open Scope R_scope.
 
 From Trinity Require Import CorePhi.
@@ -142,7 +143,8 @@ Definition L01_from_lagrangian : R :=
 Theorem L01_lagrangian_order_of_magnitude :
   1 <= L01_from_lagrangian <= 1000.
 Proof.
-  (* TODO: numerical verification *)
+  (* NOTE: Numerical eval shows L01_from_lagrangian ≈ 0.17, not in [1, 1000].
+     The hierarchy_suppression = 1e16/1.22e19 is too small. Bound needs revision. *)
 Admitted.
 
 (* This proves the framework gives the RIGHT ORDER OF MAGNITUDE. *)
@@ -176,8 +178,9 @@ Definition Koide_H4 (c1 c2 c3 : R) : R :=
 Theorem Koide_H4_test :
   Rabs (Koide_H4 1 239 549 - 2/3) / (2/3) < 0.01.
 Proof.
-  (* Numerical verification - TODO *)
-  Admitted.
+  (* NOTE: Numerical eval shows Koide_H4(1,239,549) ≈ 0.496, relative error ≈ 26% from 2/3.
+     The coefficients 1,239,549 do NOT reproduce Koide ≈ 2/3 within 1%. Bound needs revision. *)
+Admitted.
 
 (* Koide ≈ 2/3 within 1% for H4-derived coefficients. *)
 (* This is a CONSISTENCY CHECK, not a derivation. *)

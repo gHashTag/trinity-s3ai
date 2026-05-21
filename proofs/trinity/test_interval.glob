@@ -1,7 +1,0 @@
-DIGEST a8724b5b46b4d9289b909293e69543c9
-FTrinity.test_interval
-R15:19 Coq.Reals.Reals <> <> lib
-R37:51 Interval.Tactic <> <> lib
-def 74:88 <> Unnamed_thm
-R85:87 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
-R79:82 Coq.Reals.R_sqrt <> sqrt def

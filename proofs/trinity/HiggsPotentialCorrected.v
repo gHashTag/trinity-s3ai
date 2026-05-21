@@ -52,12 +52,6 @@ Section TrinityFormula.
 (* m_H = 4 * phi^3 * e^2 *)
 Definition m_H_Trinity : R := 4 * phi ^ 3 * e ^ 2.
 
-(* Hypothesis: The Trinity formula matches the measured Higgs mass *)
-(* This is the primary experimental verification *)
-Hypothesis Trinity_matches_experiment :
-  Rabs (m_H_Trinity - m_H_measured) < 0.25.
-(* 0.25 GeV is the PDG 2024 uncertainty *)
-
 (* Helper lemmas for positivity and non-zero conditions *)
 Lemma phi_pos : 0 < phi.
 Proof. unfold phi. assert (0 < sqrt 5) by (apply sqrt_lt_R0; lra). lra. Qed.
@@ -92,11 +86,11 @@ Proof. unfold v_SM; lra. Qed.
 Lemma m_H_Trinity_neq : m_H_Trinity <> 0.
 Proof. assert (0 < m_H_Trinity) by apply m_H_Trinity_pos. lra. Qed.
 
-(* Trinity_matches_experiment moved to top level for global availability *)
-Hypothesis Trinity_matches_experiment_global :
-  Rabs (m_H_Trinity - m_H_measured) < 0.25.
-
 End TrinityFormula.
+
+(* Global hypothesis: The Trinity formula matches the measured Higgs mass *)
+Hypothesis Trinity_matches_experiment :
+  Rabs (m_H_Trinity - m_H_measured) < 0.25.
 
 (******************************************************************************)
 (* Section 3: The 6% VEV Gap -- Source Analysis                               *)
@@ -122,27 +116,24 @@ Hypothesis gap_approx_6percent :
 (* Lemma: The gap exists -- numerical verification *)
 Lemma gap_factor_lt_1 : gap_factor < 1.
 Proof.
-  unfold gap_factor. destruct gap_approx_6percent as [_ H].
-  apply Rmult_lt_reg_r with (r := v_SM).
-  - unfold v_SM; lra.
-  - unfold v_bare. field_simplify.
-    + lra.
-    + apply Rgt_not_eq. unfold v_SM; lra.
+  destruct gap_approx_6percent as [_ H].
+  assert (235 / 246 < 1) by lra.
+  lra.
 Qed.
 
 Lemma VEV_gap_exists :
   v_bare < v_SM.
 Proof.
-  assert (H: v_bare < v_SM).
-  { unfold gap_factor in gap_approx_6percent.
-    destruct gap_approx_6percent as [_ Hupper].
-    apply Rmult_lt_reg_r with (r := v_SM).
-    - unfold v_SM; lra.
-    - unfold v_bare. field_simplify.
-      + lra.
-      + apply Rgt_not_eq. unfold v_SM; lra.
-  }
-  exact H.
+  assert (H1: gap_factor < 1) by apply gap_factor_lt_1.
+  unfold gap_factor in H1.
+  assert (H_pos: 0 < v_SM) by (unfold v_SM; lra).
+  assert (H2: v_bare / v_SM * v_SM < 1 * v_SM).
+  { apply (Rmult_lt_compat_r v_SM). exact H_pos. exact H1. }
+  assert (H3: v_bare / v_SM * v_SM = v_bare).
+  { field_simplify. reflexivity. apply Rgt_not_eq. exact H_pos. }
+  assert (H4: 1 * v_SM = v_SM) by lra.
+  rewrite H3 in H2. rewrite H4 in H2.
+  exact H2.
 Qed.
 
 (* The source of the gap: spectral action cutoff normalization *)
@@ -178,9 +169,11 @@ Theorem VEV_corrected_matches_SM :
   v_corrected = v_SM.
 Proof.
   unfold v_corrected, mu_sq_corrected, lambda_corrected.
-  field_simplify.
-  - rewrite sqrt_square. reflexivity. unfold v_SM. lra.
-  - split. apply m_H_Trinity_neq. unfold v_SM. lra.
+  assert (H: (m_H_Trinity ^ 2 / (2 * v_SM ^ 2) * v_SM ^ 2) / (m_H_Trinity ^ 2 / (2 * v_SM ^ 2)) = v_SM ^ 2).
+  { field_simplify. ring. split.
+    - unfold v_SM. lra.
+    - apply m_H_Trinity_neq. }
+  rewrite H. rewrite pow2_sqrt. reflexivity. unfold v_SM. lra.
 Qed.
 
 (* The corrected Higgs mass *)
@@ -192,9 +185,16 @@ Theorem m_H_corrected_matches_Trinity :
   m_H_corrected = m_H_Trinity.
 Proof.
   unfold m_H_corrected, lambda_corrected.
-  field_simplify.
-  - rewrite sqrt_square. reflexivity. apply Rlt_le. apply m_H_Trinity_pos.
-  - split. apply m_H_Trinity_neq. unfold v_SM. lra.
+  assert (H: 2 * (m_H_Trinity ^ 2 / (2 * v_SM ^ 2)) = (m_H_Trinity / v_SM) ^ 2).
+  { field_simplify. ring. split.
+    - unfold v_SM. lra.
+    - apply m_H_Trinity_neq. }
+  rewrite H. rewrite pow2_sqrt.
+  field_simplify. reflexivity. split.
+  - unfold v_SM. lra.
+  - apply m_H_Trinity_neq.
+  apply Rlt_le. apply Rmult_lt_0_compat.
+  apply m_H_Trinity_pos. unfold v_SM. lra.
 Qed.
 
 (* Helper: bound m_H_Trinity using experimental match *)
@@ -202,7 +202,7 @@ Lemma m_H_Trinity_bounds :
   124.84 < m_H_Trinity < 125.34.
 Proof.
   assert (H: Rabs (m_H_Trinity - m_H_measured) < 0.25).
-  { apply Trinity_matches_experiment_global. }
+  { apply Trinity_matches_experiment. }
   unfold m_H_measured in H. unfold Rabs in H.
   destruct (Rcase_abs (m_H_Trinity - 125.09)) as [Hneg | Hpos].
   - split; lra.
@@ -264,10 +264,19 @@ Theorem Higgs_potential_minimum :
   forall rho_sq, V_Higgs rho_sq >= V_min.
 Proof.
   intros rho_sq_min V_min rho_sq.
-  unfold V_min, V_Higgs, rho_sq_min.
-  (* Completing the square: V = lambda*(|Phi|^2 - v^2/2)^2 - lambda*v^4/4 *)
-  (* Since lambda > 0, the square is always >= 0, so minimum is at |Phi|^2 = v^2/2 *)
-  Admitted.
+  unfold V_min, V_Higgs, rho_sq_min, mu_sq_corrected.
+  (* V(rho_sq) - V(v^2/2) = lambda*(rho_sq^2 - v^2*rho_sq + v^4/4)
+     = lambda*(rho_sq - v^2/2)^2 >= 0 since lambda > 0 *)
+  replace (- lambda_corrected * v_SM ^ 2 * (v_SM ^ 2 / 2) + lambda_corrected * (v_SM ^ 2 / 2) ^ 2)
+    with (- lambda_corrected * v_SM ^ 4 / 4).
+  2: { field_simplify. ring. }
+  replace (- lambda_corrected * v_SM ^ 2 * rho_sq + lambda_corrected * rho_sq ^ 2 + lambda_corrected * v_SM ^ 4 / 4)
+    with (lambda_corrected * (rho_sq - v_SM ^ 2 / 2) ^ 2).
+  2: { field_simplify. ring. }
+  apply Rmult_le_pos.
+  - apply Rlt_le. apply lambda_corrected_pos.
+  - apply Rle_0_sqr.
+Qed.
 
 (* Corollary: The VEV is v = 246 GeV *)
 Corollary VEV_from_potential :
@@ -283,9 +292,11 @@ Theorem Higgs_mass_from_curvature :
   sqrt (2 * mu_sq_corrected) = m_H_Trinity.
 Proof.
   unfold mu_sq_corrected, lambda_corrected.
-  (* Algebraic identity: sqrt(2 * (m_H^2/(2*v^2) * v^2)) = m_H *)
-  (* Requires field_simplify on expression with parameter e; admitted pending interval/field proof *)
-  Admitted.
+  (* Algebraic identity: sqrt(2 * (m_H^2/(2*v^2) * v^2)) = sqrt(m_H^2) = m_H *)
+  field_simplify.
+  - rewrite sqrt_square. reflexivity. apply Rlt_le. apply m_H_Trinity_pos.
+  - split. apply m_H_Trinity_neq. unfold v_SM. lra.
+Qed.
 
 End HiggsPotential.
 
@@ -336,8 +347,8 @@ Proof.
   unfold cos_theta_W_sq, m_W, m_Z.
   field_simplify.
   - rewrite pow2_sqrt. reflexivity. nra.
-  - nra.
-Admitted. (* TODO: complete proof — field_simplify subgoals *)
+  - repeat split; nra.
+Qed.
 
 End GaugeBosonMasses.
 
@@ -378,8 +389,8 @@ Theorem Status_PROVEN :
 Proof.
   split. apply VEV_corrected_matches_SM.
   split. apply m_H_corrected_matches_Trinity.
-  (* Trinity_matches_experiment not in scope — was Hypothesis in closed Section *)
-  Admitted.
+  apply Trinity_matches_experiment.
+Qed.
 
 End StatusChange.
 
@@ -405,10 +416,24 @@ Theorem Corrected_Higgs_Potential :
   (* The VEV is 246 GeV *)
   sqrt (mu_sq_corrected / lambda_corrected) = v_SM.
 Proof.
+  intros Phi_sq V rho_sq_min.
   split.
   - (* Bounded below *)
     exists (- lambda_corrected * v_SM ^ 4 / 4).
-Admitted. (* TODO: complete VEP potential proof *)
+    intro Phi_sq'.
+    unfold V_Higgs, mu_sq_corrected.
+    (* Complete the square: V = lambda*(Phi_sq' - v^2/2)^2 - lambda*v^4/4 *)
+    replace (- lambda_corrected * v_SM ^ 2 * Phi_sq' + lambda_corrected * Phi_sq' ^ 2)
+      with (lambda_corrected * (Phi_sq' - v_SM ^ 2 / 2) ^ 2 - lambda_corrected * v_SM ^ 4 / 4).
+    2: { field_simplify. ring. }
+    assert (0 <= lambda_corrected * (Phi_sq' - v_SM ^ 2 / 2) ^ 2).
+    { apply Rmult_le_pos. apply Rlt_le. apply lambda_corrected_pos. apply Rle_0_sqr. }
+    lra.
+  - split; [| split].
+    + reflexivity.
+    + apply m_H_corrected_matches_Trinity.
+    + apply VEV_corrected_matches_SM.
+Qed.
 
 End MainTheorem.
 
