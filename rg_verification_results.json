@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "script": "verify_rg_running.py",
+    "description": "H4\u2192m_Z RG running vs Trinity predictions",
+    "date": "2025",
+    "Lambda_H4_GeV": 1.5e+16,
+    "m_Z_GeV": 91.19,
+    "log_interval": 32.73388135406732
+  },
+  "boundary_conditions": {
+    "alpha_unif_inv": 25.0,
+    "alpha_unif": 0.04,
+    "g_unif": 0.7089815403622064
+  },
+  "trinity_predictions": {
+    "1_over_alpha": 137.00273342910018,
+    "alpha": 0.0072991244405901335,
+    "alpha_s": 0.1180339887498949,
+    "sin2_theta_W": 0.22330898357215265
+  },
+  "rg_running_results": {
+    "alpha1_mZ_SU5_norm": 0.02336448052288988,
+    "alpha2_mZ": 0.04790279769866665,
+    "alpha3_mZ": 0.04892018271814906,
+    "alpha_em_inv_mZ": 92.20895743752016,
+    "alpha_em_mZ": 0.010844933375128872,
+    "alpha_s_mZ": 0.04892018271814906,
+    "sin2_theta_W_mZ": 0.22639457184419806
+  },
+  "errors_percent": {
+    "alpha_em_error_pct": 32.69553451264613,
+    "alpha_s_error_pct": 58.55415610684205,
+    "sin2_theta_W_error_pct": 1.3817573402945698,
+    "max_error_pct": 58.55415610684205,
+    "avg_error_pct": 30.877149319927582
+  },
+  "assessment": "RG shows SIGNIFICANT DEVIATIONS from Trinity (errors \u2265 10%)"
+}
