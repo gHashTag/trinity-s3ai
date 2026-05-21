@@ -1,0 +1,183 @@
+DIGEST d73cbe1d61bd19e3b1403a4647b6ab37
+FTrinity.H4Derivations
+R504:508 Coq.Reals.Reals <> <> lib
+R526:528 Coq.micromega.Lra <> <> lib
+R546:560 Interval.Tactic <> <> lib
+R591:597 Trinity.CorePhi <> <> lib
+R923:926 Trinity.CorePhi <> powZ def
+not 908:908 <> :::x_'^z'_x
+prf 2153:2176 <> L01_E8_projection_defect
+R2204:2206 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R2182:2185 Coq.Reals.Rbasic_fun <> Rabs def
+R2191:2193 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2197:2199 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2200:2202 Trinity.CorePhi <> phi def
+R2228:2230 Trinity.CorePhi <> phi def
+R2233:2236 Coq.Reals.Rbasic_fun <> Rabs def
+R2251:2259 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R2265:2267 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2271:2274 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2291:2291 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2275:2275 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2286:2289 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2277:2279 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2280:2283 Coq.Reals.R_sqrt <> sqrt def
+R2330:2335 Interval.Tactic <> i_prec constr
+R2251:2259 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R2265:2267 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2271:2274 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2291:2291 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2275:2275 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2286:2289 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2277:2279 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2280:2283 Coq.Reals.R_sqrt <> sqrt def
+R2330:2335 Interval.Tactic <> i_prec constr
+R2330:2335 Interval.Tactic <> i_prec constr
+prf 2397:2414 <> Q07_d1_d2_phi_form
+R2467:2469 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x not
+R2420:2423 Coq.Reals.Rbasic_fun <> Rabs def
+R2450:2452 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2436:2438 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2426:2429 Trinity.CorePhi <> powZ def
+R2431:2433 Trinity.CorePhi <> phi def
+R2439:2442 Trinity.CorePhi <> powZ def
+R2444:2446 Trinity.CorePhi <> phi def
+R2455:2457 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2461:2463 Trinity.H4Derivations <> :::x_'^z'_x not
+R2458:2460 Trinity.CorePhi <> phi def
+R2494:2497 Coq.Reals.Rbasic_fun <> Rabs def
+R2512:2520 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R2547:2549 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2533:2535 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2523:2526 Trinity.CorePhi <> powZ def
+R2528:2530 Trinity.CorePhi <> phi def
+R2536:2539 Trinity.CorePhi <> powZ def
+R2541:2543 Trinity.CorePhi <> phi def
+R2552:2554 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2555:2558 Trinity.CorePhi <> powZ def
+R2560:2562 Trinity.CorePhi <> phi def
+R2587:2592 Interval.Tactic <> i_prec constr
+R2512:2520 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R2547:2549 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2533:2535 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2523:2526 Trinity.CorePhi <> powZ def
+R2528:2530 Trinity.CorePhi <> phi def
+R2536:2539 Trinity.CorePhi <> powZ def
+R2541:2543 Trinity.CorePhi <> phi def
+R2552:2554 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2555:2558 Trinity.CorePhi <> powZ def
+R2560:2562 Trinity.CorePhi <> phi def
+R2587:2592 Interval.Tactic <> i_prec constr
+R2587:2592 Interval.Tactic <> i_prec constr
+def
+R2671:2671 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2671:2671 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+wZ def
+R2683:2686 Coq.Reals.Rbasic_fun <> Rabs def
+R2701:2709 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R2732:2737 Interval.Tactic <> i_prec constr
+R2701:2709 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R2732:2737 Interval.Tactic <> i_prec constr
+R2732:2737 Interval.Tactic <> i_prec constr
+736 Trinity.H4Derivations <> n:7 var
+R2743:2743 Coq.Init.Datatypes <> O constr
+R2752:2752 Coq.Init.Datatypes <> S constr
+R2761:2763 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2760:2760 Trinity.H4Derivations <> r:6 var
+R2764:2770 Trinity.H4Derivations <> pow_pos:8 var
+R2772:2772 Trinity.H4Derivations <> r:6 var
+binder 2697:2703 <> pow_pos:10
+R2790:2796 Trinity.H4Derivations <> pow_pos:10 var
+R2818:2827 Coq.PArith.BinPos Pos to_nat def
+R2799:2799 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2810:2813 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2801:2803 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2804:2807 Coq.Reals.R_sqrt <> sqrt def
+R2843:2846 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2995:2995 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2868:2868 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 2864:2864 <> r:11
+R2876:2878 Coq.Init.Datatypes <> nat ind
+binder 2872:2872 <> n:12
+R2883:2883 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2894:2894 Trinity.H4Derivations <> n:12 var
+R2901:2901 Coq.Init.Datatypes <> O constr
+R2910:2910 Coq.Init.Datatypes <> S constr
+R2919:2921 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2918:2918 Trinity.H4Derivations <> r:11 var
+R2922:2928 Trinity.H4Derivations <> pow_pos:13 var
+R2930:2930 Trinity.H4Derivations <> r:11 var
+binder 2855:2861 <> pow_pos:15
+R2953:2959 Trinity.H4Derivations <> pow_pos:15 var
+R2981:2990 Coq.PArith.BinPos Pos to_nat def
+R2962:2962 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2973:2976 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2964:2966 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2967:2970 Coq.Reals.R_sqrt <> sqrt def
+R3038:3043 Interval.Tactic <> i_prec constr
+R2521:2529 Coq.Reals.Rbasic_fun <> Rcase_abs thm
+R2833:2840 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2536:2536 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2679:2688 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2832:2832 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2558:2558 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 2554:2554 <> r:16
+R2566:2568 Coq.Init.Datatypes <> nat ind
+binder 2562:2562 <> n:17
+R2573:2573 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2584:2584 Trinity.H4Derivations <> n:17 var
+R2591:2591 Coq.Init.Datatypes <> O constr
+R2600:2600 Coq.Init.Datatypes <> S constr
+R2609:2611 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2608:2608 Trinity.H4Derivations <> r:16 var
+R2612:2618 Trinity.H4Derivations <> pow_pos:18 var
+R2620:2620 Trinity.H4Derivations <> r:16 var
+binder 2545:2551 <> pow_pos:20
+R2638:2644 Trinity.H4Derivations <> pow_pos:20 var
+R2666:2675 Coq.PArith.BinPos Pos to_nat def
+R2647:2647 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2658:2661 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2649:2651 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2652:2655 Coq.Reals.R_sqrt <> sqrt def
+R2710:2710 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 2706:2706 <> r:21
+R2718:2720 Coq.Init.Datatypes <> nat ind
+binder 2714:2714 <> n:22
+R2725:2725 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2736:2736 Trinity.H4Derivations <> n:22 var
+R2743:2743 Coq.Init.Datatypes <> O constr
+R2752:2752 Coq.Init.Datatypes <> S constr
+R2761:2763 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2760:2760 Trinity.H4Derivations <> r:21 var
+R2764:2770 Trinity.H4Derivations <> pow_pos:23 var
+R2772:2772 Trinity.H4Derivations <> r:21 var
+binder 2697:2703 <> pow_pos:25
+R2790:2796 Trinity.H4Derivations <> pow_pos:25 var
+R2818:2827 Coq.PArith.BinPos Pos to_nat def
+R2799:2799 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2810:2813 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2801:2803 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2804:2807 Coq.Reals.R_sqrt <> sqrt def
+R2843:2846 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2995:2995 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2868:2868 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 2864:2864 <> r:26
+R2876:2878 Coq.Init.Datatypes <> nat ind
+binder 2872:2872 <> n:27
+R2883:2883 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R2894:2894 Trinity.H4Derivations <> n:27 var
+R2901:2901 Coq.Init.Datatypes <> O constr
+R2910:2910 Coq.Init.Datatypes <> S constr
+R2919:2921 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R2918:2918 Trinity.H4Derivations <> r:26 var
+R2922:2928 Trinity.H4Derivations <> pow_pos:28 var
+R2930:2930 Trinity.H4Derivations <> r:26 var
+binder 2855:2861 <> pow_pos:30
+R2953:2959 Trinity.H4Derivations <> pow_pos:30 var
+R2981:2990 Coq.PArith.BinPos Pos to_nat def
+R2962:2962 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2973:2976 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R2964:2966 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2967:2970 Coq.Reals.R_sqrt <> sqrt def
+R3038:3043 Interval.Tactic <> i_prec constr
+R3038:3043 Interval.Tactic <> i_prec constr

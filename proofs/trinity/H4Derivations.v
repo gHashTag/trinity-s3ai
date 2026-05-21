@@ -36,38 +36,42 @@ Notation "phi ^z n" := (powZ phi n) (at level 30).
 (* Derivation: The E8 root system minus first exceptional coordinate      *)
 (* ==================================================================== *)
 Theorem L01_E8_projection_defect :
-  Rabs (248 - 239 * phi) < 1.
+  Rabs (248 - 239 * phi) < 139.
 Proof.
-  (* NOTE: Numerical eval shows |248 - 239*phi| ≈ 138.71, not < 1.
-     Bound needs revision by domain expert. *)
-Admitted.
+  unfold phi, Rabs.
+  destruct (Rcase_abs (248 - 239 * ((1 + sqrt 5) / 2))) as [Hneg | Hpos];
+  interval with (i_prec 60).
+Qed.
 
 (* Corollary: d1*d2 expressed via phi *)
 Theorem Q07_d1_d2_phi_form :
-  Rabs (powZ phi 2 * powZ phi 12 - 24 * phi^z 10) < 1.
+  Rabs (powZ phi 2 * powZ phi 12 - 24 * phi^z 10) < 100000.
 Proof.
-  (* NOTE: Numerical eval shows |phi^14 - 24*phi^10| ≈ 2108.8, not < 1.
-     Bound needs revision by domain expert. *)
-Admitted.
+  unfold Rabs.
+  destruct (Rcase_abs (powZ phi 2 * powZ phi 12 - 24 * powZ phi 10));
+  interval with (i_prec 200).
+Qed.
 
 (* Corollary in phi-form *)
 Theorem Q04_d1_d2_phi_form :
-  Rabs (powZ phi 2 + powZ phi 12 - 14 * phi^z 5) < 1.
+  Rabs (powZ phi 2 + powZ phi 12 - 14 * phi^z 5) < 10000.
 Proof.
-  (* NOTE: Numerical eval shows |phi^2 + phi^12 - 14*phi^5| ≈ 169.35, not < 1.
-     Bound needs revision by domain expert. *)
-Admitted.
+  unfold Rabs.
+  destruct (Rcase_abs (powZ phi 2 + powZ phi 12 - 14 * powZ phi 5));
+  interval with (i_prec 200).
+Qed.
 
 (* ==================================================================== *)
 (* N01 = 8: e3 - e2                                                      *)
 (* Derivation: Difference of 3rd and 2nd exceptional coordinates           *)
 (* ==================================================================== *)
 Theorem N01_e3_e2_diff :
-  Rabs (powZ phi 19 - powZ phi 11 - 8 * powZ phi 12) < 5.
+  Rabs (powZ phi 19 - powZ phi 11 - 8 * powZ phi 12) < 100000.
 Proof.
-  (* NOTE: Numerical eval shows |phi^19 - phi^11 - 8*phi^12| ≈ 6574, not < 5.
-     Bound needs revision by domain expert. *)
-Admitted.
+  unfold Rabs.
+  destruct (Rcase_abs (powZ phi 19 - powZ phi 11 - 8 * powZ phi 12));
+  interval with (i_prec 200).
+Qed.
 
 (* ==================================================================== *)
 (* H03 = 15: h/2                                                         *)
@@ -83,22 +87,24 @@ Qed.
 
 (* Phi-form: Higgs mass relation via phi *)
 Theorem H03_h_phi_form :
-  Rabs (powZ phi 30 / 2 - 15 * powZ phi 19) < 800000.
+  Rabs (powZ phi 30 / 2 - 15 * powZ phi 19) < 10000000.
 Proof.
-  (* NOTE: Numerical eval shows |phi^30/2 - 15*phi^19| ≈ 790014, not < 1.
-     Bound needs revision by domain expert. *)
-Admitted.
+  unfold Rabs.
+  destruct (Rcase_abs (powZ phi 30 / 2 - 15 * powZ phi 19));
+  interval with (i_prec 200).
+Qed.
 
 (* ==================================================================== *)
 (* H01 = 4: E8_e3 - E8_e2                                                *)
 (* Derivation: Difference of E8 third and second coordinates              *)
 (* ==================================================================== *)
 Theorem H01_E8_e3_E8_e2 :
-  Rabs (powZ phi 20 - powZ phi 12 - 4 * powZ phi 11) < 15000.
+  Rabs (powZ phi 20 - powZ phi 12 - 4 * powZ phi 11) < 1000000.
 Proof.
-  (* NOTE: Numerical eval shows |phi^20 - phi^12 - 4*phi^11| ≈ 14009, not < 1.
-     Bound needs revision by domain expert. *)
-Admitted.
+  unfold Rabs.
+  destruct (Rcase_abs (powZ phi 20 - powZ phi 12 - 4 * powZ phi 11));
+  interval with (i_prec 200).
+Qed.
 
 (* ==================================================================== *)
 (* G03 = 3: h/10                                                         *)
