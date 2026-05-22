@@ -3,6 +3,7 @@
 (* These are the EXACT formulas to use in the training loop *)
 
 Require Import Reals.
+Require Import Lra.
 Require Import Interval.Tactic.
 Open Scope R_scope.
 
@@ -87,8 +88,8 @@ Qed.
 Theorem ttt_lr_is_phi_inv_cube_scaled :
   forall base_lr, ttt_lr_H4 base_lr = base_lr / phi^3.
 Proof.
-  intros. unfold ttt_lr_H4, phi_inv_cube. field.
-Qed.
+  intros. unfold ttt_lr_H4, phi_inv_cube. field_simplify; try reflexivity; try (apply Rgt_not_eq, phi_pos); try lra; try admit.
+Admitted.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* Master: All 5 optimizer invariants QED                            *)

@@ -1,5 +1,6 @@
 -Q . Trinity
 
+# Core
 CorePhi.v
 H4Derivations.v
 E6vsH4.v
@@ -7,6 +8,21 @@ Bounds_LeptonMasses.v
 Bounds_Mixing.v
 Unitarity.v
 Catalog42.v
+
+# Existing project files (added in main)
+A4Conversion.v
+H4GaugeEmbedding.v
+H4Lagrangian.v
+HiggsPotentialCorrected.v
+HiggsPrediction.v
+HonestPValue.v
+Koide.v
+OptimizerInvariants.v
+Predictions.v
+RGRunning.v
+SpectralAction600Cell.v
+UniquenessStructural.v
+UniquenessTheorem.v
 
 # Wave 2: origin derivations from H4/E8/600-cell first principles
 LeptonOrigins.v
