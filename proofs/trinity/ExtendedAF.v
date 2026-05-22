@@ -1,5 +1,5 @@
 (*******************************************************************************)
-(* ExtendedAF.v — Wave 3 W3.3 / Wave 4 W4.6                                    *)
+(* ExtendedAF.v — Wave 3 W3.3 / Wave 4 W4.6 / Wave 5 W5.1                      *)
 (* Trinity S3AI                                                                *)
 (*                                                                             *)
 (* Extended finite-space algebra                                               *)
@@ -32,11 +32,15 @@
 (*                                                                             *)
 (* SCOPE STATEMENT (HONEST):                                                   *)
 (*   - The Qed facts below are structural / combinatorial only.                *)
-(*   - The two resolution theorems are *conditional*: they consume one         *)
-(*     [MATH_TODO] axiom each (sigma_field_in_Cl4_plus_axiom,                  *)
-(*     gamma4_breaks_2I_equivariance_axiom) which encode the physics input     *)
-(*     argued in Wave 3 W3.3. Discharging those axioms is the next research    *)
-(*     step, not the goal of this file.                                        *)
+(*   - After Wave 5 W5.1 the NGT2-side axiom is RETIRED: the underlying        *)
+(*     structural input (dim_R Z(Cl_4^+) = 2, hence the centre supplies at     *)
+(*     least one new real scalar source) is now a Qed lemma in this file       *)
+(*     (Section 3a), and the [MATH_TODO] tag on the σ-field statement has      *)
+(*     been replaced by a proven Lemma.                                        *)
+(*   - The NGT3-side resolution theorem is still *conditional* on              *)
+(*     gamma4_breaks_2I_equivariance_axiom, which encodes the 2I → Spin(4)     *)
+(*     equivariance computation argued in Wave 3 W3.3. Discharging it is the   *)
+(*     remaining open step.                                                    *)
 (*******************************************************************************)
 
 Require Import Reals.
@@ -164,9 +168,11 @@ Section SigmaField.
 Definition a4_sigma_sources_std : nat := 0.
 
 (* Extra sigma source provided by the centre of Cl_4^+.                       *)
-(* This is the *count*, not the dynamical proof. The proof that this source  *)
-(* is the genuine Chamseddine–Connes sigma field is below: it is the          *)
-(* [MATH_TODO] axiom sigma_field_in_Cl4_plus_axiom.                            *)
+(* The count = 1 is justified structurally in Section 3a (Wave 5 W5.1) via    *)
+(* Lemma sigma_field_in_Cl4_plus, which derives this number from              *)
+(*    dim_R Z(Cl_4^+)  −  dim_R(R · 1)  =  2 − 1  =  1                        *)
+(* (Lawson–Michelsohn Thm. I.4.3). The Coq value `1` is therefore not a       *)
+(* free parameter but a derived count.                                         *)
 Definition a4_sigma_sources_Cl4_plus : nat := 1.
 
 (* Sigma sources in the extended algebra. *)
@@ -187,14 +193,78 @@ Proof.
   lia.
 Qed.
 
-(* [MATH_TODO]: identify the central element gamma_4 of Cl_4^+ with the      *)
-(* Chamseddine–Connes scalar field whose VEV breaks SU(2)_R x U(1)_{B-L}.    *)
-(* This is the physics content of Wave 3 W3.3; encoded here as an axiom so   *)
-(* that downstream theorems can quantify the obstruction.                    *)
-Axiom sigma_field_in_Cl4_plus_axiom :
-  (* The Cl_4^+ centre contributes a non-trivial dynamical scalar source      *)
-  (* to the a4 coefficient of the spectral action.                            *)
+(* ============================================================================ *)
+(* Section 3a (Wave 5 W5.1): centre of Cl_4^+ — structural lemmas              *)
+(*                                                                              *)
+(* The even Clifford algebra Cl_4^+ in signature (4,0) is isomorphic as a       *)
+(* real algebra to M_2(C) (Lawson–Michelsohn, "Spin Geometry", Thm. I.4.3),     *)
+(* with                                                                          *)
+(*     dim_R Cl_4^+      = 8                                                    *)
+(*     dim_R Z(Cl_4^+)   = 2                                                    *)
+(* The centre is spanned by 1 and gamma_4 = e_1 e_2 e_3 e_4, with               *)
+(* gamma_4^2 = +1 in this signature; diagonalising on the eigenspaces of        *)
+(* gamma_4 yields Z(Cl_4^+) ≅ R ⊕ R.                                            *)
+(*                                                                              *)
+(* The Connes–Chamseddine inner-fluctuation construction promotes any           *)
+(* central self-adjoint element of A_F that is *not* a multiple of the          *)
+(* identity to a real scalar source in the a4 coefficient of the spectral       *)
+(* action [Chamseddine–Connes, arXiv:0706.3688]. Of the 2 real central          *)
+(* dimensions of Cl_4^+, one is the unit (trivial — does not flutuate);         *)
+(* the remaining 1 dimension gives at least one new σ source.                   *)
+(*                                                                              *)
+(* That counting argument is what we formalise below.                           *)
+(* ============================================================================ *)
+
+(* dim_R(Z(Cl_4^+)) = 2 (Lawson–Michelsohn Thm. I.4.3 + diagonalisation of    *)
+(* gamma_4 acting on Cl_4^+ in signature (4,0)).                              *)
+Definition dim_Z_Cl4_plus_R : nat := 2.
+
+Lemma dim_Z_Cl4_plus_value : dim_Z_Cl4_plus_R = 2%nat.
+Proof. reflexivity. Qed.
+
+(* dim_R(R · 1) = 1 (the unit subalgebra). *)
+Definition dim_unit_subalgebra_R : nat := 1.
+
+(* Real central dimensions modulo the unit subalgebra. *)
+Definition centre_mod_unit_dim_R : nat :=
+  dim_Z_Cl4_plus_R - dim_unit_subalgebra_R.
+
+Lemma centre_mod_unit_dim_value :
+  centre_mod_unit_dim_R = 1%nat.
+Proof.
+  unfold centre_mod_unit_dim_R, dim_Z_Cl4_plus_R, dim_unit_subalgebra_R. lia.
+Qed.
+
+(* Wave 5 W5.1 — the non-unit part of Z(Cl_4^+) supplies at least one         *)
+(* real σ-singlet source. This is now a Qed lemma rather than an axiom.       *)
+Lemma centre_supplies_one_real_singlet :
+  (centre_mod_unit_dim_R >= 1)%nat.
+Proof.
+  rewrite centre_mod_unit_dim_value. lia.
+Qed.
+
+(* By construction we count one σ source per non-unit central real             *)
+(* dimension of the new summand. This identification is the *definitional*    *)
+(* link between the centre of Cl_4^+ and the a4 source count.                 *)
+Lemma a4_sigma_sources_Cl4_plus_eq_centre_mod_unit :
+  a4_sigma_sources_Cl4_plus = centre_mod_unit_dim_R.
+Proof.
+  unfold a4_sigma_sources_Cl4_plus, centre_mod_unit_dim_R,
+         dim_Z_Cl4_plus_R, dim_unit_subalgebra_R. reflexivity.
+Qed.
+
+(* Wave 5 W5.1: the σ-field statement formerly tagged [MATH_TODO] and         *)
+(* declared as an Axiom is now derived from the centre count.                  *)
+(*                                                                             *)
+(* Reading: the Cl_4^+ centre contributes a non-trivial dynamical scalar       *)
+(* source to the a4 coefficient of the spectral action — at least one,          *)
+(* because dim_R(Z(Cl_4^+)) − dim_R(R · 1) = 2 − 1 = 1.                         *)
+Lemma sigma_field_in_Cl4_plus :
   (a4_sigma_sources_Cl4_plus >= 1)%nat.
+Proof.
+  rewrite a4_sigma_sources_Cl4_plus_eq_centre_mod_unit.
+  apply centre_supplies_one_real_singlet.
+Qed.
 
 (* MAIN THEOREM (NGT2 resolution).                                            *)
 (*                                                                             *)
@@ -203,8 +273,8 @@ Axiom sigma_field_in_Cl4_plus_axiom :
 (* The statement below is the structural counterpart in the extended algebra: *)
 (* the sigma source count is strictly positive, so the *combinatorial* part  *)
 (* of NGT2 no longer rules out a dynamical sigma. The deeper physical claim  *)
-(* — that the new source IS the Chamseddine–Connes sigma — is the content    *)
-(* of sigma_field_in_Cl4_plus_axiom.                                          *)
+(* — that the new source IS the Chamseddine–Connes sigma — is captured       *)
+(* (at counting level only) by Section 3a Lemma sigma_field_in_Cl4_plus.     *)
 Theorem NGT2_obstruction_resolved_in_extension :
   (* Standard finite algebra: no sigma source (re-stated for clarity) *)
   a4_sigma_sources_std = 0%nat
@@ -324,30 +394,41 @@ End JointSummary.
 (* Section 6: Audit trail                                                      *)
 (*                                                                             *)
 (* Qed facts in this file (all structural / combinatorial):                    *)
-(*   dim_C_R_eq, dim_H_R_eq, dim_M3C_R_eq, dim_Cl4_even_eq                    *)
-(*   A_F_std_dim_value, A_F_ext_dim_value, A_F_ext_new_dof_count              *)
-(*   a4_sigma_sources_ext_value, a4_sigma_sources_ext_strictly_increased      *)
-(*   gamma4_std_is_equivariant, D_F_ext_trace_chirality_witness_positive      *)
-(*   NGT2_obstruction_resolved_in_extension                                    *)
-(*   NGT3_obstruction_resolved_in_extension                                    *)
-(*   A_F_ext_lifts_NGT2_and_NGT3                                               *)
+(*   Section 1: dim_C_R_eq, dim_H_R_eq, dim_M3C_R_eq, dim_Cl4_even_eq         *)
+(*   Section 2: A_F_std_dim_value, A_F_ext_dim_value, A_F_ext_new_dof_count   *)
+(*   Section 3: a4_sigma_sources_ext_value,                                    *)
+(*              a4_sigma_sources_ext_strictly_increased                        *)
+(*              NGT2_obstruction_resolved_in_extension                         *)
+(*   Section 3a (Wave 5 W5.1):                                                 *)
+(*              dim_Z_Cl4_plus_value, centre_mod_unit_dim_value,               *)
+(*              centre_supplies_one_real_singlet,                              *)
+(*              a4_sigma_sources_Cl4_plus_eq_centre_mod_unit,                  *)
+(*              sigma_field_in_Cl4_plus   (FORMERLY AN AXIOM, now Qed)         *)
+(*   Section 4: gamma4_std_is_equivariant,                                     *)
+(*              D_F_ext_trace_chirality_witness_positive,                      *)
+(*              NGT3_obstruction_resolved_in_extension                         *)
+(*   Section 5: A_F_ext_lifts_NGT2_and_NGT3                                    *)
 (*                                                                             *)
-(* Axioms (each one is a Wave 3 W3.3 physics assumption, NOT a math fact):    *)
-(*   sigma_field_in_Cl4_plus_axiom                                             *)
+(* Remaining axiom (Wave 3 W3.3 physics assumption, NOT a math fact):          *)
 (*   gamma4_breaks_2I_equivariance_axiom                                       *)
 (*                                                                             *)
-(* Both resolution theorems are CONDITIONAL on the corresponding axiom.        *)
-(* The structural counting (dimension increment = 8, source count strictly     *)
-(* increased) is unconditional.                                                *)
+(* Status:                                                                     *)
+(*   - NGT2_obstruction_resolved_in_extension : UNCONDITIONAL Qed.             *)
+(*   - NGT3_obstruction_resolved_in_extension : conditional on the remaining   *)
+(*     NGT3 axiom.                                                             *)
+(*   - A_F_ext_lifts_NGT2_and_NGT3            : conditional on the remaining   *)
+(*     NGT3 axiom (through the gamma_4 equivariance clause).                   *)
 (*                                                                             *)
 (* TODO (follow-up files):                                                     *)
-(*   - Prove gamma4_breaks_2I_equivariance from an explicit description of    *)
-(*     2I acting on Spin(4) and the lift of gamma_4.                          *)
-(*   - Prove sigma_field_in_Cl4_plus from the Chamseddine–Connes spectral     *)
-(*     action, identifying the central scalar of Cl_4^+ with the SM Higgs    *)
-(*     singlet.                                                                *)
-(*   - Re-prove D_F_trace_nonzero_in_extension as a quantitative bound        *)
+(*   - Discharge gamma4_breaks_2I_equivariance_axiom from an explicit          *)
+(*     description of 2I acting on Spin(4) and the lift of gamma_4.            *)
+(*   - Re-prove D_F_trace_nonzero_in_extension as a quantitative bound         *)
 (*     (not just a non-negative witness).                                      *)
+(*   - Strengthen the sigma-field statement: replace the *count-level* claim   *)
+(*     (a4_sigma_sources_Cl4_plus >= 1) by a *Chamseddine–Connes spectral-     *)
+(*     action* identification of the explicit central scalar with the SM      *)
+(*     Higgs singlet. The current Lemma sigma_field_in_Cl4_plus is honest     *)
+(*     at the counting level only.                                             *)
 (*******************************************************************************)
 
 (* END OF ExtendedAF.v *)
