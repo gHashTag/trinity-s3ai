@@ -49,7 +49,7 @@ Theorem Q07_d1_d2_phi_form :
 Proof.
   unfold Rabs.
   destruct (Rcase_abs (powZ phi 2 * powZ phi 12 - 24 * powZ phi 10));
-  interval with (i_prec 200).
+  unfold powZ; simpl; interval with (i_prec 200).
 Qed.
 
 (* Corollary in phi-form *)
@@ -58,7 +58,7 @@ Theorem Q04_d1_d2_phi_form :
 Proof.
   unfold Rabs.
   destruct (Rcase_abs (powZ phi 2 + powZ phi 12 - 14 * powZ phi 5));
-  interval with (i_prec 200).
+  unfold powZ; simpl; interval with (i_prec 200).
 Qed.
 
 (* ==================================================================== *)
@@ -70,7 +70,7 @@ Theorem N01_e3_e2_diff :
 Proof.
   unfold Rabs.
   destruct (Rcase_abs (powZ phi 19 - powZ phi 11 - 8 * powZ phi 12));
-  interval with (i_prec 200).
+  unfold powZ; simpl; interval with (i_prec 200).
 Qed.
 
 (* ==================================================================== *)
@@ -91,7 +91,7 @@ Theorem H03_h_phi_form :
 Proof.
   unfold Rabs.
   destruct (Rcase_abs (powZ phi 30 / 2 - 15 * powZ phi 19));
-  interval with (i_prec 200).
+  unfold powZ; simpl; interval with (i_prec 200).
 Qed.
 
 (* ==================================================================== *)
@@ -103,7 +103,7 @@ Theorem H01_E8_e3_E8_e2 :
 Proof.
   unfold Rabs.
   destruct (Rcase_abs (powZ phi 20 - powZ phi 12 - 4 * powZ phi 11));
-  interval with (i_prec 200).
+  unfold powZ; simpl; interval with (i_prec 200).
 Qed.
 
 (* ==================================================================== *)
@@ -144,8 +144,23 @@ Qed.
 Theorem H02_Lucas_2_phi_form :
   Rabs (powZ phi 2 + powZ psi 2 - 3) < 0.001.
 Proof.
-  unfold phi, psi, powZ, Rabs.
-  destruct (Rcase_abs (phi^2 + psi^2 - 3)); interval with (i_prec 60).
+  replace (powZ phi 2) with (phi * phi) by (unfold powZ; simpl; ring).
+  replace (powZ psi 2) with (psi * psi) by (unfold powZ; simpl; ring).
+  replace (phi * phi + psi * psi - 3) with 0.
+  2: {
+    unfold phi, psi.
+    replace (((1 + sqrt 5) / 2) * ((1 + sqrt 5) / 2) + ((1 - sqrt 5) / 2) * ((1 - sqrt 5) / 2) - 3)
+      with (((1 + sqrt 5) * (1 + sqrt 5) + (1 - sqrt 5) * (1 - sqrt 5) - 12) / 4)
+      by (field; lra).
+    replace ((1 + sqrt 5) * (1 + sqrt 5) + (1 - sqrt 5) * (1 - sqrt 5) - 12)
+      with ((1 + 2 * sqrt 5 + sqrt 5 * sqrt 5) + (1 - 2 * sqrt 5 + sqrt 5 * sqrt 5) - 12).
+    2: { ring. }
+    replace (sqrt 5 * sqrt 5) with 5 by (rewrite sqrt_sqrt; lra).
+    lra.
+  }
+  unfold Rabs.
+  destruct (Rcase_abs 0);
+  lra.
 Qed.
 
 (* ==================================================================== *)

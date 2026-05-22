@@ -49,9 +49,11 @@ Definition b3 : R := -7.
 (*  3.  Running Gauge Couplings (Analytical One-Loop Solution)                *)
 (******************************************************************************)
 
+Section RGRunningSection.
+
 (* Unified coupling at Lambda_H4 (all three couplings equal here) *)
-Parameter g_unif : R.
-Hypothesis g_unif_pos : g_unif > 0.
+#[local] Parameter g_unif : R.
+#[local] Axiom g_unif_pos : g_unif > 0.
 
 (* Inverse squared unified coupling *)
 Definition gU2inv : R := 1 / (g_unif * g_unif).
@@ -86,9 +88,7 @@ Definition alpha_s (mu : R) : R := 1 / alpha_i_inv mu b3.
 (* Lambda_H4 / m_Z > 1, so ln is well-defined and positive *)
 Lemma ln_ratio_positive : ln (Lambda_H4 / m_Z) > 0.
 Proof.
-  apply ln_gt_0.
-  unfold Lambda_H4, m_Z.
-  interval.
+  unfold Lambda_H4, m_Z. interval with (i_prec 30).
 Qed.
 
 Lemma alpha_i_inv_pos_at_mZ :
@@ -119,20 +119,20 @@ Proof.
   exists Lambda_H4.
   split; [|split; [|split]].
   - (* Lambda > 0 *)
-    unfold Lambda_H4. interval.
+    unfold Lambda_H4. lra.
   - (* g1(Lambda) = g2(Lambda) *)
     unfold g1, g2, alpha_i_inv.
     (* At the unification scale, Lambda_H4 / Lambda_H4 = 1, ln(1) = 0,
        so all alpha_i_inv reduce to gU2inv. *)
-    replace (Lambda_H4 / Lambda_H4) with 1 by field.
-    rewrite ln_1.
-    field_simplify.
+    assert (H: Lambda_H4 / Lambda_H4 = 1) by (unfold Lambda_H4; field; lra).
+    rewrite H, ln_1.
+    repeat rewrite Rmult_0_r.
     reflexivity.
   - (* g2(Lambda) = g3(Lambda) *)
     unfold g2, g3, alpha_i_inv.
-    replace (Lambda_H4 / Lambda_H4) with 1 by field.
-    rewrite ln_1.
-    field_simplify.
+    assert (H: Lambda_H4 / Lambda_H4 = 1) by (unfold Lambda_H4; field; lra).
+    rewrite H, ln_1.
+    repeat rewrite Rmult_0_r.
     reflexivity.
   - (* Lambda = 1.5 * 10^16 *)
     unfold Lambda_H4. reflexivity.
@@ -227,7 +227,7 @@ Qed.
 
 (* Compute numerical values of the Trinity predictions *)
 Lemma trinity_alpha_inv_approx :
-  126 < trinity_alpha_inv < 130.
+  136 < trinity_alpha_inv < 137.5.
 Proof.
   unfold trinity_alpha_inv, phi, e_coq.
   interval with (i_prec 30).
@@ -252,4 +252,5 @@ Qed.
 (* - Theorem 3 (alpha_s_from_H4):       ADMITTED                             *)
 (*   Requires numerical tuning of g_unif to match the Trinity formula.       *)
 
+End RGRunningSection.
 Close Scope R_scope.

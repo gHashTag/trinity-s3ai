@@ -1,4 +1,5 @@
 -Q . Trinity
+-Q /Users/playra/.opam/4.14.1/lib/coq/user-contrib/Interval Interval
 
 CorePhi.v
 H4Derivations.v
@@ -7,3 +8,16 @@ Bounds_LeptonMasses.v
 Bounds_Mixing.v
 Unitarity.v
 Catalog42.v
+A4Conversion.v
+H4GaugeEmbedding.v
+H4Lagrangian.v
+HiggsPotentialCorrected.v
+HiggsPrediction.v
+HonestPValue.v
+Koide.v
+OptimizerInvariants.v
+Predictions.v
+RGRunning.v
+SpectralAction600Cell.v
+UniquenessStructural.v
+UniquenessTheorem.v

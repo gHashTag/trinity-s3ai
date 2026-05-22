@@ -16,6 +16,7 @@
 Require Import Reals.
 From Coq Require Import Lra.
 Require Import Field.
+Require Import Interval.Tactic.
 
 Open Scope R_scope.
 
@@ -30,7 +31,7 @@ Definition phi : R := (1 + sqrt 5) / 2.
 (* For this proof, we treat e as the mathematical constant satisfying
    the spectral action normalization identity. *)
 Parameter e : R.
-Hypothesis e_gt_0 : 0 < e.
+Axiom e_gt_0 : 0 < e.
 
 (* Measured Standard Model VEV *)
 Definition v_SM : R := 246.
@@ -89,7 +90,7 @@ Proof. assert (0 < m_H_Trinity) by apply m_H_Trinity_pos. lra. Qed.
 End TrinityFormula.
 
 (* Global hypothesis: The Trinity formula matches the measured Higgs mass *)
-Hypothesis Trinity_matches_experiment :
+Axiom Trinity_matches_experiment :
   Rabs (m_H_Trinity - m_H_measured) < 0.25.
 
 (******************************************************************************)
@@ -110,7 +111,7 @@ Definition v_bare : R := m_H_Trinity / sqrt (2 * lambda_bare).
 Definition gap_factor : R := v_bare / v_SM.
 
 (* The gap is approximately 6% *)
-Hypothesis gap_approx_6percent :
+Axiom gap_approx_6percent :
   220 / 246 < gap_factor < 235 / 246.
 
 (* Lemma: The gap exists -- numerical verification *)
@@ -170,10 +171,10 @@ Theorem VEV_corrected_matches_SM :
 Proof.
   unfold v_corrected, mu_sq_corrected, lambda_corrected.
   assert (H: (m_H_Trinity ^ 2 / (2 * v_SM ^ 2) * v_SM ^ 2) / (m_H_Trinity ^ 2 / (2 * v_SM ^ 2)) = v_SM ^ 2).
-  { field_simplify. ring. split.
-    - unfold v_SM. lra.
-    - apply m_H_Trinity_neq. }
-  rewrite H. rewrite pow2_sqrt. reflexivity. unfold v_SM. lra.
+  { field_simplify; [reflexivity | split; [unfold v_SM; lra | apply m_H_Trinity_neq]]. }
+  rewrite H. rewrite <- Rsqr_pow2. rewrite sqrt_Rsqr.
+  - reflexivity.
+  - unfold v_SM. lra.
 Qed.
 
 (* The corrected Higgs mass *)
@@ -186,15 +187,12 @@ Theorem m_H_corrected_matches_Trinity :
 Proof.
   unfold m_H_corrected, lambda_corrected.
   assert (H: 2 * (m_H_Trinity ^ 2 / (2 * v_SM ^ 2)) = (m_H_Trinity / v_SM) ^ 2).
-  { field_simplify. ring. split.
-    - unfold v_SM. lra.
-    - apply m_H_Trinity_neq. }
-  rewrite H. rewrite pow2_sqrt.
-  field_simplify. reflexivity. split.
-  - unfold v_SM. lra.
-  - apply m_H_Trinity_neq.
-  apply Rlt_le. apply Rmult_lt_0_compat.
-  apply m_H_Trinity_pos. unfold v_SM. lra.
+  { field_simplify; [reflexivity | unfold v_SM; apply Rgt_not_eq; nra | unfold v_SM; apply Rgt_not_eq; nra]. }
+  rewrite H. rewrite <- Rsqr_pow2. rewrite sqrt_Rsqr.
+  field_simplify; [reflexivity | unfold v_SM; apply Rgt_not_eq; nra].
+  unfold v_SM. apply Rmult_le_pos.
+  - apply Rlt_le. exact m_H_Trinity_pos.
+  - apply Rlt_le, Rinv_0_lt_compat. lra.
 Qed.
 
 (* Helper: bound m_H_Trinity using experimental match *)
@@ -223,17 +221,7 @@ Theorem lambda_corrected_matches_SM :
 Proof.
   unfold lambda_corrected.
   assert (Hb: 124.84 < m_H_Trinity < 125.34) by apply m_H_Trinity_bounds.
-  destruct Hb as [Hlow Hhigh].
-  assert (Hlam_low: 124.84 ^ 2 / (2 * v_SM ^ 2) < m_H_Trinity ^ 2 / (2 * v_SM ^ 2)).
-  { apply Rmult_lt_compat_r. apply Rinv_0_lt_compat. unfold v_SM. nra.
-    nra. }
-  assert (Hlam_high: m_H_Trinity ^ 2 / (2 * v_SM ^ 2) < 125.34 ^ 2 / (2 * v_SM ^ 2)).
-  { apply Rmult_lt_compat_r. apply Rinv_0_lt_compat. unfold v_SM. nra.
-    nra. }
-  unfold v_SM in Hlam_low, Hlam_high.
-  unfold Rabs. destruct (Rcase_abs (m_H_Trinity ^ 2 / (2 * 246 ^ 2) - 0.13)) as [Hneg | Hpos].
-  - lra.
-  - lra.
+  interval with (i_prec 200).
 Qed.
 
 End CorrectedDerivation.
@@ -267,15 +255,16 @@ Proof.
   unfold V_min, V_Higgs, rho_sq_min, mu_sq_corrected.
   (* V(rho_sq) - V(v^2/2) = lambda*(rho_sq^2 - v^2*rho_sq + v^4/4)
      = lambda*(rho_sq - v^2/2)^2 >= 0 since lambda > 0 *)
-  replace (- lambda_corrected * v_SM ^ 2 * (v_SM ^ 2 / 2) + lambda_corrected * (v_SM ^ 2 / 2) ^ 2)
-    with (- lambda_corrected * v_SM ^ 4 / 4).
-  2: { field_simplify. ring. }
-  replace (- lambda_corrected * v_SM ^ 2 * rho_sq + lambda_corrected * rho_sq ^ 2 + lambda_corrected * v_SM ^ 4 / 4)
-    with (lambda_corrected * (rho_sq - v_SM ^ 2 / 2) ^ 2).
-  2: { field_simplify. ring. }
-  apply Rmult_le_pos.
-  - apply Rlt_le. apply lambda_corrected_pos.
-  - apply Rle_0_sqr.
+  apply Rminus_ge.
+  replace (- lambda_corrected * v_SM ^ 2 * rho_sq + lambda_corrected * rho_sq ^ 2 - (- lambda_corrected * v_SM ^ 2 * (v_SM ^ 2 / 2) + lambda_corrected * (v_SM ^ 2 / 2) ^ 2))
+    with (lambda_corrected * (rho_sq - v_SM ^ 2 / 2) ^ 2) by field.
+  assert (H1: 0 <= lambda_corrected).
+  { unfold lambda_corrected. apply Rlt_le. apply Rmult_lt_0_compat.
+    - apply pow_lt. exact m_H_Trinity_pos.
+    - apply Rinv_0_lt_compat. unfold v_SM. nra. }
+  assert (H2: 0 <= (rho_sq - v_SM ^ 2 / 2) ^ 2).
+  { rewrite <- Rsqr_pow2. apply Rle_0_sqr. }
+  nra.
 Qed.
 
 (* Corollary: The VEV is v = 246 GeV *)
@@ -292,10 +281,11 @@ Theorem Higgs_mass_from_curvature :
   sqrt (2 * mu_sq_corrected) = m_H_Trinity.
 Proof.
   unfold mu_sq_corrected, lambda_corrected.
-  (* Algebraic identity: sqrt(2 * (m_H^2/(2*v^2) * v^2)) = sqrt(m_H^2) = m_H *)
-  field_simplify.
-  - rewrite sqrt_square. reflexivity. apply Rlt_le. apply m_H_Trinity_pos.
-  - split. apply m_H_Trinity_neq. unfold v_SM. lra.
+  assert (H: 2 * (m_H_Trinity ^ 2 / (2 * v_SM ^ 2) * v_SM ^ 2) = m_H_Trinity ^ 2).
+  { field_simplify; [reflexivity | unfold v_SM; apply Rgt_not_eq; nra]. }
+  rewrite H. rewrite <- Rsqr_pow2. rewrite sqrt_Rsqr.
+  - reflexivity.
+  - apply Rlt_le. exact m_H_Trinity_pos.
 Qed.
 
 End HiggsPotential.
@@ -308,13 +298,13 @@ Section GaugeBosonMasses.
 
 (* SU(2)_L gauge coupling at electroweak scale *)
 Parameter g_SU2 : R.
-Hypothesis g_SU2_pos : 0 < g_SU2.
-Hypothesis g_SU2_value : Rabs (g_SU2 - 0.6518) < 0.01.
+Axiom g_SU2_pos : 0 < g_SU2.
+Axiom g_SU2_value : Rabs (g_SU2 - 0.6518) < 0.01.
 
 (* U(1)_Y gauge coupling at electroweak scale *)
 Parameter g_U1 : R.
-Hypothesis g_U1_pos : 0 < g_U1.
-Hypothesis g_U1_value : Rabs (g_U1 - 0.3575) < 0.01.
+Axiom g_U1_pos : 0 < g_U1.
+Axiom g_U1_value : Rabs (g_U1 - 0.3575) < 0.01.
 
 (* W boson mass: m_W = g * v / 2 *)
 Definition m_W : R := g_SU2 * v_SM / 2.
@@ -332,7 +322,10 @@ Proof.
     + lra.
   - unfold m_Z. apply Rmult_lt_0_compat.
     + apply Rmult_lt_0_compat.
-      * apply sqrt_lt_R0. nra.
+      * apply sqrt_lt_R0.
+        assert (H1: 0 < g_SU2 ^ 2) by (apply pow_lt; exact g_SU2_pos).
+        assert (H2: 0 <= g_U1 ^ 2) by (rewrite <- Rsqr_pow2; apply Rle_0_sqr).
+        apply Rplus_lt_le_0_compat; [exact H1 | exact H2].
       * unfold v_SM. lra.
     + lra.
 Qed.
@@ -345,9 +338,18 @@ Theorem Weinberg_angle :
   cos_theta_W_sq = g_SU2 ^ 2 / (g_SU2 ^ 2 + g_U1 ^ 2).
 Proof.
   unfold cos_theta_W_sq, m_W, m_Z.
-  field_simplify.
-  - rewrite pow2_sqrt. reflexivity. nra.
-  - repeat split; nra.
+  assert (Hsqrt: sqrt (g_SU2 ^ 2 + g_U1 ^ 2) ^ 2 = g_SU2 ^ 2 + g_U1 ^ 2).
+  { rewrite <- Rsqr_pow2. apply Rsqr_sqrt. nra. }
+  field_simplify; [rewrite Hsqrt; reflexivity |
+    apply Rgt_not_eq;
+    assert (H1: 0 < g_SU2 ^ 2) by (apply pow_lt; exact g_SU2_pos);
+    assert (H2: 0 <= g_U1 ^ 2) by (rewrite <- Rsqr_pow2; apply Rle_0_sqr);
+    apply Rplus_lt_le_0_compat; [exact H1 | exact H2] |
+    split; [unfold v_SM; lra |
+      apply Rgt_not_eq; apply sqrt_lt_R0;
+      assert (H1: 0 < g_SU2 ^ 2) by (apply pow_lt; exact g_SU2_pos);
+      assert (H2: 0 <= g_U1 ^ 2) by (rewrite <- Rsqr_pow2; apply Rle_0_sqr);
+      apply Rplus_lt_le_0_compat; [exact H1 | exact H2]]].
 Qed.
 
 End GaugeBosonMasses.
@@ -425,10 +427,12 @@ Proof.
     (* Complete the square: V = lambda*(Phi_sq' - v^2/2)^2 - lambda*v^4/4 *)
     replace (- lambda_corrected * v_SM ^ 2 * Phi_sq' + lambda_corrected * Phi_sq' ^ 2)
       with (lambda_corrected * (Phi_sq' - v_SM ^ 2 / 2) ^ 2 - lambda_corrected * v_SM ^ 4 / 4).
-    2: { field_simplify. ring. }
-    assert (0 <= lambda_corrected * (Phi_sq' - v_SM ^ 2 / 2) ^ 2).
-    { apply Rmult_le_pos. apply Rlt_le. apply lambda_corrected_pos. apply Rle_0_sqr. }
-    lra.
+    2: { field. }
+    assert (H1: 0 <= lambda_corrected).
+    { apply Rlt_le. apply lambda_corrected_pos. }
+    assert (H2: 0 <= (Phi_sq' - v_SM ^ 2 / 2) ^ 2).
+    { rewrite <- Rsqr_pow2. apply Rle_0_sqr. }
+    nra.
   - split; [| split].
     + reflexivity.
     + apply m_H_corrected_matches_Trinity.
