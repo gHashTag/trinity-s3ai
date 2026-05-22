@@ -24,6 +24,13 @@ jobs:
         with:
           coq_version: '9.1.1'
           ocaml_version: 'default'
+          # Fix ownership: the docker-coq image runs as the 'coq' user, but
+          # the checkout is owned by the host runner. Without chown, the
+          # build step cannot write Makefile.coq / .vo files in proofs/trinity.
+          before_script: |
+            startGroup "Fix workspace permissions"
+              sudo chown -R coq:coq .
+            endGroup
           custom_script: |
             startGroup "Install dependencies"
               opam update -y
@@ -32,10 +39,9 @@ jobs:
 
             startGroup "Generate Makefile and build"
               cd proofs/trinity
-              # If a checked-in Makefile.coq exists, use it; otherwise generate.
-              if [ ! -f Makefile.coq ]; then
-                coq_makefile -f _CoqProject -o Makefile.coq
-              fi
+              # Always regenerate Makefile.coq from _CoqProject so it reflects
+              # the current list of .v files (including new derivation files).
+              coq_makefile -f _CoqProject -o Makefile.coq
               make -f Makefile.coq -j 2
             endGroup
 

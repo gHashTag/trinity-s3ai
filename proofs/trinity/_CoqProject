@@ -7,3 +7,9 @@ Bounds_LeptonMasses.v
 Bounds_Mixing.v
 Unitarity.v
 Catalog42.v
+
+# Next-wave origin derivations (added in PR #2)
+LeptonOrigins.v
+QuarkOrigins.v
+HiggsOrigins.v
+GaugeOrigins.v
