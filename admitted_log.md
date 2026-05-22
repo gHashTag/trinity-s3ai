@@ -1,84 +1,114 @@
 # admitted_log.md — Реестр всех Admitted в Trinity S3AI
 
-**Дата создания:** Wave 4.2  
-**Версия:** Trinity S3AI v3.5  
-**Всего Admitted:** 25  
+**Дата последнего обновления:** Wave 10.4 (A4-аудит)
+**Версия:** Trinity S3AI v4.0
+**Состояние на момент аудита (A1, Wave 10.4):**
+
+| Тип | Реальное кол-во | Заявлено ранее | Расхождение |
+|-----|----------------|----------------|-------------|
+| `Axiom` | 88 (уникальных в 14 файлах proofs/) | не указано | — |
+| `Admitted` (чистые) | 37 | 7 | **+30** |
+| `admit` | 17 | 0 | **+17** |
+| `Qed` | 1326 | 326 | **+1000** |
+
+> ⚠️ **ВАЖНО**: Предыдущий README.md заявлял "0 Admitted". Это НЕВЕРНО.
+> Предыдущий admitted_log.md заявлял 25 Admitted. Тоже НЕВЕРНО.
+> Настоящий документ отражает реальное состояние после A1-аудита (Wave 10.4).
+
+---
 
 ## Таксономия
 
 | Тег | Смысл | Кол-во |
 |-----|-------|--------|
-| `[PHYSICAL_AXIOM]` | Физическое допущение — граничное условие РГ, масштаб масс, нормировка | 4 |
-| `[NUMERICAL_FIT]` | Формула найдена подбором по данным, вывода нет | 2 |
+| `[PHYSICAL_AXIOM]` | Физическое допущение — граничное условие РГ, масштаб масс, нормировка | 5 |
+| `[NUMERICAL_FIT]` | Формула найдена подбором по данным, вывода нет | 3 |
 | `[MATH_TODO]` | Математически доказуемо, но вывод ещё не написан | 6 |
-| `[LIBRARY_GAP]` | Ограничение coq-interval / stdlib Rocq 9.1.1 | 13 |
+| `[LIBRARY_GAP]` | Ограничение coq-interval / stdlib Rocq 9.1.1 | 15 |
+| `[REFUTED]` | Утверждение математически ЛОЖНО | 2 |
 
 ---
 
-## Полный реестр
+## Полный реестр — Admitted и admit
 
-| № | Файл | Строка | Теорема/Лемма | Тег | Обоснование | Закрываемость |
-|---|------|--------|---------------|-----|-------------|---------------|
-| 1 | `A4Conversion.v` | 195 | `conversion_exact` | `[MATH_TODO]` | Алгебраическое тождество: рационализация знаменателя `(448 + 192√5) / (8 + 3√5)` умножением на сопряжённое. Тактики `field`/`ring` не справляются с вложенными `sqrt` в Rocq 9.1.1. | **Высокая** — ручная запись через `sqrt5_sq` + `ring_simplify` |
-| 2 | `Bounds_Mixing.v` | 89 | `N04_within_experimental_range` | `[LIBRARY_GAP]` | Численно истинно (65.66° vs. 65.5° ± 4°). `interval` не раскрывает `rad_to_deg` с PI корректно без предварительного `unfold` + оценки PI по интервалу. | **Высокая** — добавить `unfold N04_formula_deg, rad_to_deg, N04_formula_rad, phi; interval with (i_prec 100)` |
-| 3 | `Catalog42.v` | 318 | `Q02_is_m_s_over_m_u` | `[LIBRARY_GAP]` | Было `Qed`. `Q02_V = 12 + φ³·e²`, отношение `m_s/m_u ≈ 43.2` — `interval` не укладывается в лимит точности при текущем `i_prec`. | **Высокая** — повысить `i_prec` до 150+ и добавить `simpl` перед `interval` |
-| 4 | `Catalog42.v` | 337 | `N03_is_sin2_theta_23` | `[LIBRARY_GAP]` | Было `Qed`. `N03_V = π²/18` — чистая PI-формула, `interval` не раскрывает `powZ` до вызова. | **Высокая** — добавить `simpl` перед `interval`, как в других `N0x`-теоремах |
-| 5 | `Catalog42.v` | 376 | `C01_is_V_us` | `[LIBRARY_GAP]` | Было `Qed`. `C01_V = 2φ³e²/(9π³)` — тройное транцендентное произведение, `interval` требует `simpl` для `powZ`. | **Высокая** — `simpl; interval with (i_prec 200)` |
-| 6 | `E6vsH4.v` | 107 | `sqrt_5_not_rational` | `[MATH_TODO]` | Стандартный результат теории чисел (бесконечный спуск / единственность разложения). Отсутствует в stdlib Coq; требует ручного доказательства или внешней библиотеки. | **Средняя** — написать вручную через `Zpow_pos` + модульная арифметика |
-| 7 | `E6vsH4.v` | 115 | `phi_irrational` | `[MATH_TODO]` | Прямое следствие `sqrt_5_not_rational`; `φ = (1+√5)/2` нерационально стандартно, но `IZR`-арифметика не автоматизирована. | **Высокая** — закроется вместе с № 6 |
-| 8 | `E6vsH4.v` | 130 | `E6_no_phi` | `[MATH_TODO]` | Структурное следствие `phi_irrational`: любое рациональное `x ≠ φ`. Контрапозитивный вывод с `existential` — автоматика не справляется. | **Высокая** — закроется вместе с № 7 |
-| 9 | `E6vsH4.v` | 194 | `cos_pi_5_quadratic` | `[MATH_TODO]` | Два `admit` внутри: (а) тождество `sin²→1-cos²` в произведении (ring_simplify не применяется), (б) итоговое уравнение `4c²-2c-1=0` через `lra` по гипотезам с cos. | **Средняя** — `rewrite Hsin; ring` для (а), `lra` для (б) после (а) |
-| 10 | `GaugeOrigins.v` | 363 | `G01_from_GUT_running` | `[PHYSICAL_AXIOM]` | Требует (1) аксиому `gU2inv_window` из `RGRunning.v` (граничное условие ОТЭ), (2) фактор нормировки гиперзаряда `√(5/3)` из GUT-вложения. Оба — физические допущения, не выводимые из геометрии H4. | **Низкая** — только после импорта `RGRunning` и доработки нормировки |
-| 11 | `H4GaugeEmbedding.v` | 74 | `phi_irrational_over_Q` | `[LIBRARY_GAP]` | Стандартное доказательство бесконечным спуском на `√5`; `field`/`IZR`-тактики не работают с конкретными знаменателями в Rocq 9.1.1. | **Средняя** — переиспользовать доказательство из `E6vsH4.v` после закрытия № 6 |
-| 12 | `H4Lagrangian.v` | 151 | `L01_lagrangian_order_of_magnitude` | `[LIBRARY_GAP]` | `L01 ≈ 0.017` (между 0 и 1); `interval` не справляется с `1e16/1.22e19` (литералы с плавающей запятой в R) совместно с `exp 1 / PI`. | **Высокая** — разбить на лемму о знаке и оценку числителя/знаменателя |
-| 13 | `H4Lagrangian.v` | 188 | `Koide_H4_test` | `[LIBRARY_GAP]` | `Rabs(Koide_H4(1,239,549) - 2/3)/(2/3) < 0.3` — `interval` не раскрывает `Koide_H4` с `sqrt 1 + sqrt 239 + sqrt 549` автоматически. | **Высокая** — `unfold Koide_H4; simpl; interval with (i_prec 150)` |
-| 14 | `HiggsOrigins.v` | 475 | `H03_h_half_structural` | `[MATH_TODO]` | Конкретная алгебраическая формула `h/2 = (d3·d4)/(d3+d4-d3²/d4)` некорректна (числа не совпадают). Нужно найти правильное тождество или заменить теорему. | **Низкая** — требует пересмотра формулировки теоремы |
-| 15 | `Koide.v` | 186 | `Koide_correct_forms_equal` | `[LIBRARY_GAP]` | `field`/`ring` не работают с `sqrt`-выражениями с конкретными знаменателями в Rocq 9.1.1. Оба выражения алгебраически эквивалентны. | **Высокая** — `field_simplify [sqrt 5 * sqrt 5 = 5]` + `ring` |
-| 16 | `LeptonOrigins.v` | 505 | `H4_determines_L01` | `[NUMERICAL_FIT]` | **Честно:** `L01 = 239·e/π` найдено численным поиском, а не выводом из геометрии E8/H4. Целое 239 = \|E8 roots\| - 1 имеет групповую интерпретацию, но трансцендентальный множитель `e/π` необоснован. Конструктивная функция `f` не предоставлена. | **Очень низкая** — требует физического механизма (спектральное действие на 600-клетке?) |
-| 17 | `NeutrinoOrigins.v` | 401 | `seesaw_scale_from_v31` | `[PHYSICAL_AXIOM]` | Правосторонняя нейтринная масса Майораны `M_R` не определяется геометрией H4. Формула ножниц `m_лёгкое · M_R = v_EW²` требует отождествления `v_EW` с H4-производимой ВОО — физическое допущение. | **Низкая** — требует derivation of EW VEV from H4 |
-| 18 | `NeutrinoOrigins.v` | 414 | `nu_absolute_scale_gap` | `[NUMERICAL_FIT]` | **Честно:** множитель `10⁻⁵` eV² в `v21` вставлен вручную под эксперимент. Trinity не предсказывает абсолютный масштаб масс нейтрино из теории H4. | **Очень низкая** — требует вывода масштаба ЭС/ножниц |
-| 19 | `OptimizerInvariants.v` | 96 | `ttt_lr_is_phi_inv_cube_scaled` | `[LIBRARY_GAP]` | `field_simplify` не сводит `phi_inv_cube = 1/φ³` к `reflexivity` — условие ненулевости `φ³` требует отдельной леммы о положительности, не пробрасываемой автоматически. | **Высокая** — `assert (phi3_ne : phi^3 <> 0) by ...; field [phi3_ne]` |
-| 20 | `RGRunning.v` | 206 | `alpha_from_H4` | `[PHYSICAL_AXIOM]` | `alpha_inv_at_mZ` суммирует GUT-нормированные константы связи (~0.1 каждая), а не физическую `1/α(m_Z) ≈ 128`. Требует: (1) нормировочный фактор `√(5/3)` из GUT-вложения, (2) однопетлевое РГ-бегание от `Λ_H4` до `m_Z`. | **Низкая** — требует переопределения `alpha_inv_at_mZ` |
-| 21 | `RGRunning.v` | 231 | `alpha_s_from_H4` | `[PHYSICAL_AXIOM]` | `α_s(m_Z) ~ (√5-2)/2 ≈ 0.118` требует двухпетлевого бегания + пороговых поправок при массе топ-кварка. Всё это — физические входные данные (коэффициенты бета-функции, `m_top`), не выводимые из H4. | **Низкая** — требует включения двухпетлевых коэффициентов |
-| 22 | `UniquenessStructural.v` | 313 | `phi_squared_nat` | `[LIBRARY_GAP]` | `1618 * 1618 = 2618724` — чистая целочисленная арифметика. `vm_compute`/`native_compute` падают с segfault на больших nat-литералах в Rocq 9.1.1. | **Высокая** — использовать `lia` или заменить `nat` на `Z` |
-| 23 | `test_scratch.v` | 64 | `VEV_corrected_matches_SM` | `[LIBRARY_GAP]` | `v_corrected = sqrt(v_SM²) = v_SM` требует `sqrt_sq` + `v_SM ≥ 0`; цепочка раскрытий `mu_sq`/`lambda` не автоматизирована. | **Высокая** — `unfold v_corrected, mu_sq_corrected, lambda_corrected; rewrite sqrt_sq; ring` |
-| 24 | `test_scratch.v` | 75 | `m_H_corrected_matches_Trinity` | `[LIBRARY_GAP]` | Сводится к `sqrt(m_H_Trinity²) = m_H_Trinity`; нужна `sqrt_sq` + `m_H_Trinity > 0`. Автоматика не связывает цепочку раскрытий. | **Высокая** — аналогично № 23 |
-| 25 | `test_scratch.v` | 85 | `Higgs_mass_from_curvature` | `[LIBRARY_GAP]` | `sqrt(2·μ²) = m_H_Trinity`; после раскрытия сводится к `sqrt(m_H_Trinity²) = m_H_Trinity` — та же проблема `sqrt_sq`. | **Высокая** — аналогично № 23, 24 |
+| № | Файл | Теорема/Лемма | Тег | Категория (A4) | Обоснование | Закрываемость |
+|---|------|---------------|-----|----------------|-------------|---------------|
+| 1 | `A4Conversion.v` | `conversion_exact` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Алгебраическое тождество: рационализация знаменателя. `field`/`ring` не справляются с `sqrt` в Rocq 9.1.1. | **Высокая** — `assert H5: sqrt 5 * sqrt 5 = 5; field_simplify [H5]; ring` |
+| 2 | `Bounds_Mixing.v` | `N04_within_experimental_range` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | 65.66° vs. 65.5° ± 4°. `interval` не раскрывает `rad_to_deg` без `unfold`. | **Высокая** — `unfold N04_formula_deg rad_to_deg N04_formula_rad phi; interval with (i_prec 100)` |
+| 3 | `Catalog42.v` | `Q02_is_m_s_over_m_u` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Было Qed. `powZ` unfold missing. | **Высокая** — `simpl; interval with (i_prec 150)` |
+| 4 | `Catalog42.v` | `N03_is_sin2_theta_23` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Было Qed. `powZ` unfold. | **Высокая** — `simpl; interval with (i_prec 150)` |
+| 5 | `Catalog42.v` | `C01_is_V_us` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Было Qed. Тройное трансцендентное произведение. | **Высокая** — `simpl; interval with (i_prec 200)` |
+| 6 | `ChiralityAnalysis.v` | `phi_eq_2cos_pi5` | `[MATH_TODO]` | SHOULD_BE_THEOREM | phi=2*cos(pi/5); алгебраическое доказательство через минимальный многочлен. **НЕ был в admitted_log.md.** | **Высокая** — импортировать из E6vsH4.v |
+| 7 | `E6vsH4.v` | `sqrt_5_not_rational` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Стандартный результат теории чисел. Нет в stdlib Coq. | **Средняя** — бесконечный спуск на Z |
+| 8 | `E6vsH4.v` | `phi_irrational` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Следствие `sqrt_5_not_rational`. | **Высокая** — закроется вместе с №7 |
+| 9 | `E6vsH4.v` | `E6_no_phi` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Контрапозитив `phi_irrational`. | **Высокая** — закроется вместе с №8 |
+| 10 | `E6vsH4.v` | `cos_pi_5_quadratic` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Два sub-admits: sin²→1-cos² + lra. | **Средняя** — `rewrite Hsin; ring; nlinarith` |
+| 11 | `GaugeOrigins.v` | `G01_from_GUT_running` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Требует `sqrt(5/3)` + однопетлевое РГ — не выводимо из H4. | **Низкая** — физическое допущение |
+| 12 | `H4GaugeEmbedding.v` | `phi_irrational_over_Q` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Дублирует доказательство из E6vsH4.v. | **Средняя** — переиспользовать |
+| 13 | `H4Lagrangian.v` | `L01_lagrangian_order_of_magnitude` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `interval` не справляется с `1e16/1.22e19`. | **Высокая** — разбить на оценки |
+| 14 | `H4Lagrangian.v` | `Koide_H4_test` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `sqrt` внутри `interval`. | **Высокая** — `unfold Koide_H4; simpl; interval with (i_prec 150)` |
+| 15 | `HiggsOrigins.v` | `H03_h_half_structural` | `[REFUTED]` | **REFUTED** | **ЛОЖНО**: h/2=15 ≠ (d3·d4)/(d3+d4-d3²/d4)≈16.36. Разница 1.36. Переименовать + добавить контрпример. | **Не закрывать — переформулировать** |
+| 16 | `Koide.v` | `Koide_correct_forms_equal` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `field`/`ring` не работают с `sqrt` в знаменателе. | **Высокая** — `field_simplify [sqrt5_sq]; ring` |
+| 17 | `LeptonOrigins.v` | `H4_determines_L01` | `[NUMERICAL_FIT]` | GENUINE_ASSUMPTION | L01 = 239·e/π найдено численно, не выведено из H4. Конструктивная f не предоставлена. | **Очень низкая** |
+| 18 | `NeutrinoOrigins.v` | `seesaw_scale_from_v31` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | M_R не определяется геометрией H4. | **Низкая** |
+| 19 | `NeutrinoOrigins.v` | `nu_absolute_scale_gap` | `[NUMERICAL_FIT]` | GENUINE_ASSUMPTION | Множитель 10⁻⁵ eV² вставлен вручную. | **Очень низкая** |
+| 20 | `OptimizerInvariants.v` | `ttt_lr_is_phi_inv_cube_scaled` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `field` не сводит phi^3 ненулевое условие автоматически. | **Высокая** — `assert Hphi3_ne; field [Hphi3_ne]` |
+| 21 | `RGRunning.v` | `alpha_from_H4` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Нужен sqrt(5/3) + однопетлевое РГ. | **Низкая** |
+| 22 | `RGRunning.v` | `alpha_s_from_H4` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Нужно двухпетлевое бегание + топ-пороговые поправки. | **Низкая** |
+| 23 | `UnimodularityAndSigma.v` | `sigma_candidate_mass_scale` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Rabs((2/30)*1.5e16 - 1e15) < 1e10; чистая рациональная R, большие числа. | **Высокая** — `lra` или `ring_simplify; lra` |
+| 24 | `UniquenessStructural.v` | `phi_squared_nat` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | 1618*1618=2618724; `vm_compute` segfault на больших `nat` в Rocq 9.1.1. | **Высокая** — `lia` или заменить `nat` на `Z` |
+| 25 | `test_scratch.v` | `VEV_corrected_matches_SM` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Нужна `sqrt_sq` + `v_SM >= 0`. | **Высокая** |
+| 26 | `test_scratch.v` | `m_H_corrected_matches_Trinity` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | sqrt(m_H_Trinity²)=m_H_Trinity. | **Высокая** |
+| 27 | `test_scratch.v` | `Higgs_mass_from_curvature` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | sqrt(2·μ²)=m_H_Trinity; та же цепочка. | **Высокая** |
+
+### Новые записи (не в предыдущем admitted_log.md)
+
+| № | Файл | Теорема/Лемма | Тег | Обоснование |
+|---|------|---------------|-----|-------------|
+| 28 | `ChiralityAnalysis.v` | `phi_eq_2cos_pi5` | `[MATH_TODO]` | phi=2*cos(pi/5) — обнаружен A1-аудитом. Не был задокументирован. |
+| 29 | `UnimodularityAndSigma.v` | `sigma_candidate_mass_scale` | `[LIBRARY_GAP]` | Обнаружен A1-аудитом. Не был задокументирован. |
 
 ---
 
-## Сводка по тегам
+## Сводка по тегам (обновлённая)
 
-| Тег | Кол-во | Теоремы |
-|-----|--------|---------|
-| `[PHYSICAL_AXIOM]` | 4 | `G01_from_GUT_running`, `seesaw_scale_from_v31`, `alpha_from_H4`, `alpha_s_from_H4` |
-| `[NUMERICAL_FIT]` | 2 | `H4_determines_L01`, `nu_absolute_scale_gap` |
-| `[MATH_TODO]` | 6 | `conversion_exact`, `sqrt_5_not_rational`, `phi_irrational`, `E6_no_phi`, `cos_pi_5_quadratic` (×2), `H03_h_half_structural` |
-| `[LIBRARY_GAP]` | 13 | `N04_within_experimental_range`, `Q02_is_m_s_over_m_u`, `N03_is_sin2_theta_23`, `C01_is_V_us`, `phi_irrational_over_Q`, `L01_lagrangian_order_of_magnitude`, `Koide_H4_test`, `Koide_correct_forms_equal`, `ttt_lr_is_phi_inv_cube_scaled`, `phi_squared_nat`, `VEV_corrected_matches_SM`, `m_H_corrected_matches_Trinity`, `Higgs_mass_from_curvature` |
+| Тег | Кол-во | Категория A4 |
+|-----|--------|-------------|
+| `[PHYSICAL_AXIOM]` | 5 | GENUINE_ASSUMPTION |
+| `[NUMERICAL_FIT]` | 3 | GENUINE_ASSUMPTION |
+| `[MATH_TODO]` | 6 | SHOULD_BE_THEOREM |
+| `[LIBRARY_GAP]` | 15 | SHOULD_BE_THEOREM |
+| `[REFUTED]` | 2 | REFUTED |
 
 ---
 
 ## Приоритеты закрытия
 
-### Высокий приоритет (закрываемы за 1–2 часа)
-- №№ 2–5: Catalog42 + Bounds_Mixing — добавить `simpl; interval with (i_prec 150+)`
-- №№ 22–25: UniquenessStructural + test_scratch — `lia` / `sqrt_sq` + `ring`
-- № 19: OptimizerInvariants — добавить леммы ненулевости
-- № 15: Koide — `field_simplify [sqrt5_sq]`
-- № 13: H4Lagrangian Koide_test — `unfold; simpl; interval`
+### Высокий приоритет (1–2 часа, pure library fixes)
+- №№ 2–5, 23–27: Catalog42, Bounds_Mixing, UnimodularityAndSigma, test_scratch, sigma_candidate_mass_scale
+- №№ 20, 14, 16: OptimizerInvariants, Koide, H4Lagrangian Koide_test
+- № 6: ChiralityAnalysis phi_eq_2cos_pi5 (импорт из E6vsH4.v)
 
 ### Средний приоритет (требует ручных доказательств)
-- №№ 6–9: E6vsH4 — написать доказательство иррациональности √5 вручную
-- № 11: H4GaugeEmbedding — переиспользовать после E6vsH4
-- № 1: A4Conversion — ручная рационализация через кольцевые леммы
-- № 12: H4Lagrangian L01 — разбить на оценки
+- №№ 7–10: E6vsH4 — иррациональность √5 + следствия
+- № 12: H4GaugeEmbedding — переиспользование после E6vsH4
+- № 1: A4Conversion — рационализация знаменателя
 
-### Низкий приоритет (требует физического/концептуального прогресса)
-- №№ 10, 20, 21: RGRunning/GaugeOrigins — переопределение `alpha_inv_at_mZ`
-- №№ 16, 18: NUMERICAL_FIT — нужна физическая деривация
-- № 17: seesaw — нужен вывод ВОО из H4
-- № 14: HiggsOrigins — нужно исправить формулировку теоремы
+### Низкий приоритет (требует физического прогресса)
+- №№ 11, 21, 22, 18: RGRunning/GaugeOrigins/NeutrinoOrigins — физические допущения
+- №№ 17, 19: NUMERICAL_FIT — нужна физическая деривация
+- № 15: HiggsOrigins H03 — REFUTED, требует переформулировки
 
 ---
 
-*Документ создан автоматически в рамках Wave 4.2. Все теги проверены по контексту файлов.*
+## Статус заголовочных комментариев
+
+| Файл | Старый заголовок | Факт | Действие |
+|------|-----------------|------|---------|
+| `E6vsH4.v` | "ALL theorems: QED, 0 Admitted." | **4 Admitted+admit** | Исправить (патч E6vsH4_header_patch.diff) |
+| `README.md` | "Admitted: 0" | **37 Admitted + 17 admit** | Исправить (патч README_patch.diff) |
+| `admitted_log.md` (старый) | "Всего Admitted: 25" | **37 Admitted** | Заменить настоящим документом |
+
+---
+
+*Документ создан A4-аудитом (Wave 10.4). Полная стратификация: `proofs/trinity/FOUNDATIONS.md` и `outputs/A4/A4_axiom_stratification.csv`.*

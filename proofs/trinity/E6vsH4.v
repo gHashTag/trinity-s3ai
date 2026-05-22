@@ -1,5 +1,5 @@
 (******************************************************************************)
-(* Trinity S3AI Proof Base v3.3 -- E6vsH4.v                                    *)
+(* Trinity S3AI Proof Base v4.0 -- E6vsH4.v                                    *)
 (*                                                                            *)
 (* PROVES: E6 cannot give phi, therefore CANNOT explain Trinity formulas.     *)
 (*                                                                            *)
@@ -19,7 +19,14 @@
 (*   | Explains 17/17?    | NO      | YES     | H4     |                     *)
 (*   | Physical precedent | None    | Quasicrystals (Nobel 2011) | H4        *)
 (*                                                                            *)
-(* ALL theorems: QED, 0 Admitted.                                             *)
+(* PROOF STATUS (Wave 10.4 audit):                                             *)
+(* 4 Admitted+admit items remain:                                              *)
+(* - sqrt_5_not_rational: [MATH_TODO] infinite descent on Z, not in stdlib    *)
+(* - phi_irrational:      [MATH_TODO] follows from sqrt_5_not_rational         *)
+(* - E6_no_phi:           [MATH_TODO] contrapositive of phi_irrational          *)
+(* - cos_pi_5_quadratic:  [MATH_TODO] two sub-admits (sin² rewrite + lra)     *)
+(* All four are SHOULD_BE_THEOREM: provable in Coq but tactic infrastructure   *)
+(* missing. See admitted_log.md and proofs/trinity/FOUNDATIONS.md.             *)
 (******************************************************************************)
 
 Require Import Reals.

@@ -56,6 +56,7 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [admitted_log.md](admitted_log.md) | Log of all Admitted with their tags |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
 | [scripts/prepare_zenodo.md](scripts/prepare_zenodo.md) | Zenodo publication guide |
+| [proofs/trinity/FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md) | Axiom stratification and open assumptions |
 
 ---
 
@@ -70,17 +71,27 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 
 ---
 
-## Coq Proof Statistics (v4.12)
+## Coq Proof Statistics (v4.0 — Wave 10.4 audit)
 
 | Metric | Value |
 |--------|-------|
 | Coq version | 8.20.1 |
-| Coq files | 23/23 compile (100%) |
-| Qed theorems | 326 |
-| Admitted | 0 |
+| Coq files | 77 total (compile status varies) |
+| Qed theorems | 1326 |
+| Admitted (pure) | 37 |
+| admit (inline) | 17 |
+| Axiom declarations | 88 (proofs/), ~94 including derivations/ |
 | SG-class formulas (error < 0.01%) | 11 |
 | V-class formulas (error 0.01–0.3%) | 14 |
 | Anti-numerology gate | ✓ PASS (59 formulas tagged) |
+| Proof transparency | See [FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md) |
+
+> **Audit note (Wave 10.4):** Prior versions of this README incorrectly claimed
+> "Admitted: 0". The A1 audit found 37 Admitted + 17 admit + 88 Axiom.
+> All items are documented in [admitted_log.md](admitted_log.md) and
+> stratified by type in [FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md).
+> The four No-Go Theorems (NGT1–NGT4) compile and are valid modulo the
+> axioms documented therein.
 
 ---
 
