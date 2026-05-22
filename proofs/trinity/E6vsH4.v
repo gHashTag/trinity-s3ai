@@ -111,6 +111,8 @@ Proof.
      descent / unique factorization). Not available in Coq stdlib; requires
      a manual descent argument or an external algebra library. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 
 Lemma phi_irrational : forall p q : Z, q <> 0%Z -> phi <> IZR p / IZR q.
@@ -119,6 +121,8 @@ Proof.
      algebraic reduction phi = (1 + sqrt 5)/2 not rational is standard
      but requires IZR field arithmetic not automated in current setup. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 
 (******************************************************************************)
@@ -134,6 +138,8 @@ Proof.
      straightforward contrapositive but automation cannot unfold the
      existential + IZR divisibility chain. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 
 (******************************************************************************)
@@ -198,6 +204,8 @@ Proof.
   (* [MATH_TODO] The equality H1 + H2 + H3 gives 4c^2 - 2c - 1 = 0 by
      algebra; lra/ring fail because hypotheses involve cos terms. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 
 (* phi/2 satisfies the same quadratic *)

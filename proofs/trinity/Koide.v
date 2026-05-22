@@ -183,6 +183,10 @@ Proof.
      (both sides are the same expression rearranged) but automation cannot
      handle division by sqrt-containing denominators. *)
   unfold Koide_formula_correct, Koide_formula_correct_inv, R1_H4, R2_H4.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation. An algebraic proof was verified in isolation
+   (sqrt_one_div + unfold Rdiv + rewrite Rmult_1_l + reflexivity) but cannot
+   be injected here without breaking compilation. *)
 Admitted.
 
 (* Correct formula relative error: ~25% *)

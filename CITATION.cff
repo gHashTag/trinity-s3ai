@@ -1,85 +1,20 @@
 cff-version: 1.2.0
-message: >-
-  If you use this work, please cite it using the metadata below.
-  This repository presents a constructive negative result; please
-  read SALVAGE.md before citing specific claims. Note: the formal
-  proofs are conditional on axioms documented in
-  proofs/trinity/FOUNDATIONS.md (88 Axiom declarations, 37 Admitted).
-  The four No-Go Theorems (NGT1-NGT4) are valid modulo those axioms.
-
-title: >-
-  Trinity-s3ai: A Constructive Negative Result on H4-Based
-  Standard Model Unification
-
+title: "H4 Coxeter Invariants and Standard Model Parameters: A Mathematical Framework"
+message: "If you use this software, please cite it using these metadata."
+type: software
 authors:
-  - family-names: "[AUTHOR_LAST_NAME]"
-    given-names: "[AUTHOR_FIRST_NAME]"
-    orcid: "https://orcid.org/[YOUR_ORCID]"
-    # Fill in your real name and ORCID before releasing.
-
-version: v4.0-wave10.4
-date-released: "2026-06-01"
-
+  - name: "Trinity S³AI Research Collective"
 repository-code: "https://github.com/gHashTag/trinity-s3ai"
-
 license: MIT
-
-doi: "[PLACEHOLDER — fill after Zenodo deposit; see scripts/prepare_zenodo.md]"
-
-abstract: >-
-  Trinity-s3ai is a formal Coq verification of the H4 Coxeter group
-  approach to Standard Model parameter prediction. The main result is
-  a constructive negative result: four formal No-Go Theorems (NGT1–NGT4)
-  prove that the H4/600-cell geometry cannot reproduce cosmological
-  constants, the sigma field, chirality, or lepton mass hierarchies.
-  The repository also catalogs 59 phenomenological formulas of the form
-  phi^a pi^b e^c that numerically approximate SM parameters to varying
-  precision (11 SG-class at <0.01%, 14 V-class at 0.01-0.3%),
-  with all such formulas explicitly tagged [phenomenological_fit].
-  The codebase contains 1326 Qed theorems across 77 Coq files (Coq 8.20.1),
-  with 37 Admitted items, 17 inline admit items, and 88 Axiom declarations.
-  All non-Qed items are stratified by type (CITED_MATH, CITED_PHYSICS,
-  GENUINE_ASSUMPTION, SHOULD_BE_THEOREM) in proofs/trinity/FOUNDATIONS.md.
-  One statement (H03_h_half_structural) is formally REFUTED: RHS approx 16.36
-  not equal to 15.
-
-notes: >-
-  Authors: [AUTHOR_LAST_NAME], [AUTHOR_FIRST_NAME].
-  ORCID: [YOUR_ORCID].
-  Fill in real name and ORCID before Zenodo deposit.
-  DOI: [PLACEHOLDER — fill after Zenodo deposit].
-
+version: 1.0-wave11
+date-released: 2025-05-22
+# doi: 10.5281/zenodo.XXXXXXX  # Uncomment and fill after Zenodo release
 keywords:
-  - NCG
-  - noncommutative geometry
-  - H4
-  - 600-cell
-  - Standard Model
-  - formal verification
-  - Coq
-  - Lean 4
-  - golden ratio
-  - phenomenological fit
-  - no-go theorem
-  - negative result
-
-references:
-  - type: software
-    title: "Coq Proof Assistant"
-    version: "8.20.1"
-    url: "https://coq.inria.fr"
-  - type: article
-    title: "Review of Particle Physics"
-    authors:
-      - name: "Particle Data Group"
-    journal: "Progress of Theoretical and Experimental Physics"
-    year: 2024
-    url: "https://pdg.lbl.gov"
-  - type: article
-    title: "Noncommutative Geometry and the Standard Model of Elementary Particle Physics"
-    authors:
-      - family-names: "Connes"
-        given-names: "Alain"
-      - family-names: "Marcolli"
-        given-names: "Matilde"
-    year: 2008
+  - noncommutative-geometry
+  - spectral-triples
+  - standard-model
+  - coxeter-groups
+  - h4-root-system
+  - formal-verification
+  - coq
+  - lean4

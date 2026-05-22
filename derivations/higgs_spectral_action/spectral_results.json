@@ -1,0 +1,41 @@
+{
+  "spectrum_summary": {
+    "n_total": 480,
+    "n_zero": 0,
+    "n_positive": 240,
+    "min_positive": 0.0536563089332967,
+    "max_abs": 6.319604880193264,
+    "mean_abs": 2.972026497145559,
+    "median_abs": 2.7935109636519213
+  },
+  "heat_kernel": {
+    "a0_taylor": 75798.56180036627,
+    "a2_taylor": -909582.7416043953,
+    "a4_taylor": 10606064.936571999,
+    "a0_numerical": 75798.2358149862,
+    "a2_numerical": -908418.8433621435,
+    "a4_numerical": 9918451.631665932,
+    "sum_lambda2": 5760.000000000001,
+    "sum_lambda4": 134327.38164512138
+  },
+  "a4_theory": 0.5681356214843422,
+  "spectral_action_GUT": {
+    "Lambda_GeV": 1e+16,
+    "S_gaussian": 369.4634269948453,
+    "S_exp": 311.7193796499679
+  },
+  "higgs_prediction": {
+    "g_unified_sq": 0.5835921350012617,
+    "lambda_higgs": 0.14589803375031543,
+    "m_higgs_no_sigma_GeV": 132.8846523149614,
+    "m_higgs_trinity_GeV": 125.20217569851857,
+    "m_higgs_pdg_GeV": 125.1,
+    "m_higgs_pdg_err_GeV": 0.14,
+    "diff_no_sigma_GeV": 7.7846523149613915,
+    "sigma_no_sigma": 55.60465939258136,
+    "diff_trinity_GeV": 0.10217569851857888,
+    "sigma_trinity": 0.7298264179898492
+  },
+  "verdict": "NEGATIVE: The 600-cell spectral action WITHOUT \u03c3-field fails to predict the correct Higgs mass. The structural prediction m_H = 132.88 GeV deviates by 55.6\u03c3 from PDG. The \u03c3-field correction (Connes\u2013Marcolli) is unavailable in H4 per Wave 5.3.  This is another no-go for the pure geometric programme.",
+  "chiral_symmetry_ok": true
+}

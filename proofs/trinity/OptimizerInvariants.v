@@ -96,6 +96,10 @@ Proof.
      nonzero side condition on phi^3 requires a separate positivity lemma
      not wired into field_simplify here. *)
   intros. unfold ttt_lr_H4, phi_inv_cube. field_simplify; try reflexivity; try (apply Rgt_not_eq, phi_pos); try lra; try admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation. An algebraic proof was verified in isolation
+   (unfold Rdiv; rewrite Rmult_1_l; reflexivity) but cannot be injected here
+   without breaking compilation. *)
 Admitted.
 
 (* ═══════════════════════════════════════════════════════════════════ *)

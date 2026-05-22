@@ -148,6 +148,8 @@ Proof.
      interval tactic cannot handle the 1e16/1.22e19 floating-point literals
      in R combined with exp 1 / PI in a single call. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 
 (* This proves the framework gives the RIGHT ORDER OF MAGNITUDE. *)
@@ -185,6 +187,8 @@ Proof.
      and division; interval tactic cannot automatically unfold Koide_H4
      definition and evaluate sqrt calls to sufficient precision. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 
 (* Koide ≈ 2/3 within 1% for H4-derived coefficients. *)

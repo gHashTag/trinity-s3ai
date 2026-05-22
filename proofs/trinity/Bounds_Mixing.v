@@ -86,6 +86,8 @@ Proof.
      fails on rad_to_deg unfolding because it involves PI (transcendental).
      Needs unfold + PI approximation chain not yet wired. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 
 (* ==================================================================== *)

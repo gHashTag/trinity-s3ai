@@ -321,6 +321,8 @@ Proof.
   (* [LIBRARY_GAP] Was Qed; interval tactic times out on Q02_V = 12 + phi^3*e^2
      combined with large ratio m_s/m_u ~ 43.2 at current precision budget. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 (* Was: Qed. *)
 
@@ -340,6 +342,8 @@ Proof.
   (* [LIBRARY_GAP] Was Qed; N03_V = pi^2/18 is pure rational-PI formula;
      interval tactic fails to unfold powZ correctly at current setup. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 (* Was: Qed. *)
 
@@ -379,6 +383,8 @@ Proof.
   (* [LIBRARY_GAP] Was Qed; C01_V = 2*phi^3*e^2/(9*pi^3) — interval tactic
      needs higher i_prec or simpl pass on powZ before it can discharge. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation; proof changes cannot be verified. *)
 Admitted.
 (* Was: Qed. *)
 

@@ -228,9 +228,13 @@ Fixpoint factorial (n : nat) : nat :=
 Lemma factorial_6 : factorial 6 = 720.
 Proof. reflexivity. Qed.
 
-(* 720 is in the H4 invariants list (it is a fundamental invariant). *)
-Lemma invariant_720 : In 720 H4_invariants.
-Proof. admit. Admitted.
+(* 720 is NOT in the H4 invariants list. *)
+Theorem invariant_720_refuted : ~ In 720 H4_invariants.
+Proof.
+  simpl. intros H.
+  repeat (destruct H as [H | H]; [discriminate H | ]).
+  contradiction.
+Qed.
 
 (* Structural Theorem 3: 720 = |H4| / 20 = 6!                               *)
 (* The factorial appearance of 720 from the H4 group order is structurally  *)
@@ -256,9 +260,13 @@ Proof. reflexivity. Qed.
 (* Key identity: 239 = 2 x 120 - 1 connects the two most unique coefficients. *)
 (******************************************************************************)
 
-(* 120 is in the H4 invariants list. *)
-Lemma invariant_120 : In 120 H4_invariants.
-Proof. admit. Admitted.
+(* 120 is NOT in the H4 invariants list. *)
+Theorem invariant_120_refuted : ~ In 120 H4_invariants.
+Proof.
+  simpl. intros H.
+  repeat (destruct H as [H | H]; [discriminate H | ]).
+  contradiction.
+Qed.
 
 (* Verify: |2I| = 2 x |A5| = 2 x 60 = 120. *)
 Lemma order_2I_identity : order_2I = 2 * order_A5.
@@ -304,12 +312,14 @@ Qed.
 (* φ⁶ = 8φ + 5 ≈ 17.944                                                      *)
 (* These Fibonacci-Lucas relations are structurally enforced.                 *)
 
-Lemma phi_squared_nat :  (* Integer approximation: phi^2 \approx 2618/1000 *)
-  1618 * 1618 = 2618724.  (* Approximate verification of phi^2 = phi + 1 *)
+(* The claimed equality is FALSE: 1618 * 1618 = 2617924 <> 2618724.
+   In Rocq 9.1.1, large nat literals use Nat.of_num_uint representation,
+   which prevents vm_compute/lia/discriminate from terminating on this goal.
+   Refutation left Admitted due to computational limitation. *)
+Theorem phi_squared_nat_refuted : ~(1618 * 1618 = 2618724).
 Proof.
-  (* [LIBRARY_GAP] vm_compute/native_compute segfault on large nat literals
-     in Rocq 9.1.1. This is a pure integer arithmetic fact (1618^2 = 2618724)
-     that should be dischargeable by decide or lia, but the kernel crashes. *)
+  (* 1618 * 1618 = 2617924 <> 2618724, verified by external calculation.
+     Rocq 9.1.1's Nat.of_num_uint representation prevents closing this. *)
 Admitted.
 
 (* Structural Theorem 5: The golden ratio is the unique irrational number    *)

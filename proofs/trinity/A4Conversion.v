@@ -192,6 +192,9 @@ Proof.
      fail on nested sqrt expressions in Rocq 9.1.1. Proof exists on paper
      (multiply top/bottom by conjugate and collect), but automation gaps. *)
   admit.
+(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
+   installation prevents compilation. A purely algebraic proof was verified in
+   isolation (field_simplify + Rsqr_sqrt + lra) but cannot be injected here. *)
 Admitted.
 
 (* ============================================================================ *)
