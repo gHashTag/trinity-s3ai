@@ -455,33 +455,63 @@ Proof.
 Qed.
 
 (* ================================================================ *)
-(* Theorem 25: h/2 separates Weinberg mixing structure               *)
-(* sin^2(theta_W) ~ 3/(8*phi) (G03 formula)                         *)
-(* m_Z = m_W / cos(theta_W), m_W = g2*v/2                           *)
-(* The factor h/2 encodes the geometric mean of d3 and d4:          *)
-(*   (d3 + d4)/5 = (20+30)/5 = 10 ... no.                           *)
-(*   h/2 = 15 = h - d3 = 30 - 20 + 5 ... structural.               *)
-(*   Exact: h/2 = (d3 + d4)/4 = 50/4 ... not exact.                *)
-(*   BUT: h/2 = d3/h * d4 = (20/30)*30/... not exact either.       *)
-(*   Exact: h/2 = h - d3 + 5 = 30 - 20 + 5. But 5 is not degree.   *)
-(*   Cleanest: h/2 = (e2 + e3 + e4) / (e1+e2+...) * h ...          *)
-(*   The structural fact is simply: h/2 is an exact integer.        *)
+(* Theorem 25: h/2 = 15 — structural integer (proved in h_half_is_15) *)
+(* The formula (d3*d4)/(d3+d4-d3²/d4) gives ≈ 16.36, NOT 15.         *)
+(* This is documented as a REFUTED attempt at algebraic motivation.    *)
 (* ================================================================ *)
-Theorem H03_h_half_structural :
-  h_H4 / 2 = (d3_H4 * d4_H4) / (d3_H4 + d4_H4 - d3_H4 / d4_H4 * d3_H4).
+
+(* ================================================================ *)
+(* REFUTATION of H03_h_half_structural (Wave 10.4 audit)            *)
+(*                                                                  *)
+(* The originally Admitted claim was:                               *)
+(*   h_H4 / 2 = (d3_H4 * d4_H4) / (d3_H4 + d4_H4 - (d3_H4/d4_H4)*d3_H4) *)
+(*                                                                  *)
+(* With d3_H4 = 20, d4_H4 = 30:                                    *)
+(*   LHS = 30 / 2 = 15                                              *)
+(*   RHS = (20*30) / (20 + 30 - (20/30)*20)                         *)
+(*       = 600 / (50 - 400/30)                                      *)
+(*       = 600 / (50 - 13.333...)                                    *)
+(*       = 600 / 36.666...                                           *)
+(*       ≈ 16.3636...                                                *)
+(*   |LHS - RHS| ≈ 1.36 — approximately 9% error.                  *)
+(*   The statement is FALSE.                                         *)
+(*                                                                  *)
+(* The correct structural fact is h_half_is_15 (proved as Qed,      *)
+(* line 410 of this file). Its algebraic connection to H4 degrees   *)
+(* is heuristic, not forced. See FOUNDATIONS.md for discussion.     *)
+(* ================================================================ *)
+
+Theorem H03_h_half_structural_refuted :
+  h_H4 / 2 <> (d3_H4 * d4_H4) / (d3_H4 + d4_H4 - d3_H4 / d4_H4 * d3_H4).
 Proof.
-  (* [MATH_TODO] HONEST: This particular identity does not hold exactly.
-     The cleanest structural fact is simply h/2 = 15 = integer.
-     We Admit this variant and use h_half_is_15 instead.
-     The stated formula needs to be corrected or replaced with a valid
-     algebraic identity before this Admitted can be closed. *)
-Admitted.
-(* HONEST: The above Admitted reflects an honest failure to find a
-   clean structural identity expressing 15 as a ratio of H4 degrees.
-   The fact h/2 = 15 is exact (see h_half_is_15), but its connection
-   to other H4 invariants is heuristic, not algebraically forced.   *)
+  (* Numerical refutation: LHS = 15, RHS ≈ 16.3636...               *)
+  (* d3_H4 = 20, d4_H4 = 30, h_H4 = 30                              *)
+  unfold h_H4, d3_H4, d4_H4.
+  (* 30/2 <> (20*30)/(20+30-(20/30)*20)                             *)
+  (* = 15 <> 600/(50-400/30) = 600/(1100/30) = 18000/1100 = 180/11 *)
+  (* 15 <> 180/11 <=> 165 <> 180 <=> True                           *)
+  lra.
+Qed.
+
+(* ================================================================ *)
+(* The positive structural fact: use h_half_is_15 (proved Qed)      *)
+(* instead of the refuted formula.                                   *)
+(* Rationale: h/2 = 15 is simply h_H4/2 = 30/2 = 15 by definition. *)
+(* Its connection to H4 invariant degrees d1..d4 is motivational    *)
+(* (it is the half-Coxeter number) but not expressible as a simple  *)
+(* ratio of the fundamental degrees without additional constants.    *)
+(* This is not a defect of the theory — it is an honest statement   *)
+(* about what the H4 algebra does and does not force.               *)
+(* ================================================================ *)
 
 End H03_Origin.
+
+(*
+  NOTE for derivations/higgs/HiggsOrigins.v:
+  Apply the same patch. The mirror file contains an identical
+  H03_h_half_structural Admitted that must be replaced by
+  H03_h_half_structural_refuted.
+*)
 
 (******************************************************************************)
 (* Section 6: Coxeter Ratio Identities — Main New Theorems                    *)

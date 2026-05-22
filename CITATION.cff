@@ -2,7 +2,10 @@ cff-version: 1.2.0
 message: >-
   If you use this work, please cite it using the metadata below.
   This repository presents a constructive negative result; please
-  read SALVAGE.md before citing specific claims.
+  read SALVAGE.md before citing specific claims. Note: the formal
+  proofs are conditional on axioms documented in
+  proofs/trinity/FOUNDATIONS.md (88 Axiom declarations, 37 Admitted).
+  The four No-Go Theorems (NGT1-NGT4) are valid modulo those axioms.
 
 title: >-
   Trinity-s3ai: A Constructive Negative Result on H4-Based
@@ -14,8 +17,8 @@ authors:
     orcid: "https://orcid.org/[YOUR_ORCID]"
     # Fill in your real name and ORCID before releasing.
 
-version: v1.0-wave10
-date-released: "2026-05-22"
+version: v4.0-wave10.4
+date-released: "2026-06-01"
 
 repository-code: "https://github.com/gHashTag/trinity-s3ai"
 
@@ -30,9 +33,21 @@ abstract: >-
   prove that the H4/600-cell geometry cannot reproduce cosmological
   constants, the sigma field, chirality, or lepton mass hierarchies.
   The repository also catalogs 59 phenomenological formulas of the form
-  φ^a π^b e^c that numerically approximate SM parameters to <0.01%,
+  phi^a pi^b e^c that numerically approximate SM parameters to varying
+  precision (11 SG-class at <0.01%, 14 V-class at 0.01-0.3%),
   with all such formulas explicitly tagged [phenomenological_fit].
-  The codebase contains 326 Qed theorems across 23 Coq files (Coq 8.20.1).
+  The codebase contains 1326 Qed theorems across 77 Coq files (Coq 8.20.1),
+  with 37 Admitted items, 17 inline admit items, and 88 Axiom declarations.
+  All non-Qed items are stratified by type (CITED_MATH, CITED_PHYSICS,
+  GENUINE_ASSUMPTION, SHOULD_BE_THEOREM) in proofs/trinity/FOUNDATIONS.md.
+  One statement (H03_h_half_structural) is formally REFUTED: RHS approx 16.36
+  not equal to 15.
+
+notes: >-
+  Authors: [AUTHOR_LAST_NAME], [AUTHOR_FIRST_NAME].
+  ORCID: [YOUR_ORCID].
+  Fill in real name and ORCID before Zenodo deposit.
+  DOI: [PLACEHOLDER — fill after Zenodo deposit].
 
 keywords:
   - NCG
