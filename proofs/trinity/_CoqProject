@@ -37,3 +37,15 @@ KoideOrigins.v
 CosmologyOrigins.v
 SpectralExtras.v
 RGRunningExtras.v
+
+# Wave 6: chirality analysis (Distler-Garibaldi vs H4)
+ChiralityAnalysis.v
+
+# Wave 5.1: KO-dimension analysis
+KODimension.v
+
+# Wave 5.2: Quaternionic linearity (binary icosahedral group 2I)
+QuaternionicLinearity.v
+
+# Wave 5.3: Unimodularity and sigma-field analog
+UnimodularityAndSigma.v

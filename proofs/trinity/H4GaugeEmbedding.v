@@ -68,8 +68,9 @@ Definition phi : R := (1 + sqrt 5) / 2.
 Lemma phi_irrational_over_Q :
   forall (p q : Z), q <> 0%Z -> phi <> IZR p / IZR q.
 Proof.
-  (* Standard proof by infinite descent on sqrt(5);
-     field/IZR tactics fail on concrete denominators in Rocq 9.1.1. *)
+  (* [LIBRARY_GAP] Standard proof by infinite descent on sqrt(5);
+     field/IZR tactics fail on concrete denominators in Rocq 9.1.1.
+     Would close with a bespoke descent lemma or an irrationality library. *)
 Admitted.
 
 (******************************************************************************)

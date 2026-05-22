@@ -498,6 +498,10 @@ Qed.
 Theorem H4_determines_L01 :
   exists (f : R -> R -> R),
     f (IZR (Z.of_nat E8_root_count)) phi = L01_formula.
+(* [NUMERICAL_FIT] HONEST: L01 = 239 * e / pi was found by numerical search,
+   not derived from E8/H4 geometry. The integer 239 = |E8 roots| - 1 has
+   group-theoretic motivation, but the transcendental e/pi factor has no
+   derivation. No constructive f is provided. *)
 Admitted.
 (* HONEST: No constructive derivation of the specific function f is available.
    The formula L01 = 239 * e / pi was found by numerical search, not derived

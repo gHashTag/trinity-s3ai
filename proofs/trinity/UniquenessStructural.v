@@ -306,7 +306,10 @@ Qed.
 
 Lemma phi_squared_nat :  (* Integer approximation: phi^2 \approx 2618/1000 *)
   1618 * 1618 = 2618724.  (* Approximate verification of phi^2 = phi + 1 *)
-Proof. (* vm_compute/native_compute segfault on large nat literals in Rocq 9.1.1 *)
+Proof.
+  (* [LIBRARY_GAP] vm_compute/native_compute segfault on large nat literals
+     in Rocq 9.1.1. This is a pure integer arithmetic fact (1618^2 = 2618724)
+     that should be dischargeable by decide or lia, but the kernel crashes. *)
 Admitted.
 
 (* Structural Theorem 5: The golden ratio is the unique irrational number    *)

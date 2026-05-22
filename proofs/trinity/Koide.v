@@ -178,7 +178,10 @@ Qed.
 Lemma Koide_correct_forms_equal :
   Koide_formula_correct = Koide_formula_correct_inv.
 Proof.
-  (* field/ring tactics fail on sqrt expressions with concrete denominators in Rocq 9.1.1 *)
+  (* [LIBRARY_GAP] field/ring tactics fail on sqrt expressions with concrete
+     denominators in Rocq 9.1.1. The equality is algebraically trivial
+     (both sides are the same expression rearranged) but automation cannot
+     handle division by sqrt-containing denominators. *)
   unfold Koide_formula_correct, Koide_formula_correct_inv, R1_H4, R2_H4.
 Admitted.
 

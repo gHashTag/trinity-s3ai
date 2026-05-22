@@ -198,6 +198,11 @@ Definition trinity_alpha_inv : R :=
 Theorem alpha_from_H4 :
   Rabs (alpha_inv_at_mZ - trinity_alpha_inv) / trinity_alpha_inv < 1/100.
 Proof.
+  (* [PHYSICAL_AXIOM] alpha_inv_at_mZ currently sums GUT-normalized couplings,
+     not the physical 1/alpha(m_Z) ~ 128. Closing requires:
+     (1) hypercharge normalization factor sqrt(5/3) from GUT embedding,
+     (2) full one-loop RGE running from Lambda_H4 to m_Z.
+     Both are physical assumptions not derived from H4 geometry alone. *)
 Admitted.
 
 (******************************************************************************)
@@ -218,6 +223,11 @@ Definition trinity_alpha_s : R :=
 Theorem alpha_s_from_H4 :
   Rabs (alpha_s m_Z - trinity_alpha_s) / trinity_alpha_s < 1/50.
 Proof.
+  (* [PHYSICAL_AXIOM] alpha_s(m_Z) ~ (sqrt 5 - 2)/2 ~ 0.118 requires two-loop
+     RGE running and threshold matching at the top quark mass. These corrections
+     are physical inputs (beta function coefficients, top mass) not derivable
+     from H4 structure. The GUT-normalized g3 used here differs from the
+     MS-bar alpha_s(m_Z) measured at colliders. *)
 Admitted.
 
 (******************************************************************************)

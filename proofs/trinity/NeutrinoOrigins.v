@@ -390,9 +390,10 @@ Qed.
     assumptions about the nature of right-handed neutrinos.
     The seesaw formula is stated here for completeness only. *)
 Theorem seesaw_scale_from_v31 :
-  (* HONEST: This Admitted because M_R is not determined by H4 alone.
-     The relation m_light * M_R = v_EW^2 requires identifying v_EW with
-     an H4-derived quantity, which Trinity does not currently establish. *)
+  (* [PHYSICAL_AXIOM] HONEST: M_R (right-handed neutrino Majorana mass) is not
+     determined by H4 geometry alone. The seesaw formula m_light * M_R = v_EW^2
+     requires v_EW to be identified with an H4-derived VEV — a physical
+     assumption not yet established within Trinity. *)
   exists M_R : R,
     M_R > 0 /\
     Rabs (sqrt v31_formula * M_R - (246000 * 246000)) / (246000 * 246000) < /10.
@@ -404,8 +405,9 @@ Admitted.
     scale factor 1e-5 in v21 has no derivation from H4 group theory.
     This is the most significant gap in the Trinity neutrino sector. *)
 Theorem nu_absolute_scale_gap :
-  (* HONEST: The factor 10^{-5} eV^2 in v21 is inserted by hand to match
-     experiment. Trinity does not predict this scale from first principles.
+  (* [NUMERICAL_FIT] HONEST: The overall scale factor 10^{-5} eV^2 in v21
+     is inserted by hand to match experimental neutrino mass-squared differences.
+     Trinity does not predict this absolute scale from H4 group theory.
      Admitted pending a derivation of the electroweak/seesaw scale ratio. *)
   True.
 (* HONEST: Admitted -- absolute neutrino mass scale not derived from H4 *)

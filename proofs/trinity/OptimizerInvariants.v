@@ -88,6 +88,10 @@ Qed.
 Theorem ttt_lr_is_phi_inv_cube_scaled :
   forall base_lr, ttt_lr_H4 base_lr = base_lr / phi^3.
 Proof.
+  (* [LIBRARY_GAP] field_simplify cannot reduce phi_inv_cube = 1/phi^3 to
+     reflexivity because phi = (1+sqrt 5)/2 and phi^3 involves sqrt 5;
+     nonzero side condition on phi^3 requires a separate positivity lemma
+     not wired into field_simplify here. *)
   intros. unfold ttt_lr_H4, phi_inv_cube. field_simplify; try reflexivity; try (apply Rgt_not_eq, phi_pos); try lra; try admit.
 Admitted.
 

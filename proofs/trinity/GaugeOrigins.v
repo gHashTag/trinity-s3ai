@@ -360,7 +360,9 @@ Proof.
      Without importing those axioms here, we cannot close this.
      The statement is physically correct but this standalone file does not
      import RGRunning. *)
-Admitted. (* HONEST: requires RGRunning axioms and g1->g' conversion factor *)
+Admitted. (* [PHYSICAL_AXIOM] HONEST: requires RGRunning axioms and g1->g' conversion factor.
+  The GUT boundary condition g_unif and the hypercharge normalization factor
+  sqrt(5/3) are physical assumptions, not derived from H4 geometry alone. *)
 
 (******************************************************************************)
 (* Section 8: Uniqueness structural note                                      *)

@@ -100,11 +100,17 @@ Qed.
 Lemma sqrt_5_not_rational : forall p q : Z, q <> 0%Z ->
   sqrt 5 <> IZR p / IZR q.
 Proof.
+  (* [MATH_TODO] Standard number theory result (sqrt 5 irrational by infinite
+     descent / unique factorization). Not available in Coq stdlib; requires
+     a manual descent argument or an external algebra library. *)
   admit.
 Admitted.
 
 Lemma phi_irrational : forall p q : Z, q <> 0%Z -> phi <> IZR p / IZR q.
 Proof.
+  (* [MATH_TODO] Follows directly from sqrt_5_not_rational above; the
+     algebraic reduction phi = (1 + sqrt 5)/2 not rational is standard
+     but requires IZR field arithmetic not automated in current setup. *)
   admit.
 Admitted.
 
@@ -117,6 +123,9 @@ Theorem E6_no_phi :
     (exists p q : Z, q <> 0%Z /\ x = IZR p / IZR q) ->
     x <> phi.
 Proof.
+  (* [MATH_TODO] Structural corollary of phi_irrational; proof is a
+     straightforward contrapositive but automation cannot unfold the
+     existential + IZR divisibility chain. *)
   admit.
 Admitted.
 
@@ -175,8 +184,12 @@ Proof.
     assert (Hsin: sin (PI / 5) * sin (PI / 5) = 1 - cos (PI / 5) * cos (PI / 5)).
     { pose (sin2_cos2 (PI / 5)). unfold Rsqr in e. lra. }
     (* Manipulate: 2c^3 - c - 2sc*s = 2c^3 - c - 2(1-c^2)c = 4c^3 - 3c *)
+    (* [MATH_TODO] Pure trig polynomial identity; ring_simplify cannot handle
+       the sin^2 = 1 - cos^2 rewrite inside a product automatically here. *)
     admit.
   }
+  (* [MATH_TODO] The equality H1 + H2 + H3 gives 4c^2 - 2c - 1 = 0 by
+     algebra; lra/ring fail because hypotheses involve cos terms. *)
   admit.
 Admitted.
 

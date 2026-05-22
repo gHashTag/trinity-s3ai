@@ -188,6 +188,9 @@ Proof.
 
   (* We have (448 + 192*sqrt 5) / (8 + 3*sqrt 5) *)
   (* Rationalize: multiply by conjugate (8 - 3*sqrt 5) / (8 - 3*sqrt 5) *)
+  (* [MATH_TODO] Pure algebraic identity involving sqrt 5; field/ring tactics
+     fail on nested sqrt expressions in Rocq 9.1.1. Proof exists on paper
+     (multiply top/bottom by conjugate and collect), but automation gaps. *)
   admit.
 Admitted.
 

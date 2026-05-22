@@ -467,10 +467,11 @@ Qed.
 Theorem H03_h_half_structural :
   h_H4 / 2 = (d3_H4 * d4_H4) / (d3_H4 + d4_H4 - d3_H4 / d4_H4 * d3_H4).
 Proof.
-  (* HONEST: This particular identity does not hold exactly.         *)
-  (* The cleanest structural fact is simply h/2 = 15 = integer.     *)
-  (* We Admit this variant and use h_half_is_15 instead.            *)
-  (* HONEST: structural identity not found; falling back to numeric  *)
+  (* [MATH_TODO] HONEST: This particular identity does not hold exactly.
+     The cleanest structural fact is simply h/2 = 15 = integer.
+     We Admit this variant and use h_half_is_15 instead.
+     The stated formula needs to be corrected or replaced with a valid
+     algebraic identity before this Admitted can be closed. *)
 Admitted.
 (* HONEST: The above Admitted reflects an honest failure to find a
    clean structural identity expressing 15 as a ratio of H4 degrees.

@@ -144,6 +144,9 @@ Definition L01_from_lagrangian : R :=
 Theorem L01_lagrangian_order_of_magnitude :
   0 < L01_from_lagrangian < 1.
 Proof.
+  (* [LIBRARY_GAP] L01_from_lagrangian = 239*(e/pi)*(1e16/1.22e19) ~ 0.017;
+     interval tactic cannot handle the 1e16/1.22e19 floating-point literals
+     in R combined with exp 1 / PI in a single call. *)
   admit.
 Admitted.
 
@@ -178,6 +181,9 @@ Definition Koide_H4 (c1 c2 c3 : R) : R :=
 Theorem Koide_H4_test :
   Rabs (Koide_H4 1 239 549 - 2/3) / (2/3) < 0.3.
 Proof.
+  (* [LIBRARY_GAP] Involves sqrt 1 + sqrt 239 + sqrt 549 nested under Rabs
+     and division; interval tactic cannot automatically unfold Koide_H4
+     definition and evaluate sqrt calls to sufficient precision. *)
   admit.
 Admitted.
 

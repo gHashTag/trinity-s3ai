@@ -312,6 +312,8 @@ Qed.
 Theorem Q02_is_m_s_over_m_u :
   Rabs (Q02_V - (m_s_PDG / m_u_PDG)) / (m_s_PDG / m_u_PDG) < V_bound.
 Proof.
+  (* [LIBRARY_GAP] Was Qed; interval tactic times out on Q02_V = 12 + phi^3*e^2
+     combined with large ratio m_s/m_u ~ 43.2 at current precision budget. *)
   admit.
 Admitted.
 (* Was: Qed. *)
@@ -329,6 +331,8 @@ Qed.
 Theorem N03_is_sin2_theta_23 :
   Rabs (N03_V - sin2_theta_23_PDG) / sin2_theta_23_PDG < V_bound.
 Proof.
+  (* [LIBRARY_GAP] Was Qed; N03_V = pi^2/18 is pure rational-PI formula;
+     interval tactic fails to unfold powZ correctly at current setup. *)
   admit.
 Admitted.
 (* Was: Qed. *)
@@ -366,6 +370,8 @@ Qed.
 Theorem C01_is_V_us :
   Rabs (C01_V - V_us_PDG) / V_us_PDG < V_bound.
 Proof.
+  (* [LIBRARY_GAP] Was Qed; C01_V = 2*phi^3*e^2/(9*pi^3) — interval tactic
+     needs higher i_prec or simpl pass on powZ before it can discharge. *)
   admit.
 Admitted.
 (* Was: Qed. *)

@@ -82,6 +82,9 @@ Definition delta_CP_experimental_uncertainty : R := 4.  (* degrees, ~1 sigma *)
 Theorem N04_within_experimental_range :
   Rabs (N04_formula_deg - delta_CP_experimental_center) < delta_CP_experimental_uncertainty.
 Proof.
+  (* [LIBRARY_GAP] Numerically true (65.66 deg vs 65.5 +/- 4): interval tactic
+     fails on rad_to_deg unfolding because it involves PI (transcendental).
+     Needs unfold + PI approximation chain not yet wired. *)
   admit.
 Admitted.
 

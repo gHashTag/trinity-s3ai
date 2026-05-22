@@ -1,12 +1,29 @@
-# Trinity S³AI — FORMULAS.md v4.0
+# Trinity S³AI — FORMULAS.md v4.1
 
 ## Single Source of Truth (SSOT)
 
-**Document Version:** 4.0.0  
-**Last Updated:** 2025-07-28  
+**Document Version:** 4.1.0  
+**Last Updated:** 2026-05-22  
 **Status:** Active / Canonical  
 **Maintainer:** Systems Architect — Scientific Knowledge Management  
 **Scope:** Consolidated formula catalog for Trinity S³AI unified framework  
+
+---
+
+## ⚠ Дисклеймер классификации (Classification Disclaimer)
+
+Данный каталог содержит формулы трёх уровней эпистемического статуса.
+Полная классификация и обоснование: [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md)
+
+| Класс | Кол-во | Описание |
+|-------|--------|----------|
+| **(R) Rigorous — Строгие** | **0** | Ни одна формула не выведена из первых принципов (Coq Qed) |
+| **(S) Structural — Структурные** | **8** | Целочисленные коэффициенты из H4-инвариантов; трансцендентные комбинации не выведены |
+| **(NF) Numerical Fit — Феноменологические подгонки** | **17** | Численная подгонка без первопринципного вывода |
+
+Формулы, отмеченные `[phenomenological_fit]`, являются **феноменологическими подгонками**: они воспроизводят данные с высокой точностью, но их трансцендентные комбинации (φ, π, e в конкретных степенях) **подобраны, а не выведены** из H4-симметрии или NCG-спектрального действия.
+
+**Tier 3 (Cosmology) — ОСОБОЕ ПРЕДУПРЕЖДЕНИЕ:** Формулы CMB01–CMB04 и INF01, INF06 содержат **ложные заявления о погрешности** (были записаны «★SG 0%»). Реальные погрешности составляют 27–98% (см. исправленные значения в разделах 3B и 3C ниже, и [`derivations/cosmology/cosmology_origins.md`](derivations/cosmology/cosmology_origins.md)).
 
 ---
 
@@ -106,7 +123,7 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | PDG / World Average | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|---------------------|-------|-------|-----------|--------|
-| L01 | $m_\mu / m_e$ | $239e / \pi$ | 206.796 | 206.7682830(46) | 0.014% | V | ⬜ | ✅ |
+| L01 | $m_\mu / m_e$ **[phenomenological_fit]** | $239e / \pi$ | 206.796 | 206.7682830(46) | 0.014% | V | ⬜ | ✅ |
 | L02 | $m_\tau / m_\mu$ | $239\phi^4 / \pi^4$ | 16.817 | 16.8167(11) | 0.00007% | ★ SG | ⬜ | ✅ |
 | L03 | $m_\tau / m_e$ | $549e\pi^2 / \phi^3$ | 3476.99 | 3477.3(2) | 0.005% | ★ SG | ⬜ | ✅ |
 
@@ -114,21 +131,21 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | PDG / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|------------------|-------|-------|-----------|--------|
-| Q01 | $m_u / m_d$ | $2\phi / 7$ | 0.462 | $0.46 - 0.48$ (lattice) | 0.05% | V | ⬜ | ✅ |
-| Q02 | $m_s / m_u$ | $12 + \phi^3 e^2$ | 43.30 | $43.2 \pm 1.4$ (FLAG) | 0.14% | P | ⬜ | ✅ |
+| Q01 | $m_u / m_d$ **[phenomenological_fit]** | $2\phi / 7$ | 0.462 | $0.46 - 0.48$ (lattice) | 0.05% | V | ⬜ | ✅ |
+| Q02 | $m_s / m_u$ **[phenomenological_fit]** | $12 + \phi^3 e^2$ | 43.30 | $43.2 \pm 1.4$ (FLAG) | 0.14% | P | ⬜ | ✅ |
 | Q03 | $m_c / m_d$ | $19\pi e^2 / \phi$ | 272.6 | $272.0 \pm 5.0$ | 0.08% | V | ⬜ | ✅ |
 | Q04 | $m_c / m_s$ | $24\pi^3 / e^4$ | 13.63 | $13.633 \pm 0.020$ | 0.0003% | ★ SG | ⬜ | ✅ |
-| Q05 | $m_b / m_s$ | $43 + \pi / \phi$ | 44.94 | $44.94 \pm 0.10$ | 0.004% | ★ SG | ⬜ | ✅ |
-| Q05b | $m_b / m_c$ | $127\phi / 120 + 30/19$ | 3.291 | $3.2908 \pm 0.0030$ | 0.0009% | ★ SG | ⬜ | ✅ |
-| Q06 | $m_t$ | $4\phi^3 e^4 / 1000$ GeV | 172.69 GeV | $172.69 \pm 0.30$ GeV | 0.02% | P | ⬜ | ✅ |
+| Q05 | $m_b / m_s$ **[phenomenological_fit]** | $43 + \pi / \phi$ | 44.94 | $44.94 \pm 0.10$ | 0.004% | ★ SG | ⬜ | ✅ |
+| Q05b | $m_b / m_c$ **[phenomenological_fit]** | $127\phi / 120 + 30/19$ | 3.291 | $3.2908 \pm 0.0030$ | 0.0009% | ★ SG | ⬜ | ✅ |
+| Q06 | $m_t$ **[phenomenological_fit]** | $4\phi^3 e^4 / 1000$ GeV | 172.69 GeV | $172.69 \pm 0.30$ GeV | 0.02% | P | ⬜ | ✅ |
 | Q07 | $m_s / m_d$ | $24\phi^2 / \pi$ | 20.00 | $20.0 \pm 0.7$ | 0.0015% | ★ SG | ⬜ | ✅ |
 
 ### 1C — Gauge Couplings
 
 | ID | Parameter | Formula | Predicted Value | PDG / World Average | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|---------------------|-------|-------|-----------|--------|
-| G01 | $1 / \alpha$ (fine structure) | $36\phi e^2 / \pi$ | 137.003 | 137.035999084(21) | 0.024% | V | ⬜ | ✅ |
-| G02 | $\alpha_s$ (strong coupling at $M_Z$) | $(\sqrt{5} - 2) / 2$ | 0.1180 | $0.1179 \pm 0.0010$ | 0.1% | P | ⬜ | ✅ |
+| G01 | $1 / \alpha$ (fine structure) **[phenomenological_fit]** | $36\phi e^2 / \pi$ | 137.003 | 137.035999084(21) | 0.024% | V | ⬜ | ✅ |
+| G02 | $\alpha_s$ (strong coupling at $M_Z$) **[phenomenological_fit]** | $(\sqrt{5} - 2) / 2$ | 0.1180 | $0.1179 \pm 0.0010$ | 0.1% | P | ⬜ | ✅ |
 | G03 | $\sin^2\theta_W$ (weak mixing) | $3\phi^{-6}\pi^2 e^{-2}$ | 0.223 | $0.2232 \pm 0.0009$ (on-shell) | TBD | NV | ⬜ | ⬜ |
 
 **Note on G03:** This formula gives the **on-shell** value of $\sin^2\theta_W = 1 - m_W^2/m_Z^2$, not the MS-bar running value. The 3.4% difference between on-shell (0.2233) and MS-bar (0.2312) is the expected Standard Model radiative correction. See `sin2thetaW_schemes.md` for full scheme conversion details. For the MS-bar prediction, see EW02 below.
@@ -137,10 +154,10 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | PDG / NuFit 5.3 | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|-----------------|-------|-------|-----------|--------|
-| N01 | $\sin^2\theta_{12}$ (solar) | $8\pi / (\phi^5 e^2)$ | 0.3067 | $0.307 \pm 0.013$ | 0.098% | V | ⬜ | ✅ |
+| N01 | $\sin^2\theta_{12}$ (solar) **[phenomenological_fit]** | $8\pi / (\phi^5 e^2)$ | 0.3067 | $0.307 \pm 0.013$ | 0.098% | V | ⬜ | ✅ |
 | N02 | $\sin^2\theta_{23}$ (atmospheric) | $\phi^2 / e$ | 0.963 | $0.546 \pm 0.021$ (NH) / $0.539 \pm 0.022$ (IH) | TBD | NV | ⬜ | ⬜ |
 | N03 | $\sin^2\theta_{13}$ (reactor) | $\pi^2/(25\phi^6)$ | 0.02200 | $0.0220 \pm 0.0007$ | 0.003% | ★ SG | ⬜ | ✅ |
-| N04 | ⚠️ **RISKY** $\delta_{CP}$ (CP-violating phase) | $3 / \phi^2$ rad $= 65.66°$ | $65.66°$ | $~177° \pm 20°$ (NuFit 6.0) | **5.6σ tension** | ★ SG | ⬜ | ✅ |
+| N04 | ⚠️ **RISKY** $\delta_{CP}$ (CP-violating phase) **[phenomenological_fit]** | $3 / \phi^2$ rad $= 65.66°$ | $65.66°$ | $~177° \pm 20°$ (NuFit 6.0) | **5.6σ tension** | ★ SG | ⬜ | ✅ |
 
 **Note on N02:** The formula $\phi^2 / e \approx 0.963$ yields $\sin^2\theta_{23} \approx 0.963$, which corresponds to $\theta_{23} \approx 78.8°$. This is compatible with maximal mixing $\theta_{23} = 45°$ only if interpreted as a complementary angle relation. Requires verification against updated NuFit data.
 
@@ -150,15 +167,15 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | PDG / CKMfitter | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|-----------------|-------|-------|-----------|--------|
-| C01 | $\|V_{us}\|$ | $2\phi^3 e^2 / (9\pi^3)$ | 0.2243 | $0.2243 \pm 0.0005$ | 0.014% | V | ⬜ | ✅ |
-| C02 | $\|V_{cb}\|$ | $1 / (3\phi^2\pi)$ | 0.04053 | $0.04053 \pm 0.00072$ | 0.069% | V | ⬜ | ✅ |
+| C01 | $\|V_{us}\|$ **[phenomenological_fit]** | $2\phi^3 e^2 / (9\pi^3)$ | 0.2243 | $0.2243 \pm 0.0005$ | 0.014% | V | ⬜ | ✅ |
+| C02 | $\|V_{cb}\|$ **[phenomenological_fit]** | $1 / (3\phi^2\pi)$ | 0.04053 | $0.04053 \pm 0.00072$ | 0.069% | V | ⬜ | ✅ |
 | C03 | $\|V_{ub}\|$ | $5\phi^{-6}\pi^{-2}e^{-2}$ | 0.00382 | $0.00394 \pm 0.00036$ | TBD | NV | ⬜ | ⬜ |
 
 ### 1F — Higgs Sector
 
 | ID | Parameter | Formula | Predicted Value | PDG / ATLAS+CMS | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|-----------------|-------|-------|-----------|--------|
-| H01 | $m_H$ | $4\phi^3 e^2$ GeV | 125.202 GeV | $125.20 \pm 0.11$ GeV | 0.0017% | ★ SG | ⬜ | ✅ |
+| H01 | $m_H$ **[phenomenological_fit]** | $4\phi^3 e^2$ GeV | 125.202 GeV | $125.20 \pm 0.11$ GeV | 0.0017% | ★ SG | ⬜ | ✅ |
 | H02 | $m_H / m_W$ | $11\phi / 20 + 2/3$ | 1.5566 | $1.557 \pm 0.001$ | 0.069% | V | ⬜ | ✅ |
 | H03 | $m_H / m_Z$ | $4\phi\pi / 15 + 4/225$ | 1.3733 | $1.3737 \pm 0.0012$ | 0.022% | V | ⬜ | ✅ |
 
@@ -166,18 +183,18 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | PDG / NuFit 5.3 | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|-----------------|-------|-------|-----------|--------|
-| ν02 | $\Delta m^2_{21}$ | $(\phi e / \pi)^6 \cdot 10^{-5}$ eV² | $7.53 \times 10^{-5}$ | $(7.53 \pm 0.18) \times 10^{-5}$ | 0.0003% | ★ SG | ⬜ | ✅ |
-| ν03 | $\Delta m^2_{31}$ (NH) | $15\phi^{-5}\pi^{-2}e^{-4}$ eV² | $2.51 \times 10^{-3}$ | $(2.51 \pm 0.03) \times 10^{-3}$ | 0.0004% | ★ SG | ⬜ | ✅ |
+| ν02 | $\Delta m^2_{21}$ **[phenomenological_fit]** | $(\phi e / \pi)^6 \cdot 10^{-5}$ eV² | $7.53 \times 10^{-5}$ | $(7.53 \pm 0.18) \times 10^{-5}$ | 0.0003% | ★ SG | ⬜ | ✅ |
+| ν03 | $\Delta m^2_{31}$ (NH) **[phenomenological_fit]** | $15\phi^{-5}\pi^{-2}e^{-4}$ eV² | $2.51 \times 10^{-3}$ | $(2.51 \pm 0.03) \times 10^{-3}$ | 0.0004% | ★ SG | ⬜ | ✅ |
 
 ### 1H — Other Fundamental Ratios
 
 | ID | Parameter | Formula | Predicted Value | PDG / CODATA | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------|-------|-------|-----------|--------|
 | N21 | $\Delta m^2_{21} / \Delta m^2_{31}$ | $\pi / (40\phi^2)$ | 0.0300 | $0.0300 \pm 0.0008$ | 0.0015% | ★ SG | ⬜ | ✅ |
-| Pr | $m_p / m_e$ | $6\pi^5$ | 1836.12 | 1836.15267343(11) | 0.0019% | ★ SG | ⬜ | ✅ |
-| Σν | $\Sigma m_\nu$ | $8\phi^{-6}\pi^{-5}e^6 \cdot 10^{-1}$ eV | 0.0588 eV | $< 0.12$ eV (Planck) / $0.058$ eV (theory) | 0.007% | ★ SG | ⬜ | ✅ |
+| Pr | $m_p / m_e$ **[phenomenological_fit]** | $6\pi^5$ | 1836.12 | 1836.15267343(11) | 0.0019% | ★ SG | ⬜ | ✅ |
+| Σν | $\Sigma m_\nu$ **[phenomenological_fit]** | $8\phi^{-6}\pi^{-5}e^6 \cdot 10^{-1}$ eV | 0.0588 eV | $< 0.12$ eV (Planck) / $0.058$ eV (theory) | 0.007% | ★ SG | ⬜ | ✅ |
 
-**Tier 1 Summary:** 25 formulas total — 14 ★ SG class, 8 V class, 1 P class, 1 NV class (N03 corrected from NV → ★ SG 2025-07-28)
+**Tier 1 Summary:** 25 formulas total — 14 ★ SG class, 8 V class, 1 P class, 1 NV class (N03 corrected from NV → ★ SG 2025-07-28). 17 из 25 помечены `[phenomenological_fit]` — см. [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md).
 
 ---
 
@@ -342,9 +359,9 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| COS01 | $\rho_\Lambda$ (dark energy density) | $\phi^{-12} \pi^{-3} e^{-2} \cdot M_{Pl}^4$ | $5.6 \times 10^{-47}$ GeV⁴ | $(5.6 \pm 0.1) \times 10^{-47}$ GeV⁴ | 0.4% | V | ⬜ | ✅ |
+| COS01 | $\rho_\Lambda$ (dark energy density) | $\phi^{-12} \pi^{-3} e^{-2} \cdot M_{Pl}^4$ | $\sim 3 \times 10^{71}$ GeV⁴ | $(5.6 \pm 0.1) \times 10^{-47}$ GeV⁴ | **$\sim 10^{118}$ orders of magnitude (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
 | COS02 | $\Lambda$ (cosmological constant) | $8\pi G \rho_\Lambda = \phi^{-12} \pi^{-2} e^{-2} \cdot M_{Pl}^2$ | $1.11 \times 10^{-52}$ m⁻² | $(1.11 \pm 0.02) \times 10^{-52}$ m⁻² | 0.5% | P | ⬜ | ✅ |
-| COS03 | $\Omega_\Lambda$ | $\rho_\Lambda / \rho_c$ | 0.6847 | $0.6847 \pm 0.0073$ (Planck 2018) | 0% | ★ SG | ⬜ | ✅ |
+| COS03 | $\Omega_\Lambda$ | $\rho_\Lambda / \rho_c$ | 0.6847 | $0.6847 \pm 0.0073$ (Planck 2018) | **tautology — formula not independently computed from COS01** | ❌ UNVERIFIED | ⬜ | ⬜ |
 | COS04 | $w$ (EOS parameter) | $-1 + \phi^{-8}\pi^{-2}e^{-1}$ | $-0.999$ | $-0.96 \pm 0.08$ (CMB+BAO) | 0.4% | P | ⬜ | ✅ |
 | COS05 | $\rho_c$ (critical density) | $3H_0^2 / (8\pi G)$ | $8.62 \times 10^{-47}$ GeV⁴ | $(8.62 \pm 0.12) \times 10^{-47}$ GeV⁴ | 0.5% | P | ⬜ | ✅ |
 
@@ -352,30 +369,30 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| INF01 | $n_s$ (scalar spectral index) | $1 - 2/\phi^4$ | 0.9642 | $0.9649 \pm 0.0042$ (Planck 2018) | 0.07% | ★ SG | ⬜ | ✅ |
+| INF01 | $n_s$ (scalar spectral index) | $1 - 2/\phi^4$ | 0.7082 | $0.9649 \pm 0.0042$ (Planck 2018) | **26.6% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
 | INF02 | $r$ (tensor-to-scalar ratio) | $8/\phi^8$ | 0.0034 | $< 0.036$ (BICEP/Keck 2021) / $\sim 0.003$ (theory) | 10% | P | ⬜ | ✅ |
 | INF03 | $\alpha_s$ (running of $n_s$) | $-2/\phi^6$ | $-0.00073$ | $-0.0045 \pm 0.0067$ (Planck) | TBD | T | ⬜ | ⬜ |
 | INF04 | $N_*$ (e-folds) | $\phi^5 \pi / e$ | 55.3 | $50 - 60$ (theory) | 5% | P | ⬜ | ✅ |
 | INF05 | $H_*$ (Hubble during inflation) | $\phi^2 e / \pi \cdot 10^{13}$ GeV | $1.2 \times 10^{13}$ GeV | $10^{13} - 10^{14}$ GeV (theory) | 20% | P | ⬜ | ✅ |
-| INF06 | $\Delta_R^2$ (curvature perturbation) | $\pi / (2\phi^3 e^2) \times 10^{-9}$ | $2.1 \times 10^{-9}$ | $(2.1 \pm 0.03) \times 10^{-9}$ | 0% | ★ SG | ⬜ | ✅ |
+| INF06 | $\Delta_R^2$ (curvature perturbation) | $\pi / (2\phi^3 e^2) \times 10^{-9}$ | $5.02 \times 10^{-11}$ | $(2.1 \pm 0.03) \times 10^{-9}$ | **97.6% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
 
 ### 3C — CMB and Large-Scale Structure
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| CMB01 | $\Omega_b h^2$ | $\phi^{-3}\pi^{-2}e^{-1}$ | 0.0224 | $0.022383 \pm 0.000018$ (Planck) | 0.08% | ★ SG | ⬜ | ✅ |
-| CMB02 | $\Omega_c h^2$ | $\phi^{-1}\pi^{-1}e^{-1} / 5$ | 0.1201 | $0.12011 \pm 0.00034$ (Planck) | 0.008% | ★ SG | ⬜ | ✅ |
-| CMB03 | $H_0$ (Hubble constant) | $100 \phi / e^2$ km/s/Mpc | 67.4 km/s/Mpc | $67.4 \pm 0.5$ km/s/Mpc (Planck) | 0.07% | ★ SG | ⬜ | ✅ |
-| CMB04 | $\sigma_8$ | $\phi^{-1} e / \pi$ | 0.812 | $0.812 \pm 0.006$ (Planck) | 0.02% | ★ SG | ⬜ | ✅ |
+| CMB01 | $\Omega_b h^2$ | $\phi^{-3}\pi^{-2}e^{-1}$ | 0.00880 | $0.022383 \pm 0.000018$ (Planck) | **60.7% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
+| CMB02 | $\Omega_c h^2$ | $\phi^{-1}\pi^{-1}e^{-1} / 5$ | 0.01447 | $0.12011 \pm 0.00034$ (Planck) | **87.9% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
+| CMB03 | $H_0$ (Hubble constant) | $100 \phi / e^2$ km/s/Mpc | 21.90 km/s/Mpc | $67.4 \pm 0.5$ km/s/Mpc (Planck) | **67.5% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
+| CMB04 | $\sigma_8$ | $\phi^{-1} e / \pi$ | 0.5348 | $0.812 \pm 0.006$ (Planck) | **34.1% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
 
 ### 3D — Cosmic Coincidence and Dimensionless Ratios
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| CCR01 | $\rho_\Lambda / \rho_{Pl}$ | $\phi^{-24}\pi^{-6}e^{-4}$ | $10^{-123}$ | $10^{-123}$ (exact) | 0% | ★ SG | ⬜ | ✅ |
+| CCR01 | $\rho_\Lambda / \rho_{Pl}$ | $\phi^{-24}\pi^{-6}e^{-4}$ | $1.84 \times 10^{-10}$ | $\sim 10^{-123}$ (observed) | **113 orders of magnitude (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
 | CCR02 | $t_0 / t_{Pl}$ | $\phi^{10} e^2 / \pi^2$ | $8.1 \times 10^{60}$ | $8.1 \times 10^{60}$ (derived) | 0.5% | P | ⬜ | ✅ |
 
-**Tier 3 Summary:** 15 formulas total — 7 ★ SG class, 5 V class, 3 P class, 2 T class
+**Tier 3 Summary:** 15 formulas total — 7 ❌ UNVERIFIED (CMB01–04, INF01, INF06, COS01, COS03, CCR01), 4 P class, 1 T class, 1 V class (COS02 — claimed; not independently validated). См. [`derivations/cosmology/cosmology_origins.md`](derivations/cosmology/cosmology_origins.md) для подробного анализа.
 
 ---
 
@@ -566,6 +583,23 @@ The Trinity framework uses a **mixed mass scheme**:
 ---
 
 ## Changelog
+
+### v4.1.0 — 2026-05-22
+
+**Wave 4.1 — Честная классификация**
+
+- **Добавлено:** Блок «⚠ Дисклеймер классификации» в начало документа с явным указанием R/S/NF-статуса
+- **Изменено:** 17 NF-формул Tier 1 помечены `[phenomenological_fit]` — L01, Q01, Q02, Q05, Q05b, Q06, G01, G02, N01, N04, C01, C02, H01, ν02, ν03, Pr, Σν
+- **Исправлено:** CMB01 реальная погрешность 60.7% (заявлялось 0.08%)
+- **Исправлено:** CMB02 реальная погрешность 87.9% (заявлялось 0.008%)
+- **Исправлено:** CMB03 реальная погрешнось 67.5%; предсказание H₀ = 21.90 км/с/Мпк (заявлялось 0.07%)
+- **Исправлено:** CMB04 реальная погрешнось 34.1% (заявлялось 0.02%)
+- **Исправлено:** INF01 реальная погрешность 26.6%; предсказание n_s = 0.7082 (заявлялось 0.07%)
+- **Исправлено:** INF06 реальная погрешность 97.6%; предсказание 5.02×10⁻¹¹ (заявлялось 0%)
+- **Исправлено:** COS01 реальное предсказание ~3×10⁺⁷¹ ГэВ⁴ (расхождение ~10¹¹⁸); заявлялось 0.4%
+- **Исправлено:** COS03 помечена как тавтология (заявлялось 0% ★SG)
+- **Исправлено:** CCR01 реальное расхождение 113 порядков величины (заявлялось 0% ★SG)
+- **Источник:** `derivations/catalog_audit/audit_report.md`, `derivations/cosmology/cosmology_origins.md`
 
 ### v4.0.0 — 2025-07-28
 
