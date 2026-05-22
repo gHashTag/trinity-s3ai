@@ -88,19 +88,18 @@ Qed.
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* Theorem: TTT LR = base_lr / φ³                                    *)
 (* ═══════════════════════════════════════════════════════════════════ *)
+(* Was Admitted; closed in Wave 12 sprint W12.4 (fixed in W12.4-fix).
+   `field` discharges the algebraic identity base_lr * (1/phi^3) = base_lr / phi^3
+   given the side condition that the denominator's base is nonzero — `field`
+   requires `phi <> 0` (not `phi^3 <> 0`) because it inverts factor by factor. *)
 Theorem ttt_lr_is_phi_inv_cube_scaled :
   forall base_lr, ttt_lr_H4 base_lr = base_lr / phi^3.
 Proof.
-  (* [LIBRARY_GAP] field_simplify cannot reduce phi_inv_cube = 1/phi^3 to
-     reflexivity because phi = (1+sqrt 5)/2 and phi^3 involves sqrt 5;
-     nonzero side condition on phi^3 requires a separate positivity lemma
-     not wired into field_simplify here. *)
-  intros. unfold ttt_lr_H4, phi_inv_cube. field_simplify; try reflexivity; try (apply Rgt_not_eq, phi_pos); try lra; try admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation. An algebraic proof was verified in isolation
-   (unfold Rdiv; rewrite Rmult_1_l; reflexivity) but cannot be injected here
-   without breaking compilation. *)
-Admitted.
+  intros. unfold ttt_lr_H4, phi_inv_cube.
+  assert (Hne : phi <> 0).
+  { apply Rgt_not_eq. apply phi_gt_0. }
+  field. exact Hne.
+Qed.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
 (* Master: All 5 optimizer invariants QED                            *)
