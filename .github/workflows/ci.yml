@@ -9,45 +9,30 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup OCaml
-        uses: ocaml/setup-ocaml@v3
+      - name: Build Coq proofs (docker-coq-action, Coq 8.20.1)
+        uses: coq-community/docker-coq-action@v1
         with:
-          ocaml-compiler: 4.14.1
-          opam-depext: false
-          dune-cache: true
+          coq_version: '8.20.1'
+          ocaml_version: 'default'
+          custom_script: |
+            startGroup "Install coq-interval and coq-coquelicot"
+              sudo apt-get update -y -q
+              opam repo add coq-released https://coq.inria.fr/opam/released || true
+              opam update -y
+              opam install -y -j 2 coq-interval coq-coquelicot
+            endGroup
+            startGroup "Compile Coq proofs"
+              cd proofs/trinity
+              coq_makefile -f _CoqProject -o Makefile.coq
+              make -f Makefile.coq -j$(nproc)
+            endGroup
 
-      - name: Add coq-released opam repository
-        run: |
-          opam repo add coq-released https://coq.inria.fr/opam/released
-          opam update
-        env:
-          OPAMYES: 1
-
-      - name: Install Rocq and dependencies
-        run: |
-          # opam.ocaml.org has rocq-prover.9.0.0 (latest stable as of 2026-05);
-          # 9.1.1 is on developer's local Mac but not yet in upstream opam.
-          opam install -y rocq-prover coq-interval coq-coquelicot
-        env:
-          OPAMYES: 1
-
-      - name: Generate Makefile
-        run: |
-          cd proofs/trinity
-          # Remove hardcoded local Interval path; opam-installed packages are auto-discoverable
-          sed -i '/-Q .*Interval Interval/d' _CoqProject
-          # Regenerate Makefile.coq from _CoqProject
-          eval $(opam env)
-          coq_makefile -f _CoqProject -o Makefile.coq
-
-      - name: Compile Coq files
-        run: |
-          cd proofs/trinity
-          eval $(opam env)
-          make -f Makefile.coq -j$(nproc)
+      - name: Fix proof directory permissions
+        run: sudo chown -R $USER:$USER proofs/trinity/ || true
 
       - name: Install Python dependencies
         run: pip install --upgrade pip && pip install mpmath numpy

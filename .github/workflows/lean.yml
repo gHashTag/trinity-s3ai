@@ -1,0 +1,42 @@
+name: Lean 4 (experimental)
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'derivations/lean_port/**'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'derivations/lean_port/**'
+
+jobs:
+  lean-build:
+    name: Build TrinityLean (Stage 0 — experimental)
+    runs-on: ubuntu-latest
+    # Stage 0: scaffold only — allowed to fail
+    continue-on-error: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install elan
+        run: |
+          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --no-modify-path
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+
+      - name: Build TrinityLean
+        uses: leanprover/lean4-action@v1
+        with:
+          build-args: '--wfail'
+        working-directory: derivations/lean_port
+        continue-on-error: true
+
+      - name: Report Lean build status
+        if: always()
+        run: |
+          echo "=== Lean 4 Port Status ==="
+          echo "Stage 0 scaffold — compilation result above"
+          echo "File: derivations/lean_port/TrinityLean/CorePhi.lean"
+          echo "Lemmas ported: 10"
+          echo "Toolchain: $(cat derivations/lean_port/lean-toolchain)"
