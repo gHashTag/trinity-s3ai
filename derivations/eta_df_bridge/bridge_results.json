@@ -1,0 +1,60 @@
+{
+  "eta_continuous": -2,
+  "eta_DF_naive": 0,
+  "eta_DF_regularized": 0,
+  "kernel_dim": 100,
+  "n_pos": 190,
+  "n_neg": 190,
+  "irrep_HF_blocks": {
+    "1": {
+      "mult": 4,
+      "dim": 4
+    },
+    "2": {
+      "mult": 8,
+      "dim": 16
+    },
+    "2'": {
+      "mult": 8,
+      "dim": 16
+    },
+    "3": {
+      "mult": 12,
+      "dim": 36
+    },
+    "3'": {
+      "mult": 12,
+      "dim": 36
+    },
+    "4": {
+      "mult": 16,
+      "dim": 64
+    },
+    "4'": {
+      "mult": 16,
+      "dim": 64
+    },
+    "5": {
+      "mult": 20,
+      "dim": 100
+    },
+    "6": {
+      "mult": 24,
+      "dim": 144
+    }
+  },
+  "character_table_ortho_error": 0.6666666666666666,
+  "hypotheses": {
+    "H1_DF_wrong": "REJECTED: D_F is correct but measures different thing",
+    "H2_kernel_encodes_eta": "REJECTED: kernel has balanced chirality, index=0",
+    "H3_irrep_decomp": "REJECTED in naive form: each block also has \u03b7=0"
+  },
+  "mass_twist": {
+    "description": "D_F + m*gamma5",
+    "breaks_chirality": true,
+    "produces_eta_minus2": false
+  },
+  "verdict": "C",
+  "reconciliation": "eta_continuous and eta_DF measure different mathematical objects",
+  "three_generation_link": "kernel dim=100 not divisible by 3; needs additional structure"
+}

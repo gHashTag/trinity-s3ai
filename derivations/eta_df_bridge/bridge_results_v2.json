@@ -1,0 +1,124 @@
+{
+  "eta_continuous": -2,
+  "eta_DF_naive": 0,
+  "eta_DF_regularized": 0,
+  "index_DF": 0,
+  "chiral_zero_modes": {
+    "L": 50,
+    "R": 50,
+    "mixed": 0
+  },
+  "kernel_dim": 100,
+  "n_pos": 190,
+  "n_neg": 190,
+  "chiral_symmetry_exact": true,
+  "mass_twist_scan": {
+    "0.0": {
+      "eta_naive": 0,
+      "eta_reg": 0.0
+    },
+    "0.01": {
+      "eta_naive": 0,
+      "eta_reg": -8.185452315956354e-12
+    },
+    "0.05": {
+      "eta_naive": 0,
+      "eta_reg": -1.5234036254696548e-11
+    },
+    "0.1": {
+      "eta_naive": 0,
+      "eta_reg": 2.2737367544323206e-13
+    },
+    "0.2": {
+      "eta_naive": 0,
+      "eta_reg": -1.1937117960769683e-12
+    },
+    "0.5": {
+      "eta_naive": 0,
+      "eta_reg": -1.4210854715202004e-13
+    },
+    "1.0": {
+      "eta_naive": 0,
+      "eta_reg": 1.4210854715202004e-14
+    },
+    "2.0": {
+      "eta_naive": 0,
+      "eta_reg": 0.0
+    },
+    "3.0": {
+      "eta_naive": 0,
+      "eta_reg": 7.105427357601002e-15
+    },
+    "5.0": {
+      "eta_naive": 0,
+      "eta_reg": 0.0
+    }
+  },
+  "eta_minus2_from_twist": false,
+  "m_for_eta_minus2": null,
+  "irrep_HF_blocks": {
+    "1": {
+      "d": 1,
+      "mult_in_HF": 4,
+      "hf_block_dim": 4
+    },
+    "2": {
+      "d": 2,
+      "mult_in_HF": 8,
+      "hf_block_dim": 16
+    },
+    "2'": {
+      "d": 2,
+      "mult_in_HF": 8,
+      "hf_block_dim": 16
+    },
+    "3": {
+      "d": 3,
+      "mult_in_HF": 12,
+      "hf_block_dim": 36
+    },
+    "3'": {
+      "d": 3,
+      "mult_in_HF": 12,
+      "hf_block_dim": 36
+    },
+    "4": {
+      "d": 4,
+      "mult_in_HF": 16,
+      "hf_block_dim": 64
+    },
+    "4'": {
+      "d": 4,
+      "mult_in_HF": 16,
+      "hf_block_dim": 64
+    },
+    "5": {
+      "d": 5,
+      "mult_in_HF": 20,
+      "hf_block_dim": 100
+    },
+    "6": {
+      "d": 6,
+      "mult_in_HF": 24,
+      "hf_block_dim": 144
+    }
+  },
+  "hypotheses": {
+    "H1_DF_wrong": {
+      "status": "REJECTED",
+      "reason": "D_F is correct but measures kinematic structure, not APS boundary topology"
+    },
+    "H2_kernel_encodes_eta": {
+      "status": "REJECTED",
+      "reason": "index(D_F) = 0 \u2260 -2; zero modes are chirally balanced"
+    },
+    "H3_irrep_decomp_gives_minus2": {
+      "status": "REJECTED",
+      "reason": "Each 2I-irrep block has \u03b7=0 by {D_F,\u03b3\u2075}=0"
+    }
+  },
+  "reconciliation": "\u03b7_continuous and \u03b7_DF measure different mathematical objects. \u03b7_continuous is an APS topological invariant of S\u00b3/2I. \u03b7_DF is the spectral asymmetry of a discrete graph Dirac. Discrepancy is FUNDAMENTAL and EXPECTED.",
+  "three_generation_link": "kernel dim=100 is not divisible by 3. |\u03b7|=2 does not give 3. Need additional representation-theoretic structure.",
+  "verdict": "C",
+  "verdict_meaning": "Fundamental discrepancy \u2014 vector-like prediction, D_F correct but incomplete"
+}

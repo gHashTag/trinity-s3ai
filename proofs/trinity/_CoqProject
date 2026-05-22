@@ -61,3 +61,22 @@ SpectralTripleAxioms.v
 
 # Wave 8.3: Eta invariant on S³/2I (Poincaré homology sphere)
 EtaInvariant.v
+
+# Wave 9.5: Three fermion generations -- search for mechanism (negative result)
+ThreeGenerations.v
+
+# Wave 9.1: Bridge between η-invariant and finite Dirac spectrum D_F
+EtaDFBridge.v
+
+# Wave 9.4: Poincaré duality (Axiom 7) via K-theory of ℂ[2I]
+Axiom7Poincare.v
+
+# Wave 9.6: No-go theorems (honest meta-analysis)
+NoGoTheorems.v
+
+# Wave 9.2: Yukawa from 2I irrep theory (negative result: σ=5.62>>0.5)
+YukawaFrom2I.v
+
+# Wave 9.3: Hochschild 6-cycle for Axiom 6 (Orientation)
+Axiom6Orientation.v
+
