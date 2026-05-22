@@ -152,3 +152,35 @@ theorem phi_zpow_three : phi ^ (3 : ℤ) = 2 * phi + 1 := by
   End of CorePhi.lean — Stage 0 scaffold
   Total: 10 lemmas/theorems ported from CorePhi.v
 -/
+
+/-!
+## Section 7: Helper lemmas for Stage 1 (KODimension.lean, QuaternionicLinearity.lean)
+
+These lemmas were added in Wave 10.3 to support the Stage 1 port.
+-/
+
+/-- φ² = φ + 1  in the ℤ-power (^ : ℝ → ℕ → ℝ) form, for nlinarith. -/
+lemma phi_sq_nat : phi ^ 2 = phi + 1 := by
+  have h := phi_sq
+  nlinarith [sq_nonneg phi]
+
+/-- (φ − 1)² = 2 − φ  (derived from φ² = φ + 1). -/
+lemma phi_minus_one_sq : (phi - 1) ^ 2 = 2 - phi := by
+  have h := phi_sq
+  nlinarith [sq_nonneg phi]
+
+/-- φ · (φ − 1) = 1  (product of consecutive Fibonacci-type terms). -/
+lemma phi_times_phi_minus_one : phi * (phi - 1) = 1 := by
+  have h := phi_sq
+  nlinarith
+
+/-- (1/2)² + (φ/2)² + ((φ−1)/2)² = 1  (icosian Pythagorean identity, scaled). -/
+lemma icosian_norm_sq :
+    (1/2 : ℝ)^2 + (phi/2)^2 + ((phi-1)/2)^2 = 1 := by
+  have h := phi_sq
+  nlinarith [sq_nonneg phi, sq_nonneg (phi - 1)]
+
+/-
+  End of CorePhi.lean — Stage 0 + Stage 1 helpers
+  Total: 10 (Stage 0) + 4 (Stage 1 helpers) = 14 lemmas/theorems
+-/

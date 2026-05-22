@@ -1,6 +1,6 @@
 [package]
 name = "TrinityLean"
-version = "0.1.0"
+version = "0.2.0"
 
 [[require]]
 name = "Mathlib"
@@ -10,3 +10,9 @@ rev = "v4.13.0"
 
 [[lean_lib]]
 name = "TrinityLean"
+# All source files under TrinityLean/ are included automatically by Lake
+# when `globs` is omitted — Lake discovers them via the module root.
+# Explicit roots for clarity:
+#   TrinityLean.CorePhi            (Stage 0 — 14 lemmas)
+#   TrinityLean.KODimension        (Stage 1 — 18 lemmas)
+#   TrinityLean.QuaternionicLinearity (Stage 1 — 18 lemmas)
