@@ -18,17 +18,29 @@ jobs:
         with:
           coq_version: '8.20.1'
           ocaml_version: 'default'
-          custom_script: |
+          before_install: |
+            startGroup "Fix workspace permissions for coq user"
+              sudo chmod -R a+w /github/workspace
+            endGroup
+            startGroup "Print opam config"
+              opam config list; opam repo list; opam list
+            endGroup
+          install: |
             startGroup "Install coq-interval and coq-coquelicot"
               sudo apt-get update -y -q
               opam repo add coq-released https://coq.inria.fr/opam/released || true
               opam update -y
               opam install -y -j 2 coq-interval coq-coquelicot
             endGroup
+          script: |
             startGroup "Compile Coq proofs"
               cd proofs/trinity
               coq_makefile -f _CoqProject -o Makefile.coq
               make -f Makefile.coq -j$(nproc)
+            endGroup
+          uninstall: |
+            startGroup "Build summary"
+              echo "Coq build complete"
             endGroup
 
       - name: Fix proof directory permissions
