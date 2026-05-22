@@ -7,7 +7,7 @@
 (*                                                                            *)
 (*  HONESTY STATEMENT: This file formalizes what Trinity-s3ai CANNOT do.     *)
 (*  A clean negative result is more scientifically valuable than a failed    *)
-(*  positive claim. (Принцип: «Не врать!! Честным будь!»)                   *)
+(*  positive claim. (Principle: "Don't lie! Be honest!")                     *)
 (*                                                                            *)
 (*  FOUR NO-GO THEOREMS:                                                      *)
 (*    NGT1 (Cosmology)   : φ^a π^b e^c formulas cannot reproduce Λ, Ω_b    *)
@@ -632,5 +632,5 @@ End MetaNoGo.
 (*  Qed: >= 16 main theorems + ~15 auxiliary lemmas = >= 31 total            *)
 (******************************************************************************)
 
-(* Wave 9.6 — честный финал. Отрицательный результат — тоже результат.       *)
-(* «Не врать!! Честным будь!» — принцип выполнен.                            *)
+(* Wave 9.6 — honest conclusion. A negative result is also a result.          *)
+(* "Don't lie! Be honest!" — principle upheld.                                *)

@@ -10,8 +10,8 @@ Requirements: numpy
 
 import numpy as np
 import itertools
-# sympy и mpmath доступны в окружении, но явные вычисления проводятся
-# на уровне NumPy для скорости и точности с плавающей точкой.
+# sympy and mpmath are available in the environment, but explicit computations
+# are carried out at the NumPy level for speed and floating-point precision.
 import sympy as sp
 import mpmath as mp
 
