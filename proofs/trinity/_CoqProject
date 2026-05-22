@@ -49,3 +49,15 @@ QuaternionicLinearity.v
 
 # Wave 5.3: Unimodularity and sigma-field analog
 UnimodularityAndSigma.v
+
+# Wave 8.1: Discrete Dirac operator
+DiracOperator.v
+
+# Wave 8.4: Finite Dirac operator D_F spectrum (600-cell, 480×480)
+DFSpectrum.v
+
+# Wave 8.2: Spectral triple axiom checklist
+SpectralTripleAxioms.v
+
+# Wave 8.3: Eta invariant on S³/2I (Poincaré homology sphere)
+EtaInvariant.v

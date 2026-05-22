@@ -355,44 +355,64 @@ The Trinity framework uses a **mixed mass scheme**:
 
 ## Tier 3: Cosmology
 
+> **⚠️ ПРЕДУПРЕЖДЕНИЕ — ИССЛЕДОВАТЕЛЬСКИЙ КАТАЛОГ (Wave 8.5) ⚠️**
+>
+> **Tier 3 является каталогом спекулятивных формул, не выводов. 9 из них фальсифицированы измерениями (см. ниже).**
+>
+> Ни одна формула Tier 3 не выведена из H4-геометрии из первых принципов.
+> Все заявленные ранее погрешности «★SG 0%» для CMB01–CMB04, INF01, INF06, COS01, COS03, CCR01 были ложными.
+> Реальные расхождения: от 27% (~61σ) до 10¹¹⁸ порядков величины.
+>
+> Подробный анализ: [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REWRITE.md)  
+> Реестр ошибок: [`derivations/honest_cosmology/cosmology_falsified_log.md`](derivations/honest_cosmology/cosmology_falsified_log.md)  
+> Источники: Planck 2018 (DOI: 10.1051/0004-6361/201833910), DESI 2024 (arXiv:2404.03002), BICEP/Keck (arXiv:2110.00483)
+
 ### 3A — Dark Energy and Cosmological Constant
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| COS01 | $\rho_\Lambda$ (dark energy density) | $\phi^{-12} \pi^{-3} e^{-2} \cdot M_{Pl}^4$ | $\sim 3 \times 10^{71}$ GeV⁴ | $(5.6 \pm 0.1) \times 10^{-47}$ GeV⁴ | **$\sim 10^{118}$ orders of magnitude (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
-| COS02 | $\Lambda$ (cosmological constant) | $8\pi G \rho_\Lambda = \phi^{-12} \pi^{-2} e^{-2} \cdot M_{Pl}^2$ | $1.11 \times 10^{-52}$ m⁻² | $(1.11 \pm 0.02) \times 10^{-52}$ m⁻² | 0.5% | P | ⬜ | ✅ |
-| COS03 | $\Omega_\Lambda$ | $\rho_\Lambda / \rho_c$ | 0.6847 | $0.6847 \pm 0.0073$ (Planck 2018) | **tautology — formula not independently computed from COS01** | ❌ UNVERIFIED | ⬜ | ⬜ |
-| COS04 | $w$ (EOS parameter) | $-1 + \phi^{-8}\pi^{-2}e^{-1}$ | $-0.999$ | $-0.96 \pm 0.08$ (CMB+BAO) | 0.4% | P | ⬜ | ✅ |
-| COS05 | $\rho_c$ (critical density) | $3H_0^2 / (8\pi G)$ | $8.62 \times 10^{-47}$ GeV⁴ | $(8.62 \pm 0.12) \times 10^{-47}$ GeV⁴ | 0.5% | P | ⬜ | ✅ |
+| COS01 | $\rho_\Lambda$ (dark energy density) | $\phi^{-12} \pi^{-3} e^{-2} \cdot M_{Pl}^4$ | $\sim 3 \times 10^{71}$ GeV⁴ | $(5.6 \pm 0.1) \times 10^{-47}$ GeV⁴ | **$\sim 10^{118}$ порядков** | ❌ FALSIFIED 🔴 NUMEROLOGY | ⬜ | ⬜ |
+| COS02 | $\Lambda$ (cosmological constant) | $8\pi G \rho_\Lambda = \phi^{-12} \pi^{-2} e^{-2} \cdot M_{Pl}^2$ | $1.11 \times 10^{-52}$ m⁻² | $(1.11 \pm 0.02) \times 10^{-52}$ m⁻² | фиктивное (через COS01) | 🔴 NUMEROLOGY | ⬜ | ⬜ |
+| COS03 | $\Omega_\Lambda$ | $\rho_\Lambda / \rho_c$ | 0.6847 | $0.6847 \pm 0.0073$ (Planck 2018) | тавтология | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
+| COS04 | $w$ (EOS parameter) | $-1 + \phi^{-8}\pi^{-2}e^{-1}$ | $-0.999$ | $-0.827 \pm 0.063$ (DESI 2024, arXiv:2404.03002) | **17.2%, ~2.7σ** | 🟡 SPECULATIVE | ⬜ | ⬜ |
+| COS05 | $\rho_c$ (critical density) | $3H_0^2 / (8\pi G)$ | зависит от CMB03 | $(8.62 \pm 0.12) \times 10^{-47}$ GeV⁴ | фиктивное (через CMB03) | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
 
 ### 3B — Inflation Parameters
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| INF01 | $n_s$ (scalar spectral index) | $1 - 2/\phi^4$ | 0.7082 | $0.9649 \pm 0.0042$ (Planck 2018) | **26.6% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
-| INF02 | $r$ (tensor-to-scalar ratio) | $8/\phi^8$ | 0.0034 | $< 0.036$ (BICEP/Keck 2021) / $\sim 0.003$ (theory) | 10% | P | ⬜ | ✅ |
-| INF03 | $\alpha_s$ (running of $n_s$) | $-2/\phi^6$ | $-0.00073$ | $-0.0045 \pm 0.0067$ (Planck) | TBD | T | ⬜ | ⬜ |
-| INF04 | $N_*$ (e-folds) | $\phi^5 \pi / e$ | 55.3 | $50 - 60$ (theory) | 5% | P | ⬜ | ✅ |
-| INF05 | $H_*$ (Hubble during inflation) | $\phi^2 e / \pi \cdot 10^{13}$ GeV | $1.2 \times 10^{13}$ GeV | $10^{13} - 10^{14}$ GeV (theory) | 20% | P | ⬜ | ✅ |
-| INF06 | $\Delta_R^2$ (curvature perturbation) | $\pi / (2\phi^3 e^2) \times 10^{-9}$ | $5.02 \times 10^{-11}$ | $(2.1 \pm 0.03) \times 10^{-9}$ | **97.6% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
+| INF01 | $n_s$ (scalar spectral index) | $1 - 2/\phi^4$ | 0.7082 | $0.9649 \pm 0.0042$ (Planck 2018, arXiv:1807.06209) | **26.6%, ~61σ** | ❌ FALSIFIED | ⬜ | ⬜ |
+| INF02 | $r$ (tensor-to-scalar ratio) | $8/\phi^8$ | 0.0034 | $< 0.036$ (BICEP/Keck 2021, arXiv:2110.00483) | совм. с верх. границей | 🟡 SPECULATIVE | ⬜ | ⬜ |
+| INF03 | $\alpha_s$ (running of $n_s$) | $-2/\phi^6$ | $-0.00073$ | $-0.0045 \pm 0.0067$ (Planck 2018) | ~0.56σ (совм. с нулём) | ⚪ PENDING | ⬜ | ⬜ |
+| INF04 | $N_*$ (e-folds) | $\phi^5 \pi / e$ | 55.3 | $50 - 60$ (theory) | ~5% (теор. диапазон) | 🟡 SPECULATIVE | ⬜ | ⬜ |
+| INF05 | $H_*$ (Hubble during inflation) | $\phi^2 e / \pi \cdot 10^{13}$ GeV | $1.2 \times 10^{13}$ GeV | $10^{13} - 10^{14}$ GeV (theory) | ~20% (теор. диапазон) | 🟡 SPECULATIVE | ⬜ | ⬜ |
+| INF06 | $\Delta_R^2$ (curvature perturbation) | $\pi / (2\phi^3 e^2) \times 10^{-9}$ | $5.02 \times 10^{-11}$ | $(2.100 \pm 0.030) \times 10^{-9}$ (Planck 2018) | **97.6%, ~68σ** | ❌ FALSIFIED | ⬜ | ⬜ |
 
 ### 3C — CMB and Large-Scale Structure
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| CMB01 | $\Omega_b h^2$ | $\phi^{-3}\pi^{-2}e^{-1}$ | 0.00880 | $0.022383 \pm 0.000018$ (Planck) | **60.7% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
-| CMB02 | $\Omega_c h^2$ | $\phi^{-1}\pi^{-1}e^{-1} / 5$ | 0.01447 | $0.12011 \pm 0.00034$ (Planck) | **87.9% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
-| CMB03 | $H_0$ (Hubble constant) | $100 \phi / e^2$ km/s/Mpc | 21.90 km/s/Mpc | $67.4 \pm 0.5$ km/s/Mpc (Planck) | **67.5% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
-| CMB04 | $\sigma_8$ | $\phi^{-1} e / \pi$ | 0.5348 | $0.812 \pm 0.006$ (Planck) | **34.1% (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
+| CMB01 | $\Omega_b h^2$ | $\phi^{-3}\pi^{-2}e^{-1}$ | 0.00880 | $0.022383 \pm 0.000018$ (Planck 2018) | **60.7%, ~754σ** | ❌ FALSIFIED | ⬜ | ⬜ |
+| CMB02 | $\Omega_c h^2$ | $\phi^{-1}\pi^{-1}e^{-1} / 5$ | 0.01447 | $0.12011 \pm 0.00034$ (Planck 2018) | **87.9%, ~311σ** | ❌ FALSIFIED | ⬜ | ⬜ |
+| CMB03 | $H_0$ (Hubble constant) | $100 \phi / e^2$ km/s/Mpc | 21.90 km/s/Mpc | $67.4 \pm 0.5$ km/s/Mpc (Planck) / $68.52 \pm 0.62$ (DESI 2024) | **67.5%, >91σ** | ❌ FALSIFIED | ⬜ | ⬜ |
+| CMB04 | $\sigma_8$ | $\phi^{-1} e / \pi$ | 0.5348 | $0.812 \pm 0.006$ (Planck 2018) | **34.1%, ~46σ** | ❌ FALSIFIED | ⬜ | ⬜ |
 
 ### 3D — Cosmic Coincidence and Dimensionless Ratios
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| CCR01 | $\rho_\Lambda / \rho_{Pl}$ | $\phi^{-24}\pi^{-6}e^{-4}$ | $1.84 \times 10^{-10}$ | $\sim 10^{-123}$ (observed) | **113 orders of magnitude (UNVERIFIED)** | ❌ UNVERIFIED | ⬜ | ⬜ |
-| CCR02 | $t_0 / t_{Pl}$ | $\phi^{10} e^2 / \pi^2$ | $8.1 \times 10^{60}$ | $8.1 \times 10^{60}$ (derived) | 0.5% | P | ⬜ | ✅ |
+| CCR01 | $\rho_\Lambda / \rho_{Pl}$ | $\phi^{-24}\pi^{-6}e^{-4}$ | $1.84 \times 10^{-10}$ | $\sim 10^{-123}$ (observed) | **~113 порядков** | ❌ FALSIFIED 🔴 NUMEROLOGY | ⬜ | ⬜ |
+| CCR02 | $t_0 / t_{Pl}$ | $\phi^{10} e^2 / \pi^2$ | $8.1 \times 10^{60}$ | $8.1 \times 10^{60}$ (производная оценка) | тавтология | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
 
-**Tier 3 Summary:** 15 formulas total — 7 ❌ UNVERIFIED (CMB01–04, INF01, INF06, COS01, COS03, CCR01), 4 P class, 1 T class, 1 V class (COS02 — claimed; not independently validated). См. [`derivations/cosmology/cosmology_origins.md`](derivations/cosmology/cosmology_origins.md) для подробного анализа.
+**Tier 3 Summary (Wave 8.5):**
+- **❌ FALSIFIED:** 7 формул — CMB01, CMB02, CMB03, CMB04, INF01, INF06, COS01, CCR01
+- **🔴 NUMEROLOGY:** 2 формулы — COS01, COS02, CCR01 (перекрываются с FALSIFIED)
+- **🟡 SPECULATIVE:** 4 формулы — COS04, INF02, INF04, INF05 (совместимы с теор. диапазонами, но нет вывода)
+- **⚪ PENDING:** 1 формула — INF03
+- **⚠️ TAUTOLOGY:** 3 формулы — COS03, COS05, CCR02
+- **Строго выведено из H4:** 0 формул
+
+См. [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REWRITE.md) и [`derivations/honest_cosmology/cosmology_falsified_log.md`](derivations/honest_cosmology/cosmology_falsified_log.md).
 
 ---
 
@@ -583,6 +603,20 @@ The Trinity framework uses a **mixed mass scheme**:
 ---
 
 ## Changelog
+
+### v4.2.0 — 2026-05-23
+
+**Wave 8.5 — Честная космология (Honest Cosmology)**
+
+- **Добавлено:** Блок предупреждения ⚠️ перед разделом Tier 3 с явным указанием на статус «исследовательского каталога»
+- **Добавлено:** Явные метки ❌ FALSIFIED / 🔴 NUMEROLOGY / 🟡 SPECULATIVE / ⚪ PENDING / ⚠️ TAUTOLOGY для каждой из 15 формул Tier 3
+- **Добавлено:** `derivations/honest_cosmology/REWRITE.md` — честная переоценка Tier 3 (~554 строки, русский)
+- **Добавлено:** `derivations/honest_cosmology/cosmology_falsified_log.md` — реестр ошибок по образцу admitted_log.md
+- **Изменено:** `proofs/trinity/CosmologyOrigins.v` — добавлены HONEST-аннотации перед каждой формулой, новая Section HonestAssessment с теоремами-рефутациями
+- **Исправлено:** COS04 обновлена с −0.96±0.08 (CMB+BAO) на −0.827±0.063 (DESI 2024, arXiv:2404.03002)
+- **Исправлено:** INF06 источник уточнён: (2.100±0.030)×10⁻⁹ (Planck 2018)
+- **Компиляция:** CosmologyOrigins.v компилируется, exit 0 ✓
+- **Источники:** Planck 2018 DOI:10.1051/0004-6361/201833910, DESI 2024 arXiv:2404.03002, BICEP/Keck arXiv:2110.00483
 
 ### v4.1.0 — 2026-05-22
 
