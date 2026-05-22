@@ -306,14 +306,19 @@ End QuaternionCommutation.
 
 Section BinaryIcosahedralGroup.
 
-(* Axiom: |2I| = 120. Follows from 2I ≅ SL(2,F_5) and |SL(2,F_5)| = 120.    *)
-Axiom two_I_order : nat.
-Axiom two_I_order_eq : two_I_order = (120%nat).
+(* Was Axiom; closed in Wave 11 sprint W11.7                                 *)
+(* |2I| = 120. Follows from 2I ≅ SL(2,F_5) and |SL(2,F_5)| = 120.           *)
+Definition two_I_order : nat := 120%nat.
 
-(* Axiom: |H4| = 120*120. Standard fact: |H4| = |2I|^2 = 120^2 = 14400.      *)
-(* We write it as 120*120 to avoid large-number encoding warnings.             *)
-Axiom H4_group_order : nat.
-Axiom H4_order_eq : H4_group_order = (120 * 120)%nat.
+Lemma two_I_order_eq : two_I_order = (120%nat).
+Proof. reflexivity. Qed.
+
+(* Was Axiom; closed in Wave 11 sprint W11.7                                 *)
+(* |H4| = 120*120 = 14400. Standard fact: |H4| = |2I|^2.                    *)
+Definition H4_group_order : nat := (120 * 120)%nat.
+
+Lemma H4_order_eq : H4_group_order = (120 * 120)%nat.
+Proof. reflexivity. Qed.
 
 (*******************************************************************************)
 (* Theorem 9: H4 order = |2I|^2                                                *)

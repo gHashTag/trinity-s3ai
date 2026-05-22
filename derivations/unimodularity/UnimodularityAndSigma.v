@@ -236,12 +236,12 @@ Qed.
 Theorem sigma_candidate_mass_scale :
   Rabs (sigma_candidate_mass - 1.0e15) < 1e10.
 Proof.
-  (* HONEST: (2/30) * 1.5e16 = 1.0e15 exactly in R.                          *)
-  (* Coq R-arithmetic on large reals requires interval or lra;                *)
-  (* the statement is numerically correct: error = 0 < 1e10.                 *)
-  (* We Admit here due to tactic limitation on floating-point literals in R. *)
-  (* Tag: NUMERIC_FLOAT_LIMITATION                                            *)
-Admitted.
+  (* Was Admitted; closed in Wave 11 sprint W11.7.                            *)
+  (* (2/30) * 1.5e16 = 1.0e15 exactly in R; the absolute value collapses     *)
+  (* to 0 < 1e10.                                                              *)
+  unfold sigma_candidate_mass, d1_over_d4, Lambda_H4.
+  interval with (i_prec 60).
+Qed.
 
 (* =================================================================== *)
 (* Theorem S3: The degree-2 invariant is NOT a dynamical field.        *)

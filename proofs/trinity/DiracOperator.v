@@ -798,12 +798,13 @@ Qed.
 (*   (2) Computing the full 480x480 matrix (120 verts x 4 dims each)         *)
 (*   (3) Summing eigenvalue squares                                           *)
 (* The 1-cell extrapolation Tr(D_{full}^2) = -480 = -16*30 is approximate.  *)
-Axiom trace_full_D_sq_coxeter :
-  (* HONEST: [NUMERICAL_FIT]                                                   *)
-  (* Exact spectral formula for full 600-cell requires numerical computation. *)
-  (* 1-cell Tr(D^2) = -4; for full 120-vertex space: -4*120 = -480 if       *)
-  (* off-diagonal terms average to zero (valid in mean-field approximation). *)
+(* Was Axiom; closed in Wave 11 sprint W11.7. The stated claim is pure       *)
+(* nat arithmetic (4*120=480); the physical mean-field interpretation         *)
+(* connecting it to Tr(D^2) on the 600-cell remains a NUMERICAL_FIT and is   *)
+(* not part of this lemma's content.                                         *)
+Lemma trace_full_D_sq_coxeter :
   (4 * 120 = 480)%nat.
+Proof. reflexivity. Qed.
 
 End TraceAndCoxeter.
 

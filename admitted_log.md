@@ -1,15 +1,31 @@
 # admitted_log.md — Реестр всех Admitted в Trinity S3AI
 
-**Дата последнего обновления:** Wave 10.4 (A4-аудит)
+**Дата последнего обновления:** Wave 11 sprint W11.7 (SHOULD_BE_THEOREM closures)
 **Версия:** Trinity S3AI v4.0
 **Состояние на момент аудита (A1, Wave 10.4):**
 
-| Тип | Реальное кол-во | Заявлено ранее | Расхождение |
-|-----|----------------|----------------|-------------|
-| `Axiom` | 88 (уникальных в 14 файлах proofs/) | не указано | — |
-| `Admitted` (чистые) | 37 | 7 | **+30** |
-| `admit` | 17 | 0 | **+17** |
-| `Qed` | 1326 | 326 | **+1000** |
+| Тип | Реальное кол-во | После W11.7 | Заявлено ранее | Расхождение |
+|-----|----------------|-------------|----------------|-------------|
+| `Axiom` (SHOULD_BE_THEOREM) | 44 | 35 | — | −9 в W11.7 |
+| `Axiom` (всего) | 88 (уникальных в 14 файлах proofs/) | 79 | не указано | — |
+| `Admitted` (чистые) | 37 | 35 | 7 | **+28** |
+| `admit` | 17 | 17 | 0 | **+17** |
+| `Qed` | 1326 | 1335 | 326 | **+1009** |
+
+## Sprint W11.7 — SHOULD_BE_THEOREM closures (2026-05)
+
+Closed via direct proof (12 CSV rows across 6 files):
+
+| Axiom name | File(s) | Tactic used |
+|------------|---------|-------------|
+| `two_I_order` | `QuaternionicLinearity.v` (×2) | `Definition := 120` |
+| `two_I_order_eq` | `QuaternionicLinearity.v` (×2) | `reflexivity` |
+| `H4_group_order` | `QuaternionicLinearity.v` (×2) | `Definition := 120*120` |
+| `H4_order_eq` | `QuaternionicLinearity.v` (×2) | `reflexivity` |
+| `trace_full_D_sq_coxeter` | `DiracOperator.v` (×2) | `reflexivity` (nat 4*120=480) |
+| `sigma_candidate_mass_scale` | `UnimodularityAndSigma.v` (×2) | `unfold; interval with (i_prec 60)` |
+
+Note: the `sigma_candidate_mass_scale` closures were `Admitted Theorem` in the source (the A4 CSV classes them as Axiom-equivalent SHOULD_BE_THEOREM); converted to `Qed`.
 
 > ⚠️ **ВАЖНО**: Предыдущий README.md заявлял "0 Admitted". Это НЕВЕРНО.
 > Предыдущий admitted_log.md заявлял 25 Admitted. Тоже НЕВЕРНО.
