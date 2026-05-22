@@ -3,6 +3,11 @@
 (*                                                                            *)
 (* Higgs mass prediction from H4 invariants — Trinity Formula v3.3            *)
 (*                                                                            *)
+(* [phenomenological_fit] Wave 10.5: All Higgs formulas in this file are      *)
+(* empirical numerical coincidences. The Trinity formula 4*phi^3*e^2 and     *)
+(* spectral-action variant are NOT derived from H4 geometry — they are fit   *)
+(* to the PDG Higgs mass. See NoGoTheorems.v for formal refutation.          *)
+(*                                                                            *)
 (* Computes:                                                                  *)
 (*   1. Trinity formula: H01 = m_H = 4 * phi^3 * e^2                         *)
 (*   2. Spectral action: m_H = a4(600-cell) * e^2 / 2                         *)
@@ -219,5 +224,9 @@ Qed.
 (*          matches experimental value within 0.02 sigma.                     *)
 (*          EXCELLENT agreement — essentially exact.                          *)
 (* ========================================================================== *)
+(* [phenomenological_fit] Wave 10.5: Higgs mass formulas H01/H02/H03 are       *)
+(* empirical fits verified numerically. The Trinity formula 4phi^3*e^2 is a   *)
+(* numerical coincidence with PDG m_H, not a derivation from H4 geometry.    *)
+
 
 Close Scope R_scope.

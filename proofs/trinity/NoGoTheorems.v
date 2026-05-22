@@ -28,6 +28,10 @@
 (*    coqc -R . Trinity NoGoTheorems.v                                       *)
 (*                                                                            *)
 (******************************************************************************)
+(* [phenomenological_fit] Wave 10.5: NoGo definitions of Trinity formulas      *)
+(* (trinity_omega_b etc.) are used here as COUNTER-EXAMPLES in refutation    *)
+(* theorems. These are phenomenological formulas proven INSUFFICIENT.        *)
+
 
 Require Import Reals.
 Require Import Lra.

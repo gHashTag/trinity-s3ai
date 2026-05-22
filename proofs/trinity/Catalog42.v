@@ -3,6 +3,12 @@
 (* 12 SG-class | 13 V-class | 3 Exact | 4 Predictions *)
 (* CORRECTION 2025-07-28: sin^2_theta_13 formula fixed, promoted to SG-class *)
 (* Mixed mass scheme: u,d,s@2GeV | c@c | b@b | t,e,mu,tau,H,W,Z@pole *)
+(*                                                                           *)
+(* [phenomenological_fit] ALL formulas in this file are empirical fits of    *)
+(* the form phi^a * pi^b * e^c * N to measured SM parameters. They are NOT  *)
+(* derived from first principles. This is an honest catalog of numerical     *)
+(* coincidences between H4 invariants and PDG 2024 values. See NoGoTheorems *)
+(* for formal proofs of what H4 CANNOT derive. Wave 4.1 / Wave 10.5.        *)
 
 Require Import Reals.
 Open Scope R_scope.

@@ -1,0 +1,175 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'     # Triggers on: v1.0-wave10, v1.1, etc.
+
+permissions:
+  contents: write   # Required to create GitHub Releases
+
+jobs:
+  # ── Job 1: Anti-numerology gate (must pass before release) ───────────────
+  gate:
+    runs-on: ubuntu-latest
+    name: Anti-Numerology Gate (release)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run anti-numerology gate
+        run: python3 scripts/anti_numerology_gate.py
+
+  # ── Job 2: Build Coq .vo artifacts ───────────────────────────────────────
+  build_coq:
+    runs-on: ubuntu-latest
+    needs: gate
+    name: Build Coq artifacts
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Coq proofs (Coq 8.20.1)
+        uses: coq-community/docker-coq-action@v1
+        with:
+          coq_version: '8.20.1'
+          ocaml_version: 'default'
+          before_install: |
+            startGroup "Fix permissions"
+              sudo chmod -R a+w /github/workspace
+            endGroup
+          install: |
+            startGroup "Install dependencies"
+              opam repo add coq-released https://coq.inria.fr/opam/released || true
+              opam update -y
+              opam install -y -j 2 coq-interval coq-coquelicot
+            endGroup
+          script: |
+            startGroup "Compile"
+              cd proofs/trinity
+              coq_makefile -f _CoqProject -o Makefile.coq
+              make -f Makefile.coq -j$(nproc)
+            endGroup
+
+      - name: Fix permissions
+        run: sudo chown -R $USER:$USER proofs/trinity/ || true
+
+      - name: Create Coq proof bundle
+        run: |
+          VERSION="${{ github.ref_name }}"
+          BUNDLE="coq-proofs-${VERSION}.tar.gz"
+          tar -czf "${BUNDLE}" proofs/trinity/*.vo proofs/trinity/*.v
+          echo "bundle=${BUNDLE}" >> $GITHUB_OUTPUT
+        id: bundle
+
+      - name: Upload Coq bundle as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coq-bundle
+          path: ${{ steps.bundle.outputs.bundle }}
+
+  # ── Job 3: Build paper PDF (if LaTeX is available) ───────────────────────
+  build_paper:
+    runs-on: ubuntu-latest
+    needs: gate
+    name: Build paper PDF (if available)
+    continue-on-error: true   # PDF is optional — LaTeX may not be in repo
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for LaTeX source
+        id: check_latex
+        run: |
+          if ls *.tex 2>/dev/null | head -1 | grep -q '.tex'; then
+            echo "has_latex=true" >> $GITHUB_OUTPUT
+            echo "tex_file=$(ls *.tex | head -1)" >> $GITHUB_OUTPUT
+          else
+            echo "has_latex=false" >> $GITHUB_OUTPUT
+            echo "No LaTeX source found — skipping PDF build"
+          fi
+
+      - name: Install LaTeX
+        if: steps.check_latex.outputs.has_latex == 'true'
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q texlive-latex-extra texlive-science latexmk
+
+      - name: Build PDF
+        if: steps.check_latex.outputs.has_latex == 'true'
+        run: |
+          TEX="${{ steps.check_latex.outputs.tex_file }}"
+          latexmk -pdf -halt-on-error "${TEX}"
+          PDF="${TEX%.tex}.pdf"
+          echo "pdf=${PDF}" >> $GITHUB_OUTPUT
+        id: pdf
+
+      - name: Upload PDF artifact
+        if: steps.check_latex.outputs.has_latex == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-pdf
+          path: ${{ steps.pdf.outputs.pdf }}
+
+  # ── Job 4: Create GitHub Release ─────────────────────────────────────────
+  create_release:
+    runs-on: ubuntu-latest
+    needs: [build_coq, build_paper]
+    name: Create GitHub Release
+    if: always() && needs.build_coq.result == 'success'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Coq bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: coq-bundle
+          path: release_artifacts/
+
+      - name: Download PDF (if available)
+        uses: actions/download-artifact@v4
+        with:
+          name: paper-pdf
+          path: release_artifacts/
+        continue-on-error: true   # PDF may not exist
+
+      - name: Generate release notes
+        run: |
+          VERSION="${{ github.ref_name }}"
+          cat > release_notes.md << 'EOF'
+          ## Trinity S3AI — Release ${{ github.ref_name }}
+
+          **Status**: Constructive negative result on H4-based Standard Model unification.
+
+          ### Key results
+          - 4 formal No-Go Theorems (NGT1–NGT4) — see `proofs/trinity/NoGoTheorems.v`
+          - 326 Qed / 0 Admitted across 23 Coq files (Coq 8.20.1)
+          - 59 phenomenological formulas cataloged and tagged `[phenomenological_fit]`
+          - Anti-numerology CI gate: all formulas verified at PASS
+
+          ### What this is NOT
+          This is not a claimed derivation of the Standard Model from H4 geometry.
+          It is a formal proof of what H4 *cannot* do. See `SALVAGE.md`.
+
+          ### Artifacts
+          - `coq-proofs-*.tar.gz` — compiled Coq `.vo` files + source
+          - `paper.pdf` — draft paper (if LaTeX source present)
+
+          ### Citation
+          See `CITATION.cff` for citation metadata.
+          DOI will be added after Zenodo deposit (see `scripts/prepare_zenodo.md`).
+          EOF
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          name: "Trinity S3AI ${{ github.ref_name }}"
+          bodyFile: release_notes.md
+          artifacts: "release_artifacts/*"
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}

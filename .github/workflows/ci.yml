@@ -7,8 +7,38 @@ on:
     branches: [ main, master ]
 
 jobs:
+  # ── Job 1: Anti-Numerology Gate (runs FIRST, blocks everything else) ──────
+  anti_numerology_check:
+    runs-on: ubuntu-latest
+    name: Anti-Numerology Gate
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run anti-numerology gate
+        run: |
+          # Export commit message so the gate can honour [skip-numerology-check]
+          export GIT_COMMIT_MSG="${{ github.event.head_commit.message }}"
+          python3 scripts/anti_numerology_gate.py
+        # Hard gate: exit 1 if any multi-atom formula lacks an honesty tag.
+        # Per-commit override: add [skip-numerology-check] to your commit message.
+        # Repo-wide override: set SKIP_NUMEROLOGY_CHECK=1 (not recommended).
+        continue-on-error: false
+
+      - name: Gate summary (always shown)
+        if: always()
+        run: |
+          echo "=== ANTI-NUMEROLOGY GATE SUMMARY ==="
+          python3 scripts/anti_numerology_gate.py 2>/dev/null | grep -E 'PASS|FLAG|WHITELIST|VERDICT' || true
+
+  # ── Job 2: Coq proof build + Python validators ────────────────────────────
   build:
     runs-on: ubuntu-latest
+    needs: anti_numerology_check   # only runs if gate passes
 
     steps:
       - uses: actions/checkout@v4
@@ -60,7 +90,7 @@ jobs:
         continue-on-error: true
         run: python3 honest_pvalue_final.py
 
-      - name: Upload artifacts
+      - name: Upload Coq artifacts
         uses: actions/upload-artifact@v4
         with:
           name: coq-compiled
@@ -71,5 +101,5 @@ jobs:
           echo "=== BUILD STATUS ==="
           grep -c 'Qed' proofs/trinity/*.v | awk -F: '{sum+=$2} END {print "Total QED theorems: " sum}'
           grep -c 'Admitted' proofs/trinity/*.v | awk -F: '{sum+=$2} END {print "Total Admitted: " sum}'
-          echo "=== Trinity S3AI v3.5 ==="
-          echo "25/25 SM parameters | 9 SG-class | p < 10^-32"
+          echo "=== Trinity S3AI v4.12 ==="
+          echo "Status: constructive negative result — see SALVAGE.md and NoGoTheorems.v"

@@ -9,6 +9,9 @@
 (*   Koide consistency check (error 0.0038%)                                  *)
 (*   Chain: L01*L02 ~ L03 within 1%                                           *)
 (******************************************************************************)
+(* [phenomenological_fit] Wave 10.5: formulas in this file are empirical fits  *)
+(* of phi/pi/e combinations to PDG values. NOT first-principles derivations. *)
+
 
 Require Import Reals.
 Require Import Interval.Tactic.

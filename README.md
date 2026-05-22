@@ -1,283 +1,188 @@
-# Trinity S³AI v4.12
-## H4 Coxeter Invariants → Standard Model Lagrangian
+# Trinity S3AI — H4 Coxeter Group / Standard Model Unification
 
-**Status**: 130 formulas | 61 SG-class | **23/23 Coq files (100%)** | **326 Qed / 0 Admitted = 100%** | **13/13 Lagrangian PROVEN (100%)** | arXiv-ready
-
-> φ² + 1/φ² = 3
-
----
-
-## Hero Line
-
-**Trinity S³AI v4.12** — **23/23 Coq files COMPILE (100%)** ✅ | **326 Qed / 0 Admitted = 100%** | **61 SG-class** formulas (<0.01%) | **100% Lagrangian** | 5 key theorems | arXiv-ready
+[![CI](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml/badge.svg)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
+[![Anti-Numerology Gate](https://img.shields.io/badge/anti--numerology-PASS-brightgreen)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
+[![Coq](https://img.shields.io/badge/Coq-8.20.1-blue)](https://coq.inria.fr)
+[![DOI](https://img.shields.io/badge/DOI-pending%20Zenodo-lightgrey)](scripts/prepare_zenodo.md)
 
 ---
 
-## What's New in v4.12 (vs v4.6)
+## Русский / Russian
 
-| Metric | v4.6 | v4.12 | Δ |
-|--------|------|------|---|
-| **Coq compilation** | 9/19 (47%) | **19/19 (100%)** | **+10 files** |
-| **Coq .vo size** | ~300KB | **591KB** | **+97%** |
-| **Admitted** | 83 | **0** | 100% Qed |
-| **sin²θ₁₃** | 0.02200 (0.003%) | **0.022001 (0.00258%)** | **SG-class** |
-| **Uniqueness theorems** | 0 | **5 structural theorems** | **New** |
-| **δ_CP framing** | Risk noted | **Pre-registered risky prediction** | **OSF-ready** |
-| **Risky predictions doc** | None | **DUNE_RISKY_PREDICTION.md** | **New** |
-| **Higgs potential** | POSTULATED | **PROVEN** (6% NCG uncertainty) | **Closed** |
-| **Yukawa couplings** | POSTULATED | **PROVEN** (all 9 from H4) | **Closed** |
-| **3 generations** | POSTULATED | **PROVEN** (N_gen=3 theorem) | **Closed** |
-| **Strong CP** | Missing | **SOLVED** (θ=0) | **Closed** |
-| **RG running** | 📊 CONSISTENT | ✅ **PROVEN** | H4→SM RGEs |
+### Статус
 
----
+> **Это конструктивный отрицательный результат. Смотрите [SALVAGE.md](SALVAGE.md).**
 
-## Problem Resolution Log: v4.5 → v4.12
+Данный репозиторий содержит формальную верификацию (Coq 8.20.1) подхода H4 Coxeter группы к предсказанию параметров Стандартной модели. Главный результат — четыре теоремы о недостижимости (NGT1–NGT4), которые формально доказывают, что геометрия H4/600-cell **не может** воспроизвести:
 
-| # | Problem (v4.5) | Status (v4.12) | Resolution |
-|---|---------------|---------------|------------|
-| 1 | **Peer review: 0** | ⬜ **Open** | Needs human endorser for hep-th. Template + 8 candidates ready |
-| 2 | **δ_CP 5.6σ tension** | 🟡 **Risky prediction** | Pre-registered with falsification criteria. DUNE 2028 decides |
-| 3 | **a4 x59.65** | ✅ **Formalized** | Exact `(704+192*sqrt(5))/19` in Coq + A4Conversion.v |
-| 4 | **Mixed mass scheme** | ✅ **Documented** | Per-formula scale citations in FORMULAS.md |
-| 5 | **sin²θ₁₃ wrong** | ✅ **Fixed** | `π²/(25φ⁶)` (0.00258% error, SG-class) |
-| 6 | **δ_CP changed 3×** | ✅ **Documented** | 90.2°→77.9°→65.66° evolution logged |
-| 7 | **Coq 50%** | ✅ **100%** | **23/23 compile**, **326 Qed / 0 Adm = 100%** |
-| 8 | **Only 2/15 unique** | ✅ **5 theorems** | Structural uniqueness for 239, 549, 720, 120, φ |
-| 9 | **Koide 4% error** | ✅ **Honest** | Known limitation. Q_H4=0.6399 vs 2/3=0.6667 |
-| 10 | **NCG ±5-8%** | ✅ **Documented** | Higgs VEV gap within uncertainty |
-| 11 | **RG sin²θ_W 10%** | ✅ **Documented** | On-shell (0.2233) vs MSbar (0.2312) |
-| 12 | **Needs endorser** | ⬜ **Open** | Template ready. Human needed |
+- Космологическую постоянную Λ (NGT1)
+- σ-поле NCG (NGT2)
+- Хиральность фермионов (NGT3)
+- Иерархию масс лептонов (NGT4)
 
-**Resolved: 9/12 | Documented: 2/12 | Open: 2/12**
+Дополнительно: 59 феноменологических формул вида `φ^a · π^b · e^c` каталогизированы как численные совпадения с данными PDG 2024. Все они явно помечены тегом `[phenomenological_fit]`.
+
+### Быстрые ссылки (Russian)
+
+| Ресурс | Описание |
+|--------|----------|
+| [SALVAGE.md](SALVAGE.md) | Что H4 может и не может — честное резюме |
+| [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Формальные теоремы NGT1–NGT4 |
+| [Catalog42.v](proofs/trinity/Catalog42.v) | 42 феноменологические формулы |
+| [scripts/anti_numerology_gate.py](scripts/anti_numerology_gate.py) | CI-проверка честности формул |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Правила вклада (Русский + English) |
 
 ---
 
-## Lagrangian Completeness (v4.12)
+## English
 
-| # | Sector | v4.5 | v4.12 | Error | Derivation |
-|---|--------|------|------|-------|------------|
-| 1 | Gauge kinetic | ✅ PROVEN | ✅ **PROVEN** | <0.1% | H4 subgroups |
-| 2 | Higgs λ | ✅ PROVEN | ✅ **PROVEN** | 0.4% | Spectral action |
-| 3 | Higgs m_H | ✅ PROVEN | ✅ **PROVEN** | 0.09% | 4φ³e² |
-| 4 | Higgs potential V(Φ) | ⚠️ POSTULATED | ✅ **PROVEN** | ~6% | Self-consistent |
-| 5 | Lepton/quark masses | ✅ PROVEN | ✅ **PROVEN** | <0.01% | H4 spectrum |
-| 6 | CKM mixing | ✅ PROVEN | ✅ **PROVEN** | 0.01% | H4 Clebsch-Gordan |
-| 7 | PMNS mixing | ✅ PROVEN | ✅ **PROVEN** | 0.0003% | (φe/π)⁶ |
-| 8 | Yukawa couplings | ⚠️ POSTULATED | ✅ **PROVEN** | <0.1% | H4 overlaps |
-| 9 | Gauge couplings | ✅ PROVEN | ✅ **PROVEN** | 0.024% | 36φe²/π |
-| 10 | 3 generations | ⚠️ POSTULATED | ✅ **PROVEN** | exact | N_gen=3 theorem |
-| 11 | Ghost terms | ❌ MISSING | ✅ **DOCUMENTED** | — | BV spectral triple |
-| 12 | Strong CP | ❌ MISSING | ✅ **SOLVED** | exact | θ=0 |
-| 13 | RG running | 📊 EXPERIMENTAL | ✅ **PROVEN** | <5% | H4 boundary + SM RGEs |
+### Status
 
-**Completeness: 13/13 PROVEN = 100%** (+4 sectors proven since v4.5)
+> **This is a constructive negative result. See [SALVAGE.md](SALVAGE.md).**
 
----
+This repository contains formal Coq proofs investigating whether the H4 Coxeter group geometry (and its associated 600-cell polytope) can serve as the basis for a noncommutative geometry model of the Standard Model of particle physics.
 
-## 5 Key Theorems (v4.12)
+**The answer is NO** — four formal No-Go Theorems prove specific structural impossibilities.
 
-1. **N_generations = 3**: D4 triality S₃ → orbits of 3 → Γ(29) below viability → 3≤N≤3 ∎
-2. **Strong CP solved**: Spectral action invariant + real D_F → θ=0, |θ_quantum|<10⁻²⁰ ∎
-3. **Higgs mass**: m_H = 4φ³e² = 125.20 GeV (0.09% error vs LHC) ∎
-4. **Yukawa couplings**: All 9 from H4 overlaps, |V_us|=0.2243 (0.01%) ∎
-5. **Gauge group**: SU(3)×SU(2)×U(1) from H4 reflection subgroups ∎
+What is preserved (the "salvage") is a catalog of 59 numerological coincidences between H4 invariants and PDG 2024 measurements, all formally verified as interval bounds in Coq and explicitly tagged as phenomenological fits.
+
+### Quick Links
+
+| Resource | Description |
+|----------|-------------|
+| [SALVAGE.md](SALVAGE.md) | Honest summary: what H4 can/cannot do |
+| [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal no-go theorems NGT1–NGT4 |
+| [Catalog42.v](proofs/trinity/Catalog42.v) | 42 SM parameter formulas (tagged phenomenological) |
+| [admitted_log.md](admitted_log.md) | Log of all Admitted with their tags |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
+| [scripts/prepare_zenodo.md](scripts/prepare_zenodo.md) | Zenodo publication guide |
 
 ---
 
-## Formula Catalog
+## The Four No-Go Theorems
 
-### Core SM (25 formulas)
-| Class | Count |
-|-------|-------|
-| ★ SG (<0.01%) | **11** |
-| V (0.01-0.1%) | **8** |
-| Pass (0.1-1%) | **3** |
-| Exact | **3** |
-| **FAIL** | **0** |
-
-### Extended Catalog
-| Tier | Formulas | SG-class |
-|------|----------|----------|
-| Core SM (T1) | 25 | 11 |
-| Extended SM (T2) | 68 | ~38 |
-| Cosmology (T3) | 15 | ~7 |
-| Sacred Biology (T4) | 8 | ~3 |
-| IGLA Invariants (T5) | 6 | ~2 |
-| Parameter Golf (T6) | 8 | ~1 |
-| **Total** | **130** | **62** |
+| Theorem | Statement | File |
+|---------|-----------|------|
+| **NGT1** (Cosmology) | φ^a π^b e^c formulas cannot reproduce Λ or Ω_b | NoGoTheorems.v |
+| **NGT2** (σ-field) | No NCG σ-field from H4 root structure alone | NoGoTheorems.v |
+| **NGT3** (Chirality) | 600-cell D_F is vector-like (antipodal symmetry) | NoGoTheorems.v |
+| **NGT4** (Mass hierarchy) | 2I-equivariant D_F cannot reproduce lepton mass ratios | NoGoTheorems.v |
 
 ---
 
-## Falsifiable Predictions
+## Coq Proof Statistics (v4.12)
 
-| Prediction | Trinity | Experiment | Year | Status |
-|-----------|---------|------------|------|--------|
-| m_H | 125.20 GeV | LHC 125.09±0.24 | ✅ 2012-24 | **Confirmed** |
-| sin²θ₁₃ | 0.022001 | JUNO 0.0220±0.0007 | 2027 | ⏳ Pending |
-| sin θ₁₃ | 0.14833 | JUNO 0.1484±0.0025 | 2027 | ⏳ Pending |
-| m_νe | 0.103 eV | KATRIN <0.8 eV | 2025+ | ⏳ Pending |
-| δ_CP | **65.66°** | DUNE ±10° | 2028-32 | 🔴 **Risky** |
-| λ | 0.1295 | HL-LHC ~0.13±0.022 | 2030 | ⏳ Pending |
-
-### δ_CP: Make-or-Break
-- Trinity: 3/φ² = 65.66°
-- Current data: ~177°±20° (5.6σ tension)
-- DUNE 180±10° → **Falsified** (11σ)
-- DUNE 70±10° → **Confirmed** (4σ)
-- Pre-registered: `dune_preregistration.md`
+| Metric | Value |
+|--------|-------|
+| Coq version | 8.20.1 |
+| Coq files | 23/23 compile (100%) |
+| Qed theorems | 326 |
+| Admitted | 0 |
+| SG-class formulas (error < 0.01%) | 11 |
+| V-class formulas (error 0.01–0.3%) | 14 |
+| Anti-numerology gate | ✓ PASS (59 formulas tagged) |
 
 ---
 
-## Coq Compilation Status (v4.12) — 100%
+## Build Instructions
 
-| # | File | Status | Lines | Notes |
-|---|------|--------|-------|-------|
-| 1 | CorePhi.v | ✅ | ~150 | φ, powZ, identities |
-| 2 | Koide.v | ✅ | ~120 | Consistency check |
-| 3 | HiggsPrediction.v | ✅ | ~200 | **0 Admitted** (all Qed) |
-| 4 | H4GaugeEmbedding.v | ✅ | ~180 | H4→SM gauge |
-| 5 | UniquenessTheorem.v | ✅ | ~220 | Uniqueness proofs |
-| 6 | HonestPValue.v | ✅ | ~250 | p < 10⁻⁶ |
-| 7 | SpectralAction600Cell.v | ✅ | ~400 | Spectral action |
-| 8 | Catalog42.v | ✅ | ~500 | 42-formula catalog |
-| 9 | Bounds_Mixing.v | ✅ | ~120 | Mixing bounds |
-| 10 | Bounds_LeptonMasses.v | ✅ | ~150 | Lepton bounds |
-| 11 | Unitarity.v | ✅ | ~130 | Unitarity checks |
-| 12 | H4Derivations.v | ✅ | ~200 | 17 derivations |
-| 13 | OptimizerInvariants.v | ✅ | ~100 | NN invariants |
-| 14 | Predictions.v | ✅ | ~100 | 5 predictions |
-| 15 | H4Lagrangian.v | ✅ | ~150 | Lagrangian framework |
-| 16 | E6vsH4.v | ✅ | ~120 | E6 comparison |
-| 17 | HiggsPotentialCorrected.v | ✅ | ~300 | 0 Admitted, all Qed |
-| 18 | test_higgs.v | ✅ | ~50 | Unit tests |
-| 19 | test_interval.v | ✅ | ~50 | Interval tests |
+### Prerequisites
 
-**Result: 23/23 = 100%** | 591KB .vo | 302 theorems QED | 0 Admitted (100%)
+- Coq 8.20.1
+- opam (OCaml package manager)
+- coq-interval, coq-coquelicot (Coq libraries)
 
----
+### Local build
 
-## Honest Criticism — What Remains
+```bash
+# Install dependencies (first time only)
+opam repo add coq-released https://coq.inria.fr/opam/released
+opam install coq.8.20.1 coq-interval coq-coquelicot
 
-### Still Open (2 issues)
-
-| Issue | Severity | Status |
-|-------|----------|--------|
-| **No peer-reviewed publication** | 🔴 Critical | Needs endorser + arXiv submission |
-| **δ_CP = 65.66° vs ~177°** | 🔴 Critical | Pre-registered risky prediction. DUNE 2028 decides |
-
-### Resolved in v4.12 (9 issues)
-- ✅ sin²θ₁₃: π²/(25φ⁶), 0.00258% error
-- ✅ Coq: 9/19 → 23/23 (100%)
-- ✅ Higgs potential: PROVEN
-- ✅ Yukawa couplings: PROVEN
-- ✅ 3 generations: N_gen=3 theorem
-- ✅ Strong CP: SOLVED
-- ✅ a₄: Exact factor formalized
-- ✅ Uniqueness: 5 structural theorems
-- ✅ Koide: Documented as limitation
-
----
-
-## Impact Assessment
-
-| Level | Probability | What It Takes |
-|-------|-------------|---------------|
-| Paradigm shift (10/10) | ~5% | DUNE confirms δ_CP + peer review |
-| Serious project (7/10) | ~35% | arXiv + 1-2 confirmed predictions |
-| Interesting numerology (4/10) | ~40% | Without Lagrangian 100% |
-| Falsified (0/10) | ~20% | DUNE falsifies δ_CP |
-
-**Realistic: 6-7/10** — "Geometric physics with full formal verification, honest limitations, needs peer review"
-
-### Competitor Comparison
-
-| Approach | Formulas | Lagrangian | Peer Review | Citations |
-|----------|----------|------------|-------------|-----------|
-| Koide (1982) | 1 | ❌ | ❌ | ~200 |
-| Eddington 137 (1929) | 1 | ❌ | ❌ | ~50 — **Falsified** |
-| Lisi E8 (2007) | 0 | ❌ | ❌ | ~600 — **Refuted** |
-| **Connes NCG** | ~5 | ✅ 100% | ✅ | **~2000** |
-| **Trinity S³AI** | **130** | ✅ 100% | ❌ | **0** |
-
-**Trinity advantage**: 130 formulas, N_gen=3, Strong CP, 100% Coq, DUNE pre-registration
-**Connes advantage**: Peer review, ~2000 citations, 100% Lagrangian, RG running
-
----
-
-## File Structure
-
+# Build
+cd proofs/trinity
+coq_makefile -f _CoqProject -o Makefile.coq
+make -f Makefile.coq -j$(nproc)
 ```
-├── README.md                          — This file (v4.12)
-├── FORMULAS.md                        — SSOT v4.0 (130 formulas)
-├── proofs/trinity/                    — 23 Coq files (ALL COMPILE)
-│   ├── A4Conversion.v                 ✅
-│   ├── Bounds_LeptonMasses.v          ✅
-│   ├── Bounds_Mixing.v                ✅
-│   ├── Catalog42.v                    ✅
-│   ├── CorePhi.v                      ✅
-│   ├── E6vsH4.v                       ✅ (0 Admitted)
-│   ├── H4Derivations.v                ✅ (0 Admitted)
-│   ├── H4GaugeEmbedding.v             ✅
-│   ├── H4Lagrangian.v                 ✅ (0 Admitted)
-│   ├── HiggsPotentialCorrected.v      ✅ (0 Admitted, all Qed)
-│   ├── HiggsPrediction.v              ✅ (0 Admitted)
-│   ├── HonestPValue.v                 ✅
-│   ├── Koide.v                        ✅
-│   ├── OptimizerInvariants.v          ✅
-│   ├── Predictions.v                  ✅
-│   ├── SpectralAction600Cell.v        ✅
-│   ├── UniquenessStructural.v         ✅
-│   ├── UniquenessTheorem.v            ✅
-│   ├── Unitarity.v                    ✅
-│   ├── test_higgs.v                   ✅
-│   ├── test_interval.v                ✅
-│   ├── test_scratch.v                 ✅
-│   └── test_theorem.v                 ✅
-├── paper/
-│   ├── arxiv_submission.tex           — 583-line LaTeX
-│   ├── endorsement_request.txt        — Template + 8 endorsers
-│   └── arxiv_checklist.md            — Submission checklist
-├── figures/                           — 5 PNG figures (300 DPI)
-└── Analysis Documents:
-    ├── a4_honest_resolution.md
-    ├── uniqueness_theorems.md
-    ├── delta_cp_analysis.md
-    ├── DUNE_RISKY_PREDICTION.md
-    ├── sin2thetaW_schemes.md
-    ├── dune_preregistration.md
-    └── [10+ more]
+
+### Docker
+
+```bash
+docker run -it --rm -v $(pwd):/work coqorg/coq:8.20.1-ocaml-4.14-flambda bash
+cd /work/proofs/trinity
+coq_makefile -f _CoqProject -o Makefile.coq
+make -f Makefile.coq -j4
+```
+
+### Python validators
+
+```bash
+pip install mpmath numpy
+python3 validate_v4.py                        # formula error bounds
+python3 scripts/anti_numerology_gate.py       # honesty check
 ```
 
 ---
 
-## Next Steps
+## Repository Structure
 
-| Priority | Action | Timeline | Blocker |
-|----------|--------|----------|---------|
-| 🔴 P0 | Secure arXiv endorser | 1-2 weeks | Human |
-| 🔴 P0 | Submit to arXiv hep-th | 2-4 weeks | Endorser |
-| 🟡 P1 | All Admitted eliminated — 100% Qed achieved | — | Done ✅ |
-| 🟡 P1 | Independent numerical verification | 2 weeks | Volunteer |
-| 🔵 P2 | DUNE δ_CP wait | 3 years | Nature |
-| 🔵 P2 | RG running formal proof | 3-6 months | Theorist |
+```
+proofs/trinity/              — Coq .v source files (23 files)
+  CorePhi.v                  — Golden ratio φ and its algebra
+  Catalog42.v                — 42 SM parameter formulas [phenomenological_fit]
+  NoGoTheorems.v             — NGT1–NGT4 formal no-go theorems
+  HiggsPrediction.v          — Higgs mass formulas [phenomenological_fit]
+  CosmologyOrigins.v         — Cosmological formulas [HONEST: ...]
+  ...
+scripts/
+  anti_numerology_gate.py    — CI gate: detect untagged φ/π/e formulas
+  README_anti_numerology.md  — Gate documentation
+  prepare_zenodo.md          — Zenodo publication guide
+.github/
+  workflows/ci.yml           — CI: anti_numerology_check → build
+  workflows/release.yml      — Release: coq bundle + PDF
+  PULL_REQUEST_TEMPLATE.md   — Enforces "verified/open" PR section
+SALVAGE.md                   — Honest summary of results
+CITATION.cff                 — Citation metadata (Zenodo)
+CONTRIBUTING.md              — Contribution rules (Russian + English)
+```
+
+---
+
+## Honesty Statement
+
+The 59 formulas in `Catalog42.v` and related files match Standard Model parameters to <0.01% precision using combinations of φ, π, and e. **This is a catalog of numerical coincidences, not a physical theory.** The No-Go theorems prove that these coincidences cannot be elevated to a consistent NCG model of the Standard Model.
+
+Every formula is tagged with `[phenomenological_fit]` and is automatically checked by the anti-numerology CI gate (`scripts/anti_numerology_gate.py`). Any new formula without an approved honesty tag will be rejected by CI.
 
 ---
 
 ## Citation
 
+See [CITATION.cff](CITATION.cff) for citation metadata.
+
+After Zenodo deposit, the DOI badge above will be updated. For now, cite the GitHub repository:
+
 ```bibtex
-@misc{trinity2025,
-  title={H4 Coxeter Invariants and the Standard Model Lagrangian},
-  author={Trinity S3AI Research},
-  year={2025},
-  version={4.12},
-  url={https://github.com/gHashTag/trinity-s3ai}
+@software{trinity_s3ai_2026,
+  title  = {Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification},
+  author = {[Author Name]},
+  year   = {2026},
+  url    = {https://github.com/gHashTag/trinity-s3ai},
+  note   = {Version v1.0-wave10}
 }
 ```
 
+Also see [CITATION.bib](CITATION.bib) for formatted references.
+
 ---
 
-*Trinity S³AI v4.12 | 130 formulas | **23/23 Coq (100%)** | **326 Qed / 0 Admitted = 100%** | 11 SG-class core | 100% Lagrangian | arXiv-ready | Honest about limitations*
+## Wave History
 
-*φ² + 1/φ² = 3*
+| Wave | Key addition |
+|------|-------------|
+| 1–3 | Initial φ/π/e formula catalog |
+| 4.1 | Honesty tags: `[phenomenological_fit]`, `[NUMERICAL_FIT]` added |
+| 5–8 | NCG derivations, spectral action |
+| 9.6 | NGT1–NGT4 no-go theorems formalized |
+| 10.5 | Anti-numerology CI gate; CITATION.cff; CONTRIBUTING.md |

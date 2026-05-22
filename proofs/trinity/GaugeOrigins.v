@@ -15,6 +15,9 @@
 (*                                                                           *)
 (* Trinity S3AI Framework v3.5                                              *)
 (******************************************************************************)
+(* [phenomenological_fit] Wave 10.5: formulas in this file are empirical fits  *)
+(* of phi/pi/e combinations to PDG values. NOT first-principles derivations. *)
+
 
 Require Import Reals ZArith Lia List Lra.
 From Interval Require Import Tactic.

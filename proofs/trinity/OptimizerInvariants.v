@@ -1,5 +1,8 @@
 (* OptimizerInvariants.v — H4-derived optimizer hyperparameters *)
 (* Trinity S3AI v3.3 — Neural network training invariants from SM physics *)
+(* [phenomenological_fit] Wave 10.5: Optimizer hyperparameters (wsd_decay_H4   *)
+(* etc.) are heuristic H4-inspired values. They are not first-principles.   *)
+
 (* These are the EXACT formulas to use in the training loop *)
 
 Require Import Reals.

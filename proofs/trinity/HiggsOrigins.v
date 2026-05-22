@@ -13,6 +13,9 @@
 (*    coqc -R . Trinity HiggsOrigins.v                                       *)
 (*                                                                            *)
 (******************************************************************************)
+(* [phenomenological_fit] Wave 10.5: formulas in this file are empirical fits  *)
+(* of phi/pi/e combinations to PDG values. NOT first-principles derivations. *)
+
 
 Require Import Reals.
 Require Import Lra.

@@ -1,6 +1,10 @@
 (******************************************************************************)
 (* Predictions.v -- Trinity S3AI Observable Predictions                       *)
 (******************************************************************************)
+(* [phenomenological_fit] Wave 10.5: Prediction formulas (m_DM_pred,          *)
+(* sin2_theta13_pred) are H4-inspired numerological guesses. They are tagged  *)
+(* as predictions awaiting experimental test, NOT derivations.               *)
+
 
 Require Import Reals.
 From Interval Require Import Tactic.
