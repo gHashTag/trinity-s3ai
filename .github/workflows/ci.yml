@@ -27,7 +27,7 @@ jobs:
           custom_script: |
             startGroup "Install dependencies"
               opam update -y
-              opam install --confirm-level=unsafe-yes -y coq-interval coquelicot
+              opam install --confirm-level=unsafe-yes -y coq-interval coq-coquelicot
             endGroup
 
             startGroup "Generate Makefile and build"
