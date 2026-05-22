@@ -80,3 +80,9 @@ YukawaFrom2I.v
 # Wave 9.3: Hochschild 6-cycle for Axiom 6 (Orientation)
 Axiom6Orientation.v
 
+# Wave 10.4: D4/F4 scouting — alternatives to H4
+AltCrystallography.v
+
+# Wave 10.2: E8 bulk and H4 folding
+E8Bulk.v
+

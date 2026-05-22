@@ -1,0 +1,40 @@
+{
+  "wave": "10.2",
+  "e8_root_count": 240,
+  "e8_type1_roots": 112,
+  "e8_type2_roots": 128,
+  "norm_sq_all_roots": 2.0,
+  "coxeter_number_e8": 30,
+  "coxeter_number_h4": 30,
+  "e8_exponents": [
+    1,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29
+  ],
+  "h4_exponents": [
+    1,
+    11,
+    19,
+    29
+  ],
+  "h4_exponents_subset_of_e8": true,
+  "folding_verified_numerically": true,
+  "folding_structure": "240 E8 roots -> 120 H4 roots + 120 phi*H4 roots",
+  "aps_computation": {
+    "sigma_E8": -8,
+    "A_hat": -1.0,
+    "h_boundary": 0,
+    "index": 0,
+    "eta_result": -2.0
+  },
+  "verdict": {
+    "e8_to_h4_folding_exists": true,
+    "aps_produces_eta_minus2": true,
+    "discrete_DP_on_e8_lattice": "OPEN"
+  }
+}
