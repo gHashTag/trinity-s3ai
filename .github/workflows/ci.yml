@@ -19,9 +19,16 @@ jobs:
           opam-depext: false
           dune-cache: true
 
+      - name: Add coq-released opam repository
+        run: |
+          opam repo add coq-released https://coq.inria.fr/opam/released
+          opam update
+        env:
+          OPAMYES: 1
+
       - name: Install Rocq and dependencies
         run: |
-          opam install -y coq.9.1.1 coq-interval coq-coquelicot
+          opam install -y rocq-prover.9.1.1 coq-interval coq-coquelicot
         env:
           OPAMYES: 1
 
