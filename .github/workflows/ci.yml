@@ -12,16 +12,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Rocq
-        uses: coq-community/setup-coq@v1
+      - name: Setup OCaml
+        uses: ocaml/setup-ocaml@v3
         with:
-          coq-version: '9.1.1'
-          opam-packages: 'coq-interval coquelicot'
+          ocaml-compiler: 4.14.1
+          opam-depext: false
+          dune-cache: true
+
+      - name: Install Rocq and dependencies
+        run: |
+          opam install -y coq.9.1.1 coq-interval coq-coquelicot
+        env:
+          OPAMYES: 1
+
+      - name: Generate Makefile
+        run: |
+          cd proofs/trinity
+          # Remove hardcoded local Interval path; opam-installed packages are auto-discoverable
+          sed -i '/-Q .*Interval Interval/d' _CoqProject
+          # Regenerate Makefile.coq from _CoqProject
+          eval $(opam env)
+          coq_makefile -f _CoqProject -o Makefile.coq
 
       - name: Compile Coq files
         run: |
           cd proofs/trinity
-          make -j$(nproc)
+          eval $(opam env)
+          make -f Makefile.coq -j$(nproc)
 
       - name: Run Python tests
         run: |
