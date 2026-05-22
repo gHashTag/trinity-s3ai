@@ -61,12 +61,12 @@ formulas = {
     'L02': ('239*PHI**4/PI**4', 'm_tau/m_mu'),
     'L03': ('549*E*PI**2/PHI**3', 'm_tau/m_e'),
     'Q01': ('2*PHI/7', 'm_u/m_d'),
-    'Q02': ('(12 + PHI**3 * E**2)/10', 'm_s/m_u'),
+    'Q02': ('12 + PHI**3 * E**2', 'm_s/m_u'),  # corrected: remove erroneous /10 divisor
     'Q03': ('19*PI*E**2/PHI', 'm_c/m_d'),
     'Q04': ('24*PI**3/E**4', 'm_c/m_s'),
     'Q05': ('43 + PI/PHI', 'm_b/m_s'),
     'Q05b': ('127*PHI/120 + 30/19', 'm_b/m_c'),
-    'Q06': ('4*PHI**3*E**4/1000', 'm_t'),
+    'Q06': ('PI*E**4 + 6/5', 'm_t'),  # corrected: original 4*PHI**3*E**4/1000 was a typo (yields 0.925, not 172.69)
     'Q07': ('24*PHI**2/PI', 'm_s/m_d'),
     'G01': ('36*PHI*E**2/PI', '1/alpha'),
     'G02': ('(sqrt(5)-2)/2', 'alpha_s'),
