@@ -28,7 +28,9 @@ jobs:
 
       - name: Install Rocq and dependencies
         run: |
-          opam install -y rocq-prover.9.1.1 coq-interval coq-coquelicot
+          # opam.ocaml.org has rocq-prover.9.0.0 (latest stable as of 2026-05);
+          # 9.1.1 is on developer's local Mac but not yet in upstream opam.
+          opam install -y rocq-prover coq-interval coq-coquelicot
         env:
           OPAMYES: 1
 
