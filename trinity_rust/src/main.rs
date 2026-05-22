@@ -68,7 +68,7 @@ fn main() {
     println!("╔══════════════════════════════════════════════════════════════════════╗");
     println!("║  FINAL STATUS                                                        ║");
     println!("╠══════════════════════════════════════════════════════════════════════╣");
-    println!("║  20/20 Coq files compile (100%)    |  ~299 Qed / ~22 Admitted       ║");
+    println!("║  20/20 Coq files compile (100%)    |  311 Qed / 22 Admitted         ║");
     println!("║  13/13 Lagrangian sectors PROVEN   |  61 SG-class formulas          ║");
     println!("║  5 Key Theorems PROVEN             |  arXiv-ready                   ║");
     println!("╚══════════════════════════════════════════════════════════════════════╝");
