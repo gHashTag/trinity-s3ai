@@ -180,6 +180,47 @@ The structural fact `h_H4 / 2 = 15` is proved separately as `h_half_is_15` (Qed)
 
 ---
 
+## Track B — Cl(p,q) formalization (Wave 12 launch)
+
+New directory `proofs/clifford_cl8/` introduces a stand-alone Track B layer
+for Clifford algebra formalization, per `outputs/B_program_T1_T12.md`.
+
+**What's in this directory:**
+
+| File | Content | Status |
+|------|---------|--------|
+| `CliffordAlgebra.v` | T1 — Cl(p,q) universal-property record, polarization identity, linearity corollaries | Mostly Qed; `T1_polarization` Admitted |
+| `Cl6_iso_M8R.v` | T2 — statement of Cl(0,6) ≅ M_8(R) ⊕ M_8(R) | Statement only; Admitted with citation |
+| `Cl8_periodicity.v` | T3 — statement of Bott 8-periodicity Cl(n+8) ≅ Cl(n) ⊗ Cl(8), plus Cl(8) ≅ M_16(R) | Statement only; Admitted with citation |
+
+**TRACK_B_CLIFFORD assumption set (new in Wave 12):**
+
+| Tag | Item | Source / Citation |
+|-----|------|-------------------|
+| `Parameter` | `RAlg_tensor` (tensor product of R-algebras) | stdlib gap — present in mathlib4 `LinearAlgebra.TensorProduct` |
+| `Axiom` | `Cl_n0_spec n`, `Cl_80_spec`, `Cl06_spec` (existence of `CliffordSpec` instances) | Wieser-Song 2022 §3 (arXiv:2110.03551) |
+| `Axiom` | `M8R_pair_alg`, `M16R_alg` (existence of matrix `RAlgebra` instances) | stdlib gap |
+| `Admitted` | `T1_polarization` | Lounesto 2001 §1.2 — provable mechanically, deferred |
+| `Admitted` | `T2_Cl06_iso_M8R_pair` | Lounesto Table 16.3; Atiyah-Bott-Shapiro 1964 §11; Wieser-Song §6 |
+| `Admitted` | `T3_Cl_8periodicity` | Atiyah-Bott-Shapiro 1964 Table 3 (p. 11); Lawson-Michelsohn 1989 Prop. I.4.1 |
+| `Admitted` | `T3_Cl80_iso_M16R` | Lounesto Table 16.3 row (8,0); Lawson-Michelsohn 1989 I.4.16 |
+
+**Honesty note on Track B:**
+
+The Wave 12 launch PR contains the *scaffolding* — type definitions, the
+universal-property record, the matrix-algebra carrier types, and the
+statement-level theorems with citations. It does **not** discharge T2 or T3
+proofs; those are well-known but require either a tensor-product
+infrastructure or explicit matrix-generator constructions that are
+multi-week efforts. Follow-up PRs (T1–T12 of the B-program) will discharge
+them incrementally.
+
+**Track B does not affect any existing H4/600-cell claim.** The directory
+imports nothing from `Trinity` (the H4 namespace) and is intentionally
+decoupled, so it can be developed in parallel with the core proofs.
+
+---
+
 ## Impact on NGT1–NGT4
 
 The no-go theorems NGT1–NGT4 **do not depend** on:
