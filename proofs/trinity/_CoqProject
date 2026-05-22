@@ -8,8 +8,16 @@ Bounds_Mixing.v
 Unitarity.v
 Catalog42.v
 
-# Next-wave origin derivations (added in PR #2)
+# Wave 2: origin derivations from H4/E8/600-cell first principles
 LeptonOrigins.v
 QuarkOrigins.v
 HiggsOrigins.v
 GaugeOrigins.v
+
+# Wave 3: extended sectors + honest audit / refutations
+NeutrinoOrigins.v
+MixingOrigins.v
+KoideOrigins.v
+CosmologyOrigins.v
+SpectralExtras.v
+RGRunningExtras.v
