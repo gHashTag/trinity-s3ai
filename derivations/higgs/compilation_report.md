@@ -70,12 +70,19 @@ Master:
 
 ## Honestly Admitted / Axiomatized
 
-### 1. `H03_h_half_structural` (Admitted)
+### 1. `H03_h_half_structural` — REFUTED (Wave 10.4 / Wave 11 cleanup)
 ```coq
+(* The original Admitted form (FALSE): *)
 Theorem H03_h_half_structural :
   h_H4 / 2 = (d3_H4 * d4_H4) / (d3_H4 + d4_H4 - d3_H4 / d4_H4 * d3_H4).
+(* LHS = 15, RHS ≈ 16.36 — refuted by direct computation. *)
+
+(* The Admitted has been REPLACED in both copies of HiggsOrigins.v by: *)
+Theorem H03_h_half_structural_refuted :
+  h_H4 / 2 <> (d3_H4 * d4_H4) / (d3_H4 + d4_H4 - d3_H4 / d4_H4 * d3_H4).
+Proof. unfold h_H4, d3_H4, d4_H4. lra. Qed.
 ```
-**Why admitted:** The particular algebraic expression chosen to relate 15 to other H4 degrees does not hold (d3·d4/(d3+d4-d3^2/d4) ≠ 15). No clean structural formula expressing h/2 as a ratio of {d1,d2,d3,d4} was found. The simpler `h_half_is_15 : h/2 = 15` is proved as Qed.
+**Status:** No clean structural formula expressing h/2 as a ratio of {d1,d2,d3,d4} exists. The simpler `h_half_is_15 : h/2 = 15` (Qed) is the positive structural fact. The previously Admitted false identity now ships as a proved negation, eliminating an axiom-equivalent placeholder from the build.
 
 ### 2. `H01_spectral_key_identity` (Axiom)
 ```coq

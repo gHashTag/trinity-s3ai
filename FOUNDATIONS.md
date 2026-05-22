@@ -161,18 +161,22 @@ These statements are mathematically FALSE and must be corrected before publicati
 - RHS: (20 × 30) / (20 + 30 − (20/30) × 20) = 600 / (50 − 400/30) = 600 / (50 − 13.33...) = 600 / 36.67 ≈ **16.36**
 - **Difference: 1.36** (error ≈ 9%)
 
-**Required action:** Rename to `H03_h_half_structural_refuted`. Add constructive counterproof:
+**Status (v4.0-wave10.4 / wave11 cleanup): RESOLVED.**
+
+The Admitted has been replaced in both `proofs/trinity/HiggsOrigins.v` and
+`derivations/higgs/HiggsOrigins.v` by a constructive negation proven Qed:
+
 ```coq
 Theorem H03_h_half_structural_refuted :
   h_H4 / 2 <> (d3_H4 * d4_H4) / (d3_H4 + d4_H4 - d3_H4 / d4_H4 * d3_H4).
 Proof.
-  unfold h_H4, d3_H4, d4_H4. 
+  unfold h_H4, d3_H4, d4_H4.
   (* LHS = 15, RHS ≈ 16.36... *)
-  interval.
+  lra.
 Qed.
 ```
 
-The structural fact `h_H4 / 2 = 15` is proved separately as `h_half_is_15` (Qed, line 412).
+The structural fact `h_H4 / 2 = 15` is proved separately as `h_half_is_15` (Qed).
 
 ---
 

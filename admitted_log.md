@@ -47,7 +47,7 @@
 | 12 | `H4GaugeEmbedding.v` | `phi_irrational_over_Q` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Дублирует доказательство из E6vsH4.v. | **Средняя** — переиспользовать |
 | 13 | `H4Lagrangian.v` | `L01_lagrangian_order_of_magnitude` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `interval` не справляется с `1e16/1.22e19`. | **Высокая** — разбить на оценки |
 | 14 | `H4Lagrangian.v` | `Koide_H4_test` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `sqrt` внутри `interval`. | **Высокая** — `unfold Koide_H4; simpl; interval with (i_prec 150)` |
-| 15 | `HiggsOrigins.v` | `H03_h_half_structural` | `[REFUTED]` | **REFUTED** | **ЛОЖНО**: h/2=15 ≠ (d3·d4)/(d3+d4-d3²/d4)≈16.36. Разница 1.36. Переименовать + добавить контрпример. | **Не закрывать — переформулировать** |
+| 15 | `HiggsOrigins.v` | `H03_h_half_structural` | `[REFUTED → RESOLVED v4.0-wave10.4 / wave11]` | **RESOLVED** | Заменён на `H03_h_half_structural_refuted` (Qed) в `proofs/trinity/HiggsOrigins.v` и `derivations/higgs/HiggsOrigins.v`. Доказывает h/2 ≠ (d3·d4)/(d3+d4-d3²/d4). Структурный факт h/2=15 остаётся отдельной теоремой `h_half_is_15`. | **Закрыто** |
 | 16 | `Koide.v` | `Koide_correct_forms_equal` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `field`/`ring` не работают с `sqrt` в знаменателе. | **Высокая** — `field_simplify [sqrt5_sq]; ring` |
 | 17 | `LeptonOrigins.v` | `H4_determines_L01` | `[NUMERICAL_FIT]` | GENUINE_ASSUMPTION | L01 = 239·e/π найдено численно, не выведено из H4. Конструктивная f не предоставлена. | **Очень низкая** |
 | 18 | `NeutrinoOrigins.v` | `seesaw_scale_from_v31` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | M_R не определяется геометрией H4. | **Низкая** |

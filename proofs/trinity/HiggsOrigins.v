@@ -507,10 +507,9 @@ Qed.
 End H03_Origin.
 
 (*
-  NOTE for derivations/higgs/HiggsOrigins.v:
-  Apply the same patch. The mirror file contains an identical
-  H03_h_half_structural Admitted that must be replaced by
-  H03_h_half_structural_refuted.
+  NOTE: The mirror file derivations/higgs/HiggsOrigins.v received
+  the same patch in Wave 11 cleanup. Both copies now carry
+  H03_h_half_structural_refuted (Qed) in place of the false Admitted.
 *)
 
 (******************************************************************************)
@@ -746,8 +745,10 @@ Close Scope R_scope.
 (*    cd proofs/trinity                                                        *)
 (*    coqc -R . Trinity HiggsOrigins.v                                        *)
 (*                                                                            *)
+(*  REFUTED (Wave 10.4):                                                     *)
+(*    - H03_h_half_structural: false; replaced by                            *)
+(*      H03_h_half_structural_refuted (negation, Qed).                       *)
 (*  Key Admitted lemma:                                                       *)
-(*    - H03_h_half_structural: structural H4 identity for 15 not found       *)
 (*    - H01_spectral_key_identity: Tr(D_F^{-2})*480/Tr(D_F^{-4}) = 4*phi^3  *)
 (*      This is the central physical claim, numerically supported but        *)
 (*      analytically unproved.                                                *)
