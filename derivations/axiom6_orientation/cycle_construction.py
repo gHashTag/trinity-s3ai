@@ -660,7 +660,7 @@ print("=" * 70)
 # that the PRODUCT a₀[D,a₁]...[D,a₆] = γ for each term (or the sum does).
 #
 # For D = σ₁ = [[0,1],[1,0]]:
-# [D, e₀₀] = Dе₀₀ - e₀₀D = [[0,0],[-1,1]] - ... = σ₁e₀₀ - e₀₀σ₁
+# [D, e₀₀] = De₀₀ - e₀₀D = [[0,0],[-1,1]] - ... = σ₁e₀₀ - e₀₀σ₁
 # Let's compute key commutators:
 
 print("Key commutators [D, e_{ij}] for D = σ₁:")

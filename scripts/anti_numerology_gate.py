@@ -15,7 +15,7 @@ and it may produce false positives. It is a safety net, not a guarantee.
 APPROVED HONESTY TAGS (any one in the same comment block suffices):
   [phenomenological_fit]   — formula is a fit to data, not derived
   [NUMERICAL_FIT]          — numeric fit from Python/external computation
-  [HONEST: ...]            — explicit honest acknowledgement (e.g. "HONEST: феноменологическая подгонка")
+  [HONEST: ...]            — explicit honest acknowledgement (e.g. "HONEST: phenomenological fit")
   [NCG_AXIOM]              — axiom from noncommutative geometry framework
   [PHYSICAL_AXIOM]         — axiom from physical input (PDG value etc.)
   [MATH_TODO]              — mathematical gap, to be proven later
@@ -127,7 +127,6 @@ SECTION_TAG_MARKERS = [
     r"V-class",
     r"PREDICTIONS.*awaiting",
     r"phenomenological",
-    r"феноменологическ",     # Russian "phenomenological"
     r"\[phenomenological_fit\]",
     r"\[NUMERICAL_FIT\]",
     r"HONEST\s*:",

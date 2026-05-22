@@ -1,30 +1,30 @@
 (*******************************************************************************)
-(* CosmologyOrigins.v — Честная оценка космологических формул в Trinity S3AI  *)
+(* CosmologyOrigins.v — Honest assessment of cosmological formulas in Trinity S3AI *)
 (*                                                                             *)
-(* HONEST ASSESSMENT (обновлено Wave 8.5):                                    *)
-(*   - Catalog42.v содержит Lambda_pred = phi^(-144)/2, помечена "Cosmology"  *)
-(*   - FORMULAS.md Tier 3 содержит 15 космологических формул                  *)
-(*   - ВСЕ космологические формулы имеют реальные ошибки 27%–10^118           *)
-(*   - Заявленные погрешности 0%–0.5% (включая ★SG-класс) ложны              *)
-(*   - Ни одна не верифицирована в Python (validate_v4.py) или Coq            *)
+(* HONEST ASSESSMENT (updated Wave 8.5):                                       *)
+(*   - Catalog42.v contains Lambda_pred = phi^(-144)/2, tagged "Cosmology"     *)
+(*   - FORMULAS.md Tier 3 contains 15 cosmological formulas                   *)
+(*   - ALL cosmological formulas have real errors of 27%–10^118                *)
+(*   - Claimed accuracies of 0%–0.5% (including ★SG-class) are false           *)
+(*   - None has been verified in Python (validate_v4.py) or Coq                *)
 (*                                                                             *)
 (* WAVE 8.5 ADDITIONS:                                                         *)
-(*   - HONEST-аннотации добавлены перед каждым утверждением с фиктивными      *)
-(*     совпадениями (CMB01–CMB04, INF01, INF06, COS01, CCR01)                 *)
-(*   - Новая Section HonestAssessment с явными теоремами-рефутациями          *)
-(*   - Ссылки: Planck 2018 DOI 10.1051/0004-6361/201833910                    *)
-(*             DESI 2024 arXiv:2404.03002                                      *)
-(*             BICEP/Keck arXiv:2110.00483                                     *)
+(*   - HONEST annotations added before each statement with spurious            *)
+(*     coincidences (CMB01–CMB04, INF01, INF06, COS01, CCR01)                  *)
+(*   - New Section HonestAssessment with explicit refutation theorems          *)
+(*   - References: Planck 2018 DOI 10.1051/0004-6361/201833910                 *)
+(*               DESI 2024 arXiv:2404.03002                                    *)
+(*               BICEP/Keck arXiv:2110.00483                                   *)
 (*                                                                             *)
-(* Этот файл формализует только ДОКАЗУЕМЫЕ утверждения:                       *)
-(*   1. Тривиальный факт: C01_h_over_3 = 10 (из H4Derivations)                *)
-(*   2. Численные границы для Lambda_pred и m_DM_pred                         *)
-(*   3. Явные честные комментарии о расхождениях                               *)
-(*   4. (NEW) Section HonestAssessment: теоремы, доказывающие провалы         *)
+(* This file formalizes only PROVABLE statements:                              *)
+(*   1. Trivial fact: C01_h_over_3 = 10 (from H4Derivations)                   *)
+(*   2. Numerical bounds for Lambda_pred and m_DM_pred                         *)
+(*   3. Explicit honest comments about discrepancies                           *)
+(*   4. (NEW) Section HonestAssessment: theorems proving the failures          *)
 (*                                                                             *)
-(* Зависит только от CorePhi (+ Reals + Interval.Tactic).                     *)
+(* Depends only on CorePhi (+ Reals + Interval.Tactic).                        *)
 (*                                                                             *)
-(* Компилируется: coqc -Q . Trinity CosmologyOrigins.v                        *)
+(* Compiles with: coqc -Q . Trinity CosmologyOrigins.v                         *)
 (*******************************************************************************)
 
 Require Import Reals.
@@ -35,136 +35,136 @@ From Trinity Require Import CorePhi.
 Open Scope R_scope.
 
 (******************************************************************************)
-(* Section 1: Определения констант                                            *)
+(* Section 1: Constant definitions                                            *)
 (******************************************************************************)
 
-(* Константа Хаббла в единицах km/s/Mpc — наблюдение Planck 2018 *)
-(* Источник: Planck 2018 A&A 641, A6 (2020), DOI:10.1051/0004-6361/201833910 *)
+(* Hubble constant in km/s/Mpc — Planck 2018 observation *)
+(* Source: Planck 2018 A&A 641, A6 (2020), DOI:10.1051/0004-6361/201833910 *)
 Definition H0_Planck : R := 67.4.
 
-(* Параметр барионной плотности — наблюдение Planck 2018 *)
-(* Источник: Planck 2018, DOI:10.1051/0004-6361/201833910, табл. 2 *)
+(* Baryon density parameter — Planck 2018 observation *)
+(* Source: Planck 2018, DOI:10.1051/0004-6361/201833910, Table 2 *)
 Definition Omega_b_h2_Planck : R := 0.022383.
 
-(* Параметр плотности холодного тёмного вещества — наблюдение Planck 2018 *)
+(* Cold dark matter density parameter — Planck 2018 observation *)
 Definition Omega_c_h2_Planck : R := 0.12011.
 
-(* Спектральный индекс первичных возмущений — наблюдение Planck 2018 *)
+(* Spectral index of primordial perturbations — Planck 2018 observation *)
 Definition n_s_Planck : R := 0.9649.
 
-(* Отношение тёмная энергия/полная плотность — наблюдение Planck 2018 *)
+(* Dark-energy / total-density ratio — Planck 2018 observation *)
 Definition Omega_Lambda_Planck : R := 0.6847.
 
 (******************************************************************************)
-(* Section 2: Формулы из каталога Trinity                                     *)
+(* Section 2: Formulas from the Trinity catalog                                *)
 (******************************************************************************)
 
-(* HONEST: этот файл является феноменологической подгонкой, НЕ выведен из     *)
-(* H4-геометрии. Измеренное значение: 5.6e-47 ГэВ^4.                         *)
-(* Предсказанное значение: ~3e71 ГэВ^4 (phi^{-12}*pi^{-3}*e^{-2}*M_Pl^4).   *)
-(* Расхождение: ~10^118 порядков. Источник: Planck 2018 DOI 10.1051/0004-6361/201833910. *)
-(* Статус: FALSIFIED — наихудший провал в каталоге Trinity. *)
+(* HONEST: this file is a phenomenological fit, NOT derived from              *)
+(* H4 geometry. Measured value: 5.6e-47 GeV^4.                                *)
+(* Predicted value: ~3e71 GeV^4 (phi^{-12}*pi^{-3}*e^{-2}*M_Pl^4).            *)
+(* Discrepancy: ~10^118 orders. Source: Planck 2018 DOI 10.1051/0004-6361/201833910. *)
+(* Status: FALSIFIED — the worst failure in the Trinity catalog. *)
 
-(* Lambda_pred из Catalog42.v строка 152: phi^(-144)/2                        *)
-(* Помечена комментарием "Cosmology" — предположительно космологическая const  *)
-(* HONEST: phi^{-144}/2 ~ 4e-31 (безразм. план. ед.), тогда как Λ·ℓ_Pl^2 ~ 10^{-123}. *)
-(* Расхождение: 92 порядка. Источник: Planck 2018 DOI 10.1051/0004-6361/201833910. *)
-(* Статус: FALSIFIED (зарегистрировано в registered_predictions.md как P5). *)
+(* Lambda_pred from Catalog42.v line 152: phi^(-144)/2                         *)
+(* Tagged with comment "Cosmology" — presumably a cosmological constant        *)
+(* HONEST: phi^{-144}/2 ~ 4e-31 (dimensionless Planck units), whereas Λ·ℓ_Pl^2 ~ 10^{-123}. *)
+(* Discrepancy: 92 orders. Source: Planck 2018 DOI 10.1051/0004-6361/201833910. *)
+(* Status: FALSIFIED (registered in registered_predictions.md as P5). *)
 Definition Lambda_pred : R := powZ phi (-144) / 2.
 
-(* m_DM_pred из Predictions.v: phi^5 * pi / e                                *)
-(* Предсказание массы частицы тёмного вещества (~12.82 ГэВ)                  *)
+(* m_DM_pred from Predictions.v: phi^5 * pi / e                              *)
+(* Predicted dark-matter particle mass (~12.82 GeV)                          *)
 Definition m_DM_pred_v1 : R := powZ phi 5 * PI / (exp 1).
 
-(* m_DM_pred из Catalog42.v: phi^5 * pi * (1 + 1/30)                         *)
-(* ВНИМАНИЕ: Это ДРУГАЯ формула, дающая ~36 ГэВ — несогласованность          *)
+(* m_DM_pred from Catalog42.v: phi^5 * pi * (1 + 1/30)                       *)
+(* WARNING: This is a DIFFERENT formula, yielding ~36 GeV — an inconsistency *)
 Definition m_DM_pred_v2 : R := powZ phi 5 * PI * (1 + 1/30).
 
-(* HONEST: это феноменологическая подгонка, НЕ выведена из H4-геометрии.     *)
-(* Измеренное значение: 0.9649 ± 0.0042 (Planck 2018).                       *)
-(* Предсказанное значение: 0.7082 (=1-2/phi^4).                              *)
-(* Расхождение: 26.6%, ~61σ. Источник: arXiv:1807.06209.                     *)
-(* Статус: FALSIFIED. Ни одна инфляционная модель не даёт n_s < 0.85.        *)
-(* INF01: n_s = 1 - 2/phi^4 из FORMULAS.md                                  *)
-(* ЗАЯВЛЕНО: 0.07% погрешность, ★SG класс. РЕАЛЬНО: ~27% погрешность         *)
+(* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
+(* Measured value: 0.9649 ± 0.0042 (Planck 2018).                            *)
+(* Predicted value: 0.7082 (=1-2/phi^4).                                     *)
+(* Discrepancy: 26.6%, ~61σ. Source: arXiv:1807.06209.                       *)
+(* Status: FALSIFIED. No inflationary model yields n_s < 0.85.               *)
+(* INF01: n_s = 1 - 2/phi^4 from FORMULAS.md                                 *)
+(* CLAIMED: 0.07% error, ★SG class. ACTUAL: ~27% error                       *)
 Definition n_s_Trinity : R := 1 - 2 / powZ phi 4.
 
-(* HONEST: это феноменологическая подгонка, НЕ выведена из H4-геометрии.     *)
-(* Измеренное значение: 67.4 ± 0.5 км/с/Мпк (Planck 2018);                  *)
-(*                       68.52 ± 0.62 км/с/Мпк (DESI 2024, arXiv:2404.03002).*)
-(* Предсказанное значение: 21.90 км/с/Мпк.                                   *)
-(* Расхождение: 67.5% от Planck, ~91σ. ВСЕ методы измерения дают H₀ > 67.   *)
-(* Статус: FALSIFIED.                                                          *)
-(* CMB03: H_0 = 100*phi/e^2 из FORMULAS.md                                  *)
-(* ЗАЯВЛЕНО: 0.07% погрешность, ★SG класс. РЕАЛЬНО: ~67.5% погрешность       *)
+(* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
+(* Measured value: 67.4 ± 0.5 km/s/Mpc (Planck 2018);                        *)
+(*                  68.52 ± 0.62 km/s/Mpc (DESI 2024, arXiv:2404.03002).     *)
+(* Predicted value: 21.90 km/s/Mpc.                                          *)
+(* Discrepancy: 67.5% from Planck, ~91σ. ALL measurement methods give H₀ > 67. *)
+(* Status: FALSIFIED.                                                          *)
+(* CMB03: H_0 = 100*phi/e^2 from FORMULAS.md                                 *)
+(* CLAIMED: 0.07% error, ★SG class. ACTUAL: ~67.5% error                     *)
 Definition H0_Trinity : R := 100 * phi / powZ (exp 1) 2.
 
-(* HONEST: это феноменологическая подгонка, НЕ выведена из H4-геометрии.     *)
-(* Измеренное значение: 0.022383 ± 0.000018 (Planck 2018).                   *)
-(* Предсказанное значение: phi^{-3}*pi^{-2}*e^{-1} ≈ 0.00880.               *)
-(* Расхождение: 60.7%, ~754σ. Статус: FALSIFIED.                             *)
-(* Источник: Planck 2018 DOI 10.1051/0004-6361/201833910.                    *)
-(* CMB01: Omega_b_h2 = phi^{-3}*pi^{-2}*e^{-1} из FORMULAS.md               *)
-(* ЗАЯВЛЕНО: ★SG, 0.08%. РЕАЛЬНО: 60.7% погрешность.                         *)
+(* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
+(* Measured value: 0.022383 ± 0.000018 (Planck 2018).                        *)
+(* Predicted value: phi^{-3}*pi^{-2}*e^{-1} ≈ 0.00880.                       *)
+(* Discrepancy: 60.7%, ~754σ. Status: FALSIFIED.                             *)
+(* Source: Planck 2018 DOI 10.1051/0004-6361/201833910.                      *)
+(* CMB01: Omega_b_h2 = phi^{-3}*pi^{-2}*e^{-1} from FORMULAS.md              *)
+(* CLAIMED: ★SG, 0.08%. ACTUAL: 60.7% error.                                 *)
 Definition Omega_b_h2_Trinity : R := powZ phi (-3) / (PI^2 * exp 1).
 
-(* HONEST: это феноменологическая подгонка, НЕ выведена из H4-геометрии.     *)
-(* Измеренное значение: 0.12011 ± 0.00034 (Planck 2018).                     *)
-(* Предсказанное значение: phi^{-1}*pi^{-1}*e^{-1}/5 ≈ 0.01447.             *)
-(* Расхождение: 87.9%, ~311σ. Статус: FALSIFIED.                             *)
-(* Источник: Planck 2018 DOI 10.1051/0004-6361/201833910.                    *)
-(* CMB02: Omega_c_h2 = phi^{-1}*pi^{-1}*e^{-1}/5 из FORMULAS.md             *)
-(* ЗАЯВЛЕНО: ★SG, 0.008%. РЕАЛЬНО: 87.9% погрешность.                        *)
+(* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
+(* Measured value: 0.12011 ± 0.00034 (Planck 2018).                          *)
+(* Predicted value: phi^{-1}*pi^{-1}*e^{-1}/5 ≈ 0.01447.                     *)
+(* Discrepancy: 87.9%, ~311σ. Status: FALSIFIED.                             *)
+(* Source: Planck 2018 DOI 10.1051/0004-6361/201833910.                      *)
+(* CMB02: Omega_c_h2 = phi^{-1}*pi^{-1}*e^{-1}/5 from FORMULAS.md            *)
+(* CLAIMED: ★SG, 0.008%. ACTUAL: 87.9% error.                                *)
 Definition Omega_c_h2_Trinity : R :=
   (1 / (phi * PI * exp 1)) / 5.
 
-(* HONEST: это феноменологическая подгонка, НЕ выведена из H4-геометрии.     *)
-(* Измеренное значение: 0.812 ± 0.006 (Planck 2018).                         *)
-(* Предсказанное значение: phi^{-1}*e/pi ≈ 0.5348.                           *)
-(* Расхождение: 34.1%, ~46σ. Статус: FALSIFIED.                              *)
-(* Источник: Planck 2018 DOI 10.1051/0004-6361/201833910.                    *)
-(* CMB04: sigma_8 = phi^{-1}*e/pi из FORMULAS.md                             *)
-(* ЗАЯВЛЕНО: ★SG, 0.02%. РЕАЛЬНО: 34.1% погрешность.                         *)
+(* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
+(* Measured value: 0.812 ± 0.006 (Planck 2018).                              *)
+(* Predicted value: phi^{-1}*e/pi ≈ 0.5348.                                  *)
+(* Discrepancy: 34.1%, ~46σ. Status: FALSIFIED.                              *)
+(* Source: Planck 2018 DOI 10.1051/0004-6361/201833910.                      *)
+(* CMB04: sigma_8 = phi^{-1}*e/pi from FORMULAS.md                           *)
+(* CLAIMED: ★SG, 0.02%. ACTUAL: 34.1% error.                                 *)
 Definition sigma8_Trinity : R := exp 1 / (phi * PI).
 
-(* HONEST: это феноменологическая подгонка, НЕ выведена из H4-геометрии.     *)
-(* Измеренное значение: (2.100 ± 0.030) × 10⁻⁹ (Planck 2018).               *)
-(* Предсказанное значение: pi/(2*phi^3*e^2)*10^{-9} = 5.02×10⁻¹¹.          *)
-(* Расхождение: 97.6%, ~68σ. Отношение: предсказание в 42 раза мало.         *)
-(* Статус: FALSIFIED. Источник: Planck 2018 DOI 10.1051/0004-6361/201833910. *)
-(* INF06: Delta_R^2 из FORMULAS.md                                            *)
-(* ЗАЯВЛЕНО: ★SG, 0%. РЕАЛЬНО: 97.6% погрешность.                            *)
+(* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
+(* Measured value: (2.100 ± 0.030) × 10⁻⁹ (Planck 2018).                    *)
+(* Predicted value: pi/(2*phi^3*e^2)*10^{-9} = 5.02×10⁻¹¹.                  *)
+(* Discrepancy: 97.6%, ~68σ. Ratio: prediction is 42 times too small.        *)
+(* Status: FALSIFIED. Source: Planck 2018 DOI 10.1051/0004-6361/201833910.   *)
+(* INF06: Delta_R^2 from FORMULAS.md                                         *)
+(* CLAIMED: ★SG, 0%. ACTUAL: 97.6% error.                                    *)
 Definition Delta_R2_Trinity : R :=
   PI / (2 * powZ phi 3 * powZ (exp 1) 2) / (10^9).
 
 (******************************************************************************)
-(* Section 3: Тривиальный доказуемый факт из H4Derivations                   *)
+(* Section 3: Trivial provable fact from H4Derivations                        *)
 (*                                                                             *)
-(* C01 = h/3 = 30/3 = 10, где h = 30 — число Коксетера H4                    *)
-(* Этот результат используется в формуле |V_us| (матрица CKM),                *)
-(* хотя в HiggsOrigins.v он ошибочно помечен "cosmological parameter".        *)
+(* C01 = h/3 = 30/3 = 10, where h = 30 is the Coxeter number of H4            *)
+(* This result is used in the formula for |V_us| (the CKM matrix),            *)
+(* although in HiggsOrigins.v it is mistakenly tagged "cosmological parameter".*)
 (******************************************************************************)
 
-Definition h_H4 : R := 30.  (* Число Коксетера группы H4 *)
+Definition h_H4 : R := 30.  (* Coxeter number of group H4 *)
 
-(* Доказуемо: h_H4 / 3 = 10 *)
+(* Provable: h_H4 / 3 = 10 *)
 Theorem C01_h_over_3_exact :
   h_H4 / 3 = 10.
 Proof.
   unfold h_H4. field.
 Qed.
 
-(* HONEST комментарий: Это арифметический факт, а не космологическая формула *)
-(* Комментарий "cosmological parameter" в HiggsOrigins.v вводит в заблуждение *)
+(* HONEST comment: This is an arithmetic fact, not a cosmological formula *)
+(* The "cosmological parameter" comment in HiggsOrigins.v is misleading *)
 
 (******************************************************************************)
-(* Section 4: Численные границы для Lambda_pred                               *)
+(* Section 4: Numerical bounds for Lambda_pred                                *)
 (*                                                                             *)
-(* HONEST: Lambda_pred ~ 4.025e-31                                             *)
-(*   Наблюдаемая космологическая постоянная (в единицах Планка) ~ 10^(-122)   *)
-(*   Расхождение: ~92 порядка величины                                         *)
-(*   Формула phi^(-144)/2 не является производной Λ из H4/E8                  *)
-(*   Источник: Planck 2018 DOI 10.1051/0004-6361/201833910                    *)
+(* HONEST: Lambda_pred ~ 4.025e-31                                            *)
+(*   Observed cosmological constant (in Planck units) ~ 10^(-122)             *)
+(*   Discrepancy: ~92 orders of magnitude                                     *)
+(*   The formula phi^(-144)/2 is not a derivation of Λ from H4/E8             *)
+(*   Source: Planck 2018 DOI 10.1051/0004-6361/201833910                     *)
 (******************************************************************************)
 
 Lemma Lambda_pred_bounds :
@@ -174,7 +174,7 @@ Proof.
   split; interval with (i_prec 200).
 Qed.
 
-(* HONEST: Верхняя граница на Lambda_pred *)
+(* HONEST: Upper bound on Lambda_pred *)
 Lemma Lambda_pred_small :
   Lambda_pred < 1 / (10^30).
 Proof.
@@ -182,7 +182,7 @@ Proof.
   interval with (i_prec 200).
 Qed.
 
-(* HONEST: Lambda_pred положительна *)
+(* HONEST: Lambda_pred is positive *)
 Lemma Lambda_pred_pos :
   0 < Lambda_pred.
 Proof.
@@ -193,12 +193,12 @@ Proof.
 Qed.
 
 (******************************************************************************)
-(* Section 5: Численные границы для m_DM_pred                                *)
+(* Section 5: Numerical bounds for m_DM_pred                                  *)
 (*                                                                             *)
-(* HONEST: Два файла дают РАЗНЫЕ формулы для m_DM_pred:                       *)
-(*   Predictions.v: phi^5 * pi / e  ~ 12.82 ГэВ                               *)
-(*   Catalog42.v:   phi^5 * pi * (1+1/30) ~ 36.00 ГэВ                        *)
-(* Обе являются фальсифицируемыми предсказаниями, но несогласованны.          *)
+(* HONEST: Two files give DIFFERENT formulas for m_DM_pred:                   *)
+(*   Predictions.v: phi^5 * pi / e  ~ 12.82 GeV                               *)
+(*   Catalog42.v:   phi^5 * pi * (1+1/30) ~ 36.00 GeV                         *)
+(* Both are falsifiable predictions, but they are inconsistent.               *)
 (******************************************************************************)
 
 Lemma m_DM_pred_v1_bounds :
@@ -215,7 +215,7 @@ Proof.
   split; interval with (i_prec 100).
 Qed.
 
-(* Обе версии дают m_DM > 10 ГэВ: это тестируется LZ и XENONnT *)
+(* Both versions give m_DM > 10 GeV: this is tested by LZ and XENONnT *)
 Lemma m_DM_both_above_10_GeV :
   m_DM_pred_v1 > 10 /\ m_DM_pred_v2 > 10.
 Proof.
@@ -224,7 +224,7 @@ Proof.
   - unfold m_DM_pred_v2, powZ. simpl. interval with (i_prec 100).
 Qed.
 
-(* Обе версии дают m_DM < 100 ГэВ: это "WIMP miracle" диапазон *)
+(* Both versions give m_DM < 100 GeV: this is the "WIMP miracle" range *)
 Lemma m_DM_both_below_100_GeV :
   m_DM_pred_v1 < 100 /\ m_DM_pred_v2 < 100.
 Proof.
@@ -234,12 +234,12 @@ Proof.
 Qed.
 
 (******************************************************************************)
-(* Section 6: Доказательство несостоятельности CMB03 и INF01                  *)
+(* Section 6: Proof of inconsistency of CMB03 and INF01                       *)
 (*                                                                             *)
-(* HONEST: Показываем, что Trinity-формулы НЕ воспроизводят наблюдения        *)
+(* HONEST: We show that the Trinity formulas do NOT reproduce the observations *)
 (******************************************************************************)
 
-(* H0_Trinity = 100*phi/e^2 ~ 21.9 km/s/Mpc, а не 67.4 как у Planck *)
+(* H0_Trinity = 100*phi/e^2 ~ 21.9 km/s/Mpc, not 67.4 as in Planck *)
 Lemma H0_Trinity_bounds :
   21 < H0_Trinity < 23.
 Proof.
@@ -247,7 +247,7 @@ Proof.
   split; interval with (i_prec 100).
 Qed.
 
-(* HONEST: H0_Trinity существенно меньше наблюдаемого H0_Planck = 67.4 *)
+(* HONEST: H0_Trinity is substantially smaller than the observed H0_Planck = 67.4 *)
 Lemma H0_Trinity_far_from_Planck :
   H0_Trinity < H0_Planck / 2.
 Proof.
@@ -255,7 +255,7 @@ Proof.
   interval with (i_prec 100).
 Qed.
 
-(* n_s_Trinity = 1 - 2/phi^4 ~ 0.708, а не 0.9649 как у Planck *)
+(* n_s_Trinity = 1 - 2/phi^4 ~ 0.708, not 0.9649 as in Planck *)
 Lemma n_s_Trinity_bounds :
   70 / 100 < n_s_Trinity < 72 / 100.
 Proof.
@@ -263,7 +263,7 @@ Proof.
   split; interval with (i_prec 100).
 Qed.
 
-(* HONEST: n_s_Trinity < 0.9 -- значительно ниже наблюдаемого 0.9649 *)
+(* HONEST: n_s_Trinity < 0.9 -- significantly below the observed 0.9649 *)
 Lemma n_s_Trinity_below_09 :
   n_s_Trinity < 9 / 10.
 Proof.
@@ -279,12 +279,12 @@ Proof.
 Qed.
 
 (******************************************************************************)
-(* Section 7: Численные границы для новых CMB-формул                          *)
+(* Section 7: Numerical bounds for the new CMB formulas                       *)
 (*                                                                             *)
-(* HONEST: Доказываем, что Trinity-предсказания далеки от наблюдаемых значений *)
+(* HONEST: We prove that the Trinity predictions are far from the observed values *)
 (******************************************************************************)
 
-(* CMB01: Omega_b_h2_Trinity ~ 0.0088, Planck: 0.022383 — расхождение 60.7%  *)
+(* CMB01: Omega_b_h2_Trinity ~ 0.0088, Planck: 0.022383 — 60.7% discrepancy   *)
 Lemma Omega_b_h2_Trinity_bounds :
   87 / 10000 < Omega_b_h2_Trinity < 90 / 10000.
 Proof.
@@ -292,7 +292,7 @@ Proof.
   split; interval with (i_prec 100).
 Qed.
 
-(* HONEST: Omega_b_h2_Trinity значительно ниже наблюдаемого *)
+(* HONEST: Omega_b_h2_Trinity is substantially below the observed value *)
 Lemma Omega_b_h2_Trinity_below_015 :
   Omega_b_h2_Trinity < 15 / 1000.
 Proof.
@@ -300,7 +300,7 @@ Proof.
   interval with (i_prec 100).
 Qed.
 
-(* CMB02: Omega_c_h2_Trinity ~ 0.01447, Planck: 0.12011 — расхождение 87.9%  *)
+(* CMB02: Omega_c_h2_Trinity ~ 0.01447, Planck: 0.12011 — 87.9% discrepancy  *)
 Lemma Omega_c_h2_Trinity_bounds :
   140 / 10000 < Omega_c_h2_Trinity < 150 / 10000.
 Proof.
@@ -316,7 +316,7 @@ Proof.
   interval with (i_prec 100).
 Qed.
 
-(* CMB04: sigma8_Trinity ~ 0.5348, Planck: 0.812 — расхождение 34.1%        *)
+(* CMB04: sigma8_Trinity ~ 0.5348, Planck: 0.812 — 34.1% discrepancy         *)
 Lemma sigma8_Trinity_bounds :
   53 / 100 < sigma8_Trinity < 55 / 100.
 Proof.
@@ -335,23 +335,23 @@ Proof.
 Qed.
 
 (******************************************************************************)
-(* Section 8: Итоговая теорема честной оценки                                  *)
+(* Section 8: Final theorem of the honest assessment                          *)
 (*                                                                             *)
-(* Доказывает доказуемые утверждения; НЕ доказывает несостоятельные            *)
+(* Proves the provable statements; does NOT prove the unsound ones            *)
 (******************************************************************************)
 
 Theorem cosmology_honest_summary :
-  (* 1. Lambda_pred положительна и очень мала *)
+  (* 1. Lambda_pred is positive and very small *)
   Lambda_pred > 0  /\
   Lambda_pred < 1 / (10^30) /\
-  (* 2. m_DM предсказания (обе версии) в диапазоне WIMP *)
+  (* 2. m_DM predictions (both versions) lie in the WIMP range *)
   m_DM_pred_v1 > 10 /\ m_DM_pred_v1 < 100 /\
   m_DM_pred_v2 > 10 /\ m_DM_pred_v2 < 100 /\
-  (* 3. H0_Trinity значительно отличается от H0_Planck *)
+  (* 3. H0_Trinity differs substantially from H0_Planck *)
   H0_Trinity < H0_Planck / 2 /\
-  (* 4. n_s_Trinity значительно ниже наблюдаемого *)
+  (* 4. n_s_Trinity is significantly below the observed value *)
   n_s_Trinity < 9 / 10 /\
-  (* 5. Тривиальный факт h/3 = 10 *)
+  (* 5. Trivial fact h/3 = 10 *)
   h_H4 / 3 = 10.
 Proof.
   repeat split.
@@ -378,67 +378,67 @@ Qed.
 (******************************************************************************)
 (* Section HonestAssessment — Wave 8.5                                         *)
 (*                                                                             *)
-(* Новая секция с явными теоремами-рефутациями для фальсифицированных формул.  *)
-(* Использует аксиому [NUMERICAL_FIT] для формул, требующих внешних данных.    *)
+(* New section with explicit refutation theorems for falsified formulas.       *)
+(* Uses the [NUMERICAL_FIT] axiom for formulas that require external data.     *)
 (*                                                                             *)
-(* Доказываемые утверждения:                                                   *)
+(* Statements proved:                                                          *)
 (*   - cosmological_constant_off_by_92_orders: Lambda_pred >> Λ_obs            *)
 (*   - cmb_hubble_falsified: H0_Trinity << H0_Planck                           *)
-(*   - cmb_baryon_density_falsified: Omega_b_h2_Trinity << Omega_b_h2_Planck  *)
-(*   - cmb_cdm_density_falsified: Omega_c_h2_Trinity << Omega_c_h2_Planck     *)
-(*   - inf01_spectral_index_falsified: n_s_Trinity << n_s_Planck              *)
-(*   - tier3_honest_summary: сводная теорема о 7 фальсифицированных формулах   *)
+(*   - cmb_baryon_density_falsified: Omega_b_h2_Trinity << Omega_b_h2_Planck   *)
+(*   - cmb_cdm_density_falsified: Omega_c_h2_Trinity << Omega_c_h2_Planck      *)
+(*   - inf01_spectral_index_falsified: n_s_Trinity << n_s_Planck               *)
+(*   - tier3_honest_summary: summary theorem on the 7 falsified formulas       *)
 (*                                                                             *)
-(* Источники: Planck 2018 DOI 10.1051/0004-6361/201833910                     *)
-(*            DESI 2024 arXiv:2404.03002                                       *)
-(*            BICEP/Keck 2021 arXiv:2110.00483                                 *)
+(* Sources: Planck 2018 DOI 10.1051/0004-6361/201833910                        *)
+(*          DESI 2024 arXiv:2404.03002                                         *)
+(*          BICEP/Keck 2021 arXiv:2110.00483                                   *)
 (******************************************************************************)
 
 (* ============================================================================ *)
-(* Аксиома [NUMERICAL_FIT]:                                                     *)
-(* Используется для связи абстрактных определений с наблюдаемыми значениями.   *)
-(* Числовые значения взяты из Planck 2018 (DOI:10.1051/0004-6361/201833910).   *)
+(* [NUMERICAL_FIT] axiom:                                                       *)
+(* Used to link abstract definitions with observed values.                      *)
+(* Numerical values are taken from Planck 2018 (DOI:10.1051/0004-6361/201833910). *)
 (* ============================================================================ *)
 
-(* Lambda_pred находится между 3e-32 и 5e-31 (т.е. ~4e-31 в ед. Планка)     *)
-(* Lambda_obs в ед. Планка: ~10^{-123}                                        *)
-(* Утверждение: Lambda_pred > 10^{90} * Lambda_obs (формальное ~ 92 порядка) *)
+(* Lambda_pred lies between 3e-32 and 5e-31 (i.e. ~4e-31 in Planck units)    *)
+(* Lambda_obs in Planck units: ~10^{-123}                                     *)
+(* Statement: Lambda_pred > 10^{90} * Lambda_obs (formally ~ 92 orders)       *)
 
-(* Аксиома [NUMERICAL_FIT]: наблюдаемая Λ·ℓ_Pl^2 < 10^{-120}                *)
+(* [NUMERICAL_FIT] axiom: observed Λ·ℓ_Pl^2 < 10^{-120}                       *)
 Axiom Lambda_obs_planck_units_small :
   (* NUMERICAL_FIT: Planck 2018 DOI:10.1051/0004-6361/201833910               *)
-  (* Λ·ℓ_Pl^2 ≈ 10^{-123} << 10^{-120} строго                                *)
+  (* Λ·ℓ_Pl^2 ≈ 10^{-123} << 10^{-120} strictly                              *)
   exists Lambda_obs : R,
     0 < Lambda_obs /\
     Lambda_obs < 1 / (10^120) /\
-    (* Примечание: сама Λ_obs не является объектом Coq-алгебры реалов без      *)
-    (* физической единицы, поэтому мы аксиоматизируем её малость               *)
+    (* Note: Λ_obs itself is not an object of the Coq reals algebra without   *)
+    (* a physical unit, so we axiomatize its smallness                         *)
     True.
 
-(* Главная теорема: Lambda_pred (Trinity) несовместима с наблюдаемой Λ        *)
-(* Расхождение: ~92 порядка величины                                           *)
-(* Источник: Planck 2018; сравни с Catalog42.v Lambda_pred = phi^(-144)/2     *)
+(* Main theorem: Lambda_pred (Trinity) is incompatible with the observed Λ    *)
+(* Discrepancy: ~92 orders of magnitude                                        *)
+(* Source: Planck 2018; compare with Catalog42.v Lambda_pred = phi^(-144)/2   *)
 Theorem cosmological_constant_off_by_92_orders :
-  (* Lambda_pred ~ 4e-31, тогда как Λ_obs ~ 10^{-123}                        *)
-  (* Следовательно Lambda_pred / Lambda_obs ~ 10^{+92}                        *)
-  (* Формально: Lambda_pred > 39/10^32 (что >> Lambda_obs < 10^{-120})        *)
+  (* Lambda_pred ~ 4e-31, whereas Λ_obs ~ 10^{-123}                          *)
+  (* Hence Lambda_pred / Lambda_obs ~ 10^{+92}                                *)
+  (* Formally: Lambda_pred > 39/10^32 (which >> Lambda_obs < 10^{-120})       *)
   39 / (10^32) < Lambda_pred /\
-  (* Аксиоматически: если Λ_obs < 10^{-120} и Lambda_pred > 39/10^32,        *)
-  (* то расхождение > 10^{88} порядков (фактически 92)                        *)
+  (* Axiomatically: if Λ_obs < 10^{-120} and Lambda_pred > 39/10^32,         *)
+  (* then the discrepancy > 10^{88} orders (in fact 92)                       *)
   (* [NUMERICAL_FIT] axiom: Planck 2018, DOI:10.1051/0004-6361/201833910      *)
   True.
 Proof.
   split.
-  - (* Lambda_pred > 39/10^32 — из Lambda_pred_bounds *)
+  - (* Lambda_pred > 39/10^32 — from Lambda_pred_bounds *)
     apply Lambda_pred_bounds.
   - trivial.
 Qed.
 
-(* Теорема: CMB03 (H0_Trinity) фальсифицирована                               *)
-(* H0_Trinity = 100*phi/e^2 ≈ 21.90 км/с/Мпк                                 *)
-(* H0_Planck = 67.4 ± 0.5 км/с/Мпк (Planck 2018 DOI:10.1051/0004-6361/201833910) *)
-(* H0_DESI = 68.52 ± 0.62 км/с/Мпк (DESI 2024 arXiv:2404.03002)              *)
-(* Расхождение: > 91σ от Planck; предсказание в 3+ раза ниже любого измерения *)
+(* Theorem: CMB03 (H0_Trinity) is falsified                                   *)
+(* H0_Trinity = 100*phi/e^2 ≈ 21.90 km/s/Mpc                                 *)
+(* H0_Planck = 67.4 ± 0.5 km/s/Mpc (Planck 2018 DOI:10.1051/0004-6361/201833910) *)
+(* H0_DESI = 68.52 ± 0.62 km/s/Mpc (DESI 2024 arXiv:2404.03002)               *)
+(* Discrepancy: > 91σ from Planck; the prediction is 3+ times below any measurement *)
 Theorem cmb_hubble_falsified :
   H0_Trinity < H0_Planck / 2 /\
   H0_Trinity < 23 /\
@@ -450,9 +450,9 @@ Proof.
   - unfold H0_Planck. lra.
 Qed.
 
-(* Теорема: CMB01 (Omega_b_h2_Trinity) фальсифицирована                        *)
-(* Предсказание: 0.00880; наблюдение: 0.022383 ± 0.000018                     *)
-(* Расхождение: 60.7%, ~754σ. Источник: Planck 2018.                          *)
+(* Theorem: CMB01 (Omega_b_h2_Trinity) is falsified                           *)
+(* Prediction: 0.00880; observation: 0.022383 ± 0.000018                      *)
+(* Discrepancy: 60.7%, ~754σ. Source: Planck 2018.                            *)
 Theorem cmb_baryon_density_falsified :
   Omega_b_h2_Trinity < Omega_b_h2_Planck / 2.
 Proof.
@@ -460,18 +460,18 @@ Proof.
   interval with (i_prec 100).
 Qed.
 
-(* Теорема: CMB02 (Omega_c_h2_Trinity) фальсифицирована                        *)
-(* Предсказание: 0.01447; наблюдение: 0.12011 ± 0.00034                       *)
-(* Расхождение: 87.9%, ~311σ. Источник: Planck 2018.                          *)
+(* Theorem: CMB02 (Omega_c_h2_Trinity) is falsified                           *)
+(* Prediction: 0.01447; observation: 0.12011 ± 0.00034                        *)
+(* Discrepancy: 87.9%, ~311σ. Source: Planck 2018.                            *)
 Theorem cmb_cdm_density_falsified :
   Omega_c_h2_Trinity < Omega_c_h2_Planck / 2.
 Proof.
   apply Omega_c_h2_Trinity_below_half_Planck.
 Qed.
 
-(* Теорема: INF01 (n_s_Trinity) фальсифицирована                              *)
-(* Предсказание: 0.7082; наблюдение: 0.9649 ± 0.0042                          *)
-(* Расхождение: 26.6%, ~61σ. Источник: Planck 2018 arXiv:1807.06209.          *)
+(* Theorem: INF01 (n_s_Trinity) is falsified                                  *)
+(* Prediction: 0.7082; observation: 0.9649 ± 0.0042                           *)
+(* Discrepancy: 26.6%, ~61σ. Source: Planck 2018 arXiv:1807.06209.            *)
 Theorem inf01_spectral_index_falsified :
   n_s_Trinity < 9 / 10 /\
   n_s_Planck > 9 / 10.
@@ -481,9 +481,9 @@ Proof.
   - apply n_s_Planck_above_09.
 Qed.
 
-(* Теорема: sigma8_Trinity фальсифицирована                                    *)
-(* Предсказание: 0.5348; наблюдение: 0.812 ± 0.006                            *)
-(* Расхождение: 34.1%, ~46σ. Источник: Planck 2018.                           *)
+(* Theorem: sigma8_Trinity is falsified                                        *)
+(* Prediction: 0.5348; observation: 0.812 ± 0.006                             *)
+(* Discrepancy: 34.1%, ~46σ. Source: Planck 2018.                             *)
 Theorem cmb04_sigma8_falsified :
   sigma8_Trinity < 7 / 10 /\
   sigma8_Planck > 8 / 10.
@@ -494,25 +494,25 @@ Proof.
 Qed.
 
 (* ============================================================================ *)
-(* Сводная теорема Wave 8.5: итог честной оценки Tier 3                        *)
+(* Wave 8.5 summary theorem: bottom line of the honest Tier 3 assessment       *)
 (* ============================================================================ *)
 
-(* Теорема: 5 ключевых формул Tier 3 провалены в рамках Coq                   *)
-(* (3 дополнительные — COS01, INF06, CCR01 — требуют внешних данных)          *)
+(* Theorem: 5 key Tier 3 formulas fail within Coq                             *)
+(* (3 more — COS01, INF06, CCR01 — require external data)                     *)
 Theorem tier3_honest_summary_wave85 :
-  (* CMB03 фальсифицирована: H0 off by 3x *)
+  (* CMB03 is falsified: H0 off by 3x *)
   H0_Trinity < H0_Planck / 2 /\
-  (* CMB01 фальсифицирована: Omega_b off by 60% *)
+  (* CMB01 is falsified: Omega_b off by 60% *)
   Omega_b_h2_Trinity < Omega_b_h2_Planck / 2 /\
-  (* CMB02 фальсифицирована: Omega_c off by 88% *)
+  (* CMB02 is falsified: Omega_c off by 88% *)
   Omega_c_h2_Trinity < Omega_c_h2_Planck / 2 /\
-  (* INF01 фальсифицирована: n_s off by 27% *)
+  (* INF01 is falsified: n_s off by 27% *)
   n_s_Trinity < n_s_Planck - 1 / 4 /\
-  (* CMB04 фальсифицирована: sigma8 off by 34% *)
+  (* CMB04 is falsified: sigma8 off by 34% *)
   sigma8_Trinity < sigma8_Planck - 1 / 4 /\
-  (* Lambda_pred далека от наблюдаемой Λ *)
+  (* Lambda_pred is far from the observed Λ *)
   Lambda_pred < 1 / (10^30) /\
-  (* Единственный доказанный факт — тривиальная арифметика *)
+  (* The only proven fact is trivial arithmetic *)
   h_H4 / 3 = 10.
 Proof.
   repeat split.
@@ -532,53 +532,53 @@ Proof.
 Qed.
 
 (*
-  ИТОГОВЫЕ ЧЕСТНЫЕ ВЫВОДЫ (Wave 8.5):
+  FINAL HONEST CONCLUSIONS (Wave 8.5):
 
-  1. Lambda_pred (phi^(-144)/2) доказуемо позитивна и мала,
-     но это НЕ космологическая постоянная:
-     phi^(-144)/2 ~ 10^(-30), тогда как Λ/M_Pl^2 ~ 10^(-122).
-     Расхождение: 92 порядка величины. Формула FALSIFIED.
-     Источник: Planck 2018 DOI 10.1051/0004-6361/201833910.
+  1. Lambda_pred (phi^(-144)/2) is provably positive and small,
+     but it is NOT the cosmological constant:
+     phi^(-144)/2 ~ 10^(-30), whereas Λ/M_Pl^2 ~ 10^(-122).
+     Discrepancy: 92 orders of magnitude. Formula FALSIFIED.
+     Source: Planck 2018 DOI 10.1051/0004-6361/201833910.
 
-  2. COS01 (phi^{-12}*pi^{-3}*e^{-2}*M_Pl^4): предсказывает ~3×10^71 ГэВ^4,
-     наблюдается 5.6×10^{-47} ГэВ^4. Расхождение ~10^118. FALSIFIED.
+  2. COS01 (phi^{-12}*pi^{-3}*e^{-2}*M_Pl^4): predicts ~3×10^71 GeV^4,
+     observed 5.6×10^{-47} GeV^4. Discrepancy ~10^118. FALSIFIED.
 
-  3. CMB03 (H0_Trinity = 100phi/e^2): даёт 21.9, а не 67.4.
-     Доказано: H0_Trinity < H0_Planck/2. Погрешность ~67.5%, >91σ. FALSIFIED.
-     Источник: Planck 2018, DESI 2024 arXiv:2404.03002.
+  3. CMB03 (H0_Trinity = 100phi/e^2): gives 21.9, not 67.4.
+     Proven: H0_Trinity < H0_Planck/2. Error ~67.5%, >91σ. FALSIFIED.
+     Source: Planck 2018, DESI 2024 arXiv:2404.03002.
 
-  4. CMB01 (Omega_b_h2): даёт 0.00880, а не 0.022383.
-     Доказано: Omega_b_h2_Trinity < Omega_b_h2_Planck/2. Расхождение 60.7%. FALSIFIED.
+  4. CMB01 (Omega_b_h2): gives 0.00880, not 0.022383.
+     Proven: Omega_b_h2_Trinity < Omega_b_h2_Planck/2. Discrepancy 60.7%. FALSIFIED.
 
-  5. CMB02 (Omega_c_h2): даёт 0.01447, а не 0.12011.
-     Доказано: Omega_c_h2_Trinity < Omega_c_h2_Planck/2. Расхождение 87.9%. FALSIFIED.
+  5. CMB02 (Omega_c_h2): gives 0.01447, not 0.12011.
+     Proven: Omega_c_h2_Trinity < Omega_c_h2_Planck/2. Discrepancy 87.9%. FALSIFIED.
 
-  6. INF01 (n_s = 1-2/phi^4): даёт 0.708, а не 0.9649.
-     Доказано: n_s_Trinity < 0.9 << n_s_Planck. Расхождение ~27%, >61σ. FALSIFIED.
-     Источник: Planck 2018 arXiv:1807.06209.
+  6. INF01 (n_s = 1-2/phi^4): gives 0.708, not 0.9649.
+     Proven: n_s_Trinity < 0.9 << n_s_Planck. Discrepancy ~27%, >61σ. FALSIFIED.
+     Source: Planck 2018 arXiv:1807.06209.
 
-  7. CMB04 (sigma8 = phi^{-1}*e/pi): даёт 0.5348, а не 0.812.
-     Доказано: sigma8_Trinity < 0.7. Расхождение 34.1%, >46σ. FALSIFIED.
+  7. CMB04 (sigma8 = phi^{-1}*e/pi): gives 0.5348, not 0.812.
+     Proven: sigma8_Trinity < 0.7. Discrepancy 34.1%, >46σ. FALSIFIED.
 
-  8. INF06 (Delta_R^2): даёт 5.02×10^{-11}, а не 2.100×10^{-9}.
-     Расхождение 97.6%, >68σ. FALSIFIED.
+  8. INF06 (Delta_R^2): gives 5.02×10^{-11}, not 2.100×10^{-9}.
+     Discrepancy 97.6%, >68σ. FALSIFIED.
 
-  9. CCR01 (phi^{-24}*pi^{-6}*e^{-4}): даёт 1.84×10^{-10}, Λ/ρ_Pl ~ 10^{-123}.
-     Расхождение 113 порядков. FALSIFIED + NUMEROLOGY.
+  9. CCR01 (phi^{-24}*pi^{-6}*e^{-4}): gives 1.84×10^{-10}, Λ/ρ_Pl ~ 10^{-123}.
+     Discrepancy 113 orders. FALSIFIED + NUMEROLOGY.
 
-  10. C01_h_over_3 = 10 — единственный строго доказанный факт,
-      но это не космологическая формула.
+  10. C01_h_over_3 = 10 — the only rigorously proven fact,
+      but this is not a cosmological formula.
 
-  11. Tier 3 в FORMULAS.md содержал ложные заявления о точности
-      (★SG-класс с 0%–0.08% погрешностью для формул с реальной ошибкой 10^113).
-      Wave 4.1 исправила эти заявления; Wave 8.5 формализует опровержения в Coq.
+  11. Tier 3 in FORMULAS.md contained false claims of accuracy
+      (★SG-class with 0%–0.08% error for formulas with real errors of 10^113).
+      Wave 4.1 corrected those claims; Wave 8.5 formalizes the refutations in Coq.
 
-  Вердикт Tier 3:
-    - 7 формул FALSIFIED (CMB01-04, INF01, INF06, COS01/CCR01)
-    - 4 формул SPECULATIVE (COS04, INF02, INF04, INF05)
-    - 1 формула PENDING (INF03)
-    - 3 формулы TAUTOLOGY (COS03, COS05, CCR02)
-    - 0 формул реально выведены из H4-геометрии
+  Tier 3 verdict:
+    - 7 formulas FALSIFIED (CMB01-04, INF01, INF06, COS01/CCR01)
+    - 4 formulas SPECULATIVE (COS04, INF02, INF04, INF05)
+    - 1 formula PENDING (INF03)
+    - 3 formulas TAUTOLOGY (COS03, COS05, CCR02)
+    - 0 formulas actually derived from H4 geometry
 *)
 
 (* END OF CosmologyOrigins.v — Wave 8.5 *)
