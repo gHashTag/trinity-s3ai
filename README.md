@@ -31,6 +31,33 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
 | [scripts/prepare_zenodo.md](scripts/prepare_zenodo.md) | Zenodo publication guide |
 | [proofs/trinity/FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md) | Axiom stratification and open assumptions |
+| [proofs/clifford_cl8/README.md](proofs/clifford_cl8/README.md) | **Track B (Wave 12)** — Cl(p,q) formalization launch (T1–T3) |
+
+---
+
+## Track B — Cl(p,q) formalization (Wave 12 launch)
+
+Following the no-go results on the H4/600-cell side, Wave 12 launches a
+parallel **Track B** investigating Cl(8) / J3(O) / triality as an
+alternative basis for the three-generations question (per
+`outputs/B_program_T1_T12.md`).
+
+The new directory [`proofs/clifford_cl8/`](proofs/clifford_cl8/) introduces:
+
+- **T1** — definition of Cl(p,q) via universal property
+  (`CliffordAlgebra.v`) — *mostly Qed*
+- **T2** — statement of Cl(0,6) ≅ M_8(R) ⊕ M_8(R) (`Cl6_iso_M8R.v`) —
+  *stated, Admitted with citation* (Lounesto 2001 Table 16.3, Wieser-Song
+  2022 §6, arXiv:2110.03551)
+- **T3** — statement of Bott 8-periodicity Cl(n+8) ≅ Cl(n) ⊗ Cl(8)
+  (`Cl8_periodicity.v`) — *stated, Admitted with citation*
+  (Atiyah-Bott-Shapiro 1964 Table 3, Lawson-Michelsohn 1989 Prop. I.4.1)
+
+Track B is intentionally decoupled from the H4 core (no `Trinity` imports);
+its Admitted set is logged separately as `TRACK_B_CLIFFORD` in
+[admitted_log.md](admitted_log.md). The launch PR provides the scaffolding
+and statement-level theorems; T4–T12 and the Admitted discharges are
+follow-up work.
 
 ---
 

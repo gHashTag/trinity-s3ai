@@ -1,16 +1,46 @@
 # admitted_log.md — Реестр всех Admitted в Trinity S3AI
 
-**Дата последнего обновления:** Wave 11 sprint W11.7 (SHOULD_BE_THEOREM closures)
+**Дата последнего обновления:** Wave 12 Track B (Cl(8) formalization launch)
 **Версия:** Trinity S3AI v4.0
 **Состояние на момент аудита (A1, Wave 10.4):**
 
-| Тип | Реальное кол-во | После W11.7 | Заявлено ранее | Расхождение |
-|-----|----------------|-------------|----------------|-------------|
-| `Axiom` (SHOULD_BE_THEOREM) | 44 | 35 | — | −9 в W11.7 |
-| `Axiom` (всего) | 88 (уникальных в 14 файлах proofs/) | 79 | не указано | — |
-| `Admitted` (чистые) | 37 | 35 | 7 | **+28** |
-| `admit` | 17 | 17 | 0 | **+17** |
-| `Qed` | 1326 | 1335 | 326 | **+1009** |
+| Тип | Реальное кол-во | После W11.7 | После W12 Track B | Заявлено ранее | Расхождение |
+|-----|----------------|-------------|-------------------|----------------|-------------|
+| `Axiom` (SHOULD_BE_THEOREM) | 44 | 35 | 35 | — | unchanged in W12 |
+| `Axiom` (всего, core) | 88 (уникальных в 14 файлах proofs/) | 79 | 79 | не указано | — |
+| `Axiom` (TRACK_B_CLIFFORD) | 0 | 0 | 6 (`Cl06_spec`, `M8R_pair_alg`, `Cl_n0_spec`, `Cl_80_spec`, `M16R_alg`, `RAlg_tensor`) | — | new |
+| `Admitted` (чистые, core) | 37 | 35 | 35 | 7 | **+28** |
+| `Admitted` (TRACK_B_CLIFFORD) | 0 | 0 | 4 (`T1_polarization`, `T2_Cl06_iso_M8R_pair`, `T3_Cl_8periodicity`, `T3_Cl80_iso_M16R`) | — | new |
+| `admit` | 17 | 17 | 17 | 0 | **+17** |
+| `Qed` | 1326 | 1335 | 1338 | 326 | **+1012** |
+
+## Wave 12 Track B — Cl(8) formalization launch (2026-05)
+
+New directory `proofs/clifford_cl8/` introduces Track B per
+`outputs/B_program_T1_T12.md`. The launch PR adds **6 new Axioms** and
+**4 new Admitted theorems**, all tagged **`TRACK_B_CLIFFORD`** with full
+published citations.
+
+| Entity | File | Type | Category | Citation |
+|--------|------|------|----------|----------|
+| `Cl06_spec` | `Cl6_iso_M8R.v` | `Axiom` (existence of `CliffordSpec 0 6`) | TRACK_B_CLIFFORD | Wieser-Song 2022 §3 |
+| `M8R_pair_alg` | `Cl6_iso_M8R.v` | `Axiom` (existence of `RAlgebra` instance for M_8(R)⊕M_8(R)) | TRACK_B_CLIFFORD | stdlib gap (no MathComp) |
+| `Cl_n0_spec n` | `Cl8_periodicity.v` | `Axiom` (existence of `CliffordSpec n 0` for every n) | TRACK_B_CLIFFORD | Wieser-Song 2022 §3 |
+| `Cl_80_spec` | `Cl8_periodicity.v` | `Axiom` | TRACK_B_CLIFFORD | Wieser-Song 2022 §3 |
+| `M16R_alg` | `Cl8_periodicity.v` | `Axiom` | TRACK_B_CLIFFORD | stdlib gap |
+| `RAlg_tensor` | `Cl8_periodicity.v` | `Parameter` (tensor product of R-algebras) | TRACK_B_CLIFFORD | stdlib gap; mathlib4 `Mathlib.LinearAlgebra.TensorProduct` ports needed |
+| `T1_polarization` | `CliffordAlgebra.v` | `Admitted` | TRACK_B_CLIFFORD / SHOULD_BE_THEOREM | Lounesto 2001 §1.2 |
+| `T2_Cl06_iso_M8R_pair` | `Cl6_iso_M8R.v` | `Admitted` | TRACK_B_CLIFFORD / GENUINE_ASSUMPTION (cited math) | Lounesto Table 16.3; Atiyah-Bott-Shapiro 1964 §11; Wieser-Song 2022 §6 |
+| `T3_Cl_8periodicity` | `Cl8_periodicity.v` | `Admitted` | TRACK_B_CLIFFORD / GENUINE_ASSUMPTION | Atiyah-Bott-Shapiro 1964 Table 3; Lawson-Michelsohn 1989 Prop. I.4.1 |
+| `T3_Cl80_iso_M16R` | `Cl8_periodicity.v` | `Admitted` | TRACK_B_CLIFFORD / GENUINE_ASSUMPTION | Lounesto Table 16.3 row (8,0); Lawson-Michelsohn 1989 I.4.16 |
+
+**Honesty:** All four Admitted statements are well-known published theorems.
+Discharging them in Rocq requires (a) a working tensor product of R-algebras
+(not in stdlib; available in MathComp-Analysis or mathlib4), (b) explicit
+matrix-generator constructions for the spinor representations (mechanical
+but multi-week work), and (c) the volume-element computation. The launch PR
+provides the scaffolding and the statements; the proofs are tracked as
+TRACK_B_CLIFFORD follow-up items.
 
 ## Sprint W11.7 — SHOULD_BE_THEOREM closures (2026-05)
 

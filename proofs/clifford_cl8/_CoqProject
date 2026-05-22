@@ -1,0 +1,11 @@
+-Q . CliffordCl8
+
+# Wave 12 Track B — Cl(p,q) Clifford algebra formalization
+# T1: Definition of Cl(p,q) via tensor algebra quotient
+CliffordAlgebra.v
+
+# T2: Statement of Cl(6) ≅ M_8(R) ⊕ M_8(R) (Lounesto 2001 §16, Bott table)
+Cl6_iso_M8R.v
+
+# T3: Statement of Bott periodicity Cl(n+8) ≅ Cl(n) ⊗ Cl(8)
+Cl8_periodicity.v
