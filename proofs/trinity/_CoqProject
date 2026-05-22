@@ -1,6 +1,6 @@
 -Q . Trinity
--Q /Users/playra/.opam/4.14.1/lib/coq/user-contrib/Interval Interval
 
+# Core
 CorePhi.v
 H4Derivations.v
 E6vsH4.v
@@ -8,6 +8,8 @@ Bounds_LeptonMasses.v
 Bounds_Mixing.v
 Unitarity.v
 Catalog42.v
+
+# Existing project files (added in main)
 A4Conversion.v
 H4GaugeEmbedding.v
 H4Lagrangian.v
@@ -21,3 +23,17 @@ RGRunning.v
 SpectralAction600Cell.v
 UniquenessStructural.v
 UniquenessTheorem.v
+
+# Wave 2: origin derivations from H4/E8/600-cell first principles
+LeptonOrigins.v
+QuarkOrigins.v
+HiggsOrigins.v
+GaugeOrigins.v
+
+# Wave 3: extended sectors + honest audit / refutations
+NeutrinoOrigins.v
+MixingOrigins.v
+KoideOrigins.v
+CosmologyOrigins.v
+SpectralExtras.v
+RGRunningExtras.v
