@@ -1,18 +1,38 @@
 # admitted_log.md — Реестр всех Admitted в Trinity S3AI
 
-**Дата последнего обновления:** Wave 12 Track B (Cl(8) formalization launch)
+**Дата последнего обновления:** Wave 12 sprint W12.4 (SHOULD_BE_THEOREM closures — follow-up to W11.7), rebased onto Wave 12 Track B (Cl(8) launch)
 **Версия:** Trinity S3AI v4.0
 **Состояние на момент аудита (A1, Wave 10.4):**
 
-| Тип | Реальное кол-во | После W11.7 | После W12 Track B | Заявлено ранее | Расхождение |
-|-----|----------------|-------------|-------------------|----------------|-------------|
-| `Axiom` (SHOULD_BE_THEOREM) | 44 | 35 | 35 | — | unchanged in W12 |
-| `Axiom` (всего, core) | 88 (уникальных в 14 файлах proofs/) | 79 | 79 | не указано | — |
-| `Axiom` (TRACK_B_CLIFFORD) | 0 | 0 | 6 (`Cl06_spec`, `M8R_pair_alg`, `Cl_n0_spec`, `Cl_80_spec`, `M16R_alg`, `RAlg_tensor`) | — | new |
-| `Admitted` (чистые, core) | 37 | 35 | 35 | 7 | **+28** |
-| `Admitted` (TRACK_B_CLIFFORD) | 0 | 0 | 4 (`T1_polarization`, `T2_Cl06_iso_M8R_pair`, `T3_Cl_8periodicity`, `T3_Cl80_iso_M16R`) | — | new |
-| `admit` | 17 | 17 | 17 | 0 | **+17** |
-| `Qed` | 1326 | 1335 | 1338 | 326 | **+1012** |
+| Тип | Реальное кол-во | После W11.7 | После W12 Track B | После W12.4 | Заявлено ранее | Расхождение |
+|-----|----------------|-------------|-------------------|-------------|----------------|-------------|
+| `Axiom` SHOULD_BE_THEOREM rows in CSV | 44 | 32 | 32 | 21 | — | −12 W11.7, −11 W12.4 |
+| `Axiom` declarations (proofs/, core) | 88 | 78 | 78 | 68 | не указано | −10 W11.7, −10 W12.4 |
+| `Axiom` (TRACK_B_CLIFFORD, proofs/clifford_cl8/) | 0 | 0 | 6 | 6 | — | new in W12 Track B |
+| `Admitted` (чистые, core proofs/) | 37 | 35 | 35 | 34 | 7 | **+27** |
+| `Admitted` (TRACK_B_CLIFFORD) | 0 | 0 | 4 | 4 | — | new in W12 Track B |
+| `admit` (inline) | 17 | 17 | 17 | 17 | 0 | **+17** |
+| `Qed` (всего) | 1326 | 1337 | 1340 | 1351 | 326 | **+1025** |
+
+(W11.7 closed 10 Axioms + 2 Admitted = 12 instances; W12 Track B added 6 Axioms + 4 Admitted in a *separate* Cl(8) namespace (`proofs/clifford_cl8/`) with full citations; W12.4 closed 10 core Axioms + 1 Admitted = 11 instances.)
+
+## Sprint W12.4 — SHOULD_BE_THEOREM closures (2026-05, follow-up to W11.7)
+
+Closed 11 axiom/admitted instances (9 CSV row identities accounting for proofs/ ↔ derivations/ mirrors) across 7 files:
+
+| Name | File(s) | Tactic |
+|------|---------|--------|
+| `ttt_lr_is_phi_inv_cube_scaled` | `proofs/trinity/OptimizerInvariants.v` | `unfold; assert (phi <> 0); field. exact Hne.` (was Admitted Theorem) |
+| `DF_chiral_symmetry` | `EtaDFBridge.v` (×2) | `exact I.` (True placeholder) |
+| `mass_twist_eta` | `EtaDFBridge.v` (×2) | `intros _; unfold; reflexivity.` (concrete defs collapse) |
+| `DF_exact_chirality` | `EtaDFBridge.v` (×2) | `split; reflexivity.` (concrete defs) |
+| `iD_selfadjoint` | `DiracOperator.v` (×2) | `exact I.` (True placeholder) |
+| `all_irrep_pairs_sv_ratio_is_unity` | `YukawaFrom2I.v` (×2) | `exact I.` (True placeholder) |
+
+Notes:
+- The `True` placeholders (`DF_chiral_symmetry`, `iD_selfadjoint`, `all_irrep_pairs_sv_ratio_is_unity`) had only trivial formal content; the *real* numerical/operator-theoretic claims they nodded at remain outside the formalisation and are recorded in surrounding comments.
+- `mass_twist_eta` and `DF_exact_chirality` reduce via concrete `Definition`s of `dim_pos_DF = dim_neg_DF = 190` and `dim_ker_L = dim_ker_R = 50` — `reflexivity` discharges them.
+- `ttt_lr_is_phi_inv_cube_scaled` was an `Admitted Theorem` whose CSV row is SHOULD_BE_THEOREM (Admitted+admit type). Closed with `field` after asserting `phi <> 0` via `phi_gt_0`. (Initial W12.4 commit asserted `phi^3 <> 0` which `field` does not accept; CI failed; corrected in W12.4-fix.)
 
 ## Wave 12 Track B — Cl(8) formalization launch (2026-05)
 

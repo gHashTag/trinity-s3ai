@@ -78,10 +78,10 @@ follow-up work.
 |--------|-------|
 | Coq version | 8.20.1 |
 | Coq files | 77 total (compile status varies) |
-| Qed theorems | 1326 |
-| Admitted (pure) | 37 |
+| Qed theorems | 1348 (was 1326 pre-W11.7/W12.4 sprints) |
+| Admitted (pure) | 34 (was 37; −2 in W11.7, −1 in W12.4) |
 | admit (inline) | 17 |
-| Axiom declarations | 88 (proofs/), ~94 including derivations/ |
+| Axiom declarations | 68 (proofs/) after W11.7+W12.4; 88 originally |
 | SG-class formulas (error < 0.01%) | 11 |
 | V-class formulas (error 0.01–0.3%) | 14 |
 | Anti-numerology gate | ✓ PASS (59 formulas tagged) |
