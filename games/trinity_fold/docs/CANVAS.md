@@ -74,6 +74,7 @@ the bridge — the honesty floor is non-negotiable.
 
 
 
+
 The canvas UI is implemented as a fifth crate in the workspace,
 [`ring4_canvas`](../crates/ring4_canvas), sitting just outside the IO ring
 and just inside the orchestration crate:
@@ -115,6 +116,7 @@ moves, and benchmark logic are the *same* code paths exercised by `cargo run`.
 | `src/render.rs`  | `layout(state, viewport, theme) -> RenderModel`. Emits `RenderPrimitive`s (rect, line, circle, text) and `HitBox`es — no DOM types. Renders the GOLDEN BRIDGE deck (piers + span line + space-fold motif + integrity banner + recipe rail) above the two towers. |
 | `src/bridge.rs`  | `BridgeView` — view projection over `Board` + `Catalog` + `ScoreBreakdown`. Computes pier counts, span nodes with `SpanStatus`, `BridgeIntegrity` (Empty/Sound/Provisional/Collapsed), and a `compression` ratio. Introduces no new scoring. |
 | `src/recipes.rs` | Built-in `Recipe` list (named tile sets with rationale). Clicking a recipe chip emits `UiEvent::LoadRecipe(id)`. |
+
 | `src/wasm.rs`    | Browser shell, compiled only for `target_arch = "wasm32"` and feature `wasm`. Wires DOM events to `input::resolve` and paints `RenderModel` onto a `CanvasRenderingContext2d`. |
 
 The Rust pipeline runs:
@@ -220,6 +222,7 @@ workflow itself) republish the site. The deployed URL is
 and the first run on `main` succeeds. Until then the workflow's deploy
 step will error in CI rather than silently no-op.
 
+
 ### Legacy JS UI
 
 The original static HTML page in `web/index.html` is still present and
@@ -288,6 +291,7 @@ Ring 4 ships 43 unit tests, all native (no browser):
 The GOLDEN BRIDGE concept (piers, span, honesty floor, recipes, space-fold
 motif) is documented separately in
 [`GOLDEN_BRIDGE.md`](GOLDEN_BRIDGE.md).
+
 
 The boundary test
 [`ring_boundaries::no_inner_ring_imports_ring4`](../crates/app/tests/ring_boundaries.rs)

@@ -150,6 +150,7 @@ impl TrinityFoldApp {
             &self.theme,
         );
         paint(&self.ctx, &model);
+
     }
 
     /// Programmatic hook for headless tests / debug consoles.
@@ -160,6 +161,7 @@ impl TrinityFoldApp {
             "anneal" => UiEvent::RunAnneal { seed: 42, iters: 500 },
             "benchmark" => UiEvent::ToggleBenchmark,
             "undo" => UiEvent::UndoLast,
+
             _ => return false,
         };
         let changed = self.state.borrow_mut().apply(ev);
@@ -194,12 +196,14 @@ fn paint(ctx: &CanvasRenderingContext2d, model: &RenderModel) {
                 ctx.fill_rect(*x as f64, *y as f64, *w as f64, *h as f64);
                 if let Some(s) = stroke {
                     ctx.set_stroke_style_str(&s.css());
+
                     ctx.set_line_width(1.0);
                     ctx.stroke_rect(*x as f64, *y as f64, *w as f64, *h as f64);
                 }
             }
             RenderPrimitive::Line { x0, y0, x1, y1, color, width } => {
                 ctx.set_stroke_style_str(&color.css());
+
                 ctx.set_line_width(*width as f64);
                 ctx.begin_path();
                 ctx.move_to(*x0 as f64, *y0 as f64);
@@ -208,16 +212,19 @@ fn paint(ctx: &CanvasRenderingContext2d, model: &RenderModel) {
             }
             RenderPrimitive::Circle { x, y, r, fill, stroke } => {
                 ctx.set_fill_style_str(&fill.css());
+
                 ctx.begin_path();
                 let _ = ctx.arc(*x as f64, *y as f64, *r as f64, 0.0, std::f64::consts::TAU);
                 ctx.fill();
                 if let Some(s) = stroke {
                     ctx.set_stroke_style_str(&s.css());
+
                     ctx.stroke();
                 }
             }
             RenderPrimitive::Text { x, y, s, color, size, bold } => {
                 ctx.set_fill_style_str(&color.css());
+
                 let weight = if *bold { "700" } else { "400" };
                 ctx.set_font(&format!(
                     "{} {}px ui-sans-serif, system-ui, -apple-system, sans-serif",

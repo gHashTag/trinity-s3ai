@@ -43,6 +43,7 @@
 use ring0_core::{ClaimStatus, NodeKind, Tower};
 
 use crate::bridge::{BridgeIntegrity, SpanStatus};
+
 use crate::state::AppState;
 
 #[derive(Clone, Copy, Debug, Default)]
@@ -62,6 +63,7 @@ impl Color {
     pub fn with_alpha(&self, alpha: u8) -> Color {
         Color(self.0, self.1, self.2, alpha)
     }
+
 }
 
 #[derive(Clone, Debug)]
@@ -95,6 +97,7 @@ pub struct Theme {
     pub data_glow: Color,
     /// Bright accent used for the geometry side (purple glow).
     pub geom_glow: Color,
+
 }
 
 impl Default for Theme {
@@ -128,6 +131,7 @@ impl Default for Theme {
             fold_ring: Color(140, 180, 230, 90),
             data_glow: Color(80, 180, 255, 255),
             geom_glow: Color(210, 130, 240, 255),
+
         }
     }
 }
@@ -149,6 +153,7 @@ pub enum HitRegion {
     ButtonBenchmark,
     ButtonUndo,
     RecipeChip(String),
+
 }
 
 #[derive(Clone, Debug)]
@@ -179,6 +184,7 @@ const HONESTY_STRIP_H: f32 = 36.0;
 // The bridge stage is the dominant element — ~62% of the viewport height
 // at the reference size, so it visually anchors the page as the hero.
 const BRIDGE_RATIO: f32 = 0.62;
+
 
 fn claim_color(claim: ClaimStatus, theme: &Theme) -> Color {
     match claim {
@@ -381,6 +387,7 @@ fn hero_instruction(state: &AppState) -> (String, bool /* is win */) {
 }
 
 /// Build the render model for the current state.
+
 pub fn layout(state: &AppState, viewport: ViewportSize, theme: &Theme) -> RenderModel {
     let mut prims = Vec::new();
     let mut hits = Vec::new();
@@ -456,6 +463,7 @@ pub fn layout(state: &AppState, viewport: ViewportSize, theme: &Theme) -> Render
         pad, viewport.height - HONESTY_STRIP_H - 4.0,
         viewport.width - pad * 2.0, HONESTY_STRIP_H,
         &mut prims, &mut hits);
+
 
     RenderModel { primitives: prims, hit_regions: hits, viewport }
 }
@@ -1015,6 +1023,7 @@ fn draw_card_strip(
     let inner_bottom = y + h - 12.0;
     let tile_w = (inner_right - inner_x - TILE_GAP_X * (cols as f32 - 1.0)) / cols as f32;
 
+
     let kinds_data = [NodeKind::Observable, NodeKind::Constraint];
     let kinds_geom = [NodeKind::Symmetry, NodeKind::Geometry, NodeKind::Field, NodeKind::Constant];
     let kinds: &[NodeKind] = if tower == Tower::Data { &kinds_data } else { &kinds_geom };
@@ -1037,6 +1046,7 @@ fn draw_card_strip(
             let cclr = claim_color(node.claim, theme);
             let fill = if selected {
                 glow
+
             } else if hovered {
                 theme.tile_hover
             } else {
@@ -1123,6 +1133,7 @@ fn draw_card_strip(
                 x: tx, y: ty, w: tile_w, h: TILE_H,
                 region: HitRegion::Tile(node.id.clone()),
             });
+
 
             col += 1;
             if col >= cols {
@@ -1229,6 +1240,7 @@ fn draw_honesty_strip(
             });
         }
     }
+
 }
 
 fn truncate(s: &str, max: usize) -> String {
@@ -1254,6 +1266,7 @@ mod tests {
         // Large enough that every tile in the geometry tower fits below the
         // bridge stage + recipe rail.
         ViewportSize { width: 1280.0, height: 1080.0 }
+
     }
 
     #[test]
@@ -1337,11 +1350,13 @@ mod tests {
             _ => false,
         });
         assert!(any_locked, "data strip should show a 'locked' marker once step 2 is active");
+
     }
 
     #[test]
     fn score_panel_renders_worst_claim_text() {
         let mut state = s();
+
         let falsified_id = state.catalog.nodes.iter()
             .find(|n| n.claim == ring0_core::ClaimStatus::HighRiskOrFalsified)
             .map(|n| n.id.clone());
@@ -1534,4 +1549,5 @@ mod tests {
             assert!(any_status, "expected a status banner once tiles are placed");
         }
     }
+
 }

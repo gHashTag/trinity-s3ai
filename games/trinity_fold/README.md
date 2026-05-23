@@ -113,6 +113,7 @@ and **enforced by integration tests** in
 | 2 | `ring2_search` | ring 0, ring 1 | `hill_climb`, `anneal`, self-contained LCG. Deterministic given seeds. |
 | 3 | `ring3_adapters` | ring 0–2 | `fixtures::default_catalog`, JSON load/save, web JSON export. Sole IO boundary. |
 | 4 | `ring4_canvas` | ring 0–3 | Rust canvas UI: pure `RenderModel` + input handling, GOLDEN BRIDGE view (`bridge::BridgeView`), built-in `recipes`, plus wasm-bindgen browser shell (`Canvas2D`). See [`docs/CANVAS.md`](docs/CANVAS.md) and [`docs/GOLDEN_BRIDGE.md`](docs/GOLDEN_BRIDGE.md). |
+
 | app | `trinity_fold_app` | all rings | CLI parsing + presentation only. No domain logic. |
 
 Why this matters: every score is reproducible from ring 0+1 alone, so

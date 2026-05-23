@@ -14,6 +14,7 @@ use crate::bridge::BridgeView;
 use crate::input::UiEvent;
 use crate::recipes::{Recipe, builtin_recipes};
 
+
 #[derive(Clone, Debug)]
 pub struct ViewOptions {
     pub benchmark_mode: bool,
@@ -51,6 +52,7 @@ pub struct AppState {
     /// Empty after ClearBoard / LoadRecipe; only `ToggleTile` adds to it.
     /// Powers single-step undo from the toolbar / `u` key.
     pub pick_history: Vec<String>,
+
 }
 
 impl AppState {
@@ -62,6 +64,7 @@ impl AppState {
         for r in recipes.iter_mut() {
             r.rebind_to(&catalog);
         }
+
         Self {
             catalog,
             board,
@@ -71,6 +74,7 @@ impl AppState {
             recipes,
             view: ViewOptions::default(),
             pick_history: Vec::new(),
+
         }
     }
 
@@ -113,6 +117,7 @@ impl AppState {
         self.view.focus_id = None;
         self.rescore();
         true
+
     }
 
     /// Apply a typed UI event to the state. Returns true if the state
@@ -130,6 +135,7 @@ impl AppState {
                     self.board.insert(id.clone());
                     self.pick_history.retain(|h| h != &id);
                     self.pick_history.push(id.clone());
+
                 }
                 self.view.focus_id = Some(id);
                 self.rescore();
@@ -155,6 +161,7 @@ impl AppState {
                 };
                 let Some(id) = last else { return false; };
                 self.board.remove(&id);
+
                 self.view.focus_id = None;
                 self.rescore();
                 true
@@ -185,6 +192,7 @@ impl AppState {
                 let report = hill_climb(&self.catalog, self.board.clone(), &w, 64);
                 self.board = report.best_board;
                 self.pick_history.clear();
+
                 self.rescore();
                 true
             }
@@ -197,6 +205,7 @@ impl AppState {
                 true
             }
             UiEvent::LoadRecipe(id) => self.load_recipe(&id),
+
             UiEvent::Tick => {
                 self.view.frame = self.view.frame.wrapping_add(1);
                 // Animations are cosmetic — do not force a full redraw every tick.
@@ -352,6 +361,7 @@ mod tests {
     }
 
     #[test]
+
     fn anneal_with_same_seed_is_deterministic() {
         let mut a = fresh();
         let mut b = fresh();

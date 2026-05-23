@@ -24,6 +24,7 @@
 pub mod bridge;
 pub mod input;
 pub mod recipes;
+
 pub mod render;
 pub mod state;
 
@@ -43,3 +44,4 @@ pub use state::{AppState, ViewOptions};
 pub const PRODUCT_NAME: &str = "GOLDEN BRIDGE";
 pub const PRODUCT_TAGLINE: &str =
     "Build a structural bridge between data and geometry — without collapsing it.";
+

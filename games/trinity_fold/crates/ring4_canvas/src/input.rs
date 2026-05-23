@@ -22,6 +22,7 @@ pub enum UiEvent {
     LoadRecipe(String),
     /// Remove the most recently-picked tile (single-step undo).
     UndoLast,
+
     Tick,
 }
 
@@ -45,6 +46,7 @@ pub enum KeyCode {
     ToggleBenchmark,
     /// `u` — undo last pick.
     Undo,
+
     /// `Esc` — drop focus.
     Escape,
 }
@@ -59,6 +61,7 @@ impl KeyCode {
             "a" | "A" => Some(KeyCode::Anneal),
             "b" | "B" => Some(KeyCode::ToggleBenchmark),
             "u" | "U" => Some(KeyCode::Undo),
+
             "Escape" | "Esc" => Some(KeyCode::Escape),
             _ => None,
         }
@@ -81,6 +84,7 @@ pub fn resolve(model: &RenderModel, action: InputAction) -> Option<UiEvent> {
             Some(HitRegion::ButtonBenchmark) => Some(UiEvent::ToggleBenchmark),
             Some(HitRegion::ButtonUndo) => Some(UiEvent::UndoLast),
             Some(HitRegion::RecipeChip(id)) => Some(UiEvent::LoadRecipe(id)),
+
             None => None,
         },
         InputAction::Hover { x, y } => match hit(model, x, y) {
@@ -96,6 +100,7 @@ pub fn resolve(model: &RenderModel, action: InputAction) -> Option<UiEvent> {
             },
             KeyCode::ToggleBenchmark => UiEvent::ToggleBenchmark,
             KeyCode::Undo => UiEvent::UndoLast,
+
             KeyCode::Escape => UiEvent::Hover(None),
         }),
     }
@@ -213,4 +218,5 @@ mod tests {
             Some(UiEvent::UndoLast)
         );
     }
+
 }
