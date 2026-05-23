@@ -2,14 +2,14 @@
 
 **Status**: Canonical reconciliation of the project's Coq metrics
 **Date**: 2026-05-23
-**Companion**: [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md) (Wave 1), [`delta_cp_analysis.md`](./delta_cp_analysis.md) (Wave 2 — δ_CP tension and formula audit; a future `DELTA_CP_HONEST_STATUS.md` companion is tracked in PR #22)
-**Source of ground truth**: [`admitted_log.md`](./admitted_log.md) (the project's internal audit document) + direct count on the current commit
+**Companion**: [`LAGRANGIAN_HONEST_STATUS.md`](LAGRANGIAN_HONEST_STATUS.md) (Wave 1), [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) (Wave 2 — δ_CP tension and formula audit; a future `DELTA_CP_HONEST_STATUS.md` companion is tracked in PR #22)
+**Source of ground truth**: [`admitted_log.md`](../analysis/admitted_log.md) (the project's internal audit document) + direct count on the current commit
 
 ---
 
 ## TL;DR
 
-The repository advertises **five mutually inconsistent sets of Coq metrics** across its public documents. The correct numbers, derived from a direct count on the current commit and cross-checked against the project's own [`admitted_log.md`](./admitted_log.md), are:
+The repository advertises **five mutually inconsistent sets of Coq metrics** across its public documents. The correct numbers, derived from a direct count on the current commit and cross-checked against the project's own [`admitted_log.md`](../analysis/admitted_log.md), are:
 
 | Metric | Reality (this commit) | Most common public claim | Status of public claim |
 |---|---|---|---|
@@ -134,14 +134,14 @@ Per `admitted_log.md` §"Header-comment status":
 
 ## 4. What this means for the "Mathematical Rigor 9/10" score
 
-[`IMPACT_COMPARISON.md`](./IMPACT_COMPARISON.md) gives the project a **9/10 on Mathematical Rigor**. The justification was "326 theorems Qed in Coq, 0 Admitted". Both halves of that justification are now corrected:
+[`IMPACT_COMPARISON.md`](../analysis/IMPACT_COMPARISON.md) gives the project a **9/10 on Mathematical Rigor**. The justification was "326 theorems Qed in Coq, 0 Admitted". Both halves of that justification are now corrected:
 
 - The true Qed count is **1325**, not 326 (4× higher — argues **for** a high score)
 - The true unproven-obligation count is **123**, not 0 (argues **against** a maximal score)
 
 ### Caveat: even Qed-closed lemmas are not all "physics theorems"
 
-[`derivations/physics_review/independent_review.md`](./derivations/physics_review/independent_review.md) §3.2 makes the deeper point: many of the 1325 Qed-closed lemmas are:
+[`derivations/physics_review/independent_review.md`](../../derivations/physics_review/independent_review.md) §3.2 makes the deeper point: many of the 1325 Qed-closed lemmas are:
 
 1. **Trivial reflexivity** facts (e.g. `coxeter_number_factorization : 30 = 2*3*5. reflexivity. Qed.`)
 2. **Numerical interval verifications** via the `interval` tactic — these verify *that a formula evaluates to a number in a given range*, not *that the formula follows from physical first principles*.

@@ -31,7 +31,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 ## C. Proof debt
 
 - [ ] [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) reports the same `Admitted.` count as `python3 scripts/count_admitted_honest.py` does locally.
-- [ ] As of Wave 17 (`0832b72`), the comment-stripped real `Admitted.` count is **0** across the canonical Coq tree. Any future `Admitted.` introduced in a PR has either a published citation or an `[OPEN_PROBLEM]` label per [`admitted_log.md`](../admitted_log.md).
+- [ ] As of Wave 17 (`0832b72`), the comment-stripped real `Admitted.` count is **0** across the canonical Coq tree. Any future `Admitted.` introduced in a PR has either a published citation or an `[OPEN_PROBLEM]` label per [`admitted_log.md`](analysis/admitted_log.md).
 - [ ] The Wave 17 honest counter table (run `python3 scripts/count_admitted_honest.py`) shows the load-bearing line **`proofs/trinity/` → 52 files, 1063 `Qed.`+`Def.`, 0 `Admitted.`, 50 `Axiom`s, 11 refutations**, matching the README and paper claims.
 - [ ] [`docs/TECH_TREE.md`](TECH_TREE.md) Layer 2 lists the same set of open obligations and notes that NGT-5..7 are paper-level (not yet Coq-formal).
 - [ ] No `Admitted.` in Coq code outside the locations enumerated in `HONESTY_MANIFEST.md` §2.
@@ -63,11 +63,11 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 - [ ] No README or paper text describes any result as a Theory of Everything, "unification achieved", "Nobel-level", or equivalent.
 - [ ] The word "derived" is used only where there is an actual derivation (not just a numeric match) — or qualified with "fit" / "ansatz" wording.
 - [ ] The GOLDEN BRIDGE game is described as a hypothesis-discovery puzzle, not as evidence.
-- [ ] Risky predictions are labelled as such and listed in [`RISKY_PREDICTIONS.md`](../RISKY_PREDICTIONS.md) with falsification criteria.
+- [ ] Risky predictions are labelled as such and listed in [`RISKY_PREDICTIONS.md`](analysis/RISKY_PREDICTIONS.md) with falsification criteria.
 
 ## H. Reproducibility
 
-- [ ] Every figure in the paper / repository has a script that regenerates it (see [`TRACEABILITY.md`](../TRACEABILITY.md)).
+- [ ] Every figure in the paper / repository has a script that regenerates it (see [`TRACEABILITY.md`](analysis/TRACEABILITY.md)).
 - [ ] Every formula in `Catalog42.v` and friends has a stated error bound that `validate_v4.py` can reproduce.
 - [ ] Versions are pinned: Coq 8.20.1, Lean 4 v4.13.0, Rust edition 2024, Python 3.12 in CI.
 - [ ] Build instructions in [`README.md`](../README.md) §"Build Instructions" and [`CONTRIBUTING.md`](../CONTRIBUTING.md) match what CI actually runs.
@@ -90,8 +90,8 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 
 - [ ] [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md) §6 enumerates the known blind spots.
 - [ ] [`docs/TECH_TREE.md`](TECH_TREE.md) Layer 4 flags the Lagrangian gap.
-- [ ] [`COQ_HONEST_STATUS.md`](../COQ_HONEST_STATUS.md) documents the older inconsistent metric claims.
-- [ ] [`REMAINING_PROBLEMS.md`](../REMAINING_PROBLEMS.md) is up to date with the layers above.
+- [ ] [`COQ_HONEST_STATUS.md`](status/COQ_HONEST_STATUS.md) documents the older inconsistent metric claims.
+- [ ] [`REMAINING_PROBLEMS.md`](status/REMAINING_PROBLEMS.md) is up to date with the layers above.
 
 ---
 

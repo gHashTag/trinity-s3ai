@@ -15,8 +15,8 @@ obligations.
 
 | File | Description |
 |------|-------------|
-| [`scripts/count_admitted_honest.py`](scripts/count_admitted_honest.py) | Comment-aware parser that counts **real** `Admitted.`, `Qed.`, `Axiom`, etc. |
-| [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md) | Public policy: how numbers are computed, current status, commitment |
+| [`scripts/count_admitted_honest.py`](../scripts/count_admitted_honest.py) | Comment-aware parser that counts **real** `Admitted.`, `Qed.`, `Axiom`, etc. |
+| [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) | Public policy: how numbers are computed, current status, commitment |
 
 ### Honest Statistics (computed by `count_admitted_honest.py`)
 

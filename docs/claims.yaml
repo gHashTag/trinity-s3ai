@@ -121,6 +121,7 @@ claims:
     status: high_risk_or_falsified
     evidence: "ROADMAP_WAVE17_PLUS.md (Wave 17.2 Findings)"
     owner_file: "ROADMAP_WAVE17_PLUS.md"
+
     blocking_gap: ""
     game_card:
       kind: constraint
@@ -135,8 +136,8 @@ claims:
     short_label: "a4 reconciliation gap"
     layer: L3
     status: open_conjecture
-    evidence: "a4_conversion_factor_analysis.md; a4_honest_resolution.md"
-    owner_file: "a4_conversion_factor_analysis.md"
+    evidence: "docs/analysis/a4_conversion_factor_analysis.md; docs/analysis/a4_honest_resolution.md"
+    owner_file: "docs/analysis/a4_conversion_factor_analysis.md"
     blocking_gap: >-
       Produce a single derivation that all three (analytic, spectral, fit)
       paths agree on, or document why they cannot agree and downgrade the
@@ -154,8 +155,8 @@ claims:
     short_label: "m_H = 4 phi^3 e^2"
     layer: L5
     status: empirical_fit
-    evidence: "proofs/trinity/HiggsPrediction.v (interval bound); higgs_potential_proven.md"
-    owner_file: "higgs_potential_proven.md"
+    evidence: "proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md"
+    owner_file: "docs/analysis/higgs_potential_proven.md"
     blocking_gap: >-
       Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial.
       Any such derivation must pass the anti-numerology gate and avoid the

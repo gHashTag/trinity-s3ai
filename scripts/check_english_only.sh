@@ -25,15 +25,17 @@ TARGETS=(
   ROADMAP.md
   ROADMAP_WAVE17_PLUS.md
   FORMULAS.md
-  COQ_HONEST_STATUS.md
+  docs/status/COQ_HONEST_STATUS.md
   CITATION.cff
   CITATION.bib
   derivations/formulas_cleanup/PROPOSAL.md
   talks/SPEAKER_NOTES.md
 )
 
-# Add globbed sets
-for f in docs/*.md .github/*.md scripts/*.md; do
+# Add globbed sets — include the public-facing docs/ subfolders introduced in
+# the Phase-1 repository cleanup (status/, roadmaps/, applications/).
+for f in docs/*.md docs/status/*.md docs/roadmaps/*.md \
+         docs/applications/*.md .github/*.md scripts/*.md; do
   TARGETS+=("$f")
 done
 
