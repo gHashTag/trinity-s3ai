@@ -3,50 +3,62 @@
 ## How to play (3 steps)
 
 GOLDEN BRIDGE is a kid-friendly hypothesis-discovery puzzle. The goal is to
-*light bridge stones* by picking matched pairs of tiles. The bridge stays
-stable as long as you avoid falsified (red ⚠) tiles.
+*light four bridge stones* by picking matched pairs of cards. The bridge
+stays stable as long as you avoid falsified (red ⚠) cards.
 
-1. **Click a BLUE Data tile** in the left tower (e.g. "Higgs Mass",
+1. **Pick a BLUE Data card** in the left strip (e.g. "Higgs Mass",
    "Light Strength"). These are things we measure in the real world.
-2. **Click a PURPLE Geometry tile** in the right tower (e.g. "Weak Force",
+2. **Pick a PURPLE Geometry card** in the right strip (e.g. "Weak Force",
    "Golden Shape (H4)"). These are math/symmetry pieces we *imagine*.
-3. **Watch the central bridge stones light up.** Each safe pair lights one
-   stone. Light four or more stones and the status banner reads
-   `BRIDGE STABLE!`. Click a red ⚠ tile and the bridge cracks — the
-   honesty floor catches falsified ideas regardless of how shiny the rest
-   of the board is.
+3. **Watch the four stones on the deck light up.** Each safe pair lights
+   one stone. Light four and the hero line reads `BRIDGE STABLE!`. Click a
+   red ⚠ card and the bridge cracks — the honesty floor catches falsified
+   ideas regardless of how shiny the rest of the board is.
 
-Buttons on the toolbar:
+Buttons under the bridge:
 
 | Button | What it does |
 |---|---|
-| **Reset (C)** | Clear the bridge and start over. |
+| **Start over (C)** | Clear the bridge and start fresh. |
 | **Hint (H)** | Hill-climb one step toward a higher-scoring board. |
 | **Auto-build (A)** | Run a fixed-seed simulated anneal — the game plays itself. |
 | **Honest mode (B)** | Hide held-out observables (cosmological constant, mt/mb) so the score only reflects predicted-vs-known matches the player could *not* peek at. |
-| **Try Recipe** | Load a built-in starter set (Standard-Model core, H4/600-cell geometry, Anomaly audit). |
+| **Try Recipe** | Chips above the geometry strip load a built-in starter set (Standard-Model core, H4/600-cell, Anomaly audit). |
 
-### Design intent
+### Design intent (UX rationale)
 
-The visual hierarchy is deliberately game-shaped, not dashboard-shaped:
+The stage is sized for a **16:9 viewport (1280x720)** and follows mainstream
+puzzle-game UX best practices rather than dashboard conventions:
 
-* The **bridge band** is the largest single element on screen. Two glowing
-  pillars (Data left, Geometry right) anchor a thick deck holding eight
-  empty stone slots. Stones light gold as safe pairs are placed; the deck
-  cracks visibly with a red zig-zag if a falsified tile is on the board.
-* The **tutorial banner** (always-visible) carries the three numbered
-  steps. There is no dismissable overlay — a child landing on the page
-  reads the goal before any code runs.
-* The **towers** below the bridge are the *input palette*. Tiles use
-  child-readable primary labels ("Higgs Mass") with the technical id
-  ("o_higgs_mass") as subtext, so the play surface reads like a game and
-  the honesty hooks remain accessible to researchers.
-* The **honesty panel** lives at the bottom in a single low-contrast
-  strip. Researchers can still read the full score breakdown there, but
-  it never competes with the bridge for attention.
+* **One primary action per state.** A single hero line above the deck tells
+  the player what to do next: *"Step 1: Pick a BLUE Data card"*, then
+  *"Step 2: Pick a PURPLE Geometry card"*, then *"Light 4 stones to win."*
+  No multi-paragraph wall of onboarding text.
+* **Bridge is visually dominant.** It occupies ~56% of the viewport height
+  with thick glowing pillars, a plank-textured deck, four large stones
+  (instead of eight micro-pips), and a visible space-fold halo. The win
+  state is readable at a glance.
+* **Progressive disclosure.** Raw catalog ids (`o_higgs_mass`,
+  `g_calabi_yau`, …) only appear as subtext when a card is hovered,
+  focused, or selected. The idle face shows only the child-friendly label.
+* **Fewer, larger cards.** Two strips (BLUE Data, PURPLE Geometry) replace
+  the old crowded grids. Each card is ≥52px tall with ≥44px hit targets,
+  laid out 2-up so the page never reads as a spreadsheet. Cards that
+  overflow the visible strip remain hit-testable via recipe chips or the
+  search/auto-build path.
+* **Honesty drawer, not honesty wall.** The full score breakdown, build
+  instructions, and the falsifiability notice have moved into a collapsed
+  `<details>` drawer below the canvas. The in-canvas honesty strip keeps
+  the single-line *"bridge strength is NOT proof of physics"* warning plus
+  the worst-claim badge — always visible, but never dominant.
+* **No duplicated tutorial.** The earlier HTML wrapper rendered the
+  3-step "How to play" banner AND a separate honesty notice ABOVE the
+  canvas. Both are gone — the in-canvas hero line plus the bottom legend
+  carry onboarding, and the `<details>` drawer carries the long-form
+  honesty notice.
 
 Honesty is preserved: bridge strength is a *hypothesis health* signal, not
-a physics conclusion. A high score with a falsified tile still collapses
+a physics conclusion. A high score with a falsified card still collapses
 the bridge — the honesty floor is non-negotiable.
 
 
