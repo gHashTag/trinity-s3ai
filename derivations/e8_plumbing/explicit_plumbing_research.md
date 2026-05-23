@@ -349,7 +349,138 @@ The Wave 16.2 experiment **closes the computational loop** (B → D_P → spectr
 
 ---
 
+## 8. Wave 17.1 — Full 128-Vertex Model and η Convergence Study
+
+**Date:** 2026-05-22  
+**Files:** `full_e8_plumbing.py`, `full_e8_results.json`, `eta_convergence.png`  
+**Status:** Full model built; convergence study completed; η does NOT converge to −2
+
+### 8.1 What was accomplished
+
+1. **Nested boundary subsets** — Extracted subsets of the 600-cell with 12, 24, 32, 48, 64, 96, and 120 boundary vertices.
+   - Strategy: group-3-first (the 96 vertices of group 3 are the only ones with internal 600-cell edges).
+   - Every reduced model has a non-trivial boundary graph.
+
+2. **Full 512×512 D_P** — Assembled and diagonalized for all resolutions.
+   - Dense diagonalization via `numpy.linalg.eigvalsh`.
+   - Largest matrix: 512×512, ~0.1 s, ~6.7 MB RAM.
+
+3. **η convergence study** — Computed η(ε) = (n₊(>ε) − n₋(<−ε))/2 for all resolutions.
+
+4. **Sensitivity analysis** — Tested coupling constant (0.5, 1.0, 2.0, 5.0) and mass shift (0.0, 0.1, 0.5, 1.0) on the full model.
+
+### 8.2 Results
+
+#### Convergence table
+
+| N_bnd | N_total | D_P dim | Boundary edges | deg range | η_integer | η = η_int/2 | APS target |
+|-------|---------|---------|----------------|-----------|-----------|-------------|------------|
+| 12    | 20      | 80      | 30             | [5, 5]    | −8        | **−4.0**    | −2         |
+| 24    | 32      | 128     | 72             | [4, 8]    | −16       | −8.0        | −2         |
+| 32    | 40      | 160     | 104            | [4, 9]    | −12       | −6.0        | −2         |
+| 48    | 56      | 224     | 168            | [5, 9]    | −20       | −10.0       | −2         |
+| 64    | 72      | 288     | 248            | [5, 9]    | −28       | −14.0       | −2         |
+| 96    | 104     | 416     | 432            | [9, 9]    | −40       | −20.0       | −2         |
+| **120**   | **128**     | **512**     | **720**            | **[12, 12]**  | **−64**       | **−32.0**       | **−2**         |
+
+#### Key observations
+
+- **Best agreement** is at the *smallest* resolution (N_bnd = 12, η = −4.0), not the largest.
+- As boundary resolution increases, |η| grows monotonically from 4 to 32.
+- The full 120-vertex model gives η = −32, a factor of **16×** away from the APS target −2.
+- The discrepancy grows roughly linearly with N_bnd.
+
+#### Coupling sensitivity (full model, N_bnd = 120)
+
+| Coupling c | η |
+|------------|---|
+| 0.5        | −32 |
+| 1.0        | −32 |
+| 2.0        | −32 |
+| 5.0        | −32 |
+
+η is **completely insensitive** to the coupling constant. This is because the boundary η is computed from the boundary block D_bb after extracting the 2-component restriction. The coupling B only appears in the off-diagonal blocks D_bi and D_ib, which are eliminated when we restrict to the boundary block.
+
+#### Mass-shift sensitivity (full model, N_bnd = 120)
+
+| Mass shift m | η   | Near-zero modes |
+|--------------|-----|-----------------|
+| 0.0          | −32 | 20              |
+| 0.1          | −28 | 20              |
+| 0.5          | −10 | 0               |
+| 1.0          | −10 | 0               |
+
+A mass shift of m = 0.5 or 1.0 pushes all near-zero modes away from zero and improves η from −32 to −10. This is a **phenomenological tuning**, not a first-principles derivation. Even with tuning, the discrepancy remains 8× from the APS target.
+
+### 8.3 Convergence verdict
+
+**Does η converge to −2 as boundary resolution increases?**
+
+**NO.**
+
+The data show the opposite trend: η diverges from −2 as N_bnd increases. The heuristic B-matrix construction, while geometrically motivated, does not reproduce the correct spectral asymmetry of the E8 plumbing boundary.
+
+### 8.4 Why η does not converge
+
+1. **B-matrix is a heuristic, not a rigorous derivation.**
+   - We identified interior nodes with the 16-cell frame vectors.
+   - There is no theorem guaranteeing this identification.
+   - The equatorial coupling (constant on a discrete slice) is a coarse approximation of a normal derivative.
+
+2. **Sign-counting on a finite graph cannot reproduce fractional η.**
+   - The APS theorem gives η = −2 for a *continuous* Dirac operator.
+   - On a finite graph, η = (n₊ − n₋)/2 is always an integer or half-integer.
+   - The continuous limit requires zeta regularization, which for a finite matrix reduces to sign-counting.
+
+3. **The boundary adjacency spectrum dominates.**
+   - The 600-cell adjacency has 65 negative eigenvalues out of 120.
+   - When embedded into the 2-component boundary block, this heavily biases η toward negative values.
+   - The antisymmetric M_k terms (which break chiral symmetry) are too small to compensate.
+
+4. **Mass shift improves but does not fix η.**
+   - Adding a mass shift m·I to the boundary block pushes eigenvalues away from zero.
+   - With m = 0.5, η improves from −32 to −10, but this is still 5× from the target.
+   - No value of m reproduces η = −2 while preserving the near-zero mode structure.
+
+### 8.5 Implications
+
+The Wave 17.1 experiment **falsifies the hypothesis** that increasing boundary resolution alone will make the discrete η converge to the APS value. The failure is not computational (the 512×512 diagonalization is trivial) but **structural**: the discrete Dirac ansatz used here does not correctly encode the topology of the E8 plumbing boundary.
+
+**Possible paths forward:**
+
+1. **Derive B from plumbing intersection form.**
+   - Use Kirby calculus or surgery diagrams to determine how each E8 plumbing sphere intersects the boundary 3-manifold Σ(2,3,5).
+   - Encode this intersection data into the discrete coupling matrix.
+
+2. **Use a spectral graph Dirac operator with vertex weights.**
+   - Instead of adjacency-based D_P, use a spectral Dirac operator that incorporates vertex degrees and weights.
+   - This might better approximate the continuous Dirac spectrum.
+
+3. **Implement zeta regularization properly.**
+   - Define η(s) = Σ sign(λ)|λ|⁻ˢ and analytically continue to s = 0.
+   - For a finite matrix this still reduces to sign-counting, so a genuinely infinite (or much larger) discretization may be needed.
+
+4. **Re-examine the discrete Dirac ansatz.**
+   - The current ansatz uses M_k[i,j] = A[i,j]·(v_i[k] − v_j[k]) for antisymmetric terms.
+   - A different construction (e.g., using quaternionic multiplication instead of coordinate differences) might yield better η.
+
+### 8.6 Computational notes
+
+| Resolution | D_P dim | Diagonalization time | Peak RAM |
+|------------|---------|----------------------|----------|
+| N_bnd = 12  | 80×80   | 0.003 s              | 0.16 MB  |
+| N_bnd = 24  | 128×128 | 0.005 s              | 0.41 MB  |
+| N_bnd = 32  | 160×160 | 0.008 s              | 0.64 MB  |
+| N_bnd = 48  | 224×224 | 0.015 s              | 1.26 MB  |
+| N_bnd = 64  | 288×288 | 0.023 s              | 2.10 MB  |
+| N_bnd = 96  | 416×416 | 0.091 s              | 4.39 MB  |
+| N_bnd = 120 | 512×512 | 0.103 s              | 6.68 MB  |
+
+All computations completed on a single CPU core. No sparse methods were needed; dense QR on 512×512 real symmetric matrices is well within laptop capabilities.
+
+---
+
 *Document type: Research proposal with partial implementation*  
-*Wave: 15.6 → 16.2*  
+*Wave: 15.6 → 16.2 → 17.1*  
 *Last updated: 2026-05-22*  
 *Next action: Rigorous derivation of B or revised discrete Dirac ansatz*
