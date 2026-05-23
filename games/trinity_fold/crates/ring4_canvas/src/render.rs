@@ -138,7 +138,15 @@ const HEADER_H: f32 = 64.0;
 const BUTTON_H: f32 = 32.0;
 const SCORE_PANEL_W: f32 = 280.0;
 /// Height reserved for the GOLDEN BRIDGE deck strip across the canvas.
-const BRIDGE_DECK_H: f32 = 78.0;
+///
+/// The strip is divided into three vertical bands so the integrity header
+/// (top) never overlaps the pier counters (Data·N / Geometry·N) drawn
+/// alongside the pier columns below it:
+///
+///   `[ 0..BRIDGE_HEADER_BAND_H ]`  integrity header text
+///   `[ BRIDGE_HEADER_BAND_H .. BRIDGE_DECK_H ]`  piers + deck line + spans
+const BRIDGE_DECK_H: f32 = 96.0;
+const BRIDGE_HEADER_BAND_H: f32 = 26.0;
 const RECIPE_CHIP_H: f32 = 26.0;
 
 fn claim_color(claim: ClaimStatus, theme: &Theme) -> Color {
@@ -289,10 +297,25 @@ fn draw_bridge_deck(
         stroke: Some(theme.stroke),
     });
 
+    // The deck strip is split into two horizontal bands so the integrity
+    // header text at the top cannot overlap the pier counters and span
+    // markers below it.
+    let lower_top = y + BRIDGE_HEADER_BAND_H;
+    let lower_h = h - BRIDGE_HEADER_BAND_H;
+
+    // Faint divider between header band and pier band — visual hint, not
+    // load-bearing.
+    prims.push(RenderPrimitive::Line {
+        x0: x + 8.0, y0: lower_top,
+        x1: x + w - 8.0, y1: lower_top,
+        color: theme.fold_ring, width: 1.0,
+    });
+
     // Space-fold motif: concentric arcs hint at compression of a high-D space
     // into a small consistent set. Pure decoration; carries no scoring weight.
+    // Centred on the *lower* band so it never bleeds into the header band.
     let cx = x + w * 0.5;
-    let cy = y + h * 0.55;
+    let cy = lower_top + lower_h * 0.55;
     for k in 0..4 {
         let r = 18.0 + k as f32 * 14.0 + bridge.compression as f32 * 28.0;
         prims.push(RenderPrimitive::Circle {
@@ -302,10 +325,10 @@ fn draw_bridge_deck(
         });
     }
 
-    // Pier columns.
+    // Pier columns — anchored inside the lower band.
     let pier_w = 14.0;
-    let pier_top = y + 12.0;
-    let pier_h = h - 24.0;
+    let pier_top = lower_top + 14.0;
+    let pier_h = lower_h - 26.0;
     let data_x = x + 18.0;
     let geom_x = x + w - 18.0 - pier_w;
     prims.push(RenderPrimitive::Rect {
@@ -316,19 +339,21 @@ fn draw_bridge_deck(
         x: geom_x, y: pier_top, w: pier_w, h: pier_h,
         fill: theme.tower_geom, stroke: Some(theme.stroke),
     });
+    // Pier counters sit *between* the header band divider and the pier
+    // column top, so they cannot overlap the integrity header above.
     prims.push(RenderPrimitive::Text {
-        x: data_x - 4.0, y: pier_top - 4.0,
+        x: data_x - 4.0, y: pier_top - 2.0,
         s: format!("Data·{}", bridge.data_pier_count),
         color: theme.text_dim, size: 11.0, bold: true,
     });
     prims.push(RenderPrimitive::Text {
-        x: geom_x - 24.0, y: pier_top - 4.0,
+        x: geom_x - 24.0, y: pier_top - 2.0,
         s: format!("Geometry·{}", bridge.geom_pier_count),
         color: theme.text_dim, size: 11.0, bold: true,
     });
 
-    // Deck line.
-    let deck_y = y + h * 0.5;
+    // Deck line — centred vertically inside the lower band.
+    let deck_y = lower_top + lower_h * 0.5;
     let deck_color = match bridge.integrity {
         BridgeIntegrity::Empty => theme.text_dim,
         BridgeIntegrity::Sound => theme.bridge_sound,
@@ -375,10 +400,12 @@ fn draw_bridge_deck(
         });
     }
 
-    // Header label inside the deck area.
+    // Header label sits in its own band at the top of the deck strip —
+    // BRIDGE_HEADER_BAND_H of vertical space is reserved above the piers
+    // so this never collides with the Data·N / Geometry·N counters.
     let integrity_col = integrity_color(bridge.integrity, theme);
     prims.push(RenderPrimitive::Text {
-        x: x + 12.0, y: y + 16.0,
+        x: x + 12.0, y: y + 17.0,
         s: format!(
             "GOLDEN BRIDGE — integrity: {}   strength: {:+.3}   compression: {:.0}%",
             bridge.integrity.label(),
@@ -388,8 +415,10 @@ fn draw_bridge_deck(
         color: integrity_col, size: 13.0, bold: true,
     });
     if bridge.integrity == BridgeIntegrity::Collapsed {
+        // Collapse warning is drawn below the deck line so it does not
+        // re-enter the header band.
         prims.push(RenderPrimitive::Text {
-            x: x + 12.0, y: y + 32.0,
+            x: x + 12.0, y: deck_y + 28.0,
             s: format!(
                 "Honesty floor tripped: {} falsified tile(s) on the span.",
                 bridge.falsified_count
@@ -775,6 +804,46 @@ mod tests {
             _ => false,
         });
         assert!(has_label);
+    }
+
+    /// Regression: the integrity header (top of the deck strip) and the
+    /// pier counters (`Data·N`, `Geometry·N`) used to share a vertical
+    /// band and overlapped in the deployed static preview. They must now
+    /// live in distinct horizontal bands with daylight between them.
+    #[test]
+    fn integrity_header_does_not_overlap_pier_counters() {
+        let m = layout(&s(), vp(), &Theme::default());
+        // Approximate text height for the 13.0-px integrity header and
+        // 11.0-px pier counter, matching the conservative metric used by
+        // the canvas shell. Text y-coordinates are baselines, so the
+        // glyph box extends roughly `size * 1.1` upward.
+        fn box_top_bottom(y: f32, size: f32) -> (f32, f32) {
+            (y - size * 1.1, y + size * 0.25)
+        }
+        let mut integrity_y: Option<f32> = None;
+        let mut pier_ys: Vec<f32> = Vec::new();
+        for p in &m.primitives {
+            if let RenderPrimitive::Text { s, y, size, .. } = p {
+                if s.starts_with("GOLDEN BRIDGE — integrity:") {
+                    integrity_y = Some(*y);
+                    let _ = size; // size pinned in box_top_bottom below
+                } else if s.starts_with("Data·") || s.starts_with("Geometry·") {
+                    pier_ys.push(*y);
+                }
+            }
+        }
+        let iy = integrity_y.expect("integrity header text missing");
+        let (_, ih_bot) = box_top_bottom(iy, 13.0);
+        assert!(!pier_ys.is_empty(), "expected pier counter labels");
+        for py in pier_ys {
+            let (p_top, _) = box_top_bottom(py, 11.0);
+            assert!(
+                ih_bot < p_top,
+                "integrity header (bottom y={:.1}) must sit above pier counter \
+                 (top y={:.1}); overlap regression",
+                ih_bot, p_top,
+            );
+        }
     }
 
     #[test]

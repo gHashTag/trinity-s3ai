@@ -5,168 +5,169 @@
 <rect x="0.00" y="0.00" width="1280.00" height="980.00" fill="rgba(11,14,22,1.000)"/>
 <text x="24.00" y="32.00" fill="rgba(212,175,55,0.863)" font-size="22.0" font-weight="700">GOLDEN BRIDGE — Rust canvas UI (ring 4)</text>
 <text x="24.00" y="54.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="400">Build a structural bridge between data and geometry — without collapsing it. Hypothesis-discovery puzzle, NOT a proven Theory of Everything.</text>
-<rect x="18.00" y="112.00" width="1244.00" height="78.00" fill="rgba(16,20,30,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<circle cx="640.00" cy="154.90" r="18.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
-<circle cx="640.00" cy="154.90" r="32.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
-<circle cx="640.00" cy="154.90" r="46.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
-<circle cx="640.00" cy="154.90" r="60.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
-<rect x="36.00" y="124.00" width="14.00" height="54.00" fill="rgba(30,50,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<rect x="1230.00" y="124.00" width="14.00" height="54.00" fill="rgba(50,30,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<text x="32.00" y="120.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">Data·0</text>
-<text x="1206.00" y="120.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">Geometry·0</text>
-<line x1="50.00" y1="151.00" x2="1230.00" y2="151.00" stroke="rgba(140,150,165,1.000)" stroke-width="4.00" stroke-linecap="round"/>
-<text x="30.00" y="128.00" fill="rgba(140,150,165,1.000)" font-size="13.0" font-weight="700">GOLDEN BRIDGE — integrity: EMPTY   strength: +0.000   compression: 0%</text>
-<text x="18.00" y="208.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">Recipes:</text>
-<rect x="88.00" y="194.00" width="174.40" height="26.00" fill="rgba(60,100,90,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<text x="97.00" y="211.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">Standard-Model core (5)</text>
-<rect x="268.40" y="194.00" width="228.80" height="26.00" fill="rgba(60,100,90,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<text x="277.40" y="211.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">H4 / 600-cell geometry pier (4)</text>
-<rect x="503.20" y="194.00" width="222.00" height="26.00" fill="rgba(60,100,90,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<text x="512.20" y="211.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">Anomaly-cancellation audit (4)</text>
-<rect x="18.00" y="232.00" width="464.00" height="732.00" fill="rgba(30,50,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<text x="30.00" y="254.00" fill="rgba(230,235,240,1.000)" font-size="16.0" font-weight="700">Data Tower (pier)</text>
-<text x="30.00" y="272.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">observables &amp; constraints</text>
-<text x="30.00" y="288.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">observable</text>
-<rect x="30.00" y="302.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
-<rect x="30.00" y="302.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
-<text x="40.00" y="320.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_higgs_mass</text>
-<text x="40.00" y="336.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">m_H</text>
-<rect x="216.00" y="302.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
-<rect x="216.00" y="302.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
-<text x="226.00" y="320.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_alpha_em_inv</text>
-<text x="226.00" y="336.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">1/α_em</text>
-<rect x="30.00" y="364.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
-<rect x="30.00" y="364.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
-<text x="40.00" y="382.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_sin2_theta_w</text>
-<text x="40.00" y="398.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">sin²θ_W</text>
-<rect x="216.00" y="364.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
-<rect x="216.00" y="364.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
-<text x="226.00" y="382.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_mt_over_mb</text>
-<text x="226.00" y="398.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">m_t / m_b</text>
-<rect x="30.00" y="426.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
-<rect x="30.00" y="426.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
-<text x="40.00" y="444.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_cosmo_lambda</text>
-<text x="40.00" y="460.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Λ (cosmological const…</text>
-<text x="30.00" y="496.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">constraint</text>
-<rect x="30.00" y="510.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="30.00" y="510.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="40.00" y="528.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_dim</text>
-<text x="40.00" y="544.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Dimensional sanity</text>
-<rect x="216.00" y="510.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="216.00" y="510.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="226.00" y="528.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_unitarity</text>
-<text x="226.00" y="544.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Unitarity</text>
-<rect x="30.00" y="572.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="30.00" y="572.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="40.00" y="590.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_anomaly</text>
-<text x="40.00" y="606.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Anomaly cancellation</text>
-<rect x="216.00" y="572.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,50,50,1.000)" stroke-width="1"/>
-<rect x="216.00" y="572.00" width="4.00" height="52.00" fill="rgba(180,50,50,1.000)"/>
-<text x="226.00" y="590.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_ngt3_chirality</text>
-<text x="226.00" y="606.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">NGT3: H4 alone is vec…</text>
-<rect x="30.00" y="634.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,50,50,1.000)" stroke-width="1"/>
-<rect x="30.00" y="634.00" width="4.00" height="52.00" fill="rgba(180,50,50,1.000)"/>
-<text x="40.00" y="652.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_ngt1_cosmology</text>
-<text x="40.00" y="668.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">NGT1: φ^a·π^b·e^c can…</text>
-<rect x="798.00" y="232.00" width="464.00" height="732.00" fill="rgba(50,30,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<text x="810.00" y="254.00" fill="rgba(230,235,240,1.000)" font-size="16.0" font-weight="700">Geometry Tower (pier)</text>
-<text x="810.00" y="272.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">symmetry, geometry, fields, constants</text>
-<text x="810.00" y="288.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">symmetry</text>
-<rect x="810.00" y="302.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="810.00" y="302.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="820.00" y="320.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_su3</text>
-<text x="820.00" y="336.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">SU(3)_C</text>
-<rect x="996.00" y="302.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="996.00" y="302.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="1006.00" y="320.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_su2</text>
-<text x="1006.00" y="336.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">SU(2)_L</text>
-<rect x="810.00" y="364.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="810.00" y="364.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="820.00" y="382.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_u1</text>
-<text x="820.00" y="398.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">U(1)_Y</text>
-<rect x="996.00" y="364.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="996.00" y="364.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="1006.00" y="382.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_lorentz</text>
-<text x="1006.00" y="398.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">SO(1,3)</text>
-<rect x="810.00" y="426.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="810.00" y="426.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="820.00" y="444.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_h4</text>
-<text x="820.00" y="460.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">H4 Coxeter</text>
-<text x="810.00" y="496.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">geometry</text>
-<rect x="810.00" y="510.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="810.00" y="510.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="820.00" y="528.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_600cell</text>
-<text x="820.00" y="544.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">600-cell</text>
-<rect x="996.00" y="510.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
-<rect x="996.00" y="510.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
-<text x="1006.00" y="528.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_cl8</text>
-<text x="1006.00" y="544.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Cl(8)</text>
-<rect x="810.00" y="572.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
-<rect x="810.00" y="572.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
-<text x="820.00" y="590.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_ncg_triple</text>
-<text x="820.00" y="606.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">NCG spectral triple (…</text>
-<rect x="996.00" y="572.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
-<rect x="996.00" y="572.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
-<text x="1006.00" y="590.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_f4_spectrum</text>
-<text x="1006.00" y="606.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">F4 spectrum</text>
-<text x="810.00" y="642.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">field</text>
-<rect x="810.00" y="656.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="810.00" y="656.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="820.00" y="674.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">f_higgs</text>
-<text x="820.00" y="690.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Higgs doublet H</text>
-<rect x="996.00" y="656.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="996.00" y="656.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="1006.00" y="674.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">f_fermions</text>
-<text x="1006.00" y="690.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Three fermion generat…</text>
-<rect x="810.00" y="718.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
-<rect x="810.00" y="718.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
-<text x="820.00" y="736.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">f_graviton</text>
-<text x="820.00" y="752.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Graviton (spin-2)</text>
-<text x="810.00" y="788.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">constant</text>
-<rect x="810.00" y="802.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="810.00" y="802.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="820.00" y="820.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_hbar</text>
-<text x="820.00" y="836.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">ℏ</text>
-<rect x="996.00" y="802.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="996.00" y="802.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="1006.00" y="820.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_c</text>
-<text x="1006.00" y="836.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">c</text>
-<rect x="810.00" y="864.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
-<rect x="810.00" y="864.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
-<text x="820.00" y="882.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_alpha_em</text>
-<text x="820.00" y="898.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">α_em</text>
-<rect x="996.00" y="864.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
-<rect x="996.00" y="864.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
-<text x="1006.00" y="882.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_G</text>
-<text x="1006.00" y="898.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">G</text>
-<rect x="810.00" y="926.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
-<rect x="810.00" y="926.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
-<text x="820.00" y="944.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_phi</text>
-<text x="820.00" y="960.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">φ</text>
-<rect x="500.00" y="232.00" width="280.00" height="732.00" fill="rgba(20,24,36,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
-<text x="514.00" y="256.00" fill="rgba(230,235,240,1.000)" font-size="16.0" font-weight="700">Score</text>
-<text x="514.00" y="292.00" fill="rgba(230,235,240,1.000)" font-size="22.0" font-weight="700">total = +0.000</text>
-<text x="514.00" y="314.00" fill="rgba(60,160,100,1.000)" font-size="12.0" font-weight="700">worst claim: VERIFIED</text>
-<text x="514.00" y="330.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">bridge: EMPTY</text>
-<text x="514.00" y="356.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">consistency</text>
-<text x="716.00" y="356.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
-<text x="514.00" y="372.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">dimensional_sanity</text>
-<text x="716.00" y="372.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
-<text x="514.00" y="388.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">observable_fit</text>
-<text x="716.00" y="388.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
-<text x="514.00" y="404.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">proof_debt_penalty</text>
-<text x="716.00" y="404.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">-0.000</text>
-<text x="514.00" y="420.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">falsification_penalty</text>
-<text x="716.00" y="420.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">-0.000</text>
-<text x="514.00" y="436.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">simplicity</text>
-<text x="716.00" y="436.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
-<text x="514.00" y="452.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">symmetry_coherence</text>
-<text x="716.00" y="452.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
-<text x="514.00" y="468.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">reproducibility</text>
-<text x="716.00" y="468.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
-<text x="514.00" y="492.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="700">selected: 0 tiles</text>
-<text x="514.00" y="512.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">notes</text>
-<text x="514.00" y="526.00" fill="rgba(140,150,165,1.000)" font-size="10.0" font-weight="400">• empty board</text>
+<rect x="18.00" y="112.00" width="1244.00" height="96.00" fill="rgba(16,20,30,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<line x1="26.00" y1="138.00" x2="1254.00" y2="138.00" stroke="rgba(120,150,200,0.235)" stroke-width="1.00" stroke-linecap="round"/>
+<circle cx="640.00" cy="176.50" r="18.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
+<circle cx="640.00" cy="176.50" r="32.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
+<circle cx="640.00" cy="176.50" r="46.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
+<circle cx="640.00" cy="176.50" r="60.00" fill="rgba(0,0,0,0.000)" stroke="rgba(120,150,200,0.235)" stroke-width="1"/>
+<rect x="36.00" y="152.00" width="14.00" height="44.00" fill="rgba(30,50,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<rect x="1230.00" y="152.00" width="14.00" height="44.00" fill="rgba(50,30,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<text x="32.00" y="150.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">Data·0</text>
+<text x="1206.00" y="150.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">Geometry·0</text>
+<line x1="50.00" y1="173.00" x2="1230.00" y2="173.00" stroke="rgba(140,150,165,1.000)" stroke-width="4.00" stroke-linecap="round"/>
+<text x="30.00" y="129.00" fill="rgba(140,150,165,1.000)" font-size="13.0" font-weight="700">GOLDEN BRIDGE — integrity: EMPTY   strength: +0.000   compression: 0%</text>
+<text x="18.00" y="226.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">Recipes:</text>
+<rect x="88.00" y="212.00" width="174.40" height="26.00" fill="rgba(60,100,90,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<text x="97.00" y="229.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">Standard-Model core (5)</text>
+<rect x="268.40" y="212.00" width="228.80" height="26.00" fill="rgba(60,100,90,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<text x="277.40" y="229.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">H4 / 600-cell geometry pier (4)</text>
+<rect x="503.20" y="212.00" width="222.00" height="26.00" fill="rgba(60,100,90,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<text x="512.20" y="229.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">Anomaly-cancellation audit (4)</text>
+<rect x="18.00" y="250.00" width="464.00" height="714.00" fill="rgba(30,50,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<text x="30.00" y="272.00" fill="rgba(230,235,240,1.000)" font-size="16.0" font-weight="700">Data Tower (pier)</text>
+<text x="30.00" y="290.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">observables &amp; constraints</text>
+<text x="30.00" y="306.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">observable</text>
+<rect x="30.00" y="320.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
+<rect x="30.00" y="320.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
+<text x="40.00" y="338.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_higgs_mass</text>
+<text x="40.00" y="354.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">m_H</text>
+<rect x="216.00" y="320.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
+<rect x="216.00" y="320.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
+<text x="226.00" y="338.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_alpha_em_inv</text>
+<text x="226.00" y="354.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">1/α_em</text>
+<rect x="30.00" y="382.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
+<rect x="30.00" y="382.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
+<text x="40.00" y="400.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_sin2_theta_w</text>
+<text x="40.00" y="416.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">sin²θ_W</text>
+<rect x="216.00" y="382.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
+<rect x="216.00" y="382.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
+<text x="226.00" y="400.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_mt_over_mb</text>
+<text x="226.00" y="416.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">m_t / m_b</text>
+<rect x="30.00" y="444.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
+<rect x="30.00" y="444.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
+<text x="40.00" y="462.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">o_cosmo_lambda</text>
+<text x="40.00" y="478.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Λ (cosmological const…</text>
+<text x="30.00" y="514.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">constraint</text>
+<rect x="30.00" y="528.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="30.00" y="528.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="40.00" y="546.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_dim</text>
+<text x="40.00" y="562.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Dimensional sanity</text>
+<rect x="216.00" y="528.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="216.00" y="528.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="226.00" y="546.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_unitarity</text>
+<text x="226.00" y="562.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Unitarity</text>
+<rect x="30.00" y="590.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="30.00" y="590.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="40.00" y="608.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_anomaly</text>
+<text x="40.00" y="624.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Anomaly cancellation</text>
+<rect x="216.00" y="590.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,50,50,1.000)" stroke-width="1"/>
+<rect x="216.00" y="590.00" width="4.00" height="52.00" fill="rgba(180,50,50,1.000)"/>
+<text x="226.00" y="608.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_ngt3_chirality</text>
+<text x="226.00" y="624.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">NGT3: H4 alone is vec…</text>
+<rect x="30.00" y="652.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,50,50,1.000)" stroke-width="1"/>
+<rect x="30.00" y="652.00" width="4.00" height="52.00" fill="rgba(180,50,50,1.000)"/>
+<text x="40.00" y="670.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">cn_ngt1_cosmology</text>
+<text x="40.00" y="686.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">NGT1: φ^a·π^b·e^c can…</text>
+<rect x="798.00" y="250.00" width="464.00" height="714.00" fill="rgba(50,30,70,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<text x="810.00" y="272.00" fill="rgba(230,235,240,1.000)" font-size="16.0" font-weight="700">Geometry Tower (pier)</text>
+<text x="810.00" y="290.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">symmetry, geometry, fields, constants</text>
+<text x="810.00" y="306.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">symmetry</text>
+<rect x="810.00" y="320.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="810.00" y="320.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="820.00" y="338.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_su3</text>
+<text x="820.00" y="354.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">SU(3)_C</text>
+<rect x="996.00" y="320.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="996.00" y="320.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="1006.00" y="338.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_su2</text>
+<text x="1006.00" y="354.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">SU(2)_L</text>
+<rect x="810.00" y="382.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="810.00" y="382.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="820.00" y="400.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_u1</text>
+<text x="820.00" y="416.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">U(1)_Y</text>
+<rect x="996.00" y="382.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="996.00" y="382.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="1006.00" y="400.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_lorentz</text>
+<text x="1006.00" y="416.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">SO(1,3)</text>
+<rect x="810.00" y="444.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="810.00" y="444.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="820.00" y="462.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">s_h4</text>
+<text x="820.00" y="478.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">H4 Coxeter</text>
+<text x="810.00" y="514.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">geometry</text>
+<rect x="810.00" y="528.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="810.00" y="528.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="820.00" y="546.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_600cell</text>
+<text x="820.00" y="562.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">600-cell</text>
+<rect x="996.00" y="528.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
+<rect x="996.00" y="528.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
+<text x="1006.00" y="546.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_cl8</text>
+<text x="1006.00" y="562.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Cl(8)</text>
+<rect x="810.00" y="590.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
+<rect x="810.00" y="590.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
+<text x="820.00" y="608.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_ncg_triple</text>
+<text x="820.00" y="624.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">NCG spectral triple (…</text>
+<rect x="996.00" y="590.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
+<rect x="996.00" y="590.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
+<text x="1006.00" y="608.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">g_f4_spectrum</text>
+<text x="1006.00" y="624.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">F4 spectrum</text>
+<text x="810.00" y="660.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">field</text>
+<rect x="810.00" y="674.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="810.00" y="674.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="820.00" y="692.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">f_higgs</text>
+<text x="820.00" y="708.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Higgs doublet H</text>
+<rect x="996.00" y="674.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="996.00" y="674.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="1006.00" y="692.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">f_fermions</text>
+<text x="1006.00" y="708.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Three fermion generat…</text>
+<rect x="810.00" y="736.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(180,140,60,1.000)" stroke-width="1"/>
+<rect x="810.00" y="736.00" width="4.00" height="52.00" fill="rgba(180,140,60,1.000)"/>
+<text x="820.00" y="754.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">f_graviton</text>
+<text x="820.00" y="770.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">Graviton (spin-2)</text>
+<text x="810.00" y="806.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">constant</text>
+<rect x="810.00" y="820.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="810.00" y="820.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="820.00" y="838.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_hbar</text>
+<text x="820.00" y="854.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">ℏ</text>
+<rect x="996.00" y="820.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="996.00" y="820.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="1006.00" y="838.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_c</text>
+<text x="1006.00" y="854.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">c</text>
+<rect x="810.00" y="882.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
+<rect x="810.00" y="882.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
+<text x="820.00" y="900.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_alpha_em</text>
+<text x="820.00" y="916.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">α_em</text>
+<rect x="996.00" y="882.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(100,140,200,1.000)" stroke-width="1"/>
+<rect x="996.00" y="882.00" width="4.00" height="52.00" fill="rgba(100,140,200,1.000)"/>
+<text x="1006.00" y="900.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_G</text>
+<text x="1006.00" y="916.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">G</text>
+<rect x="810.00" y="944.00" width="168.00" height="52.00" fill="rgba(40,48,64,1.000)" stroke="rgba(60,160,100,1.000)" stroke-width="1"/>
+<rect x="810.00" y="944.00" width="4.00" height="52.00" fill="rgba(60,160,100,1.000)"/>
+<text x="820.00" y="962.00" fill="rgba(230,235,240,1.000)" font-size="12.0" font-weight="700">c_phi</text>
+<text x="820.00" y="978.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">φ</text>
+<rect x="500.00" y="250.00" width="280.00" height="714.00" fill="rgba(20,24,36,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
+<text x="514.00" y="274.00" fill="rgba(230,235,240,1.000)" font-size="16.0" font-weight="700">Score</text>
+<text x="514.00" y="310.00" fill="rgba(230,235,240,1.000)" font-size="22.0" font-weight="700">total = +0.000</text>
+<text x="514.00" y="332.00" fill="rgba(60,160,100,1.000)" font-size="12.0" font-weight="700">worst claim: VERIFIED</text>
+<text x="514.00" y="348.00" fill="rgba(140,150,165,1.000)" font-size="12.0" font-weight="700">bridge: EMPTY</text>
+<text x="514.00" y="374.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">consistency</text>
+<text x="716.00" y="374.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
+<text x="514.00" y="390.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">dimensional_sanity</text>
+<text x="716.00" y="390.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
+<text x="514.00" y="406.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">observable_fit</text>
+<text x="716.00" y="406.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
+<text x="514.00" y="422.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">proof_debt_penalty</text>
+<text x="716.00" y="422.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">-0.000</text>
+<text x="514.00" y="438.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">falsification_penalty</text>
+<text x="716.00" y="438.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">-0.000</text>
+<text x="514.00" y="454.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">simplicity</text>
+<text x="716.00" y="454.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
+<text x="514.00" y="470.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">symmetry_coherence</text>
+<text x="716.00" y="470.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
+<text x="514.00" y="486.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="400">reproducibility</text>
+<text x="716.00" y="486.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="400">+0.000</text>
+<text x="514.00" y="510.00" fill="rgba(230,235,240,1.000)" font-size="11.0" font-weight="700">selected: 0 tiles</text>
+<text x="514.00" y="530.00" fill="rgba(140,150,165,1.000)" font-size="11.0" font-weight="700">notes</text>
+<text x="514.00" y="544.00" fill="rgba(140,150,165,1.000)" font-size="10.0" font-weight="400">• empty board</text>
 <rect x="24.00" y="72.00" width="91.50" height="32.00" fill="rgba(60,80,110,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
 <text x="36.00" y="92.00" fill="rgba(230,235,240,1.000)" font-size="13.0" font-weight="400">Clear (C)</text>
 <rect x="123.50" y="72.00" width="129.00" height="32.00" fill="rgba(60,80,110,1.000)" stroke="rgba(180,200,220,1.000)" stroke-width="1"/>
