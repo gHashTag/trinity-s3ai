@@ -138,7 +138,7 @@ Source of truth: `FORMULAS.md` v4.0 (783 lines)
 - The earlier framing "high-stakes, DUNE 2028 decides" is replaced by: **current global data already substantially decide this against Trinity**; DUNE 2034–2037 will provide independent confirmation of what NuFIT-6.0 and T2K+NOvA already show.
 
 Updated falsification thresholds, full historical context, and discussion of which PMNS observables survive: [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md).
-Pre-registration (preserved as historical scientific record): [`dune_preregistration.md`](../experiments/dune_preregistration.md).
+Pre-registration (preserved as historical scientific record): [`dune_preregistration.md`](../../docs/experiments/dune_preregistration.md).
 
 **What survives in the PMNS sector**: θ₁₂ (0.16σ), θ₁₃ (0.18σ) — both within 0.2σ of NuFIT-6.0 NO best fit. θ₂₃ is in 1.7σ tension (lower-octant prediction vs upper-octant fit). δ_CP is the only PMNS observable in catastrophic conflict.
 
