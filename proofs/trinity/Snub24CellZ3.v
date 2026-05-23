@@ -27,7 +27,7 @@
 (*  This file formalises a PURE MATHEMATICAL FACT about the combinatorics    *)
 (*  of the snub 24-cell. It does NOT claim to solve the three-generation     *)
 (*  problem. The physical section is explicitly labeled as speculation.      *)
-(*  Principle: "не врать" -- do not lie.                                       *)
+(*  Principle: "ne vrat'" -- do not lie.                                      *)
 (*                                                                            *)
 (*  PROOF STATUS:                                                             *)
 (*  - Arithmetic/cardinality theorems: Qed                                    *)
