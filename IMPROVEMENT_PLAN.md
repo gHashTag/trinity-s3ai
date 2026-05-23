@@ -207,7 +207,7 @@ These 5 actions transform the project from "interesting idea" to "serious conten
 
 **What sector #13 likely is:** Based on the FINAL_STATUS_v44.md, the 13 sectors are:
 1. Gauge kinetic, 2. Higgs lambda, 3. Higgs m_H, 4. Higgs potential, 5. Lepton/quark masses,
-6. CKM mixing, 7. PMNS mixing, 8. Yukawa, 9. Gauge couplings, 10. 3 generations,
+6. CKM mixing, 7. PMNS mixing, 8. Yukawa, 9. Gauge couplings, 10. 3 generations (🟡 **NOT DERIVED** — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md); N_gen=3 is empirical input, no H4 mechanism yields it per `proofs/trinity/ThreeGenerations.v`),
 11. Ghost terms, 12. Strong CP, 13. RG running
 
 **RG running (sector 13)** is the hardest because:
@@ -489,7 +489,7 @@ to resolve this discrepancy."
 **Analysis:**
 - If DUNE measures ~177°, Trinity's PMNS mixing sector fails
 - BUT: 12 other Lagrangian sectors remain valid
-- The N_gen=3 theorem, Strong CP solution, Higgs mass, gauge couplings — all independent
+- The Strong CP solution, Higgs mass, gauge couplings — all independent (N_gen=3 is **not** a derived theorem; see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md))
 - Frame: "The H4 geometric structure correctly describes gauge couplings, Higgs sector, and charged lepton masses. The mapping to neutrino mixing parameters requires revision. This is a targeted failure, not a framework collapse."
 
 **Precedent:** Connes' NCG initially predicted m_H = 170 GeV (wrong!). The framework survived because the core structure (spectral action) was sound. The Higgs mass was revised, not the entire theory.
