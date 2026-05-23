@@ -1,5 +1,56 @@
 # Rust canvas UI (ring 4)
 
+## How to play (3 steps)
+
+GOLDEN BRIDGE is a kid-friendly hypothesis-discovery puzzle. The goal is to
+*light bridge stones* by picking matched pairs of tiles. The bridge stays
+stable as long as you avoid falsified (red ⚠) tiles.
+
+1. **Click a BLUE Data tile** in the left tower (e.g. "Higgs Mass",
+   "Light Strength"). These are things we measure in the real world.
+2. **Click a PURPLE Geometry tile** in the right tower (e.g. "Weak Force",
+   "Golden Shape (H4)"). These are math/symmetry pieces we *imagine*.
+3. **Watch the central bridge stones light up.** Each safe pair lights one
+   stone. Light four or more stones and the status banner reads
+   `BRIDGE STABLE!`. Click a red ⚠ tile and the bridge cracks — the
+   honesty floor catches falsified ideas regardless of how shiny the rest
+   of the board is.
+
+Buttons on the toolbar:
+
+| Button | What it does |
+|---|---|
+| **Reset (C)** | Clear the bridge and start over. |
+| **Hint (H)** | Hill-climb one step toward a higher-scoring board. |
+| **Auto-build (A)** | Run a fixed-seed simulated anneal — the game plays itself. |
+| **Honest mode (B)** | Hide held-out observables (cosmological constant, mt/mb) so the score only reflects predicted-vs-known matches the player could *not* peek at. |
+| **Try Recipe** | Load a built-in starter set (Standard-Model core, H4/600-cell geometry, Anomaly audit). |
+
+### Design intent
+
+The visual hierarchy is deliberately game-shaped, not dashboard-shaped:
+
+* The **bridge band** is the largest single element on screen. Two glowing
+  pillars (Data left, Geometry right) anchor a thick deck holding eight
+  empty stone slots. Stones light gold as safe pairs are placed; the deck
+  cracks visibly with a red zig-zag if a falsified tile is on the board.
+* The **tutorial banner** (always-visible) carries the three numbered
+  steps. There is no dismissable overlay — a child landing on the page
+  reads the goal before any code runs.
+* The **towers** below the bridge are the *input palette*. Tiles use
+  child-readable primary labels ("Higgs Mass") with the technical id
+  ("o_higgs_mass") as subtext, so the play surface reads like a game and
+  the honesty hooks remain accessible to researchers.
+* The **honesty panel** lives at the bottom in a single low-contrast
+  strip. Researchers can still read the full score breakdown there, but
+  it never competes with the bridge for attention.
+
+Honesty is preserved: bridge strength is a *hypothesis health* signal, not
+a physics conclusion. A high score with a falsified tile still collapses
+the bridge — the honesty floor is non-negotiable.
+
+
+
 The canvas UI is implemented as a fifth crate in the workspace,
 [`ring4_canvas`](../crates/ring4_canvas), sitting just outside the IO ring
 and just inside the orchestration crate:
