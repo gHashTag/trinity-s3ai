@@ -1,4 +1,4 @@
-use crate::board::Catalog;
+use ring0_core::Catalog;
 use std::fs;
 use std::path::Path;
 

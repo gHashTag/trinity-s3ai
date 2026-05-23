@@ -1,10 +1,14 @@
-// Trinity Fold CLI.
+// Trinity Fold CLI — orchestration ring.
+//
+// This binary is the outermost ring. It composes ring 0 (types), ring 1
+// (scoring), ring 2 (search), and ring 3 (adapters) but holds no logic of
+// its own beyond argument parsing and presentation.
 //
 // Subcommands:
-//   score    — score a board (list of node ids, comma-separated)
-//   search   — run hill climbing or simulated annealing from an initial board
-//   export   — dump the default catalog as JSON (used by the web UI)
-//   benchmark — like `score`, but hides the held-out observables until after
+//   score      — score a board (list of node ids, comma-separated)
+//   search     — run hill climbing or simulated annealing from an initial board
+//   export     — dump the default catalog as JSON (used by the web UI)
+//   benchmark  — like `score`, but hides the held-out observables
 //
 // Honesty caveat: this binary reports numbers. None of those numbers should
 // be cited as evidence for or against any unification claim. See
@@ -13,11 +17,12 @@
 use std::env;
 use std::process::ExitCode;
 
-use trinity_fold::board::{Board, Catalog};
-use trinity_fold::fixtures::{benchmark_holdout_ids, default_catalog};
-use trinity_fold::io::save_catalog;
-use trinity_fold::scoring::{ScoreWeights, score_board, score_board_with, tower_counts};
-use trinity_fold::search::{anneal, hill_climb};
+use ring0_core::{Board, Catalog};
+use ring1_constraints::{
+    ScoreBreakdown, ScoreWeights, score_board, score_board_with, tower_counts,
+};
+use ring2_search::{anneal, hill_climb};
+use ring3_adapters::{benchmark_holdout_ids, default_catalog, save_catalog};
 
 fn main() -> ExitCode {
     let args: Vec<String> = env::args().collect();
@@ -44,6 +49,9 @@ fn print_help() {
     println!(
         "Trinity Fold — puzzle prototype for candidate unification structures.
 
+Ring architecture: ring0_core (types) <- ring1_constraints (scoring) <-
+ring2_search (AI) <- ring3_adapters (IO) <- this binary (orchestration).
+
 This tool does NOT prove a Theory of Everything. Every score is gated by a
 claim-status tag. Read games/trinity_fold/README.md before drawing conclusions.
 
@@ -68,7 +76,6 @@ fn parse_ids(s: &str) -> Vec<String> {
 fn cmd_score(args: &[String], benchmark: bool) -> ExitCode {
     let mut catalog = default_catalog();
     if benchmark {
-        // Strip held-out observable values so the scorer cannot see them.
         for id in benchmark_holdout_ids() {
             if let Some(n) = catalog.nodes.iter_mut().find(|n| n.id == *id) {
                 n.value = None;
@@ -156,13 +163,14 @@ fn cmd_export(args: &[String]) -> ExitCode {
     }
 }
 
-fn print_report(
-    catalog: &Catalog,
-    board: &Board,
-    report: &trinity_fold::scoring::ScoreBreakdown,
-) {
+fn print_report(catalog: &Catalog, board: &Board, report: &ScoreBreakdown) {
     let (data_n, geom_n) = tower_counts(catalog, board);
-    println!("board: {} tiles (data={}, geometry={})", board.len(), data_n, geom_n);
+    println!(
+        "board: {} tiles (data={}, geometry={})",
+        board.len(),
+        data_n,
+        geom_n
+    );
     for id in board.ids() {
         if let Some(n) = catalog.by_id(id) {
             println!(

@@ -6,7 +6,9 @@ use serde::{Deserialize, Serialize};
 /// (CONTRIBUTING.md, anti_numerology_gate.py, admitted_log.md).
 ///
 /// Order is significant: lower discriminants are stronger claims.
-#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[derive(
+    Clone, Copy, Debug, Default, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize,
+)]
 #[serde(rename_all = "snake_case")]
 pub enum ClaimStatus {
     /// Backed by a Qed Coq proof or equivalent formal derivation.
@@ -37,7 +39,7 @@ impl ClaimStatus {
     }
 
     /// Weight applied to a positive score contribution depending on the
-    /// strength of the underlying claim. Used by `scoring::score_board`.
+    /// strength of the underlying claim. Used by the ring 1 scorer.
     ///
     /// Intentionally conservative: an `Unverified` contribution is worth
     /// zero, and a `HighRiskOrFalsified` contribution carries a penalty

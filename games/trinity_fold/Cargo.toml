@@ -1,23 +1,28 @@
-[package]
-name = "trinity-fold"
-version = "0.1.0"
+[workspace]
+resolver = "2"
+members = [
+    "crates/ring0_core",
+    "crates/ring1_constraints",
+    "crates/ring2_search",
+    "crates/ring3_adapters",
+    "crates/app",
+]
+
+[workspace.package]
+version = "0.2.0"
 edition = "2021"
 authors = ["Trinity S3AI Framework"]
-description = "Trinity Fold — a FoldIt/AlphaFold/CASP-inspired puzzle prototype for exploring candidate unification structures under honesty-first constraints. NOT a Theory of Everything."
 license = "MIT"
 publish = false
+rust-version = "1.75"
 
-[[bin]]
-name = "trinity-fold"
-path = "src/main.rs"
-
-[lib]
-name = "trinity_fold"
-path = "src/lib.rs"
-
-[dependencies]
+[workspace.dependencies]
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+ring0_core = { path = "crates/ring0_core" }
+ring1_constraints = { path = "crates/ring1_constraints" }
+ring2_search = { path = "crates/ring2_search" }
+ring3_adapters = { path = "crates/ring3_adapters" }
 
 [profile.release]
 opt-level = 3

@@ -1,0 +1,13 @@
+[package]
+name = "ring1_constraints"
+description = "Trinity Fold ring 1 — scoring/constraints over ring0 domain types. Depends only on ring0."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+ring0_core = { workspace = true }
+serde = { workspace = true }

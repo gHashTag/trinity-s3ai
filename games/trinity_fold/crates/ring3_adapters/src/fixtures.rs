@@ -7,22 +7,14 @@
 // the puzzle something concrete to score, NOT to assert any of these formulas
 // are derived from first principles.
 
-use crate::board::Catalog;
-use crate::claim::ClaimStatus;
-use crate::node::{Node, NodeKind};
+use ring0_core::{Catalog, ClaimStatus, Node, NodeKind};
 use std::collections::BTreeMap;
 
 fn dim(pairs: &[(&str, i32)]) -> BTreeMap<String, i32> {
     pairs.iter().map(|(k, v)| ((*k).to_string(), *v)).collect()
 }
 
-fn node(
-    id: &str,
-    kind: NodeKind,
-    name: &str,
-    desc: &str,
-    claim: ClaimStatus,
-) -> Node {
+fn node(id: &str, kind: NodeKind, name: &str, desc: &str, claim: ClaimStatus) -> Node {
     Node {
         id: id.into(),
         kind,
@@ -263,7 +255,12 @@ pub fn default_catalog() -> Catalog {
         "All gauge anomalies cancel across one SM generation.",
         ClaimStatus::Verified,
     );
-    n.requires = vec!["s_su3".into(), "s_su2".into(), "s_u1".into(), "f_fermions".into()];
+    n.requires = vec![
+        "s_su3".into(),
+        "s_su2".into(),
+        "s_u1".into(),
+        "f_fermions".into(),
+    ];
     n.citation = Some("Bouchiat-Iliopoulos-Meyer 1972".into());
     nodes.push(n);
 

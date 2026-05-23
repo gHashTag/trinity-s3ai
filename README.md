@@ -77,8 +77,12 @@ falsified tiles are floored at a negative total. See
 honesty policy and scoring spec.
 
 The prototype is fully decoupled from the Coq proofs and from the
-`anti_numerology_check` CI gate; it lives in its own Rust crate so a
-broken game build never blocks proof work.
+`anti_numerology_check` CI gate; it lives in its own Rust **Cargo
+workspace** (five ring crates: `ring0_core` ← `ring1_constraints` ←
+`ring2_search` ← `ring3_adapters` ← `app`) so a broken game build never
+blocks proof work and so each layer can be audited independently. The
+inward-only dependency direction is enforced by integration tests in
+`games/trinity_fold/crates/app/tests/ring_boundaries.rs`.
 
 ---
 
