@@ -1,61 +1,10 @@
 # CONTRIBUTING — Trinity S3AI
 
-> **Принцип: «Не врать!! Честным будь!»**  
-> *"Do not lie. Be honest."*
+> **Principle: "Do not lie. Be honest."**
 
 ---
 
-## Russian / Русский
-
-### Принцип честности (HONESTY-FIRST)
-
-Этот репозиторий является **конструктивным отрицательным результатом**. Четыре теоремы о недостижимости (NGT1–NGT4 в `NoGoTheorems.v`) формально доказывают, что H4/600-cell геометрия *не может* воспроизвести:
-- Космологическую постоянную Λ
-- σ-поле NCG
-- Хиральность фермионов
-- Иерархию масс лептонов
-
-Самый большой риск — **тихая регрессия**: новая формула `φ^a · π^b · e^c = X` добавляется в код без явного тега честности и выглядит как вывод из первых принципов, хотя на самом деле является феноменологической подгонкой.
-
-### Правила для новых вкладов
-
-#### 1. Admitted-аксиомы
-
-Каждый `Admitted` должен иметь один из следующих тегов:
-
-| Тег | Значение |
-|-----|----------|
-| `[PHYSICAL_AXIOM]` | Физическая аксиома из эксперимента (PDG) |
-| `[NUMERICAL_FIT]` | Числовая подгонка из Python/Mathematica |
-| `[MATH_TODO]` | Математический пробел, будет доказан позже |
-| `[LIBRARY_GAP]` | Ограничение библиотеки Coq |
-
-Пример:
-```coq
-Admitted. (* [NUMERICAL_FIT] значение из Python: bridge_results_v2.json *)
-```
-
-#### 2. Феноменологические формулы
-
-Любая формула вида `Definition X := phi^a * PI^b * exp 1 / N` должна иметь тег:
-
-```coq
-(* [phenomenological_fit] Это численное совпадение с данными PDG 2024. *)
-(* НЕ является выводом из геометрии H4. Ошибка: 0.05%.               *)
-Definition my_formula : R := phi^3 * exp 1 / PI.
-```
-
-Автоматическая проверка выполняется через `scripts/anti_numerology_gate.py` (CI job `anti_numerology_check`).
-
-#### 3. PR-шаблон
-
-Каждый PR обязан иметь раздел «Что проверено / Что открыто» (см. шаблон `.github/PULL_REQUEST_TEMPLATE.md`).
-
----
-
-## English
-
-### HONESTY-FIRST Principle
+## HONESTY-FIRST Principle
 
 This repository is a **constructive negative result**. See `SALVAGE.md` for a summary of what H4 *can* and *cannot* do. The main findings are four formal No-Go Theorems in `proofs/trinity/NoGoTheorems.v`.
 

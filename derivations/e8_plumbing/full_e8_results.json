@@ -1,0 +1,903 @@
+{
+  "wave": "17.1",
+  "date": "2026-05-22",
+  "description": "Full 128-vertex E8 plumbing model and eta convergence study",
+  "E8_cartan": {
+    "eigenvalues": [
+      -3.9890437907365466,
+      -3.4862896509547876,
+      -2.8134732861516003,
+      -2.4158233816355192,
+      -1.5841766183644816,
+      -1.1865267138483981,
+      -0.5137103490452124,
+      -0.010956209263453377
+    ],
+    "sigma": -8,
+    "sigma_target": -8
+  },
+  "convergence_study": [
+    {
+      "N_int": 8,
+      "N_bnd": 12,
+      "N_total": 20,
+      "D_P_shape": [
+        80,
+        80
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -14.015601069957352,
+      "spectrum_max": 14.015601069957356,
+      "near_zero_modes": 0,
+      "diag_time_sec": 0.0026178749976679683,
+      "peak_ram_mb": 0.1603221893310547,
+      "boundary_degrees": {
+        "min": 5.0,
+        "max": 5.0,
+        "mean": 5.0
+      },
+      "boundary_edges": 30,
+      "B_nonzeros_per_row": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "B_total_nonzeros": 96,
+      "eta_integer": -8.0,
+      "eta_half": -4.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 8,
+      "n_negative": 16,
+      "n_zero": 0,
+      "boundary_eval_min": -2.3795025024402188,
+      "boundary_eval_max": 5.229342751302208,
+      "eta_epsilon": {
+        "eps_0.5": -4.0,
+        "eps_0.2": -4.0,
+        "eps_0.1": -4.0,
+        "eps_0.05": -4.0,
+        "eps_0.02": -4.0,
+        "eps_0.01": -4.0,
+        "eps_0.005": -4.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -5.787980852506914,
+        "eps_0.2": -7.411142960407893,
+        "eps_0.1": -7.82178129861988,
+        "eps_0.05": -7.95075816687621,
+        "eps_0.02": -7.991621565516474,
+        "eps_0.01": -7.997861471643204
+      }
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 24,
+      "N_total": 32,
+      "D_P_shape": [
+        128,
+        128
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -19.050191130625837,
+      "spectrum_max": 19.050191130625834,
+      "near_zero_modes": 8,
+      "diag_time_sec": 0.005062958982307464,
+      "peak_ram_mb": 0.40857887268066406,
+      "boundary_degrees": {
+        "min": 4.0,
+        "max": 8.0,
+        "mean": 6.0
+      },
+      "boundary_edges": 72,
+      "B_nonzeros_per_row": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24
+      ],
+      "B_total_nonzeros": 192,
+      "eta_integer": -16.0,
+      "eta_half": -8.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 16,
+      "n_negative": 32,
+      "n_zero": 0,
+      "boundary_eval_min": -2.6300587755216953,
+      "boundary_eval_max": 6.909132070574513,
+      "eta_epsilon": {
+        "eps_0.5": -6.0,
+        "eps_0.2": -9.0,
+        "eps_0.1": -9.0,
+        "eps_0.05": -8.0,
+        "eps_0.02": -8.0,
+        "eps_0.01": -8.0,
+        "eps_0.005": -8.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -10.668473086805163,
+        "eps_0.2": -14.455058968750185,
+        "eps_0.1": -15.515626070317056,
+        "eps_0.05": -15.863560163765229,
+        "eps_0.02": -15.976500950528324,
+        "eps_0.01": -15.993977084045879
+      }
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 32,
+      "N_total": 40,
+      "D_P_shape": [
+        160,
+        160
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -21.50865604300973,
+      "spectrum_max": 21.503241635828854,
+      "near_zero_modes": 0,
+      "diag_time_sec": 0.00844429194694385,
+      "peak_ram_mb": 0.6405744552612305,
+      "boundary_degrees": {
+        "min": 4.0,
+        "max": 9.0,
+        "mean": 6.5
+      },
+      "boundary_edges": 104,
+      "B_nonzeros_per_row": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "B_total_nonzeros": 256,
+      "eta_integer": -12.0,
+      "eta_half": -6.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 26,
+      "n_negative": 38,
+      "n_zero": 0,
+      "boundary_eval_min": -2.9153971774645426,
+      "boundary_eval_max": 7.4623523497262845,
+      "eta_epsilon": {
+        "eps_0.5": -8.0,
+        "eps_0.2": -5.0,
+        "eps_0.1": -6.0,
+        "eps_0.05": -6.0,
+        "eps_0.02": -6.0,
+        "eps_0.01": -6.0,
+        "eps_0.005": -6.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -5.731140632298694,
+        "eps_0.2": -10.051070414036918,
+        "eps_0.1": -11.373483638187693,
+        "eps_0.05": -11.821241140208844,
+        "eps_0.02": -11.968970906306675,
+        "eps_0.01": -11.992026214154498
+      }
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 48,
+      "N_total": 56,
+      "D_P_shape": [
+        224,
+        224
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -20.699696832470703,
+      "spectrum_max": 20.699663976818407,
+      "near_zero_modes": 4,
+      "diag_time_sec": 0.015279542014468461,
+      "peak_ram_mb": 1.2637434005737305,
+      "boundary_degrees": {
+        "min": 5.0,
+        "max": 9.0,
+        "mean": 7.0
+      },
+      "boundary_edges": 168,
+      "B_nonzeros_per_row": [
+        36,
+        36,
+        36,
+        36,
+        36,
+        36,
+        36,
+        36
+      ],
+      "B_total_nonzeros": 288,
+      "eta_integer": -20.0,
+      "eta_half": -10.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 38,
+      "n_negative": 58,
+      "n_zero": 0,
+      "boundary_eval_min": -3.091204306226099,
+      "boundary_eval_max": 7.999742577333988,
+      "eta_epsilon": {
+        "eps_0.5": -12.0,
+        "eps_0.2": -12.0,
+        "eps_0.1": -10.0,
+        "eps_0.05": -10.0,
+        "eps_0.02": -10.0,
+        "eps_0.01": -10.0,
+        "eps_0.005": -10.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -10.215766008093345,
+        "eps_0.2": -16.98663739865934,
+        "eps_0.1": -19.031552991111433,
+        "eps_0.05": -19.723515703335963,
+        "eps_0.02": -19.951978000121258,
+        "eps_0.01": -19.98765631278949
+      }
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 64,
+      "N_total": 72,
+      "D_P_shape": [
+        288,
+        288
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -18.30685360458813,
+      "spectrum_max": 18.299516089917063,
+      "near_zero_modes": 5,
+      "diag_time_sec": 0.023054499994032085,
+      "peak_ram_mb": 2.095919609069824,
+      "boundary_degrees": {
+        "min": 5.0,
+        "max": 9.0,
+        "mean": 7.75
+      },
+      "boundary_edges": 248,
+      "B_nonzeros_per_row": [
+        30,
+        32,
+        33,
+        33,
+        30,
+        32,
+        33,
+        33
+      ],
+      "B_total_nonzeros": 256,
+      "eta_integer": -28.0,
+      "eta_half": -14.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 50,
+      "n_negative": 78,
+      "n_zero": 0,
+      "boundary_eval_min": -3.2718841476827087,
+      "boundary_eval_max": 8.537325841557255,
+      "eta_epsilon": {
+        "eps_0.5": -16.0,
+        "eps_0.2": -15.0,
+        "eps_0.1": -13.0,
+        "eps_0.05": -13.0,
+        "eps_0.02": -14.0,
+        "eps_0.01": -14.0,
+        "eps_0.005": -14.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -13.683627411598241,
+        "eps_0.2": -23.49033657294342,
+        "eps_0.1": -26.537553425404827,
+        "eps_0.05": -27.580428821577975,
+        "eps_0.02": -27.926899714743897,
+        "eps_0.01": -27.981190239161094
+      }
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 96,
+      "N_total": 104,
+      "D_P_shape": [
+        416,
+        416
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -21.63990644696809,
+      "spectrum_max": 21.639365996865543,
+      "near_zero_modes": 24,
+      "diag_time_sec": 0.09080879198154435,
+      "peak_ram_mb": 4.394991874694824,
+      "boundary_degrees": {
+        "min": 9.0,
+        "max": 9.0,
+        "mean": 9.0
+      },
+      "boundary_edges": 432,
+      "B_nonzeros_per_row": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "B_total_nonzeros": 384,
+      "eta_integer": -40.0,
+      "eta_half": -20.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 76,
+      "n_negative": 116,
+      "n_zero": 0,
+      "boundary_eval_min": -3.44944266877289,
+      "boundary_eval_max": 9.412753768031301,
+      "eta_epsilon": {
+        "eps_0.5": -22.0,
+        "eps_0.2": -22.0,
+        "eps_0.1": -22.0,
+        "eps_0.05": -22.0,
+        "eps_0.02": -22.0,
+        "eps_0.01": -20.0,
+        "eps_0.005": -17.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -16.450121918927515,
+        "eps_0.2": -32.23517853525998,
+        "eps_0.1": -37.43231023694225,
+        "eps_0.05": -39.25535216449006,
+        "eps_0.02": -39.869373498093424,
+        "eps_0.01": -39.96630914687685
+      }
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -20.331042446473194,
+      "spectrum_max": 20.329738614203357,
+      "near_zero_modes": 20,
+      "diag_time_sec": 0.1027820419985801,
+      "peak_ram_mb": 6.6768083572387695,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -64.0,
+      "eta_half": -32.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 84,
+      "n_negative": 148,
+      "n_zero": 8,
+      "boundary_eval_min": -3.88194730374431,
+      "boundary_eval_max": 12.550082328797883,
+      "eta_epsilon": {
+        "eps_0.5": -35.0,
+        "eps_0.2": -36.0,
+        "eps_0.1": -35.0,
+        "eps_0.05": -35.0,
+        "eps_0.02": -35.0,
+        "eps_0.01": -32.0,
+        "eps_0.005": -32.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -26.874035340710478,
+        "eps_0.2": -51.97871291395268,
+        "eps_0.1": -61.1331941003433,
+        "eps_0.05": -64.54550281434447,
+        "eps_0.02": -65.7396336242133,
+        "eps_0.01": -65.93236548504575
+      }
+    }
+  ],
+  "coupling_sensitivity": [
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -18.16809419194217,
+      "spectrum_max": 18.16739240872898,
+      "near_zero_modes": 20,
+      "diag_time_sec": 0.08019729203078896,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -64.0,
+      "eta_half": -32.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 84,
+      "n_negative": 148,
+      "n_zero": 8,
+      "boundary_eval_min": -3.88194730374431,
+      "boundary_eval_max": 12.550082328797883,
+      "eta_epsilon": {
+        "eps_0.5": -35.0,
+        "eps_0.2": -36.0,
+        "eps_0.1": -35.0,
+        "eps_0.05": -35.0,
+        "eps_0.02": -35.0,
+        "eps_0.01": -32.0,
+        "eps_0.005": -32.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -26.874035340710478,
+        "eps_0.2": -51.97871291395268,
+        "eps_0.1": -61.1331941003433,
+        "eps_0.05": -64.54550281434447,
+        "eps_0.02": -65.7396336242133,
+        "eps_0.01": -65.93236548504575
+      },
+      "coupling": 0.5
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -20.331042446473194,
+      "spectrum_max": 20.329738614203357,
+      "near_zero_modes": 20,
+      "diag_time_sec": 0.08047624997561797,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -64.0,
+      "eta_half": -32.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 84,
+      "n_negative": 148,
+      "n_zero": 8,
+      "boundary_eval_min": -3.88194730374431,
+      "boundary_eval_max": 12.550082328797883,
+      "eta_epsilon": {
+        "eps_0.5": -35.0,
+        "eps_0.2": -36.0,
+        "eps_0.1": -35.0,
+        "eps_0.05": -35.0,
+        "eps_0.02": -35.0,
+        "eps_0.01": -32.0,
+        "eps_0.005": -32.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -26.874035340710478,
+        "eps_0.2": -51.97871291395268,
+        "eps_0.1": -61.1331941003433,
+        "eps_0.05": -64.54550281434447,
+        "eps_0.02": -65.7396336242133,
+        "eps_0.01": -65.93236548504575
+      },
+      "coupling": 1.0
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -27.190072334273083,
+      "spectrum_max": 27.18905516598797,
+      "near_zero_modes": 20,
+      "diag_time_sec": 0.09203316696221009,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -64.0,
+      "eta_half": -32.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 84,
+      "n_negative": 148,
+      "n_zero": 8,
+      "boundary_eval_min": -3.88194730374431,
+      "boundary_eval_max": 12.550082328797883,
+      "eta_epsilon": {
+        "eps_0.5": -35.0,
+        "eps_0.2": -36.0,
+        "eps_0.1": -35.0,
+        "eps_0.05": -35.0,
+        "eps_0.02": -35.0,
+        "eps_0.01": -32.0,
+        "eps_0.005": -32.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -26.874035340710478,
+        "eps_0.2": -51.97871291395268,
+        "eps_0.1": -61.1331941003433,
+        "eps_0.05": -64.54550281434447,
+        "eps_0.02": -65.7396336242133,
+        "eps_0.01": -65.93236548504575
+      },
+      "coupling": 2.0
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -52.93195289724483,
+      "spectrum_max": 52.93163696773727,
+      "near_zero_modes": 20,
+      "diag_time_sec": 0.08193762501468882,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -64.0,
+      "eta_half": -32.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 84,
+      "n_negative": 148,
+      "n_zero": 8,
+      "boundary_eval_min": -3.88194730374431,
+      "boundary_eval_max": 12.550082328797883,
+      "eta_epsilon": {
+        "eps_0.5": -35.0,
+        "eps_0.2": -36.0,
+        "eps_0.1": -35.0,
+        "eps_0.05": -35.0,
+        "eps_0.02": -35.0,
+        "eps_0.01": -32.0,
+        "eps_0.005": -32.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -26.874035340710478,
+        "eps_0.2": -51.97871291395268,
+        "eps_0.1": -61.1331941003433,
+        "eps_0.05": -64.54550281434447,
+        "eps_0.02": -65.7396336242133,
+        "eps_0.01": -65.93236548504575
+      },
+      "coupling": 5.0
+    }
+  ],
+  "mass_shift_sensitivity": [
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -20.331042446473194,
+      "spectrum_max": 20.329738614203357,
+      "near_zero_modes": 20,
+      "diag_time_sec": 0.08821224997518584,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -64.0,
+      "eta_half": -32.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 84,
+      "n_negative": 148,
+      "n_zero": 8,
+      "boundary_eval_min": -3.88194730374431,
+      "boundary_eval_max": 12.550082328797883,
+      "eta_epsilon": {
+        "eps_0.5": -35.0,
+        "eps_0.2": -36.0,
+        "eps_0.1": -35.0,
+        "eps_0.05": -35.0,
+        "eps_0.02": -35.0,
+        "eps_0.01": -32.0,
+        "eps_0.005": -32.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -26.874035340710478,
+        "eps_0.2": -51.97871291395268,
+        "eps_0.1": -61.1331941003433,
+        "eps_0.05": -64.54550281434447,
+        "eps_0.02": -65.7396336242133,
+        "eps_0.01": -65.93236548504575
+      },
+      "mass_shift": 0.0
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -20.391301889175868,
+      "spectrum_max": 20.389995743168477,
+      "near_zero_modes": 20,
+      "diag_time_sec": 0.13674108299892396,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -56.0,
+      "eta_half": -28.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 92,
+      "n_negative": 148,
+      "n_zero": 0,
+      "boundary_eval_min": -3.7819473037443094,
+      "boundary_eval_max": 12.650082328797874,
+      "eta_epsilon": {
+        "eps_0.5": -35.0,
+        "eps_0.2": -26.0,
+        "eps_0.1": -22.5,
+        "eps_0.05": -23.0,
+        "eps_0.02": -23.0,
+        "eps_0.01": -23.0,
+        "eps_0.005": -28.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -21.536561146810648,
+        "eps_0.2": -45.00234269673069,
+        "eps_0.1": -53.00141924911655,
+        "eps_0.05": -55.59817923403841,
+        "eps_0.02": -56.19443743746879,
+        "eps_0.01": -56.165918911966585
+      },
+      "mass_shift": 0.1
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -20.63564755711801,
+      "spectrum_max": 20.634333490858243,
+      "near_zero_modes": 0,
+      "diag_time_sec": 0.08351299999048933,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -20.0,
+      "eta_half": -10.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 110,
+      "n_negative": 130,
+      "n_zero": 0,
+      "boundary_eval_min": -3.3819473037443073,
+      "boundary_eval_max": 13.050082328797892,
+      "eta_epsilon": {
+        "eps_0.5": -21.0,
+        "eps_0.2": -10.0,
+        "eps_0.1": -10.0,
+        "eps_0.05": -10.0,
+        "eps_0.02": -10.0,
+        "eps_0.01": -10.0,
+        "eps_0.005": -10.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -4.280899345216078,
+        "eps_0.2": -21.199200589812108,
+        "eps_0.1": -24.506734871884817,
+        "eps_0.05": -23.81743286465057,
+        "eps_0.02": -22.01502024468286,
+        "eps_0.01": -21.100472008576276
+      },
+      "mass_shift": 0.5
+    },
+    {
+      "N_int": 8,
+      "N_bnd": 120,
+      "N_total": 128,
+      "D_P_shape": [
+        512,
+        512
+      ],
+      "hermitian_error": 0.0,
+      "hermitian": true,
+      "spectrum_min": -20.948263829807615,
+      "spectrum_max": 20.946942685838458,
+      "near_zero_modes": 0,
+      "diag_time_sec": 0.0997854580054991,
+      "peak_ram_mb": 6.676671028137207,
+      "boundary_degrees": {
+        "min": 12.0,
+        "max": 12.0,
+        "mean": 12.0
+      },
+      "boundary_edges": 720,
+      "B_nonzeros_per_row": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "B_total_nonzeros": 240,
+      "eta_integer": -20.0,
+      "eta_half": -10.0,
+      "eta_target_APS": -2.0,
+      "n_positive": 110,
+      "n_negative": 130,
+      "n_zero": 0,
+      "boundary_eval_min": -2.8819473037443104,
+      "boundary_eval_max": 13.550082328797888,
+      "eta_epsilon": {
+        "eps_0.5": -10.0,
+        "eps_0.2": -10.0,
+        "eps_0.1": -10.0,
+        "eps_0.05": -10.0,
+        "eps_0.02": -10.0,
+        "eps_0.01": -10.0,
+        "eps_0.005": -10.0
+      },
+      "eta_reg_soft": {
+        "eps_0.5": -28.06791473069842,
+        "eps_0.2": -36.649638357296396,
+        "eps_0.1": -33.946000214839785,
+        "eps_0.05": -29.105360804854,
+        "eps_0.02": -24.29278617952538,
+        "eps_0.01": -22.269150493469425
+      },
+      "mass_shift": 1.0
+    }
+  ]
+}

@@ -84,11 +84,16 @@ jobs:
             web/canvas/snapshot.svg
 
       - name: Build wasm canvas bundle (wasm-pack)
+        # wasm-pack treats arguments after the crate path as cargo-passthrough
+        # arguments, so wasm-pack-specific flags (--target, --out-dir) must
+        # come BEFORE the path. Crate-level features go after `--` to be
+        # forwarded to cargo build.
         run: |
-          wasm-pack build crates/ring4_canvas \
+          wasm-pack build \
             --target web \
-            --features wasm \
-            --out-dir ../../web/canvas/pkg
+            --out-dir ../../web/canvas/pkg \
+            crates/ring4_canvas \
+            -- --features wasm
 
       - name: Stage Pages artifact
         run: |

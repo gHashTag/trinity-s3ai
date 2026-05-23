@@ -20,10 +20,12 @@ jobs:
           python-version: '3.12'
 
       - name: Run anti-numerology gate
-        run: |
-          # Export commit message so the gate can honour [skip-numerology-check]
-          export GIT_COMMIT_MSG="${{ github.event.head_commit.message }}"
-          python3 scripts/anti_numerology_gate.py
+        # Pass the commit message via env, not shell interpolation, so multiline
+        # bodies (e.g. merge commits) don't break the shell with stray `-`/`*` lines.
+        # The gate honours [skip-numerology-check] when present in GIT_COMMIT_MSG.
+        env:
+          GIT_COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: python3 scripts/anti_numerology_gate.py
         # Hard gate: exit 1 if any multi-atom formula lacks an honesty tag.
         # Per-commit override: add [skip-numerology-check] to your commit message.
         # Repo-wide override: set SKIP_NUMEROLOGY_CHECK=1 (not recommended).
@@ -34,6 +36,26 @@ jobs:
         run: |
           echo "=== ANTI-NUMEROLOGY GATE SUMMARY ==="
           python3 scripts/anti_numerology_gate.py 2>/dev/null | grep -E 'PASS|FLAG|WHITELIST|VERDICT' || true
+
+      - name: Install claim ledger deps
+        run: pip install pyyaml
+
+      - name: Validate claim ledger SSOT (docs/claims.yaml)
+        # Fails if YAML is malformed, a status/layer/kind is invalid, or the
+        # README table / generated GOLDEN BRIDGE card JSON is stale.
+        run: python3 scripts/generate_claims.py --check
+
+  # ── Job 1b: Markdown link audit (fast, no network) ────────────────────────
+  markdown_links:
+    runs-on: ubuntu-latest
+    name: Markdown link audit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check internal markdown links (no external HTTP)
+        run: python3 scripts/check_markdown_links.py --check --all
 
   # ── Job 2: Coq proof build + Python validators ────────────────────────────
   build:
