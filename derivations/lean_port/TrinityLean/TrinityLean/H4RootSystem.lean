@@ -1,5 +1,10 @@
-/-!
-# H₄ Root System — Lean 4 Port (Wave 4 — first migration PR)
+import Mathlib.GroupTheory.Coxeter.Matrix
+import Mathlib.LinearAlgebra.RootSystem.Defs
+import Mathlib.Data.Real.GoldenRatio
+import Mathlib.Data.Fintype.Card
+import Mathlib.Tactic
+
+/-! # H₄ Root System — Lean 4 Port (Wave 4 — first migration PR)
 
 This module begins the Lean 4 port of Trinity-s³AI's H₄/600-cell layer.
 The long-term goal (stated in the Wave 3 W3.8 migration plan) is to
@@ -27,13 +32,7 @@ fetched.
 * `Mathlib.GroupTheory.Coxeter.Matrix` — `CoxeterMatrix`, `CoxeterMatrix.H₄`
 * `Mathlib.LinearAlgebra.RootSystem.Defs` — `RootSystem`, `RootPairing`
 * `Mathlib.Data.Real.GoldenRatio` — `goldenRatio`, `gold_sq`, `gold_pos`
--/}
-
-import Mathlib.GroupTheory.Coxeter.Matrix
-import Mathlib.LinearAlgebra.RootSystem.Defs
-import Mathlib.Data.Real.GoldenRatio
-import Mathlib.Data.Fintype.Card
-import Mathlib.Tactic
+-/
 
 namespace TrinityLean
 namespace H4

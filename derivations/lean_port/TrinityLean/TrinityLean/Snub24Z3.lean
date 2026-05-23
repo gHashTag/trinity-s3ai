@@ -73,6 +73,8 @@ import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Image
 import Mathlib.Tactic
 
+set_option maxRecDepth 2048
+
 namespace TrinityLean.Snub24Z3
 
 /-! ## Section 1: The labelled snub model
@@ -237,7 +239,7 @@ theorem W5_4_snub_Z3_tripartition :
     G2.image z3Gen = G0 ∧
     /- Number of orbits = 32 -/
     Fintype.card (Fin 32) = 32 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, _, _⟩
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · exact snub96_card
   · exact z3_free_action
   · exact z3_sq_free_action
