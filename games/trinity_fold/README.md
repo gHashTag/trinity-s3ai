@@ -1,13 +1,35 @@
-# Trinity Fold
+# GOLDEN BRIDGE (crate folder: `games/trinity_fold/`)
 
-A puzzle prototype for exploring candidate unification structures, inspired
-by FoldIt, AlphaFold, and CASP.
+A hypothesis-discovery puzzle for exploring candidate unification structures,
+inspired by FoldIt, AlphaFold, and CASP. **GOLDEN BRIDGE** is the user-facing
+product name; the Cargo workspace and crate names remain `trinity_fold*` for
+backwards compatibility with PRs #24 / #25. The Rust canvas UI in
+`crates/ring4_canvas` renders the GOLDEN BRIDGE concept.
 
-> **Trinity Fold is not a Theory of Everything, and a high score in the
-> game is not evidence for one.** It is a hypothesis-discovery and
+> **GOLDEN BRIDGE is not a Theory of Everything, and a high "bridge strength"
+> is not evidence for one.** It is a hypothesis-discovery and
 > constraint-checking environment whose only deliverable is a tagged
 > breakdown of how a candidate fares against a small, illustrative,
 > human-curated set of consistency rules and observables.
+
+## The bridge metaphor
+
+GOLDEN BRIDGE reframes the puzzle as **building a structural bridge between
+two shores of reality**:
+
+* **Data pier** (left) — observational and experimental constraints
+  (`NodeKind::Constraint`, `NodeKind::Observable`).
+* **Geometry pier** (right) — symmetries, constants, fields, geometric
+  structures (`NodeKind::Symmetry`, `NodeKind::Geometry`, `NodeKind::Field`,
+  `NodeKind::Constant`).
+* **Bridge span** — the player's candidate hypothesis. Each selected tile
+  becomes a span node; the span only holds if its claim status is strong
+  enough and no falsified tile sits on the board.
+
+If any tile is `HighRiskOrFalsified`, the deck breaks and `BridgeView::integrity`
+becomes `Collapsed` — the honesty floor has tripped, regardless of how many
+other tiles agree with experiment. Full concept docs are in
+[`docs/GOLDEN_BRIDGE.md`](docs/GOLDEN_BRIDGE.md).
 
 ## Why this exists
 
@@ -90,7 +112,8 @@ and **enforced by integration tests** in
 | 1 | `ring1_constraints` | ring 0 | `ScoreBreakdown`, `score_board*`, `tower_counts`. Pure functions. |
 | 2 | `ring2_search` | ring 0, ring 1 | `hill_climb`, `anneal`, self-contained LCG. Deterministic given seeds. |
 | 3 | `ring3_adapters` | ring 0–2 | `fixtures::default_catalog`, JSON load/save, web JSON export. Sole IO boundary. |
-| 4 | `ring4_canvas` | ring 0–3 | Rust canvas UI: pure `RenderModel` + input handling, plus wasm-bindgen browser shell (`Canvas2D`). See [`docs/CANVAS.md`](docs/CANVAS.md). |
+| 4 | `ring4_canvas` | ring 0–3 | Rust canvas UI: pure `RenderModel` + input handling, GOLDEN BRIDGE view (`bridge::BridgeView`), built-in `recipes`, plus wasm-bindgen browser shell (`Canvas2D`). See [`docs/CANVAS.md`](docs/CANVAS.md) and [`docs/GOLDEN_BRIDGE.md`](docs/GOLDEN_BRIDGE.md). |
+
 | app | `trinity_fold_app` | all rings | CLI parsing + presentation only. No domain logic. |
 
 Why this matters: every score is reproducible from ring 0+1 alone, so

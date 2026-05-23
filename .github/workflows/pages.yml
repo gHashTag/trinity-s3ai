@@ -1,0 +1,134 @@
+name: Deploy GOLDEN BRIDGE canvas to GitHub Pages
+
+# Builds the Rust-source-of-truth canvas UI for games/trinity_fold (ring 4 —
+# ring4_canvas) into a self-contained static site under
+# games/trinity_fold/web/canvas and publishes it to GitHub Pages.
+#
+# The published artifact is exactly the contents of web/canvas/, plus the
+# wasm-pack output dropped into web/canvas/pkg by the build step. The
+# static SVG fallback (snapshot.svg + inline <svg> mirror in index.html)
+# guarantees the page is never blank, even if the wasm bundle fails to
+# load in a viewer's browser.
+#
+# To enable Pages from this workflow:
+#   1. Repository → Settings → Pages → Source: "GitHub Actions".
+#   2. Re-run this workflow (or push to main) — the first successful run
+#      provisions the Pages site at
+#      https://<owner>.github.io/<repo>/.
+# No environment variables, tokens, or secrets are required beyond the
+# default GITHUB_TOKEN. The id-token + pages: write permissions below are
+# the minimum surface that actions/deploy-pages requires.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'games/trinity_fold/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; later pushes preempt earlier in-flight runs.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  build:
+    name: Build wasm canvas + Pages artifact
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: games/trinity_fold
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install stable Rust + wasm32 target
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Cache cargo registry + git
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-pages-cargo-${{ hashFiles('games/trinity_fold/Cargo.lock') }}
+
+      - name: Cache build artifacts
+        uses: actions/cache@v4
+        with:
+          path: games/trinity_fold/target
+          key: ${{ runner.os }}-pages-target-${{ hashFiles('games/trinity_fold/Cargo.lock') }}
+
+      - name: Install wasm-pack
+        run: |
+          curl -fsSL https://rustwasm.github.io/wasm-pack/installer/init.sh \
+            | sh
+
+      - name: Run workspace tests (native)
+        run: cargo test --workspace
+
+      - name: Regenerate static SVG snapshot
+        run: |
+          cargo run -p ring4_canvas --example snapshot_svg -- \
+            web/canvas/snapshot.svg
+
+      - name: Build wasm canvas bundle (wasm-pack)
+        # wasm-pack treats arguments after the crate path as cargo-passthrough
+        # arguments, so wasm-pack-specific flags (--target, --out-dir) must
+        # come BEFORE the path. Crate-level features go after `--` to be
+        # forwarded to cargo build.
+        run: |
+          wasm-pack build \
+            --target web \
+            --out-dir ../../web/canvas/pkg \
+            crates/ring4_canvas \
+            -- --features wasm
+
+      - name: Stage Pages artifact
+        run: |
+          mkdir -p ../../_site
+          # Publish the canvas page at the repo-relative path it expects
+          # (../../docs/CANVAS.md) by mirroring the on-disk layout under
+          # the site root. The canvas itself lives at /games/trinity_fold/
+          # web/canvas/index.html which is also exposed as /.
+          cp -R web/canvas/. ../../_site/
+          # Also publish the docs folder so the in-page links keep working.
+          mkdir -p ../../_site/docs
+          cp -R docs/. ../../_site/docs/
+          # A friendly /index.html at the site root is the canvas page
+          # itself — already copied above. Smoke test.
+          test -f ../../_site/index.html
+          test -f ../../_site/snapshot.svg
+          test -f ../../_site/pkg/ring4_canvas.js
+          test -f ../../_site/pkg/ring4_canvas_bg.wasm
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

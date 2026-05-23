@@ -25,3 +25,11 @@ __pycache__/
 # Rust
 target/
 Cargo.lock
+
+# LaTeX build artifacts
+*.log
+*.out
+*.nav
+*.snm
+*.toc
+*.synctex.gz

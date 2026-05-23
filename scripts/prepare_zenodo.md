@@ -1,180 +1,150 @@
-# Подготовка к публикации на Zenodo — Trinity S3AI
+# Preparing Zenodo Release — Trinity S3AI
 
-**Версия**: v1.0-wave10  
-**Дата**: 2026-05-22  
-**Статус**: Конструктивный отрицательный результат
+**Version**: v1.0-wave14  
+**Date**: 2026-05-23  
+**Status**: Constructive negative result
 
-> **ВАЖНО**: Прочитайте `SALVAGE.md` перед публикацией. DOI будет ссылаться на
-> отрицательный результат (No-Go теоремы), а не на положительное утверждение об унификации.
+> **IMPORTANT**: This is a "constructive negative result" release. The DOI will point
+> to a software record documenting No-Go theorems and falsification tests, not to
+> a positive unification claim.
 
 ---
 
-## Часть 1: Подготовка репозитория
+## Step 1: Enable Zenodo–GitHub Integration
 
-### Шаг 1.1 — Проверить состояние
+> **Screenshot 1** — Zenodo GitHub settings page showing the toggle for
+> `gHashTag/trinity-s3ai` switched to **ON**.
+
+1. Log in to [https://zenodo.org](https://zenodo.org) using your GitHub or ORCID account.
+2. Navigate to **Settings → GitHub** → [https://zenodo.org/account/settings/github/](https://zenodo.org/account/settings/github/)
+3. Find `gHashTag/trinity-s3ai` in the repository list.
+4. Click **Enable** (toggle to ON).
+5. Zenodo will now automatically monitor this repository for new release tags.
+
+---
+
+## Step 2: Push Tag `v1.0-wave14` to GitHub
+
+> **Screenshot 2** — Terminal showing `git push origin v1.0-wave14` and the
+> successful remote confirmation.
+
 ```bash
-# Убедиться, что anti-numerology gate проходит
-python3 scripts/anti_numerology_gate.py
+# Verify the tag exists locally
+git tag -l v1.0-wave14
 
-# Убедиться, что validate_v4.py проходит
-python3 validate_v4.py
-
-# Проверить README.md и CITATION.cff
-cat README.md | head -20
-cat CITATION.cff
+# Push the annotated tag to GitHub
+git push origin v1.0-wave14
 ```
 
-### Шаг 1.2 — Обновить CITATION.cff
-Перед тегом заполнить плейсхолдеры в `CITATION.cff`:
-```yaml
-# Заменить:
-  - family-names: "[AUTHOR_LAST_NAME]"
-    given-names: "[AUTHOR_FIRST_NAME]"
-    orcid: "https://orcid.org/[YOUR_ORCID]"
-# На ваши реальные данные.
+Alternatively, run the helper script (does **not** execute automatically):
 
-# DOI оставить пустым — он появится ПОСЛЕ регистрации на Zenodo:
-doi: "[PLACEHOLDER — заполнить после получения DOI]"
-```
-
-### Шаг 1.3 — Создать релизный тег
 ```bash
-cd /path/to/trinity-s3ai
+# Review the script first
+cat scripts/push_release.sh
 
-# Убедиться, что всё закоммичено
-git status
-git add -A
-git commit -m "Wave 10.5: infrastructure — anti-numerology gate + repo metadata
-
-- Add scripts/anti_numerology_gate.py (CI-level formula honesty checker)
-- Add [phenomenological_fit] tags to all formulas in Catalog42.v and related files
-- Add .github/workflows/ci.yml: anti_numerology_check job (hard gate)
-- Add .github/workflows/release.yml: release artifact builder
-- Add CITATION.cff, CONTRIBUTING.md (Russian + English)
-- Update .github/PULL_REQUEST_TEMPLATE.md
-- Add scripts/prepare_zenodo.md
-- Rewrite README.md with honest status"
-
-# Создать аннотированный тег
-git tag -a v1.0-wave10 -m "Trinity S3AI v1.0-wave10
-
-Constructive negative result on H4-based Standard Model unification.
-
-Key results:
-- 4 formal No-Go Theorems (NGT1-NGT4) in Coq 8.20.1
-- 326 Qed / 0 Admitted across 23 files
-- 59 phenomenological formulas cataloged and tagged
-- Anti-numerology CI gate operational
-
-See SALVAGE.md for summary."
-
-# Отправить тег на GitHub
-git push origin v1.0-wave10
+# Make executable and run when ready
+chmod +x scripts/push_release.sh
+./scripts/push_release.sh
 ```
 
 ---
 
-## Часть 2: Регистрация на Zenodo
+## Step 3: Zenodo Auto-Creates a Record and Reserved DOI
 
-### Шаг 2.1 — Подключить репозиторий к Zenodo
+> **Screenshot 3** — Zenodo deposit page showing a new draft record with status
+> **Draft** and a reserved DOI badge.
 
-**Это должен сделать владелец аккаунта лично** — автоматизация невозможна без токена.
+1. Within ~5 minutes of pushing the tag, Zenodo creates a new draft record.
+2. Go to [https://zenodo.org/deposit](https://zenodo.org/deposit).
+3. Locate the draft titled *"Trinity S3AI: A Constructive Negative Result in Geometric Unification"*.
+4. A DOI is **reserved** at this stage but is not public until you publish.
 
-1. Войти на [https://zenodo.org](https://zenodo.org) (аккаунт GitHub или ORCID)
-2. Перейти в **Settings → GitHub** (https://zenodo.org/account/settings/github/)
-3. Найти `gHashTag/trinity-s3ai` в списке репозиториев
-4. Нажать **Enable** (переключить в ON)
-5. Вернуться на GitHub и убедиться, что тег `v1.0-wave10` уже создан
+---
 
-### Шаг 2.2 — Проверить, что Zenodo создал запись
+## Step 4: Edit the Zenodo Record
 
-После того, как тег `v1.0-wave10` загружен на GitHub и Zenodo подключён:
-1. Перейти на https://zenodo.org/deposit
-2. Найти новую запись (она появится автоматически через ~5 минут)
-3. Статус будет **Draft** — нужно заполнить метаданные и опубликовать
+> **Screenshot 4** — Zenodo metadata edit form with fields filled:
+> Title, Authors, Description, Keywords, License, and Related identifiers.
 
-### Шаг 2.3 — Заполнить метаданные Zenodo
+Click **Edit** on the draft record and complete or verify the following fields:
 
-В форме редактирования записи:
-
-| Поле | Значение |
-|------|---------|
-| **Title** | Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification |
-| **Authors** | [Ваши данные] |
-| **Description** | Формальная верификация (Coq 8.20.1) четырёх теорем о недостижимости H4/600-cell геометрии. 326 Qed, 59 феноменологических формул. Конструктивный отрицательный результат. |
+| Field | Value |
+|-------|-------|
+| **Title** | Trinity S3AI: A Constructive Negative Result in Geometric Unification |
+| **Authors** | [Fill in real names and ORCID iDs] |
+| **Description** | Formal proofs, numerical validation, and discrete spectral geometry testing the hypothesis that Standard Model parameters derive from the H4 Coxeter group and 600-cell. |
 | **Resource type** | Software |
 | **License** | MIT |
-| **Keywords** | NCG, H4, 600-cell, Standard Model, Coq, formal verification, negative result, golden ratio |
-| **Version** | v1.0-wave10 |
-| **Related identifiers** | GitHub: https://github.com/gHashTag/trinity-s3ai |
+| **Keywords** | noncommutative geometry, Coxeter groups, Standard Model, Coq, formal proof |
+| **Version** | v1.0-wave14 |
+| **Related identifiers** | GitHub: `https://github.com/gHashTag/trinity-s3ai` |
 
-### Шаг 2.4 — Опубликовать и получить DOI
-
-1. Нажать **Publish** в форме Zenodo
-2. Дождаться регистрации DOI (обычно мгновенно)
-3. Скопировать DOI вида `10.5281/zenodo.XXXXXXX`
+Add any additional references, funding information, or institutional affiliations as needed.
 
 ---
 
-## Часть 3: Обновить CITATION.cff
+## Step 5: Publish and Copy the DOI
 
-После получения DOI:
+> **Screenshot 5** — Published Zenodo record page displaying the final DOI
+> (`10.5281/zenodo.XXXXXXX`) and citation widget.
+
+1. Click **Publish** in the Zenodo edit form.
+2. The DOI (e.g., `10.5281/zenodo.1234567`) becomes active immediately.
+3. Copy the exact DOI string.
+
+### Update `CITATION.cff`
+
+Replace the placeholder:
+
+```yaml
+# Before:
+doi: 10.5281/zenodo.PLACEHOLDER  # Replace with real DOI after Zenodo sync
+
+# After:
+doi: 10.5281/zenodo.XXXXXXX
+```
+
+### Update `README.md`
+
+Add the Zenodo DOI badge near the top of the file:
+
+```markdown
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+```
+
+Commit and push the updates:
 
 ```bash
-# Отредактировать CITATION.cff
-nano CITATION.cff
-
-# Заменить плейсхолдер:
-# doi: "[PLACEHOLDER — fill after Zenodo deposit; see scripts/prepare_zenodo.md]"
-# На:
-# doi: "10.5281/zenodo.XXXXXXX"
-
-# Добавить в README.md бейдж:
-# [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
-
 git add CITATION.cff README.md
-git commit -m "Add Zenodo DOI to CITATION.cff and README.md"
+git commit -m "docs: add Zenodo DOI v1.0-wave14"
 git push origin main
 ```
 
 ---
 
-## Часть 4: Проверка публикации
+## Post-Release Verification
 
 ```bash
-# Убедиться, что DOI резолвится
-curl -s "https://doi.org/10.5281/zenodo.XXXXXXX" | head -5
+# Verify the DOI resolves
+curl -sI "https://doi.org/10.5281/zenodo.XXXXXXX" | head -5
 
-# Проверить метаданные через API Zenodo
+# Inspect Zenodo API metadata
 curl -s "https://zenodo.org/api/records/XXXXXXX" | python3 -m json.tool | head -40
 ```
 
 ---
 
-## Артефакты релиза (автоматические)
+## Checklist
 
-Workflow `.github/workflows/release.yml` при создании тега автоматически:
-1. Создаёт архив `coq-proofs-v*.tar.gz` из скомпилированных `.vo` файлов
-2. Прикрепляет архив к GitHub Release
-3. Если найден `paper.pdf` в корне — добавляет его тоже
-
-Проверить: https://github.com/gHashTag/trinity-s3ai/releases/tag/v1.0-wave10
-
----
-
-## Контрольный список перед публикацией
-
-- [ ] `python3 scripts/anti_numerology_gate.py` → PASS (0 флагов)
-- [ ] `python3 validate_v4.py` → PASS
-- [ ] CITATION.cff — имена авторов заполнены
-- [ ] README.md — раздел «Status» честно описывает отрицательный результат
-- [ ] SALVAGE.md существует и актуален
-- [ ] Тег `v1.0-wave10` создан и загружен: `git push origin v1.0-wave10`
-- [ ] Zenodo подключён к репозиторию
-- [ ] DOI получен и добавлен в CITATION.cff
-- [ ] Бейдж DOI добавлен в README.md
-- [ ] GitHub Release содержит артефакты `.vo` и PDF (если есть)
+- [ ] Zenodo–GitHub integration enabled for `gHashTag/trinity-s3ai`
+- [ ] Local tag `v1.0-wave14` pushed to GitHub (`git push origin v1.0-wave14`)
+- [ ] Zenodo draft record appears at [https://zenodo.org/deposit](https://zenodo.org/deposit)
+- [ ] Metadata (title, authors, description, keywords, license) verified in Zenodo
+- [ ] Record published and DOI obtained
+- [ ] DOI copied into `CITATION.cff`
+- [ ] DOI badge added to `README.md`
+- [ ] Changes committed and pushed to `main`
 
 ---
 
-*Wave 10.5 — Trinity S3AI Zenodo Preparation Guide*
+*Wave 15.3 — Trinity S3AI Zenodo Release Preparation*

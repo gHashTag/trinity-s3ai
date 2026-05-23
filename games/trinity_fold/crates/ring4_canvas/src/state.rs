@@ -10,7 +10,10 @@ use ring0_core::{Board, Catalog, ClaimStatus};
 use ring1_constraints::{ScoreBreakdown, ScoreWeights, score_board};
 use ring2_search::{anneal, hill_climb};
 
+use crate::bridge::BridgeView;
 use crate::input::UiEvent;
+use crate::recipes::{Recipe, builtin_recipes};
+
 
 #[derive(Clone, Debug)]
 pub struct ViewOptions {
@@ -42,19 +45,36 @@ pub struct AppState {
     pub board: Board,
     pub holdout: Vec<String>,
     pub score: ScoreBreakdown,
+    pub bridge: BridgeView,
+    pub recipes: Vec<Recipe>,
     pub view: ViewOptions,
+    /// Insertion-order history of tile ids that are still on the board.
+    /// Empty after ClearBoard / LoadRecipe; only `ToggleTile` adds to it.
+    /// Powers single-step undo from the toolbar / `u` key.
+    pub pick_history: Vec<String>,
+
 }
 
 impl AppState {
     pub fn new(catalog: Catalog, holdout: Vec<String>) -> Self {
         let board = Board::new();
         let score = score_board(&catalog, &board);
+        let bridge = BridgeView::build(&catalog, &board, &score);
+        let mut recipes = builtin_recipes();
+        for r in recipes.iter_mut() {
+            r.rebind_to(&catalog);
+        }
+
         Self {
             catalog,
             board,
             holdout,
             score,
+            bridge,
+            recipes,
             view: ViewOptions::default(),
+            pick_history: Vec::new(),
+
         }
     }
 
@@ -77,6 +97,27 @@ impl AppState {
         } else {
             self.score = score_board(&self.catalog, &self.board);
         }
+        // GOLDEN BRIDGE projection is derived state — rebuild whenever score
+        // does. Keeps the render path free of branching on benchmark mode.
+        self.bridge = BridgeView::build(&self.catalog, &self.board, &self.score);
+    }
+
+    /// Replace the board with the tiles named by a recipe. Unknown ids are
+    /// ignored (they were already stripped by `Recipe::rebind_to` at startup).
+    pub fn load_recipe(&mut self, recipe_id: &str) -> bool {
+        let Some(recipe) = self.recipes.iter().find(|r| r.id == recipe_id) else {
+            return false;
+        };
+        let new_board = Board::from_ids(recipe.tile_ids.clone());
+        if new_board.is_empty() {
+            return false;
+        }
+        self.board = new_board;
+        self.pick_history.clear();
+        self.view.focus_id = None;
+        self.rescore();
+        true
+
     }
 
     /// Apply a typed UI event to the state. Returns true if the state
@@ -89,8 +130,12 @@ impl AppState {
                 }
                 if self.board.contains(&id) {
                     self.board.remove(&id);
+                    self.pick_history.retain(|h| h != &id);
                 } else {
                     self.board.insert(id.clone());
+                    self.pick_history.retain(|h| h != &id);
+                    self.pick_history.push(id.clone());
+
                 }
                 self.view.focus_id = Some(id);
                 self.rescore();
@@ -101,6 +146,22 @@ impl AppState {
                     return false;
                 }
                 self.board = Board::new();
+                self.pick_history.clear();
+                self.view.focus_id = None;
+                self.rescore();
+                true
+            }
+            UiEvent::UndoLast => {
+                let last = loop {
+                    match self.pick_history.pop() {
+                        Some(id) if self.board.contains(&id) => break Some(id),
+                        Some(_) => continue,
+                        None => break None,
+                    }
+                };
+                let Some(id) = last else { return false; };
+                self.board.remove(&id);
+
                 self.view.focus_id = None;
                 self.rescore();
                 true
@@ -130,6 +191,8 @@ impl AppState {
                 let w = ScoreWeights::default();
                 let report = hill_climb(&self.catalog, self.board.clone(), &w, 64);
                 self.board = report.best_board;
+                self.pick_history.clear();
+
                 self.rescore();
                 true
             }
@@ -137,9 +200,12 @@ impl AppState {
                 let w = ScoreWeights::default();
                 let report = anneal(&self.catalog, self.board.clone(), &w, iters, seed, 1.0, 0.97);
                 self.board = report.best_board;
+                self.pick_history.clear();
                 self.rescore();
                 true
             }
+            UiEvent::LoadRecipe(id) => self.load_recipe(&id),
+
             UiEvent::Tick => {
                 self.view.frame = self.view.frame.wrapping_add(1);
                 // Animations are cosmetic — do not force a full redraw every tick.
@@ -229,6 +295,73 @@ mod tests {
     }
 
     #[test]
+    fn bridge_view_tracks_board() {
+        let mut s = fresh();
+        assert_eq!(s.bridge.span_nodes.len(), 0);
+        let id = s.catalog.nodes[0].id.clone();
+        s.apply(UiEvent::ToggleTile(id));
+        assert_eq!(s.bridge.span_nodes.len(), 1);
+        s.apply(UiEvent::ClearBoard);
+        assert_eq!(s.bridge.span_nodes.len(), 0);
+    }
+
+    #[test]
+    fn load_recipe_replaces_board() {
+        let mut s = fresh();
+        // Pre-populate the board with one unrelated tile.
+        let other = s.catalog.nodes[0].id.clone();
+        s.apply(UiEvent::ToggleTile(other.clone()));
+        let recipe_id = s.recipes.first().expect("a builtin recipe").id.clone();
+        let changed = s.apply(UiEvent::LoadRecipe(recipe_id.clone()));
+        assert!(changed);
+        // The pre-existing tile should be gone, replaced by recipe tiles.
+        let recipe = s.recipes.iter().find(|r| r.id == recipe_id).unwrap();
+        for id in &recipe.tile_ids {
+            assert!(s.board.contains(id), "recipe tile `{}` should be on board", id);
+        }
+    }
+
+    #[test]
+    fn load_unknown_recipe_is_noop() {
+        let mut s = fresh();
+        assert!(!s.apply(UiEvent::LoadRecipe("definitely_not_a_recipe".into())));
+        assert!(s.board.is_empty());
+    }
+
+    #[test]
+    fn undo_last_removes_most_recent_pick() {
+        let mut s = fresh();
+        let a = s.catalog.nodes[0].id.clone();
+        let b = s.catalog.nodes[1].id.clone();
+        s.apply(UiEvent::ToggleTile(a.clone()));
+        s.apply(UiEvent::ToggleTile(b.clone()));
+        assert!(s.board.contains(&a) && s.board.contains(&b));
+        assert!(s.apply(UiEvent::UndoLast));
+        assert!(s.board.contains(&a), "first pick should survive undo");
+        assert!(!s.board.contains(&b), "second pick should be removed by undo");
+    }
+
+    #[test]
+    fn undo_last_on_empty_board_is_noop() {
+        let mut s = fresh();
+        assert!(!s.apply(UiEvent::UndoLast));
+    }
+
+    #[test]
+    fn load_recipe_clears_undo_history() {
+        let mut s = fresh();
+        let a = s.catalog.nodes[0].id.clone();
+        s.apply(UiEvent::ToggleTile(a));
+        let recipe_id = s.recipes.first().expect("a builtin recipe").id.clone();
+        s.apply(UiEvent::LoadRecipe(recipe_id));
+        // After a recipe replaces the board, undo must not resurrect the
+        // pre-recipe pick — that would surprise the player.
+        assert!(s.pick_history.is_empty());
+        assert!(!s.apply(UiEvent::UndoLast));
+    }
+
+    #[test]
+
     fn anneal_with_same_seed_is_deterministic() {
         let mut a = fresh();
         let mut b = fresh();

@@ -1,0 +1,11 @@
+{
+  "cl8_verified": true,
+  "cl8_max_error": 0.0,
+  "cl6_verified": true,
+  "cl6_max_error": 0.0,
+  "triality_dim_vector": 8,
+  "triality_dim_spinor_plus": 8,
+  "triality_dim_spinor_minus": 8,
+  "generation_match": false,
+  "three_gens_natural": false
+}

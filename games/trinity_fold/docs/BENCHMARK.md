@@ -34,6 +34,6 @@ A serious held-out evaluation would require:
 If you build on this, treat the benchmark mode as a discipline cue, not as
 a substitute for blinded evaluation. The repo's broader experimental
 preregistration lives in
-[`experimental_protocol.md`](../../../experimental_protocol.md) and
-[`dune_preregistration.md`](../../../dune_preregistration.md); those are the
+[`experimental_protocol.md`](../../../docs/experiments/experimental_protocol.md) and
+[`dune_preregistration.md`](../../../docs/experiments/dune_preregistration.md); those are the
 real instruments.
