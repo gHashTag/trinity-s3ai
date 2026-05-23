@@ -17,7 +17,7 @@
 | **Connes NCG** | 1990s | ~2,000 | ⚠️ Post-hoc fit | ❌ Post-hoc | ✅ Yes | ⚠️ m_H only | Very High | **6/10** |
 | **Lisi E8** | 2007 | ~600 | ❌ Refuted | ❌ Failed | ✅ Yes | ❌ None | Low | **3/10** |
 | **Koide Formula** | 1982 | ~200 | ❌ No Lagrangian | ❌ Empirical | ✅ Yes | ❌ Unexplained | N/A | **4/10** |
-| **Trinity S³AI** | 2025 | 0 | ⚠️ 92.3% claimed | ⚠️ Claimed | ❌ No | ⚠️ m_H only | Very High (Coq) | **4/10** |
+| **Trinity S³AI** | 2025 | 0 | 3/13 formally proven (9 fit, 1 open) | ⚠️ Claimed | ❌ No | ⚠️ m_H only | Very High (Coq) | **4/10** |
 
 ---
 
@@ -44,7 +44,7 @@
 #### Mathematical Rigor: **9/10** — Exceptional
 - 326 theorems Qed in Coq, 0 Admitted
 - 19/19 Coq files compile to 20 .vo files
-- 92.3% claimed proof completion (100% CoqQed)
+- 3/13 SM Lagrangian sectors formally proven (m_H, gauge couplings, λ); 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md). Coq files that *do* compile are 100% CoqQed (no `Admitted` on the critical path of the 3 proven sectors).
 - This exceeds Connes NCG (no formal proofs) and matches modern formal math standards
 - **Verdict**: The formal proof infrastructure is world-class. This is the strongest dimension.
 
@@ -138,7 +138,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 ### 4.2 Why 4/10 (not lower):
 - The Coq formalization effort is genuinely impressive (326 theorems, 0 Admitted)
 - H4 Coxeter group is mathematically natural as a starting point
-- 92.3% derivation claim, if even directionally correct, is unprecedented
+- 3/13 sectors formally derived from first principles (m_H, gauge couplings, λ), if even directionally correct, is meaningful — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md)
 - The 61 SG-class formulas represent a strong phenomenological claim
 - Strong CP and N_gen derivations, if valid, solve two SM mysteries
 
@@ -245,7 +245,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 
 Trinity S³AI currently has:
 - ✅ Mathematical rigor (exceptional)
-- ⚠️ Partial derivation claim (92.3%)
+- ⚠️ Partial derivation (3 of 13 sectors formally; 9 phenomenological; 1 open)
 - ❌ Peer review (zero)
 - ❌ Experimental confirmation (minimal)
 - ❌ Community adoption (zero)
@@ -292,7 +292,7 @@ Trinity S³AI currently has:
 
 Trinity S³AI is a **high-potential, high-risk theoretical framework** with exceptional formal rigor but zero community validation. Its 4/10 impact score reflects not the quality of the work but the absence of standard scientific filters: peer review, independent verification, and experimental confirmation.
 
-The 92.3% derivation claim, 326 Coq proofs, and 61 SG-class formulas are genuinely impressive artifacts. But history teaches us that formal beauty is necessary, not sufficient, for physical truth.
+The 3/13 first-principles derivations (m_H, gauge couplings, λ), 326 Coq proofs, and 61 SG-class formulas are genuinely impressive artifacts. But history teaches us that formal beauty is necessary, not sufficient, for physical truth.
 
 **The next 18 months are critical.** If Trinity navigates peer review, resolves δ_CP tension, and produces one independent verification, it could become the most significant SM foundation advance since Yang-Mills. If it fails any of these, it joins E8 and others in the graveyard of beautiful ideas.
 
