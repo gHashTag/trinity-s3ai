@@ -59,6 +59,9 @@ DFSpectrum.v
 # Wave 8.2: Spectral triple axiom checklist
 SpectralTripleAxioms.v
 
+# Wave 8.2 extension: Twisted spectral triples (alternative FOC path)
+TwistedSpectralTriple.v
+
 # Wave 8.3: Eta invariant on S³/2I (Poincaré homology sphere)
 EtaInvariant.v
 
@@ -85,4 +88,7 @@ AltCrystallography.v
 
 # Wave 10.2: E8 bulk and H4 folding
 E8Bulk.v
+
+# Wave 14: Z3 tripartition of snub 24-cell
+Snub24CellZ3.v
 
