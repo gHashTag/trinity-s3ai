@@ -1,6 +1,6 @@
 # Trinity S³AI: Comparative Impact Analysis with Great Physics Discoveries
 
-## Historian of Physics Assessment | 2025
+## Historian of Physics Assessment | 2026
 
 ---
 
@@ -17,7 +17,7 @@
 | **Connes NCG** | 1990s | ~2,000 | ⚠️ Post-hoc fit | ❌ Post-hoc | ✅ Yes | ⚠️ m_H only | Very High | **6/10** |
 | **Lisi E8** | 2007 | ~600 | ❌ Refuted | ❌ Failed | ✅ Yes | ❌ None | Low | **3/10** |
 | **Koide Formula** | 1982 | ~200 | ❌ No Lagrangian | ❌ Empirical | ✅ Yes | ❌ Unexplained | N/A | **4/10** |
-| **Trinity S³AI** | 2025 | 0 | 3/13 formally proven (9 fit, 1 open) | ⚠️ Claimed | ❌ No | ⚠️ m_H only | Very High (Coq) | **4/10** |
+| **Trinity S³AI** | 2026 | 0 | 3/13 formally proven (9 fit, 1 open) | ⚠️ Claimed | ❌ No | ⚠️ m_H only | Very High (Coq) | **4/10** |
 
 ---
 
@@ -211,9 +211,9 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 ### 5.2 Impact Projection Timeline
 
 ```
-2025 Q2-Q4:  Peer review submission          → Impact: 4 → 5
-2026 Q1-Q4:  First independent verification  → Impact: 5 → 6.5
-2027 Q1-Q4:  δ_CP resolved                   → Impact: 6.5 → 7.5
+2026 Q2-Q3:  Peer review submission          → Impact: 4 → 5
+2026 Q4:     First independent verification  → Impact: 5 → 6.5
+2027 Q1-Q4:  δ_CP resolved or withdrawn      → Impact: 6.5 → 7.5
 2028+:       Experimental predictions        → Impact: 7.5 → 9
 ```
 
@@ -302,5 +302,5 @@ The 3/13 first-principles derivations (m_H, gauge couplings, λ), **1325 Coq Qed
 
 ---
 
-*Assessment by Historian of Physics | 2025*  
+*Assessment by Historian of Physics | 2026*  
 *Methodology: Multi-dimensional comparative analysis using citation data, peer review status, experimental confirmation records, and historical trajectory modeling.*

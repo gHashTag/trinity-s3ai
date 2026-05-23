@@ -20,9 +20,14 @@
 From Coq Require Import Reals.
 From Coq Require Import Lra.
 From Coq Require Import Lia.
+From Coq Require Import Ring.
 From CliffordCl8 Require Import CliffordAlgebra.
 
 Open Scope R_scope.
+
+(* Helper: 0 < 1 for Fin 1 indexing *)
+Local Lemma zero_lt_one : (0 < 1)%nat.
+Proof. lia. Qed.
 
 (******************************************************************************)
 (* Section 1: The complex numbers ℂ as an ℝ-algebra                           *)
@@ -80,7 +85,7 @@ Admitted.
 (* The vector space is V = ℝ¹ and Q(v) = -v².                                *)
 (******************************************************************************)
 
-Definition Q_01 (v : Vec 1) : R := - v (mkFin 0%nat (ltac:(lia))) ^ 2.
+Definition Q_01 (v : Vec 1) : R := - v (mkFin 0%nat zero_lt_one) ^ 2.
 
 (******************************************************************************)
 (* Section 4: The CliffordSpec for Cl(0,1)                                    *)
@@ -92,32 +97,31 @@ Definition Q_01 (v : Vec 1) : R := - v (mkFin 0%nat (ltac:(lia))) ^ 2.
 (******************************************************************************)
 
 Definition i_01 (v : Vec 1) : C_carrier :=
-  C_smul (v (mkFin 0%nat (ltac:(lia)))) (0, 1).
+  C_smul (v (mkFin 0%nat zero_lt_one)) (0, 1).
 
 Lemma i_01_cl_sq : forall v : Vec 1,
   C_mul (i_01 v) (i_01 v) = C_smul (Q_01 v) C_one.
 Proof.
   intro v. unfold i_01, Q_01, C_mul, C_smul, C_one. simpl.
-  destruct (vec_nth v 0%nat (ltac:(lia))) as [r | ] eqn:Hr; simpl.
-  - f_equal; lra.
-  - f_equal; lra.
+  remember (v (mkFin 0%nat zero_lt_one)) as r.
+  f_equal; ring.
 Qed.
 
 Lemma i_01_linear : forall v w : Vec 1,
   i_01 (vec_add v w) = C_add (i_01 v) (i_01 w).
 Proof.
   intros v w. unfold i_01, C_add, vec_add. simpl.
-  destruct (vec_nth v 0%nat (ltac:(lia))) as [rv | ] eqn:Hrv;
-  destruct (vec_nth w 0%nat (ltac:(lia))) as [rw | ] eqn:Hrw; simpl;
-  try (f_equal; lra).
+  remember (v (mkFin 0%nat zero_lt_one)) as rv.
+  remember (w (mkFin 0%nat zero_lt_one)) as rw.
+  f_equal; ring.
 Qed.
 
 Lemma i_01_smul : forall (r : R) (v : Vec 1),
   i_01 (vec_smul r v) = C_smul r (i_01 v).
 Proof.
   intros r v. unfold i_01, vec_smul, C_smul. simpl.
-  destruct (vec_nth v 0%nat (ltac:(lia))) as [rv | ] eqn:Hrv; simpl;
-  try (f_equal; lra).
+  remember (v (mkFin 0%nat zero_lt_one)) as rv.
+  f_equal; ring.
 Qed.
 
 Definition Cl01_spec : CliffordSpec 0 1.
@@ -146,7 +150,7 @@ Defined.
 Definition e1 : Vec 1 := fun i => 1.
 
 Lemma e1_sq : Q_01 e1 = -1.
-Proof. unfold Q_01, e1, vec_basis. simpl. ring. Qed.
+Proof. unfold Q_01, e1. simpl. ring. Qed.
 
 (* The universal property *)
 Theorem Cl01_universal_property (A : RAlgebra)

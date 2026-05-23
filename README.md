@@ -30,6 +30,8 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [docs/TECH_TREE.md](docs/TECH_TREE.md) | Layered status of the whole stack (infra → proofs → fits → game → paper) |
 | [docs/REVIEW_CHECKLIST.md](docs/REVIEW_CHECKLIST.md) | Mechanical review-readiness checklist |
 | [SALVAGE.md](SALVAGE.md) | Honest summary: what H4 can/cannot do |
+| [EPISTEMOLOGY.md](EPISTEMOLOGY.md) | Calculation-primacy doctrine: how model-dependent extractions are handled |
+| [PREDICTIONS_PREREGISTERED.md](PREDICTIONS_PREREGISTERED.md) | 9 pre-registered predictions (4 confirmed, 5 open) |
 | [ROADMAP_WAVE17_PLUS.md](ROADMAP_WAVE17_PLUS.md) | **Post-Wave-17 program**: Tracks A (honest phenomenology), B (Cl(8) / J3(O)), C (negative-result paper) |
 | [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new No-Go NGT-7, updated counters, E8-plumbing / string-correspondence honesty notes |
 | [SECURITY.md](SECURITY.md) | Security policy and reporting path |
@@ -440,4 +442,8 @@ Also see [CITATION.bib](CITATION.bib) for formatted references.
 | 5–8 | NCG derivations, spectral action |
 | 9.6 | NGT1–NGT4 no-go theorems formalized |
 | 10.5 | Anti-numerology CI gate; CITATION.cff; CONTRIBUTING.md |
+| 12 | Track B launch: Cl(p,q) formalization (T1–T3) |
 | 15.1 | Honest counting system: comments stripped before statistics |
+| 17 | Formal retraction of δ_CP = 65.66° (5.6σ excluded); 0 real `Admitted.` in proofs/trinity/ |
+| 18 | Merge of honesty-pass PRs #21–#23 (Lagrangian status, δ_CP withdrawal, Coq audit) |
+| 19 | Merge of honesty-pass PRs #29, #31, #32 (calculation-primacy, N_gen=3 withdrawn, Strong CP withdrawn); all old PRs merged |
