@@ -245,13 +245,16 @@ holds no game data at all.
 
 ## Testing surface
 
-Ring 4 ships 38 unit tests, all native (no browser):
+Ring 4 ships 43 unit tests, all native (no browser):
 
 - `state::tests` — apply/toggle/clear/benchmark/hill-climb/anneal determinism,
   unknown-id handling, GOLDEN BRIDGE view tracking, recipe loading.
 - `render::tests` — hit-region coverage of the catalog, toolbar buttons,
   worst-claim text, GOLDEN BRIDGE branding, integrity label, collapse
-  warning, recipe-chip hits, colour CSS formatting, truncation.
+  warning, recipe-chip hits, colour CSS formatting, truncation, plus
+  game-feel guards (tutorial banner lists three numbered steps, toolbar
+  uses kid-friendly Reset/Hint/Auto-build labels, friendly tile labels
+  replace raw ids, status banner appears once tiles are placed).
 - `input::tests` — pure hit-testing, including topmost-wins overlap and
   recipe-chip → `LoadRecipe` resolution.
 - `bridge::tests` — pier partitioning, falsified-tile collapse,
