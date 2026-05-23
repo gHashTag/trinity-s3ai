@@ -1,0 +1,113 @@
+{
+  "wave": "16.2",
+  "B_matrix": {
+    "dimensions": [
+      8,
+      120
+    ],
+    "sparsity": 0.75,
+    "nonzeros_per_row": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "total_nonzeros": 240,
+    "frame_vectors": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -1.0
+      ]
+    ],
+    "coupling_type": "constant_on_equator_with_alternating_signs",
+    "assumptions": [
+      "Frame vectors are the 8 vertices of the 16-cell (subset of 600-cell).",
+      "Each interior node couples to exactly 30 boundary vertices forming an icosidodecahedral equatorial slice.",
+      "Antipodal frame pairs (0,4), (1,5), (2,6), (3,7) share the same equator but receive opposite coupling signs.",
+      "Constant coupling on the equator is a discretization artifact; a continuous model would use a normal derivative across the equator.",
+      "The number 30 (= vertices of an icosidodecahedron) coincides with the Coxeter number h(E8)=h(H4)=30; this is suggestive but not a rigorous derivation.",
+      "THIS IS A HEURISTIC. The exact B matrix has NOT been derived from first principles."
+    ]
+  },
+  "D_P": {
+    "shape": [
+      512,
+      512
+    ],
+    "hermitian_error": 0.0,
+    "hermitian": true,
+    "spectrum_min": -20.331042446473194,
+    "spectrum_max": 20.329738614203357,
+    "near_zero_modes": 20
+  },
+  "boundary_eta": {
+    "eta_sign_count": -64.0,
+    "eta_target": -2.0,
+    "n_positive": 84,
+    "n_negative": 148,
+    "n_zero": 8,
+    "boundary_eval_min": -3.88194730374431,
+    "boundary_eval_max": 12.550082328797883,
+    "eta_reg_eps_0.20": -51.97871291395268,
+    "eta_reg_eps_0.10": -61.1331941003433,
+    "eta_reg_eps_0.05": -64.54550281434447,
+    "eta_reg_eps_0.02": -65.7396336242133,
+    "eta_reg_eps_0.01": -65.93236548504575
+  },
+  "verdict": {
+    "B_rigorously_derived": false,
+    "B_geometrically_motivated": true,
+    "eta_sign_count_matches_APS": false,
+    "eta_sign_count": -64.0,
+    "eta_target": -2.0,
+    "note": "Heuristic B produces an integer sign-counting eta. The continuous APS target is \u22122. Agreement within O(1) is expected for a finite discretization. A full derivation of B from the plumbing geometry remains an open problem."
+  }
+}

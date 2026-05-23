@@ -251,7 +251,92 @@ The 512-dimensional representation is suggestive:
 
 ---
 
-## 7. References
+## 7. Wave 16.2 — B-matrix Derivation (Implemented)
+
+**Date:** 2026-05-22  
+**Files:** `b_matrix_derivation.py`, `b_matrix_results.json`  
+**Status:** Heuristic B implemented; full 512×512 D_P constructed and diagonalized
+
+### 7.1 What was accomplished
+
+1. **E8 Cartan matrix** — Built and verified (σ = −8, negative-definite).
+2. **600-cell vertices** — Constructed the full 120-vertex set using even permutations of the standard icosian coordinates. Verified unit norm and deduplicated.
+3. **600-cell adjacency** — Verified 12-regular with 720 edges (inner-product criterion ⟨vᵢ, vⱼ⟩ = φ/2).
+4. **Heuristic B matrix** — Constructed an 8 × 120 sparse coupling matrix:
+   - Each interior node couples to exactly 30 boundary vertices (the icosidodecahedral equatorial slice).
+   - Frame vectors: the 8 vertices of the 16-cell (a sub-polytope of the 600-cell).
+   - Antipodal frame pairs receive opposite coupling signs.
+   - **240 nonzero entries** out of 960 (75% sparsity).
+5. **Full D_P** — Assembled the 512 × 512 Hermitian discrete Dirac operator.
+6. **Verification** — Hermiticity error = 0.0.
+7. **Spectrum** — Computed full eigenvalue decomposition. Range: [−20.33, +20.33]. 20 near-zero modes (|λ| < 0.1).
+8. **Boundary η** — Extracted the true boundary-boundary block (480 × 480) and computed sign-counting η on its 2-component restriction (240 × 240).
+
+### 7.2 Results
+
+| Quantity | Value | Target / Expectation |
+|----------|-------|---------------------|
+| B dimensions | 8 × 120 | — |
+| B nonzeros | 240 (25%) | 8 × 30 = 240 ✓ |
+| B sparsity | 75% zeros | — |
+| D_P shape | 512 × 512 | 128 × 4 = 512 ✓ |
+| D_P Hermitian | YES (error 0.0) | Must be Hermitian ✓ |
+| D_P spectrum | [−20.33, +20.33] | — |
+| Near-zero modes | 20 | — |
+| **Boundary η (sign count)** | **−64** | **−2 (APS)** |
+| (#pos, #neg, #zero) | (84, 148, 8) | — |
+| η_reg(ε = 0.05) | −64.55 | — |
+| η_reg(ε = 0.01) | −65.93 | — |
+
+### 7.3 Honest assessment
+
+**Is B rigorously derived?** **NO.**
+
+The exact coupling matrix B between interior plumbing nodes and boundary 600-cell vertices is **not known from first principles**. The construction above is a **geometrically motivated heuristic** with the following documented assumptions:
+
+1. **Frame vectors:** We identified the 8 interior nodes with the 8 vertices of the 16-cell. There is no theorem that mandates this choice.
+2. **Equatorial coupling:** Each node couples to the 30 vertices of an icosidodecahedral equator. In a smooth manifold, the coupling would be a normal derivative across the plumbing sphere; on a discrete graph we approximate it by a constant on the equatorial slice.
+3. **Sign choice:** Antipodal frames receive opposite signs. This is a phenomenological assumption to reduce degeneracy.
+4. **No mass shift:** We used mass_shift = 0.0 because the full 120-vertex boundary is the correct one for E8. Tuning a mass shift (as was done for the reduced E7 model) might improve η agreement but lacks theoretical motivation here.
+
+**Does η match the APS target?** **NO.**
+
+- Sign-counting gives η = −64.
+- APS target: η = −2.
+- The discrepancy is **O(30×)**, far larger than the O(1) deviations seen in the reduced E6/E7 models.
+
+**Why the large discrepancy?**
+
+1. **Sign-counting is not zeta-regularization.** The discrete Dirac operator on a finite graph yields an integer η. The continuous Dirac operator on S³/2I has a fractional η = −2. The two are not expected to agree exactly.
+2. **The 600-cell adjacency matrix has many negative eigenvalues.** The boundary block is built from A_bnd and antisymmetric M_k terms. The adjacency spectrum of the 600-cell includes 65 negative eigenvalues (out of 120). This heavily biases the sign-count toward negative values.
+3. **M_k may be too small.** The antisymmetric directional terms M_k that break chiral symmetry are comparable in magnitude to the 24-cell case, but the boundary is 5× larger and the adjacency eigenvalues dominate.
+4. **Heuristic B may not capture the correct plumbing topology.** A rigorous B would require knowing how each E8 plumbing sphere intersects the boundary 3-manifold Σ(2,3,5). This intersection data is encoded in the plumbing resolution of the singularity, and its discrete analog is nontrivial.
+
+**What would improve agreement?**
+
+- **Tuning the coupling constant or mass shift:** Phenomenological, not principled.
+- **Rescaling M_k:** A larger antisymmetric term would push more eigenvalues across zero, reducing |η|.
+- **Using the Schur complement:** Instead of D_bb, the rigorous boundary operator is S = D_bb − D_bi · D_ii⁻¹ · D_ib. Numerically unstable because D_ii (the E8 Cartan block) is nearly singular.
+- **Zeta regularization on the finite graph:** Requires defining η(s) = Σ sign(λ)|λ|⁻ˢ and analytically continuing to s = 0. For a finite matrix this reduces to sign-counting, so it cannot produce −2.
+
+### 7.4 Conclusion
+
+The Wave 16.2 experiment **closes the computational loop** (B → D_P → spectrum → η) but **does not close the mathematical gap**. We now have:
+
+- ✅ A running Python script that builds the full 512×512 D_P.
+- ✅ A heuristic B with documented geometric assumptions.
+- ✅ A measured boundary η = −64 (sign-counting).
+- ❌ No rigorous derivation of B.
+- ❌ No agreement with APS η = −2.
+
+**Next steps:**
+1. Derive B from the plumbing intersection form (possibly via Kirby calculus or surgery diagrams).
+2. Explore whether a different discrete Dirac ansatz (e.g., spectral graph Dirac with vertex weights) can reproduce η = −2.
+3. Investigate whether the discrepancy is a fundamental limitation of graph discretizations for the Dirac operator on spherical space forms.
+
+---
+
+## 8. References
 
 1. M. F. Atiyah, V. K. Patodi, and I. M. Singer, *Spectral asymmetry and Riemannian geometry*, Math. Proc. Camb. Phil. Soc. 77 (1975) 43–69.
 2. R. Kirby and P. Melvin, *Dedekind sums, μ-invariants and the signature cocycle*, Math. Ann. 299 (1994) 231–267.
@@ -265,5 +350,6 @@ The 512-dimensional representation is suggestive:
 ---
 
 *Document type: Research proposal with partial implementation*  
-*Wave: 15.6*  
-*Next action: Derive coupling matrix B and implement full 128-vertex D_P*
+*Wave: 15.6 → 16.2*  
+*Last updated: 2026-05-22*  
+*Next action: Rigorous derivation of B or revised discrete Dirac ansatz*

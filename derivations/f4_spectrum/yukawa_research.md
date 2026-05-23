@@ -184,6 +184,131 @@ Trinity-s3ai currently postulates $D_F$ from H4/600-cell. Extending this to F₄
 
 ---
 
-*Document type: Research proposal*  
-*Wave: 15.6*  
-*Next action: Implement numerical scan in `f4_spectrum.py` or dedicated script*
+## 8. Wave 16.1 — Numerical Scan Results
+
+**Date:** 2026-05-23  
+**Script:** `yukawa_scan.py`  
+**Outputs:** `yukawa_results.json`, `yukawa_mass_ratios.png`
+
+### 8.1 Scan Design
+
+We tested five models with increasing parameter count and symmetry breaking:
+
+| Model | Parameters | Symmetry respected? | Description |
+|-------|------------|---------------------|-------------|
+| **0** — Symmetric sector | 1 (α) | Yes | 3×3 Gaussian kernel averaged over D4 triality sectors (8ᵥ, 8ₛ, 8𝒸) |
+| **1** — Weighted sector | 3 eff. (α, w₂/w₁, w₃/w₂) | **No** | Same as Model 0 but with generation-dependent weights wᵢ |
+| **2** — Full 48×48 | 1 (α) | Yes | Gaussian kernel on all 48 F4 roots |
+| **3** — Full 24-short | 1 (α) | Yes | Gaussian kernel on 24 short roots only |
+| **4** — Block 48×48 | 4 (α, cₗ, cₛ, cₗₛ) | Partial | Block-structured kernel: long-long, short-short, long-short mixing |
+
+Cost function: χ² = Σ (log(r_pred / r_obs))² where r = m₃/m₂ and m₂/m₁.
+
+Target masses (PDG 2024, GUT scale, GeV):
+- Up-type:   m_u = 0.001,  m_c = 0.3,   m_t = 100
+- Down-type: m_d = 0.002,  m_s = 0.04,  m_b = 1.0
+- Leptons:   m_e = 0.0005, m_μ = 0.1,   m_τ = 1.7
+
+### 8.2 Results
+
+#### Model 0 — Symmetric sector (1 parameter)
+
+| Fermion | Best χ²_ratio | Best χ²_abs | Max hierarchy achieved | Verdict |
+|---------|---------------|-------------|------------------------|---------|
+| Up-type | 32.53 | 21.63 | ~339:1:1 | **FAIL** |
+| Down-type | 8.98 | 6.10 | ~24:1:1 | **FAIL** |
+| Lepton | 28.07 | 18.90 | ~16:1:1 | **FAIL** |
+
+The matrix has the exact form a·I + b·(J−I) because the three triality sectors are permuted by D4's S₃ automorphism.  Its eigenvalues are {a+2b, a−b, a−b}: **at most two distinct values**, with the smaller one always doubly degenerate.  This is a **structural theorem**, not a numerical accident.
+
+#### Model 1 — Weighted sector (3 effective parameters)
+
+| Fermion | Best χ²_ratio | Best χ²_abs | Verdict |
+|---------|---------------|-------------|---------|
+| Up-type | **0.00** | **0.00** | **FITS** |
+| Down-type | **0.00** | **0.00** | **FITS** |
+| Lepton | **0.00** | **0.00** | **FITS** |
+
+Example best-fit parameters (up-type):  
+α = 7.25,  w = [0.11, 34.9, 1.91],  predicted eigenvalue ratios ≈ 333 : 300.
+
+**Caveat:** The weights wᵢ are arbitrary fudge factors.  They have **no geometric origin in F4** — they are simply postulated to break the triality symmetry.  Any 3×3 diagonal matrix with unequal entries can reproduce three mass ratios; this result says nothing predictive about F4.
+
+#### Model 2 — Full 48×48 (1 parameter)
+
+| Fermion | Best χ²_ratio | Max hierarchy | Verdict |
+|---------|---------------|---------------|---------|
+| Up-type | 33.37 | ~134:1:1 | **FAIL** |
+| Down-type | 8.97 | ~25:1:1 | **FAIL** |
+| Lepton | 28.07 | ~17:1:1 | **FAIL** |
+
+The full 48×48 kernel respects the ℤ₂ outer automorphism of F4 (long ↔ short root exchange).  This forces the second and third largest eigenvalues to be degenerate, capping the hierarchy at ~14:1 regardless of α.
+
+#### Model 3 — Full 24-short (1 parameter)
+
+| Fermion | Best χ²_ratio | Max hierarchy | Verdict |
+|---------|---------------|---------------|---------|
+| Up-type | 32.79 | ~200:1:1 | **FAIL** |
+| Down-type | 8.97 | ~25:1:1 | **FAIL** |
+| Lepton | 28.07 | ~17:1:1 | **FAIL** |
+
+Similar to Model 2, but restricted to the 24 short roots.  The triality symmetry of the short-root sector again forces a degenerate pair, limiting the ratio to ~20:1.
+
+#### Model 4 — Block 48×48 (4 parameters)
+
+| Fermion | Best χ²_ratio | Best χ²_abs | Verdict |
+|---------|---------------|-------------|---------|
+| Up-type | **0.00** | **0.00** | **FITS** |
+| Down-type | **0.00** | **0.00** | **FITS** |
+| Lepton | **0.00** | **0.00** | **FITS** |
+
+Example best-fit (up-type):  
+α ≈ 2×10⁻⁵,  cₗ = 0.317,  cₛ = 104.8,  cₗₛ = 0.516  →  ratios ≈ 333 : 300.
+
+**Caveat:** The four couplings are not predicted by F4 geometry.  They must be fit to data, just like the SM Yukawa parameters.  While Model 4 uses fewer parameters than the SM's full Yukawa sector (4 per fermion type vs. 9 real masses + CKM), the couplings lack a principled geometric derivation.
+
+### 8.3 Structural Reason for Failure of Symmetric Models
+
+The **D4 triality symmetry** of the F4 short-root sector is the fundamental obstacle.
+
+1. The 24 short roots decompose as **8ᵥ + 8ₛ + 8𝒸** under the D4 long-root subalgebra.
+2. The D4 outer automorphism group S₃ permutes these three 8-dimensional representations.
+3. Any Yukawa matrix constructed from **symmetric averages** over the three sectors has the form:
+   $$Y = a \, I_3 + b \, (J_3 - I_3)$$
+   where J₃ is the all-ones matrix.
+4. This matrix has eigenvalues **{a+2b, a−b, a−b}**: at most two distinct values, with the smaller one doubly degenerate.
+5. Therefore, **no symmetric F4-based model can produce three distinct generation masses**.
+
+The maximum hierarchy achievable by symmetric models is set by the geometry of the 24-cell / F4 root system and is approximately **20:1** — five orders of magnitude short of the up-quark hierarchy (~10⁵).
+
+### 8.4 Honest Assessment
+
+| Aspect | Status | Confidence |
+|--------|--------|------------|
+| Constructing Y_ij from root inner products | Straightforward | High |
+| Reproducing mass hierarchy **without free parameters** | **FAIL** — structural degeneracy | **High** |
+| Reproducing mass hierarchy **with symmetry-breaking weights** | **FITS** — but weights are arbitrary | High |
+| Reproducing mass hierarchy **with block couplings** | **FITS** — but couplings are fitted, not predicted | High |
+| Explaining 3 generations without triality | No known mechanism | Very low |
+| Natural geometric origin of symmetry breaking | **None identified** | Very low |
+
+### 8.5 Bottom Line
+
+**NEGATIVE (expected, now numerically confirmed).**
+
+F4 root geometry **alone** cannot explain the observed 3-generation fermion mass hierarchy. The D4 triality symmetry inherent in the short-root sector forces eigenvalue degeneracies that cap symmetric-model mass ratios at ~20:1, far below the SM requirements of ~10⁵ (up-type), ~10³ (down-type), and ~10⁴ (leptons).
+
+Models with enough free parameters (3–4 per fermion type) **can** fit the data, but those parameters are external inputs, not geometric predictions. They play the same role as the SM's Yukawa couplings, which are also free parameters — but the SM does not claim to derive them from a deeper geometric principle.
+
+**Implications for Trinity S³AI:**
+- F4 remains an interesting candidate for the **gauge/spectral structure** (KO-dim = 6, 48 roots, 2O group).
+- F4 **cannot** be the sole origin of the **3-generation mass hierarchy** without additional symmetry-breaking structure.
+- Future work should either:
+  1. Identify a principled mechanism to break D4 triality within the F4 framework (e.g., orbifolding, twisting, or embedding into E₆/E₇/E₈), or
+  2. Return focus to H4/E₈ constructions where the 600-cell geometry may provide richer eigenvalue structure.
+
+---
+
+*Document type: Research proposal + numerical results*  
+*Wave: 15.6 → 16.1*  
+*Next action: Evaluate orbifold/twist constructions or pivot to H4/E₈ mass models*

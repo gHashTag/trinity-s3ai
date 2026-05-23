@@ -142,7 +142,10 @@ Qed.
 (* uniqueness of an R-algebra map A → B factoring any valid (B, j).          *)
 (******************************************************************************)
 
-(* Lightweight R-algebra structure (associative unital R-algebra). *)
+(* Lightweight R-algebra structure (associative unital R-algebra).
+   We include additive inverses and scalar-distributivity over scalar
+   addition so that polynomial identities (polarization, etc.) can be
+   derived directly from the axioms. *)
 Record RAlgebra : Type := {
   carrier      :> Type;
   alg_zero     : carrier;
@@ -150,6 +153,7 @@ Record RAlgebra : Type := {
   alg_add      : carrier -> carrier -> carrier;
   alg_mul      : carrier -> carrier -> carrier;
   alg_smul     : R -> carrier -> carrier;
+  alg_opp      : carrier -> carrier;
   (* Axioms — kept minimal; the structural identities we actually use below
      in proofs are recovered from these. *)
   alg_add_assoc :
@@ -158,6 +162,8 @@ Record RAlgebra : Type := {
     forall a b, alg_add a b = alg_add b a;
   alg_add_0_l   :
     forall a, alg_add alg_zero a = a;
+  alg_add_opp_l :
+    forall a, alg_add (alg_opp a) a = alg_zero;
   alg_mul_assoc :
     forall a b c, alg_mul (alg_mul a b) c = alg_mul a (alg_mul b c);
   alg_mul_1_l   :
@@ -173,7 +179,9 @@ Record RAlgebra : Type := {
   alg_smul_1    :
     forall a, alg_smul 1 a = a;
   alg_smul_mul  :
-    forall r s a, alg_smul (r * s) a = alg_smul r (alg_smul s a)
+    forall r s a, alg_smul (r * s) a = alg_smul r (alg_smul s a);
+  alg_smul_add_distr :
+    forall r s a, alg_smul (r + s) a = alg_add (alg_smul r a) (alg_smul s a)
 }.
 
 (* The R-algebra homomorphism between two RAlgebras. *)
@@ -262,6 +270,101 @@ Proof. intros v. apply (cl_sq C v). Qed.
 End CliffordCorollaries.
 
 (******************************************************************************)
+(* Section 3b: Abstract R-algebra lemmas (provable from the axioms).         *)
+(******************************************************************************)
+
+Section RAlgebraLemmas.
+
+Variable A : RAlgebra.
+
+Lemma alg_add_0_r :
+  forall a, alg_add A a (alg_zero A) = a.
+Proof.
+  intros a. rewrite alg_add_comm. apply alg_add_0_l.
+Qed.
+
+Lemma alg_add_opp_r :
+  forall a, alg_add A a (alg_opp A a) = alg_zero A.
+Proof.
+  intros a. rewrite alg_add_comm. apply alg_add_opp_l.
+Qed.
+
+Lemma alg_add_shuffle (a b c d : carrier A) :
+  alg_add A (alg_add A a b) (alg_add A c d) =
+  alg_add A (alg_add A a c) (alg_add A b d).
+Proof.
+  rewrite <- (alg_add_assoc A (alg_add A a b) c d).
+  rewrite (alg_add_assoc A a b c).
+  rewrite (alg_add_comm A b c).
+  rewrite <- (alg_add_assoc A a c b).
+  rewrite (alg_add_assoc A (alg_add A a c) b d).
+  reflexivity.
+Qed.
+
+Lemma alg_opp_unique (a b : carrier A) :
+  alg_add A b a = alg_zero A -> b = alg_opp A a.
+Proof.
+  intro H.
+  rewrite <- (alg_add_0_r b).
+  rewrite <- (alg_add_opp_r a).
+  rewrite <- (alg_add_assoc A b a (alg_opp A a)).
+  rewrite H.
+  apply alg_add_0_l.
+Qed.
+
+Lemma alg_smul_0 :
+  forall a, alg_smul A 0 a = alg_zero A.
+Proof.
+  intro a.
+  assert (H : alg_add A (alg_smul A 0 a) (alg_smul A 0 a) = alg_smul A 0 a).
+  { rewrite <- (alg_smul_add_distr A 0 0 a). rewrite Rplus_0_l. reflexivity. }
+  assert (H2 : alg_add A (alg_opp A (alg_smul A 0 a))
+                       (alg_add A (alg_smul A 0 a) (alg_smul A 0 a)) =
+            alg_add A (alg_opp A (alg_smul A 0 a)) (alg_smul A 0 a)).
+  { rewrite H. reflexivity. }
+  rewrite <- (alg_add_assoc A (alg_opp A (alg_smul A 0 a)) (alg_smul A 0 a) (alg_smul A 0 a)) in H2.
+  rewrite (alg_add_opp_l A (alg_smul A 0 a)) in H2.
+  rewrite (alg_add_0_l A (alg_smul A 0 a)) in H2.
+  exact H2.
+Qed.
+
+Lemma alg_smul_opp :
+  forall r a, alg_smul A (-r) a = alg_opp A (alg_smul A r a).
+Proof.
+  intros r a.
+  apply alg_opp_unique.
+  rewrite <- (alg_smul_add_distr A (-r) r a).
+  rewrite Rplus_opp_l.
+  apply alg_smul_0.
+Qed.
+
+Lemma alg_opp_add (a b : carrier A) :
+  alg_opp A (alg_add A a b) = alg_add A (alg_opp A a) (alg_opp A b).
+Proof.
+  symmetry.
+  apply (alg_opp_unique (alg_add A a b)).
+  rewrite alg_add_shuffle.
+  rewrite alg_add_opp_l.
+  rewrite alg_add_opp_l.
+  apply alg_add_0_l.
+Qed.
+
+Lemma alg_add_cancel (a b c : carrier A) :
+  alg_add A a b = c -> b = alg_add A c (alg_opp A a).
+Proof.
+  intro H.
+  rewrite <- H.
+  rewrite (alg_add_assoc A a b (alg_opp A a)).
+  rewrite (alg_add_comm A b (alg_opp A a)).
+  rewrite <- (alg_add_assoc A a (alg_opp A a) b).
+  rewrite (alg_add_opp_r a).
+  rewrite (alg_add_0_l A b).
+  reflexivity.
+Qed.
+
+End RAlgebraLemmas.
+
+(******************************************************************************)
 (* Section 4: T1 master theorem — Cl(p,q) spec is internally consistent.      *)
 (*                                                                            *)
 (* "Internally consistent" here means: the spec record `CliffordSpec p q` is *)
@@ -303,8 +406,10 @@ Qed.
 
 (* The polarization identity: i(u)·i(v) + i(v)·i(u) = (Q(u+v) − Q(u) − Q(v))·1.
    This is the standard rewriting of the Clifford relation in terms of the
-   symmetric bilinear form B(u,v) = ½(Q(u+v) − Q(u) − Q(v)). We state it
-   directly from the spec without further axioms. *)
+   symmetric bilinear form B(u,v) = ½(Q(u+v) − Q(u) − Q(v)).
+   Proof: expand (i(u)+i(v))² via distributivity, apply cl_sq to each
+   squared term, then cancel the Q(u)·1 and Q(v)·1 terms using the
+   additive-inverse axioms of RAlgebra. *)
 Theorem T1_polarization :
   forall p q (C : CliffordSpec p q) (u v : Vec (p + q)),
     alg_add (cl_alg C)
@@ -320,24 +425,65 @@ Theorem T1_polarization :
               (alg_smul (cl_alg C) (- Q_pq p q v)
                                  (alg_one (cl_alg C)))).
 Proof.
-  (* The polarization identity is morally:
-       (i u + i v)^2 = i(u+v)^2 = Q(u+v)·1
-       (i u + i v)^2 = (i u)^2 + (i u)(i v) + (i v)(i u) + (i v)^2
-       so (i u)(i v) + (i v)(i u) = Q(u+v)·1 − Q(u)·1 − Q(v)·1.
-     The proof relies on distributivity (alg_distr_l, alg_distr_r),
-     associativity of addition, and linearity of cl_inc — all axioms of
-     RAlgebra and CliffordSpec.
+  intros p q C u v.
+  set (A := cl_alg C).
+  set (a := cl_inc C u).
+  set (b := cl_inc C v).
+  set (one := alg_one A).
 
-     We package the proof as a single algebraic manipulation. Coq's `ring`
-     tactic does NOT work on the abstract RAlgebra carrier (it requires a
-     concrete ring instance), so the proof must be done by hand using the
-     listed axioms. To keep T1 honest and short, we state the polarization
-     identity here and Admit its purely-rewrite proof: the result is well
-     known (Lounesto §1.2) and provable mechanically but tedious in this
-     abstract setting.                                                     *)
-  (* WAVE14: HARD — requires abstract RAlgebra polynomial identity machinery
-     (distributivity, associativity, linearity) to expand (u+v)² and collect terms. *)
-Admitted.
+  (* Step 1: Clifford relation on u+v, u, and v. *)
+  assert (Huv : alg_mul A (alg_add A a b) (alg_add A a b) =
+                alg_smul A (Q_pq p q (vec_add u v)) one).
+  { unfold A, a, b, one. rewrite <- (cl_inc_add p q C). apply cl_sq. }
+
+  assert (Hu : alg_mul A a a = alg_smul A (Q_pq p q u) one).
+  { apply cl_sq. }
+
+  assert (Hv : alg_mul A b b = alg_smul A (Q_pq p q v) one).
+  { apply cl_sq. }
+
+  (* Step 2: Expand (a+b)*(a+b) using distributivity. *)
+  assert (Hexp : alg_mul A (alg_add A a b) (alg_add A a b) =
+                 alg_add A (alg_add A (alg_mul A a a) (alg_mul A a b))
+                            (alg_add A (alg_mul A b a) (alg_mul A b b))).
+  {
+    rewrite (alg_distr_r A a b (alg_add A a b)).
+    rewrite (alg_distr_l A a a b).
+    rewrite (alg_distr_l A b a b).
+    reflexivity.
+  }
+
+  (* Step 3: Substitute cl_sq results into the expansion. *)
+  rewrite Hexp in Huv.
+  rewrite Hu in Huv.
+  rewrite Hv in Huv.
+
+  (* Step 4: Rearrange using associativity/commutativity so that
+     the scalar terms are collected on the left. *)
+  assert (Hrearr :
+    alg_add A (alg_add A (alg_smul A (Q_pq p q u) one)
+                              (alg_smul A (Q_pq p q v) one))
+              (alg_add A (alg_mul A a b) (alg_mul A b a))
+    = alg_smul A (Q_pq p q (vec_add u v)) one).
+  { rewrite <- (alg_add_shuffle A).
+    rewrite (alg_add_comm A (alg_smul A (Q_pq p q v) one) (alg_mul A b a)).
+    exact Huv. }
+
+  (* Step 5: Cancel the scalar terms using additive inverses. *)
+  apply (alg_add_cancel A (alg_add A (alg_smul A (Q_pq p q u) one)
+                                        (alg_smul A (Q_pq p q v) one)))
+    in Hrearr.
+
+  (* Step 6: Distribute the inverse over the sum. *)
+  rewrite (alg_opp_add A (alg_smul A (Q_pq p q u) one)
+                          (alg_smul A (Q_pq p q v) one)) in Hrearr.
+
+  (* Step 7: Rewrite negative scalars. *)
+  rewrite <- (alg_smul_opp A (Q_pq p q u) one) in Hrearr.
+  rewrite <- (alg_smul_opp A (Q_pq p q v) one) in Hrearr.
+
+  exact Hrearr.
+Qed.
 
 (* Sanity: the spec also guarantees that two algebra maps from cl_alg into
    any target that agree on the image of cl_inc must be equal everywhere.
