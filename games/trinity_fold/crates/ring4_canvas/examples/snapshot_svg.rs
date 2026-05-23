@@ -31,7 +31,10 @@ use ring4_canvas::render::{
 use ring4_canvas::state::AppState;
 
 fn main() -> io::Result<()> {
-    let viewport = ViewportSize { width: 1280.0, height: 1080.0 };
+    // The new game stage is a 16:9 (1280x720) canvas — the snapshot
+    // exporter matches so the static fallback renders the same layout
+    // proportions the wasm shell uses in the browser.
+    let viewport = ViewportSize { width: 1280.0, height: 720.0 };
     let state = AppState::new(
         default_catalog(),
         benchmark_holdout_ids().iter().map(|s| s.to_string()).collect(),

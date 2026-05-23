@@ -3,377 +3,354 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>GOLDEN BRIDGE — kid-friendly hypothesis puzzle (games/trinity_fold)</title>
+<title>GOLDEN BRIDGE — Build the Bridge!</title>
 <style>
   :root { color-scheme: dark; }
-  html, body { margin: 0; padding: 0;
-    /* True-black game stage. */
-    background: #000;
-    color: #f0f4f8;
+  html, body { margin: 0; padding: 0; min-height: 100vh;
+    background: #000; color: #f0f4f8;
     font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
 
-  header { padding: 18px 20px 6px; }
-  header h1 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.02em;
-    color: #ffd24a; text-shadow: 0 0 12px rgba(255, 200, 70, 0.25); }
-  header p { margin: 6px 0 0; color: #9aa6b8; font-size: 13px; max-width: 1100px; }
-  header p strong { color: #ffe2a0; }
+  /* Game stage occupies the upper viewport — the canvas is always the
+     first thing the player sees. The Rust render model is sized for a
+     16:9 stage (1280x720); we scale the canvas with the window while
+     preserving that ratio. */
+  #stage { position: relative; width: 100%;
+    /* Cap the stage at 1600px wide to keep tiles big on huge monitors. */
+    max-width: 1600px; margin: 0 auto; padding: 0;
+    aspect-ratio: 16 / 9; min-height: 480px; }
 
-  /* The "How to play" callout sits above the canvas so even before the
-     wasm module loads the user reads the three steps in plain text. */
-  #howto { margin: 10px 20px; padding: 12px 16px;
-    border: 1px solid rgba(80, 180, 255, 0.6);
-    background: linear-gradient(180deg, #06162e 0%, #03070f 100%);
-    border-radius: 10px; font-size: 13px; color: #d4dde8;
-    box-shadow: 0 0 24px rgba(60, 120, 220, 0.12) inset; }
-  #howto h2 { margin: 0 0 4px; font-size: 14px; color: #80c8ff; }
-  #howto ol { margin: 6px 0 0 20px; padding: 0; color: #cfe0f4; }
-  #howto ol li { margin: 2px 0; }
-  #howto .legend { margin-top: 8px; font-size: 12px; color: #9aa6b8; }
-  #howto .legend .blue { color: #78c8ff; font-weight: 700; }
-  #howto .legend .purple { color: #d68cff; font-weight: 700; }
-  #howto .legend .red { color: #ff6c78; font-weight: 700; }
-  #howto .legend .gold { color: #ffd24a; font-weight: 700; }
-
-  #notice { margin: 10px 20px; padding: 10px 14px;
-    border: 1px solid rgba(255, 196, 70, 0.45);
-    background: linear-gradient(180deg, #1c1606 0%, #0a0700 100%);
-    border-radius: 8px; font-size: 12px; color: #ffe2a0;
-    box-shadow: 0 0 24px rgba(255, 180, 60, 0.07) inset; }
-  #notice strong { color: #ffd24a; }
-
-  /* The live canvas is HIDDEN BY DEFAULT until the wasm module is ready,
-     so a missing bundle never leaves a blank black rectangle. */
-  #game-canvas { display: none; margin: 14px 20px;
-    border: 1px solid #1a2a44;
+  #game-canvas { display: none; width: 100%; height: 100%;
     background: #000;
-    box-shadow: 0 0 40px rgba(60, 120, 220, 0.15);
-    image-rendering: pixelated; border-radius: 6px; }
+    border-bottom: 1px solid #1a2a44;
+    box-shadow: 0 4px 40px rgba(60, 120, 220, 0.18);
+    image-rendering: pixelated; }
   body.wasm-ready #game-canvas { display: block; }
   body.wasm-ready #fallback     { display: none; }
 
-  #fallback { margin: 14px 20px; padding: 14px;
-    border: 1px solid rgba(255, 196, 70, 0.4);
-    border-radius: 8px; font-size: 13px; color: #d4dde8;
-    background: linear-gradient(180deg, #0d0a04 0%, #000 70%); }
-  #fallback h2 { margin: 0 0 6px; font-size: 14px; color: #ffd24a; }
-  #fallback .ribbon { display: inline-block; margin-bottom: 8px; padding: 3px 10px;
+  #fallback { width: 100%; height: 100%; padding: 0; margin: 0;
+    background: #000; }
+  #fallback .snapshot-frame { position: relative;
+    width: 100%; height: 100%; margin: 0;
+    background: #000;
+    box-shadow: 0 4px 40px rgba(255, 200, 70, 0.10); }
+  #fallback .snapshot-frame > img,
+  #fallback .snapshot-frame > svg {
+    display: block; width: 100%; height: 100%; object-fit: contain; }
+  #fallback .ribbon { position: absolute; top: 12px; right: 12px;
+    padding: 4px 12px;
     background: #ffd24a; color: #1a1004; font-size: 11px; font-weight: 800;
     border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase;
-    box-shadow: 0 0 16px rgba(255, 196, 70, 0.35); }
-  #fallback pre { background: #050810; border: 1px solid #1a2436; padding: 10px;
-    border-radius: 6px; overflow-x: auto; font-size: 12px; color: #cfe0f4; }
-  #fallback .snapshot-frame { margin: 12px 0;
-    border: 1px solid #1a2a44;
-    background: #000;
-    padding: 6px; border-radius: 8px;
-    box-shadow: 0 0 32px rgba(255, 200, 70, 0.10) inset; }
-  #fallback .snapshot-frame > img,
-  #fallback .snapshot-frame > svg { display: block; width: 100%; height: auto; }
-  #fallback .caption { color: #8c97a6; font-size: 11px; margin-top: 6px; }
-  code { background: #0c1322; padding: 2px 7px; border-radius: 3px; font-size: 12px;
-    color: #cfe0f4; }
-  a { color: #ffd24a; }
-  a:hover { color: #fff; }
+    box-shadow: 0 0 16px rgba(255, 196, 70, 0.35); z-index: 2; }
+  #fallback .caption { position: absolute; left: 12px; bottom: 12px;
+    color: #8c97a6; font-size: 11px; z-index: 2;
+    background: rgba(0, 0, 0, 0.55); padding: 4px 10px; border-radius: 4px; }
+
+  /* Compact "Science / honesty" drawer below the stage — collapsed by
+     default so it never competes with the bridge for attention. */
+  #science { max-width: 1600px; margin: 14px auto; padding: 0 20px; }
+  #science details { border: 1px solid rgba(154, 166, 184, 0.4);
+    border-radius: 8px; background: linear-gradient(180deg, #06080e 0%, #03050a 100%);
+    padding: 4px 14px; }
+  #science summary { cursor: pointer; padding: 8px 0; font-weight: 700;
+    color: #ffd24a; list-style: none; }
+  #science summary::-webkit-details-marker { display: none; }
+  #science summary::before { content: "▸ "; color: #9aa6b8; }
+  #science details[open] summary::before { content: "▾ "; }
+  #science .grid { display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px; padding: 8px 0 12px; color: #cfe0f4; font-size: 12px; }
+  #science .grid h3 { margin: 0 0 4px; font-size: 12px; color: #80c8ff;
+    text-transform: uppercase; letter-spacing: 0.04em; }
+  #science .grid p { margin: 0; color: #9aa6b8; }
+  #science code { background: #0c1322; padding: 2px 6px; border-radius: 3px;
+    color: #cfe0f4; font-size: 11px; }
+  #science a { color: #ffd24a; }
+  #science a:hover { color: #fff; }
+  #science .legend span { display: inline-block; margin-right: 10px; }
+  #science .blue   { color: #78c8ff; font-weight: 700; }
+  #science .purple { color: #d68cff; font-weight: 700; }
+  #science .red    { color: #ff6c78; font-weight: 700; }
+  #science .gold   { color: #ffd24a; font-weight: 700; }
+
+  /* Footer is tiny — the canvas is the game, not the chrome. */
+  footer { max-width: 1600px; margin: 8px auto 28px; padding: 0 20px;
+    color: #5a6678; font-size: 11px; }
+  footer a { color: #9aa6b8; }
 </style>
 </head>
 <body>
-  <header>
-    <h1>GOLDEN BRIDGE — Build the Bridge!</h1>
-    <p>
-      Pick one <strong>BLUE Data tile</strong> and one <strong>PURPLE Geometry tile</strong>.
-      Good matches light bridge stones; falsified red tiles crack the bridge. A
-      hypothesis-discovery puzzle, not a proven Theory of Everything.
-    </p>
-  </header>
+  <!-- Game stage: canvas FIRST. No tutorial banner or honesty notice
+       sitting above it — the in-canvas hero instruction handles onboarding,
+       and the honesty drawer lives below. -->
+  <div id="stage">
+    <canvas id="game-canvas" width="1280" height="720" aria-label="GOLDEN BRIDGE game stage"></canvas>
 
-  <section id="howto">
-    <h2>How to play (3 steps)</h2>
-    <ol>
-      <li>Click a <strong>BLUE</strong> Data tile (left tower) — e.g. "Higgs Mass".</li>
-      <li>Click a <strong>PURPLE</strong> Geometry tile (right tower) — e.g. "Weak Force".</li>
-      <li>Watch the central <strong>bridge stones</strong> light up gold. Light four stones to make the bridge stable. Avoid red ⚠ tiles — they crack the bridge!</li>
-    </ol>
-    <p class="legend">
-      Buttons:&nbsp;
-      <code>Reset</code> clears the board ·
-      <code>Hint</code> suggests the next best tile ·
-      <code>Auto-build</code> runs the bridge-builder for you ·
-      <code>Try Recipe</code> loads a starter set.
-      &nbsp;Tile edge colour:
-      <span class="gold">green/gold = safe</span>,
-      <span class="blue">blue = empirical</span>,
-      <span class="purple">amber = open conjecture</span>,
-      <span class="red">red = falsified</span>.
-    </p>
+    <!-- Fallback panel — visible by DEFAULT. The bootstrap script below
+         adds `wasm-ready` to <body> only after the wasm module loads,
+         which swaps the display rules above. The fallback shows the same
+         static SVG snapshot of the new 1280x720 game stage so sandboxed
+         previews still see a real picture of the game. -->
+    <div id="fallback">
+      <span class="ribbon">Fallback — non-interactive</span>
+      <div class="snapshot-frame">
+        <img id="snapshot-img"
+             src="snapshot.svg"
+             alt="GOLDEN BRIDGE game-stage snapshot (static, rendered from Rust)"
+             onerror="this.style.display='none';
+                      var inline=document.getElementById('snapshot-inline');
+                      if(inline){inline.style.display='block';}"/>
+        <!-- Inline mini-fallback in the same 1280x720 stage style — used
+             when even snapshot.svg cannot be loaded. -->
+        <svg id="snapshot-inline" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 1280 720"
+             role="img"
+             aria-label="GOLDEN BRIDGE game stage — inline fallback"
+             style="display:none;">
+          <rect x="0" y="0" width="1280" height="720" fill="#000"/>
+          <!-- Title bar -->
+          <rect x="0" y="0" width="1280" height="48" fill="#080a16"/>
+          <text x="20" y="28" fill="#ffd24a" font-size="22" font-weight="800"
+                font-family="ui-sans-serif,system-ui,sans-serif">GOLDEN BRIDGE — Build the Bridge!</text>
+          <text x="20" y="44" fill="#9aa6b8" font-size="11"
+                font-family="ui-sans-serif,system-ui,sans-serif">Pick BLUE + PURPLE cards. Light 4 stones to win. Avoid red ⚠.</text>
+
+          <!-- Big bridge stage -->
+          <rect x="0" y="54" width="1280" height="403" fill="#04081200" stroke="#b4d2f0" stroke-opacity="0.5"/>
+          <text x="16" y="72" fill="#9aaabe" font-size="12" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">GOLDEN BRIDGE — integrity: EMPTY   strength: +0.00</text>
+          <text x="16" y="96" fill="#f0f4f8" font-size="18" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">Step 1: Pick a BLUE Data card below.</text>
+
+          <!-- Pillars -->
+          <rect x="22" y="180" width="150" height="200" fill="rgba(80,180,255,0.18)"/>
+          <rect x="28" y="180" width="138" height="200" fill="#0e1e3c" stroke="#50b4ff"/>
+          <rect x="24" y="180" width="146" height="10" fill="#50b4ff"/>
+          <rect x="24" y="370" width="146" height="10" fill="#50b4ff"/>
+          <rect x="93" y="192" width="4" height="176" fill="#50b4ff" opacity="0.7"/>
+          <text x="38" y="210" fill="#f0f4f8" font-size="14" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">DATA</text>
+          <text x="38" y="226" fill="#9aa6b8" font-size="11"
+                font-family="ui-sans-serif,system-ui,sans-serif">0 card(s)</text>
+
+          <rect x="1102" y="180" width="150" height="200" fill="rgba(210,130,240,0.18)"/>
+          <rect x="1108" y="180" width="138" height="200" fill="#280e3c" stroke="#d282f0"/>
+          <rect x="1104" y="180" width="146" height="10" fill="#d282f0"/>
+          <rect x="1104" y="370" width="146" height="10" fill="#d282f0"/>
+          <rect x="1173" y="192" width="4" height="176" fill="#d282f0" opacity="0.7"/>
+          <text x="1118" y="210" fill="#f0f4f8" font-size="14" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">GEOMETRY</text>
+          <text x="1118" y="226" fill="#9aa6b8" font-size="11"
+                font-family="ui-sans-serif,system-ui,sans-serif">0 card(s)</text>
+
+          <!-- Pier counters -->
+          <text x="28" y="124" fill="#50b4ff" font-size="12" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">Data·0</text>
+          <text x="1162" y="124" fill="#d282f0" font-size="12" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">Geometry·0</text>
+
+          <!-- Fold rings (decorative) -->
+          <g fill="none" stroke="rgba(140,180,230,0.35)">
+            <circle cx="640" cy="261" r="40"/>
+            <circle cx="640" cy="261" r="66"/>
+            <circle cx="640" cy="261" r="92"/>
+            <circle cx="640" cy="261" r="118"/>
+          </g>
+
+          <!-- Thick glowing deck with 4 BIG stones -->
+          <rect x="156" y="231" width="938" height="60" fill="#16182a" stroke="#9aaabe"/>
+          <g stroke="#9aaabe" stroke-opacity="0.31">
+            <line x1="273" y1="235" x2="273" y2="287"/>
+            <line x1="391" y1="235" x2="391" y2="287"/>
+            <line x1="508" y1="235" x2="508" y2="287"/>
+            <line x1="625" y1="235" x2="625" y2="287"/>
+            <line x1="742" y1="235" x2="742" y2="287"/>
+            <line x1="860" y1="235" x2="860" y2="287"/>
+            <line x1="977" y1="235" x2="977" y2="287"/>
+          </g>
+          <!-- 4 empty large stones -->
+          <g stroke="rgba(180,210,240,0.5)" fill="#1e2438">
+            <circle cx="297" cy="261" r="22"/>
+            <circle cx="510" cy="261" r="22"/>
+            <circle cx="722" cy="261" r="22"/>
+            <circle cx="935" cy="261" r="22"/>
+          </g>
+          <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="14"
+             font-weight="700" fill="#9aa6b8">
+            <text x="293" y="266">1</text>
+            <text x="506" y="266">2</text>
+            <text x="718" y="266">3</text>
+            <text x="931" y="266">4</text>
+          </g>
+
+          <!-- 3-step legend across bottom of stage -->
+          <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="12">
+            <text x="16"  y="433" fill="#50b4ff" font-weight="700">1.</text>
+            <text x="38"  y="433" fill="#9aa6b8">Pick a BLUE Data card.</text>
+            <text x="437" y="433" fill="#d282f0" font-weight="700">2.</text>
+            <text x="459" y="433" fill="#9aa6b8">Pick a PURPLE Geometry card.</text>
+            <text x="857" y="433" fill="#ffd24a" font-weight="700">3.</text>
+            <text x="879" y="433" fill="#9aa6b8">Light 4 stones. Avoid red ⚠.</text>
+          </g>
+
+          <!-- Toolbar -->
+          <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="700" fill="#f0f4f8">
+            <rect x="16"  y="471" width="304" height="44" fill="#1c2c48" stroke="#b4d2f0"/>
+            <text x="32"  y="499">Start over (C)</text>
+            <rect x="332" y="471" width="304" height="44" fill="#1c2c48" stroke="#b4d2f0"/>
+            <text x="348" y="499">Hint (H)</text>
+            <rect x="648" y="471" width="304" height="44" fill="#1c2c48" stroke="#b4d2f0"/>
+            <text x="664" y="499">Auto-build (A)</text>
+            <rect x="964" y="471" width="300" height="44" fill="#1c2c48" stroke="#b4d2f0"/>
+            <text x="980" y="499">Honest mode: off (B)</text>
+          </g>
+
+          <!-- BLUE Data cards strip -->
+          <rect x="16" y="527" width="616" height="157" fill="#0e1e3c" stroke="#50b4ff"/>
+          <rect x="16" y="527" width="616" height="28" fill="rgba(80,180,255,0.24)"/>
+          <text x="28" y="546" fill="#f0f4f8" font-size="14" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">BLUE Data cards — pick one</text>
+          <g font-family="ui-sans-serif,system-ui,sans-serif" fill="#f0f4f8">
+            <rect x="28"  y="571" width="288" height="52" fill="#12161e" stroke="#78bef5"/>
+            <rect x="28"  y="571" width="6"   height="52" fill="#78bef5"/>
+            <text x="42"  y="595" font-size="15" font-weight="700">Higgs Mass</text>
+            <rect x="326" y="571" width="288" height="52" fill="#12161e" stroke="#78bef5"/>
+            <rect x="326" y="571" width="6"   height="52" fill="#78bef5"/>
+            <text x="340" y="595" font-size="15" font-weight="700">Light Strength</text>
+            <rect x="28"  y="631" width="288" height="52" fill="#12161e" stroke="#6ee6a0"/>
+            <rect x="28"  y="631" width="6"   height="52" fill="#6ee6a0"/>
+            <text x="42"  y="655" font-size="15" font-weight="700">Muon Wobble</text>
+            <rect x="326" y="631" width="288" height="52" fill="#12161e" stroke="#f5be50"/>
+            <rect x="326" y="631" width="6"   height="52" fill="#f5be50"/>
+            <text x="340" y="655" font-size="15" font-weight="700">Anomaly Cancel</text>
+          </g>
+
+          <!-- PURPLE Geometry cards strip -->
+          <rect x="648" y="527" width="616" height="157" fill="#280e3c" stroke="#d282f0"/>
+          <rect x="648" y="527" width="616" height="28" fill="rgba(210,130,240,0.24)"/>
+          <text x="660" y="546" fill="#f0f4f8" font-size="14" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">PURPLE Geometry cards — pick one</text>
+          <text x="660" y="565" fill="#ffd24a" font-size="11" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">Try Recipe:</text>
+          <g font-family="ui-sans-serif,system-ui,sans-serif" fill="#f0f4f8" font-size="11">
+            <rect x="740" y="551" width="170" height="24" fill="#205050" stroke="#ffd24a"/>
+            <text x="748" y="567">Standard-Model core (5)</text>
+            <rect x="916" y="551" width="180" height="24" fill="#205050" stroke="#ffd24a"/>
+            <text x="924" y="567">H4 / 600-cell geometry (4)</text>
+          </g>
+          <g font-family="ui-sans-serif,system-ui,sans-serif" fill="#f0f4f8">
+            <rect x="660"  y="601" width="288" height="52" fill="#12161e" stroke="#6ee6a0"/>
+            <rect x="660"  y="601" width="6"   height="52" fill="#6ee6a0"/>
+            <text x="674"  y="625" font-size="15" font-weight="700">Weak Force</text>
+            <rect x="958"  y="601" width="288" height="52" fill="#12161e" stroke="#6ee6a0"/>
+            <rect x="958"  y="601" width="6"   height="52" fill="#6ee6a0"/>
+            <text x="972"  y="625" font-size="15" font-weight="700">Strong Force</text>
+          </g>
+
+          <!-- Compact honesty strip -->
+          <rect x="16" y="688" width="1248" height="28" fill="#0a0e18" stroke="#9aa6b8"/>
+          <text x="28" y="700" fill="#9aa6b8" font-size="10" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">Honesty strip — bridge strength is NOT proof of physics.</text>
+          <text x="28" y="713" fill="#f0f4f8" font-size="11" font-weight="700"
+                font-family="ui-sans-serif,system-ui,sans-serif">bridge total = +0.00   worst claim: VERIFIED   bridge: EMPTY   selected: 0 card(s)</text>
+        </svg>
+      </div>
+      <p class="caption">Static snapshot — interactive build needs wasm-pack. See drawer below.</p>
+    </div>
+  </div>
+
+  <!-- Science / honesty drawer — collapsed by default. Researchers can
+       still get the full breakdown, the build instructions, and the
+       honesty notice here, but the play surface stays uncluttered. -->
+  <section id="science">
+    <details>
+      <summary>Science &amp; honesty (open for details)</summary>
+      <div class="grid">
+        <div>
+          <h3>What this game is</h3>
+          <p>
+            A <strong>hypothesis-discovery puzzle</strong>. Pick blue
+            Data cards (things we measure) and purple Geometry cards
+            (math we imagine) to <em>light four bridge stones</em>.
+            It is <strong>NOT</strong> a proven Theory of Everything.
+          </p>
+        </div>
+        <div>
+          <h3>Honesty floor</h3>
+          <p>
+            A high bridge strength only means the board passes more of
+            the illustrative consistency checks than alternatives.
+            Every tile carries a claim status; the worst such status
+            is rendered in the honesty strip. A falsified
+            <span class="red">red ⚠</span> tile collapses the bridge
+            regardless of the rest of the board.
+          </p>
+        </div>
+        <div>
+          <h3>Card colour legend</h3>
+          <p class="legend">
+            <span class="gold">green / gold = safe</span>
+            <span class="blue">blue = empirical</span>
+            <span class="purple">amber = open</span>
+            <span class="red">red ⚠ = falsified</span>
+          </p>
+          <p>Stones light gold when a safe pair is placed.</p>
+        </div>
+        <div>
+          <h3>Controls</h3>
+          <p>
+            <code>Start over</code> clears the board ·
+            <code>Hint</code> suggests one safe step ·
+            <code>Auto-build</code> runs the deterministic solver ·
+            <code>Honest mode</code> hides held-out observables.
+          </p>
+        </div>
+        <div>
+          <h3>Build the interactive bundle</h3>
+          <p><code>cd games/trinity_fold</code></p>
+          <p><code>wasm-pack build crates/ring4_canvas --target web --features wasm --out-dir ../../web/canvas/pkg</code></p>
+          <p>
+            Regenerate the static snapshot with
+            <code>cargo run -p ring4_canvas --example snapshot_svg -- web/canvas/snapshot.svg</code>.
+          </p>
+        </div>
+        <div>
+          <h3>Read more</h3>
+          <p>
+            <a href="../../docs/CANVAS.md">docs/CANVAS.md</a> ·
+            <a href="../../docs/GOLDEN_BRIDGE.md">GOLDEN_BRIDGE.md</a> ·
+            <a href="../../README.md">project README</a>.
+          </p>
+        </div>
+      </div>
+    </details>
   </section>
 
-  <div id="notice">
-    <strong>Honesty notice.</strong>
-    A high "bridge strength" only means the board passes more of the
-    illustrative consistency checks than alternatives. Every tile is gated
-    by a claim status; the worst such status is rendered next to the total.
-    A falsified tile collapses the bridge regardless of the rest.
-  </div>
-
-  <canvas id="game-canvas" width="1280" height="1080" aria-hidden="true"></canvas>
-
-  <!--
-    Fallback panel — visible by DEFAULT. The bootstrap script below adds
-    `wasm-ready` to <body> only after the wasm module successfully loads
-    and instantiates; that class swaps the display rules above. If the
-    script never runs (no module support, CSP block, sandboxed preview)
-    or the wasm import throws, the fallback simply stays visible.
-  -->
-  <div id="fallback">
-    <span class="ribbon">Fallback — non-interactive</span>
-    <h2>Static GOLDEN BRIDGE game-stage snapshot</h2>
-    <p>
-      The interactive WebAssembly bundle is not loaded. The deployed
-      <a href="https://gHashTag.github.io/trinity-s3ai/">GitHub Pages</a>
-      build runs the live wasm shell; this static snapshot is what shows
-      in sandboxed previews and fresh clones.
-    </p>
-    <div class="snapshot-frame">
-      <img id="snapshot-img"
-           src="snapshot.svg"
-           alt="GOLDEN BRIDGE game-stage snapshot (static, rendered from Rust)"
-           onerror="this.style.display='none';
-                    var inline=document.getElementById('snapshot-inline');
-                    if(inline){inline.style.display='block';}"/>
-      <!-- Inline mini-fallback: drawn in the same style as the new
-           game-stage so a sandboxed preview still shows the towers, the
-           bridge with stones, and the 3-step tutorial. Coordinates are
-           hand-picked to match the layout in ring4_canvas::render. -->
-      <svg id="snapshot-inline" xmlns="http://www.w3.org/2000/svg"
-           viewBox="0 0 1280 720"
-           role="img"
-           aria-label="GOLDEN BRIDGE game stage — inline fallback"
-           style="display:none;">
-        <rect x="0" y="0" width="1280" height="720" fill="#000"/>
-        <!-- Header -->
-        <rect x="0" y="0" width="1280" height="56" fill="#080a16"/>
-        <text x="20" y="32" fill="#ffd24a" font-size="24" font-weight="800"
-              font-family="ui-sans-serif,system-ui,sans-serif">GOLDEN BRIDGE — Build the Bridge!</text>
-        <text x="20" y="48" fill="#9aa6b8" font-size="11"
-              font-family="ui-sans-serif,system-ui,sans-serif">Hypothesis-discovery puzzle. NOT a proven Theory of Everything.</text>
-
-        <!-- Tutorial banner -->
-        <rect x="16" y="60" width="1248" height="56" fill="#08162a" stroke="#50b4ff"/>
-        <text x="30" y="80" fill="#f0f4f8" font-size="14" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Goal: light the bridge stones by picking pairs — one BLUE Data tile + one PURPLE Geometry tile.</text>
-        <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="12">
-          <text x="30"  y="104" fill="#50b4ff" font-weight="700">1.</text>
-          <text x="52"  y="104" fill="#f0f4f8">Click a BLUE tile (left tower).</text>
-          <text x="440" y="104" fill="#d282f0" font-weight="700">2.</text>
-          <text x="462" y="104" fill="#f0f4f8">Click a PURPLE tile (right tower).</text>
-          <text x="850" y="104" fill="#ffd24a" font-weight="700">3.</text>
-          <text x="872" y="104" fill="#f0f4f8">Watch the bridge stone light up. Avoid red — it cracks the bridge!</text>
-        </g>
-
-        <!-- Toolbar -->
-        <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#f0f4f8">
-          <rect x="16"  y="128" width="120" height="36" fill="#1c2c48" stroke="#b4d2f0"/>
-          <text x="30"  y="151">Reset (C)</text>
-          <rect x="146" y="128" width="110" height="36" fill="#1c2c48" stroke="#b4d2f0"/>
-          <text x="160" y="151">Hint (H)</text>
-          <rect x="266" y="128" width="160" height="36" fill="#1c2c48" stroke="#b4d2f0"/>
-          <text x="280" y="151">Auto-build (A)</text>
-          <rect x="436" y="128" width="200" height="36" fill="#1c2c48" stroke="#b4d2f0"/>
-          <text x="450" y="151">Honest mode: off (B)</text>
-        </g>
-
-        <!-- Bridge band -->
-        <rect x="0" y="176" width="1280" height="220" fill="#040812" stroke="#b4d2f0"/>
-        <text x="16" y="198" fill="#9aaabe" font-size="13" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">GOLDEN BRIDGE — integrity: empty   bridge strength: +0.000   compression: 0%</text>
-        <!-- Decorative space-fold rings -->
-        <g fill="none" stroke="rgba(140,180,230,0.35)">
-          <circle cx="640" cy="286" r="30"/>
-          <circle cx="640" cy="286" r="52"/>
-          <circle cx="640" cy="286" r="74"/>
-          <circle cx="640" cy="286" r="96"/>
-        </g>
-        <!-- Data pillar -->
-        <rect x="18" y="218" width="138" height="146" fill="rgba(80,180,255,0.15)"/>
-        <rect x="24" y="218" width="130" height="146" fill="#0e1e3c" stroke="#50b4ff"/>
-        <rect x="20" y="218" width="138" height="10" fill="#50b4ff"/>
-        <rect x="20" y="354" width="138" height="10" fill="#50b4ff"/>
-        <text x="34" y="248" fill="#f0f4f8" font-size="13" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">DATA TOWER</text>
-        <text x="34" y="264" fill="#9aa6b8" font-size="10"
-              font-family="ui-sans-serif,system-ui,sans-serif">0 tile(s)</text>
-        <text x="28" y="226" fill="#50b4ff" font-size="11" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Data·0</text>
-        <!-- Geometry pillar -->
-        <rect x="1124" y="218" width="138" height="146" fill="rgba(210,130,240,0.15)"/>
-        <rect x="1130" y="218" width="130" height="146" fill="#280e3c" stroke="#d282f0"/>
-        <rect x="1126" y="218" width="138" height="10" fill="#d282f0"/>
-        <rect x="1126" y="354" width="138" height="10" fill="#d282f0"/>
-        <text x="1140" y="248" fill="#f0f4f8" font-size="13" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">GEOMETRY TOWER</text>
-        <text x="1140" y="264" fill="#9aa6b8" font-size="10"
-              font-family="ui-sans-serif,system-ui,sans-serif">0 tile(s)</text>
-        <text x="1190" y="226" fill="#d282f0" font-size="11" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Geometry·0</text>
-        <!-- Bridge deck + glow -->
-        <rect x="146" y="262" width="988" height="44" fill="rgba(154,170,190,0.16)"/>
-        <rect x="152" y="268" width="976" height="32" fill="#141826" stroke="#9aaabe"/>
-        <!-- 8 empty stone slots -->
-        <g>
-          <circle cx="218" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-          <circle cx="338" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-          <circle cx="458" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-          <circle cx="578" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-          <circle cx="698" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-          <circle cx="818" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-          <circle cx="938" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-          <circle cx="1058" cy="284" r="10" fill="#1c2032" stroke="#9aaabe"/>
-        </g>
-        <text x="16" y="346" fill="#9aaabe" font-size="14" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Pick a BLUE tile, then a PURPLE tile to begin.</text>
-
-        <!-- Recipe rail -->
-        <text x="16"  y="420" fill="#ffd24a" font-size="12" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Try Recipe:</text>
-        <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#f0f4f8">
-          <rect x="112" y="404" width="200" height="32" fill="#205050" stroke="#ffd24a"/>
-          <text x="121" y="424">Standard-Model core (5)</text>
-          <rect x="320" y="404" width="240" height="32" fill="#205050" stroke="#ffd24a"/>
-          <text x="329" y="424">H4 / 600-cell geometry (4)</text>
-          <rect x="568" y="404" width="240" height="32" fill="#205050" stroke="#ffd24a"/>
-          <text x="577" y="424">Anomaly-cancellation audit (4)</text>
-        </g>
-
-        <!-- Data tower (below) -->
-        <rect x="16" y="452" width="616" height="220" fill="#0e1e3c" stroke="#50b4ff"/>
-        <rect x="16" y="452" width="616" height="30" fill="rgba(80,180,255,0.24)"/>
-        <text x="28" y="473" fill="#f0f4f8" font-size="15" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Data Tiles</text>
-        <text x="160" y="473" fill="#9aa6b8" font-size="11"
-              font-family="ui-sans-serif,system-ui,sans-serif">(blue — what we measure)</text>
-        <g font-family="ui-sans-serif,system-ui,sans-serif" fill="#f0f4f8">
-          <rect x="28"  y="494" width="290" height="44" fill="#12161e" stroke="#6ee6a0"/>
-          <rect x="28"  y="494" width="5"   height="44" fill="#6ee6a0"/>
-          <text x="40"  y="514" font-size="13" font-weight="700">Light Strength</text>
-          <text x="40"  y="529" font-size="10" fill="#9aa6b8">o_alpha_em</text>
-          <rect x="326" y="494" width="290" height="44" fill="#12161e" stroke="#6ee6a0"/>
-          <rect x="326" y="494" width="5"   height="44" fill="#6ee6a0"/>
-          <text x="338" y="514" font-size="13" font-weight="700">Muon Wobble</text>
-          <text x="338" y="529" font-size="10" fill="#9aa6b8">o_g_minus_2</text>
-          <rect x="28"  y="546" width="290" height="44" fill="#12161e" stroke="#78bef5"/>
-          <rect x="28"  y="546" width="5"   height="44" fill="#78bef5"/>
-          <text x="40"  y="566" font-size="13" font-weight="700">Higgs Mass</text>
-          <text x="40"  y="581" font-size="10" fill="#9aa6b8">o_higgs_mass</text>
-          <rect x="326" y="546" width="290" height="44" fill="#12161e" stroke="#78bef5"/>
-          <rect x="326" y="546" width="5"   height="44" fill="#78bef5"/>
-          <text x="338" y="566" font-size="13" font-weight="700">Neutrino Mix</text>
-          <text x="338" y="581" font-size="10" fill="#9aa6b8">o_neutrino_dm2</text>
-          <rect x="28"  y="598" width="290" height="44" fill="#12161e" stroke="#f5be50"/>
-          <rect x="28"  y="598" width="5"   height="44" fill="#f5be50"/>
-          <text x="40"  y="618" font-size="13" font-weight="700">Anomaly Cancel</text>
-          <text x="40"  y="633" font-size="10" fill="#9aa6b8">c_anomaly_free</text>
-          <rect x="326" y="598" width="290" height="44" fill="#12161e" stroke="#f5be50"/>
-          <rect x="326" y="598" width="5"   height="44" fill="#f5be50"/>
-          <text x="338" y="618" font-size="13" font-weight="700">Probability OK</text>
-          <text x="338" y="633" font-size="10" fill="#9aa6b8">c_unitarity</text>
-        </g>
-
-        <!-- Geometry tower (below right) -->
-        <rect x="648" y="452" width="616" height="220" fill="#280e3c" stroke="#d282f0"/>
-        <rect x="648" y="452" width="616" height="30" fill="rgba(210,130,240,0.24)"/>
-        <text x="660" y="473" fill="#f0f4f8" font-size="15" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Geometry Tiles</text>
-        <text x="800" y="473" fill="#9aa6b8" font-size="11"
-              font-family="ui-sans-serif,system-ui,sans-serif">(purple — what we imagine)</text>
-        <g font-family="ui-sans-serif,system-ui,sans-serif" fill="#f0f4f8">
-          <rect x="660"  y="494" width="190" height="44" fill="#12161e" stroke="#6ee6a0"/>
-          <rect x="660"  y="494" width="5"   height="44" fill="#6ee6a0"/>
-          <text x="672"  y="514" font-size="13" font-weight="700">Weak Force</text>
-          <text x="672"  y="529" font-size="10" fill="#9aa6b8">s_su2</text>
-          <rect x="858"  y="494" width="190" height="44" fill="#12161e" stroke="#6ee6a0"/>
-          <rect x="858"  y="494" width="5"   height="44" fill="#6ee6a0"/>
-          <text x="870"  y="514" font-size="13" font-weight="700">Strong Force</text>
-          <text x="870"  y="529" font-size="10" fill="#9aa6b8">s_su3</text>
-          <rect x="1056" y="494" width="190" height="44" fill="#12161e" stroke="#6ee6a0"/>
-          <rect x="1056" y="494" width="5"   height="44" fill="#6ee6a0"/>
-          <text x="1068" y="514" font-size="13" font-weight="700">EM Force</text>
-          <text x="1068" y="529" font-size="10" fill="#9aa6b8">s_u1</text>
-          <rect x="660"  y="546" width="190" height="44" fill="#12161e" stroke="#f5be50"/>
-          <rect x="660"  y="546" width="5"   height="44" fill="#f5be50"/>
-          <text x="672"  y="566" font-size="13" font-weight="700">Golden Shape (H4)</text>
-          <text x="672"  y="581" font-size="10" fill="#9aa6b8">s_h4</text>
-          <rect x="858"  y="546" width="190" height="44" fill="#12161e" stroke="#f5be50"/>
-          <rect x="858"  y="546" width="5"   height="44" fill="#f5be50"/>
-          <text x="870"  y="566" font-size="13" font-weight="700">600-cell</text>
-          <text x="870"  y="581" font-size="10" fill="#9aa6b8">g_600cell</text>
-          <rect x="1056" y="546" width="190" height="44" fill="#12161e" stroke="#f04650"/>
-          <rect x="1056" y="546" width="5"   height="44" fill="#f04650"/>
-          <text x="1068" y="566" font-size="13" font-weight="700">Calabi–Yau (risky)</text>
-          <text x="1068" y="581" font-size="10" fill="#9aa6b8">g_calabi_yau</text>
-          <circle cx="1234" cy="558" r="6" fill="#f04650" stroke="#f0f4f8"/>
-          <text x="1231" y="562" font-size="11" font-weight="700" fill="#f0f4f8">!</text>
-          <rect x="660"  y="598" width="190" height="44" fill="#12161e" stroke="#78bef5"/>
-          <rect x="660"  y="598" width="5"   height="44" fill="#78bef5"/>
-          <text x="672"  y="618" font-size="13" font-weight="700">Higgs Field</text>
-          <text x="672"  y="633" font-size="10" fill="#9aa6b8">f_higgs</text>
-          <rect x="858"  y="598" width="190" height="44" fill="#12161e" stroke="#78bef5"/>
-          <rect x="858"  y="598" width="5"   height="44" fill="#78bef5"/>
-          <text x="870"  y="618" font-size="13" font-weight="700">Matter Field</text>
-          <text x="870"  y="633" font-size="10" fill="#9aa6b8">f_fermions</text>
-          <rect x="1056" y="598" width="190" height="44" fill="#12161e" stroke="#78bef5"/>
-          <rect x="1056" y="598" width="5"   height="44" fill="#78bef5"/>
-          <text x="1068" y="618" font-size="13" font-weight="700">Strong Coupling</text>
-          <text x="1068" y="633" font-size="10" fill="#9aa6b8">k_alpha_s</text>
-        </g>
-
-        <!-- Honesty panel mini -->
-        <rect x="16" y="688" width="1248" height="24" fill="#0a0e18" stroke="#9aa6b8"/>
-        <text x="28" y="704" fill="#9aa6b8" font-size="11" font-weight="700"
-              font-family="ui-sans-serif,system-ui,sans-serif">Honesty panel — bridge strength is NOT proof of physics. bridge total = +0.000  worst claim: VERIFIED  bridge: EMPTY</text>
-      </svg>
-    </div>
-    <p class="caption">
-      Snapshot of the initial GOLDEN BRIDGE game stage — empty bridge, the
-      two glowing towers, the 3-step tutorial, and the recipe rail.
-      Clicks do nothing in this fallback mode.
-    </p>
-    <details>
-      <summary>How to enable the interactive build</summary>
-      <pre><code>cd games/trinity_fold
-wasm-pack build crates/ring4_canvas --target web --features wasm \
-  --out-dir ../../web/canvas/pkg
-
-# Regenerate the static snapshot:
-cargo run -p ring4_canvas --example snapshot_svg -- \
-  web/canvas/snapshot.svg</code></pre>
-      <p>
-        See <a href="../../docs/CANVAS.md">docs/CANVAS.md</a> for the
-        rationale (Rust as source of truth, no JS mirror of game logic).
-      </p>
-    </details>
-  </div>
+  <footer>
+    Trinity Fold · GOLDEN BRIDGE stage · Rust render through ring4_canvas ·
+    <a href="https://github.com/gHashTag/trinity-s3ai">source</a>
+  </footer>
 
   <script type="module">
-    // The wasm-pack output lands at ./pkg/ring4_canvas.js next to this HTML.
-    // The fallback is shown by DEFAULT (CSS rule above). We only hide it
-    // once the wasm module has loaded *and* the app constructor returned
-    // a usable instance.
+    // Bootstrap the wasm bundle. If anything fails (missing pkg, CSP
+    // block, sandboxed preview) the fallback stays visible by default.
     try {
       const mod = await import("./pkg/ring4_canvas.js");
       await mod.default();
       const app = new mod.TrinityFoldApp("game-canvas");
       const cvs = document.getElementById("game-canvas");
+      const stage = document.getElementById("stage");
       const resize = () => {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const w = Math.min(window.innerWidth - 40, 1600);
-        // Maintain the 1280:1080 aspect ratio used by the Rust layout so
-        // tiles, the bridge, and the honesty panel all line up the same
-        // way the unit tests check for. The factor below (1080/1280) keeps
-        // the page height proportional even when the user resizes.
-        const aspect = 1080 / 1280;
+        // The Rust layout is sized for a 1280x720 stage; we match that
+        // ratio in CSS via `aspect-ratio: 16/9`. The internal canvas
+        // resolution scales with the displayed size + device pixel ratio.
+        const rect = stage.getBoundingClientRect();
+        const w = Math.max(rect.width, 480);
+        const h = w * (720 / 1280);
         cvs.style.width = w + "px";
+        cvs.style.height = h + "px";
         cvs.width = Math.floor(w * dpr);
-        cvs.height = Math.floor(w * aspect * dpr);
+        cvs.height = Math.floor(h * dpr);
         app.render();
       };
       window.addEventListener("resize", resize);
