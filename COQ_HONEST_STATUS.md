@@ -78,7 +78,7 @@ Per `admitted_log.md` taxonomy (with counts updated for current commit):
 | **Track B Cl(8)** | 10 | New direction; 6 Axiom + 4 Admitted with full published citations (Wieser-Song 2022, Lounesto 2001, Atiyah-Bott-Shapiro 1964) |
 | **Other (Axiom/Parameter scaffolding)** | ~82 | Existence claims for spectral triple components, gauge group assignments, NCG axioms, derivation mirror files |
 
-The breakdown is taken from `admitted_log.md` §"Сводка по тегам" — **the project's own audit**. Wave 3 does not invent any of this; it surfaces what `admitted_log.md` has already documented.
+The breakdown is taken from `admitted_log.md` §"Tag Summary" — **the project's own audit**. Wave 3 does not invent any of this; it surfaces what `admitted_log.md` has already documented.
 
 ---
 
@@ -121,7 +121,7 @@ Per direct count (`grep -l "^Admitted\." proofs/`):
 
 ### Misleading file-level header comments
 
-Per `admitted_log.md` §"Статус заголовочных комментариев":
+Per `admitted_log.md` §"Header-comment status":
 
 | File | Header claim | Reality | Action |
 |---|---|---|---|
@@ -180,10 +180,10 @@ A defensible score for Mathematical Rigor — preserving the strong genuine succ
 
 The Lagrangian honesty pass (Wave 1) and the δ_CP honesty pass (Wave 2) both turned on a single pattern: **the project's internal audit documents already said the harder truth, but the public-facing documents kept the older overclaim**. Wave 3 is the same pattern in a third sector.
 
-- `admitted_log.md` already said: "Previous README claimed 0 Admitted. Это НЕВЕРНО."
+- `admitted_log.md` already said: "Previous README claimed 0 Admitted. This is INCORRECT."
 - `RELEASE_NOTES_v1.0-wave11.md` already said: "README advertises 23/23 compiling at 100%. Ground truth: 4/16 compiled."
 - `peer_review_PRD.md` already said: "An Admitted theorem in a paper claiming 0 Admitted is academic dishonesty."
-- `independent_review.md` already said: "v4.12 заявление о 0 Admitted... многие 'доказательства' — это тривиальные рефлексивности".
+- `independent_review.md` already said: "the v4.12 claim of 0 Admitted... many 'proofs' are trivial reflexivities".
 
 This pass lifts those four internal admissions into a single front-page document so that they cannot be contradicted by a README slogan.
 

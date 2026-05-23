@@ -54,8 +54,8 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 ## F. Public docs are English-only
 
 - [ ] [`README.md`](../README.md), [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md), [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md), [`docs/TECH_TREE.md`](TECH_TREE.md), [`docs/REVIEW_CHECKLIST.md`](REVIEW_CHECKLIST.md), [`SECURITY.md`](../SECURITY.md), [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md), and [`SALVAGE.md`](../SALVAGE.md) contain no non-English prose.
-- [ ] [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) is English with one historical motto in Russian ("the guiding principle"); the substantive content (findings, risk table, milestones) is English-only.
-- [ ] [`CONTRIBUTING.md`](../CONTRIBUTING.md) is intentionally bilingual (Russian + English) and the English half is complete. New top-level public docs default to English-only.
+- [ ] [`ROADMAP.md`](../ROADMAP.md), [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md), [`FORMULAS.md`](../FORMULAS.md), and [`derivations/formulas_cleanup/PROPOSAL.md`](../derivations/formulas_cleanup/PROPOSAL.md) are English-only. New top-level public docs default to English-only.
+- [ ] Run the scan: `bash scripts/check_english_only.sh` exits 0. The script scans top-level public docs (README/SECURITY/HONESTY_MANIFEST/SALVAGE/FORMULAS/ROADMAP*/CONTRIBUTING, all of `docs/`, `.github/`, and `scripts/*.md`) and reports any Cyrillic. Deeper research notes under `derivations/` are out of scope (private research analyses; tracked as a follow-up).
 
 ## G. No hype
 
