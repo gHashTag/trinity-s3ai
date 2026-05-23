@@ -30,6 +30,7 @@ Require Import Lra.
 Require Import List.
 Require Import Interval.Tactic.
 From Trinity Require Import CorePhi.
+From Trinity Require Import E6vsH4.
 
 Open Scope R_scope.
 Import ListNotations.
@@ -63,9 +64,8 @@ Qed.
 (* the minimal polynomial 4x^2 - 2x - 1 = 0.                                  *)
 Lemma phi_eq_2cos_pi5 : phi = 2 * cos (PI / 5).
 Proof.
-  (* WAVE14: HARD — requires algebraic trig proof of 4cos²(π/5) - 2cos(π/5) - 1 = 0
-     from sin(2π/5) = sin(3π/5), quadratic formula, and positivity. *)
-Admitted.
+  exact phi_as_2_cos_pi_5.
+Qed.
 
 (******************************************************************************)
 (* Section 1: 600-Cell Combinatorial Data                                     *)

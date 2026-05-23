@@ -25,6 +25,7 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | Resource | Description |
 |----------|-------------|
 | [SALVAGE.md](SALVAGE.md) | Honest summary: what H4 can/cannot do |
+| [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
 | [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal no-go theorems NGT1–NGT4 |
 | [Catalog42.v](proofs/trinity/Catalog42.v) | 42 SM parameter formulas (tagged phenomenological) |
 | [admitted_log.md](admitted_log.md) | Log of all Admitted with their tags |
@@ -97,27 +98,29 @@ inward-only dependency direction is enforced by integration tests in
 
 ---
 
-## Coq Proof Statistics (v4.0 — Wave 10.4 audit)
+## Coq Proof Statistics (Wave 15.1 — Honest Audit)
 
 | Metric | Value |
 |--------|-------|
 | Coq version | 8.20.1 |
-| Coq files | 77 total (compile status varies) |
-| Qed theorems | 1348 (was 1326 pre-W11.7/W12.4 sprints) |
-| Admitted (pure) | 34 (was 37; −2 in W11.7, −1 in W12.4) |
-| admit (inline) | 17 |
-| Axiom declarations | 68 (proofs/) after W11.7+W12.4; 88 originally |
-| SG-class formulas (error < 0.01%) | 11 |
-| V-class formulas (error 0.01–0.3%) | 14 |
+| Coq `.v` files (proofs + derivations) | **79** |
+| `Qed.` theorems | **1 762** |
+| Real `Admitted.` (outside comments/strings) | **5** |
+| `Axiom` + `Conjecture` + `Parameter` | **85** |
+| Refutation theorems | **14** |
+| SG-class formulas (error < 0.01 %) | 11 |
+| V-class formulas (error 0.01–0.3 %) | 14 |
 | Anti-numerology gate | ✓ PASS (59 formulas tagged) |
-| Proof transparency | See [FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md) |
+| Honest-count script | [`scripts/count_admitted_honest.py`](scripts/count_admitted_honest.py) |
 
-> **Audit note (Wave 10.4):** Prior versions of this README incorrectly claimed
-> "Admitted: 0". The A1 audit found 37 Admitted + 17 admit + 88 Axiom.
-> All items are documented in [admitted_log.md](admitted_log.md) and
-> stratified by type in [FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md).
-> The four No-Go Theorems (NGT1–NGT4) compile and are valid modulo the
-> axioms documented therein.
+> **Audit note (Wave 15.1):** Prior counts mixed comment text with real proof
+> obligations. A naive `grep -c "Admitted"` finds **77** matches in
+> `proofs/trinity/`, but **all 77 are inside historical comments** (tags,
+> TODOs, cross-references). The honest parser strips comments and strings
+> before counting.  The result: `proofs/trinity/` has **0** real `Admitted.`,
+> `proofs/clifford_cl8/` has **4**, and `derivations/chirality/` has **1**.
+> Full methodology and commitment are in [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md).
+> All 5 open gaps are documented with citations or `[OPEN_PROBLEM]` labels.
 
 ---
 
@@ -164,7 +167,7 @@ python3 scripts/anti_numerology_gate.py       # honesty check
 ## Repository Structure
 
 ```
-proofs/trinity/              — Coq .v source files (23 files)
+proofs/trinity/              — Coq .v source files (50 files)
   CorePhi.v                  — Golden ratio φ and its algebra
   Catalog42.v                — 42 SM parameter formulas [phenomenological_fit]
   NoGoTheorems.v             — NGT1–NGT4 formal no-go theorems
@@ -172,6 +175,7 @@ proofs/trinity/              — Coq .v source files (23 files)
   CosmologyOrigins.v         — Cosmological formulas [HONEST: ...]
   ...
 scripts/
+  count_admitted_honest.py   — Honest parser: strips comments before counting
   anti_numerology_gate.py    — CI gate: detect untagged φ/π/e formulas
   README_anti_numerology.md  — Gate documentation
   prepare_zenodo.md          — Zenodo publication guide
@@ -223,3 +227,4 @@ Also see [CITATION.bib](CITATION.bib) for formatted references.
 | 5–8 | NCG derivations, spectral action |
 | 9.6 | NGT1–NGT4 no-go theorems formalized |
 | 10.5 | Anti-numerology CI gate; CITATION.cff; CONTRIBUTING.md |
+| 15.1 | Honest counting system: comments stripped before statistics |
