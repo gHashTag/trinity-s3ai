@@ -87,7 +87,26 @@ python3 -m http.server 8000
 ```
 
 The page detects a missing bundle and shows a fallback notice with the same
-build command, so a fresh checkout never silently breaks.
+build command, so a fresh checkout never silently breaks. The fallback also
+embeds a static SVG snapshot of the GOLDEN BRIDGE layout so the preview is
+visually meaningful even without the wasm bundle.
+
+### Static SVG fallback
+
+To regenerate the snapshot used by the fallback panel:
+
+```bash
+cd games/trinity_fold
+cargo run -p ring4_canvas --example snapshot_svg -- \
+  web/canvas/snapshot.svg
+```
+
+The snapshot is produced by calling the same
+`ring4_canvas::render::layout` function the wasm shell consumes, so the
+fallback cannot drift from the live UI without a corresponding change in
+ring 4. It is intentionally a static picture of the initial state (empty
+board, default catalog, benchmark off) and is clearly labelled as
+non-interactive in the page.
 
 ### Legacy JS UI
 
