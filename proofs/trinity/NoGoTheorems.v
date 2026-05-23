@@ -542,8 +542,12 @@ Definition delta_CP_NuFit60_sigma : R := 26.
 Lemma delta_CP_excluded_at_5sigma :
   Rabs (delta_CP_trinity_deg - delta_CP_NuFit60_center) > 5 * delta_CP_NuFit60_sigma.
 Proof.
-  unfold delta_CP_trinity_deg, delta_CP_NuFit60_center, delta_CP_NuFit60_sigma, phi, Rabs.
-  destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212));
+  unfold delta_CP_trinity_deg, delta_CP_NuFit60_center, delta_CP_NuFit60_sigma, phi.
+  assert (Hneg : 3 / ((1 + sqrt 5) / 2) ^ 2 * (180 / PI) - 212 < 0).
+  { interval with (i_prec 60). }
+  assert (Habs : Rabs (3 / ((1 + sqrt 5) / 2) ^ 2 * (180 / PI) - 212) = -(3 / ((1 + sqrt 5) / 2) ^ 2 * (180 / PI) - 212)).
+  { apply Rabs_left. exact Hneg. }
+  rewrite Habs.
   interval with (i_prec 60).
 Qed.
 

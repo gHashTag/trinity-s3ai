@@ -372,7 +372,7 @@ Qed.
 (* - V_us = 2*phi^3*e^2/(9*pi^3) = 0.2243 (V-class, 0.014% error)           *)
 (* - V_cb = 1/(3*phi^2*pi) = 0.04053 (V-class, 0.07% error)                 *)
 (* - sin^2_theta_13 = pi^2/(25*phi^6) = 0.0220 (SG-class, 0.003% error)     *)
-(* - delta_CP = 3/phi^2 = 1.1459 rad = 65.66 deg (V-class, IN CRISIS, retracted)
+(* - delta_CP = 3/phi^2 = 1.1459 rad = 65.66 deg (V-class, IN CRISIS, retracted)  *)
 (* - H4 geometric origin: motivated conjecture, not formal proof              *)
 (* - interval with (i_prec 60) for numerical bounds                           *)
 (* - HONEST: comments for all Admitted or unproven geometric claims           *)

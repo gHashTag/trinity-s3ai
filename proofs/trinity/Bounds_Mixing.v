@@ -150,8 +150,10 @@ Theorem N04_excluded_at_5sigma :
   Rabs (N04_formula_deg - delta_CP_experimental_center_NuFit60) > 5 * delta_CP_experimental_uncertainty_NuFit60.
 Proof.
   unfold N04_formula_deg, N04_formula_rad, rad_to_deg, phi,
-         delta_CP_experimental_center_NuFit60, delta_CP_experimental_uncertainty_NuFit60, Rabs.
-  destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * 180 / PI - 212));
+         delta_CP_experimental_center_NuFit60, delta_CP_experimental_uncertainty_NuFit60.
+  assert (Hneg : 3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * 180 / PI - 212 < 0).
+  { interval with (i_prec 60). }
+  rewrite Rabs_left; [ | lra ].
   interval with (i_prec 60).
 Qed.
 

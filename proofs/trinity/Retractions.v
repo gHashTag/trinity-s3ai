@@ -63,8 +63,12 @@ Theorem delta_CP_excluded_at_5sigma_NuFit60 :
   Rabs (delta_CP_retracted_degrees - delta_CP_NuFit60_center) > 5 * delta_CP_NuFit60_sigma.
 Proof.
   unfold delta_CP_retracted_degrees, delta_CP_retracted_formula,
-         delta_CP_NuFit60_center, delta_CP_NuFit60_sigma, phi, Rabs.
-  destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212));
+         delta_CP_NuFit60_center, delta_CP_NuFit60_sigma, phi.
+  assert (Hneg : 3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212 < 0).
+  { interval with (i_prec 60). }
+  assert (Habs : Rabs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212) = -(3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212)).
+  { apply Rabs_left. exact Hneg. }
+  rewrite Habs.
   interval with (i_prec 60).
 Qed.
 
@@ -73,8 +77,12 @@ Theorem delta_CP_excluded_at_10sigma_T2K2025 :
   Rabs (delta_CP_retracted_degrees - delta_CP_T2K2025_center) > 10 * delta_CP_T2K2025_sigma.
 Proof.
   unfold delta_CP_retracted_degrees, delta_CP_retracted_formula,
-         delta_CP_T2K2025_center, delta_CP_T2K2025_sigma, phi, Rabs.
-  destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270));
+         delta_CP_T2K2025_center, delta_CP_T2K2025_sigma, phi.
+  assert (Hneg : 3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270 < 0).
+  { interval with (i_prec 60). }
+  assert (Habs : Rabs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270) = -(3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270)).
+  { apply Rabs_left. exact Hneg. }
+  rewrite Habs.
   interval with (i_prec 60).
 Qed.
 
@@ -125,12 +133,20 @@ Proof.
   split.
   - apply Rgt_lt.
     unfold delta_CP_retracted_degrees, delta_CP_retracted_formula,
-           delta_CP_NuFit60_center, phi, Rabs.
-    destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212));
+           delta_CP_NuFit60_center, phi.
+    assert (Hneg : 3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212 < 0).
+    { interval with (i_prec 60). }
+    assert (Habs : Rabs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212) = -(3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212)).
+    { apply Rabs_left. exact Hneg. }
+    rewrite Habs.
     interval with (i_prec 60).
   - unfold delta_CP_retracted_degrees, delta_CP_retracted_formula,
-           delta_CP_T2K2025_center, phi, Rabs.
-    destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270));
+           delta_CP_T2K2025_center, phi.
+    assert (Hneg : 3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270 < 0).
+    { interval with (i_prec 60). }
+    assert (Habs : Rabs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270) = -(3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 270)).
+    { apply Rabs_left. exact Hneg. }
+    rewrite Habs.
     interval with (i_prec 60).
 Qed.
 
