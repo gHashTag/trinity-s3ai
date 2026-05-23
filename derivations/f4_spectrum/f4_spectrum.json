@@ -1,0 +1,14 @@
+{
+  "n_roots": 48,
+  "n_2o_found": 16,
+  "n_2o_expected": 48,
+  "D_dim": 192,
+  "hermitian_error": 0.0,
+  "eigenvalue_min": -1.522737,
+  "eigenvalue_max": 1.522737,
+  "positive_count": 60,
+  "negative_count": 60,
+  "zero_count": 72,
+  "KO_dim_estimate": 6,
+  "honest_note": "2O incomplete; spectrum uses F4 root adjacency only"
+}
