@@ -25,6 +25,7 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | Resource | Description |
 |----------|-------------|
 | [docs/REVIEW_GUIDE.md](docs/REVIEW_GUIDE.md) | **For reviewers:** 10-minute path with commands and expected outputs |
+| [docs/REPOSITORY_MAP.md](docs/REPOSITORY_MAP.md) | Where every kind of artifact lives in this repository |
 | [docs/CLAIM_STATUS.md](docs/CLAIM_STATUS.md) | Claim-status rule book (verified / empirical fit / open / refuted) |
 | [docs/TECH_TREE.md](docs/TECH_TREE.md) | Layered status of the whole stack (infra → proofs → fits → game → paper) |
 | [docs/REVIEW_CHECKLIST.md](docs/REVIEW_CHECKLIST.md) | Mechanical review-readiness checklist |
@@ -35,10 +36,10 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
 | [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal no-go theorems NGT1–NGT4 |
 | [Catalog42.v](proofs/trinity/Catalog42.v) | 42 SM parameter formulas (tagged phenomenological) |
-| [admitted_log.md](admitted_log.md) | Log of all Admitted with their tags |
+| [admitted_log.md](docs/analysis/admitted_log.md) | Log of all Admitted with their tags |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
 | [scripts/prepare_zenodo.md](scripts/prepare_zenodo.md) | Zenodo publication guide |
-| [FOUNDATIONS.md](FOUNDATIONS.md) | Axiom stratification and open assumptions |
+| [FOUNDATIONS.md](docs/analysis/FOUNDATIONS.md) | Axiom stratification and open assumptions |
 | [proofs/clifford_cl8/README.md](proofs/clifford_cl8/README.md) | **Track B (Wave 12)** — Cl(p,q) formalization launch (T1–T3) |
 | [GOLDEN BRIDGE (live)](https://t27.ai/trinity-s3ai/) | Live hypothesis-discovery puzzle (not evidence; see game README) |
 
@@ -72,8 +73,8 @@ _Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_cla
 | NGT1-NGT4: four formal No-Go theorems closed with `Qed.` | L2 | `verified` | proofs/trinity/NoGoTheorems.v (NGT1, NGT2, NGT3, NGT4 all Qed) | — |
 | E8 plumbing: eta discrepancy does NOT converge to -2 | L4 | `high_risk_or_falsified` | paper/CHANGELOG_v1_to_v2.md (Honesty Notes); Wave 17 audit | — |
 | No known string / heterotic / F-theory / orbifold compactification rescues the SM hierarchy from H4 or F4 | L4 | `high_risk_or_falsified` | ROADMAP_WAVE17_PLUS.md (Wave 17.2 Findings) | — |
-| `a4` conversion factor not fully reconciled across three derivations | L3 | `open_conjecture` | a4_conversion_factor_analysis.md; a4_honest_resolution.md | Produce a single derivation that all three (analytic, spectral, fit) paths agree on, or document why they cannot agree and downgrade the relevant fits. |
-| `m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass | L5 | `empirical_fit` | proofs/trinity/HiggsPrediction.v (interval bound); higgs_potential_proven.md | Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the NGT2 sigma-field obstruction. |
+| `a4` conversion factor not fully reconciled across three derivations | L3 | `open_conjecture` | docs/analysis/a4_conversion_factor_analysis.md; docs/analysis/a4_honest_resolution.md | Produce a single derivation that all three (analytic, spectral, fit) paths agree on, or document why they cannot agree and downgrade the relevant fits. |
+| `m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass | L5 | `empirical_fit` | proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md | Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the NGT2 sigma-field obstruction. |
 | GOLDEN BRIDGE puzzle is a hypothesis-discovery game, not evidence | L6 | `verified` | games/trinity_fold/README.md; ring0_core::ClaimStatus enum | — |
 | No Theory-of-Everything claim and no prize claim is made | L1 | `verified` | docs/CLAIM_STATUS.md §2; README.md preamble | — |
 
@@ -268,7 +269,7 @@ The new directory [`proofs/clifford_cl8/`](proofs/clifford_cl8/) introduces:
 
 Track B is intentionally decoupled from the H4 core (no `Trinity` imports);
 its Admitted set is logged separately as `TRACK_B_CLIFFORD` in
-[admitted_log.md](admitted_log.md). The launch PR provides the scaffolding
+[admitted_log.md](docs/analysis/admitted_log.md). The launch PR provides the scaffolding
 and statement-level theorems; T4–T12 and the Admitted discharges are
 follow-up work.
 

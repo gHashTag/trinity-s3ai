@@ -68,9 +68,9 @@ and are tracked for promotion to `Qed.` in future waves.
   [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md) for the reconciliation
   with older inconsistent metric documents.
 - **A falsification protocol.** Risky predictions for DUNE, JUNO and
-  LHC are listed in [`RISKY_PREDICTIONS.md`](RISKY_PREDICTIONS.md) with
+  LHC are listed in [`RISKY_PREDICTIONS.md`](docs/analysis/RISKY_PREDICTIONS.md) with
   criteria that would falsify them. The protocol is in
-  [`Trinity_Falsifiability_Assessment.md`](Trinity_Falsifiability_Assessment.md).
+  [`Trinity_Falsifiability_Assessment.md`](docs/analysis/Trinity_Falsifiability_Assessment.md).
 - **A hypothesis-discovery puzzle, GOLDEN BRIDGE.** Live at
   <https://t27.ai/trinity-s3ai/>. The game scores candidate boards
   against a small curated rule set, surfaces the worst claim status,
@@ -101,5 +101,5 @@ and are tracked for promotion to `Qed.` in future waves.
 | A layered status of the whole stack | [`docs/TECH_TREE.md`](docs/TECH_TREE.md) |
 | A mechanical review checklist | [`docs/REVIEW_CHECKLIST.md`](docs/REVIEW_CHECKLIST.md) |
 | Honest Coq statistics | [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md) |
-| The reconciliation of older metric claims | [`COQ_HONEST_STATUS.md`](COQ_HONEST_STATUS.md) |
-| The traceability of figures to scripts | [`TRACEABILITY.md`](TRACEABILITY.md) |
+| The reconciliation of older metric claims | [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md) |
+| The traceability of figures to scripts | [`TRACEABILITY.md`](docs/analysis/TRACEABILITY.md) |

@@ -44,16 +44,16 @@ If you only have 3 minutes, read steps 2, 3, and 5 and stop.
 **Formal-methods reviewer (Coq / Lean).** Start with
 [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) for the honest counter
 methodology, then
-[`COQ_HONEST_STATUS.md`](../COQ_HONEST_STATUS.md) for the canonical
+[`COQ_HONEST_STATUS.md`](status/COQ_HONEST_STATUS.md) for the canonical
 reconciliation across older docs, then
 [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) and
-[`admitted_log.md`](../admitted_log.md).
+[`admitted_log.md`](analysis/admitted_log.md).
 
 **Physics / phenomenology reviewer.** Start with
 [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md), then
-[`Trinity_Falsifiability_Assessment.md`](../Trinity_Falsifiability_Assessment.md),
-[`RISKY_PREDICTIONS.md`](../RISKY_PREDICTIONS.md), and
-[`TRACEABILITY.md`](../TRACEABILITY.md) for formula → script → figure
+[`Trinity_Falsifiability_Assessment.md`](analysis/Trinity_Falsifiability_Assessment.md),
+[`RISKY_PREDICTIONS.md`](analysis/RISKY_PREDICTIONS.md), and
+[`TRACEABILITY.md`](analysis/TRACEABILITY.md) for formula → script → figure
 chains.
 
 **Software / open-source reviewer.** Start with the root
@@ -192,7 +192,7 @@ public-facing claim against them.
    table). All historical occurrences of "Admitted" in `proofs/trinity/`
    are inside comments. Any new `Admitted.` introduced in a PR must
    have a citation or `[OPEN_PROBLEM]` label in
-   [`admitted_log.md`](../admitted_log.md).
+   [`admitted_log.md`](analysis/admitted_log.md).
 3. **Empirical fit ≠ derivation.** Any formula combining ≥2 of {φ, π, e,
    √n} that matches a PDG value is, by repository policy, a
    phenomenological fit unless explicitly proved otherwise. The
@@ -230,7 +230,7 @@ they are easy to find rather than hidden in long appendices.
   required to be tagged, but tagging is a social commitment, not a
   proof; the anti-numerology gate is the mechanical check.
 - **Inconsistent older counts.**
-  [`COQ_HONEST_STATUS.md`](../COQ_HONEST_STATUS.md) catalogues five
+  [`COQ_HONEST_STATUS.md`](status/COQ_HONEST_STATUS.md) catalogues five
   mutually inconsistent sets of Coq metrics across older documents. The
   canonical numbers are produced by
   `scripts/count_admitted_honest.py`; treat anything else as historical.
@@ -258,7 +258,7 @@ they are easy to find rather than hidden in long appendices.
   Findings"). Treat the string-correspondence layer as
   **high_risk_or_falsified** for the original mass-hierarchy aim.
 - **Lagrangian derivations** are work-in-progress; see
-  [`LAGRANGIAN_HONEST_STATUS.md`](../LAGRANGIAN_HONEST_STATUS.md) for
+  [`LAGRANGIAN_HONEST_STATUS.md`](status/LAGRANGIAN_HONEST_STATUS.md) for
   what is and is not derived.
 
 ---

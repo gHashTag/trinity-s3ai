@@ -2,7 +2,7 @@
 ## "What to Improve Next: Highest Impact Actions"
 
 **Date:** 2026-05-20
-**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](./delta_cp_analysis.md) (formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22)
+**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) (formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22)
 **Critical Issue:** delta_CP = 65.66° in 5.6sigma tension with NuFit 6.0; 0 peer-reviewed publications
 
 ---
@@ -12,7 +12,7 @@
 | # | Improvement | Effort (days) | Impact (0-10) | Impact/Effort | Priority |
 |---|------------|---------------|---------------|---------------|----------|
 | 1 | **Submit to arXiv (find endorser)** | 2-3 | 10 | 3.33 | **P0 — DO FIRST** |
-| 2 | **Resolve 123 unproven Coq obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter; categorized in [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md)) | 30–60 | 9 | 0.15–0.30 | **P0** |
+| 2 | **Resolve 123 unproven Coq obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter; categorized in [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md)) | 30–60 | 9 | 0.15–0.30 | **P0** |
 | 3 | **Write honest blog post** | 1-2 | 8 | 4.00 | **P0** |
 | 4 | **Add 10 more SG-class formulas** | 5-7 | 7 | 1.00 | **P1** |
 | 5 | **Fix delta_CP: search alternative derivations** | 3-5 | 9 | 1.80 | **P0** |
@@ -37,7 +37,7 @@ P0 (Impact/Effort >= 2.0):  Must do immediately
   5. Add experimental predictions ......... 2.00  (3-4 days)
 
 P1 (Impact/Effort 1.0-2.0):  Do within 2 weeks
-  6. Resolve 123 unproven Coq obligations.... 0.15–0.30  (30–60 days; see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md))
+  6. Resolve 123 unproven Coq obligations.... 0.15–0.30  (30–60 days; see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md))
   7. Fix delta_CP alternatives ............. 1.80  (3-5 days)
   8. Animated visualizations .............. 1.67  (2-3 days)
   9. Jekyll website ........................ 1.20  (3-5 days)
@@ -89,7 +89,7 @@ These 5 actions can be completed in 1-3 days each and will significantly impress
 ```
 1. Hook: "Can a geometric shape predict particle physics?" (the 600-cell)
 2. What we found: 130 formulas, 61 at sub-0.01% precision
-3. The honest part: 7 failed compiles, **123 unproven Coq obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter; see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md))
+3. The honest part: 7 failed compiles, **123 unproven Coq obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter; see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md))
 4. The risky prediction: delta_CP = 65.66 (5.6 sigma tension with some data)
 5. What makes this different from numerology (H4 is a real group, not ad-hoc)
 6. What we need help with (open problems)
@@ -125,7 +125,7 @@ These 5 actions can be completed in 1-3 days each and will significantly impress
 
 **Email template (key principles):**
 - Lead with the most impressive single result (m_tau/m_mu at 0.0004%)
-- Be honest about limitations (7 failed formulas, **123 unproven Coq obligations** — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md))
+- Be honest about limitations (7 failed formulas, **123 unproven Coq obligations** — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md))
 - Ask for something specific (15-min review, endorsement, co-authorship)
 - Include link to GitHub + Coq code
 - Mention DUNE 2028 pre-registration
@@ -184,7 +184,7 @@ These 5 actions can be completed in 1-3 days each and will significantly impress
 These 5 actions transform the project from "interesting idea" to "serious contender":
 
 ### MT1: Resolve All 123 Unproven Coq Obligations (30–60 days) — IMPACT: 9/10
-**Current state:** **79 .v files, 1325 Qed, 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md) for per-file breakdown and categorization (PHYSICAL_AXIOM, NUMERICAL_FIT, MATH_TODO, LIBRARY_GAP, REFUTED, Track B, scaffolding). Each Admitted/Axiom is a gap in mathematical rigor. Previous claim of "19/19 files compile, 6 Admitted" was inconsistent with `admitted_log.md` and direct file inspection.
+**Current state:** **79 .v files, 1325 Qed, 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for per-file breakdown and categorization (PHYSICAL_AXIOM, NUMERICAL_FIT, MATH_TODO, LIBRARY_GAP, REFUTED, Track B, scaffolding). Each Admitted/Axiom is a gap in mathematical rigor. Previous claim of "19/19 files compile, 6 Admitted" was inconsistent with `admitted_log.md` and direct file inspection.
 
 **Strategy by Admitted type:**
 - **Numerical bounds Admitted** (likely 3-4): Replace with `interval` tactic proofs
@@ -203,7 +203,7 @@ These 5 actions transform the project from "interesting idea" to "serious conten
 ---
 
 ### MT2: Complete Lagrangian Sector #13 (1-2 weeks) — IMPACT: 8/10
-**Current state:** 3/13 sectors formally proven (m_H, gauge couplings, λ); 9 phenomenological fits; 1 open (RG running). See [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md). The earlier "12/13 proven (92.3%)" framing is withdrawn.
+**Current state:** 3/13 sectors formally proven (m_H, gauge couplings, λ); 9 phenomenological fits; 1 open (RG running). See [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md). The earlier "12/13 proven (92.3%)" framing is withdrawn.
 
 **What sector #13 likely is:** Based on the FINAL_STATUS_v44.md, the 13 sectors are:
 1. Gauge kinetic, 2. Higgs lambda, 3. Higgs m_H, 4. Higgs potential, 5. Lepton/quark masses,
@@ -383,10 +383,10 @@ These 3 actions would make Trinity a landmark paper:
 ### LT3: Achieve 100% Coq Verification with Zero Admitted (1-2 months) — IMPACT: 9/10
 **Vision:** Every single formula in Trinity has a machine-checked proof.
 
-**Previously claimed "19/19 compilation" is misleading** — compilation != proof completion, and the project actually has **79 .v files** (not 19). The **123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) are gaps where the proof author said "this is true but I haven't proved it yet" — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md) for per-obligation categorization.
+**Previously claimed "19/19 compilation" is misleading** — compilation != proof completion, and the project actually has **79 .v files** (not 19). The **123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) are gaps where the proof author said "this is true but I haven't proved it yet" — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for per-obligation categorization.
 
 **Roadmap:**
-1. Week 1-2: Categorize all 123 unproven obligations by difficulty (DONE in [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md))
+1. Week 1-2: Categorize all 123 unproven obligations by difficulty (DONE in [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md))
    - Trivial (numerical bounds): 3-4 of them
    - Medium (existence witnesses): 1-2 of them
    - Hard (inductive arguments): 0-1 of them
@@ -496,7 +496,7 @@ to resolve this discrepancy."
 
 **What to prepare NOW:**
 1. Document which predictions are INDEPENDENT of delta_CP
-2. Show that the Lagrangian derivation (the 3 formally proven sectors per [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md)) does not depend on the PMNS phase
+2. Show that the Lagrangian derivation (the 3 formally proven sectors per [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md)) does not depend on the PMNS phase
 3. Prepare the narrative: "PMNS sector needs revision; rest of framework stands"
 
 ---
@@ -651,6 +651,6 @@ MILESTONE: DUNE 2028 first data
 
 *Plan created: 2026-05-20*
 *Framework: Trinity S^3AI v4.9*
-*Impact assessment based on: 130 formulas, 61 SG-class, 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md))*
+*Impact assessment based on: 130 formulas, 61 SG-class, 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md))*
 *Critical risk: delta_CP = 65.66° (5.6 sigma tension with NuFit 6.0)*
 *Highest-impact action: arXiv submission with DUNE pre-registration*

@@ -32,7 +32,7 @@ Wave 12 is a **consolidation and communication wave**. No new physics claims are
 ### Link to Falsification Registry
 
 All quantitative predictions are now registered in:
-- [`derivations/falsification/PREDICTIONS_REGISTRY.md`](derivations/falsification/PREDICTIONS_REGISTRY.md)
+- [`derivations/falsification/PREDICTIONS_REGISTRY.md`](../derivations/falsification/PREDICTIONS_REGISTRY.md)
 
 ---
 

@@ -76,8 +76,8 @@
       "description": "The `a4` conversion factor used in three different derivations does not reconcile end-to-end. Treated as an open gap until a single derivation is selected.",
       "claim": "open_conjecture",
       "layer": "L3",
-      "evidence": "a4_conversion_factor_analysis.md; a4_honest_resolution.md",
-      "owner_file": "a4_conversion_factor_analysis.md",
+      "evidence": "docs/analysis/a4_conversion_factor_analysis.md; docs/analysis/a4_honest_resolution.md",
+      "owner_file": "docs/analysis/a4_conversion_factor_analysis.md",
       "blocking_gap": "Produce a single derivation that all three (analytic, spectral, fit) paths agree on, or document why they cannot agree and downgrade the relevant fits.",
       "tags": [
         "proof_debt"
@@ -90,8 +90,8 @@
       "description": "Numerical coincidence m_H ~ 4 phi^3 e^2 lies inside the PDG 2024 window. The Coq interval bound is verified; the physical derivation is not. Tagged [phenomenological_fit].",
       "claim": "empirical_fit",
       "layer": "L5",
-      "evidence": "proofs/trinity/HiggsPrediction.v (interval bound); higgs_potential_proven.md",
-      "owner_file": "higgs_potential_proven.md",
+      "evidence": "proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md",
+      "owner_file": "docs/analysis/higgs_potential_proven.md",
       "blocking_gap": "Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the NGT2 sigma-field obstruction.",
       "tags": []
     },
