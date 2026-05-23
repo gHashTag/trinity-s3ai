@@ -1,0 +1,505 @@
+{
+  "nodes": [
+    {
+      "id": "c_hbar",
+      "kind": "constant",
+      "name": "ℏ",
+      "description": "Reduced Planck constant. Verified physical constant; sets units of action.",
+      "claim": "verified",
+      "dimension": {
+        "length": 2,
+        "mass": 1,
+        "time": -1
+      },
+      "value": 1.054571817e-34,
+      "uncertainty": null,
+      "unit": "J·s",
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "CODATA 2018"
+    },
+    {
+      "id": "c_c",
+      "kind": "constant",
+      "name": "c",
+      "description": "Speed of light in vacuum (defined value in SI).",
+      "claim": "verified",
+      "dimension": {
+        "length": 1,
+        "time": -1
+      },
+      "value": 299792458.0,
+      "uncertainty": null,
+      "unit": "m/s",
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "BIPM SI 2019"
+    },
+    {
+      "id": "c_alpha_em",
+      "kind": "constant",
+      "name": "α_em",
+      "description": "Fine-structure constant. Dimensionless; widely treated as input to the SM.",
+      "claim": "empirical_fit",
+      "dimension": {},
+      "value": 0.0072973525693,
+      "uncertainty": 1.1e-12,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "PDG 2024"
+    },
+    {
+      "id": "c_G",
+      "kind": "constant",
+      "name": "G",
+      "description": "Newton's gravitational constant. Largest fractional uncertainty among constants.",
+      "claim": "empirical_fit",
+      "dimension": {
+        "length": 3,
+        "mass": -1,
+        "time": -2
+      },
+      "value": 6.6743e-11,
+      "uncertainty": 1.5e-15,
+      "unit": "m^3 kg^-1 s^-2",
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "CODATA 2018"
+    },
+    {
+      "id": "c_phi",
+      "kind": "constant",
+      "name": "φ",
+      "description": "Golden ratio. Pure mathematical constant; appears in H4 root lengths.",
+      "claim": "verified",
+      "dimension": {},
+      "value": 1.618033988749894,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [
+        "compression"
+      ],
+      "citation": null
+    },
+    {
+      "id": "s_su3",
+      "kind": "symmetry",
+      "name": "SU(3)_C",
+      "description": "Color gauge symmetry of QCD.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "Fritzsch–Gell-Mann–Leutwyler 1973"
+    },
+    {
+      "id": "s_su2",
+      "kind": "symmetry",
+      "name": "SU(2)_L",
+      "description": "Weak isospin gauge symmetry.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "Glashow 1961"
+    },
+    {
+      "id": "s_u1",
+      "kind": "symmetry",
+      "name": "U(1)_Y",
+      "description": "Hypercharge gauge symmetry.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "Glashow 1961"
+    },
+    {
+      "id": "s_lorentz",
+      "kind": "symmetry",
+      "name": "SO(1,3)",
+      "description": "Lorentz invariance of flat spacetime.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "special relativity"
+    },
+    {
+      "id": "s_h4",
+      "kind": "symmetry",
+      "name": "H4 Coxeter",
+      "description": "Non-crystallographic Coxeter group of order 14400; root system of the 600-cell.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "proofs/trinity/H4Roots.v"
+    },
+    {
+      "id": "g_600cell",
+      "kind": "geometry",
+      "name": "600-cell",
+      "description": "Regular 4-polytope with 120 vertices; carries H4 symmetry.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [
+        "compression"
+      ],
+      "citation": "Coxeter, Regular Polytopes"
+    },
+    {
+      "id": "g_cl8",
+      "kind": "geometry",
+      "name": "Cl(8)",
+      "description": "Clifford algebra Cl(8); Bott-periodicity anchor for Track B.",
+      "claim": "open_conjecture",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "proofs/clifford_cl8/Cl8_periodicity.v (Admitted)"
+    },
+    {
+      "id": "g_ncg_triple",
+      "kind": "geometry",
+      "name": "NCG spectral triple (A, H, D)",
+      "description": "Connes-style spectral triple; backbone of NCG models of the SM.",
+      "claim": "open_conjecture",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "Connes-Marcolli 2008"
+    },
+    {
+      "id": "g_f4_spectrum",
+      "kind": "geometry",
+      "name": "F4 spectrum",
+      "description": "Eigenvalues of the Dirac operator restricted to an F4-symmetric configuration.",
+      "claim": "open_conjecture",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "derivations/f4_spectrum/"
+    },
+    {
+      "id": "f_higgs",
+      "kind": "field",
+      "name": "Higgs doublet H",
+      "description": "Complex SU(2)_L doublet whose VEV breaks electroweak symmetry.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [
+        "s_su2",
+        "s_u1"
+      ],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "ATLAS 2012, CMS 2012"
+    },
+    {
+      "id": "f_fermions",
+      "kind": "field",
+      "name": "Three fermion generations",
+      "description": "Three copies of (Q, u, d, L, e) with identical gauge quantum numbers.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "PDG 2024"
+    },
+    {
+      "id": "f_graviton",
+      "kind": "field",
+      "name": "Graviton (spin-2)",
+      "description": "Massless spin-2 mediator of gravity. Quantization is open.",
+      "claim": "open_conjecture",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [
+        "s_lorentz"
+      ],
+      "incompatible_with": [],
+      "tags": [
+        "proof_debt"
+      ],
+      "citation": null
+    },
+    {
+      "id": "cn_dim",
+      "kind": "constraint",
+      "name": "Dimensional sanity",
+      "description": "Every Lagrangian term must have action dimension. Free check.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": null
+    },
+    {
+      "id": "cn_unitarity",
+      "kind": "constraint",
+      "name": "Unitarity",
+      "description": "Scattering amplitudes saturate the Froissart bound; partial waves bounded.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [
+        "s_lorentz"
+      ],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "Froissart 1961; Martin 1966"
+    },
+    {
+      "id": "cn_anomaly",
+      "kind": "constraint",
+      "name": "Anomaly cancellation",
+      "description": "All gauge anomalies cancel across one SM generation.",
+      "claim": "verified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [
+        "s_su3",
+        "s_su2",
+        "s_u1",
+        "f_fermions"
+      ],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "Bouchiat-Iliopoulos-Meyer 1972"
+    },
+    {
+      "id": "cn_ngt3_chirality",
+      "kind": "constraint",
+      "name": "NGT3: H4 alone is vector-like",
+      "description": "No-Go theorem: 600-cell D_F is antipodal -> vector-like. Falsifies any board that tries to derive chirality from H4 + 600-cell alone.",
+      "claim": "high_risk_or_falsified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [
+        "no_go"
+      ],
+      "citation": "proofs/trinity/NoGoTheorems.v (NGT3)"
+    },
+    {
+      "id": "cn_ngt1_cosmology",
+      "kind": "constraint",
+      "name": "NGT1: φ^a·π^b·e^c cannot fit Λ",
+      "description": "No-Go theorem: no monomial in (φ, π, e) reproduces both Λ and Ω_b.",
+      "claim": "high_risk_or_falsified",
+      "dimension": {},
+      "value": null,
+      "uncertainty": null,
+      "unit": null,
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [
+        "no_go"
+      ],
+      "citation": "proofs/trinity/NoGoTheorems.v (NGT1)"
+    },
+    {
+      "id": "o_higgs_mass",
+      "kind": "observable",
+      "name": "m_H",
+      "description": "Higgs boson mass. Tile carries an illustrative `predicted` value only if a player wires a Higgs prediction node to it.",
+      "claim": "empirical_fit",
+      "dimension": {},
+      "value": 125.2,
+      "uncertainty": 0.11,
+      "unit": "GeV",
+      "predicted": null,
+      "requires": [
+        "f_higgs"
+      ],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "PDG 2024"
+    },
+    {
+      "id": "o_alpha_em_inv",
+      "kind": "observable",
+      "name": "1/α_em",
+      "description": "Inverse fine-structure constant.",
+      "claim": "empirical_fit",
+      "dimension": {},
+      "value": 137.035999084,
+      "uncertainty": 2.1e-8,
+      "unit": null,
+      "predicted": null,
+      "requires": [
+        "c_alpha_em"
+      ],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "PDG 2024"
+    },
+    {
+      "id": "o_sin2_theta_w",
+      "kind": "observable",
+      "name": "sin²θ_W",
+      "description": "Weak mixing angle (MS-bar). Sensitive to scheme; see sin2thetaW_schemes.md.",
+      "claim": "empirical_fit",
+      "dimension": {},
+      "value": 0.23122,
+      "uncertainty": 0.00004,
+      "unit": null,
+      "predicted": null,
+      "requires": [
+        "s_su2",
+        "s_u1"
+      ],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "PDG 2024"
+    },
+    {
+      "id": "o_mt_over_mb",
+      "kind": "observable",
+      "name": "m_t / m_b",
+      "description": "Top to bottom quark mass ratio.",
+      "claim": "empirical_fit",
+      "dimension": {},
+      "value": 41.5,
+      "uncertainty": 0.6,
+      "unit": null,
+      "predicted": null,
+      "requires": [
+        "f_fermions"
+      ],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "PDG 2024 pole masses"
+    },
+    {
+      "id": "o_cosmo_lambda",
+      "kind": "observable",
+      "name": "Λ (cosmological constant)",
+      "description": "Effective vacuum energy density inferred from Planck 2018.",
+      "claim": "empirical_fit",
+      "dimension": {},
+      "value": 1.105e-52,
+      "uncertainty": 2.4e-54,
+      "unit": "m^-2",
+      "predicted": null,
+      "requires": [],
+      "incompatible_with": [],
+      "tags": [],
+      "citation": "Planck 2018"
+    }
+  ],
+  "triangles": [
+    [
+      "s_su2",
+      "s_u1",
+      "f_higgs"
+    ],
+    [
+      "s_su3",
+      "s_su2",
+      "s_u1"
+    ],
+    [
+      "s_h4",
+      "g_600cell",
+      "cn_ngt3_chirality"
+    ],
+    [
+      "g_ncg_triple",
+      "g_cl8",
+      "f_fermions"
+    ],
+    [
+      "s_lorentz",
+      "cn_unitarity",
+      "f_graviton"
+    ]
+  ]
+}
