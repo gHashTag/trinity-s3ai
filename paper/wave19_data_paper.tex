@@ -1,0 +1,509 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  H₄ Numerological Atlas: A Catalog of Standard Model Parameter Formulas
+%
+%  Data paper — PLOS ONE submission
+%  Document class: standard article (PLOS ONE accepts any LaTeX)
+%  Version: Wave 19
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{article}
+
+% ─── Packages ─────────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{caption}
+\usepackage{xcolor}
+
+% ─── Hyperref setup ───────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdftitle={H4 Numerological Atlas: A Catalog of Standard Model Parameter Formulas},
+    pdfsubject={Data paper, High Energy Physics - Phenomenology},
+    pdfkeywords={Standard Model, mass formulas, golden ratio, data catalog, Coxeter group}
+}
+
+% ─── Custom commands ──────────────────────────────────────────────────────────
+\newcommand{\ph}{\varphi}
+\newcommand{\GeV}{\,\text{GeV}}
+\newcommand{\eV}{\,\text{eV}}
+\newcommand{\PDG}{\text{PDG 2024}}
+\newcommand{\FLAG}{\text{FLAG 2024}}
+
+% ─── Begin Document ───────────────────────────────────────────────────────────
+\begin{document}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  TITLE AND AUTHORS
+% ═══════════════════════════════════════════════════════════════════════════════
+\title{H\textsubscript{4} Numerological Atlas: A Catalog of Standard Model Parameter Formulas}
+\author{[Author List TBD]\\
+  \texttt{trinity-s3ai@proton.me}}
+\date{May 2026}
+\maketitle
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  ABSTRACT
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{abstract}
+We present a curated catalog of 25 closed-form formulas that correlate
+parameters of the Standard Model (SM) with combinations of mathematical
+constants ($\varphi$, $\pi$, $e$) and invariants of the H\textsubscript{4}
+Coxeter group.  The catalog is provided as a reproducible dataset
+accompanied by formal verification scripts (Coq, Python), numerical
+validation against Particle Data Group 2024 values, and a pre-registered
+Monte-Carlo statistical test.  Mean relative agreement is $0.08\%$,
+with 20 of 25 formulas achieving $<0.1\%$ error.  A pre-registered
+Monte-Carlo simulation ($5\times 10^4$ trials, $2\times 10^3$ random
+formulas per trial) yields $p < 10^{-4}$ against the null hypothesis
+of random coincidence.  All data, code, and proofs are available on
+GitHub and archived with Zenodo.
+\end{abstract}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  INTRODUCTION
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+
+The Standard Model of particle physics is defined by approximately 25
+independent parameters (masses, mixing angles, gauge couplings) whose
+numerical values are determined experimentally but not predicted by the
+theory itself.  Over the past five decades, numerous authors have
+observed numerical coincidences between these parameters and mathematical
+constants, notably the golden ratio $\varphi = (1+\sqrt{5})/2$, $\pi$,
+and $e$\ \cite{Koide:1983,Connes:1996, Rivero:2006, Furey:2015}.
+
+Such coincidences are typically reported in isolation, without systematic
+statistical assessment.  The ``Trinity S$^3$AI'' program (Waves 1--19)
+collects these observations into a single, machine-verified catalog and
+subjects the entire set to an honest statistical test.  This paper is a
+\textbf{data paper}: it documents the catalog as a reproducible dataset,
+makes no claim that the formulas are ``derived'' from first principles,
+and reports both the numerical agreement and its statistical significance.
+
+\paragraph{Prior art.}  Koide's mass formula for charged leptons
+achieves $9.3\,\text{ppm}$ precision\ \cite{Koide:1983} but lacks a
+derivation.  Connes' noncommutative geometry program predicts the Higgs
+mass from spectral action\ \cite{Connes:2006} but requires a
+phenomenological $\sigma$-field correction.  The Furey--Gresnigt
+Cl(8) program relates SM fermions to octonionic spinors\ \cite{Furey:2015}.
+None of these programs has published a \emph{catalog} of formulas with
+rigorous statistical assessment.
+
+\paragraph{Gap.}  There is no peer-reviewed dataset that (i) collects
+SM parameter formulas in one place, (ii) classifies each formula by
+epistemic status (structurally motivated vs numerically fitted), (iii)
+validates every entry against PDG values with documented uncertainty,
+and (iv) reports a pre-registered Monte-Carlo $p$-value for the catalog
+as a whole.
+
+\paragraph{Scope.}  This paper presents exactly such a dataset.  The
+accompanying negative-result paper (Wave 17)\ \cite{TrinityWave17} proves
+that the H\textsubscript{4}/600-cell discrete model does \emph{not}
+derive the SM.  The present paper isolates the surviving numerical
+correlations and documents them as a citable data resource.
+
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  DATA DESCRIPTION
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Data Description}
+\label{sec:data}
+
+The catalog contains 25 closed-form formulas mapping H\textsubscript{4}-inspired
+expressions to Standard Model observables.  Each entry includes: a unique
+identifier, the mathematical expression, the target PDG 2024 value, the
+computed value, relative error, $\sigma$-distance (using real experimental
+uncertainty), and an epistemic classification.
+
+\subsection{Mass scheme conventions}
+
+The catalog uses a mixed mass scheme, following PDG and FLAG conventions:
+\begin{itemize}
+  \item Leptons: pole masses (on-shell at $Q^2=m^2$).
+  \item Light quarks ($u$, $d$, $s$): $\overline{\text{MS}}$ at $2\GeV$.
+  \item Heavy quarks ($c$, $b$): $\overline{\text{MS}}$ at self-scale.
+  \item Top quark, Higgs, gauge bosons: pole masses.
+  \item Neutrinos: effective Majorana (see-saw suppressed).
+\end{itemize}
+
+\subsection{Formula classification}
+
+Every formula is tagged by epistemic status:
+\begin{itemize}
+  \item \textbf{(S) Structural} ($n=8$): Integer coefficients are
+    H\textsubscript{4} invariants (Coxeter numbers, degrees, Lucas
+    numbers).  The transcendental combination ($\varphi^a\pi^b e^c$) is
+    \emph{not} derived from H\textsubscript{4} but is numerically fitted.
+  \item \textbf{(NF) Numerical Fit} ($n=17$): No structural derivation;
+    the entire expression is fitted to the data.
+\end{itemize}
+This taxonomy is adapted from the catalog audit of
+Ref.~\cite{TrinityAudit}.
+
+\subsection{The 25 core formulas}
+
+Table~\ref{tab:formulas} presents the complete catalog.  All values are
+computed with \texttt{mpmath} at 50-digit precision.  The
+$\sigma$-distance is defined as
+\begin{equation}
+  \sigma = \frac{|\text{predicted} - \text{measured}|}{\sigma_{\text{measured}}},
+\end{equation}
+where $\sigma_{\text{measured}}$ is the 1-$\sigma$ experimental
+uncertainty from PDG 2024, FLAG 2024, or NuFit 6.0.
+
+% ─── Table 1: Formula catalog ─────────────────────────────────────────────────
+\begin{longtable}{clccccc}
+\caption{The 25 core formulas of the H\textsubscript{4} Numerological Atlas.
+  Grades: SG ($\sigma<0.1$), V ($0.1\le\sigma<1$), P ($1\le\sigma<3$),
+  M ($3\le\sigma<5$), F ($\sigma\ge 5$).}
+\label{tab:formulas} \\
+\toprule
+ID & Expression & Target & Computed & Rel.Err & $\sigma$ & Grade \\
+\midrule
+\endfirsthead
+\multicolumn{7}{c}{\tablename\ \thetable{} -- continued} \\
+\toprule
+ID & Expression & Target & Computed & Rel.Err & $\sigma$ & Grade \\
+\midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{Continued on next page} \\
+\endfoot
+\bottomrule
+\endlastfoot
+L01 & $239e/\pi$ & 206.768 & 206.796 & 0.013\% & $6.1\times10^{3}$ & F \\
+L02 & $239\varphi^{4}/\pi^{4}$ & 16.817 & 16.817 & 0.002\% & 0.29 & V \\
+L03 & $549e\pi^{2}/\varphi^{3}$ & 3477.3 & 3476.99 & 0.009\% & 1.54 & P \\
+Q01 & $2\varphi/7$ & 0.462 & 0.4623 & 0.064\% & 0.02 & SG \\
+Q02 & $12+\varphi^{3}e^{2}$ & 43.24 & 43.30 & 0.140\% & 0.04 & SG \\
+Q03 & $19\pi e^{2}/\varphi$ & 272.0 & 272.59 & 0.216\% & 0.12 & V \\
+Q04 & $24\pi^{3}/e^{4}$ & 13.633 & 13.630 & 0.025\% & 0.17 & V \\
+Q05 & $43+\pi/\varphi$ & 44.94 & 44.942 & 0.004\% & 0.02 & SG \\
+Q05b& $127\varphi/120+30/19$ & 3.2908 & 3.2914 & 0.017\% & 0.19 & V \\
+Q06 & $\pi e^{4}+6/5$ & 172.69 & 172.73 & 0.020\% & 0.12 & V \\
+Q07 & $24\varphi^{2}/\pi$ & 20.00 & 20.000 & 0.002\% & 0.00 & SG \\
+G01 & $36\varphi e^{2}/\pi$ & 137.036 & 137.003 & 0.024\% & $1.6\times10^{6}$ & F \\
+G02 & $(\sqrt{5}-2)/2$ & 0.1179 & 0.1180 & 0.114\% & 0.13 & V \\
+N01 & $8\pi/(\varphi^{5}e^{2})$ & 0.307 & 0.3067 & 0.098\% & 0.02 & SG \\
+N04 & $3/\varphi^{2}\cdot180/\pi$ & 65.5$^{\circ}$ & 65.66$^{\circ}$ & 0.237\% & 0.10 & SG \\
+C01 & $2\varphi^{3}e^{2}/(9\pi^{3})$ & 0.2265 & 0.2243 & 0.958\% & 4.34 & M \\
+C02 & $1/(3\varphi^{2}\pi)$ & 0.04053 & 0.04053 & 0.005\% & 0.00 & SG \\
+H01 & $4\varphi^{3}e^{2}$ & 125.20 & 125.20 & 0.002\% & 0.02 & SG \\
+H02 & $11\varphi/20+2/3$ & 1.5577 & 1.5566 & 0.067\% & 0.75 & V \\
+H03 & $4\varphi\pi/15+4/225$ & 1.3737 & 1.3733 & 0.022\% & 0.25 & V \\
+$\nu$21& $(\varphi e/\pi)^{6}\times10^{-5}$ & $7.53\times10^{-5}$ & $7.53\times10^{-5}$ & 0.0003\% & 0.00 & SG \\
+$\nu$31& $15\varphi^{-5}\pi^{-2}e^{-4}$ & $2.51\times10^{-3}$ & $2.51\times10^{-3}$ & 0.0004\% & 0.00 & SG \\
+N21 & $\pi/(40\varphi^{2})$ & 0.0300 & 0.0300 & 0.002\% & 0.00 & SG \\
+Pr  & $6\pi^{5}$ & 1836.15 & 1836.12 & 0.002\% & $3.1\times10^{5}$ & F \\
+S$\nu$& $8\varphi^{-6}\pi^{-5}e^{6}\times0.1$ & 0.0588 & 0.05877 & 0.045\% & 0.00 & SG \\
+\end{longtable}
+
+\subsection{The ultra-precision trap}
+
+Three formulas receive ``Fail'' grades on $\sigma$-distance not because
+their relative errors are large (all three have $<0.03\%$ error) but
+because the corresponding experimental measurements are extraordinarily
+precise:
+\begin{itemize}
+  \item $1/\alpha(0) = 137.035\,999\,084(21)$ (relative uncertainty
+    $1.5\times10^{-10}$)
+  \item $m_{p}/m_{e} = 1836.152\,673\,43(11)$ (relative uncertainty
+    $6.0\times10^{-11}$)
+  \item $m_{\mu}/m_{e} = 206.768\,283\,0(46)$ (relative uncertainty
+    $2.2\times10^{-9}$)
+\end{itemize}
+Any catalog claiming to ``derive'' these constants must match
+experimental precision ($\sim 10^{-10}$), not merely approximate them
+($\sim 10^{-4}$).  The honest conclusion is that the catalog
+\emph{correlates} these constants but does not \emph{derive} them.
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  METHODS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Formula discovery}
+
+The formulas were discovered by searching a space of expressions of the
+form
+\begin{equation}
+  f = C \, \varphi^{a} \, \pi^{b} \, e^{c},
+\end{equation}
+and four related templates (additive, ratio, two-term), where $C$ is a
+rational prefactor $p/q$ with $p\le 1000$, $q\le 100$, or an explicit
+H\textsubscript{4} invariant $\{1,2,7,11,12,19,20,29,30,120,240,480\}$,
+and exponents $a,b,c\in\{-6,\dots,6\}$.  The total search space is
+$\approx 6.7\times10^{8}$ distinct expressions per template.
+
+The discovery process was \emph{not} automated: candidate formulas were
+proposed based on H\textsubscript{4} invariants and tested numerically.
+This manual search is a source of potential bias (see Limitations).
+
+\subsection{Numerical validation}
+
+Every formula is evaluated with \texttt{mpmath}\ \cite{mpmath} at
+50-digit precision and compared to PDG 2024, FLAG 2024, or NuFit 6.0
+targets.  The validation script \texttt{validate\_v4.py} is part of the
+dataset.
+
+\subsection{Statistical test}
+
+We performed a pre-registered Monte-Carlo simulation to test the null
+hypothesis that the catalog is indistinguishable from random search:
+\begin{enumerate}
+  \item \textbf{Pre-registration} (2026-05-22): search space, five
+    formula templates, and PDG targets were fixed before running.
+  \item \textbf{Simulation}: $5\times10^{4}$ trials, each drawing
+    $2\times10^{3}$ random formulas from the search space.
+  \item \textbf{Metric}: for each trial, the best relative error per
+    observable was recorded.
+  \item \textbf{Comparison}: Trinity's error vector was compared to the
+    distribution of random best errors.
+\end{enumerate}
+
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  DATA RECORDS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Data Records}
+\label{sec:records}
+
+The dataset is organized as follows:
+
+\begin{itemize}
+  \item \texttt{FORMULAS.md} — Human-readable catalog with full
+    derivations, classification justifications, and cross-references.
+  \item \texttt{validate\_v4.py} — Python validation script (mpmath,
+    50-digit precision).
+  \item \texttt{scripts/honest\_phenomenology\_v18.py} — Monte-Carlo
+    p-value engine (vectorized, numpy).
+  \item \texttt{derivations/catalog\_audit/} — Audit reports:
+    \begin{itemize}
+      \item \texttt{sigma\_ranking.md} — $\sigma$-distance ranking
+      \item \texttt{honest\_pvalue\_report\_v18.md} — Full MC report
+      \item \texttt{wave18\_mc\_results.json} — Raw MC results
+    \end{itemize}
+  \item \texttt{proofs/trinity/} — Coq formal proofs (1,772 \texttt{Qed},
+    0 \texttt{Admitted}, 77 Axioms).
+  \item \texttt{derivations/lean\_port/} — Lean 4 port (9 modules).
+\end{itemize}
+
+\subsection{JSON schema}
+
+Each formula entry follows this schema:
+\begin{verbatim}
+{
+  "id": "Q07",
+  "expression": "24*PHI**2/PI",
+  "physical_meaning": "m_s/m_d (2 GeV MS-bar)",
+  "target_value": 20.00,
+  "target_uncertainty": 0.70,
+  "computed_value": 20.0003,
+  "rel_error_percent": 0.0015,
+  "sigma_distance": 0.00,
+  "classification": "S",
+  "source_file": "proofs/trinity/Catalog42.v"
+}
+\end{verbatim}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  TECHNICAL VALIDATION
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Technical Validation}
+\label{sec:validation}
+
+\subsection{Monte-Carlo results}
+
+Table~\ref{tab:mc} summarizes the Monte-Carlo comparison.  The Trinity
+catalog achieves significantly smaller mean relative errors than random
+sampling ($p<10^{-4}$).  The number of high-precision hits ($<0.1\%$
+error) is also highly significant ($p<10^{-4}$).
+
+\begin{table}[h]
+\centering
+\caption{Monte-Carlo comparison: Trinity vs random search
+  ($5\times10^{4}$ trials, $2\times10^{3}$ formulas/trial).}
+\label{tab:mc}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Trinity & Random (median) & Random (mean$\pm$std) & $p$-value \\
+\midrule
+Mean rel.\ error (\%) & 0.0835 & 0.594 & $0.624\pm0.185$ & $<10^{-4}$ \\
+Hits $<0.1\%$ & 20/25 & 5/25 & $5.2\pm2.0$ & $<10^{-4}$ \\
+Hits $<1.0\%$ & 25/25 & 21/25 & $21.1\pm1.6$ & 0.0061 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Per-formula significance}
+
+Only 10 of the 25 formulas are individually significant at $p<0.05$;
+the remaining 15 are consistent with random search when tested in
+isolation.  The catalog's strength is therefore \emph{collective}, not
+individual.  The significant formulas are: L02, L03, Q05, Q07, C02, H01,
+$\nu$21, $\nu$31, N21, and Pr.
+
+\subsection{Limitations}
+
+\begin{enumerate}
+  \item \textbf{Search space uncertainty}: The true space searched during
+    development may differ from the pre-registered $\sim$$10^{8}$ space.
+  \item \textbf{Template limitations}: Only five templates were tested;
+    the original search may have used additional forms.
+  \item \textbf{Manual discovery bias}: Formulas were proposed manually,
+    not by exhaustive search, introducing potential confirmation bias.
+  \item \textbf{No Bonferroni correction}: Aggregate $p$-values are
+    uncorrected for multiple testing.
+  \item \textbf{Upper-limit observables}: $\sum m_{\nu}$ is a 95\% CL
+    upper limit, not a Gaussian measurement; its $\sigma$-distance is
+    less meaningful.
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  USAGE NOTES
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Usage Notes}
+
+\paragraph{Reproduce the validation.}
+\begin{verbatim}
+  $ python3 validate_v4.py
+\end{verbatim}
+Expected output: 25 formulas validated, mean relative error $0.08\%$,
+100\% pass rate at $<1\%$ threshold.
+
+\paragraph{Reproduce the Monte-Carlo test.}
+\begin{verbatim}
+  $ python3 scripts/honest_phenomenology_v18.py
+\end{verbatim}
+Expected runtime: $\sim$2 minutes (50,000 trials, 2,000 formulas/trial).
+
+\paragraph{Extend the catalog.}
+Add new formulas to \texttt{validate\_v4.py} and \texttt{FORMULAS.md},
+update PDG targets, and re-run validation.  The MC engine accepts
+arbitrary formula templates via the \texttt{TEMPLATE\_REGISTRY}.
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  DATA AVAILABILITY
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Data Availability}
+
+All data, code, and formal proofs are available at:
+\begin{itemize}
+  \item \textbf{GitHub}: \url{https://github.com/gHashTag/trinity-s3ai}
+  \item \textbf{Zenodo}: DOI 10.5281/zenodo.XXXXXX (pending publication)
+  \item \textbf{License}: MIT (code) / CC-BY-4.0 (data)
+\end{itemize}
+
+The repository includes:
+\begin{itemize}
+  \item 79 Coq proof files (1,772 \texttt{Qed}, 0 \texttt{Admitted})
+  \item 9 Lean 4 modules
+  \item Python validation and MC scripts
+  \item LaTeX source of this paper
+  \item JSON data files
+\end{itemize}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  ACKNOWLEDGEMENTS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section*{Acknowledgements}
+
+We thank the Coq, Lean, and mpmath communities for their open-source
+tools.  This work was supported entirely by curiosity.
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  REFERENCES
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983}
+Y. Koide, ``New View of Quark and Lepton Mass Matrix,''\n  \textit{Phys.\ Rev.\ D} \textbf{28} (1983) 252.
+
+\bibitem{Connes:1996}
+A. Connes, ``Gravity Coupled with Matter and Foundation of
+  Noncommutative Geometry,'' \textit{Commun.\ Math.\ Phys.}\ \textbf{182}
+  (1996) 155, arXiv:hep-th/9603053.
+
+\bibitem{Connes:2006}
+A. Connes and A. H. Chamseddine, ``Inner Fluctuations of the Spectral
+  Action,'' \textit{J.\ Geom.\ Phys.}\ \textbf{57} (2006) 1.
+
+\bibitem{Rivero:2006}
+A. Rivero, ``A Lepton Mass Formula,'' arXiv:hep-ph/0605220 (2006).
+
+\bibitem{Furey:2015}
+C. Furey, ``Standard Model Physics from an Algebra?''
+  arXiv:1611.09182 [hep-th] (2015).
+
+\bibitem{Gresnigt:2021}
+N. Gresnigt, ``On the Octonionic Standard Model,'' arXiv:2107.00569
+  [hep-th] (2021).
+
+\bibitem{PDG:2024}
+Particle Data Group, ``Review of Particle Physics,''
+  \textit{Phys.\ Rev.\ D} \textbf{110} (2024) 030001.
+
+\bibitem{FLAG:2024}
+Flavour Lattice Averaging Group (FLAG),
+  ``Review of Lattice Results concerning Low-Energy Particle Physics,''
+  arXiv:2402.03554 [hep-lat] (2024).
+
+\bibitem{NuFit:2024}
+NuFit Collaboration, ``NuFit 6.0,'' \url{www.nu-fit.org} (2024).
+
+\bibitem{mpmath}
+F. Johansson et al., ``mpmath: a Python library for arbitrary-precision
+  floating-point arithmetic,'' \url{mpmath.org} (version 1.3.0).
+
+\bibitem{TrinityWave17}
+Trinity S$^3$AI Collaboration, ``A Constructive Negative Result in
+  Geometric Unification,'' arXiv:XXXX.XXXXX [hep-th] (2026).
+
+\bibitem{TrinityAudit}
+Trinity S$^3$AI Collaboration, ``Catalog Audit Report,''
+  \url{github.com/gHashTag/trinity-s3ai/blob/main/derivations/catalog_audit/audit_report.md}.
+
+\bibitem{Brannen:2012}
+C. Brannen, ``The Lepton Masses,'' arXiv:1202.4079 [physics.gen-ph] (2012).
+
+\bibitem{Sumino:2009}
+Y. Sumino, ``Family Gauge Bosons and Koide's Mass Formula,''
+  arXiv:0909.4429 [hep-ph] (2009).
+
+\bibitem{Dechant:2013}
+P.-P. Dechant, ``Platonic Solids Generate their Four-Dimensional
+  Analogues,'' \textit{Acta Cryst.}\ A\textbf{69} (2013) 592.
+
+\bibitem{Lisi:2007}
+G. Lisi, ``An Exceptionally Simple Theory of Everything,''
+  arXiv:0711.0770 [hep-th] (2007).
+
+\bibitem{Distler:2009}
+J. Distler and S. Garibaldi, ``There is no `Theory of Everything' inside
+  E$_8$,'' \textit{Commun.\ Math.\ Phys.}\ \textbf{298} (2010) 419.
+
+\bibitem{Ramond:2001}
+P. Ramond, ``Exceptional Groups and Physics,''
+  arXiv:hep-th/0110032 (2001).
+
+\bibitem{Gursey:1975}
+F. G\"{u}rsey and P. Sikivie, ``E$_6$ as a Universal Gauge Group,''
+  \textit{Phys.\ Rev.\ Lett.}\ \textbf{36} (1976) 775.
+
+\bibitem{PLOS:2024}
+PLOS ONE, ``Data Availability and Transparency,''\n  \url{journals.plos.org/plosone/s/data-availability} (2024).
+
+\end{thebibliography}
+
+\end{document}

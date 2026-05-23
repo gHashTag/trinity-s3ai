@@ -1,0 +1,31 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/ring0_core",
+    "crates/ring1_constraints",
+    "crates/ring2_search",
+    "crates/ring3_adapters",
+    "crates/ring4_canvas",
+    "crates/app",
+]
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+authors = ["Trinity S3AI Framework"]
+license = "MIT"
+publish = false
+rust-version = "1.75"
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+ring0_core = { path = "crates/ring0_core" }
+ring1_constraints = { path = "crates/ring1_constraints" }
+ring2_search = { path = "crates/ring2_search" }
+ring3_adapters = { path = "crates/ring3_adapters" }
+ring4_canvas = { path = "crates/ring4_canvas" }
+
+[profile.release]
+opt-level = 3
+lto = true

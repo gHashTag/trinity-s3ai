@@ -345,27 +345,53 @@ Qed.
    Closing this theorem requires re-defining alpha_inv_at_mZ to include
    the full one-loop running with hypercharge renormalization.
 *)
-Theorem G01_from_GUT_running :
+Lemma alpha1_mZ_bound :
+  let mZ := 91.1876 in
+  let LambdaH4 := 1.5e16 in
+  let b1 := 41 / 10 in
+  let alpha1_mZ := alpha1_inv_GUT + (b1 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
+  alpha1_mZ < 19.
+Proof.
+  intros. unfold alpha1_mZ, alpha1_inv_GUT, phi_local, b1, mZ, LambdaH4.
+  interval with (i_prec 500).
+Qed.
+
+Lemma alpha2_mZ_bound :
+  let mZ := 91.1876 in
+  let LambdaH4 := 1.5e16 in
+  let b2 := -19 / 6 in
+  let alpha2_mZ := alpha2_inv_GUT + (b2 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
+  alpha2_mZ < 8.
+Proof.
+  intros. unfold alpha2_mZ, alpha2_inv_GUT, phi_local, b2, mZ, LambdaH4.
+  interval with (i_prec 500).
+Qed.
+
+Theorem G01_from_GUT_running_refuted :
   let mZ := 91.1876 in
   let LambdaH4 := 1.5e16 in
   let b1 := 41 / 10 in
   let b2 := -19 / 6 in
-  (* GUT boundary: alpha3_inv_GUT ~ 4.854 *)
   let alpha1_mZ := alpha1_inv_GUT + (b1 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
   let alpha2_mZ := alpha2_inv_GUT + (b2 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
-  (* Physical 1/alpha(mZ) from hypercharge combination *)
-  Rabs ((5/3 * alpha1_mZ + alpha2_mZ) - 128.9) / 128.9 < 1/10.
+  ~ (Rabs ((5/3 * alpha1_mZ + alpha2_mZ) - 128.9) / 128.9 < 1/10).
 Proof.
-  (* HONEST: This requires the numerical value of ln(1.5e16/91.1876) ~ 32.6
-     and the GUT boundary condition on g_unif from gU2inv_window.
-     The bound 10% is achievable but requires the gU2inv_window axiom from
-     RGRunning.v (Parameter g_unif + Axiom gU2inv_window).
-     Without importing those axioms here, we cannot close this.
-     The statement is physically correct but this standalone file does not
-     import RGRunning. *)
-Admitted. (* [PHYSICAL_AXIOM] HONEST: requires RGRunning axioms and g1->g' conversion factor.
-  The GUT boundary condition g_unif and the hypercharge normalization factor
-  sqrt(5/3) are physical assumptions, not derived from H4 geometry alone. *)
+  intros.
+  assert (Ha1: alpha1_mZ < 19) by apply alpha1_mZ_bound.
+  assert (Ha2: alpha2_mZ < 8) by apply alpha2_mZ_bound.
+  assert (Hsum: 5/3 * alpha1_mZ + alpha2_mZ < 40).
+  { lra. }
+  assert (Hexpr: (5/3 * alpha1_mZ + alpha2_mZ) - 128.9 < -88.9).
+  { lra. }
+  intro H.
+  assert (Habs: Rabs ((5/3 * alpha1_mZ + alpha2_mZ) - 128.9) > 88.9).
+  { unfold Rabs. destruct Rcase_abs; lra. }
+  assert (Hdiv: Rabs ((5/3 * alpha1_mZ + alpha2_mZ) - 128.9) / 128.9 > 88.9 / 128.9).
+  { unfold Rdiv. apply Rmult_lt_compat_r; lra. }
+  assert (H10: 88.9 / 128.9 > 1/10).
+  { apply Rlt_gt. apply Rmult_lt_reg_r with (r := 128.9); lra. }
+  lra.
+Qed.
 
 (******************************************************************************)
 (* Section 8: Uniqueness structural note                                      *)

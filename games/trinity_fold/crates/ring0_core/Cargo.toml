@@ -1,0 +1,12 @@
+[package]
+name = "ring0_core"
+description = "Trinity Fold ring 0 — pure domain types. No IO, no UI, no randomness, no scoring."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+serde = { workspace = true }
