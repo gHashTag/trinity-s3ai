@@ -23,9 +23,23 @@ jobs:
           elan --version
           lean --version
 
+      - name: Cache Mathlib build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            derivations/lean_port/TrinityLean/.lake/packages
+            derivations/lean_port/TrinityLean/.lake/build
+          key: lean-mathlib-${{ runner.os }}-v4.13.0-${{ hashFiles('derivations/lean_port/TrinityLean/lakefile.lean', 'derivations/lean_port/TrinityLean/lean-toolchain') }}
+          restore-keys: |
+            lean-mathlib-${{ runner.os }}-v4.13.0-
+
       - name: Build TrinityLean
         run: |
           cd derivations/lean_port/TrinityLean
+          # Resolve Mathlib dependency (idempotent; uses cached .lake/packages when present)
+          lake update -R
+          # Pull pre-built Mathlib olean cache to avoid >1h fresh Mathlib compilation
+          lake exe cache get || true
           lake build
 
       - name: Report build status

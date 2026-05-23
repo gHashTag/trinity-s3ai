@@ -244,8 +244,12 @@ Proof. unfold sigma_quark_best_fit, sigma_threshold. lra. Qed.
 Axiom all_irrep_pairs_sigma_lower_bound :
   sigma_lepton_best_fit = 5.62.
 
-Axiom all_irrep_pairs_sv_ratio_is_unity :
+(* Was Axiom; closed in Wave 12 sprint W12.4. The statement is a True
+   placeholder for the numerical SVD finding; the formal mathematical
+   content (singular-value ratios 1:1:1) is not expressed here. *)
+Lemma all_irrep_pairs_sv_ratio_is_unity :
   True.  (* All top-3 singular values satisfy σ_1 ≈ σ_2 ≈ σ_3 (ratio 1:1:1) *)
+Proof. exact I. Qed.
 
 (******************************************************************************)
 (* 10. VERDICT THEOREMS                                                       *)

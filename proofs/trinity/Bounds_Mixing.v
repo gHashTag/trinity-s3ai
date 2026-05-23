@@ -2,9 +2,16 @@
 (* Trinity S3AI Proof Base v3.3 -- Bounds_Mixing.v                             *)
 (* Neutrino mixing angle predictions from H4 structure.                       *)
 (*                                                                            *)
-(* Key result:                                                                *)
+(* Key result (HISTORICAL -- OBSOLETE):                                       *)
 (*   N04 = 3/phi^2  gives delta_CP prediction = 65.66 degrees                *)
-(*   Confirmed: 0.1 sigma agreement with experimental 65.5 degrees +/- 4 degrees*)
+(*   Formerly claimed: 0.1 sigma agreement with experimental 65.5 +/- 4 deg.  *)
+(*                                                                            *)
+(* CURRENT STATUS (Wave 17, 2026-05-23): IN CRISIS.                           *)
+(*   NuFit 6.0--6.1 (NO with SK): delta_CP ~ 212 (+26 / -41) degrees.        *)
+(*   T2K 2025 + NOvA: delta_CP ~ 270 +/- 20 degrees.                         *)
+(*   The 65.66 degrees prediction is excluded at >5 sigma.                   *)
+(*   See derivations/delta_cp_crisis/Wave16_investigation.md.                *)
+(*   The 65.5 +/- 4 deg bound is superseded and retained only as a record.   *)
 (******************************************************************************)
 
 Require Import Reals.
@@ -36,10 +43,17 @@ Definition rad_to_deg (rad : R) : R := rad * 180 / PI.
 (*   delta_CP ~ 3/phi^2  where phi = (1+sqrt 5)/2 is the golden ratio          *)
 (*                                                                            *)
 (* Numerical: 3/phi^2 ~ 1.145898... radians ~ 65.66 degrees                  *)
-(* Experimental: 65.5 degrees (+3.5/-4.5) degrees -- 0.1 sigma agreement      *)
 (*                                                                            *)
-(* Status: CONFIRMED within current data.                                     *)
-(* Previous formula e/2 = 77.9 degrees excluded at 7.7 sigma and superseded.  *)
+(* HISTORICAL CLAIM (superseded):                                             *)
+(*   Experimental: 65.5 degrees (+3.5/-4.5) degrees -- 0.1 sigma agreement    *)
+(*   Status: formerly claimed as CONFIRMED.                                   *)
+(*   Previous formula e/2 = 77.9 degrees excluded at 7.7 sigma and superseded.*)
+(*                                                                            *)
+(* CURRENT STATUS (Wave 17): IN CRISIS.                                       *)
+(*   The 65.5 +/- 4 degree bound is obsolete. Modern global fits (NuFit 6.0,  *)
+(*   T2K 2025, JUNO 2025) place delta_CP in the third quadrant (~180-270 deg). *)
+(*   The 65.66 degree prediction is >5 sigma away and is RETRACTED.           *)
+(*   See derivations/delta_cp_crisis/Wave16_investigation.md.                 *)
 (******************************************************************************)
 
 (* N04 formula: delta_CP ~ 3/phi^2 *)
@@ -61,16 +75,21 @@ Proof.
 Qed.
 
 (******************************************************************************)
-(* Section 4: Experimental Range Verification                                 *)
+(* Section 4: Experimental Range Verification (HISTORICAL -- OBSOLETE)        *)
 (*                                                                            *)
-(* Experimental range for delta_CP (PDG 2024):                                *)
+(* Experimental range for delta_CP (PDG 2024, superseded):                    *)
 (*   delta_CP = 65.5 degrees (+3.5/-4.5) degrees                              *)
 (*   Range: [61.0 degrees, 69.0 degrees]                                       *)
 (*                                                                            *)
 (* N04 = 3/phi^2 predicts 65.66 degrees -- within 0.16 degrees of central value*)
 (* Agreement: 0.2% relative error, ~0.1 sigma statistical agreement           *)
 (*                                                                            *)
-(* Status: CONFIRMED. Previous formula e/2 = 77.9 degrees excluded at 7.7 sigma.*)
+(* WARNING: This bound is obsolete. Modern data (NuFit 6.0, T2K 2025, JUNO    *)
+(* 2025) place delta_CP in the third quadrant (~180-270 deg). The theorem     *)
+(* below proves agreement with a discarded experimental value and is retained *)
+(* only as a historical record of the project's former claim.                  *)
+(*                                                                            *)
+(* Status (Wave 17): RETRACTED. See Section 4b for modern exclusion.          *)
 (******************************************************************************)
 
 (* The experimental constraint:                                               *)
@@ -82,13 +101,10 @@ Definition delta_CP_experimental_uncertainty : R := 4.  (* degrees, ~1 sigma *)
 Theorem N04_within_experimental_range :
   Rabs (N04_formula_deg - delta_CP_experimental_center) < delta_CP_experimental_uncertainty.
 Proof.
-  (* [LIBRARY_GAP] Numerically true (65.66 deg vs 65.5 +/- 4): interval tactic
-     fails on rad_to_deg unfolding because it involves PI (transcendental).
-     Needs unfold + PI approximation chain not yet wired. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation; proof changes cannot be verified. *)
-Admitted.
+  unfold N04_formula_deg, N04_formula_rad, rad_to_deg, phi, delta_CP_experimental_center, delta_CP_experimental_uncertainty, Rabs.
+  destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * 180 / PI - 65.5));
+  interval with (i_prec 60).
+Qed.
 
 (* ==================================================================== *)
 (* Alternative: Check with -90 degrees center                             *)
@@ -110,6 +126,34 @@ Theorem N04_mixing_verified :
 Proof.
   unfold N04_formula_deg, N04_formula_rad, rad_to_deg, phi, Rabs.
   destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * 180 / PI - 65.5));
+  interval with (i_prec 60).
+Qed.
+
+(******************************************************************************)
+(* Section 4b: Modern Experimental Exclusion (Wave 17)                        *)
+(*                                                                            *)
+(* NuFit 6.0 global fit (Normal Ordering with Super-Kamiokande, 2024-2025):   *)
+(*   delta_CP = 212 (+26 / -41) degrees.                                      *)
+(*   1-sigma upper uncertainty: 26 degrees.                                   *)
+(*                                                                            *)
+(* The Trinity prediction 65.66 degrees is |212 - 65.66| = 146.3 degrees away.*)
+(* Sigma distance: 146.3 / 26 ≈ 5.6 sigma.                                    *)
+(*                                                                            *)
+(* This exceeds the 5-sigma threshold for exclusion in particle physics.      *)
+(******************************************************************************)
+
+(* Modern experimental values (NuFit 6.0, NO with SK) *)
+Definition delta_CP_experimental_center_NuFit60 : R := 212.
+Definition delta_CP_experimental_uncertainty_NuFit60 : R := 26.
+
+Theorem N04_excluded_at_5sigma :
+  Rabs (N04_formula_deg - delta_CP_experimental_center_NuFit60) > 5 * delta_CP_experimental_uncertainty_NuFit60.
+Proof.
+  unfold N04_formula_deg, N04_formula_rad, rad_to_deg, phi,
+         delta_CP_experimental_center_NuFit60, delta_CP_experimental_uncertainty_NuFit60.
+  assert (Hneg : 3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * 180 / PI - 212 < 0).
+  { interval with (i_prec 60). }
+  rewrite Rabs_left; [ | lra ].
   interval with (i_prec 60).
 Qed.
 
@@ -172,7 +216,8 @@ Qed.
 (******************************************************************************)
 (* Trinity S3AI Coding Conventions                                            *)
 (* - N04 = 3/phi^2 gives delta_CP prediction = 65.66 degrees                 *)
-(* - Confirmed: 0.1 sigma agreement with experimental 65.5 degrees +/- 4 degrees*)
+(* - HISTORICAL claim: 0.1 sigma agreement with PDG 2024 65.5 +/- 4 degrees   *)
+(* - CURRENT STATUS (Wave 17): IN CRISIS -- excluded at >5 sigma by NuFit 6.0 *)
 (* - interval with (i_prec 60) for numerical bounds                           *)
 (* - Mixing angles from H4 exponents {1,11,19,29}                              *)
 (******************************************************************************)

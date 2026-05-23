@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Trinity Fold — candidate-unification puzzle prototype</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Trinity Fold</h1>
+  <p class="tag">Puzzle prototype. <strong>Not</strong> a Theory of Everything.</p>
+</header>
+
+<section id="disclaimer" class="disclaimer">
+  <strong>Honesty notice.</strong>
+  A high score here only means the candidate board passes more of the
+  prototype&rsquo;s consistency checks than alternatives in the illustrative
+  catalog. It is <em>not</em> evidence for any unification claim. Every node
+  carries a <code>claim status</code> (verified / empirical fit / open
+  conjecture / high-risk or falsified / unverified) and every score is gated
+  by those tags. See <a href="../README.md">README</a>.
+</section>
+
+<main>
+  <section class="controls">
+    <button id="btn-clear">Clear board</button>
+    <button id="btn-search">Hill-climb (deterministic)</button>
+    <button id="btn-anneal">Anneal (seed=42)</button>
+    <label>
+      <input type="checkbox" id="benchmark-mode" />
+      Benchmark mode (hide held-out observables)
+    </label>
+  </section>
+
+  <section class="board">
+    <div class="tower" id="tower-data">
+      <h2>Data Tower</h2>
+      <p class="hint">Observables &amp; constraints (experiment side)</p>
+      <div class="kind-group" data-kind="observable"><h3>Observables</h3><ul></ul></div>
+      <div class="kind-group" data-kind="constraint"><h3>Constraints</h3><ul></ul></div>
+    </div>
+
+    <div class="score-panel">
+      <h2>Score</h2>
+      <div id="total" class="total">&mdash;</div>
+      <div id="worst-claim" class="worst-claim">claim: &mdash;</div>
+      <table id="breakdown">
+        <tbody></tbody>
+      </table>
+      <h3>Selected tiles</h3>
+      <ul id="selected"></ul>
+      <h3>Notes</h3>
+      <ul id="notes"></ul>
+    </div>
+
+    <div class="tower" id="tower-geometry">
+      <h2>Geometry Tower</h2>
+      <p class="hint">Symmetries, geometry blocks, fields, constants (math side)</p>
+      <div class="kind-group" data-kind="symmetry"><h3>Symmetries</h3><ul></ul></div>
+      <div class="kind-group" data-kind="geometry"><h3>Geometry blocks</h3><ul></ul></div>
+      <div class="kind-group" data-kind="field"><h3>Fields</h3><ul></ul></div>
+      <div class="kind-group" data-kind="constant"><h3>Constants</h3><ul></ul></div>
+    </div>
+  </section>
+
+  <section class="triangles">
+    <h2>Triangle hints (Evoformer-style)</h2>
+    <p class="hint">
+      Triples that should travel together. Lighting up a full triangle
+      contributes to <code>symmetry_coherence</code>.
+    </p>
+    <ul id="triangle-list"></ul>
+  </section>
+</main>
+
+<footer>
+  <p>
+    Trinity Fold is part of the
+    <a href="https://github.com/gHashTag/trinity-s3ai">Trinity S3AI</a>
+    repository. Treat results as research toys, not physics conclusions.
+  </p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

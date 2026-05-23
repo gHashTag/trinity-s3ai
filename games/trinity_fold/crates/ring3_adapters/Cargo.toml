@@ -1,0 +1,16 @@
+[package]
+name = "ring3_adapters"
+description = "Trinity Fold ring 3 — adapters (JSON IO, fixtures, web export). Depends inward only on lower rings."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+ring0_core = { workspace = true }
+ring1_constraints = { workspace = true }
+ring2_search = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }

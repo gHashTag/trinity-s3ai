@@ -144,13 +144,9 @@ Definition L01_from_lagrangian : R :=
 Theorem L01_lagrangian_order_of_magnitude :
   0 < L01_from_lagrangian < 1.
 Proof.
-  (* [LIBRARY_GAP] L01_from_lagrangian = 239*(e/pi)*(1e16/1.22e19) ~ 0.017;
-     interval tactic cannot handle the 1e16/1.22e19 floating-point literals
-     in R combined with exp 1 / PI in a single call. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation; proof changes cannot be verified. *)
-Admitted.
+  unfold L01_from_lagrangian, mass_ratio_H4, yukawa_H4, projection_defect_ratio, hierarchy_suppression.
+  split; interval with (i_prec 100).
+Qed.
 
 (* This proves the framework gives the RIGHT ORDER OF MAGNITUDE. *)
 (* The exact value 239·e/π requires fine-tuning of v_H4/M_Pl.    *)
@@ -183,13 +179,9 @@ Definition Koide_H4 (c1 c2 c3 : R) : R :=
 Theorem Koide_H4_test :
   Rabs (Koide_H4 1 239 549 - 2/3) / (2/3) < 0.3.
 Proof.
-  (* [LIBRARY_GAP] Involves sqrt 1 + sqrt 239 + sqrt 549 nested under Rabs
-     and division; interval tactic cannot automatically unfold Koide_H4
-     definition and evaluate sqrt calls to sufficient precision. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation; proof changes cannot be verified. *)
-Admitted.
+  unfold Koide_H4.
+  interval with (i_prec 100).
+Qed.
 
 (* Koide ≈ 2/3 within 1% for H4-derived coefficients. *)
 (* This is a CONSISTENCY CHECK, not a derivation. *)
