@@ -62,7 +62,7 @@ Constructive negative result on H4-based Standard Model unification.
 
 Key results:
 - 4 formal No-Go Theorems (NGT1-NGT4) in Coq 8.20.1
-- 326 Qed / 0 Admitted across 23 files
+- 1325 Qed across 79 .v files (50 in proofs/trinity/ + 3 in proofs/clifford_cl8/ + 26 in derivations/) with 123 unproven obligations transparently catalogued (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see COQ_HONEST_STATUS.md
 - 59 phenomenological formulas cataloged and tagged
 - Anti-numerology CI gate operational
 
@@ -101,7 +101,7 @@ git push origin v1.0-wave10
 |------|---------|
 | **Title** | Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification |
 | **Authors** | [Ваши данные] |
-| **Description** | Формальная верификация (Coq 8.20.1) четырёх теорем о недостижимости H4/600-cell геометрии. 326 Qed, 59 феноменологических формул. Конструктивный отрицательный результат. |
+| **Description** | Формальная верификация (Coq 8.20.1) четырёх теорем о недостижимости H4/600-cell геометрии. 1325 Qed в 79 .v файлах с 123 недоказанными обязательствами (каталогизированы в COQ_HONEST_STATUS.md). 59 феноменологических формул. Конструктивный отрицательный результат. |
 | **Resource type** | Software |
 | **License** | MIT |
 | **Keywords** | NCG, H4, 600-cell, Standard Model, Coq, formal verification, negative result, golden ratio |
