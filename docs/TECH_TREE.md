@@ -1,14 +1,66 @@
 # Tech Tree — Trinity S3AI
 
-A layered status map of the repository, written for a reviewer who
-wants to see the *whole stack* without reading the deep audits first.
-Each layer states: what it contains, what status its claims have (per
-[`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md)), and what the next milestone
-is.
+**The goal is not to prove everything by prose; the goal is to make
+each claim unlock only after the previous verification layer passes.**
+This file is the layered status map of the hypothesis-verification
+stack. Lower layers gate higher layers: infrastructure must be green
+before the claim ledger is trustworthy; the claim ledger must be green
+before formal proofs can be claimed as load-bearing; and so on.
+
+A reviewer who wants to see the *whole stack* without reading the deep
+audits first can read this file linearly. Each layer states what it
+contains, what is currently **Checked**, what the known **Blind
+spots** are, what the **Next unlock** is, and a per-aspect status row
+(per [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md)). The diagram below is
+the grep-friendly version of the same layering.
+
+```
++-------------------------------------+
+| L7  Publication                     |
+| paper v2 / arXiv / Zenodo / talks   |
++-------------------^-----------------+
+                    |
++-------------------+-----------------+
+| L6  GOLDEN BRIDGE Game              |
+| rings, claim cards, falsified floor |
++-------------------^-----------------+
+                    |
++-------------------+-----------------+
+| L5  Numerical Fits & Validation     |
+| 59 formulas, error windows, p-value |
++-------------------^-----------------+
+                    |
++-------------------+-----------------+
+| L4  NCG / Lagrangian                |
+| spectral triple, sigma-field, SM L  |
++-------------------^-----------------+
+                    |
++-------------------+-----------------+
+| L3  Geometry  (H4 / 600-cell / Cl)  |
+| root system, Snub 24-cell, Cl(8)    |
++-------------------^-----------------+
+                    |
++-------------------+-----------------+
+| L2  Formal Proofs (Coq / Lean)      |
+| NGT1..NGT4 Qed, refutation theorems |
++-------------------^-----------------+
+                    |
++-------------------+-----------------+
+| L1  Claim Ledger                    |
+| 5-status vocabulary, no-overclaim   |
++-------------------^-----------------+
+                    |
++-------------------+-----------------+
+| L0  Infrastructure                  |
+| CI, anti-numerology gate, Pages,    |
+| honest counter, Cargo + Coq builds  |
++-------------------------------------+
+```
 
 This document is updated when the underlying state changes. The
 authoritative ground truth for every layer lives in the linked files;
-this is a reading map, not a duplicate.
+this is a reading map, not a duplicate. No Theory-of-Everything claim
+and no prize-level claim is made or planned.
 
 ---
 
@@ -17,6 +69,18 @@ this is a reading map, not a duplicate.
 What is in scope: CI workflows, formatters, anti-numerology gate,
 honest counter, build scripts, GitHub Pages deploy, Cargo workspaces,
 Coq build system.
+
+- **Checked:** Rust workspace tests for `trinity_rust/` and
+  `games/trinity_fold/`, Pages / wasm deploy of the GOLDEN BRIDGE
+  canvas, anti-numerology gate, Coq build gate, Lean scaffolding gate,
+  honest counter (comment-stripped Coq statistics), live game at
+  <https://t27.ai/trinity-s3ai/>.
+- **Blind spots:** the gates verify build hygiene and tag hygiene, not
+  physics; CI is heavy and slow; there is no single dashboard showing
+  proof-debt, claim counts, and gate state side-by-side.
+- **Next unlock:** CI Observatory dashboard, proof-debt counter wired
+  into PRs, Claim Gate (every PR touching public docs must point to a
+  ledger row), Artifact Gate for the arXiv bundle.
 
 | Aspect | Status | Pointer |
 |--------|--------|---------|
@@ -37,6 +101,18 @@ clippy from warnings-only to deny on PRs once the game crates stabilise.
 What is in scope: the rules that tell a reviewer how to read every
 statement in the rest of the repository.
 
+- **Checked:** five-status vocabulary
+  (`verified` / `empirical_fit` / `open_conjecture` /
+  `high_risk_or_falsified` / `unverified`), no Theory-of-Everything
+  wording, no prize wording, the GOLDEN BRIDGE game is framed as a
+  hypothesis puzzle and not as evidence.
+- **Blind spots:** older `*_v44.md`, `*_v46.md`, and `IMPACT_*` files
+  are not yet all linked to ledger rows; tile metadata in the game is
+  not yet driven from a single source of truth.
+- **Next unlock:** `claims.yaml` / `claims.json` SSOT consumed by
+  README, game tile catalogue, and docs generators, so every public
+  claim is traceable to exactly one ledger row.
+
 | Aspect | Status | Pointer |
 |--------|--------|---------|
 | Five-status vocabulary (`verified` / `empirical_fit` / `open_conjecture` / `high_risk_or_falsified` / `unverified`) | **verified** (used by code and docs) | [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) |
@@ -55,6 +131,20 @@ banner pointing at this layer.
 
 What is in scope: Coq proofs (and Lean scaffolding) of mathematical
 content, including the four No-Go theorems and the interval bounds.
+
+- **Checked:** Coq / Rocq infrastructure (Wave 17 baseline: 1 790
+  `Qed.`+`Defined.` across the canonical tree; 0 real `Admitted.`
+  after comment stripping), Lean 4 scaffolding (`TrinityLean/`), 14
+  refutation theorems (`*_refuted`), NGT1..NGT4 closed with `Qed.`.
+- **Blind spots:** the formal layer does **not** close the Lagrangian
+  derivation; Track B Clifford statements (Cl(0,6) iso, Bott 8-period)
+  rest on citation-backed `Axiom`s, not in-tree proofs; the Lean side
+  is red on `main` (`H4RootSystem.lean` parse error, `Snub24Z3.lean`
+  Mathlib synthesis issues).
+- **Next unlock:** machine-readable proof map (which `Qed.` discharges
+  which claim row), "no floating theorem" rule, expanded refutation
+  library, bridge theorems between Layer 3 geometry and Layer 4
+  spectral / Lagrangian side.
 
 | Aspect | Status | Pointer |
 |--------|--------|---------|
@@ -81,6 +171,18 @@ What is in scope: pure-mathematical content of the H4 root system,
 the 600-cell polytope, reflection subgroups, and the Clifford-algebra
 strand.
 
+- **Checked:** H4 root system (order 14 400, 120 roots, rank 4),
+  600-cell polytope, Snub 24-cell `Z_3` tripartition as a bridge
+  candidate, Dirac spectrum on the 600-cell reported numerically as
+  `empirical_fit`.
+- **Blind spots:** no derivation of the Standard Model from geometry
+  alone; no end-to-end bridge `geometry -> spectral triple -> gauge ->
+  Lagrangian`; the `a4` conversion factor is not fully reconciled
+  across the three derivations.
+- **Next unlock:** geometry atlas (one page per geometric fact with
+  its status), `a4` reconciliation quest, explicit boundary doc
+  separating pure-math facts from physics-dependent ones.
+
 | Aspect | Status | Pointer |
 |--------|--------|---------|
 | H4 root system, order 14 400, 120 roots, rank 4 | **verified** | `H4Derivations.v`, [`trinity_rust/`](../trinity_rust/) |
@@ -98,6 +200,17 @@ physics-dependent.
 
 What is in scope: noncommutative-geometry spectral triple, σ-field,
 spectral action, attempted derivation of the Standard Model Lagrangian.
+
+- **Checked:** Connes-Chamseddine spectral-action benchmark as the
+  comparison target; the derivation chain that the project would need
+  to close is enumerated.
+- **Blind spots:** the gauge structure, Higgs sector, Yukawa
+  couplings, and three-generation structure are not derived; NGT2 (no
+  σ-field from H4 alone) and paper-level NGT-6 (no string / orbifold
+  rescue) bound what can be recovered.
+- **Next unlock:** finite-algebra candidate, Dirac-operator
+  construction, inner-fluctuations check, side-by-side NCG comparison
+  table, and a "no derivation, no claim" gate on the Lagrangian docs.
 
 | Aspect | Status | Pointer |
 |--------|--------|---------|
@@ -122,6 +235,17 @@ cross-reference to the relevant No-Go theorem.
 What is in scope: the 59 catalogued numerical matches, error windows,
 falsifiability assessments, and risky predictions.
 
+- **Checked:** 59 formulas matching PDG 2024 inside stated windows
+  (interval-bound `Qed.` in `Catalog42_corrected.v`), reproducibility
+  scripts, falsifiability protocol, honest p-value computation, RG
+  running scheme.
+- **Blind spots:** the `e^2` derivation, full RG closure,
+  numerology / look-elsewhere risk, post-data fitting risk on any new
+  numerical claim.
+- **Next unlock:** fit registry tied to the claim ledger, systematic
+  ablations, RG quest, pre-registered prediction lock so that no new
+  numerical claim is allowed to land without a stated window.
+
 | Aspect | Status | Pointer |
 |--------|--------|---------|
 | 59 formulas matching PDG 2024 within stated windows | **empirical_fit** (with `Qed.` bound checks) | [`Catalog42_corrected.v`](../Catalog42_corrected.v) |
@@ -140,6 +264,18 @@ falsifiability assessments, and risky predictions.
 What is in scope: the hypothesis-discovery puzzle deployed at
 <https://t27.ai/trinity-s3ai/>, and its Rust workspace.
 
+- **Checked:** Rust + wasm GOLDEN BRIDGE canvas (live on Pages),
+  five-ring Cargo workspace with inward-only dependency tests, every
+  tile carries a `ClaimStatus`, falsification floor (any falsified
+  tile collapses the bridge), framing the game as
+  "data + geometry -> bridge candidate" rather than as proof.
+- **Blind spots:** the game is an educational interface, not a proof
+  engine; level catalogue and claim-ledger SSOT are not yet wired into
+  the game's tile data; "the game proves something" must stay an
+  explicit non-claim.
+- **Next unlock:** GOLDEN BRIDGE levels 1..5, each unlocked only when
+  its underlying claim row reaches the required status.
+
 | Aspect | Status | Pointer |
 |--------|--------|---------|
 | Five-ring Cargo workspace with inward-only deps | **verified** by tests | `games/trinity_fold/crates/app/tests/ring_boundaries.rs` |
@@ -157,6 +293,16 @@ have a `ClaimStatus` and a citation if its status is stronger than
 ## Layer 7 — Publication
 
 What is in scope: the paper, arXiv submission, citation metadata.
+
+- **Checked:** TRIOS PhD-style pipeline (paper v2, seminar talk v2,
+  arXiv tarball, Zenodo deposit plan, citation metadata); all public
+  documents written in English.
+- **Blind spots:** drift risk between README, paper PDF, talk slides,
+  and game tile text; possible non-English leakage in older artefacts;
+  secrets in the tree.
+- **Next unlock:** generated publication artefacts (README, paper, and
+  game catalogue all driven from `claims.yaml`); strict no-Cyrillic /
+  English-only gate on public docs; automated secret-scan gate.
 
 | Aspect | Status | Pointer |
 |--------|--------|---------|
