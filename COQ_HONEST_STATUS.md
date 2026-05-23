@@ -2,7 +2,7 @@
 
 **Status**: Canonical reconciliation of the project's Coq metrics
 **Date**: 2026-05-23
-**Companion**: [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md) (Wave 1), [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) (Wave 2)
+**Companion**: [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md) (Wave 1), [`delta_cp_analysis.md`](./delta_cp_analysis.md) (Wave 2 — δ_CP tension and formula audit; a future `DELTA_CP_HONEST_STATUS.md` companion is tracked in PR #22)
 **Source of ground truth**: [`admitted_log.md`](./admitted_log.md) (the project's internal audit document) + direct count on the current commit
 
 ---

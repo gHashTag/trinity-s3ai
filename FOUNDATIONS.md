@@ -1,6 +1,6 @@
 # Trinity S3AI — Foundations and Assumptions
 
-**File:** `proofs/trinity/FOUNDATIONS.md`
+**File:** `FOUNDATIONS.md` (repository root)
 **Version:** Wave 10.4 (A4 audit)
 **Status:** Normative reference for all axiom/admitted stratification
 

@@ -8,9 +8,9 @@
 > **GOLDEN BRIDGE is a hypothesis-discovery puzzle. It is NOT a proven
 > Theory of Everything, and a high "bridge strength" is not evidence for
 > one.** The game inherits the honesty policy of the surrounding repository
-> (see [`README.md`](../README.md), [`FOUNDATIONS.md`](../../FOUNDATIONS.md),
+> (see [`README.md`](../README.md), [`FOUNDATIONS.md`](../../../FOUNDATIONS.md),
 > and the four No-Go theorems in
-> [`proofs/trinity/NoGoTheorems.v`](../../proofs/trinity/NoGoTheorems.v)).
+> [`proofs/trinity/NoGoTheorems.v`](../../../proofs/trinity/NoGoTheorems.v)).
 
 ## The metaphor
 
