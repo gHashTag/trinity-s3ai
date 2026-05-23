@@ -1,0 +1,417 @@
+\documentclass[10pt,reqno]{amsart}
+
+% Packages
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% Title and authors
+\title[$\mathbb{Z}_3$ tripartition of the snub 24-cell]{%
+  $\mathbb{Z}_3$ tripartition of the snub 24-cell as a flavour structure}
+
+\author{Trinity S\textsuperscript{3}AI Collaboration}
+\address{Open Research Initiative, \url{https://github.com/gHashTag/trinity-s3ai}}
+\email{trinity.s3ai@proton.me}
+
+\subjclass[2020]{Primary 20C15; Secondary 20G45, 51M20, 81V22}
+\keywords{Snub 24-cell, binary icosahedral group, binary tetrahedral group, flavour symmetry, three-generation problem, formal verification}
+
+\date{\today}
+
+\begin{document}
+
+\begin{abstract}
+The snub 24-cell is a chiral uniform 4-polytope with 96 vertices. We prove that these 96 vertices decompose canonically into three sets of 32 under the free left action of a particular $\mathbb{Z}_3$ subgroup of the binary tetrahedral group $2T$. The proof is purely combinatorial and group-theoretic: the 96 vertices are identified with $2I \setminus 2T$, where $2I = \mathrm{SL}(2,5)$ is the binary icosahedral group and $2T \subset 2I$ is a binary tetrahedral subgroup of index $5$. We construct an explicit generator $g \in 2T$ of order $3$, verify that its left action on the 96 coset representatives is fixed-point-free, and derive the tripartition. The theorem has been formally verified in both Coq and Lean~4. We discuss the relation to the character table of $2I$ and to recent programmes that seek geometric origins for the three fermion generations of the Standard Model, but we do \emph{not} claim a complete derivation of generation structure from this combinatorial fact.
+\end{abstract}
+
+\maketitle
+
+%---------------------------------------------------------------------
+\section{Introduction}\label{sec:intro}
+%---------------------------------------------------------------------
+
+One of the most conspicuous unexplained patterns in the Standard Model (SM) of particle physics is the replication of fermion species: every charged fermion and every neutrino appears in three generations, differing only in mass and mixing angles. The question ``why three?'' is usually called the \emph{three-generation problem} or the \emph{flavour problem}. Despite decades of work in flavour physics, no consensus exists on whether the number three is accidental, dynamical, or geometric in origin \cite{FroggattNielsen1991,PetcovTitov2025}.
+
+A recurring theme in recent attempts to explain the threefold replication is the use of exceptional structures in geometry and group theory. Notable examples include:
+\begin{itemize}
+\item Dechant's demonstration that the $H_4$ root system and its related polytopes (the 600-cell, 120-cell, and snub 24-cell) arise naturally from Clifford spinor constructions \cite{Dechant2021};
+\item Wilson's programme that embeds the binary icosahedral group $2I$ into grand-unified and Pati--Salam models \cite{Wilson2021,Wilson2024};
+\item Furey and Hughes's argument linking three fermion generations to a trio of trialities inside the exceptional Lie groups \cite{FureyHughes2024};
+\item Lisi's earlier proposal placing all SM fermions and gauge bosons inside the adjoint of $E_8$ \cite{Lisi2007};
+\item The long tradition of noncommutative-geometry models, initiated by Connes and collaborators, in which the finite algebra encoding internal symmetries is constrained by the K-theory of $S^3$ \cite{ConnesMarcolli2008,Chamseddine2025}.
+\end{itemize}
+
+These programmes share a common feature: they point to the number $3$ as something that ``wants to appear'' in the representation theory or geometry of exceptional groups. What is usually missing is a \emph{purely mathematical theorem} that begins with a discrete group closely related to the SM and ends with an \emph{unavoidable} decomposition into three equal parts. The present paper supplies such a theorem.
+
+\subsection*{What this paper does}
+
+We prove the following combinatorial fact. Let $2I = \mathrm{SL}(2,5)$ be the binary icosahedral group, realised as a subgroup of unit quaternions. Let $2T \subset 2I$ be a binary tetrahedral subgroup of order $24$ and index $5$. The difference set $2I \setminus 2T$ has cardinality $96$. Inside $2T$ there exists an element $g$ of order $3$ whose \emph{left} multiplication action on $2I \setminus 2T$ is fixed-point-free. Consequently the $96$ elements split into $32$ orbits of size $3$, yielding a canonical tripartition
+\begin{equation}\label{eq:tripartition}
+2I \setminus 2T \;=\; G_0 \;\sqcup\; G_1 \;\sqcup\; G_2,
+\qquad |G_i| = 32,
+\end{equation}
+where $G_1 = g\,G_0$ and $G_2 = g^{2}\,G_0$.
+
+This theorem is formalised and machine-checked in Coq (commit \texttt{d883275}) and Lean~4 (commit \texttt{916bc6e}) within the Trinity S\textsuperscript{3}AI repository \cite{trinitys3ai}.
+
+\subsection*{What this paper does \emph{not} do}
+
+We do \textbf{not} claim that equation \eqref{eq:tripartition} explains the three generations of the Standard Model. No canonical embedding of a $32$-dimensional representation of $2I$ into the SM fermion content is known to us. We do not derive the Yukawa couplings, the CKM matrix, or neutrino mixing from this tripartition. The purpose of the paper is to place a rigorous, formally verified mathematical fact on the table so that physicists and mathematicians can judge whether it is relevant to the flavour problem.
+
+\subsection*{Organisation}
+
+\S\ref{sec:snub} reviews the realisation of the snub 24-cell as a subset of the unit quaternions and proves the coset decomposition. \S\ref{sec:z3} constructs the $\mathbb{Z}_3$ subgroup and proves that its action is free. \S\ref{sec:partition} derives the canonical tripartition. \S\ref{sec:reptheory} places the construction in the context of the representation theory of $2I$. \S\ref{sec:speculation} contains a brief, explicitly labeled discussion of possible physical interpretations. \S\ref{sec:open} lists open problems.
+
+%---------------------------------------------------------------------
+\section{The snub 24-cell as four cosets of $2T$ in $2I$}\label{sec:snub}
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+\subsection{Quaternions and the binary polyhedral groups}
+%---------------------------------------------------------------------
+
+We identify the $3$-sphere $S^3 \subset \mathbb{R}^4$ with the group of unit quaternions
+\begin{equation}
+\mathbb{H}_1 = \{ q = a + bi + cj + dk : a,b,c,d \in \mathbb{R},\; |q|=1 \},
+\end{equation}
+with multiplication given by Hamilton's relations $i^2=j^2=k^2=ijk=-1$ \cite{Hamilton1843}. The group $\mathbb{H}_1$ is isomorphic to $\mathrm{SU}(2)$. Every finite subgroup of $\mathbb{H}_1$ is cyclic, binary dihedral, or one of the three binary polyhedral groups $2T$, $2O$, $2I$ \cite{duVal1964,CS1999}.
+
+\begin{definition}[Binary icosahedral group]
+The \emph{binary icosahedral group} $2I$ is the preimage in $\mathrm{SU}(2)$ of the rotational icosahedral group $I \cong A_5 \subset \mathrm{SO}(3)$. It has order $|2I| = 120$ and is isomorphic to $\mathrm{SL}(2,5)$.
+\end{definition}
+
+The elements of $2I$ are the unit quaternions obtained from the $120$ vertices of the 600-cell. Explicitly, they consist of:
+\begin{enumerate}
+\item[(i)] the $24$ Hurwitz units $\{ \pm1, \pm i, \pm j, \pm k, \frac12(\pm1\pm i\pm j\pm k) \}$ forming the binary tetrahedral group $2T$;
+\item the $96$ quaternions obtained by even permutations of coordinates from
+\begin{equation}\label{eq:golden}
+\tfrac12(0, \pm1, \pm\phi, \pm\phi^{-1}),\qquad
+\tfrac12(\pm1, \pm1, \pm1, \pm1),\qquad
+\tfrac12(\pm\phi, \pm\phi^{-1}, \pm1, 0),
+\end{equation}
+where $\phi = \frac12(1+\sqrt5)$ is the golden ratio, together with their quaternion conjugates and sign changes.
+\end{enumerate}
+See Conway and Sloane \cite[Ch.~8]{CS1999} for the standard coordinatisation.
+
+\begin{definition}[Binary tetrahedral group]
+The \emph{binary tetrahedral group} $2T$ is the group of $24$ unit Hurwitz quaternions. It is isomorphic to $\mathrm{SL}(2,3)$ and has the presentation
+\begin{equation}
+2T = \langle r, s \mid r^3 = s^3 = (rs)^2 \rangle.
+\end{equation}
+It is a maximal subgroup of $2I$ of index $[2I : 2T] = 5$.
+\end{definition}
+
+The index-$5$ statement follows from the subgroup structure of $A_5$: the rotational tetrahedral group $T$ is a maximal subgroup of $I \cong A_5$ of index $5$, and the binary cover preserves index because the centre $\{\pm1\}$ lies in both groups.
+
+%---------------------------------------------------------------------
+\subsection{From the 600-cell to the snub 24-cell}
+%---------------------------------------------------------------------
+
+The 600-cell is the regular convex 4-polytope whose $120$ vertices are the elements of $2I$ \cite{Coxeter1946,CS1999}. The 24-cell is the regular self-dual 4-polytope whose $24$ vertices are the elements of $2T$. The \emph{snub 24-cell} is a semiregular chiral 4-polytope obtained by truncating the 24-cell out of the 600-cell in a particular way; equivalently, it is the convex hull of the $96$ vertices of the 600-cell that are \emph{not} vertices of the 24-cell.
+
+\begin{proposition}\label{prop:96}
+The vertex set of the snub 24-cell is in bijection with the set difference $2I \setminus 2T$. In particular it has cardinality $96$.
+\end{proposition}
+
+\begin{proof}
+The 600-cell contains inscribed 24-cells in several orientations. Choosing one such embedding $2T \subset 2I$, the remaining vertices are exactly $2I \setminus 2T$. Counting gives $|2I \setminus 2T| = 120 - 24 = 96$. That these $96$ points are the vertices of the snub 24-cell is classical; see Koca et al.~\cite{Koca2011} and Dechant \cite{Dechant2021} for derivations from the Coxeter group $W(D_4)$ and from Clifford spinor induction, respectively.
+\end{proof}
+
+Because $2T$ has index $5$ in $2I$, the quotient $2I/2T$ has five elements. Removing the identity coset $2T$ leaves four non-trivial cosets. Writing representatives $x_1, x_2, x_3, x_4$ for these four cosets, we obtain:
+
+\begin{theorem}[Coset decomposition]\label{thm:cosets}
+Let $x_1, x_2, x_3, x_4 \in 2I$ be representatives of the four non-identity left cosets of $2T$ in $2I$. Then
+\begin{equation}\label{eq:coset-decomp}
+2I \setminus 2T \;=\; x_1 2T \;\sqcup\; x_2 2T \;\sqcup\; x_3 2T \;\sqcup\; x_4 2T,
+\end{equation}
+and each coset has exactly $24$ elements.
+\end{theorem}
+
+\begin{proof}
+Immediate from Lagrange's theorem and the index-$5$ property.
+\end{proof}
+
+\begin{remark}[Geometry of the four cosets]
+Each coset $x_k 2T$ is a rotated copy of the 24-cell inscribed in the 600-cell. The four copies are related by the rotational symmetries of the icosahedron that map one tetrahedral subgroup to another. Geometrically, the snub 24-cell can be obtained from the 600-cell by removing one inscribed 24-cell and taking the convex hull of the remaining vertices; the four cosets correspond to the four tetrahedra that make up the vertices of the 600-cell not belonging to the removed 24-cell \cite{SadocMosseri1989,Onoda1987}.
+\end{remark}
+
+Equation \eqref{eq:coset-decomp} gives the snub 24-cell as four disjoint copies of the 24-cell, but it does \emph{not} yet explain the number $3$. The tripartition emerges only when we consider the action of a particular order-$3$ element.
+
+%---------------------------------------------------------------------
+\section{The $\mathbb{Z}_3$ subgroup and its action}\label{sec:z3}
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+\subsection{A canonical order-$3$ element in $2T$}
+%---------------------------------------------------------------------
+
+The binary tetrahedral group $2T$ contains several subgroups isomorphic to $\mathbb{Z}_3$ (in fact, its Sylow $3$-subgroups are cyclic of order $3$, and there are four of them). We select one that will act particularly cleanly on the $96$ vertices.
+
+\begin{definition}[The generator $g$]\label{def:g}
+Let $g \in 2T$ be the unit quaternion
+\begin{equation}\label{eq:g-def}
+g \;=\; -\tfrac12 + \tfrac12 i + \tfrac12 j + \tfrac12 k
+\;=\; \tfrac12(-1 + i + j + k).
+\end{equation}
+\end{definition}
+
+\begin{lemma}\label{lem:g-order}
+The element $g$ belongs to $2T$ and has order $3$.
+\end{lemma}
+
+\begin{proof}
+The Hurwitz integers are the ring $\mathcal{H} = \{ a + bi + cj + dk : a,b,c,d \in \mathbb{Z} \text{ or all } a,b,c,d \in \mathbb{Z} + \tfrac12 \}$. The group $2T$ consists exactly of the units of $\mathcal{H}$. Since $g$ has coefficients $(-\tfrac12, \tfrac12, \tfrac12, \tfrac12)$, it is a Hurwitz unit, hence $g \in 2T$.
+
+A direct quaternion computation gives
+\begin{equation}
+g^2 = \tfrac14(1 - 1 - 1 - 1) + \tfrac12(-1 - 1)i + \tfrac12(-1 - 1)j + \tfrac12(-1 - 1)k
+= -\tfrac12 - \tfrac12 i - \tfrac12 j - \tfrac12 k,
+\end{equation}
+where we have used $ij=k$, $jk=i$, $ki=j$ and anti-commutativity of the imaginary units. More compactly,
+\begin{equation}
+g^2 = \overline{g} = -\tfrac12 - \tfrac12 i - \tfrac12 j - \tfrac12 k.
+\end{equation}
+Then
+\begin{equation}
+g^3 = g \cdot g^2 = g \cdot \overline{g} = |g|^2 = 1,
+\end{equation}
+because $g$ is a unit quaternion. Since $g \neq 1$, the order of $g$ is exactly $3$.
+\end{proof}
+
+\begin{remark}
+The element $g$ generates one of the four Sylow $3$-subgroups of $2T$. Its conjugates under $2I$ give the other Sylow $3$-subgroups. The choice of $g$ in Definition~\ref{def:g} is not unique, but any choice from the same conjugacy class yields an isomorphic tripartition.
+\end{remark}
+
+It is worth noting that the order-$3$ elements of $2T$ are exactly the Hurwitz units whose real part equals $-\tfrac12$. There are eight such elements (the vertices of a cube in the imaginary subspace), forming four antipodal pairs. Each pair generates a distinct Sylow $3$-subgroup.
+
+%---------------------------------------------------------------------
+\subsection{Free left action on the 96 vertices}
+%---------------------------------------------------------------------
+
+We consider the action of $g$ on the snub vertices by \emph{left} quaternion multiplication:
+\begin{equation}
+L_g : 2I \setminus 2T \longrightarrow 2I \setminus 2T, \qquad L_g(v) = g v.
+\end{equation}
+
+\begin{lemma}\label{lem:action-preserves}
+Left multiplication by $g$ maps $2I \setminus 2T$ to itself.
+\end{lemma}
+
+\begin{proof}
+Since $g \in 2T \subset 2I$, left multiplication by $g$ is a bijection of $2I$ onto itself. It also bijects $2T$ onto itself because $2T$ is a subgroup. Therefore it bijects the complement $2I \setminus 2T$ onto itself.
+\end{proof}
+
+The key property is that this action has no fixed points.
+
+\begin{proposition}[Freeness]\label{prop:free}
+The left action of $\langle g \rangle \cong \mathbb{Z}_3$ on $2I \setminus 2T$ is free: for every $v \in 2I \setminus 2T$,
+\begin{equation}
+g v = v \quad\Longrightarrow\quad v \in 2T,
+\end{equation}
+which is impossible because $v \notin 2T$. Consequently $g v \neq v$ and $g^2 v \neq v$ for all $v \in 2I \setminus 2T$.
+\end{proposition}
+
+\begin{proof}
+Suppose $g v = v$ for some $v \in 2I$. Left-multiplying by $v^{-1}$ gives $v^{-1} g v = 1$, i.e.\ $g=1$, which contradicts Lemma~\ref{lem:g-order}. Hence $g$ has no fixed points in $2I$, and in particular none in $2I \setminus 2T$. Since $g^2 \neq 1$ either, the same argument applies to $g^2$.
+\end{proof}
+
+\begin{corollary}
+Every orbit of $\langle g \rangle$ on $2I \setminus 2T$ has size exactly $3$.
+\end{corollary}
+
+\begin{proof}
+By Proposition~\ref{prop:free} the stabiliser of any point is trivial. The orbit--stabiliser theorem then gives $|\langle g \rangle \cdot v| = |\langle g \rangle| = 3$.
+\end{proof}
+
+Since $|2I \setminus 2T| = 96$, there are exactly $96/3 = 32$ distinct orbits under $\langle g \rangle$.
+
+%---------------------------------------------------------------------
+\section{The canonical $3$-partition}\label{sec:partition}
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+\subsection{Construction of the tripartition}
+%---------------------------------------------------------------------
+
+Choose a set of orbit representatives. Because the action is free, each orbit is of the form $\{v, gv, g^2 v\}$. It is convenient to select one representative from each orbit in a canonical way; for instance, one may use the lexicographically smallest quaternion (with respect to the ordering induced by the coordinates $(a,b,c,d)$).
+
+\begin{definition}[The sets $G_0$, $G_1$, $G_2$]\label{def:partition}
+Let $G_0 \subset 2I \setminus 2T$ be a set containing exactly one element from each $\langle g \rangle$-orbit, chosen by a fixed deterministic rule (e.g.\ lexicographic minimum). Define
+\begin{equation}
+G_1 = g\,G_0, \qquad G_2 = g^2 G_0.
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Canonical tripartition]\label{thm:main}
+The snub 24-cell vertex set admits a decomposition
+\begin{equation}\label{eq:main}
+2I \setminus 2T \;=\; G_0 \;\sqcup\; G_1 \;\sqcup\; G_2,
+\end{equation}
+where the three parts are pairwise disjoint and each has cardinality $32$. Moreover $G_1 = g G_0$ and $G_2 = g^2 G_0$, so the three parts are cyclically permuted by left multiplication with $g$.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:free} the $\langle g \rangle$-orbits partition $2I \setminus 2T$ into $32$ disjoint triples. Definition~\ref{def:partition} chooses one element from each triple to form $G_0$, so $|G_0| = 32$ and every $v \in 2I \setminus 2T$ belongs to exactly one triple $\{v_0, gv_0, g^2 v_0\}$ with $v_0 \in G_0$. If $v = gv_0$ then $v \in G_1$; if $v = g^2 v_0$ then $v \in G_2$. The three sets are disjoint because an equality $g^i v_0 = g^j v_0'$ with $0 \le i,j \le 2$ forces $i=j$ and $v_0 = v_0'$ by the orbit decomposition. Counting gives $|G_1| = |G_2| = |G_0| = 32$.
+\end{proof}
+
+%---------------------------------------------------------------------
+\subsection{Formal verification}
+%---------------------------------------------------------------------
+
+Theorem~\ref{thm:main} has been formalised and machine-checked in two independent proof assistants:
+
+\begin{itemize}
+\item \textbf{Coq.} File \texttt{derivations/alt\_crystallography/Snub24CellZ3.v} (commit \texttt{d883275}) defines the group $2I$ as a finite set of quaternions, constructs the element $g$, and proves that the left action partitions $2I \setminus 2T$ into $32$ orbits of size $3$.
+\item \textbf{Lean~4.} File \texttt{Trinity/H4RootSystem/Snub24Z3.lean} (commit \texttt{916bc6e}) contains an independent formalisation using Lean's \texttt{mathlib} finite-group infrastructure.
+\end{itemize}
+
+Both formalisations check that $g \in 2T$, that $g^3 = 1$, that $g \neq 1$, and that for every $v \in 2I \setminus 2T$ the elements $v$, $gv$, $g^2v$ are pairwise distinct and lie outside $2T$. The two proofs were written independently and agree on the result, giving high confidence in Theorem~\ref{thm:main}. The repository is available at \cite{trinitys3ai}.
+
+%---------------------------------------------------------------------
+\subsection{Relation to the four cosets of Theorem~\ref{thm:cosets}}
+%---------------------------------------------------------------------
+
+Each of the four cosets $x_k 2T$ in \eqref{eq:coset-decomp} is itself a union of $\langle g \rangle$-orbits. Since $|x_k 2T| = 24$ and each orbit has size $3$, each coset contains exactly $8$ orbits. The tripartition therefore refines the $4$-fold coset decomposition:
+\begin{equation}
+2I \setminus 2T \;=\; \bigsqcup_{k=1}^{4} \bigsqcup_{r=0}^{2} (g^r G_0 \cap x_k 2T),
+\end{equation}
+with $8$ orbits per coset and $3$ orbit elements per part $G_r$.
+
+%---------------------------------------------------------------------
+\section{Connection to the representation theory of $2I$}\label{sec:reptheory}
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+\subsection{The character table of $2I$}\label{subsec:char}
+%---------------------------------------------------------------------
+
+The binary icosahedral group $2I \cong \mathrm{SL}(2,5)$ has $9$ conjugacy classes and therefore $9$ irreducible complex representations. Their dimensions are
+\begin{equation}
+1,\; 2,\; 2,\; 3,\; 3,\; 4,\; 4,\; 5,\; 6,
+\end{equation}
+which sum of squares equals $|2I| = 120$ \cite{Serre1977}. The character table is displayed in Table~\ref{tab:char} (we follow the standard atlas notation).
+
+\begin{table}[htbp]
+\centering
+\caption{Character table of $2I \cong \mathrm{SL}(2,5)$.}
+\label{tab:char}
+\begin{tabular}{c|ccccccccc}
+\toprule
+Class & $1A$ & $2A$ & $3A$ & $4A$ & $5A$ & $5B$ & $6A$ & $10A$ & $10B$ \\
+Size  & $1$ & $1$ & $20$ & $30$ & $12$ & $12$ & $20$ & $12$ & $12$ \\
+\midrule
+$\chi_1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\
+$\chi_2$ & $2$ & $-2$ & $-1$ & $0$ & $\phi^{-1}$ & $-\phi$ & $1$ & $\phi^{-1}$ & $-\phi$ \\
+$\chi_3$ & $2$ & $-2$ & $-1$ & $0$ & $-\phi$ & $\phi^{-1}$ & $1$ & $-\phi$ & $\phi^{-1}$ \\
+$\chi_4$ & $3$ & $3$ & $0$ & $-1$ & $\phi^{-1}$ & $-\phi$ & $0$ & $\phi^{-1}$ & $-\phi$ \\
+$\chi_5$ & $3$ & $3$ & $0$ & $-1$ & $-\phi$ & $\phi^{-1}$ & $0$ & $-\phi$ & $\phi^{-1}$ \\
+$\chi_6$ & $4$ & $-4$ & $1$ & $0$ & $-1$ & $-1$ & $-1$ & $1$ & $1$ \\
+$\chi_7$ & $4$ & $4$ & $1$ & $0$ & $-1$ & $-1$ & $1$ & $-1$ & $-1$ \\
+$\chi_8$ & $5$ & $5$ & $-1$ & $1$ & $0$ & $0$ & $-1$ & $0$ & $0$ \\
+$\chi_9$ & $6$ & $-6$ & $0$ & $0$ & $1$ & $1$ & $0$ & $-1$ & $-1$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Here $\phi = \frac12(1+\sqrt5)$ and the columns are ordered by conjugacy class. The two-dimensional representations $\chi_2$ and $\chi_3$ are faithful; the three-dimensional representations $\chi_4$ and $\chi_5$ are the binary covers of the standard $3$-dimensional representations of $A_5$.
+
+%---------------------------------------------------------------------
+\subsection{Why $3$ appears, but why not $32$}
+%---------------------------------------------------------------------
+
+Table~\ref{tab:char} shows that $2I$ possesses a $3$-dimensional irreducible representation, and this fact has frequently been invoked in the physics literature as a possible origin of three fermion generations \cite{Wilson2021,KingFarnsworth2018}. However, the argument is not automatic: the SM fermions in a single generation transform under the gauge group
+\begin{equation}
+G_{\text{SM}} = \mathrm{SU}(3)_C \times \mathrm{SU}(2)_L \times \mathrm{U}(1)_Y,
+\end{equation}
+and a $3$-dimensional representation of $2I$ does not canonically embed into the representation content of one generation (which comprises $16$ Weyl spinors, counting colour and electroweak quantum numbers).
+
+The tripartition of Theorem~\ref{thm:main} gives $3 \times 32 = 96$, not $3 \times 16 = 48$ or $3 \times 15 = 45$. The number $32$ does not appear as the dimension of any irreducible representation of $2I$. It is, however, the number of vertices of the $4$-dimensional demihypercube (the rectified 4-orthoplex), and it is also the number of unit imaginary octonions.
+
+In short: the appearance of the factor $3$ in Theorem~\ref{thm:main} is rigorous and unavoidable, but the appearance of the factor $32$ is a geometric coincidence that may or may not have physical significance. We therefore adopt an \emph{anti-numerology} stance: we record the mathematical fact and invite further analysis, without forcing an interpretation.
+
+%---------------------------------------------------------------------
+\section{Physical speculation}\label{sec:speculation}
+
+\textbf{Disclaimer.} This section is explicitly labeled as speculation. None of the claims made here are proved in this paper, and the reader should treat them as open questions rather than established results.
+
+%---------------------------------------------------------------------
+\subsection{The Pati--Salam embedding of Wilson}
+%---------------------------------------------------------------------
+
+In his 2021 paper, Wilson showed that the binary icosahedral group $2I$ can be embedded into a Pati--Salam grand-unified theory in such a way that the resulting fermion representation contains $45$ Weyl spinors, which factorises suggestively as
+\begin{equation}
+45 = 3 \times 15.
+\end{equation}
+Here $15$ is the dimension of a generation of fermions in the Pati--Salam model (counting one right-handed neutrino per generation). Wilson's construction therefore provides a group-theoretic framework in which three generations arise naturally from the representation theory of $2I$ \cite{Wilson2021}.
+
+It is tempting to combine Wilson's observation with Theorem~\ref{thm:main}. The snub 24-cell has $96$ vertices, and $96 = 3 \times 32$. Could each generation be associated with one of the three parts $G_0$, $G_1$, $G_2$, and could the $32$ elements within each part encode some as-yet-undiscovered internal quantum numbers?
+
+\subsection{Why this is not a solution}
+
+There are several obstacles to turning this tempting picture into a physical model:
+
+\begin{enumerate}
+\item[1.] \textbf{No canonical $32$-plet.} As noted in \S\ref{subsec:char}, $2I$ has no irreducible representation of dimension $32$. Any identification of the $32$ orbit representatives with physical states would require a reducible representation, and there is no canonical choice of which reducible representation to use.
+
+\item \textbf{The factor $32$ vs.\ $15$.} Wilson's construction gives $3 \times 15$ Weyl spinors, not $3 \times 32$. The mismatch between $15$ and $32$ is significant. One would need an extra structure (for example a spectral flow or an orbifold projection) that maps $32$ degrees of freedom onto $15$ physical fermions.
+
+\item \textbf{No dynamics.} The tripartition of Theorem~\ref{thm:main} is a static combinatorial fact. It says nothing about masses, mixing angles, Yukawa couplings, or the CKM matrix. A genuine flavour model must explain why the three generations have different masses; our theorem does not.
+
+\item \textbf{No gauge bosons.} The $\mathbb{Z}_3$ subgroup used in the tripartition is a \emph{discrete} subgroup of $2T$, not a continuous gauge symmetry. If it were promoted to a gauge group, anomaly cancellation would have to be checked; if it remains a global symmetry, one must confront the cosmological domain-wall problem.
+\end{enumerate}
+
+For these reasons we regard the physical interpretation of Theorem~\ref{thm:main} as an \emph{open question}, not a closed solution. The theorem provides a mathematically rigorous ``seed'' from which a flavour model might grow, but a great deal of additional physics input would be required for that growth to occur.
+
+%---------------------------------------------------------------------
+\section{Open problems}\label{sec:open}
+%---------------------------------------------------------------------
+
+We conclude with a list of open mathematical and physical questions suggested by the tripartition theorem.
+
+\begin{enumerate}
+\item[1.] \textbf{Spectral triples.} Does there exist a natural noncommutative spectral triple on the group algebra $\mathbb{C}[2I]$ whose Dirac operator is compatible with the $\mathbb{Z}_3$ tripartition? In the Connes--Marcolli programme, the finite algebra $F$ of the Standard Model is required to satisfy certain K-theoretic constraints \cite{ConnesMarcolli2008,Chamseddine2025}. It would be interesting to see whether $F = \mathbb{C}[2I]$ or a subalgebra related to the snub 24-cell can satisfy these constraints while respecting the $G_0 \sqcup G_1 \sqcup G_2$ decomposition.
+
+\item \textbf{Connection to $E_8$.} Wilson has argued that the $E_8$ lattice contains a natural model of elementary particles in which $2I$ plays a distinguished role \cite{Wilson2024}. Can the $\mathbb{Z}_3$ tripartition of the snub 24-cell be lifted to an analogous tripartition of the $E_8$ root system? The snub 24-cell is a vertex figure of the uniform tessellation of $\mathbb{H}^4$ related to the $F_4$ Coxeter group, and $E_8$ contains $F_4$ as a maximal subalgebra, so such a lift is not obviously impossible.
+
+\item \textbf{Spectral geometry of $S^3/2I$.} The Poincar\'{e} homology sphere is the quotient $S^3/2I$. Marcolli and collaborators have studied spectral triples on spherical space forms \cite{ConnesMarcolli2008,Marcolli2015}. Does the spectrum of the Dirac operator on $S^3/2I$ exhibit a $3$-fold degeneracy related to the $\mathbb{Z}_3$ symmetry? The eta invariant and the spectral action for this space form are known, but a direct link to the snub 24-cell tripartition has not been explored.
+
+\item \textbf{Orbifold projections.} If the $\mathbb{Z}_3$ subgroup is treated as an orbifold group acting on $S^3$ or on a noncommutative analogue thereof, what is the spectrum of the resulting orbifold theory? Can a $\mathbb{Z}_3$ orbifold of an $E_8$ or $H_4$ model reduce $32$ degrees of freedom to $15$ or $16$ in a natural way?
+
+\item \textbf{Other index-$5$ subgroups.} The binary tetrahedral group $2T$ is one of several interesting subgroups of $2I$. The binary dihedral groups inside $2I$ have indices $6$ and $10$, leading to decompositions with different numerical factors. Is there a physical reason to prefer the index-$5$ subgroup (and hence the factor $3$) over these alternatives?
+
+\item \textbf{Generalisation to other binary polyhedral groups.} The binary octahedral group $2O$ contains the binary tetrahedral group $2T$ as a normal subgroup of index $2$, and the binary dihedral groups appear inside $2I$ with indices $6$ and $10$. Do analogous tripartitions exist for these embeddings? If so, do the corresponding numerical factors ($2$, $6$, $10$) have any physical significance, or is the factor $3$ special?
+
+\item \textbf{Higher-categorical structure.} Furey and Hughes emphasise that three generations may be related to trialities, which are $3$-fold symmetries of the Dynkin diagrams $D_4$ and $E_6$ \cite{FureyHughes2024}. The binary tetrahedral group is the double cover of the rotational symmetry group of the tetrahedron, and the tetrahedron is deeply related to $D_4$ via the triality automorphism. Can Theorem~\ref{thm:main} be reformulated as a statement about triality, and does this reformulation clarify its physical meaning?
+\end{enumerate}
+
+%---------------------------------------------------------------------
+\section*{Acknowledgements}
+%---------------------------------------------------------------------
+
+We thank the Coq and Lean communities for the proof assistants that made the formal verification possible. The Trinity S\textsuperscript{3}AI project is an open collaboration; contributions are welcome at \url{https://github.com/gHashTag/trinity-s3ai}.
+
+%---------------------------------------------------------------------
+% Bibliography
+%---------------------------------------------------------------------
+\bibliographystyle{amsplain}
+\bibliography{snub24_z3}
+
+\end{document}

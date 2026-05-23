@@ -1,0 +1,99 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{Chamseddine2025}
+Ali~H. Chamseddine, \emph{Hearing the shape of the universe: A personal journey
+  in noncommutative geometry}, arXiv preprint (2025).
+
+\bibitem{ConnesMarcolli2008}
+Alain Connes and Matilde Marcolli, \emph{Noncommutative geometry, quantum
+  fields and motives}, American Mathematical Society Colloquium Publications,
+  vol.~55, American Mathematical Society, Providence, RI, 2008.
+
+\bibitem{CS1999}
+John~Horton Conway and Neil J.~A. Sloane, \emph{Sphere packings, lattices and
+  groups}, 3rd ed., Grundlehren der mathematischen Wissenschaften, vol. 290,
+  Springer-Verlag, New York, 1999.
+
+\bibitem{Coxeter1946}
+H.~S.~M. Coxeter, \emph{Regular polytopes}, Methuen, London, 1948, Reprinted by
+  Dover, 1973.
+
+\bibitem{Dechant2021}
+Pierre-Philippe Dechant, \emph{Clifford spinors and root system induction:
+  {$H_4$} and the grand antiprism}, arXiv preprint (2021).
+
+\bibitem{duVal1964}
+Patrick du~Val, \emph{Homographies, quaternions and rotations}, Oxford
+  Mathematical Monographs, Clarendon Press, Oxford, 1964.
+
+\bibitem{FroggattNielsen1991}
+C.~D. Froggatt and H.~B. Nielsen, \emph{Origin of symmetries}, World
+  Scientific, Singapore, 1991.
+
+\bibitem{FureyHughes2024}
+C.~Furey and J.~Hughes, \emph{Three generations and a trio of trialities},
+  arXiv preprint (2024).
+
+\bibitem{Hamilton1843}
+William~Rowan Hamilton, \emph{On a new species of imaginary quantities
+  connected with a theory of quaternions}, Proceedings of the Royal Irish
+  Academy \textbf{2} (1844), 424--434.
+
+\bibitem{KingFarnsworth2018}
+Simon~F. King and Thomas Neder, \emph{The {$A_5$} flavour symmetry in {$SU(5)$}
+  grand unification}, Phys.\ Lett.\ B \textbf{785} (2018), 398--404.
+
+\bibitem{Koca2011}
+Mehmet Koca, Nazife~Ozdes Koca, Muataz Al-Barwani, and Shayma Al-Farsi,
+  \emph{Snub 24-cell derived from the {C}oxeter-{W}eyl group {$W(D_4)$}}, arXiv
+  preprint (2011).
+
+\bibitem{Lisi2007}
+A.~Garrett Lisi, \emph{An exceptionally simple theory of everything}, Phys.\
+  Lett.\ B \textbf{650} (2007), no.~5--6, 421--433.
+
+\bibitem{Marcolli2015}
+Matilde Marcolli and Nick Zolman, \emph{Seiberg--{W}itten gauge theory and the
+  adelic point of view}, J.\ Geom.\ Phys. \textbf{94} (2015), 128--163.
+
+\bibitem{Onoda1987}
+J.~Onoda, P.~J. Steinhardt, D.~P. DiVincenzo, and J.~E.~S. Socolar,
+  \emph{Growing perfect quasicrystals}, Phys.\ Rev.\ Lett. \textbf{60} (1988),
+  no.~25, 2653--2656.
+
+\bibitem{PetcovTitov2025}
+S.~T. Petcov and A.~V. Titov, \emph{Viability of {$A_4$}, {$S_4$} and {$A_5$}
+  flavour symmetries in light of the first {JUNO} result}, arXiv preprint
+  (2025).
+
+\bibitem{SadocMosseri1989}
+Jean-Fran\c{c}ois Sadoc and R\'{e}my Mosseri, \emph{The {$E_8$} lattice and
+  {$S^3$} polytopes: geometry and packing}, J.\ Physique \textbf{50} (1989),
+  no.~20, 3059--3068.
+
+\bibitem{Serre1977}
+Jean-Pierre Serre, \emph{Linear representations of finite groups}, Graduate
+  Texts in Mathematics, vol.~42, Springer-Verlag, 1977.
+
+\bibitem{trinitys3ai}
+{Trinity S\textsuperscript{3}AI Project}, \emph{Formalised proofs of the
+  {Z\textsubscript{3}} tripartition of the snub 24-cell},
+  \url{https://github.com/gHashTag/trinity-s3ai}, 2025, Commits d883275 (Coq)
+  and 916bc6e (Lean 4).
+
+\bibitem{Wilson2021}
+Robert~A. Wilson, \emph{Possible uses of the binary icosahedral group in grand
+  unified theories}, arXiv preprint (2021).
+
+\bibitem{Wilson2024}
+\bysame, \emph{Uniqueness of an {$E_8$} model of elementary particles}, arXiv
+  preprint (2024).
+
+\end{thebibliography}

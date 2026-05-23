@@ -1,0 +1,50 @@
+COVER LETTER
+
+Submission of: "Z_3 tripartition of the snub 24-cell as a flavour structure"
+
+To: Journal of Mathematical Physics / arXiv math.GR
+
+Dear Editor,
+
+We submit for your consideration the paper "Z_3 tripartition of the snub
+24-cell as a flavour structure" by the Trinity S^3AI Collaboration.
+
+The paper proves a purely combinatorial theorem about the snub 24-cell,
+a chiral uniform 4-polytope with 96 vertices. We show that these 96 vertices
+decompose canonically into three sets of 32 under the free left action of
+a particular Z_3 subgroup of the binary tetrahedral group 2T. The proof is
+group-theoretic and elementary: we identify the vertices with the difference
+set 2I \ 2T, construct an explicit order-3 generator g in 2T, and prove that
+its left action on the 96 coset representatives is fixed-point-free.
+
+The theorem has been independently machine-verified in two proof assistants:
+- Coq (file Snub24CellZ3.v, commit d883275)
+- Lean 4 (file Snub24Z3.lean, commit 916bc6e)
+Both formalisations are available in the ancillary materials and in our
+public repository.
+
+We emphasise that this is a combinatorial theorem, not a full derivation of
+the three-generation structure of the Standard Model. We do not claim to
+explain Yukawa couplings, the CKM matrix, or neutrino mixing. The paper
+contains an explicitly labeled "Physical speculation" section that honestly
+assesses the obstacles to physical interpretation.
+
+We suggest the following referees:
+
+1. Pierre-Philippe Dechant (University of York)
+   Expertise: H_4 root systems, Clifford spinors, snub 24-cell geometry
+   Relevant work: arXiv:2103.07817 on Clifford spinors and root system induction
+
+2. Robert A. Wilson (Queen Mary University of London)
+   Expertise: Binary icosahedral group, exceptional Lie groups, flavour models
+   Relevant work: arXiv:2109.06626 and arXiv:2402.XXXXX on 2I in GUTs and E_8
+
+Both have published extensively on the mathematical structures used in our
+paper and are well positioned to assess the theorem and its context.
+
+Thank you for your consideration.
+
+Sincerely,
+Trinity S^3AI Collaboration
+https://github.com/gHashTag/trinity-s3ai
+trinity.s3ai@proton.me
