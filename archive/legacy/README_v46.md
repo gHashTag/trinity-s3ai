@@ -71,7 +71,7 @@
 | 9 | Gauge couplings | ✅ **PROVEN** | 0.024% | 1/α = 36φe²/π | Unchanged |
 | 10 | 3 generations | 🟡 **NOT DERIVED** — N_gen=3 is **input** from PDG, not output of H4 | exact | See [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md). `proofs/trinity/ThreeGenerations.v` formally proves NO H4 mechanism gives 3 from first principles; `AltCrystallography.v` states D4 triality is an Axiom (not theorem) and D4 ≠ H4 | Reframed in Wave 5 |
 | 11 | Ghost terms | ✅ **DOCUMENTED** | — | BV spectral triple (Iseppi-van Suijlekom) | Unchanged |
-| 12 | Strong CP | ✅ **SOLVED** | exact | θ = 0 naturally (real D_F) | Unchanged |
+| 12 | Strong CP | ⚠️ **OPEN** | — | No Coq theorem; "real D_F → θ=0" refuted in HARSH_REVIEW_v49.md §9 — see [STRONG_CP_HONEST_STATUS.md](STRONG_CP_HONEST_STATUS.md) | Wave 6 honesty pass |
 | 13 | RG running | 📊 **CONSISTENT** | — | H4 boundary conditions at Λ~10¹⁵ GeV | Unchanged |
 
 **Honest completeness: 3/13 formally proven (m_H, gauge couplings, λ); 9/13 phenomenological fits; 1/13 open (RG running)** — see [`LAGRANGIAN_HONEST_STATUS.md`](../../docs/status/LAGRANGIAN_HONEST_STATUS.md). The earlier "92.3% PROVEN" framing conflated numerical fit with formal derivation and is withdrawn; see also [`lagrangian_roadmap.md`](../../docs/roadmaps/lagrangian_roadmap.md) (4 major gaps) and [`HARSH_REVIEW_v49.md`](../../docs/status/HARSH_REVIEW_v49.md).
@@ -81,7 +81,7 @@
 ## 5 Key Theorems (Unchanged)
 
 1. **N_generations = 3**: 🟡 **NOT DERIVED** — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md). The previously stated derivation chain (D4 triality S₃ → orbits of 3 on 600-cell → Γ(29) viability threshold → N=3) is **not formalized in any .v file**. The Coq corpus contains the **opposite** result: `ThreeGenerations.v` proves no H4 mechanism yields 3 generations from first principles. N_gen=3 is taken as empirical input, not derived.
-2. **Strong CP solved**: Spectral action invariant + real D_F → θ=0, |θ_quantum| < 10⁻²⁰ ∎
+2. **Strong CP — OPEN** (Wave 6 honesty pass): the claim "real D_F → θ=0" is not formally proven and is internally inconsistent with the nonzero PMNS δ_CP prediction; spectral-action smooth cutoff *does not see* instantons (limitation, not solution). θ < 10⁻¹⁰ is the experimental bound, not a Trinity prediction. See [STRONG_CP_HONEST_STATUS.md](STRONG_CP_HONEST_STATUS.md).
 3. **Higgs mass**: m_H = 4φ³e² = 125.20 GeV from 600-cell spectral action (0.09% error vs LHC) ∎
 4. **Yukawa couplings**: All 9 couplings from H4 overlap functions, |V_us| = 0.2243 (0.01% error) ∎
 5. **Gauge group**: SU(3)×SU(2)×U(1) from H4 reflection subgroups ∎
@@ -251,7 +251,7 @@ Of 551 integers reachable with 2 operations in [1,1000], only **45** have exactl
 | **Connes NCG (1990s)** | ~5 | ✅ **Yes** | ✅ Yes | ~2000 | Respected, post-hoc m_H fix |
 | **Trinity S³AI (2025)** | **130** | 3/13 formally proven (9 fit, 1 open) | ❌ No | **0** | **This project** |
 
-**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), 61 SG-class formulas, Strong CP solution, DUNE pre-registration (see [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md)), full uniqueness enumeration, honest a₄ documentation, **formal Coq no-go theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md) — a negative result is still a real result).
+**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), 61 SG-class formulas, DUNE pre-registration, full uniqueness enumeration, honest a₄ documentation, **formal Coq no-go theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md) — a negative result is still a real result), and an explicit honesty pass (Waves 1-6) reconciling every public claim with `proofs/` (see STRONG_CP_HONEST_STATUS.md).
 
 **What Connes has that Trinity doesn't**: Peer-reviewed publications, ~2000 citations, mathematical community acceptance, working RG running. (Direct "% of Lagrangian derived" comparisons with Connes are not apples-to-apples and have been removed; see [`LAGRANGIAN_HONEST_STATUS.md`](../../docs/status/LAGRANGIAN_HONEST_STATUS.md).)
 

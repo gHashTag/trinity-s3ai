@@ -1,5 +1,13 @@
 # Ghost Terms, Strong CP Problem, and RG Running in the H4 Framework
 
+> **HONESTY-PASS NOTE (Wave 6, 2026-05-23)**: This document is preserved as the
+> *draft* of the Strong CP argument. **The conclusion that "real D_F → θ=0
+solves Strong CP" is withdrawn.** It is not formally proven in `proofs/` and is
+> refuted internally in `HARSH_REVIEW_v49.md` §9 (smooth spectral cutoff
+> does not see instantons; framework predicts δ_CP ≠ 0 in PMNS from the same
+> D_F). For the canonical reconciliation see
+> [STRONG_CP_HONEST_STATUS.md](STRONG_CP_HONEST_STATUS.md).
+
 ## Executive Summary
 
 This document provides a comprehensive analysis of three critical missing components in Trinity's Lagrangian within the H4 (Pati-Salam type) spectral action framework:

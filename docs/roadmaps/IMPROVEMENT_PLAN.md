@@ -492,7 +492,7 @@ as a historical scientific record. See DELTA_CP_HONEST_STATUS.md."
 **Analysis:**
 - If DUNE measures ~177°, Trinity's PMNS mixing sector fails
 - BUT: 12 other Lagrangian sectors remain valid
-- The Strong CP solution, Higgs mass, gauge couplings — all independent (N_gen=3 is **not** a derived theorem; see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md))
+- The Higgs mass, gauge couplings, λ, and PMNS θ₁₂/θ₁₃ results remain independent and intact. (The N_gen=3 "theorem" and "Strong CP solution" have been withdrawn by the Wave 5–6 honesty pass — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md) and STRONG_CP_HONEST_STATUS.md.)
 - Frame: "The H4 geometric structure correctly describes gauge couplings, Higgs sector, and charged lepton masses. The mapping to neutrino mixing parameters requires revision. This is a targeted failure, not a framework collapse."
 
 **Precedent:** Connes' NCG initially predicted m_H = 170 GeV (wrong!). The framework survived because the core structure (spectral action) was sound. The Higgs mass was revised, not the entire theory.

@@ -52,7 +52,7 @@
 
 #### Novel Predictions: **6/10** — Promising but Unverified
 - N_gen = 3 (**not derived from H4** — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md); `proofs/trinity/ThreeGenerations.v` formally proves no H4 mechanism yields 3 from first principles; N_gen=3 is empirical input from PDG)
-- Strong CP solution (θ_QCD ≈ 0 — matches observation, but mechanism must differ from Peccei-Quinn)
+- Strong CP — **OPEN** (Wave 6 honesty pass): the "real D_F → θ=0" argument is not a Coq theorem and is refuted in HARSH_REVIEW_v49.md §9 (smooth spectral cutoff doesn't see instantons; framework predicts δ_CP ≠ 0 in PMNS from the same D_F). θ < 10⁻¹⁰ is the experimental bound, not a Trinity prediction. See [STRONG_CP_HONEST_STATUS.md](STRONG_CP_HONEST_STATUS.md).
 - Higgs mass derivation (matches m_H ≈ 125 GeV — confirmed)
 - Yukawa couplings structure (pattern claim, not numerical values)
 - Gauge group identification (SU(3)×SU(2)×U(1) — post-hoc or derived?)
@@ -142,7 +142,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 - H4 Coxeter group is mathematically natural as a starting point
 - 3/13 sectors formally derived from first principles (m_H, gauge couplings, λ), if even directionally correct, is meaningful — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md)
 - The 61 SG-class formulas represent a strong phenomenological claim
-- Strong CP derivation, if valid, solves one SM mystery (N_gen=3 derivation is **not** valid in the Coq corpus — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md))
+- N_gen and Strong CP derivations were claimed to "solve two SM mysteries" but **both have been withdrawn** by the Wave 5-6 honesty pass: N_gen=3 is refuted by `wave9_5_no_h4_mechanism_yields_three_generations` (see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md)), Strong CP is refuted by HARSH_REVIEW_v49.md §9 (see STRONG_CP_HONEST_STATUS.md). What remains valid: m_H, gauge couplings, λ, PMNS θ₁₂/θ₁₃.
 
 ### 4.3 Why 4/10 (not higher):
 - **Zero peer review** — the single most important filter in physics
