@@ -1,0 +1,15 @@
+# Optional Lake configuration with Mathlib support.
+# Copy this over lakefile.toml to use Mathlib (build time ~30+ min on first run).
+# Note: lake update may time out in resource-constrained environments.
+
+name = "TrinityLean"
+version = "0.1.0"
+defaultTargets = ["TrinityLean"]
+
+[[lean_lib]]
+name = "TrinityLean"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.13.0"

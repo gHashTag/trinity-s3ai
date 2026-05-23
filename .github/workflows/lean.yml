@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: false  # Verified locally: lake build passes
+    continue-on-error: false  # Verified locally: lake build passes (pure Lean)
     steps:
       - uses: actions/checkout@v4
 
@@ -22,6 +22,14 @@ jobs:
         run: |
           elan --version
           lean --version
+
+      # Cache .lake/packages for optional Mathlib builds.
+      # Pure builds have no packages and this cache is a no-op.
+      - name: Cache Lake packages
+        uses: actions/cache@v4
+        with:
+          path: derivations/lean_port/TrinityLean/.lake/packages
+          key: ${{ runner.os }}-lake-packages-${{ hashFiles('derivations/lean_port/TrinityLean/lean-toolchain') }}
 
       - name: Build TrinityLean
         run: |

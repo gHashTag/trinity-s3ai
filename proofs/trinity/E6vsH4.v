@@ -34,6 +34,7 @@ Require Import QArith.
 Require Import ZArith.
 Require Import Lia.
 Require Import Lra.
+Require Import Nsatz.
 Require Import Interval.Tactic.
 Require Import List.
 From Trinity Require Import CorePhi.
@@ -194,19 +195,19 @@ Proof.
     rewrite cos_plus.
     rewrite cos_2a_cos, sin_2a.
     (* Use sin^2 + cos^2 = 1, unfold Rsqr to match *)
-    assert (Hsin: sin (PI / 5) * sin (PI / 5) = 1 - cos (PI / 5) * cos (PI / 5)).
+    assert (Hsin: sin (PI / 5) * sin (PI / 5) + cos (PI / 5) * cos (PI / 5) = 1).
     { pose (sin2_cos2 (PI / 5)). unfold Rsqr in e. lra. }
-    (* Manipulate: 2c^3 - c - 2sc*s = 2c^3 - c - 2(1-c^2)c = 4c^3 - 3c *)
-    (* [MATH_TODO] Pure trig polynomial identity; ring_simplify cannot handle
-       the sin^2 = 1 - cos^2 rewrite inside a product automatically here. *)
-    admit.
+    nsatz.
   }
-  (* [MATH_TODO] The equality H1 + H2 + H3 gives 4c^2 - 2c - 1 = 0 by
-     algebra; lra/ring fail because hypotheses involve cos terms. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation; proof changes cannot be verified. *)
-Admitted.
+  assert (Hcubic: 4 * cos (PI / 5) * cos (PI / 5) * cos (PI / 5) + 2 * cos (PI / 5) * cos (PI / 5) - 3 * cos (PI / 5) - 1 = 0).
+  { rewrite H2 in H1. rewrite H3 in H1. lra. }
+  assert (Hfactor: (cos (PI / 5) + 1) * (4 * cos (PI / 5) * cos (PI / 5) - 2 * cos (PI / 5) - 1) = 0).
+  { nra. }
+  assert (Hc_pos: 0 < cos (PI / 5)) by apply cos_pi_5_pos.
+  assert (Hc1_pos: cos (PI / 5) + 1 <> 0) by lra.
+  apply Rmult_integral in Hfactor.
+  destruct Hfactor as [Hfactor | Hfactor]; lra.
+Qed.
 
 (* phi/2 satisfies the same quadratic *)
 Lemma phi_half_quadratic :
