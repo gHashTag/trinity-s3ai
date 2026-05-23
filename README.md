@@ -24,7 +24,12 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 
 | Resource | Description |
 |----------|-------------|
+| [docs/REVIEW_GUIDE.md](docs/REVIEW_GUIDE.md) | **For reviewers:** 10-minute path with commands and expected outputs |
+| [docs/CLAIM_STATUS.md](docs/CLAIM_STATUS.md) | Claim-status rule book (verified / empirical fit / open / refuted) |
+| [docs/TECH_TREE.md](docs/TECH_TREE.md) | Layered status of the whole stack (infra → proofs → fits → game → paper) |
+| [docs/REVIEW_CHECKLIST.md](docs/REVIEW_CHECKLIST.md) | Mechanical review-readiness checklist |
 | [SALVAGE.md](SALVAGE.md) | Honest summary: what H4 can/cannot do |
+| [SECURITY.md](SECURITY.md) | Security policy and reporting path |
 | [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
 | [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal no-go theorems NGT1–NGT4 |
 | [Catalog42.v](proofs/trinity/Catalog42.v) | 42 SM parameter formulas (tagged phenomenological) |
@@ -33,6 +38,16 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [scripts/prepare_zenodo.md](scripts/prepare_zenodo.md) | Zenodo publication guide |
 | [proofs/trinity/FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md) | Axiom stratification and open assumptions |
 | [proofs/clifford_cl8/README.md](proofs/clifford_cl8/README.md) | **Track B (Wave 12)** — Cl(p,q) formalization launch (T1–T3) |
+| [GOLDEN BRIDGE (live)](https://t27.ai/trinity-s3ai/) | Live hypothesis-discovery puzzle (not evidence; see game README) |
+
+> **For external reviewers:** start with
+> [`docs/REVIEW_GUIDE.md`](docs/REVIEW_GUIDE.md). It lists what to read,
+> what commands to run, and how to judge each kind of claim against
+> [`docs/CLAIM_STATUS.md`](docs/CLAIM_STATUS.md). The live GOLDEN BRIDGE
+> canvas is at <https://t27.ai/trinity-s3ai/>; CI status is shown by the
+> badges at the top of this file. Known blind spots and proof debt are
+> tracked in [`docs/TECH_TREE.md`](docs/TECH_TREE.md). **No Theory-of-
+> Everything claim and no prize claim is made.**
 
 ---
 
