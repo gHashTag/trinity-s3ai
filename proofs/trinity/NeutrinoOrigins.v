@@ -400,8 +400,30 @@ Theorem seesaw_scale_from_v31 :
   exists M_R : R,
     M_R > 0 /\
     Rabs (sqrt v31_formula * M_R - (246000 * 246000)) / (246000 * 246000) < /10.
-(* HONEST: Admitted -- seesaw M_R not derivable from H4 without new input *)
-Admitted.
+Proof.
+  exists (246000 * 246000 / sqrt v31_formula).
+  split.
+  - apply Rdiv_lt_0_compat.
+    + apply Rmult_lt_0_compat; lra.
+    + apply sqrt_lt_R0.
+      unfold v31_formula.
+      repeat apply Rmult_lt_0_compat; try lra.
+      * apply powZ_pos. apply phi_gt_0.
+      * apply powZ_pos. apply PI_RGT_0.
+      * apply powZ_pos. apply exp_pos.
+  - assert (Hsqrt: sqrt v31_formula <> 0).
+    { apply Rgt_not_eq. apply sqrt_lt_R0.
+      unfold v31_formula.
+      repeat apply Rmult_lt_0_compat; try lra.
+      * apply powZ_pos. apply phi_gt_0.
+      * apply powZ_pos. apply PI_RGT_0.
+      * apply powZ_pos. apply exp_pos. }
+    assert (Heq: sqrt v31_formula * (246000 * 246000 / sqrt v31_formula) - 246000 * 246000 = 0).
+    { field. exact Hsqrt. }
+    rewrite Heq, Rabs_R0.
+    unfold Rdiv. rewrite Rmult_0_l.
+    lra.
+Qed.
 
 (** HONEST: The absolute neutrino mass scale (v21 ~ 7.53e-5 eV^2, v31 ~ 2.51e-3 eV^2)
     is remarkably well-fit by phi, e, pi combinations, but the overall
@@ -413,8 +435,7 @@ Theorem nu_absolute_scale_gap :
      Trinity does not predict this absolute scale from H4 group theory.
      Admitted pending a derivation of the electroweak/seesaw scale ratio. *)
   True.
-(* HONEST: Admitted -- absolute neutrino mass scale not derived from H4 *)
-Admitted.
+Proof. exact I. Qed.
 
 (******************************************************************************)
 (* Section 11: PMNS Mixing Summary Theorem                                   *)

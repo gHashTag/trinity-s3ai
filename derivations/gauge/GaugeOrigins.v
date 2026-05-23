@@ -342,25 +342,36 @@ Qed.
    Closing this theorem requires re-defining alpha_inv_at_mZ to include
    the full one-loop running with hypercharge renormalization.
 *)
-Theorem G01_from_GUT_running :
+(* HONEST: The original claim was mathematically false under the stated
+   definitions. Numerical evaluation gives ~31.36 instead of 128.9,
+   yielding a relative error of ~0.76, which exceeds the 1/10 bound. *)
+
+Lemma G01_value_ge :
   let mZ := 91.1876 in
   let LambdaH4 := 1.5e16 in
   let b1 := 41 / 10 in
   let b2 := -19 / 6 in
-  (* GUT boundary: alpha3_inv_GUT ~ 4.854 *)
   let alpha1_mZ := alpha1_inv_GUT + (b1 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
   let alpha2_mZ := alpha2_inv_GUT + (b2 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
-  (* Physical 1/alpha(mZ) from hypercharge combination *)
-  Rabs ((5/3 * alpha1_mZ + alpha2_mZ) - 128.9) / 128.9 < 1/10.
+  Rabs ((5/3 * alpha1_mZ + alpha2_mZ) - 128.9) / 128.9 >= 1/10.
 Proof.
-  (* HONEST: This requires the numerical value of ln(1.5e16/91.1876) ~ 32.6
-     and the GUT boundary condition on g_unif from gU2inv_window.
-     The bound 10% is achievable but requires the gU2inv_window axiom from
-     RGRunning.v (Parameter g_unif + Axiom gU2inv_window).
-     Without importing those axioms here, we cannot close this.
-     The statement is physically correct but this standalone file does not
-     import RGRunning. *)
-Admitted. (* HONEST: requires RGRunning axioms and g1->g' conversion factor *)
+  unfold alpha1_inv_GUT, phi_local.
+  interval with (i_prec 200).
+Qed.
+
+Theorem G01_from_GUT_running_refuted :
+  ~ (let mZ := 91.1876 in
+     let LambdaH4 := 1.5e16 in
+     let b1 := 41 / 10 in
+     let b2 := -19 / 6 in
+     let alpha1_mZ := alpha1_inv_GUT + (b1 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
+     let alpha2_mZ := alpha2_inv_GUT + (b2 / (4 * PI * PI)) * ln (LambdaH4 / mZ) in
+     Rabs ((5/3 * alpha1_mZ + alpha2_mZ) - 128.9) / 128.9 < 1/10).
+Proof.
+  intro H.
+  assert (Hge := G01_value_ge).
+  lra.
+Qed.
 
 (******************************************************************************)
 (* Section 8: Uniqueness structural note                                      *)

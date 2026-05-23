@@ -1,0 +1,45 @@
+[package]
+name = "ring4_canvas"
+description = "Trinity Fold ring 4 — Rust canvas UI. Pure render-model + input layer over rings 0-3; optional wasm-bindgen glue for browser Canvas2D."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = []
+# Browser glue. Enable when building for wasm32-unknown-unknown via wasm-pack.
+wasm = ["dep:wasm-bindgen", "dep:web-sys", "dep:js-sys", "dep:console_error_panic_hook"]
+
+[dependencies]
+ring0_core = { workspace = true }
+ring1_constraints = { workspace = true }
+ring2_search = { workspace = true }
+ring3_adapters = { workspace = true }
+serde = { workspace = true }
+
+wasm-bindgen = { version = "0.2", optional = true }
+js-sys = { version = "0.3", optional = true }
+console_error_panic_hook = { version = "0.1", optional = true }
+
+[dependencies.web-sys]
+version = "0.3"
+optional = true
+features = [
+  "Window",
+  "Document",
+  "Element",
+  "HtmlElement",
+  "HtmlCanvasElement",
+  "CanvasRenderingContext2d",
+  "MouseEvent",
+  "KeyboardEvent",
+  "TextMetrics",
+  "DomRect",
+  "EventTarget",
+]
