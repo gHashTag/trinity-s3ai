@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GOLDEN BRIDGE — Rust canvas UI (games/trinity_fold)</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; padding: 0; background: #0b0e16; color: #e6ebf0;
+    font: 14px/1.4 ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  header { padding: 16px 20px 8px; }
+  header h1 { margin: 0; font-size: 18px; font-weight: 700; }
+  header p { margin: 4px 0 0; color: #8c97a6; font-size: 12px; }
+  #notice { margin: 8px 20px; padding: 10px 12px; border: 1px solid #443; background: #1c1a10;
+    border-radius: 6px; font-size: 12px; color: #e5d68c; }
+  #notice strong { color: #ffe070; }
+  #game-canvas { display: block; margin: 12px 20px; border: 1px solid #2a3142;
+    background: #0b0e16; image-rendering: pixelated; }
+  #fallback { margin: 12px 20px; padding: 12px; border: 1px dashed #555;
+    border-radius: 6px; font-size: 13px; color: #c9d4df; }
+  code { background: #1a2030; padding: 1px 6px; border-radius: 3px; font-size: 12px; }
+  a { color: #7ec5ff; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>GOLDEN BRIDGE — Rust canvas UI (ring 4)</h1>
+    <p>
+      Build a structural bridge between data and geometry — without collapsing it.
+      Pure-Rust render model + Canvas2D shell via wasm-bindgen. The game state lives
+      in <code>ring4_canvas::state::AppState</code>; JavaScript only forwards mouse/key
+      events and translates render primitives into draw calls.
+    </p>
+  </header>
+
+  <div id="notice">
+    <strong>Honesty notice.</strong>
+    GOLDEN BRIDGE is a hypothesis-discovery puzzle, not a proven Theory of
+    Everything. A high "bridge strength" only means the board passes more of
+    the illustrative consistency checks than alternatives. Every tile is gated
+    by a <code>claim status</code>; the worst such status is rendered next to
+    the total. A falsified tile collapses the bridge regardless of the rest.
+  </div>
+
+  <canvas id="game-canvas" width="1280" height="800"></canvas>
+
+  <div id="fallback" hidden>
+    <strong>WASM bundle missing.</strong> Build it once with:
+    <pre><code>cd games/trinity_fold
+wasm-pack build crates/ring4_canvas --target web --features wasm \
+  --out-dir ../../web/canvas/pkg</code></pre>
+    See <a href="../../docs/CANVAS.md">docs/CANVAS.md</a> for full build instructions
+    and the rationale for keeping the bundle out of version control.
+  </div>
+
+  <script type="module">
+    // The wasm-pack output lands at ./pkg/ring4_canvas.js next to this HTML.
+    // We try to import it; if missing (the bundle has not been built yet) we
+    // surface a friendly fallback explaining how to build.
+    try {
+      const mod = await import("./pkg/ring4_canvas.js");
+      await mod.default();
+      const app = new mod.TrinityFoldApp("game-canvas");
+      // Re-render on resize so the canvas matches its CSS box.
+      const cvs = document.getElementById("game-canvas");
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = Math.min(window.innerWidth - 40, 1600);
+        cvs.style.width = w + "px";
+        cvs.width = Math.floor(w * dpr);
+        cvs.height = Math.floor((w * 0.625) * dpr);
+        app.render();
+      };
+      window.addEventListener("resize", resize);
+      resize();
+    } catch (err) {
+      console.warn("ring4_canvas wasm bundle unavailable:", err);
+      document.getElementById("fallback").hidden = false;
+    }
+  </script>
+</body>
+</html>

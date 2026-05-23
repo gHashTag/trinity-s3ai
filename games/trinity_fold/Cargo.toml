@@ -5,6 +5,7 @@ members = [
     "crates/ring1_constraints",
     "crates/ring2_search",
     "crates/ring3_adapters",
+    "crates/ring4_canvas",
     "crates/app",
 ]
 
@@ -23,6 +24,7 @@ ring0_core = { path = "crates/ring0_core" }
 ring1_constraints = { path = "crates/ring1_constraints" }
 ring2_search = { path = "crates/ring2_search" }
 ring3_adapters = { path = "crates/ring3_adapters" }
+ring4_canvas = { path = "crates/ring4_canvas" }
 
 [profile.release]
 opt-level = 3
