@@ -159,6 +159,7 @@ impl TrinityFoldApp {
             "hill_climb" => UiEvent::RunHillClimb,
             "anneal" => UiEvent::RunAnneal { seed: 42, iters: 500 },
             "benchmark" => UiEvent::ToggleBenchmark,
+            "undo" => UiEvent::UndoLast,
             _ => return false,
         };
         let changed = self.state.borrow_mut().apply(ev);
