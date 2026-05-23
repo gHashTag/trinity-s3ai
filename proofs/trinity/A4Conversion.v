@@ -182,20 +182,16 @@ Theorem conversion_exact :
   conversion_factor = (704 + 192 * sqrt 5) / 19.
 Proof.
   unfold conversion_factor.
-  (* Substitute the simplified forms *)
   rewrite phi_fourth_scaled.
   rewrite denom_simplified.
-
-  (* We have (448 + 192*sqrt 5) / (8 + 3*sqrt 5) *)
-  (* Rationalize: multiply by conjugate (8 - 3*sqrt 5) / (8 - 3*sqrt 5) *)
-  (* [MATH_TODO] Pure algebraic identity involving sqrt 5; field/ring tactics
-     fail on nested sqrt expressions in Rocq 9.1.1. Proof exists on paper
-     (multiply top/bottom by conjugate and collect), but automation gaps. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation. A purely algebraic proof was verified in
-   isolation (field_simplify + Rsqr_sqrt + lra) but cannot be injected here. *)
-Admitted.
+  apply Rmult_eq_reg_r with (8 + 3 * sqrt 5).
+  2: { apply denominator_19. }
+  apply Rmult_eq_reg_r with 19.
+  2: { lra. }
+  field_simplify.
+  all: try ring_simplify; try rewrite pow2_sqrt by lra; try ring.
+  all: try apply denominator_19; try lra.
+Qed.
 
 (* ============================================================================ *)
 (* Combined Theorem: Full conversion chain                                      *)

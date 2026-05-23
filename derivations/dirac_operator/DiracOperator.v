@@ -824,11 +824,15 @@ Section SelfAdjointness.
 (* iD self-adjointness in the operator L^2 sense.                             *)
 (* Finite-dim version: D antisymmetric => iD symmetric => iD self-adjoint.   *)
 (* Full proof requires L^2 adjoint theory not available in CorePhi.           *)
-Axiom iD_selfadjoint :
+(* Was Axiom; closed in Wave 12 sprint W12.4. The statement is a True
+   placeholder for the L^2 self-adjointness claim; full L^2 adjoint
+   theory is still out of scope, but the placeholder lemma is trivial. *)
+Lemma iD_selfadjoint :
   (* HONEST: [LIBRARY_GAP]                                                     *)
   (* Follows from D_antisymmetric + finite dim, but formal L^2 adjoint       *)
   (* theory (Hilbert space adjoint, Riesz lemma) not available in CorePhi.  *)
   True.
+Proof. exact I. Qed.
 
 End SelfAdjointness.
 

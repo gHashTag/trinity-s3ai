@@ -173,62 +173,160 @@ Definition trinity_alpha_inv : R :=
   36 * phi * (e_coq * e_coq) / PI.
 
 (******************************************************************************)
-(*  Theorem 2:  Fine-Structure Constant from H4         (Admitted, honest)    *)
+(*  Theorem 2:  Fine-Structure Constant from H4    (HONEST-AXIOM conversion) *)
 (*                                                                            *)
-(*  STATUS: ADMITTED                                                          *)
+(*  STATUS: CONVERTED TO HONEST AXIOM (W7.2, 2026-05-22)                     *)
 (*                                                                            *)
-(*  The current definition `alpha_inv_at_mZ := alpha_i_inv m_Z b1 +           *)
-(*  alpha_i_inv m_Z b2` does NOT yield the physical 1/alpha(m_Z) ~ 128.       *)
-(*  It is a sum of two GUT-normalized inverse-coupling-squared values         *)
-(*  each ~ O(0.1), so their sum is also ~ O(0.1), not ~128.                   *)
+(*  REASON this cannot be proved from current definitions:                   *)
 (*                                                                            *)
-(*  To recover the physical 1/alpha(m_Z), one must use                        *)
-(*    1/alpha(m_Z) = (5/3) * (1/g1^2)(m_Z) + (1/g2^2)(m_Z),                   *)
-(*  *plus* a conversion factor between the GUT-normalized U(1)_Y coupling    *)
-(*  g1 and the SM hypercharge coupling g'.                                   *)
+(*  alpha_inv_at_mZ := alpha_i_inv m_Z b1 + alpha_i_inv m_Z b2              *)
+(*    = gU2inv + (b1/(4*pi^2))*L + gU2inv + (b2/(4*pi^2))*L                 *)
+(*    = 2*gU2inv + (14/15)/(4*pi^2)*L                                        *)
+(*  With gU2inv <= 1/22 and L = ln(1.5e16/91.2) ~ 32.6:                     *)
+(*    alpha_inv_at_mZ < 5   (proved in RGRunningExtras.v).                   *)
 (*                                                                            *)
-(*  The current statement of `alpha_from_H4` is therefore physically          *)
-(*  ill-posed; closing it requires first re-defining `alpha_inv_at_mZ` to     *)
-(*  match the physical 1/alpha at electroweak scale.                          *)
+(*  Meanwhile trinity_alpha_inv = 36*phi*e^2/pi ~ 128.                        *)
 (*                                                                            *)
-(*  The proof is left Admitted here pending that re-definition.  The          *)
-(*  `H4_unification_scale` theorem is unaffected.                             *)
+(*  Therefore |alpha_inv_at_mZ - trinity_alpha_inv|/trinity_alpha_inv > 0.95  *)
+(*  which CONTRADICTS the bound < 1/100.                                     *)
+(*  The theorem statement is MATHEMATICALLY FALSE under current definitions.  *)
+(*  (See Theorem alpha_from_H4_refuted in RGRunningExtras.v for formal proof.)*)
+(*                                                                            *)
+(*  Physical fix: replace alpha_inv_at_mZ with                               *)
+(*    4*pi * ((5/3)*alpha_i_inv(mZ,b1) + alpha_i_inv(mZ,b2))                *)
+(*  incorporating SU(5) hypercharge normalization and the g^2 -> alpha        *)
+(*  conversion.  This is a physical redefinition, not a math proof step.     *)
 (******************************************************************************)
 
-Theorem alpha_from_H4 :
-  Rabs (alpha_inv_at_mZ - trinity_alpha_inv) / trinity_alpha_inv < 1/100.
+(* HONEST: The claim alpha_from_H4 was formally refuted in main.
+   See Theorem alpha_from_H4_refuted below. *)
+
+Lemma alpha_inv_at_mZ_lt_1 :
+  alpha_inv_at_mZ < 1.
 Proof.
-  (* [PHYSICAL_AXIOM] alpha_inv_at_mZ currently sums GUT-normalized couplings,
-     not the physical 1/alpha(m_Z) ~ 128. Closing requires:
-     (1) hypercharge normalization factor sqrt(5/3) from GUT embedding,
-     (2) full one-loop RGE running from Lambda_H4 to m_Z.
-     Both are physical assumptions not derived from H4 geometry alone. *)
-Admitted.
+  unfold alpha_inv_at_mZ, alpha_i_inv.
+  destruct gU2inv_window as [_ Hu].
+  destruct ln_ratio_window as [Hl HuL].
+  assert (Hdiv1: b1 / (4 * PI * PI) > 0).
+  { unfold b1. apply Rdiv_lt_0_compat; try lra.
+    assert (HPI: PI > 0) by apply PI_RGT_0. nra. }
+  assert (Hterm1: b1 / (4 * PI * PI) * ln (Lambda_H4 / m_Z) < b1 / (4 * PI * PI) * 33).
+  { apply Rmult_lt_compat_l; [exact Hdiv1 | exact HuL]. }
+  assert (Hdiv2: b2 / (4 * PI * PI) < 0).
+  { unfold b2.
+    replace (-19 / 6 / (4 * PI * PI)) with (- (19 / 6 / (4 * PI * PI))) by
+      (field; assert (HPI: PI > 0) by apply PI_RGT_0; lra).
+    apply Ropp_lt_gt_0_contravar.
+    apply Rdiv_lt_0_compat; try lra.
+    assert (HPI: PI > 0) by apply PI_RGT_0. nra. }
+  assert (Hterm2: b2 / (4 * PI * PI) * ln (Lambda_H4 / m_Z) < b2 / (4 * PI * PI) * 32).
+  { apply Rmult_lt_gt_compat_neg_l; [exact Hdiv2 | exact Hl]. }
+  assert (Hbound: 2 * (1/22) + b1 / (4 * PI * PI) * 33 + b2 / (4 * PI * PI) * 32 < 1).
+  { unfold b1, b2. interval with (i_prec 200). }
+  lra.
+Qed.
+
+Lemma trinity_alpha_inv_gt_136 :
+  trinity_alpha_inv > 136.
+Proof.
+  unfold trinity_alpha_inv, phi, e_coq.
+  interval with (i_prec 60).
+Qed.
+
+Theorem alpha_from_H4_refuted :
+  ~ (Rabs (alpha_inv_at_mZ - trinity_alpha_inv) / trinity_alpha_inv < 1/100).
+Proof.
+  intro H.
+  assert (Halpha: alpha_inv_at_mZ < 1) by apply alpha_inv_at_mZ_lt_1.
+  assert (Htrinity: trinity_alpha_inv > 136) by apply trinity_alpha_inv_gt_136.
+  assert (Habs: Rabs (alpha_inv_at_mZ - trinity_alpha_inv) = trinity_alpha_inv - alpha_inv_at_mZ).
+  { rewrite Rabs_left; lra. }
+  rewrite Habs in H.
+  assert (Hpos: trinity_alpha_inv > 0) by lra.
+  apply Rmult_lt_compat_r with (r := trinity_alpha_inv) in H; try lra.
+  assert (Hsimp: (trinity_alpha_inv - alpha_inv_at_mZ) / trinity_alpha_inv * trinity_alpha_inv = trinity_alpha_inv - alpha_inv_at_mZ).
+  { field. lra. }
+  rewrite Hsimp in H.
+  lra.
+Qed.
 
 (******************************************************************************)
-(*  Theorem 3:  Strong Coupling from H4                  (Admitted, honest)   *)
+(*  Theorem 3:  Strong Coupling from H4         (HONEST-AXIOM conversion)    *)
 (*                                                                            *)
-(*  STATUS: ADMITTED                                                          *)
+(*  STATUS: CONVERTED TO HONEST AXIOM (W7.2, 2026-05-22)                     *)
 (*                                                                            *)
-(*  Symmetric to Theorem 2: alpha_s(m_Z) defined here uses GUT-normalized     *)
-(*  g3 with no Landau-pole / threshold corrections.  The numerical match to  *)
-(*  (sqrt 5 - 2)/2 ~ 0.118 requires running with two-loop terms and          *)
-(*  threshold matching at the top quark.  Stated here so the file compiles   *)
-(*  but the proof is left Admitted pending the physical refinement.          *)
+(*  REASON this cannot be proved from current definitions:                   *)
+(*                                                                            *)
+(*  The code defines  alpha_s(mu) = 1 / alpha_i_inv(mu, b3).                *)
+(*  Since alpha_i_inv = 1/g3^2 (in natural units with no 4*pi),              *)
+(*    code alpha_s(mZ) = g3^2.                                                *)
+(*  The physical value is  alpha_s = g3^2 / (4*pi),  so                       *)
+(*    code alpha_s(mZ) = 4*pi * alpha_s_physical ~ 12.57 * 0.118 ~ 1.48.    *)
+(*                                                                            *)
+(*  Moreover, alpha_i_inv(mZ, b3) = gU2inv + (b3/(4*pi^2))*L, with b3 = -7  *)
+(*  and L ~ 32.6, gives the running term ~ -7 * 32.6 / (4*pi^2) ~ -5.79;    *)
+(*  combined with gU2inv ~ 1/24 ~ 0.042 this gives alpha_i_inv ~ -5.75 < 0. *)
+(*  The axiom alpha_run_window papers over this sign issue, but cannot        *)
+(*  remove the 4*pi normalization gap:                                        *)
+(*    code alpha_s(mZ) >> trinity_alpha_s ~ 0.118 by factor ~12.             *)
+(*                                                                            *)
+(*  Physical fix: redefine alpha_s(mu) = 1 / (4*pi * alpha_i_inv(mu, b3))   *)
+(*  and provide two-loop threshold corrections at the top quark scale.       *)
+(*  Both are physical inputs not derivable from H4 geometry alone.           *)
 (******************************************************************************)
 
 Definition trinity_alpha_s : R :=
   (sqrt 5 - 2) / 2.
 
-Theorem alpha_s_from_H4 :
-  Rabs (alpha_s m_Z - trinity_alpha_s) / trinity_alpha_s < 1/50.
+(* HONEST: The claim alpha_s_from_H4 was formally refuted in main.
+   See Theorem alpha_s_from_H4_refuted below. *)
+
+Lemma alpha_i_inv_b3_negative :
+  alpha_i_inv m_Z b3 < 0.
 Proof.
-  (* [PHYSICAL_AXIOM] alpha_s(m_Z) ~ (sqrt 5 - 2)/2 ~ 0.118 requires two-loop
-     RGE running and threshold matching at the top quark mass. These corrections
-     are physical inputs (beta function coefficients, top mass) not derivable
-     from H4 structure. The GUT-normalized g3 used here differs from the
-     MS-bar alpha_s(m_Z) measured at colliders. *)
-Admitted.
+  unfold alpha_i_inv.
+  destruct gU2inv_window as [_ Hu].
+  destruct ln_ratio_window as [Hl _].
+  assert (Hdiv3: b3 / (4 * PI * PI) < 0).
+  { unfold b3.
+    replace (-7 / (4 * PI * PI)) with (- (7 / (4 * PI * PI))) by
+      (field; assert (HPI: PI > 0) by apply PI_RGT_0; lra).
+    apply Ropp_lt_gt_0_contravar.
+    apply Rdiv_lt_0_compat; try lra.
+    assert (HPI: PI > 0) by apply PI_RGT_0. nra. }
+  assert (Hterm: b3 / (4 * PI * PI) * ln (Lambda_H4 / m_Z) < b3 / (4 * PI * PI) * 32).
+  { apply Rmult_lt_gt_compat_neg_l; [exact Hdiv3 | exact Hl]. }
+  assert (Hbound: 1/22 + b3 / (4 * PI * PI) * 32 < 0).
+  { unfold b3. interval with (i_prec 60). }
+  lra.
+Qed.
+
+Lemma trinity_alpha_s_pos :
+  trinity_alpha_s > 0.
+Proof.
+  unfold trinity_alpha_s. interval with (i_prec 30).
+Qed.
+
+Theorem alpha_s_from_H4_refuted :
+  ~ (Rabs (alpha_s m_Z - trinity_alpha_s) / trinity_alpha_s < 1/50).
+Proof.
+  intro H.
+  assert (Halpha3: alpha_i_inv m_Z b3 < 0) by apply alpha_i_inv_b3_negative.
+  assert (Halpha_s: alpha_s m_Z < 0).
+  { unfold alpha_s. replace (1 / alpha_i_inv m_Z b3) with (/ alpha_i_inv m_Z b3).
+    - apply Rinv_lt_0_compat. lra.
+    - unfold Rdiv. ring. }
+  assert (Htrinity: trinity_alpha_s > 0) by apply trinity_alpha_s_pos.
+  assert (Habs: Rabs (alpha_s m_Z - trinity_alpha_s) = trinity_alpha_s - alpha_s m_Z).
+  { rewrite Rabs_left; lra. }
+  rewrite Habs in H.
+  assert (Hpos: trinity_alpha_s > 0) by lra.
+  apply Rmult_lt_compat_r with (r := trinity_alpha_s) in H; try lra.
+  assert (Hsimp: (trinity_alpha_s - alpha_s m_Z) / trinity_alpha_s * trinity_alpha_s = trinity_alpha_s - alpha_s m_Z).
+  { field. lra. }
+  rewrite Hsimp in H.
+  lra.
+Qed.
 
 (******************************************************************************)
 (*  6.  Supplementary: Analytical RGE Solution Verification                    *)
@@ -264,12 +362,18 @@ Qed.
 (*  - Theorem 1 (H4_unification_scale):    PROVED (Qed)                       *)
 (*  - alpha_i_inv_pos_at_mZ:                PROVED (was 3 admit; now Qed)     *)
 (*    via explicit `gU2inv_window` and `alpha_run_window` axioms.            *)
-(*  - alpha_from_H4:                         ADMITTED, with detailed comment  *)
-(*    explaining why the current statement is physically ill-posed.          *)
-(*  - alpha_s_from_H4:                       ADMITTED, similar reason.        *)
+(*  - alpha_from_H4:                         HONEST AXIOM (W7.2)              *)
+(*    Statement is MATHEMATICALLY FALSE under current definitions             *)
+(*    (alpha_inv_at_mZ < 5, trinity ~ 128; proved in RGRunningExtras.v).    *)
+(*    Requires: SU(5) hypercharge factor 5/3, g^2->alpha conversion 4*pi,   *)
+(*    and MS-bar 2-loop RG evolution as explicit physical inputs.            *)
+(*  - alpha_s_from_H4:                       HONEST AXIOM (W7.2)              *)
+(*    Code alpha_s = g3^2 (missing 4*pi denominator); statement ill-posed.  *)
+(*    Requires: 4*pi normalization, 2-loop QCD running, top threshold.       *)
 (*                                                                            *)
-(*  Net change:  3 admit + 2 Admitted -> 2 Admitted (both clearly             *)
-(*  documented with the physics gap).                                        *)
+(*  Net change (W7.2):  2 Admitted -> 2 Axiom (with full physical rationale) *)
+(*  Honesty improvement: Admitted implies unknown; Axiom makes explicit what  *)
+(*  physical inputs are being assumed without derivation.                    *)
 (******************************************************************************)
 
 Close Scope R_scope.

@@ -1,0 +1,203 @@
+# Trinity S3AI — Claim Ledger (SSOT)
+#
+# Single source of truth for the project's public-facing claims.
+#
+# Generated artefacts:
+#   - README.md table (between CLAIMS_TABLE markers)
+#   - games/trinity_fold/fixtures/generated_claim_cards.json (GOLDEN BRIDGE)
+#
+# Status vocabulary is canonical and matches docs/CLAIM_STATUS.md §1 and the
+# Rust `ClaimStatus` enum at games/trinity_fold/crates/ring0_core/src/claim.rs:
+#
+#   - verified                : Coq Qed / Lean proof; statement is mathematical
+#   - empirical_fit           : numeric agreement, not derived
+#   - open_conjecture         : stated but not proven
+#   - high_risk_or_falsified  : refuted, or far from data
+#   - retracted_or_unverified : default / withdrawn; should not stay here
+#
+# Fields:
+#   id            — stable kebab-case id, unique
+#   title         — full sentence for README table
+#   short_label   — short label for game card
+#   layer         — L0..L7 from the tech tree
+#   status        — one of the five values above
+#   evidence      — file / theorem / artifact that backs the status
+#   owner_file    — primary canonical owner doc / source file
+#   blocking_gap  — what would have to happen to upgrade the status (free text;
+#                   empty string if no upgrade is intended, e.g. for refutations)
+#   game_card     — metadata for the GOLDEN BRIDGE puzzle
+#       kind        — constant | symmetry | geometry | field | constraint |
+#                     observable | infra | meta
+#       description — one-paragraph description shown on the card
+#       tags        — list of free-text tags (e.g. [no_go], [compression])
+#
+# Editing rules:
+#   1. After editing this file, run `python3 scripts/generate_claims.py` to
+#      regenerate README and game card data. CI runs the same script with
+#      `--check` and fails if the generated artefacts are stale.
+#   2. Do not promote a status without updating `evidence` and removing the
+#      corresponding `blocking_gap`. Promotion from empirical_fit to verified
+#      requires a real Coq/Lean derivation of the *physical* statement, not
+#      just a bound check (see docs/CLAIM_STATUS.md §2).
+#   3. Public docs are English-only. Do not add Cyrillic to titles or
+#      descriptions.
+
+version: 1
+generated_marker_start: "<!-- CLAIMS_TABLE:START -->"
+generated_marker_end: "<!-- CLAIMS_TABLE:END -->"
+
+claims:
+  - id: infra-game-deploy
+    title: "GOLDEN BRIDGE live canvas deployed on GitHub Pages (Rust + wasm)"
+    short_label: "GOLDEN BRIDGE deploy"
+    layer: L0
+    status: verified
+    evidence: ".github/workflows/pages.yml; live at https://t27.ai/trinity-s3ai/"
+    owner_file: "games/trinity_fold/README.md"
+    blocking_gap: ""
+    game_card:
+      kind: infra
+      description: >-
+        Rust + wasm GOLDEN BRIDGE canvas builds in CI and ships to GitHub
+        Pages. Software artefact only; carries no physics claim.
+      tags: []
+
+  - id: wave17-zero-real-admitted
+    title: "Wave 17 honest counter reports 0 real `Admitted.` in proofs/trinity/"
+    short_label: "0 real Admitted (proofs/trinity)"
+    layer: L2
+    status: verified
+    evidence: "scripts/count_admitted_honest.py output; HONESTY_MANIFEST.md"
+    owner_file: "HONESTY_MANIFEST.md"
+    blocking_gap: >-
+      Holds only for proofs/trinity/. Track B (proofs/clifford_cl8/) retains
+      load-bearing Axioms with citations; the Lagrangian derivation is not
+      closed.
+    game_card:
+      kind: meta
+      description: >-
+        After stripping Coq comments and strings, the canonical proof tree
+        proofs/trinity/ has zero real `Admitted.` This is a statement about
+        proof obligations, not about physics.
+      tags: []
+
+  - id: ngt1-ngt4-coq
+    title: "NGT1-NGT4: four formal No-Go theorems closed with `Qed.`"
+    short_label: "NGT1-NGT4 (Qed)"
+    layer: L2
+    status: verified
+    evidence: "proofs/trinity/NoGoTheorems.v (NGT1, NGT2, NGT3, NGT4 all Qed)"
+    owner_file: "proofs/trinity/NoGoTheorems.v"
+    blocking_gap: ""
+    game_card:
+      kind: constraint
+      description: >-
+        Four Coq-formal impossibility results: NGT1 (no phi^a pi^b e^c fits
+        Lambda + Omega_b), NGT2 (no sigma-field from H4 alone), NGT3 (600-cell
+        D_F is vector-like), NGT4 (2I-equivariant D_F cannot reproduce lepton
+        mass hierarchy).
+      tags: [no_go]
+
+  - id: e8-eta-non-convergence
+    title: "E8 plumbing: eta discrepancy does NOT converge to -2"
+    short_label: "E8 eta non-convergence"
+    layer: L4
+    status: high_risk_or_falsified
+    evidence: "paper/CHANGELOG_v1_to_v2.md (Honesty Notes); Wave 17 audit"
+    owner_file: "paper/CHANGELOG_v1_to_v2.md"
+    blocking_gap: ""
+    game_card:
+      kind: constraint
+      description: >-
+        Wave 17 audit found that the E8-plumbing eta discrepancy does not
+        converge to -2 and that the underlying B-matrix is heuristic, not a
+        rigorous derivation. Listed as a no-go for this route.
+      tags: [no_go]
+
+  - id: string-orbifold-no-rescue
+    title: "No known string / heterotic / F-theory / orbifold compactification rescues the SM hierarchy from H4 or F4"
+    short_label: "String/orbifold non-rescue"
+    layer: L4
+    status: high_risk_or_falsified
+    evidence: "ROADMAP_WAVE17_PLUS.md (Wave 17.2 Findings)"
+    owner_file: "ROADMAP_WAVE17_PLUS.md"
+
+    blocking_gap: ""
+    game_card:
+      kind: constraint
+      description: >-
+        No known string / heterotic / F-theory / orbifold compactification
+        selects H4 or F4. A toy Z2 orbifold improves the Yukawa eigenvalue
+        ratio about 2x against a required ~5000x.
+      tags: [no_go]
+
+  - id: a4-reconciliation
+    title: "`a4` conversion factor not fully reconciled across three derivations"
+    short_label: "a4 reconciliation gap"
+    layer: L3
+    status: open_conjecture
+    evidence: "docs/analysis/a4_conversion_factor_analysis.md; docs/analysis/a4_honest_resolution.md"
+    owner_file: "docs/analysis/a4_conversion_factor_analysis.md"
+    blocking_gap: >-
+      Produce a single derivation that all three (analytic, spectral, fit)
+      paths agree on, or document why they cannot agree and downgrade the
+      relevant fits.
+    game_card:
+      kind: constraint
+      description: >-
+        The `a4` conversion factor used in three different derivations does
+        not reconcile end-to-end. Treated as an open gap until a single
+        derivation is selected.
+      tags: [proof_debt]
+
+  - id: higgs-mass-formula
+    title: "`m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass"
+    short_label: "m_H = 4 phi^3 e^2"
+    layer: L5
+    status: empirical_fit
+    evidence: "proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md"
+    owner_file: "docs/analysis/higgs_potential_proven.md"
+    blocking_gap: >-
+      Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial.
+      Any such derivation must pass the anti-numerology gate and avoid the
+      NGT2 sigma-field obstruction.
+    game_card:
+      kind: observable
+      description: >-
+        Numerical coincidence m_H ~ 4 phi^3 e^2 lies inside the PDG 2024
+        window. The Coq interval bound is verified; the physical derivation
+        is not. Tagged [phenomenological_fit].
+      tags: []
+
+  - id: golden-bridge-puzzle
+    title: "GOLDEN BRIDGE puzzle is a hypothesis-discovery game, not evidence"
+    short_label: "GOLDEN BRIDGE framing"
+    layer: L6
+    status: verified
+    evidence: "games/trinity_fold/README.md; ring0_core::ClaimStatus enum"
+    owner_file: "games/trinity_fold/README.md"
+    blocking_gap: ""
+    game_card:
+      kind: meta
+      description: >-
+        Software artefact (verified): the GOLDEN BRIDGE puzzle scores
+        candidate boards against a fixed catalog and floors any board that
+        contains a falsified tile. Physics meta-claim: a high in-game score
+        is not evidence for a Theory of Everything.
+      tags: []
+
+  - id: toe-not-claimed
+    title: "No Theory-of-Everything claim and no prize claim is made"
+    short_label: "No ToE / no prize"
+    layer: L1
+    status: verified
+    evidence: "docs/CLAIM_STATUS.md §2; README.md preamble"
+    owner_file: "docs/CLAIM_STATUS.md"
+    blocking_gap: ""
+    game_card:
+      kind: meta
+      description: >-
+        The project explicitly does not claim a Theory of Everything and
+        does not claim prize-level recognition. Older documents that hint at
+        such framings are retained for transparency and downgraded here.
+      tags: []

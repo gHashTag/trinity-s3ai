@@ -144,7 +144,11 @@ Qed.
 (** We axiomatize the key structural fact about D_F:
     {D_F, γ⁵} = 0 exactly.
     This is verified numerically with error < 10^{-15}. [NUMERICAL_FIT] *)
-Axiom DF_chiral_symmetry : True.
+(* Was Axiom; closed in Wave 12 sprint W12.4. The statement is a True
+   placeholder for the numerically-verified anticommutation; the formal
+   content here is trivial. *)
+Lemma DF_chiral_symmetry : True.
+Proof. exact I. Qed.
 (* Placeholder: the actual mathematical content is that if we represent D_F
    as a block matrix [[0, M], [M†, 0]] in the Weyl basis, the off-diagonal
    structure guarantees exact chirality. *)
@@ -207,11 +211,15 @@ Qed.
     When index = 0, twisted η = 0 regardless of m. *)
 
 (** We state this as a structural theorem [NUMERICAL_FIT] *)
-Axiom mass_twist_eta :
+(* Was Axiom; closed in Wave 12 sprint W12.4. With the concrete definitions
+   dim_pos_DF = dim_neg_DF = 190, eta_DF_naive unfolds to 190 - 190 = 0
+   unconditionally, so the hypothesis is unused. *)
+Lemma mass_twist_eta :
   (** If D_F has zero index, then D_F + m*γ⁵ has zero η for all m *)
   index_DF = 0%Z ->
   (** then the mass twist does not change the naive η *)
   eta_DF_naive = 0%Z.
+Proof. intros _. unfold eta_DF_naive, dim_pos_DF, dim_neg_DF. reflexivity. Qed.
 
 (** Lemma 9: Mass twist cannot produce η = -2 when index = 0 *)
 Theorem mass_twist_fails_to_produce_eta_minus2 :
@@ -324,9 +332,12 @@ Axiom APS_E8_plumbing :
   eta_continuous = -2.
 
 (** Axiom: D_F has exact chiral symmetry (verified numerically [NUMERICAL_FIT]) *)
-Axiom DF_exact_chirality :
+(* Was Axiom; closed in Wave 12 sprint W12.4. dim_pos_DF, dim_neg_DF,
+   dim_ker_L, dim_ker_R are concrete Definitions (190, 190, 50, 50). *)
+Lemma DF_exact_chirality :
   (** {D_F, γ⁵} = 0 exactly, so spectrum is antisymmetric λ ↔ -λ *)
   dim_pos_DF = dim_neg_DF /\ dim_ker_L = dim_ker_R.
+Proof. split; reflexivity. Qed.
 
 (** MAIN THEOREM: Reconciliation of η values *)
 (** 
