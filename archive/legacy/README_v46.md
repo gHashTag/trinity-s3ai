@@ -69,9 +69,9 @@
 | 7 | PMNS mixing | ✅ **PROVEN** | 0.0003% | (φe/π)⁶ for Δm²₂₁ | sin²θ₁₃ fixed |
 | 8 | Yukawa couplings | ✅ **PROVEN** | <0.1% | H4 overlap functions, all 9 y_f | Unchanged |
 | 9 | Gauge couplings | ✅ **PROVEN** | 0.024% | 1/α = 36φe²/π | Unchanged |
-| 10 | 3 generations | 🟡 **NOT DERIVED** — N_gen=3 is **input** from PDG, not output of H4 | exact | See [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md). `proofs/trinity/ThreeGenerations.v` formally proves NO H4 mechanism gives 3 from first principles; `AltCrystallography.v` states D4 triality is an Axiom (not theorem) and D4 ≠ H4 | Reframed in Wave 5 |
+| 10 | 3 generations | 🟡 **NOT DERIVED** — N_gen=3 is **input** from PDG, not output of H4 | exact | See [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md). `proofs/trinity/ThreeGenerations.v` formally proves NO H4 mechanism gives 3 from first principles; `AltCrystallography.v` states D4 triality is an Axiom (not theorem) and D4 ≠ H4 | Reframed in Wave 5 |
 | 11 | Ghost terms | ✅ **DOCUMENTED** | — | BV spectral triple (Iseppi-van Suijlekom) | Unchanged |
-| 12 | Strong CP | ⚠️ **OPEN** | — | No Coq theorem; "real D_F → θ=0" refuted in HARSH_REVIEW_v49.md §9 — see [STRONG_CP_HONEST_STATUS.md](STRONG_CP_HONEST_STATUS.md) | Wave 6 honesty pass |
+| 12 | Strong CP | ⚠️ **OPEN** | — | No Coq theorem; "real D_F → θ=0" refuted in HARSH_REVIEW_v49.md §9 — see [STRONG_CP_HONEST_STATUS.md](../../STRONG_CP_HONEST_STATUS.md) | Wave 6 honesty pass |
 | 13 | RG running | 📊 **CONSISTENT** | — | H4 boundary conditions at Λ~10¹⁵ GeV | Unchanged |
 
 **Honest completeness: 3/13 formally proven (m_H, gauge couplings, λ); 9/13 phenomenological fits; 1/13 open (RG running)** — see [`LAGRANGIAN_HONEST_STATUS.md`](../../docs/status/LAGRANGIAN_HONEST_STATUS.md). The earlier "92.3% PROVEN" framing conflated numerical fit with formal derivation and is withdrawn; see also [`lagrangian_roadmap.md`](../../docs/roadmaps/lagrangian_roadmap.md) (4 major gaps) and [`HARSH_REVIEW_v49.md`](../../docs/status/HARSH_REVIEW_v49.md).
@@ -80,8 +80,8 @@
 
 ## 5 Key Theorems (Unchanged)
 
-1. **N_generations = 3**: 🟡 **NOT DERIVED** — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md). The previously stated derivation chain (D4 triality S₃ → orbits of 3 on 600-cell → Γ(29) viability threshold → N=3) is **not formalized in any .v file**. The Coq corpus contains the **opposite** result: `ThreeGenerations.v` proves no H4 mechanism yields 3 generations from first principles. N_gen=3 is taken as empirical input, not derived.
-2. **Strong CP — OPEN** (Wave 6 honesty pass): the claim "real D_F → θ=0" is not formally proven and is internally inconsistent with the nonzero PMNS δ_CP prediction; spectral-action smooth cutoff *does not see* instantons (limitation, not solution). θ < 10⁻¹⁰ is the experimental bound, not a Trinity prediction. See [STRONG_CP_HONEST_STATUS.md](STRONG_CP_HONEST_STATUS.md).
+1. **N_generations = 3**: 🟡 **NOT DERIVED** — see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md). The previously stated derivation chain (D4 triality S₃ → orbits of 3 on 600-cell → Γ(29) viability threshold → N=3) is **not formalized in any .v file**. The Coq corpus contains the **opposite** result: `ThreeGenerations.v` proves no H4 mechanism yields 3 generations from first principles. N_gen=3 is taken as empirical input, not derived.
+2. **Strong CP — OPEN** (Wave 6 honesty pass): the claim "real D_F → θ=0" is not formally proven and is internally inconsistent with the nonzero PMNS δ_CP prediction; spectral-action smooth cutoff *does not see* instantons (limitation, not solution). θ < 10⁻¹⁰ is the experimental bound, not a Trinity prediction. See [STRONG_CP_HONEST_STATUS.md](../../STRONG_CP_HONEST_STATUS.md).
 3. **Higgs mass**: m_H = 4φ³e² = 125.20 GeV from 600-cell spectral action (0.09% error vs LHC) ∎
 4. **Yukawa couplings**: All 9 couplings from H4 overlap functions, |V_us| = 0.2243 (0.01% error) ∎
 5. **Gauge group**: SU(3)×SU(2)×U(1) from H4 reflection subgroups ∎
@@ -122,7 +122,7 @@ Source of truth: `FORMULAS.md` v4.0 (783 lines)
 | sin²θ₁₃ | 0.02200 | JUNO 0.0220±0.0007 | 2027 | ⏳ **Pending** (0.003% error) |
 | sin θ₁₃ | 0.14833 | JUNO 0.1484±0.0025 | 2027 | ⏳ **Pending** (0.001% error) |
 | m_νe | 0.103 eV | KATRIN <0.8 eV | 2025+ | ⏳ **Pending** |
-| δ_CP | **65.66°** (Coq lemma; physical interpretation withdrawn — see [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md)) | NuFIT-6.0 NO bf 177° ± 20°; T2K+NOvA 3σ NO [112°, 414°] | DUNE 2034–2037 | 🔴 **Already excluded at 5.6σ by current global fits** |
+| δ_CP | **65.66°** (Coq lemma; physical interpretation withdrawn — see [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md)) | NuFIT-6.0 NO bf 177° ± 20°; T2K+NOvA 3σ NO [112°, 414°] | DUNE 2034–2037 | 🔴 **Already excluded at 5.6σ by current global fits** |
 | λ_Higgs | 0.1295 | HL-LHC ~0.13±0.022 | 2030 | ⏳ **Pending** |
 | Σm_ν | 0.060 eV | Cosmology ~0.06-0.12 | 2025+ | ⏳ **Pending** |
 
@@ -137,8 +137,8 @@ Source of truth: `FORMULAS.md` v4.0 (783 lines)
 - 65.66° falls **outside the 3σ range** of every current global fit.
 - The earlier framing "high-stakes, DUNE 2028 decides" is replaced by: **current global data already substantially decide this against Trinity**; DUNE 2034–2037 will provide independent confirmation of what NuFIT-6.0 and T2K+NOvA already show.
 
-Updated falsification thresholds, full historical context, and discussion of which PMNS observables survive: [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md).
-Pre-registration (preserved as historical scientific record): [`dune_preregistration.md`](./dune_preregistration.md).
+Updated falsification thresholds, full historical context, and discussion of which PMNS observables survive: [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md).
+Pre-registration (preserved as historical scientific record): [`dune_preregistration.md`](../experiments/dune_preregistration.md).
 
 **What survives in the PMNS sector**: θ₁₂ (0.16σ), θ₁₃ (0.18σ) — both within 0.2σ of NuFIT-6.0 NO best fit. θ₂₃ is in 1.7σ tension (lower-octant prediction vs upper-octant fit). δ_CP is the only PMNS observable in catastrophic conflict.
 
@@ -164,7 +164,7 @@ Pre-registration (preserved as historical scientific record): [`dune_preregistra
 | Issue | Severity | Why It's Still Open |
 |-------|----------|-------------------|
 | **No peer-reviewed publication** | 🔴 Critical | Needs human endorser for hep-th arXiv category |
-| **δ_CP = 65.66° excluded at 5.6σ** | 🔴 Critical | NuFIT-6.0 NO bf 177° (3σ 124°–364°) and T2K+NOvA (3σ NO [112°, 414°]) both exclude 65.66° outside 3σ. Physical interpretation of δ_CP = 3/φ² is **withdrawn** pending DUNE 2034+; Coq lemma preserved as mathematical statement. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) |
+| **δ_CP = 65.66° excluded at 5.6σ** | 🔴 Critical | NuFIT-6.0 NO bf 177° (3σ 124°–364°) and T2K+NOvA (3σ NO [112°, 414°]) both exclude 65.66° outside 3σ. Physical interpretation of δ_CP = 3/φ² is **withdrawn** pending DUNE 2034+; Coq lemma preserved as mathematical statement. See [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md) |
 | **Needs arXiv endorser** | 🟡 Serious | Template ready but no endorser secured |
 | **Coq 47% compilation** | 🟡 Serious | 10 files fail on interval/numerical tactics. Not a dependency issue — individual fixes needed per file |
 
@@ -251,7 +251,7 @@ Of 551 integers reachable with 2 operations in [1,1000], only **45** have exactl
 | **Connes NCG (1990s)** | ~5 | ✅ **Yes** | ✅ Yes | ~2000 | Respected, post-hoc m_H fix |
 | **Trinity S³AI (2025)** | **130** | 3/13 formally proven (9 fit, 1 open) | ❌ No | **0** | **This project** |
 
-**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), 61 SG-class formulas, DUNE pre-registration, full uniqueness enumeration, honest a₄ documentation, **formal Coq no-go theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md) — a negative result is still a real result), and an explicit honesty pass (Waves 1-6) reconciling every public claim with `proofs/` (see STRONG_CP_HONEST_STATUS.md).
+**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), 61 SG-class formulas, DUNE pre-registration, full uniqueness enumeration, honest a₄ documentation, **formal Coq no-go theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md) — a negative result is still a real result), and an explicit honesty pass (Waves 1-6) reconciling every public claim with `proofs/` (see STRONG_CP_HONEST_STATUS.md).
 
 **What Connes has that Trinity doesn't**: Peer-reviewed publications, ~2000 citations, mathematical community acceptance, working RG running. (Direct "% of Lagrangian derived" comparisons with Connes are not apples-to-apples and have been removed; see [`LAGRANGIAN_HONEST_STATUS.md`](../../docs/status/LAGRANGIAN_HONEST_STATUS.md).)
 

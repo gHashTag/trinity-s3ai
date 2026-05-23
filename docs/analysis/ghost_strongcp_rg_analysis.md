@@ -6,7 +6,7 @@ solves Strong CP" is withdrawn.** It is not formally proven in `proofs/` and is
 > refuted internally in `HARSH_REVIEW_v49.md` §9 (smooth spectral cutoff
 > does not see instantons; framework predicts δ_CP ≠ 0 in PMNS from the same
 > D_F). For the canonical reconciliation see
-> [STRONG_CP_HONEST_STATUS.md](STRONG_CP_HONEST_STATUS.md).
+> [STRONG_CP_HONEST_STATUS.md](../../STRONG_CP_HONEST_STATUS.md).
 
 ## Executive Summary
 

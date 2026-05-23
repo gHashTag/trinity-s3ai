@@ -58,7 +58,7 @@ The pre-2024 combined "PDG δ_CP" was an average over heterogeneous experimental
 | v3.4 | **e/2 = 77.87°** | "Single fundamental constant" (gauge-symmetry handwave) | Excluded at ~5σ vs NuFIT-6.0 NO; 7.7σ vs old PDG-2024 |
 | v3.5+ | **3/φ² = 65.66°** | Best fit found by brute-force search over `a·φ^b·π^c·e^d` to match PDG-2024 = 65.5° | Excluded at 5.6σ vs NuFIT-6.0 NO; outside 3σ for all current fits |
 
-**Three formula revisions in pursuit of the same observable is the signature of post-hoc fitting, not first-principles prediction.** This is acknowledged in the project's own [`delta_cp_analysis.md`](./delta_cp_analysis.md) §6.2 Option B ("Replace with 3/φ²") and warned against in §5.2 ("Risk: Appears as post-hoc rationalization").
+**Three formula revisions in pursuit of the same observable is the signature of post-hoc fitting, not first-principles prediction.** This is acknowledged in the project's own [`delta_cp_analysis.md`](docs/experiments/delta_cp_analysis.md) §6.2 Option B ("Replace with 3/φ²") and warned against in §5.2 ("Risk: Appears as post-hoc rationalization").
 
 The `delta_cp_analysis.md` document itself was constructed against the **PDG-2024 target of 65.5° ± 1.6°** — a value that the more recent global fits have moved away from. The search algorithm did exactly what brute-force searches do: it found a simple closed form near the target. That target has since shifted.
 
@@ -98,7 +98,7 @@ The interpretation "the leptonic CP-violating phase δ_CP equals 3/φ²" is **ex
 
 ### As a **pre-registered falsifiable prediction**: PRESERVED AS HISTORICAL RECORD
 
-[`dune_preregistration.md`](./dune_preregistration.md) is left in place. Pre-registration is a legitimate scientific act; the prediction was made, hashed, and time-stamped. **What changes** is the interpretation: the prediction is **not** awaiting DUNE 2028 to settle a 50/50 question. It is **already in 5.6σ tension with current global data** and DUNE 2028+ will either:
+[`dune_preregistration.md`](docs/experiments/dune_preregistration.md) is left in place. Pre-registration is a legitimate scientific act; the prediction was made, hashed, and time-stamped. **What changes** is the interpretation: the prediction is **not** awaiting DUNE 2028 to settle a 50/50 question. It is **already in 5.6σ tension with current global data** and DUNE 2028+ will either:
 
 1. **Confirm the current 177° NO global fit** → Trinity δ_CP formula is **definitively falsified**.
 2. **Pull back toward 65°** → Trinity δ_CP formula is rehabilitated, and current global fits will themselves require explanation.
@@ -109,7 +109,7 @@ The honest framing is **scenario 1 is far more likely** given the current eviden
 
 ## 5. Updated falsification thresholds
 
-Replacing the thresholds in [`dune_preregistration.md`](./dune_preregistration.md) §5 with thresholds anchored to **current global best fits**, not to the Trinity value:
+Replacing the thresholds in [`dune_preregistration.md`](docs/experiments/dune_preregistration.md) §5 with thresholds anchored to **current global best fits**, not to the Trinity value:
 
 | DUNE measurement (by ~2032) | Implication for Trinity δ_CP = 65.66° |
 |---|---|

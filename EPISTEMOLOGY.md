@@ -27,7 +27,7 @@ This doctrine governs how Trinity S³AI treats tension between its first-princip
 | Replication | Deterministic (re-run the proof) | Requires independent apparatus + analysis |
 | Model dependence | Self-contained | Conditional on detector + Standard Model assumptions |
 
-A 1325-Qed Coq proof of `δ_CP = 3/φ²` (see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md)) is **deterministic**: re-run the proof checker and you get the same number forever. A NuFIT-6.0 extraction of δ_CP is **conditional**: change the nuclear interaction model used by T2K, and the extracted value shifts.
+A 1325-Qed Coq proof of `δ_CP = 3/φ²` (see [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)) is **deterministic**: re-run the proof checker and you get the same number forever. A NuFIT-6.0 extraction of δ_CP is **conditional**: change the nuclear interaction model used by T2K, and the extracted value shifts.
 
 This is not a criticism of experimentalists. It is a statement about what kind of object each side of the equation is.
 
@@ -153,9 +153,9 @@ All predictions are pre-registered in [`PREDICTIONS_PREREGISTERED.md`](./PREDICT
 ### 5.4 Sequencing
 
 The honesty pass waves are **not** withdrawals. They are reframings:
-- **Wave 1**: Lagrangian 92.3% claim → 3/13 sectors formally proven, 9 phenomenological, 1 open (see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md)). The 9 phenomenological sectors are predictions to be tested, not failures.
+- **Wave 1**: Lagrangian 92.3% claim → 3/13 sectors formally proven, 9 phenomenological, 1 open (see [`LAGRANGIAN_HONEST_STATUS.md`](docs/status/LAGRANGIAN_HONEST_STATUS.md)). The 9 phenomenological sectors are predictions to be tested, not failures.
 - **Wave 2**: δ_CP "physical interpretation withdrawn" language is itself revised by **this** doctrine. δ_CP = 3/φ² is a pre-registered prediction with a model-dependent extraction in tension; not a refuted formula. See [§3](#3-the-δ_cp-case-specifically) above and `DELTA_CP_HONEST_STATUS.md` (updated in this wave).
-- **Wave 3**: Coq metrics reconciled (see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md)). The proof corpus is the substrate on which calculation primacy rests.
+- **Wave 3**: Coq metrics reconciled (see [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)). The proof corpus is the substrate on which calculation primacy rests.
 - **Wave 4 (this)**: Establishes the epistemological frame that all previous waves implicitly assumed.
 
 ---
@@ -215,7 +215,7 @@ That is the Wave 4 stance, and it is the stance of all subsequent documentation.
 - [Quanta Magazine (2018): Neutron Lifetime Puzzle Deepens](https://www.quantamagazine.org/neutron-lifetime-puzzle-deepens-but-no-dark-matter-seen-20180213/)
 - [NuFIT-6.0 (arXiv:2410.05380)](https://arxiv.org/abs/2410.05380)
 - [T2K+NOvA Nature (2025)](https://www.nature.com/articles/s41586-025-09599-3)
-- [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md), [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md), [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md), [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md)
+- [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md), [`LAGRANGIAN_HONEST_STATUS.md`](docs/status/LAGRANGIAN_HONEST_STATUS.md), [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md), [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md)
 
 ---
 

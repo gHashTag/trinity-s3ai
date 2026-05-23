@@ -2,7 +2,7 @@
 ## "What to Improve Next: Highest Impact Actions"
 
 **Date:** 2026-05-23
-**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) and [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md); **calculation-primacy doctrine** governs treatment of model-dependent extractions — see [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md); **9 pre-registered predictions** (4 confirmed, 5 open) — see [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md); **all honesty-pass PRs merged** (#21–#23, #29, #31, #32) — six withdrawn/reconciled claims.
+**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) and [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md); **calculation-primacy doctrine** governs treatment of model-dependent extractions — see [`EPISTEMOLOGY.md`](../../EPISTEMOLOGY.md); **9 pre-registered predictions** (4 confirmed, 5 open) — see [`PREDICTIONS_PREREGISTERED.md`](../../PREDICTIONS_PREREGISTERED.md); **all honesty-pass PRs merged** (#21–#23, #29, #31, #32) — six withdrawn/reconciled claims.
 **Critical Issue:** delta_CP = 65.66° excluded at 5.6sigma by NuFIT-6.0 NO best fit 177° and outside 3sigma of T2K+NOvA joint analysis (Nature, Oct 2025); physical interpretation withdrawn. 0 peer-reviewed publications.
 
 ---
@@ -57,7 +57,7 @@ P2 (Impact/Effort < 1.0):  Do when P0/P1 complete
 These 5 actions can be completed in 1-3 days each and will significantly impress reviewers:
 
 ### QW1: OSF Pre-registration (1 day) — IMPACT: 8/10
-**Action (HISTORICAL — OBSOLETED 2026-05-23):** ~~Register the delta_CP = 65.66 prediction on the Open Science Framework (osf.io)~~ — Do NOT pre-register a prediction already excluded at 5.6sigma by current global fits. The existing `dune_preregistration.md` document is preserved as historical record of the original act, but new OSF registration of an already-falsified value would be misleading. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md).
+**Action (HISTORICAL — OBSOLETED 2026-05-23):** ~~Register the delta_CP = 65.66 prediction on the Open Science Framework (osf.io)~~ — Do NOT pre-register a prediction already excluded at 5.6sigma by current global fits. The existing `dune_preregistration.md` document is preserved as historical record of the original act, but new OSF registration of an already-falsified value would be misleading. See [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md).
 
 **Why it impresses:**
 - Shows scientific integrity — pre-committing to a falsifiable prediction
@@ -207,7 +207,7 @@ These 5 actions transform the project from "interesting idea" to "serious conten
 
 **What sector #13 likely is:** Based on the FINAL_STATUS_v44.md, the 13 sectors are:
 1. Gauge kinetic, 2. Higgs lambda, 3. Higgs m_H, 4. Higgs potential, 5. Lepton/quark masses,
-6. CKM mixing, 7. PMNS mixing, 8. Yukawa, 9. Gauge couplings, 10. 3 generations (🟡 **NOT DERIVED** — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md); N_gen=3 is empirical input, no H4 mechanism yields it per `proofs/trinity/ThreeGenerations.v`),
+6. CKM mixing, 7. PMNS mixing, 8. Yukawa, 9. Gauge couplings, 10. 3 generations (🟡 **NOT DERIVED** — see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md); N_gen=3 is empirical input, no H4 mechanism yields it per `proofs/trinity/ThreeGenerations.v`),
 11. Ghost terms, 12. Strong CP, 13. RG running
 
 **RG running (sector 13)** is the hardest because:
@@ -476,7 +476,7 @@ a mathematical statement. The pre-registration document is preserved
 as a historical scientific record. See DELTA_CP_HONEST_STATUS.md."
 ```
 
-**Verdict:** Do NOT claim the data is wrong. The two modern global fits (NuFIT-6.0 and T2K+NOvA Nature 2025) **both exclude 65.66° outside 3sigma**. The honest framing is now: **current global data already substantially disfavor 65.66°**; DUNE 2034–2037 will provide independent confirmation. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md).
+**Verdict:** Do NOT claim the data is wrong. The two modern global fits (NuFIT-6.0 and T2K+NOvA Nature 2025) **both exclude 65.66° outside 3sigma**. The honest framing is now: **current global data already substantially disfavor 65.66°**; DUNE 2034–2037 will provide independent confirmation. See [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md).
 
 ---
 
@@ -492,7 +492,7 @@ as a historical scientific record. See DELTA_CP_HONEST_STATUS.md."
 **Analysis:**
 - If DUNE measures ~177°, Trinity's PMNS mixing sector fails
 - BUT: 12 other Lagrangian sectors remain valid
-- The Higgs mass, gauge couplings, λ, and PMNS θ₁₂/θ₁₃ results remain independent and intact. (The N_gen=3 "theorem" and "Strong CP solution" have been withdrawn by the Wave 5–6 honesty pass — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md) and STRONG_CP_HONEST_STATUS.md.)
+- The Higgs mass, gauge couplings, λ, and PMNS θ₁₂/θ₁₃ results remain independent and intact. (The N_gen=3 "theorem" and "Strong CP solution" have been withdrawn by the Wave 5–6 honesty pass — see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md) and STRONG_CP_HONEST_STATUS.md.)
 - Frame: "The H4 geometric structure correctly describes gauge couplings, Higgs sector, and charged lepton masses. The mapping to neutrino mixing parameters requires revision. This is a targeted failure, not a framework collapse."
 
 **Precedent:** Connes' NCG initially predicted m_H = 170 GeV (wrong!). The framework survived because the core structure (spectral action) was sound. The Higgs mass was revised, not the entire theory.

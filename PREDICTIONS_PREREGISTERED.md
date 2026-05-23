@@ -60,10 +60,10 @@ Each prediction has five fields:
 | Field | Value |
 |---|---|
 | **Predicted value** | Trinity computes `a₄ = (704 + 192√5)/19 ≈ 59.6487` |
-| **Coq theorem** | Formalized in Coq (see `proofs/trinity/Catalog42.v`, [`README_v46.md` row 3](./README_v46.md)) |
+| **Coq theorem** | Formalized in Coq (see `proofs/trinity/Catalog42.v`, [`README_v46.md` row 3](archive/legacy/README_v46.md)) |
 | **Current extraction** | Phenomenological target is ~60; observed ratio is `≈ 1.0006 × predicted`, a 0.59% offset |
 | **Falsification threshold** | A model-independent derivation (from H4 alone, no auxiliary input) producing a value outside `[59.5, 60.5]` and **matching observation** would falsify the H4 hypothesis; alternatively, exact-integer 60 emerging as the true target with no algebraic interpretation would weaken the H4 claim |
-| **NOT falsification** | The 0.59% offset itself — Trinity is honest that this is not exactly 60 ([`README_v46.md` row 3](./README_v46.md)) |
+| **NOT falsification** | The 0.59% offset itself — Trinity is honest that this is not exactly 60 ([`README_v46.md` row 3](archive/legacy/README_v46.md)) |
 | **Status** | **OPEN — formalized as exact algebraic number, phenomenological target unclear** |
 
 ---
@@ -97,7 +97,7 @@ Each prediction has five fields:
 | Field | Value |
 |---|---|
 | **Predicted value** | `m_H = 125.10 GeV` |
-| **Coq theorem** | `HiggsPrediction.v` (0 Admitted, verified in [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md)) |
+| **Coq theorem** | `HiggsPrediction.v` (0 Admitted, verified in [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)) |
 | **Current measurement** | ATLAS+CMS direct invariant-mass reconstruction: `m_H = 125.20 ± 0.11 GeV` |
 | **Status** | **CONFIRMED at 0.09%** |
 
@@ -165,9 +165,9 @@ The four confirmations are all against **model-clean measurements** (direct inva
 
 - **Freeze date**: 2026-05-23 (this PR merge)
 - **Parent waves**:
-  - Wave 1: [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md) (PR #21)
+  - Wave 1: [`LAGRANGIAN_HONEST_STATUS.md`](docs/status/LAGRANGIAN_HONEST_STATUS.md) (PR #21)
   - Wave 2: [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) (PR #22; reframed by Wave 4)
-  - Wave 3: [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md) (PR #23)
+  - Wave 3: [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md) (PR #23)
   - **Wave 4 (this)**: [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md) + this document
 - **Modification policy**: predictions can be **added** but not **changed** after freeze. Any modification to an existing prediction must be a new entry P10+ with explicit cross-reference. Post-hoc parameter tuning would violate Wave 4 doctrine and be detectable in git history.
 

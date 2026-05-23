@@ -75,8 +75,8 @@ Proof.
             alg_mul := C_mul;
             alg_smul := C_smul;
             alg_opp := C_opp |}.
-  all: admit.
-Admitted.
+  all: intros; apply injective_projections; simpl; ring.
+Defined.
 
 (******************************************************************************)
 (* Section 3: The quadratic form Q(v) = -v² on ℝ¹                           *)
@@ -96,41 +96,37 @@ Definition Q_01 (v : Vec 1) : R := - v (mkFin 0%nat zero_lt_one) ^ 2.
 (*   - cl_sq: i(v)² = -v² · (1,0) = Q(v) · 1                                  *)
 (******************************************************************************)
 
-Definition i_01 (v : Vec 1) : C_carrier :=
+Definition i_01 (v : Vec 1) : carrier C_RAlgebra :=
   C_smul (v (mkFin 0%nat zero_lt_one)) (0, 1).
 
 Lemma i_01_cl_sq : forall v : Vec 1,
   C_mul (i_01 v) (i_01 v) = C_smul (Q_01 v) C_one.
 Proof.
   intro v. unfold i_01, Q_01, C_mul, C_smul, C_one. simpl.
-  remember (v (mkFin 0%nat zero_lt_one)) as r.
-  f_equal; ring.
+  apply injective_projections; simpl; ring.
 Qed.
 
 Lemma i_01_linear : forall v w : Vec 1,
   i_01 (vec_add v w) = C_add (i_01 v) (i_01 w).
 Proof.
   intros v w. unfold i_01, C_add, vec_add. simpl.
-  remember (v (mkFin 0%nat zero_lt_one)) as rv.
-  remember (w (mkFin 0%nat zero_lt_one)) as rw.
-  f_equal; ring.
+  apply injective_projections; simpl; ring.
 Qed.
 
 Lemma i_01_smul : forall (r : R) (v : Vec 1),
   i_01 (vec_smul r v) = C_smul r (i_01 v).
 Proof.
   intros r v. unfold i_01, vec_smul, C_smul. simpl.
-  remember (v (mkFin 0%nat zero_lt_one)) as rv.
-  f_equal; ring.
+  apply injective_projections; simpl; ring.
 Qed.
 
 Definition Cl01_spec : CliffordSpec 0 1.
 Proof.
   refine {| cl_alg := C_RAlgebra;
-            cl_inj := i_01;
+            cl_inc := i_01;
             cl_sq := i_01_cl_sq;
-            cl_linear := i_01_linear;
-            cl_smul := i_01_smul |}.
+            cl_inc_add := i_01_linear;
+            cl_inc_smul := i_01_smul |}.
 Defined.
 
 (******************************************************************************)
@@ -159,7 +155,7 @@ Theorem Cl01_universal_property (A : RAlgebra)
   (f_smul : forall r v, f (vec_smul r v) = alg_smul A r (f v))
   (f_clifford : forall v, alg_mul A (f v) (f v) = alg_smul A (Q_01 v) (alg_one A)) :
   exists (f_tilde : AlgHom Cl01_spec A),
-    forall v, hom_fn f_tilde (cl_inj Cl01_spec v) = f v.
+    forall v, hom_fn f_tilde (cl_inc Cl01_spec v) = f v.
 Proof.
   (* Construct f_tilde on the basis element e1 *)
   (* Any element of Cl(0,1) = ℂ is (a,b) = a·1 + b·i_01(e1) *)
