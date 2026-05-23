@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "source": "docs/claims.yaml",
+  "generator": "scripts/generate_claims.py",
+  "cards": [
+    {
+      "id": "infra-game-deploy",
+      "kind": "infra",
+      "name": "GOLDEN BRIDGE deploy",
+      "description": "Rust + wasm GOLDEN BRIDGE canvas builds in CI and ships to GitHub Pages. Software artefact only; carries no physics claim.",
+      "claim": "verified",
+      "layer": "L0",
+      "evidence": ".github/workflows/pages.yml; live at https://t27.ai/trinity-s3ai/",
+      "owner_file": "games/trinity_fold/README.md",
+      "blocking_gap": "",
+      "tags": []
+    },
+    {
+      "id": "wave17-zero-real-admitted",
+      "kind": "meta",
+      "name": "0 real Admitted (proofs/trinity)",
+      "description": "After stripping Coq comments and strings, the canonical proof tree proofs/trinity/ has zero real `Admitted.` This is a statement about proof obligations, not about physics.",
+      "claim": "verified",
+      "layer": "L2",
+      "evidence": "scripts/count_admitted_honest.py output; HONESTY_MANIFEST.md",
+      "owner_file": "HONESTY_MANIFEST.md",
+      "blocking_gap": "Holds only for proofs/trinity/. Track B (proofs/clifford_cl8/) retains load-bearing Axioms with citations; the Lagrangian derivation is not closed.",
+      "tags": []
+    },
+    {
+      "id": "ngt1-ngt4-coq",
+      "kind": "constraint",
+      "name": "NGT1-NGT4 (Qed)",
+      "description": "Four Coq-formal impossibility results: NGT1 (no phi^a pi^b e^c fits Lambda + Omega_b), NGT2 (no sigma-field from H4 alone), NGT3 (600-cell D_F is vector-like), NGT4 (2I-equivariant D_F cannot reproduce lepton mass hierarchy).",
+      "claim": "verified",
+      "layer": "L2",
+      "evidence": "proofs/trinity/NoGoTheorems.v (NGT1, NGT2, NGT3, NGT4 all Qed)",
+      "owner_file": "proofs/trinity/NoGoTheorems.v",
+      "blocking_gap": "",
+      "tags": [
+        "no_go"
+      ]
+    },
+    {
+      "id": "e8-eta-non-convergence",
+      "kind": "constraint",
+      "name": "E8 eta non-convergence",
+      "description": "Wave 17 audit found that the E8-plumbing eta discrepancy does not converge to -2 and that the underlying B-matrix is heuristic, not a rigorous derivation. Listed as a no-go for this route.",
+      "claim": "high_risk_or_falsified",
+      "layer": "L4",
+      "evidence": "paper/CHANGELOG_v1_to_v2.md (Honesty Notes); Wave 17 audit",
+      "owner_file": "paper/CHANGELOG_v1_to_v2.md",
+      "blocking_gap": "",
+      "tags": [
+        "no_go"
+      ]
+    },
+    {
+      "id": "string-orbifold-no-rescue",
+      "kind": "constraint",
+      "name": "String/orbifold non-rescue",
+      "description": "No known string / heterotic / F-theory / orbifold compactification selects H4 or F4. A toy Z2 orbifold improves the Yukawa eigenvalue ratio about 2x against a required ~5000x.",
+      "claim": "high_risk_or_falsified",
+      "layer": "L4",
+      "evidence": "ROADMAP_WAVE17_PLUS.md (Wave 17.2 Findings)",
+      "owner_file": "ROADMAP_WAVE17_PLUS.md",
+      "blocking_gap": "",
+      "tags": [
+        "no_go"
+      ]
+    },
+    {
+      "id": "a4-reconciliation",
+      "kind": "constraint",
+      "name": "a4 reconciliation gap",
+      "description": "The `a4` conversion factor used in three different derivations does not reconcile end-to-end. Treated as an open gap until a single derivation is selected.",
+      "claim": "open_conjecture",
+      "layer": "L3",
+      "evidence": "docs/analysis/a4_conversion_factor_analysis.md; docs/analysis/a4_honest_resolution.md",
+      "owner_file": "docs/analysis/a4_conversion_factor_analysis.md",
+      "blocking_gap": "Produce a single derivation that all three (analytic, spectral, fit) paths agree on, or document why they cannot agree and downgrade the relevant fits.",
+      "tags": [
+        "proof_debt"
+      ]
+    },
+    {
+      "id": "higgs-mass-formula",
+      "kind": "observable",
+      "name": "m_H = 4 phi^3 e^2",
+      "description": "Numerical coincidence m_H ~ 4 phi^3 e^2 lies inside the PDG 2024 window. The Coq interval bound is verified; the physical derivation is not. Tagged [phenomenological_fit].",
+      "claim": "empirical_fit",
+      "layer": "L5",
+      "evidence": "proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md",
+      "owner_file": "docs/analysis/higgs_potential_proven.md",
+      "blocking_gap": "Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the NGT2 sigma-field obstruction.",
+      "tags": []
+    },
+    {
+      "id": "golden-bridge-puzzle",
+      "kind": "meta",
+      "name": "GOLDEN BRIDGE framing",
+      "description": "Software artefact (verified): the GOLDEN BRIDGE puzzle scores candidate boards against a fixed catalog and floors any board that contains a falsified tile. Physics meta-claim: a high in-game score is not evidence for a Theory of Everything.",
+      "claim": "verified",
+      "layer": "L6",
+      "evidence": "games/trinity_fold/README.md; ring0_core::ClaimStatus enum",
+      "owner_file": "games/trinity_fold/README.md",
+      "blocking_gap": "",
+      "tags": []
+    },
+    {
+      "id": "toe-not-claimed",
+      "kind": "meta",
+      "name": "No ToE / no prize",
+      "description": "The project explicitly does not claim a Theory of Everything and does not claim prize-level recognition. Older documents that hint at such framings are retained for transparency and downgraded here.",
+      "claim": "verified",
+      "layer": "L1",
+      "evidence": "docs/CLAIM_STATUS.md \u00a72; README.md preamble",
+      "owner_file": "docs/CLAIM_STATUS.md",
+      "blocking_gap": "",
+      "tags": []
+    }
+  ]
+}

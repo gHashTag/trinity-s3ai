@@ -30,6 +30,13 @@ Qed.
 
 (******************************************************************************)
 (* Section 1: delta_CP = 3/phi^2 = 65.66 degrees                              *)
+(*                                                                            *)
+(* IN CRISIS (Wave 17, 2026-05-23):                                           *)
+(*   This prediction is excluded at >5 sigma by NuFit 6.0 global fits         *)
+(*   (best fit ~212 degrees for Normal Ordering with Super-Kamiokande) and    *)
+(*   at >10 sigma by T2K 2025 + NOvA data (~270 degrees).                     *)
+(*   See derivations/delta_cp_crisis/Wave16_investigation.md.                 *)
+(*   The formula is RETRACTED as a reliable prediction.                       *)
 (******************************************************************************)
 
 Definition delta_CP_pred : R := 3 / phi^2.
@@ -142,6 +149,12 @@ Qed.
 
 (******************************************************************************)
 (* Section 7: Combined falsifiability theorem                                 *)
+(*                                                                            *)
+(* WARNING: The delta_CP component of this theorem relies on the RETRACTED    *)
+(* 65.66 degree prediction. The theorem is retained as a historical record    *)
+(* of the project's pre-registered falsifiability claim. Modern data have     *)
+(* already excluded the delta_CP prediction at >5 sigma.                      *)
+(* See derivations/delta_cp_crisis/Wave16_investigation.md.                   *)
 (******************************************************************************)
 
 Theorem Trinity_predictions_2030 :

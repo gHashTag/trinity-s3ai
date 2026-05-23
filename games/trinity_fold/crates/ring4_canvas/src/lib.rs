@@ -34,6 +34,7 @@ pub use bridge::{BridgeIntegrity, BridgeView, SpanNode, SpanStatus};
 pub use input::{InputAction, KeyCode, UiEvent};
 pub use recipes::{Recipe, builtin_recipes};
 pub use render::{Color, RenderModel, RenderPrimitive, Theme, ViewportSize, layout};
+pub use ring3_adapters::{GeneratedClaimCard, GeneratedClaimDeck, embedded_claim_deck};
 pub use state::{AppState, ViewOptions};
 
 /// Product / concept name surfaced in the UI header. The crate folder

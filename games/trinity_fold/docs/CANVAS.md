@@ -1,5 +1,79 @@
 # Rust canvas UI (ring 4)
 
+## How to play (3 steps)
+
+GOLDEN BRIDGE is a kid-friendly hypothesis-discovery puzzle. The goal is to
+*light four bridge stones* by picking matched pairs of cards. The bridge
+stays stable as long as you avoid falsified (red ⚠) cards.
+
+1. **Pick a BLUE Data card** in the left strip (e.g. "Higgs Mass",
+   "Light Strength"). These are things we measure in the real world.
+2. **Pick a PURPLE Geometry card** in the right strip (e.g. "Weak Force",
+   "Golden Shape (H4)"). These are math/symmetry pieces we *imagine*.
+3. **Watch the four stones on the deck light up.** Each safe pair lights
+   one stone. Light four and the hero line reads `BRIDGE STABLE!`. Click a
+   red ⚠ card and the bridge cracks — the honesty floor catches falsified
+   ideas regardless of how shiny the rest of the board is.
+
+Buttons under the bridge:
+
+| Button | What it does |
+|---|---|
+| **Start over (C)** | Clear the bridge and start fresh. |
+| **Undo last (U)** | Remove only the most recently picked card (single-step undo). |
+| **Hint (H)** | Hill-climb one step toward a higher-scoring board. |
+| **Auto-build (A)** | Run a fixed-seed simulated anneal — the game plays itself. |
+| **Honest mode (B)** | Hide held-out observables (cosmological constant, mt/mb) so the score only reflects predicted-vs-known matches the player could *not* peek at. |
+| **Try Recipe** | Chips in the dedicated rail between the toolbar and the card strips load a built-in starter set (Standard-Model core, H4/600-cell, Anomaly audit). |
+
+### Design intent (UX rationale)
+
+The stage is sized for a **16:9 viewport (1280x720)** and follows mainstream
+puzzle-game UX best practices rather than dashboard conventions:
+
+* **One primary action per state.** A single hero line above the deck tells
+  the player what to do next: *"Step 1: Pick a BLUE Data card"*, then
+  *"Step 2: Pick a PURPLE Geometry card"*, then *"Light 4 stones to win."*
+  No multi-paragraph wall of onboarding text.
+* **Bridge is visually dominant.** It occupies ~62% of the viewport height
+  with two short chunky tower-islands (low pedestals, not tall pillars),
+  a tall plank-textured deck, four large numbered stones (instead of eight
+  micro-pips) with ghost-glow placeholders on unlit slots, and a visible
+  space-fold halo. The win state is readable at a glance, and empty slots
+  read as "awaiting card" rather than vanishing into the deck.
+* **Step pointer follows the player.** The header of each card strip
+  carries a near-card hint that mirrors the bridge's hero line: "Pick one
+  ↓" on the strip the player must click, "(locked)" on the strip the
+  player has already drawn from, "Next ↓" on the strip waiting for its
+  turn. No more hunting for the next click target.
+* **Inactive cards visibly recede.** When it's Step 2, the BLUE strip
+  dims to ~50% opacity so the PURPLE strip reads as the next action.
+  Tiles remain hit-testable so power-users can still cross-pick.
+* **Progressive disclosure.** Raw catalog ids (`o_higgs_mass`,
+  `g_calabi_yau`, …) only appear as subtext when a card is hovered,
+  focused, or selected. The idle face shows only the child-friendly label.
+* **Fewer, larger cards.** Two strips (BLUE Data, PURPLE Geometry) replace
+  the old crowded grids. Each card is ≥52px tall with ≥44px hit targets,
+  laid out 2-up so the page never reads as a spreadsheet. Cards that
+  overflow the visible strip remain hit-testable via recipe chips or the
+  search/auto-build path.
+* **Honesty drawer, not honesty wall.** The full score breakdown, build
+  instructions, and the falsifiability notice have moved into a collapsed
+  `<details>` drawer below the canvas. The in-canvas honesty strip keeps
+  the single-line *"bridge strength is NOT proof of physics"* warning plus
+  the worst-claim badge — always visible, but never dominant.
+* **No duplicated tutorial.** The earlier HTML wrapper rendered the
+  3-step "How to play" banner AND a separate honesty notice ABOVE the
+  canvas. Both are gone — the in-canvas hero line plus the bottom legend
+  carry onboarding, and the `<details>` drawer carries the long-form
+  honesty notice.
+
+Honesty is preserved: bridge strength is a *hypothesis health* signal, not
+a physics conclusion. A high score with a falsified card still collapses
+the bridge — the honesty floor is non-negotiable.
+
+
+
 The canvas UI is implemented as a fifth crate in the workspace,
 [`ring4_canvas`](../crates/ring4_canvas), sitting just outside the IO ring
 and just inside the orchestration crate:
@@ -194,13 +268,16 @@ holds no game data at all.
 
 ## Testing surface
 
-Ring 4 ships 38 unit tests, all native (no browser):
+Ring 4 ships 43 unit tests, all native (no browser):
 
 - `state::tests` — apply/toggle/clear/benchmark/hill-climb/anneal determinism,
   unknown-id handling, GOLDEN BRIDGE view tracking, recipe loading.
 - `render::tests` — hit-region coverage of the catalog, toolbar buttons,
   worst-claim text, GOLDEN BRIDGE branding, integrity label, collapse
-  warning, recipe-chip hits, colour CSS formatting, truncation.
+  warning, recipe-chip hits, colour CSS formatting, truncation, plus
+  game-feel guards (tutorial banner lists three numbered steps, toolbar
+  uses kid-friendly Reset/Hint/Auto-build labels, friendly tile labels
+  replace raw ids, status banner appears once tiles are placed).
 - `input::tests` — pure hit-testing, including topmost-wins overlap and
   recipe-chip → `LoadRecipe` resolution.
 - `bridge::tests` — pier partitioning, falsified-tile collapse,

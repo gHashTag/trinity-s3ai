@@ -44,7 +44,7 @@ You **must** pick one of:
 | `Unverified` | Placeholder. Will contribute 0 to positive components. |
 
 This mirrors the Coq honesty tags in
-[`CONTRIBUTING.md`](../../CONTRIBUTING.md) (`[NUMERICAL_FIT]`,
+[`CONTRIBUTING.md`](../../../CONTRIBUTING.md) (`[NUMERICAL_FIT]`,
 `[phenomenological_fit]`, `[MATH_TODO]`, etc.) and is checked at runtime
 by the scorer.
 

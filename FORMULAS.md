@@ -10,20 +10,20 @@
 
 ---
 
-## ⚠ Дисклеймер классификации (Classification Disclaimer)
+## ⚠ Classification Disclaimer
 
-Данный каталог содержит формулы трёх уровней эпистемического статуса.
-Полная классификация и обоснование: [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md)
+This catalog contains formulas across three levels of epistemic status.
+Full classification and justification: [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md)
 
-| Класс | Кол-во | Описание |
-|-------|--------|----------|
-| **(R) Rigorous — Строгие** | **0** | Ни одна формула не выведена из первых принципов (Coq Qed) |
-| **(S) Structural — Структурные** | **8** | Целочисленные коэффициенты из H4-инвариантов; трансцендентные комбинации не выведены |
-| **(NF) Numerical Fit — Феноменологические подгонки** | **17** | Численная подгонка без первопринципного вывода |
+| Class | Count | Description |
+|-------|-------|-------------|
+| **(R) Rigorous** | **0** | No formula has been derived from first principles (Coq Qed) |
+| **(S) Structural** | **8** | Integer coefficients from H4 invariants; transcendental combinations are not derived |
+| **(NF) Numerical Fit** | **17** | Phenomenological fit without first-principles derivation |
 
-Формулы, отмеченные `[phenomenological_fit]`, являются **феноменологическими подгонками**: они воспроизводят данные с высокой точностью, но их трансцендентные комбинации (φ, π, e в конкретных степенях) **подобраны, а не выведены** из H4-симметрии или NCG-спектрального действия.
+Formulas marked `[phenomenological_fit]` are **phenomenological fits**: they reproduce data with high accuracy, but their transcendental combinations (φ, π, e at specific powers) are **fitted, not derived** from H4 symmetry or the NCG spectral action.
 
-**Tier 3 (Cosmology) — ОСОБОЕ ПРЕДУПРЕЖДЕНИЕ:** Формулы CMB01–CMB04 и INF01, INF06 содержат **ложные заявления о погрешности** (были записаны «★SG 0%»). Реальные погрешности составляют 27–98% (см. исправленные значения в разделах 3B и 3C ниже, и [`derivations/cosmology/cosmology_origins.md`](derivations/cosmology/cosmology_origins.md)).
+**Tier 3 (Cosmology) — SPECIAL WARNING:** Formulas CMB01–CMB04 and INF01, INF06 previously contained **false error claims** (recorded as "★SG 0%"). Real errors are 27–98% (see corrected values in sections 3B and 3C below, and [`derivations/cosmology/cosmology_origins.md`](derivations/cosmology/cosmology_origins.md)).
 
 ---
 
@@ -194,7 +194,7 @@ The Trinity framework uses a **mixed mass scheme**:
 | Pr | $m_p / m_e$ **[phenomenological_fit]** | $6\pi^5$ | 1836.12 | 1836.15267343(11) | 0.0019% | ★ SG | ⬜ | ✅ |
 | Σν | $\Sigma m_\nu$ **[phenomenological_fit]** | $8\phi^{-6}\pi^{-5}e^6 \cdot 10^{-1}$ eV | 0.0588 eV | $< 0.12$ eV (Planck) / $0.058$ eV (theory) | 0.007% | ★ SG | ⬜ | ✅ |
 
-**Tier 1 Summary:** 25 formulas total — 14 ★ SG class, 8 V class, 1 P class, 1 NV class (N03 corrected from NV → ★ SG 2025-07-28). 17 из 25 помечены `[phenomenological_fit]` — см. [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md).
+**Tier 1 Summary:** 25 formulas total — 14 ★ SG class, 8 V class, 1 P class, 1 NV class (N03 corrected from NV → ★ SG 2025-07-28). 17 of 25 are tagged `[phenomenological_fit]` — see [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md).
 
 ---
 
@@ -355,37 +355,37 @@ The Trinity framework uses a **mixed mass scheme**:
 
 ## Tier 3: Cosmology
 
-> **⚠️ ПРЕДУПРЕЖДЕНИЕ — ИССЛЕДОВАТЕЛЬСКИЙ КАТАЛОГ (Wave 8.5) ⚠️**
+> **⚠️ WARNING — RESEARCH CATALOG (Wave 8.5) ⚠️**
 >
-> **Tier 3 является каталогом спекулятивных формул, не выводов. 9 из них фальсифицированы измерениями (см. ниже).**
+> **Tier 3 is a catalog of speculative formulas, not derivations. 9 of them are falsified by measurement (see below).**
 >
-> Ни одна формула Tier 3 не выведена из H4-геометрии из первых принципов.
-> Все заявленные ранее погрешности «★SG 0%» для CMB01–CMB04, INF01, INF06, COS01, COS03, CCR01 были ложными.
-> Реальные расхождения: от 27% (~61σ) до 10¹¹⁸ порядков величины.
+> No Tier 3 formula has been derived from H4 geometry from first principles.
+> All previously claimed "★SG 0%" errors for CMB01–CMB04, INF01, INF06, COS01, COS03, CCR01 were false.
+> Real discrepancies range from 27% (~61σ) to 10¹¹⁸ orders of magnitude.
 >
-> Подробный анализ: [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REWRITE.md)  
-> Реестр ошибок: [`derivations/honest_cosmology/cosmology_falsified_log.md`](derivations/honest_cosmology/cosmology_falsified_log.md)  
-> Источники: Planck 2018 (DOI: 10.1051/0004-6361/201833910), DESI 2024 (arXiv:2404.03002), BICEP/Keck (arXiv:2110.00483)
+> Detailed analysis: [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REWRITE.md)  
+> Error log: [`derivations/honest_cosmology/cosmology_falsified_log.md`](derivations/honest_cosmology/cosmology_falsified_log.md)  
+> Sources: Planck 2018 (DOI: 10.1051/0004-6361/201833910), DESI 2024 (arXiv:2404.03002), BICEP/Keck (arXiv:2110.00483)
 
 ### 3A — Dark Energy and Cosmological Constant
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| COS01 | $\rho_\Lambda$ (dark energy density) | $\phi^{-12} \pi^{-3} e^{-2} \cdot M_{Pl}^4$ | $\sim 3 \times 10^{71}$ GeV⁴ | $(5.6 \pm 0.1) \times 10^{-47}$ GeV⁴ | **$\sim 10^{118}$ порядков** | ❌ FALSIFIED 🔴 NUMEROLOGY | ⬜ | ⬜ |
-| COS02 | $\Lambda$ (cosmological constant) | $8\pi G \rho_\Lambda = \phi^{-12} \pi^{-2} e^{-2} \cdot M_{Pl}^2$ | $1.11 \times 10^{-52}$ m⁻² | $(1.11 \pm 0.02) \times 10^{-52}$ m⁻² | фиктивное (через COS01) | 🔴 NUMEROLOGY | ⬜ | ⬜ |
-| COS03 | $\Omega_\Lambda$ | $\rho_\Lambda / \rho_c$ | 0.6847 | $0.6847 \pm 0.0073$ (Planck 2018) | тавтология | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
+| COS01 | $\rho_\Lambda$ (dark energy density) | $\phi^{-12} \pi^{-3} e^{-2} \cdot M_{Pl}^4$ | $\sim 3 \times 10^{71}$ GeV⁴ | $(5.6 \pm 0.1) \times 10^{-47}$ GeV⁴ | **$\sim 10^{118}$ orders** | ❌ FALSIFIED 🔴 NUMEROLOGY | ⬜ | ⬜ |
+| COS02 | $\Lambda$ (cosmological constant) | $8\pi G \rho_\Lambda = \phi^{-12} \pi^{-2} e^{-2} \cdot M_{Pl}^2$ | $1.11 \times 10^{-52}$ m⁻² | $(1.11 \pm 0.02) \times 10^{-52}$ m⁻² | spurious (via COS01) | 🔴 NUMEROLOGY | ⬜ | ⬜ |
+| COS03 | $\Omega_\Lambda$ | $\rho_\Lambda / \rho_c$ | 0.6847 | $0.6847 \pm 0.0073$ (Planck 2018) | tautology | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
 | COS04 | $w$ (EOS parameter) | $-1 + \phi^{-8}\pi^{-2}e^{-1}$ | $-0.999$ | $-0.827 \pm 0.063$ (DESI 2024, arXiv:2404.03002) | **17.2%, ~2.7σ** | 🟡 SPECULATIVE | ⬜ | ⬜ |
-| COS05 | $\rho_c$ (critical density) | $3H_0^2 / (8\pi G)$ | зависит от CMB03 | $(8.62 \pm 0.12) \times 10^{-47}$ GeV⁴ | фиктивное (через CMB03) | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
+| COS05 | $\rho_c$ (critical density) | $3H_0^2 / (8\pi G)$ | depends on CMB03 | $(8.62 \pm 0.12) \times 10^{-47}$ GeV⁴ | spurious (via CMB03) | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
 
 ### 3B — Inflation Parameters
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
 | INF01 | $n_s$ (scalar spectral index) | $1 - 2/\phi^4$ | 0.7082 | $0.9649 \pm 0.0042$ (Planck 2018, arXiv:1807.06209) | **26.6%, ~61σ** | ❌ FALSIFIED | ⬜ | ⬜ |
-| INF02 | $r$ (tensor-to-scalar ratio) | $8/\phi^8$ | 0.0034 | $< 0.036$ (BICEP/Keck 2021, arXiv:2110.00483) | совм. с верх. границей | 🟡 SPECULATIVE | ⬜ | ⬜ |
-| INF03 | $\alpha_s$ (running of $n_s$) | $-2/\phi^6$ | $-0.00073$ | $-0.0045 \pm 0.0067$ (Planck 2018) | ~0.56σ (совм. с нулём) | ⚪ PENDING | ⬜ | ⬜ |
-| INF04 | $N_*$ (e-folds) | $\phi^5 \pi / e$ | 55.3 | $50 - 60$ (theory) | ~5% (теор. диапазон) | 🟡 SPECULATIVE | ⬜ | ⬜ |
-| INF05 | $H_*$ (Hubble during inflation) | $\phi^2 e / \pi \cdot 10^{13}$ GeV | $1.2 \times 10^{13}$ GeV | $10^{13} - 10^{14}$ GeV (theory) | ~20% (теор. диапазон) | 🟡 SPECULATIVE | ⬜ | ⬜ |
+| INF02 | $r$ (tensor-to-scalar ratio) | $8/\phi^8$ | 0.0034 | $< 0.036$ (BICEP/Keck 2021, arXiv:2110.00483) | compatible with upper bound | 🟡 SPECULATIVE | ⬜ | ⬜ |
+| INF03 | $\alpha_s$ (running of $n_s$) | $-2/\phi^6$ | $-0.00073$ | $-0.0045 \pm 0.0067$ (Planck 2018) | ~0.56σ (compatible with zero) | ⚪ PENDING | ⬜ | ⬜ |
+| INF04 | $N_*$ (e-folds) | $\phi^5 \pi / e$ | 55.3 | $50 - 60$ (theory) | ~5% (theory range) | 🟡 SPECULATIVE | ⬜ | ⬜ |
+| INF05 | $H_*$ (Hubble during inflation) | $\phi^2 e / \pi \cdot 10^{13}$ GeV | $1.2 \times 10^{13}$ GeV | $10^{13} - 10^{14}$ GeV (theory) | ~20% (theory range) | 🟡 SPECULATIVE | ⬜ | ⬜ |
 | INF06 | $\Delta_R^2$ (curvature perturbation) | $\pi / (2\phi^3 e^2) \times 10^{-9}$ | $5.02 \times 10^{-11}$ | $(2.100 \pm 0.030) \times 10^{-9}$ (Planck 2018) | **97.6%, ~68σ** | ❌ FALSIFIED | ⬜ | ⬜ |
 
 ### 3C — CMB and Large-Scale Structure
@@ -401,18 +401,18 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | ID | Parameter | Formula | Predicted Value | Observation / Literature | Error | Class | Coq Proof | Python |
 |----|-----------|---------|----------------|--------------------------|-------|-------|-----------|--------|
-| CCR01 | $\rho_\Lambda / \rho_{Pl}$ | $\phi^{-24}\pi^{-6}e^{-4}$ | $1.84 \times 10^{-10}$ | $\sim 10^{-123}$ (observed) | **~113 порядков** | ❌ FALSIFIED 🔴 NUMEROLOGY | ⬜ | ⬜ |
-| CCR02 | $t_0 / t_{Pl}$ | $\phi^{10} e^2 / \pi^2$ | $8.1 \times 10^{60}$ | $8.1 \times 10^{60}$ (производная оценка) | тавтология | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
+| CCR01 | $\rho_\Lambda / \rho_{Pl}$ | $\phi^{-24}\pi^{-6}e^{-4}$ | $1.84 \times 10^{-10}$ | $\sim 10^{-123}$ (observed) | **~113 orders** | ❌ FALSIFIED 🔴 NUMEROLOGY | ⬜ | ⬜ |
+| CCR02 | $t_0 / t_{Pl}$ | $\phi^{10} e^2 / \pi^2$ | $8.1 \times 10^{60}$ | $8.1 \times 10^{60}$ (derived estimate) | tautology | ⚠️ TAUTOLOGY | ⬜ | ⬜ |
 
 **Tier 3 Summary (Wave 8.5):**
-- **❌ FALSIFIED:** 7 формул — CMB01, CMB02, CMB03, CMB04, INF01, INF06, COS01, CCR01
-- **🔴 NUMEROLOGY:** 2 формулы — COS01, COS02, CCR01 (перекрываются с FALSIFIED)
-- **🟡 SPECULATIVE:** 4 формулы — COS04, INF02, INF04, INF05 (совместимы с теор. диапазонами, но нет вывода)
-- **⚪ PENDING:** 1 формула — INF03
-- **⚠️ TAUTOLOGY:** 3 формулы — COS03, COS05, CCR02
-- **Строго выведено из H4:** 0 формул
+- **❌ FALSIFIED:** 7 formulas — CMB01, CMB02, CMB03, CMB04, INF01, INF06, COS01, CCR01
+- **🔴 NUMEROLOGY:** 2 formulas — COS01, COS02, CCR01 (overlap with FALSIFIED)
+- **🟡 SPECULATIVE:** 4 formulas — COS04, INF02, INF04, INF05 (compatible with theoretical ranges, but not derived)
+- **⚪ PENDING:** 1 formula — INF03
+- **⚠️ TAUTOLOGY:** 3 formulas — COS03, COS05, CCR02
+- **Rigorously derived from H4:** 0 formulas
 
-См. [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REWRITE.md) и [`derivations/honest_cosmology/cosmology_falsified_log.md`](derivations/honest_cosmology/cosmology_falsified_log.md).
+See [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REWRITE.md) and [`derivations/honest_cosmology/cosmology_falsified_log.md`](derivations/honest_cosmology/cosmology_falsified_log.md).
 
 ---
 
@@ -606,34 +606,34 @@ The Trinity framework uses a **mixed mass scheme**:
 
 ### v4.2.0 — 2026-05-23
 
-**Wave 8.5 — Честная космология (Honest Cosmology)**
+**Wave 8.5 — Honest Cosmology**
 
-- **Добавлено:** Блок предупреждения ⚠️ перед разделом Tier 3 с явным указанием на статус «исследовательского каталога»
-- **Добавлено:** Явные метки ❌ FALSIFIED / 🔴 NUMEROLOGY / 🟡 SPECULATIVE / ⚪ PENDING / ⚠️ TAUTOLOGY для каждой из 15 формул Tier 3
-- **Добавлено:** `derivations/honest_cosmology/REWRITE.md` — честная переоценка Tier 3 (~554 строки, русский)
-- **Добавлено:** `derivations/honest_cosmology/cosmology_falsified_log.md` — реестр ошибок по образцу admitted_log.md
-- **Изменено:** `proofs/trinity/CosmologyOrigins.v` — добавлены HONEST-аннотации перед каждой формулой, новая Section HonestAssessment с теоремами-рефутациями
-- **Исправлено:** COS04 обновлена с −0.96±0.08 (CMB+BAO) на −0.827±0.063 (DESI 2024, arXiv:2404.03002)
-- **Исправлено:** INF06 источник уточнён: (2.100±0.030)×10⁻⁹ (Planck 2018)
-- **Компиляция:** CosmologyOrigins.v компилируется, exit 0 ✓
-- **Источники:** Planck 2018 DOI:10.1051/0004-6361/201833910, DESI 2024 arXiv:2404.03002, BICEP/Keck arXiv:2110.00483
+- **Added:** ⚠️ warning block before the Tier 3 section explicitly marking its "research catalog" status
+- **Added:** Explicit ❌ FALSIFIED / 🔴 NUMEROLOGY / 🟡 SPECULATIVE / ⚪ PENDING / ⚠️ TAUTOLOGY labels for each of the 15 Tier 3 formulas
+- **Added:** `derivations/honest_cosmology/REWRITE.md` — honest re-assessment of Tier 3
+- **Added:** `derivations/honest_cosmology/cosmology_falsified_log.md` — error log modeled on admitted_log.md
+- **Changed:** `proofs/trinity/CosmologyOrigins.v` — HONEST annotations added before each formula; new Section HonestAssessment with refutation theorems
+- **Fixed:** COS04 updated from −0.96±0.08 (CMB+BAO) to −0.827±0.063 (DESI 2024, arXiv:2404.03002)
+- **Fixed:** INF06 source refined: (2.100±0.030)×10⁻⁹ (Planck 2018)
+- **Build:** CosmologyOrigins.v compiles, exit 0 ✓
+- **Sources:** Planck 2018 DOI:10.1051/0004-6361/201833910, DESI 2024 arXiv:2404.03002, BICEP/Keck arXiv:2110.00483
 
 ### v4.1.0 — 2026-05-22
 
-**Wave 4.1 — Честная классификация**
+**Wave 4.1 — Honest classification**
 
-- **Добавлено:** Блок «⚠ Дисклеймер классификации» в начало документа с явным указанием R/S/NF-статуса
-- **Изменено:** 17 NF-формул Tier 1 помечены `[phenomenological_fit]` — L01, Q01, Q02, Q05, Q05b, Q06, G01, G02, N01, N04, C01, C02, H01, ν02, ν03, Pr, Σν
-- **Исправлено:** CMB01 реальная погрешность 60.7% (заявлялось 0.08%)
-- **Исправлено:** CMB02 реальная погрешность 87.9% (заявлялось 0.008%)
-- **Исправлено:** CMB03 реальная погрешнось 67.5%; предсказание H₀ = 21.90 км/с/Мпк (заявлялось 0.07%)
-- **Исправлено:** CMB04 реальная погрешнось 34.1% (заявлялось 0.02%)
-- **Исправлено:** INF01 реальная погрешность 26.6%; предсказание n_s = 0.7082 (заявлялось 0.07%)
-- **Исправлено:** INF06 реальная погрешность 97.6%; предсказание 5.02×10⁻¹¹ (заявлялось 0%)
-- **Исправлено:** COS01 реальное предсказание ~3×10⁺⁷¹ ГэВ⁴ (расхождение ~10¹¹⁸); заявлялось 0.4%
-- **Исправлено:** COS03 помечена как тавтология (заявлялось 0% ★SG)
-- **Исправлено:** CCR01 реальное расхождение 113 порядков величины (заявлялось 0% ★SG)
-- **Источник:** `derivations/catalog_audit/audit_report.md`, `derivations/cosmology/cosmology_origins.md`
+- **Added:** "⚠ Classification Disclaimer" block at the top of the document explicitly stating R/S/NF status
+- **Changed:** 17 NF formulas in Tier 1 tagged `[phenomenological_fit]` — L01, Q01, Q02, Q05, Q05b, Q06, G01, G02, N01, N04, C01, C02, H01, ν02, ν03, Pr, Σν
+- **Fixed:** CMB01 real error 60.7% (had been claimed as 0.08%)
+- **Fixed:** CMB02 real error 87.9% (had been claimed as 0.008%)
+- **Fixed:** CMB03 real error 67.5%; prediction H₀ = 21.90 km/s/Mpc (had been claimed as 0.07%)
+- **Fixed:** CMB04 real error 34.1% (had been claimed as 0.02%)
+- **Fixed:** INF01 real error 26.6%; prediction n_s = 0.7082 (had been claimed as 0.07%)
+- **Fixed:** INF06 real error 97.6%; prediction 5.02×10⁻¹¹ (had been claimed as 0%)
+- **Fixed:** COS01 real prediction ~3×10⁺⁷¹ GeV⁴ (~10¹¹⁸ orders discrepancy); had been claimed as 0.4%
+- **Fixed:** COS03 marked as a tautology (had been claimed as 0% ★SG)
+- **Fixed:** CCR01 real discrepancy of 113 orders of magnitude (had been claimed as 0% ★SG)
+- **Source:** `derivations/catalog_audit/audit_report.md`, `derivations/cosmology/cosmology_origins.md`
 
 ### v4.0.0 — 2025-07-28
 

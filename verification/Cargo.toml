@@ -1,0 +1,36 @@
+[package]
+name = "trinity-verification"
+version = "0.1.0"
+edition = "2021"
+authors = ["Trinity S3AI Framework"]
+description = "Exact-arithmetic verification crate for trinity-s3ai (W4/W6). Rust replaces all earlier Python checks per R1."
+license = "MIT"
+
+# No external dependencies — exact arithmetic is built from i64.
+# This is intentional: smaller dependency surface, deterministic byte
+# output for the diff-against-anchor verification gates.
+[dependencies]
+
+[lib]
+name = "trinity_verification"
+path = "src/lib.rs"
+
+[[bin]]
+name = "verify_snub_24cell"
+path = "src/bin/verify_snub_24cell.rs"
+
+[[bin]]
+name = "verify_e8_to_h4"
+path = "src/bin/verify_e8_to_h4.rs"
+
+[[bin]]
+name = "verify_spectral_sin2theta"
+path = "src/bin/verify_spectral_sin2theta.rs"
+
+[[bin]]
+name = "verify_duality_8x12_3x32"
+path = "src/bin/verify_duality_8x12_3x32.rs"
+
+[profile.release]
+opt-level = 3
+lto = "fat"

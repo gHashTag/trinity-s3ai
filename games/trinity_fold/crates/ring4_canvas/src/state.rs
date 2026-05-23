@@ -47,6 +47,10 @@ pub struct AppState {
     pub bridge: BridgeView,
     pub recipes: Vec<Recipe>,
     pub view: ViewOptions,
+    /// Insertion-order history of tile ids that are still on the board.
+    /// Empty after ClearBoard / LoadRecipe; only `ToggleTile` adds to it.
+    /// Powers single-step undo from the toolbar / `u` key.
+    pub pick_history: Vec<String>,
 }
 
 impl AppState {
@@ -66,6 +70,7 @@ impl AppState {
             bridge,
             recipes,
             view: ViewOptions::default(),
+            pick_history: Vec::new(),
         }
     }
 
@@ -104,6 +109,7 @@ impl AppState {
             return false;
         }
         self.board = new_board;
+        self.pick_history.clear();
         self.view.focus_id = None;
         self.rescore();
         true
@@ -119,8 +125,11 @@ impl AppState {
                 }
                 if self.board.contains(&id) {
                     self.board.remove(&id);
+                    self.pick_history.retain(|h| h != &id);
                 } else {
                     self.board.insert(id.clone());
+                    self.pick_history.retain(|h| h != &id);
+                    self.pick_history.push(id.clone());
                 }
                 self.view.focus_id = Some(id);
                 self.rescore();
@@ -131,6 +140,21 @@ impl AppState {
                     return false;
                 }
                 self.board = Board::new();
+                self.pick_history.clear();
+                self.view.focus_id = None;
+                self.rescore();
+                true
+            }
+            UiEvent::UndoLast => {
+                let last = loop {
+                    match self.pick_history.pop() {
+                        Some(id) if self.board.contains(&id) => break Some(id),
+                        Some(_) => continue,
+                        None => break None,
+                    }
+                };
+                let Some(id) = last else { return false; };
+                self.board.remove(&id);
                 self.view.focus_id = None;
                 self.rescore();
                 true
@@ -160,6 +184,7 @@ impl AppState {
                 let w = ScoreWeights::default();
                 let report = hill_climb(&self.catalog, self.board.clone(), &w, 64);
                 self.board = report.best_board;
+                self.pick_history.clear();
                 self.rescore();
                 true
             }
@@ -167,6 +192,7 @@ impl AppState {
                 let w = ScoreWeights::default();
                 let report = anneal(&self.catalog, self.board.clone(), &w, iters, seed, 1.0, 0.97);
                 self.board = report.best_board;
+                self.pick_history.clear();
                 self.rescore();
                 true
             }
@@ -291,6 +317,38 @@ mod tests {
         let mut s = fresh();
         assert!(!s.apply(UiEvent::LoadRecipe("definitely_not_a_recipe".into())));
         assert!(s.board.is_empty());
+    }
+
+    #[test]
+    fn undo_last_removes_most_recent_pick() {
+        let mut s = fresh();
+        let a = s.catalog.nodes[0].id.clone();
+        let b = s.catalog.nodes[1].id.clone();
+        s.apply(UiEvent::ToggleTile(a.clone()));
+        s.apply(UiEvent::ToggleTile(b.clone()));
+        assert!(s.board.contains(&a) && s.board.contains(&b));
+        assert!(s.apply(UiEvent::UndoLast));
+        assert!(s.board.contains(&a), "first pick should survive undo");
+        assert!(!s.board.contains(&b), "second pick should be removed by undo");
+    }
+
+    #[test]
+    fn undo_last_on_empty_board_is_noop() {
+        let mut s = fresh();
+        assert!(!s.apply(UiEvent::UndoLast));
+    }
+
+    #[test]
+    fn load_recipe_clears_undo_history() {
+        let mut s = fresh();
+        let a = s.catalog.nodes[0].id.clone();
+        s.apply(UiEvent::ToggleTile(a));
+        let recipe_id = s.recipes.first().expect("a builtin recipe").id.clone();
+        s.apply(UiEvent::LoadRecipe(recipe_id));
+        // After a recipe replaces the board, undo must not resurrect the
+        // pre-recipe pick — that would surprise the player.
+        assert!(s.pick_history.is_empty());
+        assert!(!s.apply(UiEvent::UndoLast));
     }
 
     #[test]
