@@ -64,32 +64,36 @@ pub struct Theme {
 
 impl Default for Theme {
     fn default() -> Self {
+        // Game-like, true-black stage with neon-style game accents.
+        // Selected/hover/recipe affordances are deliberately higher contrast
+        // than the resting palette so the board reads as a playable game,
+        // not a research dashboard.
         Self {
-            bg: Color(11, 14, 22, 255),
-            tower_data: Color(30, 50, 70, 255),
-            tower_geom: Color(50, 30, 70, 255),
-            tile_idle: Color(40, 48, 64, 255),
-            tile_selected: Color(70, 130, 180, 255),
-            tile_hover: Color(90, 110, 140, 255),
-            tile_falsified: Color(180, 50, 50, 255),
-            tile_open: Color(180, 140, 60, 255),
-            tile_verified: Color(60, 160, 100, 255),
-            tile_empirical: Color(100, 140, 200, 255),
-            tile_unverified: Color(110, 110, 110, 255),
-            stroke: Color(180, 200, 220, 255),
-            text: Color(230, 235, 240, 255),
-            text_dim: Color(140, 150, 165, 255),
-            edge_requires: Color(120, 200, 140, 255),
-            edge_incompat: Color(220, 80, 80, 255),
-            triangle: Color(220, 200, 80, 200),
-            button: Color(60, 80, 110, 255),
-            button_active: Color(90, 150, 200, 255),
-            bridge_deck: Color(212, 175, 55, 220),       // gold deck
-            bridge_collapsed: Color(220, 80, 80, 230),
-            bridge_sound: Color(212, 175, 55, 230),
-            bridge_provisional: Color(180, 140, 60, 220),
-            recipe_chip: Color(60, 100, 90, 255),
-            fold_ring: Color(120, 150, 200, 60),
+            bg: Color(0, 0, 0, 255),
+            tower_data: Color(10, 22, 38, 255),
+            tower_geom: Color(28, 12, 40, 255),
+            tile_idle: Color(18, 22, 32, 255),
+            tile_selected: Color(56, 168, 232, 255),
+            tile_hover: Color(80, 110, 150, 255),
+            tile_falsified: Color(230, 60, 70, 255),
+            tile_open: Color(240, 180, 70, 255),
+            tile_verified: Color(80, 220, 140, 255),
+            tile_empirical: Color(120, 180, 240, 255),
+            tile_unverified: Color(150, 150, 150, 255),
+            stroke: Color(170, 200, 230, 255),
+            text: Color(240, 244, 248, 255),
+            text_dim: Color(150, 165, 185, 255),
+            edge_requires: Color(120, 220, 150, 255),
+            edge_incompat: Color(240, 90, 90, 255),
+            triangle: Color(255, 215, 90, 220),
+            button: Color(24, 38, 58, 255),
+            button_active: Color(255, 196, 70, 255),
+            bridge_deck: Color(255, 200, 70, 235),       // bright gold deck
+            bridge_collapsed: Color(240, 70, 80, 240),
+            bridge_sound: Color(255, 210, 80, 240),
+            bridge_provisional: Color(220, 160, 70, 230),
+            recipe_chip: Color(28, 70, 70, 255),
+            fold_ring: Color(140, 180, 230, 90),
         }
     }
 }
@@ -290,11 +294,19 @@ fn draw_bridge_deck(
     x: f32, y: f32, w: f32, h: f32,
     prims: &mut Vec<RenderPrimitive>,
 ) {
-    // Background plate.
+    // Background plate — deep navy "stage" against the pure-black body so
+    // the deck reads as a lit game arena, not a flat panel.
     prims.push(RenderPrimitive::Rect {
         x, y, w, h,
-        fill: Color(16, 20, 30, 255),
+        fill: Color(6, 10, 22, 255),
         stroke: Some(theme.stroke),
+    });
+    // Inset highlight stripe at the very top of the plate — gives the
+    // deck strip a subtle "metallic edge" so the gold deck line has
+    // somewhere to sit visually.
+    prims.push(RenderPrimitive::Rect {
+        x: x + 1.0, y: y + 1.0, w: w - 2.0, h: 2.0,
+        fill: Color(40, 60, 100, 200), stroke: None,
     });
 
     // The deck strip is split into two horizontal bands so the integrity
@@ -325,19 +337,30 @@ fn draw_bridge_deck(
         });
     }
 
-    // Pier columns — anchored inside the lower band.
-    let pier_w = 14.0;
+    // Pier columns — anchored inside the lower band, now with a slightly
+    // wider plinth so they read as game-piece "piers" rather than ticks.
+    let pier_w = 18.0;
     let pier_top = lower_top + 14.0;
     let pier_h = lower_h - 26.0;
     let data_x = x + 18.0;
     let geom_x = x + w - 18.0 - pier_w;
+    // Data pier (left) — cool teal accent with body fill.
     prims.push(RenderPrimitive::Rect {
         x: data_x, y: pier_top, w: pier_w, h: pier_h,
         fill: theme.tower_data, stroke: Some(theme.stroke),
     });
     prims.push(RenderPrimitive::Rect {
+        x: data_x, y: pier_top, w: 3.0, h: pier_h,
+        fill: theme.tile_empirical, stroke: None,
+    });
+    // Geometry pier (right) — warm magenta accent.
+    prims.push(RenderPrimitive::Rect {
         x: geom_x, y: pier_top, w: pier_w, h: pier_h,
         fill: theme.tower_geom, stroke: Some(theme.stroke),
+    });
+    prims.push(RenderPrimitive::Rect {
+        x: geom_x + pier_w - 3.0, y: pier_top, w: 3.0, h: pier_h,
+        fill: Color(200, 120, 220, 255), stroke: None,
     });
     // Pier counters sit *between* the header band divider and the pier
     // column top, so they cannot overlap the integrity header above.
@@ -543,6 +566,24 @@ fn draw_tower(
                 theme.tile_idle
             };
             let stroke = claim_color(node.claim, theme);
+
+            // Selected/hover glow halo — a slightly larger rect behind the
+            // tile gives a game-like affordance without changing layout.
+            if selected {
+                prims.push(RenderPrimitive::Rect {
+                    x: tx - 2.0, y: ty - 2.0,
+                    w: TILE_W + 4.0, h: TILE_H + 4.0,
+                    fill: Color(theme.tile_selected.0, theme.tile_selected.1, theme.tile_selected.2, 90),
+                    stroke: None,
+                });
+            } else if hovered {
+                prims.push(RenderPrimitive::Rect {
+                    x: tx - 1.0, y: ty - 1.0,
+                    w: TILE_W + 2.0, h: TILE_H + 2.0,
+                    fill: Color(theme.tile_hover.0, theme.tile_hover.1, theme.tile_hover.2, 60),
+                    stroke: None,
+                });
+            }
 
             prims.push(RenderPrimitive::Rect {
                 x: tx, y: ty, w: TILE_W, h: TILE_H, fill, stroke: Some(stroke),
