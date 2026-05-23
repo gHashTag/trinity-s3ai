@@ -12,10 +12,12 @@
 
 #![forbid(unsafe_code)]
 
+pub mod claim_cards;
 pub mod fixtures;
 pub mod io;
 pub mod web;
 
+pub use claim_cards::{GeneratedClaimCard, GeneratedClaimDeck, embedded_claim_deck};
 pub use fixtures::{benchmark_holdout_ids, default_catalog};
 pub use io::{load_catalog, save_catalog};
 pub use web::{ScoreView, catalog_to_web_json, score_to_web_json};

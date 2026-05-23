@@ -116,6 +116,35 @@ updated. Please file an issue if you find a contradiction.
 
 ---
 
+## 4a. Machine-readable ledger
+
+The table in §4 is a human view of the SSOT at
+[`docs/claims.yaml`](claims.yaml). The same YAML drives:
+
+- the **README claim table** between `<!-- CLAIMS_TABLE:START -->` /
+  `<!-- CLAIMS_TABLE:END -->` markers in [`README.md`](../README.md);
+- the **GOLDEN BRIDGE generated card data** at
+  [`games/trinity_fold/fixtures/generated_claim_cards.json`](../games/trinity_fold/fixtures/generated_claim_cards.json),
+  embedded into the wasm build at compile time via `ring3_adapters::embedded_claim_deck`.
+
+To update a claim:
+
+1. Edit `docs/claims.yaml` (one row per claim, see the header comment in
+   that file for the schema).
+2. Run `python3 scripts/generate_claims.py` to regenerate README + game
+   card data.
+3. Commit the YAML and both regenerated artefacts in the same PR.
+
+CI runs `python3 scripts/generate_claims.py --check` and fails if the
+generated artefacts are stale.
+
+> **No promotion without evidence.** Upgrading a status from
+> `empirical_fit` to `verified` (or from `open_conjecture` to
+> `verified`) must reference a *physical* derivation, not just a Coq
+> interval bound. See §2.
+
+---
+
 ## 5. The mechanical checks that back this up
 
 | Check | What it enforces | Command |
@@ -126,6 +155,7 @@ updated. Please file an issue if you find a contradiction.
 | Coq build | Every advertised `Qed.` actually closes | `cd proofs/trinity && make -f Makefile.coq` |
 | GOLDEN BRIDGE tests | Ring boundaries hold; falsified tiles floor the score | `cargo test --workspace` in `games/trinity_fold/` |
 | Public-docs language | English-only public docs (CONTRIBUTING is bilingual by design) | manual / reviewer check |
+| Claim ledger SSOT | YAML parses, statuses/layers/kinds valid, README block and game card JSON match `docs/claims.yaml` | `python3 scripts/generate_claims.py --check` |
 
 If any of these stops working on `main`, the corresponding claim status
 is no longer trustworthy and should be downgraded to
