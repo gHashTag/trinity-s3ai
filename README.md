@@ -61,6 +61,27 @@ follow-up work.
 
 ---
 
+## Trinity Fold — hypothesis-discovery puzzle prototype
+
+[`games/trinity_fold/`](games/trinity_fold/) is a small, opt-in puzzle
+prototype inspired by FoldIt, AlphaFold's Evoformer two-tower split, and
+CASP-style held-out benchmarking. It scores candidate boards built from
+theory tiles (constants, symmetries, geometry blocks, fields, constraints,
+observables) against a fixed catalog and surfaces the **worst** claim
+status across all active tiles. **It does not prove or test any Theory of
+Everything claim.** Every tile carries a `ClaimStatus`
+(`verified` / `empirical_fit` / `open_conjecture` /
+`high_risk_or_falsified` / `unverified`), and boards containing
+falsified tiles are floored at a negative total. See
+[`games/trinity_fold/README.md`](games/trinity_fold/README.md) for the
+honesty policy and scoring spec.
+
+The prototype is fully decoupled from the Coq proofs and from the
+`anti_numerology_check` CI gate; it lives in its own Rust crate so a
+broken game build never blocks proof work.
+
+---
+
 ## The Four No-Go Theorems
 
 | Theorem | Statement | File |
