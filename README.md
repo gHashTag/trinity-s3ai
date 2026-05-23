@@ -53,6 +53,38 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 
 ---
 
+## Claim Ledger (SSOT)
+
+The table below is auto-generated from [`docs/claims.yaml`](docs/claims.yaml)
+by [`scripts/generate_claims.py`](scripts/generate_claims.py). The same
+ledger drives the GOLDEN BRIDGE card data at
+[`games/trinity_fold/fixtures/generated_claim_cards.json`](games/trinity_fold/fixtures/generated_claim_cards.json).
+Status vocabulary is defined in [`docs/CLAIM_STATUS.md`](docs/CLAIM_STATUS.md).
+
+<!-- CLAIMS_TABLE:START -->
+
+_Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_claims.py`](scripts/generate_claims.py). Do not edit this block by hand._
+
+| Claim | Layer | Status | Evidence | Blocking gap |
+|-------|-------|--------|----------|--------------|
+| GOLDEN BRIDGE live canvas deployed on GitHub Pages (Rust + wasm) | L0 | `verified` | .github/workflows/pages.yml; live at https://t27.ai/trinity-s3ai/ | — |
+| Wave 17 honest counter reports 0 real `Admitted.` in proofs/trinity/ | L2 | `verified` | scripts/count_admitted_honest.py output; HONESTY_MANIFEST.md | Holds only for proofs/trinity/. Track B (proofs/clifford_cl8/) retains load-bearing Axioms with citations; the Lagrangian derivation is not closed. |
+| NGT1-NGT4: four formal No-Go theorems closed with `Qed.` | L2 | `verified` | proofs/trinity/NoGoTheorems.v (NGT1, NGT2, NGT3, NGT4 all Qed) | — |
+| E8 plumbing: eta discrepancy does NOT converge to -2 | L4 | `high_risk_or_falsified` | paper/CHANGELOG_v1_to_v2.md (Honesty Notes); Wave 17 audit | — |
+| No known string / heterotic / F-theory / orbifold compactification rescues the SM hierarchy from H4 or F4 | L4 | `high_risk_or_falsified` | ROADMAP_WAVE17_PLUS.md (Wave 17.2 Findings) | — |
+| `a4` conversion factor not fully reconciled across three derivations | L3 | `open_conjecture` | a4_conversion_factor_analysis.md; a4_honest_resolution.md | Produce a single derivation that all three (analytic, spectral, fit) paths agree on, or document why they cannot agree and downgrade the relevant fits. |
+| `m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass | L5 | `empirical_fit` | proofs/trinity/HiggsPrediction.v (interval bound); higgs_potential_proven.md | Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the NGT2 sigma-field obstruction. |
+| GOLDEN BRIDGE puzzle is a hypothesis-discovery game, not evidence | L6 | `verified` | games/trinity_fold/README.md; ring0_core::ClaimStatus enum | — |
+| No Theory-of-Everything claim and no prize claim is made | L1 | `verified` | docs/CLAIM_STATUS.md §2; README.md preamble | — |
+
+<!-- CLAIMS_TABLE:END -->
+
+To update: edit `docs/claims.yaml`, run `python3 scripts/generate_claims.py`,
+commit both the YAML and the regenerated artefacts. CI runs the same
+script with `--check` and fails if anything is stale.
+
+---
+
 ## Hypothesis Verification Tech Tree
 
 **The goal is not to prove everything by prose; the goal is to make each

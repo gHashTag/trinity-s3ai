@@ -42,6 +42,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 - [ ] No document in the repository claims a Theory of Everything.
 - [ ] No document in the repository claims prize-level recognition as a fact. (Historical hype documents, if retained, are clearly framed as historical.)
 - [ ] Every multi-atom φ/π/e formula in Coq code is followed by an approved honesty tag, as enforced by `scripts/anti_numerology_gate.py`.
+- [ ] [`docs/claims.yaml`](claims.yaml) is the single source of truth for the public claim table and the GOLDEN BRIDGE generated card data; `python3 scripts/generate_claims.py --check` exits 0 (no stale artefacts).
 
 ## E. No secrets, no leaks
 

@@ -37,6 +37,14 @@ jobs:
           echo "=== ANTI-NUMEROLOGY GATE SUMMARY ==="
           python3 scripts/anti_numerology_gate.py 2>/dev/null | grep -E 'PASS|FLAG|WHITELIST|VERDICT' || true
 
+      - name: Install claim ledger deps
+        run: pip install pyyaml
+
+      - name: Validate claim ledger SSOT (docs/claims.yaml)
+        # Fails if YAML is malformed, a status/layer/kind is invalid, or the
+        # README table / generated GOLDEN BRIDGE card JSON is stale.
+        run: python3 scripts/generate_claims.py --check
+
   # ── Job 2: Coq proof build + Python validators ────────────────────────────
   build:
     runs-on: ubuntu-latest
