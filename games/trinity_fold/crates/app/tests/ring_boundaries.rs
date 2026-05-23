@@ -2,13 +2,14 @@
 //
 // The ring architecture is only meaningful if dependencies point INWARD:
 //
-//     ring0_core   <-  ring1_constraints  <-  ring2_search  <-  ring3_adapters  <-  app
+//     ring0_core <- ring1_constraints <- ring2_search <- ring3_adapters <- ring4_canvas <- app
 //
 // In particular:
 //   * ring 0 must not depend on any other ring crate, nor on serde_json or fs.
 //   * ring 1 must depend on ring 0 only.
 //   * ring 2 must depend on ring 0 + ring 1 only.
 //   * ring 3 may add serde_json (it is the IO boundary).
+//   * ring 4 (canvas UI) may depend on ring 0..3, never the other way around.
 //
 // This test reads each crate's Cargo.toml as plain text (no toml parser
 // dependency) and asserts the relevant invariants. If you add a new crate
@@ -52,6 +53,7 @@ fn ring0_has_no_ring_dependencies() {
         "ring1_constraints",
         "ring2_search",
         "ring3_adapters",
+        "ring4_canvas",
         "trinity_fold_app",
         "serde_json", // ring 0 is the type layer; no JSON here
     ] {
@@ -67,7 +69,7 @@ fn ring0_has_no_ring_dependencies() {
 fn ring1_depends_on_ring0_only() {
     let m = manifest("ring1_constraints");
     assert!(declares(&m, "ring0_core"), "ring1_constraints must depend on ring0_core");
-    for forbidden in ["ring2_search", "ring3_adapters", "trinity_fold_app", "serde_json"] {
+    for forbidden in ["ring2_search", "ring3_adapters", "ring4_canvas", "trinity_fold_app", "serde_json"] {
         assert!(
             !declares(&m, forbidden),
             "ring1_constraints must not depend on `{}`",
@@ -81,7 +83,7 @@ fn ring2_depends_on_ring0_and_ring1_only() {
     let m = manifest("ring2_search");
     assert!(declares(&m, "ring0_core"));
     assert!(declares(&m, "ring1_constraints"));
-    for forbidden in ["ring3_adapters", "trinity_fold_app", "serde", "serde_json"] {
+    for forbidden in ["ring3_adapters", "ring4_canvas", "trinity_fold_app", "serde", "serde_json"] {
         assert!(
             !declares(&m, forbidden),
             "ring2_search must not depend on `{}`",
@@ -102,6 +104,45 @@ fn ring3_may_depend_on_lower_rings_and_is_the_io_boundary() {
         !declares(&m, "trinity_fold_app"),
         "ring3_adapters must not depend on the outer app crate"
     );
+    assert!(
+        !declares(&m, "ring4_canvas"),
+        "ring3_adapters must not depend on the outer UI ring"
+    );
+}
+
+#[test]
+fn ring4_canvas_depends_inward_only() {
+    let m = manifest("ring4_canvas");
+    // It can use any inner ring; reading the score & catalog projection
+    // is exactly what a UI shell needs.
+    assert!(declares(&m, "ring0_core"));
+    assert!(declares(&m, "ring1_constraints"));
+    assert!(declares(&m, "ring2_search"));
+    assert!(declares(&m, "ring3_adapters"));
+    // It must not pull in the app orchestration crate; doing so would
+    // create a cycle once `app` imports the UI ring.
+    assert!(
+        !declares(&m, "trinity_fold_app"),
+        "ring4_canvas must not depend on the outer app crate"
+    );
+}
+
+#[test]
+fn no_inner_ring_imports_ring4() {
+    // Outer rings must not be pulled in by inner ones. wasm-bindgen,
+    // web-sys, js-sys and console_error_panic_hook are browser-only and
+    // therefore likewise forbidden from inner rings.
+    for inner in ["ring0_core", "ring1_constraints", "ring2_search", "ring3_adapters"] {
+        let m = manifest(inner);
+        for forbidden in ["ring4_canvas", "wasm-bindgen", "web-sys", "js-sys", "console_error_panic_hook"] {
+            assert!(
+                !declares(&m, forbidden),
+                "{} must not depend on `{}`",
+                inner,
+                forbidden
+            );
+        }
+    }
 }
 
 #[test]

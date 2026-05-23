@@ -59,7 +59,7 @@ honesty floor.
 
 ## Architecture: ring crates
 
-The codebase is organized as five inward-pointing rings (Cargo workspace
+The codebase is organized as six inward-pointing rings (Cargo workspace
 crates), inspired by the layered "ring" / onion architecture pattern. Each
 outer ring may only depend on lower-numbered rings; the inverse is forbidden
 and **enforced by integration tests** in
@@ -90,6 +90,7 @@ and **enforced by integration tests** in
 | 1 | `ring1_constraints` | ring 0 | `ScoreBreakdown`, `score_board*`, `tower_counts`. Pure functions. |
 | 2 | `ring2_search` | ring 0, ring 1 | `hill_climb`, `anneal`, self-contained LCG. Deterministic given seeds. |
 | 3 | `ring3_adapters` | ring 0–2 | `fixtures::default_catalog`, JSON load/save, web JSON export. Sole IO boundary. |
+| 4 | `ring4_canvas` | ring 0–3 | Rust canvas UI: pure `RenderModel` + input handling, plus wasm-bindgen browser shell (`Canvas2D`). See [`docs/CANVAS.md`](docs/CANVAS.md). |
 | app | `trinity_fold_app` | all rings | CLI parsing + presentation only. No domain logic. |
 
 Why this matters: every score is reproducible from ring 0+1 alone, so
@@ -151,10 +152,29 @@ cargo run --quiet -p trinity_fold_app -- export fixtures/catalog.json
 cargo run --quiet -p trinity_fold_app -- benchmark "s_su2,s_u1,f_higgs,o_higgs_mass"
 ```
 
-### Web UI
+### Web UI (Rust canvas, recommended)
 
-The browser UI is dependency-free static HTML/CSS/JS. It mirrors the Rust
-scoring rules and re-uses the same `fixtures/catalog.json`.
+The canvas UI is implemented in Rust (`ring4_canvas`) and runs in the
+browser as WebAssembly via Canvas2D. Build it once:
+
+```bash
+cd games/trinity_fold
+wasm-pack build crates/ring4_canvas --target web --features wasm \
+  --out-dir ../../web/canvas/pkg
+python3 -m http.server 8000
+# then open http://localhost:8000/games/trinity_fold/web/canvas/
+```
+
+The game state, layout, and hit-testing all live in Rust; JavaScript only
+forwards DOM events into the wasm module. See
+[`docs/CANVAS.md`](docs/CANVAS.md) for the full architecture, how to add a
+new UI interaction, and limitations.
+
+### Legacy static UI
+
+The original dependency-free static HTML/CSS/JS page is kept for
+environments where building wasm is not an option. It mirrors a subset of
+the Rust scoring rules and is no longer the source of truth.
 
 ```bash
 cd games/trinity_fold
