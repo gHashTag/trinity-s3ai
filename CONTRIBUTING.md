@@ -139,7 +139,7 @@ python3 scripts/anti_numerology_gate.py --verbose
 ## File Structure
 
 ```
-proofs/trinity/        — All Coq .v files (23 files, 326 Qed)
+proofs/trinity/        — Coq .v files (50 files in proofs/trinity/, plus 3 in proofs/clifford_cl8/ and 26 in derivations/ — total 79 .v files / 1325 Qed / 123 unproven obligations; see COQ_HONEST_STATUS.md)
 scripts/               — Python utilities and gates
   anti_numerology_gate.py   — Formula honesty checker
   README_anti_numerology.md — Gate documentation

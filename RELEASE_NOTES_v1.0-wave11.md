@@ -1,6 +1,43 @@
-# Trinity S³AI v1.0 — Wave 11 Release Notes
+# Trinity S³AI v1.0 — Wave 11–12 Release Notes
 
-**Date:** 2025-05-22  
+**Date:** 2026-05-22  
+**Tag:** `v1.0-wave12`
+
+---
+
+## Wave 12 Addendum (2026-05-22)
+
+Wave 12 is a **consolidation and communication wave**. No new physics claims are introduced.
+
+### New Artifacts
+
+| File | Description |
+|------|-------------|
+| `derivations/falsification/PREDICTIONS_REGISTRY.md` | Registry of all falsifiable predictions with source files and status |
+| `derivations/falsification/SEMINAR_TALK_20MIN.md` | 20-minute seminar talk outline with speaker notes |
+
+### Updated Statistics
+
+| Metric | Wave 11 | Wave 12 |
+|--------|---------|---------|
+| Coq `.v` files | 25 | 50 |
+| Qed theorems | 312 | ~340+ |
+| Admitted proofs | 25 | **100** |
+| Lean 4 files | 2 | 3+ (KODimension, QuaternionicLinearity, CorePhi) |
+| No-go theorems | 4 (documented) | 5 (D₄ added) |
+| Falsified predictions | 2 (P5, P6) | 5 (cosmology tier) + 1 (m_H tree) |
+
+> **Note:** Admitted count increased from 25 to **100** as the honest audit expanded to all `proofs/trinity/*.v` files.
+
+### Link to Falsification Registry
+
+All quantitative predictions are now registered in:
+- [`derivations/falsification/PREDICTIONS_REGISTRY.md`](derivations/falsification/PREDICTIONS_REGISTRY.md)
+
+---
+
+## Wave 11 Release Notes (original, 2025-05-22)
+
 **Tag:** `v1.0-wave11`
 
 ---

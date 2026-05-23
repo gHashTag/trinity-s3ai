@@ -1,0 +1,161 @@
+:root {
+  --bg: #0f1115;
+  --panel: #161a22;
+  --panel-2: #1c2230;
+  --text: #e6e8eb;
+  --muted: #8a93a3;
+  --accent: #7cc5ff;
+  --good: #4ade80;
+  --warn: #fbbf24;
+  --bad: #f87171;
+  --border: #262d3a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+header {
+  padding: 1.25rem 1.5rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+header h1 { margin: 0; font-size: 1.5rem; }
+.tag { color: var(--muted); margin: 0.25rem 0 0; }
+.disclaimer {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  margin: 1rem 1.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.disclaimer strong { color: var(--warn); }
+main { padding: 0 1.5rem 2rem; }
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+.controls button {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+}
+.controls button:hover { border-color: var(--accent); }
+.controls label { color: var(--muted); font-size: 0.9rem; }
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+@media (max-width: 1000px) {
+  .board { grid-template-columns: 1fr; }
+}
+.tower, .score-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem 1rem;
+}
+.tower h2, .score-panel h2 { margin-top: 0; font-size: 1.05rem; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.5rem; }
+.kind-group { margin-top: 0.75rem; }
+.kind-group h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin: 0.5rem 0 0.25rem;
+}
+.kind-group ul { list-style: none; padding: 0; margin: 0; }
+.kind-group li {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  margin: 0.25rem 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.kind-group li:hover { border-color: var(--accent); }
+.kind-group li.selected {
+  border-color: var(--good);
+  box-shadow: 0 0 0 1px var(--good) inset;
+}
+.kind-group li .name { font-weight: 600; font-size: 0.92rem; }
+.kind-group li .meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.claim {
+  display: inline-block;
+  padding: 0 0.35rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+}
+.claim-verified              { background: #0f3a22; color: var(--good); }
+.claim-empirical_fit         { background: #2f2a08; color: var(--warn); }
+.claim-open_conjecture       { background: #1f2333; color: var(--accent); }
+.claim-high_risk_or_falsified{ background: #3a1414; color: var(--bad); }
+.claim-unverified            { background: #232730; color: var(--muted); }
+
+.score-panel { position: sticky; top: 1rem; }
+.total {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5rem;
+}
+.worst-claim {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+#breakdown { width: 100%; font-size: 0.85rem; }
+#breakdown td { padding: 0.15rem 0.4rem; }
+#breakdown td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+#selected, #notes { padding-left: 1.25rem; font-size: 0.85rem; color: var(--muted); }
+.triangles {
+  margin-top: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem 1rem;
+}
+.triangles ul { list-style: none; padding: 0; }
+.triangles li {
+  display: inline-block;
+  background: var(--panel-2);
+  padding: 0.25rem 0.5rem;
+  margin: 0.2rem 0.3rem 0.2rem 0;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+}
+.triangles li.complete { border-color: var(--good); color: var(--good); }
+footer {
+  padding: 1rem 1.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--accent); }

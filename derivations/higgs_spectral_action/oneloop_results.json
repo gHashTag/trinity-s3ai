@@ -1,0 +1,36 @@
+{
+  "wave": "12.4",
+  "tree_level": {
+    "lambda_higgs": 0.14589803375031543,
+    "m_H_GeV": 132.88465231496141,
+    "sigma_pdg": 55.60465939258157
+  },
+  "natural_scale": {
+    "c": 0.157604789995912,
+    "y_max": 0.9959999999999999,
+    "y_mean": 0.46840561194491187,
+    "sum_y4": 41.4392803101493
+  },
+  "hard_cutoff_GUT": {
+    "Lambda_GeV": 1e+16,
+    "m_H_fermions_only_GeV": 1421.6822966186166,
+    "m_H_total_GeV": 1419.5196857343606
+  },
+  "physical_matching_scale": {
+    "mu_GeV": 246.0,
+    "m_H_fermions_only_GeV": 175.10011163773575,
+    "m_H_total_GeV": 174.70157061342942,
+    "delta_m2_fermions_GeV2": 13001.718274679348,
+    "delta_m2_bosons_GeV2": -139.41032074845975,
+    "sigma_pdg": 354.2969329530673
+  },
+  "best_fit_scan": {
+    "c_best": 0.19586983729662077,
+    "m_H_best_GeV": 124.8906356997651,
+    "sigma_pdg_best": 1.4954592873921106
+  },
+  "sm_top_only_mimic": {
+    "m_H_GeV": 132.6328546171521
+  },
+  "verdict": "NEGATIVE.  The 600-cell Dirac spectrum does not naturally mimic the SM 1-loop correction to the Higgs mass.\n\nKey findings:\n  1. Hard-cutoff CW with \u039b = 10\u00b9\u2076 GeV gives m_H \u2248 1420 GeV \u2014 unphysically large because the 600-cell contains ~240 eigenvalues with O(1) Yukawas, whereas the SM has only one heavy fermion (top).\n  2. Using a physical matching scale \u03bc = v gives m_H \u2248 174.7 GeV \u2014 still 354.3\u03c3 from PDG.\n  3. The best-fit Yukawa scale c \u2248 0.196 is ~24% from the natural scale c \u2248 0.158 (which maps the largest eigenvalue to the top Yukawa).\n  4. The \u03c3-field mechanism (Connes\u2013Marcolli) remains the only known way to reach 125 GeV in NCG, and Wave 5.3 proved it unavailable in H\u2084."
+}

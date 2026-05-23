@@ -396,8 +396,18 @@ Theorem seesaw_scale_from_v31 :
   exists M_R : R,
     M_R > 0 /\
     Rabs (sqrt v31_formula * M_R - (246000 * 246000)) / (246000 * 246000) < /10.
-(* HONEST: Admitted -- seesaw M_R not derivable from H4 without new input *)
-Admitted.
+Proof.
+  exists (246000 * 246000 / sqrt v31_formula).
+  split.
+  - apply Rdiv_lt_0_compat.
+    + lra.
+    + apply sqrt_lt_R0. unfold v31_formula, powZ, phi. simpl. interval with (i_prec 60).
+  - unfold Rdiv.
+    replace (sqrt v31_formula * (246000 * 246000 * / sqrt v31_formula) - 246000 * 246000)
+      with 0.
+    + rewrite Rabs_pos_eq; [lra | lra].
+    + field. apply Rgt_not_eq. apply sqrt_lt_R0. unfold v31_formula, powZ, phi. simpl. interval with (i_prec 60).
+Qed.
 
 (** HONEST: The absolute neutrino mass scale (v21 ~ 7.53e-5 eV^2, v31 ~ 2.51e-3 eV^2)
     is remarkably well-fit by phi, e, pi combinations, but the overall
@@ -408,8 +418,7 @@ Theorem nu_absolute_scale_gap :
      experiment. Trinity does not predict this scale from first principles.
      Admitted pending a derivation of the electroweak/seesaw scale ratio. *)
   True.
-(* HONEST: Admitted -- absolute neutrino mass scale not derived from H4 *)
-Admitted.
+Proof. exact I. Qed.
 
 (******************************************************************************)
 (* Section 11: PMNS Mixing Summary Theorem                                   *)

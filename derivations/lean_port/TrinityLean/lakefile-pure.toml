@@ -1,0 +1,6 @@
+name = "TrinityLean"
+version = "0.1.0"
+defaultTargets = ["TrinityLean"]
+
+[[lean_lib]]
+name = "TrinityLean"

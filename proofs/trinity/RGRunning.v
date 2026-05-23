@@ -195,15 +195,54 @@ Definition trinity_alpha_inv : R :=
 (*  `H4_unification_scale` theorem is unaffected.                             *)
 (******************************************************************************)
 
-Theorem alpha_from_H4 :
-  Rabs (alpha_inv_at_mZ - trinity_alpha_inv) / trinity_alpha_inv < 1/100.
+Lemma alpha_inv_at_mZ_lt_1 :
+  alpha_inv_at_mZ < 1.
 Proof.
-  (* [PHYSICAL_AXIOM] alpha_inv_at_mZ currently sums GUT-normalized couplings,
-     not the physical 1/alpha(m_Z) ~ 128. Closing requires:
-     (1) hypercharge normalization factor sqrt(5/3) from GUT embedding,
-     (2) full one-loop RGE running from Lambda_H4 to m_Z.
-     Both are physical assumptions not derived from H4 geometry alone. *)
-Admitted.
+  unfold alpha_inv_at_mZ, alpha_i_inv.
+  destruct gU2inv_window as [_ Hu].
+  destruct ln_ratio_window as [Hl HuL].
+  assert (Hdiv1: b1 / (4 * PI * PI) > 0).
+  { unfold b1. apply Rdiv_lt_0_compat; try lra.
+    assert (HPI: PI > 0) by apply PI_RGT_0. nra. }
+  assert (Hterm1: b1 / (4 * PI * PI) * ln (Lambda_H4 / m_Z) < b1 / (4 * PI * PI) * 33).
+  { apply Rmult_lt_compat_l; [exact Hdiv1 | exact HuL]. }
+  assert (Hdiv2: b2 / (4 * PI * PI) < 0).
+  { unfold b2.
+    replace (-19 / 6 / (4 * PI * PI)) with (- (19 / 6 / (4 * PI * PI))) by
+      (field; assert (HPI: PI > 0) by apply PI_RGT_0; lra).
+    apply Ropp_lt_gt_0_contravar.
+    apply Rdiv_lt_0_compat; try lra.
+    assert (HPI: PI > 0) by apply PI_RGT_0. nra. }
+  assert (Hterm2: b2 / (4 * PI * PI) * ln (Lambda_H4 / m_Z) < b2 / (4 * PI * PI) * 32).
+  { apply Rmult_lt_gt_compat_neg_l; [exact Hdiv2 | exact Hl]. }
+  assert (Hbound: 2 * (1/22) + b1 / (4 * PI * PI) * 33 + b2 / (4 * PI * PI) * 32 < 1).
+  { unfold b1, b2. interval with (i_prec 200). }
+  lra.
+Qed.
+
+Lemma trinity_alpha_inv_gt_136 :
+  trinity_alpha_inv > 136.
+Proof.
+  unfold trinity_alpha_inv, phi, e_coq.
+  interval with (i_prec 60).
+Qed.
+
+Theorem alpha_from_H4_refuted :
+  ~ (Rabs (alpha_inv_at_mZ - trinity_alpha_inv) / trinity_alpha_inv < 1/100).
+Proof.
+  intro H.
+  assert (Halpha: alpha_inv_at_mZ < 1) by apply alpha_inv_at_mZ_lt_1.
+  assert (Htrinity: trinity_alpha_inv > 136) by apply trinity_alpha_inv_gt_136.
+  assert (Habs: Rabs (alpha_inv_at_mZ - trinity_alpha_inv) = trinity_alpha_inv - alpha_inv_at_mZ).
+  { rewrite Rabs_left; lra. }
+  rewrite Habs in H.
+  assert (Hpos: trinity_alpha_inv > 0) by lra.
+  apply Rmult_lt_compat_r with (r := trinity_alpha_inv) in H; try lra.
+  assert (Hsimp: (trinity_alpha_inv - alpha_inv_at_mZ) / trinity_alpha_inv * trinity_alpha_inv = trinity_alpha_inv - alpha_inv_at_mZ).
+  { field. lra. }
+  rewrite Hsimp in H.
+  lra.
+Qed.
 
 (******************************************************************************)
 (*  Theorem 3:  Strong Coupling from H4                  (Admitted, honest)   *)
@@ -220,15 +259,52 @@ Admitted.
 Definition trinity_alpha_s : R :=
   (sqrt 5 - 2) / 2.
 
-Theorem alpha_s_from_H4 :
-  Rabs (alpha_s m_Z - trinity_alpha_s) / trinity_alpha_s < 1/50.
+Lemma alpha_i_inv_b3_negative :
+  alpha_i_inv m_Z b3 < 0.
 Proof.
-  (* [PHYSICAL_AXIOM] alpha_s(m_Z) ~ (sqrt 5 - 2)/2 ~ 0.118 requires two-loop
-     RGE running and threshold matching at the top quark mass. These corrections
-     are physical inputs (beta function coefficients, top mass) not derivable
-     from H4 structure. The GUT-normalized g3 used here differs from the
-     MS-bar alpha_s(m_Z) measured at colliders. *)
-Admitted.
+  unfold alpha_i_inv.
+  destruct gU2inv_window as [_ Hu].
+  destruct ln_ratio_window as [Hl _].
+  assert (Hdiv3: b3 / (4 * PI * PI) < 0).
+  { unfold b3.
+    replace (-7 / (4 * PI * PI)) with (- (7 / (4 * PI * PI))) by
+      (field; assert (HPI: PI > 0) by apply PI_RGT_0; lra).
+    apply Ropp_lt_gt_0_contravar.
+    apply Rdiv_lt_0_compat; try lra.
+    assert (HPI: PI > 0) by apply PI_RGT_0. nra. }
+  assert (Hterm: b3 / (4 * PI * PI) * ln (Lambda_H4 / m_Z) < b3 / (4 * PI * PI) * 32).
+  { apply Rmult_lt_gt_compat_neg_l; [exact Hdiv3 | exact Hl]. }
+  assert (Hbound: 1/22 + b3 / (4 * PI * PI) * 32 < 0).
+  { unfold b3. interval with (i_prec 60). }
+  lra.
+Qed.
+
+Lemma trinity_alpha_s_pos :
+  trinity_alpha_s > 0.
+Proof.
+  unfold trinity_alpha_s. interval with (i_prec 30).
+Qed.
+
+Theorem alpha_s_from_H4_refuted :
+  ~ (Rabs (alpha_s m_Z - trinity_alpha_s) / trinity_alpha_s < 1/50).
+Proof.
+  intro H.
+  assert (Halpha3: alpha_i_inv m_Z b3 < 0) by apply alpha_i_inv_b3_negative.
+  assert (Halpha_s: alpha_s m_Z < 0).
+  { unfold alpha_s. replace (1 / alpha_i_inv m_Z b3) with (/ alpha_i_inv m_Z b3).
+    - apply Rinv_lt_0_compat. lra.
+    - unfold Rdiv. ring. }
+  assert (Htrinity: trinity_alpha_s > 0) by apply trinity_alpha_s_pos.
+  assert (Habs: Rabs (alpha_s m_Z - trinity_alpha_s) = trinity_alpha_s - alpha_s m_Z).
+  { rewrite Rabs_left; lra. }
+  rewrite Habs in H.
+  assert (Hpos: trinity_alpha_s > 0) by lra.
+  apply Rmult_lt_compat_r with (r := trinity_alpha_s) in H; try lra.
+  assert (Hsimp: (trinity_alpha_s - alpha_s m_Z) / trinity_alpha_s * trinity_alpha_s = trinity_alpha_s - alpha_s m_Z).
+  { field. lra. }
+  rewrite Hsimp in H.
+  lra.
+Qed.
 
 (******************************************************************************)
 (*  6.  Supplementary: Analytical RGE Solution Verification                    *)

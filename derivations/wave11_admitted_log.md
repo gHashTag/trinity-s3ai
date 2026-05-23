@@ -30,3 +30,29 @@
 - **Admitted remaining**: 18 across 9 files
 - **Primary obstruction**: Inconsistent/broken `coq-interval` installation prevents compilation of all files that import `Interval.Tactic`. Without compilation, proof changes cannot be verified per instructions.
 - **Secondary obstruction**: Rocq 9.1.1's `Nat.of_num_uint` representation prevents computation on large nat literals (affecting `phi_squared_nat_refuted`).
+
+# Wave 12.2 Admitted Closure Log
+
+| File | Theorem | Result | Notes |
+|------|---------|--------|-------|
+| OptimizerInvariants.v | ttt_lr_is_phi_inv_cube_scaled | **CLOSED** | Pure algebraic identity; proved with `unfold Rdiv; rewrite Rmult_1_l; reflexivity`. |
+| Bounds_Mixing.v | N04_within_experimental_range | **CLOSED** | Numerical bound; proved with `unfold` + `interval with (i_prec 60)`. |
+| A4Conversion.v | conversion_exact | **CLOSED** | Algebraic identity with sqrt(5); proved by clearing denominators (`Rmult_eq_reg_r`) + `field_simplify` + `ring_simplify` + `pow2_sqrt`. |
+| H4Lagrangian.v | L01_lagrangian_order_of_magnitude | **CLOSED** | Numerical bound; proved with `unfold` + `interval with (i_prec 100)`. |
+| H4Lagrangian.v | Koide_H4_test | **CLOSED** | Numerical bound with nested sqrt; proved with `unfold Koide_H4` + `interval with (i_prec 100)`. |
+| Koide.v | Koide_correct_forms_equal | **CLOSED** | Algebraic identity; proved with `unfold` + `repeat rewrite Rdiv_1_l` + `repeat rewrite sqrt_inv` + `reflexivity`. |
+| Catalog42.v | Q02_is_m_s_over_m_u | **REFUTED** | Theorem is mathematically false (relative error ~0.138% > V_bound 0.1%). Converted to `Q02_is_m_s_over_m_u_refuted` and proved with `interval` + `lra`. |
+| Catalog42.v | N03_is_sin2_theta_23 | **REFUTED** | Theorem is mathematically false (relative error ~0.42% > V_bound 0.1%). Converted to `N03_is_sin2_theta_23_refuted` and proved with `interval` + `lra`. |
+| Catalog42.v | C01_is_V_us | **REFUTED** | Theorem is mathematically false (relative error ~0.96% > V_bound 0.1%). Converted to `C01_is_V_us_refuted` and proved with `interval` + `lra`. |
+| RGRunning.v | alpha_from_H4 | REMAINS ADMITTED | Mathematically false under current definitions (refutation exists in `RGRunningExtras.v` as `alpha_from_H4_refuted`). Left Admitted with existing honest documentation. |
+| RGRunning.v | alpha_s_from_H4 | REMAINS ADMITTED | Mathematically false under current definitions. Left Admitted with existing honest documentation. |
+
+## Summary
+
+- **Files modified**: 6 (`OptimizerInvariants.v`, `Bounds_Mixing.v`, `A4Conversion.v`, `H4Lagrangian.v`, `Koide.v`, `Catalog42.v`)
+- **Admitted closed**: 6 (all provable)
+- **Admitted converted to refutations**: 3 (Q02, N03, C01 in `Catalog42.v` — all mathematically false)
+- **Admitted remaining**: 13 across 8 files (including 2 documented false theorems in `RGRunning.v`)
+- **Final project compile status**: exit code 0 (full project compiles)
+- **coq-interval**: Installed and functional (version 4.11.4) in `coq-8.20` switch.
+
