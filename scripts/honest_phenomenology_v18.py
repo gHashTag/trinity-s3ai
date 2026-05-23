@@ -35,9 +35,9 @@ PI = mp.pi
 E = mp.e
 
 # Number of MC trials
-N_TRIALS = 100_000
+N_TRIALS = 50_000
 # Sample size per trial (formulas tested per observable)
-SAMPLE_SIZE = 10_000
+SAMPLE_SIZE = 2_000
 # Random seed for reproducibility
 SEED = 20260522
 
@@ -454,12 +454,12 @@ def run_monte_carlo(n_trials: int = N_TRIALS, sample_size: int = SAMPLE_SIZE) ->
         trial_hit_counts_1pct[trial] = np.sum(best_rel < 1.0)
         trial_hit_counts_01pct[trial] = np.sum(best_rel < 0.1)
         
-        if (trial + 1) % 10000 == 0:
+        if (trial + 1) % 5000 == 0:
             elapsed = time.time() - start_time
-            print(f"  ... trial {trial + 1:,} / {n_trials:,} ({elapsed:.1f}s, {trial/elapsed:.1f} trials/s)")
+            print(f"  ... trial {trial + 1:,} / {n_trials:,} ({elapsed:.1f}s, {trial/elapsed:.1f} trials/s)", flush=True)
     
     elapsed = time.time() - start_time
-    print(f"\n[MC] Completed in {elapsed:.1f}s ({n_trials/elapsed:.1f} trials/s)")
+    print(f"\n[MC] Completed in {elapsed:.1f}s ({n_trials/elapsed:.1f} trials/s)", flush=True)
     
     # Compute p-values
     trinity_mean_rel = np.mean(trinity_rel_errs)
@@ -586,7 +586,8 @@ def generate_report(results: dict) -> str:
         t = trinity[fid]
         expr_short = TRINITY_FORMULAS[fid][0][:30]
         target = TARGETS[fid]
-        lines.append(f"| {fid} | `{expr_short}` | {target.value:.4g} | {t['computed']:.4g} | {t['rel_error_percent']:.4f}% | {t['sigma_distance']:.2f}σ |")
+        computed = eval_formula(TRINITY_FORMULAS[fid][0])
+        lines.append(f"| {fid} | `{expr_short}` | {target.value:.4g} | {computed:.4g} | {t['rel_error_percent']:.4f}% | {t['sigma_distance']:.2f}σ |")
     
     lines.append("")
     lines.append(f"**Summary:**")

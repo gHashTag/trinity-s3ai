@@ -48,6 +48,16 @@ Definition sin2_theta_23_formula : R := PI * PI / 18.
 Definition sin2_theta_13_formula : R := PI * PI / (25 * powZ phi 6).
 
 (* N04: delta_CP = 3 / phi^2 (radians), = 65.66 degrees, V-class *)
+(*                                                                            *)
+(* IN CRISIS (Wave 17, 2026-05-23):                                           *)
+(*   This prediction is in >5 sigma tension with modern experimental data:    *)
+(*   - NuFit 6.0 (NO with SK): delta_CP ~ 212 (+26 / -41) degrees             *)
+(*   - T2K 2025 + NOvA: delta_CP ~ 270 +/- 20 degrees                         *)
+(*   - JUNO 2025: consistent with ~212 degrees                                *)
+(*   See derivations/delta_cp_crisis/Wave16_investigation.md for the          *)
+(*   systematic search of >7,000 alternative H4-derived formulas.             *)
+(*   No geometric fix was found. The formula is RETRACTED as a reliable       *)
+(*   physical prediction and retained only as a mathematical curiosity.       *)
 Definition delta_CP_formula : R := 3 / (phi * phi).
 
 (* Cabibbo angle approximation: arctan(phi^(-3)) ~ 13.28 degrees              *)
@@ -362,7 +372,7 @@ Qed.
 (* - V_us = 2*phi^3*e^2/(9*pi^3) = 0.2243 (V-class, 0.014% error)           *)
 (* - V_cb = 1/(3*phi^2*pi) = 0.04053 (V-class, 0.07% error)                 *)
 (* - sin^2_theta_13 = pi^2/(25*phi^6) = 0.0220 (SG-class, 0.003% error)     *)
-(* - delta_CP = 3/phi^2 = 1.1459 rad = 65.66 deg (V-class, DUNE 2028 test)  *)
+(* - delta_CP = 3/phi^2 = 1.1459 rad = 65.66 deg (V-class, IN CRISIS, retracted)
 (* - H4 geometric origin: motivated conjecture, not formal proof              *)
 (* - interval with (i_prec 60) for numerical bounds                           *)
 (* - HONEST: comments for all Admitted or unproven geometric claims           *)

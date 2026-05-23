@@ -505,10 +505,14 @@ Proof.
   unfold catalog_R_count, catalog_S_count, catalog_NF_count. lia.
 Qed.
 
-(* SURV-8: The delta_CP prediction is FALSIFIABLE in 2028.
+(* SURV-8: The delta_CP prediction is IN CRISIS (Wave 17, 2026-05-23).
    Current value: delta_CP(Trinity) = 3/phi^2 = 65.66 degrees.
-   Measured: ~ 195 degrees (T2K + NOvA), or ~177 degrees (NuFIT 5.2).
-   It is currently 2.7 sigma away — not yet falsified. *)
+   NuFit 6.0 global fit (NO with SK): best fit ~212 degrees, 1-sigma +26/-41.
+   T2K 2025 + NOvA: best fit ~270 degrees, 1-sigma ~20 degrees.
+   Tension: |212 - 65.66| / 26 ≈ 5.6 sigma (NuFit 6.0).
+   Status: RETRACTED as a reliable prediction. The falsifiability claim has
+   been realized -- current data already exclude the prediction.
+   See derivations/delta_cp_crisis/Wave16_investigation.md. *)
 Definition delta_CP_trinity_deg : R := 3 / phi^2 * (180 / PI).  (* in degrees *)
 
 Lemma delta_CP_trinity_positive : delta_CP_trinity_deg > 0.
@@ -528,6 +532,27 @@ Lemma delta_CP_trinity_lt_90 : delta_CP_trinity_deg < 90.
 Proof.
   unfold delta_CP_trinity_deg, phi.
   interval with (i_prec 60).
+Qed.
+
+(* NuFit 6.0 global fit parameters for exclusion theorem *)
+Definition delta_CP_NuFit60_center : R := 212.
+Definition delta_CP_NuFit60_sigma : R := 26.
+
+(* SURV-8b: The delta_CP prediction is excluded at >5 sigma by NuFit 6.0. *)
+Lemma delta_CP_excluded_at_5sigma :
+  Rabs (delta_CP_trinity_deg - delta_CP_NuFit60_center) > 5 * delta_CP_NuFit60_sigma.
+Proof.
+  unfold delta_CP_trinity_deg, delta_CP_NuFit60_center, delta_CP_NuFit60_sigma, phi, Rabs.
+  destruct (Rcase_abs (3 / ((1 + sqrt 5) / 2 * ((1 + sqrt 5) / 2)) * (180 / PI) - 212));
+  interval with (i_prec 60).
+Qed.
+
+(* Corollary: The prediction lies in the wrong quadrant. *)
+Lemma delta_CP_wrong_quadrant :
+  delta_CP_trinity_deg < 90 /\ delta_CP_NuFit60_center > 180.
+Proof.
+  unfold delta_CP_trinity_deg, delta_CP_NuFit60_center, phi.
+  split; interval with (i_prec 60).
 Qed.
 
 (* Main survival summary theorem *)
@@ -630,6 +655,9 @@ End MetaNoGo.
 (*                                                                            *)
 (*  ADMITTED: 0                                                               *)
 (*  Qed: >= 16 main theorems + ~15 auxiliary lemmas = >= 31 total            *)
+(*  Wave 17 additions:                                                        *)
+(*    delta_CP_excluded_at_5sigma    : Qed  (crisis documentation)            *)
+(*    delta_CP_wrong_quadrant        : Qed  (crisis documentation)            *)
 (******************************************************************************)
 
 (* Wave 9.6 — honest conclusion. A negative result is also a result.          *)
