@@ -12,3 +12,6 @@ Cl8_periodicity.v
 
 # T4: Explicit proof of Cl(0,1) ≅ ℂ (Wave 20)
 Cl01_iso_C.v
+
+# T5: Explicit proof of Cl(0,2) ≅ ℍ (Wave 21)
+Cl02_iso_H.v
