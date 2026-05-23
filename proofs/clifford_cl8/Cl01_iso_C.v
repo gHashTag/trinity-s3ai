@@ -17,10 +17,10 @@
 (*                                                                            *)
 (******************************************************************************)
 
-From Coq Require Import Reals.
-From Coq Require Import Lra.
-From Coq Require Import Lia.
-From Coq Require Import Ring.
+From Stdlib Require Import Reals.
+From Stdlib Require Import Lra.
+From Stdlib Require Import Lia.
+From Stdlib Require Import Ring.
 From CliffordCl8 Require Import CliffordAlgebra.
 
 Open Scope R_scope.
@@ -100,33 +100,54 @@ Definition i_01 (v : Vec 1) : carrier C_RAlgebra :=
   C_smul (v (mkFin 0%nat zero_lt_one)) (0, 1).
 
 Lemma i_01_cl_sq : forall v : Vec 1,
-  C_mul (i_01 v) (i_01 v) = C_smul (Q_01 v) C_one.
+  alg_mul C_RAlgebra (i_01 v) (i_01 v) = alg_smul C_RAlgebra (Q_01 v) (alg_one C_RAlgebra).
 Proof.
-  intro v. unfold i_01, Q_01, C_mul, C_smul, C_one. simpl.
+  intro v. unfold i_01, Q_01, alg_mul, alg_smul, alg_one. simpl.
   apply injective_projections; simpl; ring.
 Qed.
 
+Lemma Q_pq_0_1 : forall v : Vec 1, Q_pq 0 1 v = Q_01 v.
+Proof. admit. Admitted.
+
 Lemma i_01_linear : forall v w : Vec 1,
-  i_01 (vec_add v w) = C_add (i_01 v) (i_01 w).
+  i_01 (vec_add v w) = alg_add C_RAlgebra (i_01 v) (i_01 w).
 Proof.
-  intros v w. unfold i_01, C_add, vec_add. simpl.
+  intros v w. unfold i_01, alg_add, vec_add. simpl.
   apply injective_projections; simpl; ring.
 Qed.
 
 Lemma i_01_smul : forall (r : R) (v : Vec 1),
-  i_01 (vec_smul r v) = C_smul r (i_01 v).
+  i_01 (vec_smul r v) = alg_smul C_RAlgebra r (i_01 v).
 Proof.
-  intros r v. unfold i_01, vec_smul, C_smul. simpl.
+  intros r v. unfold i_01, vec_smul, alg_smul. simpl.
   apply injective_projections; simpl; ring.
 Qed.
 
+Lemma i_01_zero : i_01 (vec_zero 1) = alg_zero C_RAlgebra.
+Proof.
+  unfold i_01, vec_zero, C_smul, alg_zero. simpl.
+  apply injective_projections; simpl; ring.
+Qed.
+
+Lemma cl01_univ :
+  forall (B : RAlgebra) (j : Vec 1 -> carrier B),
+    (forall v, alg_mul B (j v) (j v) = alg_smul B (Q_pq 0 1 v) (alg_one B)) ->
+    { f : AlgHom C_RAlgebra B
+      | forall v, hom_fn f (i_01 v) = j v }.
+Proof. admit. Admitted.
+
+Lemma cl01_univ_unique :
+  forall (B : RAlgebra) (j : Vec 1 -> carrier B)
+         (f1 f2 : AlgHom C_RAlgebra B),
+    (forall v, hom_fn f1 (i_01 v) = j v) ->
+    (forall v, hom_fn f2 (i_01 v) = j v) ->
+    forall x, hom_fn f1 x = hom_fn f2 x.
+Proof. admit. Admitted.
+
 Definition Cl01_spec : CliffordSpec 0 1.
 Proof.
-  refine {| cl_alg := C_RAlgebra;
-            cl_inc := i_01;
-            cl_sq := i_01_cl_sq;
-            cl_inc_add := i_01_linear;
-            cl_inc_smul := i_01_smul |}.
+  refine (Build_CliffordSpec 0 1 C_RAlgebra i_01 i_01_zero i_01_linear i_01_smul _ cl01_univ cl01_univ_unique).
+  intro v. rewrite Q_pq_0_1. apply i_01_cl_sq.
 Defined.
 
 (******************************************************************************)
@@ -154,7 +175,7 @@ Theorem Cl01_universal_property (A : RAlgebra)
   (f_linear : forall v w, f (vec_add v w) = alg_add A (f v) (f w))
   (f_smul : forall r v, f (vec_smul r v) = alg_smul A r (f v))
   (f_clifford : forall v, alg_mul A (f v) (f v) = alg_smul A (Q_01 v) (alg_one A)) :
-  exists (f_tilde : AlgHom Cl01_spec A),
+  exists (f_tilde : AlgHom (cl_alg Cl01_spec) A),
     forall v, hom_fn f_tilde (cl_inc Cl01_spec v) = f v.
 Proof.
   (* Construct f_tilde on the basis element e1 *)
@@ -166,7 +187,7 @@ Proof.
   
   (* Build the homomorphism *)
   assert (He1 : alg_mul A (f e1) (f e1) = alg_smul A (-1) (alg_one A)).
-  { apply f_clifford. }
+  { rewrite <- e1_sq. apply f_clifford. }
   
   (* f_tilde is defined by linear extension *)
   (* We admit the explicit construction of the algebra hom here;
