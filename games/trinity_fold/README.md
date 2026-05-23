@@ -57,11 +57,51 @@ A board that contains **any** `high_risk_or_falsified` tile has its total
 score floored at `-0.25`, regardless of other contributions. This is the
 honesty floor.
 
+## Architecture: ring crates
+
+The codebase is organized as five inward-pointing rings (Cargo workspace
+crates), inspired by the layered "ring" / onion architecture pattern. Each
+outer ring may only depend on lower-numbered rings; the inverse is forbidden
+and **enforced by integration tests** in
+[`crates/app/tests/ring_boundaries.rs`](crates/app/tests/ring_boundaries.rs).
+
+```
++----------------------------------------------------------------+
+|  app  (orchestration, CLI)            crates/app                |
+|   +----------------------------------------------------------+ |
+|   |  ring3_adapters  (IO, fixtures, web export)              | |
+|   |   +----------------------------------------------------+ | |
+|   |   |  ring2_search  (hill-climb, annealing, LCG RNG)    | | |
+|   |   |   +----------------------------------------------+ | | |
+|   |   |   |  ring1_constraints  (scoring, weights)       | | | |
+|   |   |   |   +----------------------------------------+ | | | |
+|   |   |   |   |  ring0_core  (Node, Board, Catalog,    | | | | |
+|   |   |   |   |               ClaimStatus — pure types)| | | | |
+|   |   |   |   +----------------------------------------+ | | | |
+|   |   |   +----------------------------------------------+ | | |
+|   |   +----------------------------------------------------+ | |
+|   +----------------------------------------------------------+ |
++----------------------------------------------------------------+
+```
+
+| Ring | Crate | Allowed to depend on | What lives here |
+|---|---|---|---|
+| 0 | `ring0_core` | std only | `Node`, `NodeKind`, `Board`, `Catalog`, `ClaimStatus`. No IO, no RNG, no UI. |
+| 1 | `ring1_constraints` | ring 0 | `ScoreBreakdown`, `score_board*`, `tower_counts`. Pure functions. |
+| 2 | `ring2_search` | ring 0, ring 1 | `hill_climb`, `anneal`, self-contained LCG. Deterministic given seeds. |
+| 3 | `ring3_adapters` | ring 0–2 | `fixtures::default_catalog`, JSON load/save, web JSON export. Sole IO boundary. |
+| app | `trinity_fold_app` | all rings | CLI parsing + presentation only. No domain logic. |
+
+Why this matters: every score is reproducible from ring 0+1 alone, so
+auditors can rebuild the constraint surface without running any IO. See
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the dependency rules and
+how to add a new tile, constraint, or search strategy.
+
 ## Scoring model
 
 The scorer (Rust source of truth:
-[`src/scoring.rs`](src/scoring.rs); JS mirror:
-[`web/app.js`](web/app.js)) reports an eight-component breakdown,
+[`crates/ring1_constraints/src/scoring.rs`](crates/ring1_constraints/src/scoring.rs);
+JS mirror: [`web/app.js`](web/app.js)) reports an eight-component breakdown,
 combined with default weights into a single normalized total. Full
 specification: [`docs/SCORING.md`](docs/SCORING.md).
 
@@ -96,19 +136,19 @@ specification: [`docs/SCORING.md`](docs/SCORING.md).
 cd games/trinity_fold
 
 # Score a hand-picked board:
-cargo run --quiet -- score "s_su2,s_u1,s_su3,f_higgs,f_fermions,cn_anomaly,o_higgs_mass"
+cargo run --quiet -p trinity_fold_app -- score "s_su2,s_u1,s_su3,f_higgs,f_fermions,cn_anomaly,o_higgs_mass"
 
 # Run the deterministic hill climber from an empty board:
-cargo run --quiet -- search
+cargo run --quiet -p trinity_fold_app -- search
 
 # Reproducible simulated annealing:
-cargo run --quiet -- search --anneal --seed 42 --iters 2000
+cargo run --quiet -p trinity_fold_app -- search --anneal --seed 42 --iters 2000
 
 # Export the catalog (used by the web UI):
-cargo run --quiet -- export fixtures/catalog.json
+cargo run --quiet -p trinity_fold_app -- export fixtures/catalog.json
 
 # Benchmark mode: hides held-out observables before scoring.
-cargo run --quiet -- benchmark "s_su2,s_u1,f_higgs,o_higgs_mass"
+cargo run --quiet -p trinity_fold_app -- benchmark "s_su2,s_u1,f_higgs,o_higgs_mass"
 ```
 
 ### Web UI
@@ -150,27 +190,29 @@ specification.
 
 ```
 games/trinity_fold/
-├── Cargo.toml
-├── README.md            (this file)
+├── Cargo.toml                      (virtual workspace manifest)
+├── README.md                       (this file)
 ├── docs/
-│   ├── ARCHITECTURE.md
+│   ├── ARCHITECTURE.md             (ring rules, dependency direction, how-to-extend)
 │   ├── SCORING.md
 │   ├── BENCHMARK.md
 │   └── EXTENDING.md
+├── crates/
+│   ├── ring0_core/                 (domain types — Node, Board, Catalog, ClaimStatus)
+│   │   └── src/{lib,board,claim,node}.rs
+│   ├── ring1_constraints/          (scoring; depends on ring0)
+│   │   └── src/{lib,scoring}.rs
+│   ├── ring2_search/               (hill-climb, anneal, LCG; depends on ring0+1)
+│   │   └── src/{lib,search,rng}.rs
+│   ├── ring3_adapters/             (fixtures, JSON IO, web export; depends on ring0–2)
+│   │   └── src/{lib,fixtures,io,web}.rs
+│   └── app/                        (CLI binary `trinity-fold`; composes all rings)
+│       ├── src/main.rs
+│       └── tests/
+│           ├── scoring.rs          (end-to-end scoring + search tests)
+│           └── ring_boundaries.rs  (dependency-direction guard tests)
 ├── fixtures/
-│   └── catalog.json     (illustrative tiles, exported from src/fixtures.rs)
-├── src/
-│   ├── board.rs
-│   ├── claim.rs
-│   ├── fixtures.rs
-│   ├── io.rs
-│   ├── lib.rs
-│   ├── main.rs
-│   ├── node.rs
-│   ├── scoring.rs
-│   └── search.rs
-├── tests/
-│   └── scoring.rs
+│   └── catalog.json                (illustrative tiles, exported from ring3 fixtures)
 └── web/
     ├── app.js
     ├── index.html

@@ -1,6 +1,4 @@
-use crate::board::{Board, Catalog};
-use crate::claim::ClaimStatus;
-use crate::node::{NodeKind, Tower};
+use ring0_core::{Board, Catalog, ClaimStatus, NodeKind, Tower};
 use serde::{Deserialize, Serialize};
 
 /// Eight scalar components combined into one composite score.
@@ -95,13 +93,11 @@ pub fn score_board_with(
     br.dimensional_sanity = if sig.is_empty() {
         1.0
     } else {
-        // Soft penalty: 1 / (1 + total absolute dimensional imbalance).
         let imbalance: i32 = sig.values().map(|v| v.abs()).sum();
         1.0 / (1.0 + imbalance as f64)
     };
     if !sig.is_empty() {
-        br.notes
-            .push(format!("dimensional imbalance: {:?}", sig));
+        br.notes.push(format!("dimensional imbalance: {:?}", sig));
     }
 
     // 3. Observable fit: for each Observable node with both `value` and
@@ -123,18 +119,14 @@ pub fn score_board_with(
             .filter(|s| *s > 0.0)
             .unwrap_or((obs.abs() * 1e-3).max(1e-12));
         let z = ((pred - obs) / sigma).abs();
-        // Smooth: 1 / (1 + z^2). z=1 sigma -> 0.5; z=3 -> 0.1.
         let contrib = 1.0 / (1.0 + z * z);
-        // Weight by the observable's own claim status — an unverified node
-        // can't claim a perfect fit.
         fit_acc += contrib * node.claim.positive_weight();
         fit_n += 1;
         update_worst(&mut br.worst_claim, node.claim);
     }
     br.observable_fit = if fit_n == 0 { 0.0 } else { fit_acc / fit_n as f64 };
 
-    // 4. Proof debt: count nodes tagged "proof_debt" or with claim
-    // OpenConjecture / Unverified. Returned as a penalty in [0, 1].
+    // 4. Proof debt: count nodes tagged "proof_debt" or with weaker claims.
     let mut debt = 0.0;
     for id in board.ids() {
         let Some(node) = catalog.by_id(id) else {
@@ -154,8 +146,7 @@ pub fn score_board_with(
     br.proof_debt_penalty = (debt / n).min(1.0);
 
     // 5. Falsification: any node with HighRiskOrFalsified or tag
-    // "falsified" / "no_go" triggers a heavy penalty. This is intentionally
-    // the harshest term — boards must avoid known-broken structures.
+    // "falsified" / "no_go" triggers a heavy penalty.
     let mut falsified = 0usize;
     for id in board.ids() {
         let Some(node) = catalog.by_id(id) else {
@@ -171,9 +162,7 @@ pub fn score_board_with(
     }
     br.falsification_penalty = (falsified as f64 / n).min(1.0);
 
-    // 6. Simplicity / compression: shorter boards score higher, but only
-    // after a small "useful complexity" floor — too few tiles can't cover
-    // enough constraints. Peak around 8-12 tiles.
+    // 6. Simplicity / compression: peak around 8-12 tiles.
     let target = 10.0_f64;
     let dev = (n - target).abs();
     br.simplicity = (1.0 / (1.0 + 0.05 * dev * dev)).clamp(0.0, 1.0);
@@ -202,8 +191,7 @@ pub fn score_board_with(
         (false, false) => 0.0,
     };
 
-    // 8. Reproducibility: fraction of nodes that carry a citation. Reflects
-    // CASP-style traceability — every score component must be auditable.
+    // 8. Reproducibility: fraction of nodes that carry a citation.
     let cited = board
         .ids()
         .filter(|id| {
@@ -236,12 +224,12 @@ pub fn score_board_with(
         0.0
     };
 
-    // Honesty floor: if any node on the board is falsified, the total is
-    // capped so the candidate cannot ever read as "good".
     if falsified > 0 {
         br.total = br.total.min(-0.25);
-        br.notes
-            .push(format!("{} falsified node(s) on board — total capped", falsified));
+        br.notes.push(format!(
+            "{} falsified node(s) on board — total capped",
+            falsified
+        ));
     }
 
     br
@@ -277,7 +265,6 @@ fn update_worst(worst: &mut ClaimStatus, c: ClaimStatus) {
 }
 
 /// Tower coverage helper used by the UI: how many tiles sit in each tower.
-/// Exposed here so the CLI report can include it without duplicating logic.
 pub fn tower_counts(catalog: &Catalog, board: &Board) -> (usize, usize) {
     let mut data = 0usize;
     let mut geom = 0usize;

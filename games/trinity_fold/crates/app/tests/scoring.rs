@@ -1,8 +1,11 @@
-use trinity_fold::board::Board;
-use trinity_fold::claim::ClaimStatus;
-use trinity_fold::fixtures::default_catalog;
-use trinity_fold::scoring::{ScoreWeights, score_board, score_board_with};
-use trinity_fold::search::{anneal, hill_climb};
+// Integration tests at the app boundary. These exercise the full ring stack
+// (ring0 types via ring3 fixtures, ring1 scoring, ring2 search) and verify
+// that the public API the CLI relies on still behaves correctly.
+
+use ring0_core::{Board, ClaimStatus};
+use ring1_constraints::{ScoreWeights, score_board, score_board_with};
+use ring2_search::{anneal, hill_climb};
+use ring3_adapters::default_catalog;
 
 #[test]
 fn empty_board_scores_zero_total_and_keeps_worst_claim_pristine() {
@@ -18,14 +21,12 @@ fn unknown_ids_are_ignored_and_do_not_panic() {
     let cat = default_catalog();
     let b = Board::from_ids(["does_not_exist", "also_missing"]);
     let r = score_board(&cat, &b);
-    // No-ops produce a near-empty score, but the function must not crash.
     assert!(r.total <= 0.5);
 }
 
 #[test]
 fn falsified_node_caps_total_negative() {
     let cat = default_catalog();
-    // NGT3 alone falsifies the H4-only chirality story.
     let b = Board::from_ids(["s_h4", "g_600cell", "cn_ngt3_chirality"]);
     let r = score_board(&cat, &b);
     assert!(
@@ -39,7 +40,6 @@ fn falsified_node_caps_total_negative() {
 #[test]
 fn unmet_requires_lowers_consistency() {
     let cat = default_catalog();
-    // f_higgs requires s_su2 and s_u1. Place only the Higgs.
     let b = Board::from_ids(["f_higgs"]);
     let r = score_board(&cat, &b);
     assert!(r.consistency < 0.5, "consistency too high: {}", r.consistency);
@@ -65,7 +65,6 @@ fn full_ew_triangle_satisfies_consistency_and_triangle() {
 #[test]
 fn citation_lift_reproducibility() {
     let cat = default_catalog();
-    // Every node placed has a citation.
     let b = Board::from_ids(["c_c", "c_hbar", "s_lorentz", "cn_unitarity"]);
     let r = score_board(&cat, &b);
     assert!(r.reproducibility >= 0.99, "reproducibility={}", r.reproducibility);
@@ -106,7 +105,6 @@ fn hill_climb_never_lands_on_falsified_only_board() {
 #[test]
 fn observable_fit_rewards_close_predictions() {
     let mut cat = default_catalog();
-    // Inject a `predicted` value for the Higgs mass observable, very close to PDG.
     for n in cat.nodes.iter_mut() {
         if n.id == "o_higgs_mass" {
             n.predicted = Some(125.21);

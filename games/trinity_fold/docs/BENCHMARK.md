@@ -13,7 +13,7 @@ the observable exists (and that its value is hidden), but the
 
 ## Held-out set
 
-The default held-out ids are listed in `src/fixtures.rs` under
+The default held-out ids are listed in `crates/ring3_adapters/src/fixtures.rs` under
 `benchmark_holdout_ids`:
 
 | id | name | rationale for holding out |

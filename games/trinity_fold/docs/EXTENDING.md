@@ -1,11 +1,14 @@
 # Extending the catalog
 
-The fastest way to add a tile is to edit `src/fixtures.rs` and re-export
-the catalog:
+The fastest way to add a tile is to edit
+[`crates/ring3_adapters/src/fixtures.rs`](../crates/ring3_adapters/src/fixtures.rs)
+and re-export the catalog. Tiles live in ring 3 (the adapter ring) because
+they are data, not behaviour — you never need to touch the inner rings to
+add a new tile.
 
 ```bash
 cd games/trinity_fold
-cargo run --quiet -- export fixtures/catalog.json
+cargo run --quiet -p trinity_fold_app -- export fixtures/catalog.json
 ```
 
 Every tile is a `Node`:
@@ -66,9 +69,18 @@ have placed s_h4 and g_600cell").
 ## After editing
 
 ```bash
-cargo test                                # invariants we care about
-cargo run --quiet -- export fixtures/catalog.json    # refresh web UI data
+cargo test                                                          # all 15 tests (10 scoring + 5 boundary)
+cargo run --quiet -p trinity_fold_app -- export fixtures/catalog.json  # refresh web UI data
 ```
+
+For adding new scoring components or new search strategies, see the
+"How to add ..." section in [`ARCHITECTURE.md`](ARCHITECTURE.md). The
+relevant ring is different from the tile-extension flow:
+
+- new scoring component → ring 1 (`crates/ring1_constraints`)
+- new search strategy → ring 2 (`crates/ring2_search`)
+- new IO format → ring 3 (`crates/ring3_adapters`)
+- new CLI subcommand → app (`crates/app`)
 
 The web UI consumes `fixtures/catalog.json` directly — there is no build
 step.

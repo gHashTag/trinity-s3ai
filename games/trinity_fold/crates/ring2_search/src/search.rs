@@ -1,16 +1,9 @@
-// Deterministic local search over board configurations.
-//
-// Two strategies are provided:
-//   * `hill_climb`  — greedy improvement; useful for tests and reproducible runs.
-//   * `anneal`      — simulated annealing with a pure LCG random source so
-//                     the same `seed` yields the same trajectory.
-//
-// No external RNG crate is used to keep the dependency surface small and
-// avoid pulling crates that would change the audit story.
+use crate::rng::Lcg;
+use ring0_core::{Board, Catalog};
+use ring1_constraints::{ScoreBreakdown, ScoreWeights, score_board_with};
 
-use crate::board::{Board, Catalog};
-use crate::scoring::{ScoreBreakdown, ScoreWeights, score_board_with};
-
+/// A single mutation proposal. Kept here so search strategies can return
+/// trajectories without depending on adapter-layer formatting.
 #[derive(Clone, Copy, Debug)]
 pub enum Move {
     Add(usize),
@@ -41,8 +34,7 @@ pub fn hill_climb(
 
     'outer: while iterations < max_iters {
         iterations += 1;
-        for (i, node) in catalog.nodes.iter().enumerate() {
-            let _ = i;
+        for node in catalog.nodes.iter() {
             let mut candidate = current.clone();
             if candidate.contains(&node.id) {
                 candidate.remove(&node.id);
@@ -130,35 +122,5 @@ pub fn anneal(
         best_score,
         iterations: iters,
         accepted_moves: accepted,
-    }
-}
-
-// Tiny LCG. Not cryptographic; we only need reproducible exploration.
-struct Lcg {
-    state: u64,
-}
-
-impl Lcg {
-    fn new(seed: u64) -> Self {
-        Self {
-            state: seed.wrapping_add(0x9E3779B97F4A7C15),
-        }
-    }
-    fn next_u64(&mut self) -> u64 {
-        self.state = self
-            .state
-            .wrapping_mul(6364136223846793005)
-            .wrapping_add(1442695040888963407);
-        self.state
-    }
-    fn next_f64(&mut self) -> f64 {
-        // 53-bit mantissa.
-        (self.next_u64() >> 11) as f64 / (1u64 << 53) as f64
-    }
-    fn next_range(&mut self, n: u64) -> u64 {
-        if n == 0 {
-            return 0;
-        }
-        self.next_u64() % n
     }
 }
