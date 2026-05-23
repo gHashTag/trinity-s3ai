@@ -101,7 +101,7 @@ why naive `grep -c "Admitted"` gives a much larger number.
 
 ```bash
 pip install mpmath numpy
-python3 validate_v4.py
+python3 scripts/validators/validate_v4.py
 ```
 
 **Expected:** a list of formulas with their numeric error vs PDG values.

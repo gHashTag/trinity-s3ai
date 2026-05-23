@@ -40,7 +40,7 @@ cd /Users/playra/trinity-s3ai
 mkdir -p arxiv_submission/anc
 cp paper/wave13_paper.tex arxiv_submission/
 cp -r figures arxiv_submission/
-cp validate_v4.py derivations/trinity_d4/d4_analysis.py \
+cp scripts/validators/validate_v4.py derivations/trinity_d4/d4_analysis.py \
    derivations/higgs_spectral_action/spectral_action.py \
    derivations/f4_spectrum/f4_spectrum.py arxiv_submission/anc/
 tar -czf trinity-s3ai-arxiv.tar.gz arxiv_submission/

@@ -209,7 +209,7 @@ Each layer below states what is currently **Checked**, what is a known
 
 ### L5 - Numerical Fits and Validation
 - **Checked:** 59 formulas matching PDG 2024 inside stated windows
-  (interval-bound `Qed.` in `Catalog42_corrected.v`), falsifiability
+  (interval-bound `Qed.` in `proofs/catalog/Catalog42_corrected.v`), falsifiability
   protocol, honest p-value computation, RG running scheme.
 - **Blind spots:** `e^2` (electric charge) derivation, full RG closure,
   numerology / look-elsewhere risk, post-data prediction risk.
@@ -371,7 +371,7 @@ make -f Makefile.coq -j4
 
 ```bash
 pip install mpmath numpy
-python3 validate_v4.py                        # formula error bounds
+python3 scripts/validators/validate_v4.py     # formula error bounds
 python3 scripts/anti_numerology_gate.py       # honesty check
 ```
 

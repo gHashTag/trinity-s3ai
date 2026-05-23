@@ -236,7 +236,7 @@ What is in scope: the 59 catalogued numerical matches, error windows,
 falsifiability assessments, and risky predictions.
 
 - **Checked:** 59 formulas matching PDG 2024 inside stated windows
-  (interval-bound `Qed.` in `Catalog42_corrected.v`), reproducibility
+  (interval-bound `Qed.` in `proofs/catalog/Catalog42_corrected.v`), reproducibility
   scripts, falsifiability protocol, honest p-value computation, RG
   running scheme.
 - **Blind spots:** the `e^2` derivation, full RG closure,
@@ -248,7 +248,7 @@ falsifiability assessments, and risky predictions.
 
 | Aspect | Status | Pointer |
 |--------|--------|---------|
-| 59 formulas matching PDG 2024 within stated windows | **empirical_fit** (with `Qed.` bound checks) | [`Catalog42_corrected.v`](../Catalog42_corrected.v) |
+| 59 formulas matching PDG 2024 within stated windows | **empirical_fit** (with `Qed.` bound checks) | [`Catalog42_corrected.v`](../proofs/catalog/Catalog42_corrected.v) |
 | 11 SG-class formulas (< 0.01 % error) | **empirical_fit** | README §"Coq Proof Statistics" |
 | 14 V-class formulas (0.01–0.3 % error) | **empirical_fit** | README §"Coq Proof Statistics" |
 | Falsifiability protocol | **verified** as a protocol; the predictions themselves are **open_conjecture** | [`Trinity_Falsifiability_Assessment.md`](analysis/Trinity_Falsifiability_Assessment.md) |

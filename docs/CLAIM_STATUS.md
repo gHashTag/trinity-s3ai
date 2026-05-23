@@ -97,7 +97,7 @@ status for the project's most-referenced statements as of Wave 17.
 |-------|--------|---------|
 | H4 / 600-cell cannot produce a consistent NCG model of the SM (four Coq-formal impossibilities NGT1–NGT4) | **verified** | [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) (NGT1–NGT4, all `Qed.`) |
 | Additional Wave 11–17 No-Go results: NGT-5 (D₄/24-cell), NGT-6 (no σ-field under string/orbifold rescue), NGT-7 (F₄ cannot produce 3-generation hierarchy) | **verified** (at paper / analysis level — not yet Coq-formalised in `proofs/trinity/NoGoTheorems.v`) | [`ROADMAP.md`](../ROADMAP.md) §"No-Go theorems", [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) |
-| 59 numerical matches between H4 invariants and PDG 2024 observables, within stated error windows | **verified** (bound check) + **empirical_fit** (physical reading) | [`Catalog42.v`](../Catalog42_corrected.v) |
+| 59 numerical matches between H4 invariants and PDG 2024 observables, within stated error windows | **verified** (bound check) + **empirical_fit** (physical reading) | [`Catalog42.v`](../proofs/catalog/Catalog42_corrected.v) |
 | `m_H = 4 φ³ e² ≈ 125.1 GeV` is the Higgs mass | **empirical_fit** | `HiggsPrediction.v`, [`higgs_potential_proven.md`](analysis/higgs_potential_proven.md) |
 | Koide relation in H4 | **high_risk_or_falsified** | `KoideOrigins.v` (the "Koide ≠ 2/3 in H4" theorem is `Qed.`) |
 | H4 chirality fully derived | **open_conjecture** | `derivations/chirality/ChiralityAnalysis.v`; chirality No-Go is NGT3 (`Qed.`) |
@@ -151,7 +151,7 @@ generated artefacts are stale.
 |-------|------------------|---------|
 | Anti-numerology gate | Every multi-atom φ/π/e formula is tagged | `python3 scripts/anti_numerology_gate.py` |
 | Honest counter | Comment-stripped Coq statistics | `python3 scripts/count_admitted_honest.py` |
-| Formula bounds | Error windows match what the docs claim | `python3 validate_v4.py` |
+| Formula bounds | Error windows match what the docs claim | `python3 scripts/validators/validate_v4.py` |
 | Coq build | Every advertised `Qed.` actually closes | `cd proofs/trinity && make -f Makefile.coq` |
 | GOLDEN BRIDGE tests | Ring boundaries hold; falsified tiles floor the score | `cargo test --workspace` in `games/trinity_fold/` |
 | Public-docs language | English-only public docs (CONTRIBUTING is bilingual by design) | manual / reviewer check |

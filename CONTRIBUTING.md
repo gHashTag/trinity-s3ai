@@ -58,7 +58,7 @@ python3 scripts/anti_numerology_gate.py
 Every PR must:
 1. Fill in the PR template (`.github/PULL_REQUEST_TEMPLATE.md`)
 2. Pass `anti_numerology_check` CI job (or include `[skip-numerology-check]` with explanation)
-3. Pass `validate_v4.py` (formula error bounds)
+3. Pass `scripts/validators/validate_v4.py` (formula error bounds)
 4. Have a "What is verified / What is open" section
 
 #### 5. Build instructions (Coq 8.20.1)
@@ -79,7 +79,7 @@ docker run -it --rm -v $(pwd):/work coqorg/coq:8.20.1-ocaml-4.14-flambda
 
 ```bash
 pip install mpmath numpy
-python3 validate_v4.py
+python3 scripts/validators/validate_v4.py
 python3 scripts/anti_numerology_gate.py --verbose
 ```
 

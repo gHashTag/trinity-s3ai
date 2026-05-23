@@ -38,7 +38,7 @@
 ## Verification
 
 - [ ] `cd proofs/trinity && make -f Makefile.coq` compiles without errors
-- [ ] `python3 validate_v4.py` passes (formula error bounds)
+- [ ] `python3 scripts/validators/validate_v4.py` passes (formula error bounds)
 - [ ] `python3 scripts/anti_numerology_gate.py` exits 0 (or `[skip-numerology-check]` used with explanation below)
 - [ ] No new `Admitted` without a tag from: `[PHYSICAL_AXIOM]`, `[NUMERICAL_FIT]`, `[MATH_TODO]`, `[LIBRARY_GAP]`
 
