@@ -20,10 +20,12 @@ jobs:
           python-version: '3.12'
 
       - name: Run anti-numerology gate
-        run: |
-          # Export commit message so the gate can honour [skip-numerology-check]
-          export GIT_COMMIT_MSG="${{ github.event.head_commit.message }}"
-          python3 scripts/anti_numerology_gate.py
+        # Pass the commit message via env, not shell interpolation, so multiline
+        # bodies (e.g. merge commits) don't break the shell with stray `-`/`*` lines.
+        # The gate honours [skip-numerology-check] when present in GIT_COMMIT_MSG.
+        env:
+          GIT_COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: python3 scripts/anti_numerology_gate.py
         # Hard gate: exit 1 if any multi-atom formula lacks an honesty tag.
         # Per-commit override: add [skip-numerology-check] to your commit message.
         # Repo-wide override: set SKIP_NUMEROLOGY_CHECK=1 (not recommended).
