@@ -147,6 +147,7 @@ pub enum HitRegion {
     ButtonHillClimb,
     ButtonAnneal,
     ButtonBenchmark,
+    ButtonUndo,
     RecipeChip(String),
 }
 
@@ -175,9 +176,9 @@ const TILE_GAP_X: f32 = 10.0;
 const HEADER_H: f32 = 48.0;
 const BUTTON_H: f32 = 44.0;
 const HONESTY_STRIP_H: f32 = 36.0;
-// The bridge stage is the dominant element — ~58% of the viewport height
-// at the reference size, so it visually anchors the page.
-const BRIDGE_RATIO: f32 = 0.56;
+// The bridge stage is the dominant element — ~62% of the viewport height
+// at the reference size, so it visually anchors the page as the hero.
+const BRIDGE_RATIO: f32 = 0.62;
 
 fn claim_color(claim: ClaimStatus, theme: &Theme) -> Color {
     match claim {
@@ -244,6 +245,87 @@ fn friendly_label(id: &str, fallback: &str) -> String {
         "k_hbar" => "Quantum Action".to_string(),
         _ => fallback.to_string(),
     }
+}
+
+/// How a single card strip should be presented relative to the current
+/// onboarding step. Drives both the header label ("Pick one ↓" vs
+/// "Next ↓" vs "(locked)") and the per-tile dimming.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum StripState {
+    /// This strip is where the player should click next.
+    Current,
+    /// The player has already picked from this strip; cards stay visible
+    /// but read as "done / locked" so attention moves on.
+    Locked,
+    /// The player has not interacted with this strip yet and it is not
+    /// the current step — dimmed but inviting.
+    Waiting,
+    /// Both towers have at least one tile; both strips read as active.
+    Active,
+}
+
+fn strip_state(step: PlayerStep, is_data: bool, picked_any: bool) -> StripState {
+    match step {
+        PlayerStep::PickData => {
+            if is_data { StripState::Current } else { StripState::Waiting }
+        }
+        PlayerStep::PickGeometry => {
+            if is_data { StripState::Locked } else { StripState::Current }
+        }
+        PlayerStep::Building => StripState::Active,
+        PlayerStep::Won | PlayerStep::Collapsed => {
+            if picked_any { StripState::Locked } else { StripState::Waiting }
+        }
+    }
+}
+
+/// Which step the player is currently on. Drives the hero text and the
+/// per-strip "active / dimmed" treatment so the player never has to hunt
+/// for the next action.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PlayerStep {
+    /// Step 1: pick a blue Data card next.
+    PickData,
+    /// Step 2: pick a purple Geometry card next.
+    PickGeometry,
+    /// Building — both towers seeded; keep lighting stones.
+    Building,
+    /// Bridge stable (won).
+    Won,
+    /// Bridge collapsed (falsified card on board).
+    Collapsed,
+}
+
+pub fn current_step(state: &AppState) -> PlayerStep {
+    let bridge = &state.bridge;
+    if bridge.integrity == BridgeIntegrity::Collapsed {
+        return PlayerStep::Collapsed;
+    }
+    let mut data_picked = 0usize;
+    let mut geom_picked = 0usize;
+    for id in state.board.ids() {
+        if let Some(n) = state.catalog.by_id(id) {
+            match n.kind.tower() {
+                Tower::Data => data_picked += 1,
+                Tower::Geometry => geom_picked += 1,
+            }
+        }
+    }
+    let stones_lit = bridge
+        .span_nodes
+        .iter()
+        .filter(|n| matches!(n.status, SpanStatus::Gold | SpanStatus::Empirical))
+        .count();
+    if stones_lit >= 4 {
+        return PlayerStep::Won;
+    }
+    if data_picked == 0 {
+        return PlayerStep::PickData;
+    }
+    if geom_picked == 0 {
+        return PlayerStep::PickGeometry;
+    }
+    PlayerStep::Building
 }
 
 /// Hero instruction text — the single primary call-to-action the player
@@ -326,21 +408,46 @@ pub fn layout(state: &AppState, viewport: ViewportSize, theme: &Theme) -> Render
     draw_toolbar(state, theme, pad, toolbar_y, viewport.width - pad * 2.0,
         &mut prims, &mut hits);
 
+    // Dedicated recipe rail — single row, spans both strips, sits between
+    // the toolbar and the card strips. Keeps the recipe buttons
+    // visually consistent and prevents them from competing with the
+    // primary "pick a card" action.
+    let rail_y = toolbar_y + BUTTON_H + 10.0;
+    let rail_h = draw_recipe_rail(
+        state, theme,
+        pad, rail_y, viewport.width - pad * 2.0,
+        &mut prims, &mut hits,
+    );
+
     // Two card strips: BLUE Data (left), PURPLE Geometry (right). These are
     // the only tile-pickers — fewer, larger cards, no raw id subtext on the
     // primary face.
-    let cards_y = toolbar_y + BUTTON_H + 12.0;
+    let cards_y = rail_y + rail_h + 8.0;
     let cards_bottom = viewport.height - HONESTY_STRIP_H - 8.0;
     let cards_h = (cards_bottom - cards_y).max(140.0);
     let strip_w = (viewport.width - pad * 3.0) * 0.5;
 
+    let step = current_step(state);
+    // A strip is "active" when the player has already picked from it and
+    // its cards now read as selected/locked, OR when it's the current
+    // step. The opposite strip is dimmed as "next/waiting" before the
+    // player has touched it, and "locked" after.
+    let data_picked_any = state.board.ids().any(|id| state.catalog.by_id(id)
+        .map(|n| n.kind.tower() == Tower::Data).unwrap_or(false));
+    let geom_picked_any = state.board.ids().any(|id| state.catalog.by_id(id)
+        .map(|n| n.kind.tower() == Tower::Geometry).unwrap_or(false));
+
+    let data_state = strip_state(step, true, data_picked_any);
+    let geom_state = strip_state(step, false, geom_picked_any);
     draw_card_strip(state, theme, Tower::Data,
         pad, cards_y, strip_w, cards_h,
         "BLUE Data cards — pick one", theme.tower_data, theme.data_glow,
+        data_state,
         &mut prims, &mut hits);
     draw_card_strip(state, theme, Tower::Geometry,
         pad * 2.0 + strip_w, cards_y, strip_w, cards_h,
         "PURPLE Geometry cards — pick one", theme.tower_geom, theme.geom_glow,
+        geom_state,
         &mut prims, &mut hits);
 
     // Compact honesty / science strip pinned to the bottom — single low-
@@ -405,40 +512,81 @@ fn draw_toolbar(
     x0: f32, y: f32, w_total: f32,
     prims: &mut Vec<RenderPrimitive>, hits: &mut Vec<HitBox>,
 ) {
-    let buttons: [(&str, HitRegion, bool); 4] = [
-        ("Start over (C)", HitRegion::ButtonClear, false),
-        ("Hint (H)", HitRegion::ButtonHillClimb, false),
-        ("Auto-build (A)", HitRegion::ButtonAnneal, false),
-        (
-            if state.view.benchmark_mode { "Honest mode: ON (B)" } else { "Honest mode: off (B)" },
-            HitRegion::ButtonBenchmark, state.view.benchmark_mode,
-        ),
+    // Toolbar splits into primary game controls (left) and the honest-mode
+    // toggle (right, smaller). The Undo button sits next to Start over so
+    // mistakes are obviously recoverable.
+    let undo_available = !state.pick_history.is_empty();
+    let primary: [(&str, HitRegion, bool, bool); 4] = [
+        ("Start over (C)", HitRegion::ButtonClear, false, !state.board.is_empty()),
+        ("Undo last (U)", HitRegion::ButtonUndo, false, undo_available),
+        ("Hint (H)", HitRegion::ButtonHillClimb, false, true),
+        ("Auto-build (A)", HitRegion::ButtonAnneal, false, true),
     ];
-    // Equal-width buttons spread across the full toolbar width so the bar
-    // looks deliberate rather than crowded into the corner.
-    let gap = 12.0;
-    let n = buttons.len() as f32;
-    let bw = ((w_total - gap * (n - 1.0)) / n).max(140.0);
+    let honest_label = if state.view.benchmark_mode {
+        "Honest mode: ON (B)"
+    } else {
+        "Honest mode: off (B)"
+    };
+
+    // Reserve ~22% of the toolbar width for the honesty toggle so the
+    // primary 4 game buttons read as one chunky row.
+    let gap = 10.0;
+    let honest_w = (w_total * 0.22).clamp(180.0, 260.0);
+    let primary_w_total = w_total - honest_w - gap;
+    let n = primary.len() as f32;
+    let bw = ((primary_w_total - gap * (n - 1.0)) / n).max(120.0);
     let mut x = x0;
-    for (label, region, active) in buttons {
+    for (label, region, active, enabled) in primary {
         let fill = if active { theme.button_active } else { theme.button };
         let stroke = if active { theme.bridge_sound } else { theme.stroke };
-        // Soft glow halo.
+        let alpha: u8 = if enabled { 255 } else { 90 };
+        let fill_a = fill.with_alpha(alpha);
+        let stroke_a = stroke.with_alpha(alpha.max(140));
+        // Soft glow halo only on enabled, non-active primary controls.
+        if enabled {
+            prims.push(RenderPrimitive::Rect {
+                x: x - 3.0, y: y - 3.0, w: bw + 6.0, h: BUTTON_H + 6.0,
+                fill: Color(fill.0, fill.1, fill.2, 60), stroke: None,
+            });
+        }
         prims.push(RenderPrimitive::Rect {
-            x: x - 3.0, y: y - 3.0, w: bw + 6.0, h: BUTTON_H + 6.0,
-            fill: Color(fill.0, fill.1, fill.2, 60), stroke: None,
+            x, y, w: bw, h: BUTTON_H, fill: fill_a, stroke: Some(stroke_a),
         });
-        prims.push(RenderPrimitive::Rect {
-            x, y, w: bw, h: BUTTON_H, fill, stroke: Some(stroke),
-        });
-        let txt_col = if active { Color(20, 16, 8, 255) } else { theme.text };
+        let txt_col = if active {
+            Color(20, 16, 8, 255)
+        } else if enabled {
+            theme.text
+        } else {
+            theme.text_dim
+        };
         prims.push(RenderPrimitive::Text {
             x: x + 16.0, y: y + 28.0, s: label.into(),
-            color: txt_col, size: 15.0, bold: true,
+            color: txt_col, size: 14.0, bold: true,
         });
+        // Disabled buttons still get a hit box so keyboard fallback works;
+        // the apply() side rejects no-op events safely.
         hits.push(HitBox { x, y, w: bw, h: BUTTON_H, region });
         x += bw + gap;
     }
+
+    // Honest-mode toggle — visually distinct so it reads as a setting,
+    // not a primary game action.
+    let active = state.view.benchmark_mode;
+    let fill = if active { theme.button_active } else { theme.recipe_chip };
+    let stroke = if active { theme.bridge_sound } else { theme.text_dim };
+    prims.push(RenderPrimitive::Rect {
+        x: x - 2.0, y: y - 2.0, w: honest_w + 4.0, h: BUTTON_H + 4.0,
+        fill: Color(fill.0, fill.1, fill.2, 50), stroke: None,
+    });
+    prims.push(RenderPrimitive::Rect {
+        x, y, w: honest_w, h: BUTTON_H, fill, stroke: Some(stroke),
+    });
+    let txt_col = if active { Color(20, 16, 8, 255) } else { theme.text };
+    prims.push(RenderPrimitive::Text {
+        x: x + 12.0, y: y + 28.0, s: honest_label.into(),
+        color: txt_col, size: 13.0, bold: true,
+    });
+    hits.push(HitBox { x, y, w: honest_w, h: BUTTON_H, region: HitRegion::ButtonBenchmark });
 }
 
 /// Draw the dominant central bridge stage: two big islands/pillars, the
@@ -488,46 +636,54 @@ fn draw_bridge_stage(
         color: hero_color, size: 18.0, bold: true,
     });
 
-    // Two islands / pillars — thick, glowing, planted on a horizon.
-    let pillar_w = (w * 0.12).clamp(96.0, 150.0);
-    let pillar_h = h * 0.50;
-    let pillar_y = y + h * 0.30;
-    let data_x = x + 28.0;
-    let geom_x = x + w - 28.0 - pillar_w;
+    // Short chunky tower-islands sit AT the deck level (left & right ends),
+    // anchoring the bridge without stealing vertical space. The previous
+    // tall pillars left huge empty side columns; these new islands are
+    // wider and lower so the deck itself can be tall and cinematic.
+    let island_w = (w * 0.13).clamp(110.0, 170.0);
+    let island_h = (h * 0.22).clamp(72.0, 110.0);
+    // Deck centre-line sits ~46% down the stage so the hero text breathes
+    // above and the 3-step legend has room below.
+    let deck_cy = y + h * 0.50;
+    let island_y = deck_cy - island_h * 0.5;
+    let data_x = x + 24.0;
+    let geom_x = x + w - 24.0 - island_w;
 
-    draw_pillar(
-        prims, data_x, pillar_y, pillar_w, pillar_h,
+    draw_island(
+        prims, data_x, island_y, island_w, island_h,
         theme.tower_data, theme.data_glow,
         "DATA",
-        &format!("{} card(s)", bridge.data_pier_count),
+        bridge.data_pier_count,
         theme,
     );
-    draw_pillar(
-        prims, geom_x, pillar_y, pillar_w, pillar_h,
+    draw_island(
+        prims, geom_x, island_y, island_w, island_h,
         theme.tower_geom, theme.geom_glow,
         "GEOMETRY",
-        &format!("{} card(s)", bridge.geom_pier_count),
+        bridge.geom_pier_count,
         theme,
     );
 
-    // Pier counters below the integrity row, well above the deck.
-    let counter_y = y + 70.0;
+    // Compact `Data·N` / `Geometry·N` badges above each island. They sit
+    // well below the integrity header so the overlap regression
+    // `integrity_header_does_not_overlap_pier_counters` stays green.
+    let counter_y = y + 78.0;
     prims.push(RenderPrimitive::Text {
         x: data_x, y: counter_y,
         s: format!("Data·{}", bridge.data_pier_count),
-        color: theme.data_glow, size: 12.0, bold: true,
+        color: theme.data_glow, size: 11.0, bold: true,
     });
     prims.push(RenderPrimitive::Text {
-        x: geom_x + pillar_w - 90.0, y: counter_y,
+        x: geom_x + island_w - 92.0, y: counter_y,
         s: format!("Geometry·{}", bridge.geom_pier_count),
-        color: theme.geom_glow, size: 12.0, bold: true,
+        color: theme.geom_glow, size: 11.0, bold: true,
     });
 
     // Decorative "space-fold" rings behind the deck — purely visual.
     let cx = x + w * 0.5;
-    let cy = pillar_y + pillar_h * 0.45;
+    let cy = deck_cy;
     for k in 0..4 {
-        let r = 40.0 + k as f32 * 26.0 + bridge.compression as f32 * 24.0;
+        let r = 50.0 + k as f32 * 32.0 + bridge.compression as f32 * 28.0;
         prims.push(RenderPrimitive::Circle {
             x: cx, y: cy, r,
             fill: Color(0, 0, 0, 0),
@@ -535,11 +691,12 @@ fn draw_bridge_stage(
         });
     }
 
-    // Bridge deck — thick glowing span between pillar tops.
-    let deck_h = (h * 0.16).clamp(36.0, 60.0);
-    let deck_y = pillar_y + pillar_h * 0.35 - deck_h * 0.5;
-    let deck_left = data_x + pillar_w - 6.0;
-    let deck_right = geom_x + 6.0;
+    // Bridge deck — thick glowing span between island tops. Taller than
+    // before so the four stones sit prominently inside it.
+    let deck_h = (h * 0.22).clamp(56.0, 96.0);
+    let deck_y = deck_cy - deck_h * 0.5;
+    let deck_left = data_x + island_w - 8.0;
+    let deck_right = geom_x + 8.0;
     let deck_w = (deck_right - deck_left).max(120.0);
     let deck_color = integrity_color(bridge.integrity, theme);
 
@@ -577,9 +734,9 @@ fn draw_bridge_stage(
     // stones than the old 8-stone strip so the player reads progress at a
     // glance.
     let stone_count: usize = 4;
-    let inner_pad = deck_w * 0.10;
+    let inner_pad = deck_w * 0.08;
     let slot_w = (deck_w - inner_pad * 2.0) / stone_count as f32;
-    let stone_r = (deck_h * 0.42).clamp(14.0, 24.0);
+    let stone_r = (deck_h * 0.36).clamp(20.0, 32.0);
     let stones_lit = bridge.span_nodes.iter()
         .filter(|n| matches!(n.status, SpanStatus::Gold | SpanStatus::Empirical))
         .count()
@@ -588,31 +745,69 @@ fn draw_bridge_stage(
     for i in 0..stone_count {
         let sx = deck_left + inner_pad + slot_w * i as f32 + slot_w * 0.5;
         let sy = deck_y + deck_h * 0.5;
-        let (fill, stroke) = if i < stones_cracked {
-            (theme.bridge_collapsed, Some(Color(255, 200, 200, 255)))
-        } else if i < stones_lit {
-            (theme.bridge_sound, Some(Color(255, 250, 200, 255)))
-        } else if !state.board.is_empty() && i == stones_lit {
-            (Color(190, 190, 210, 220), Some(theme.stroke))
-        } else {
-            (Color(30, 36, 56, 255), Some(theme.stroke.with_alpha(120)))
-        };
-        // Soft halo behind lit stones.
-        if i < stones_lit && stones_cracked == 0 {
+        let is_cracked = i < stones_cracked;
+        let is_lit = !is_cracked && i < stones_lit;
+        let is_next = !is_cracked && !is_lit && i == stones_lit && !state.board.is_empty();
+
+        if is_lit && stones_cracked == 0 {
+            // Bright gold halo behind lit stones.
             prims.push(RenderPrimitive::Circle {
-                x: sx, y: sy, r: stone_r + 8.0,
-                fill: fill.with_alpha(80), stroke: None,
+                x: sx, y: sy, r: stone_r + 10.0,
+                fill: theme.bridge_sound.with_alpha(100), stroke: None,
+            });
+        } else if !is_lit && !is_cracked {
+            // Ghost glow for unlit / next stones — makes them obviously
+            // empty slots awaiting a card. Brighter for the "next up" slot.
+            let ghost_a: u8 = if is_next { 110 } else { 60 };
+            let ghost_col = if is_next { theme.bridge_sound } else { theme.stroke };
+            prims.push(RenderPrimitive::Circle {
+                x: sx, y: sy, r: stone_r + 6.0,
+                fill: ghost_col.with_alpha(ghost_a / 2), stroke: None,
             });
         }
+
+        let (fill, stroke) = if is_cracked {
+            (theme.bridge_collapsed, Color(255, 220, 220, 255))
+        } else if is_lit {
+            (theme.bridge_sound, Color(255, 250, 200, 255))
+        } else if is_next {
+            // "Up next" slot: brighter dashed-look outline + dim fill so
+            // the player sees the target stone clearly.
+            (Color(22, 28, 46, 255), theme.bridge_sound.with_alpha(220))
+        } else {
+            // Empty unlit slot: dark fill, bright stroke ring, clearly a
+            // numbered placeholder rather than a vanishingly-faint dot.
+            (Color(18, 22, 38, 255), theme.stroke.with_alpha(200))
+        };
+
         prims.push(RenderPrimitive::Circle {
-            x: sx, y: sy, r: stone_r, fill, stroke,
+            x: sx, y: sy, r: stone_r, fill, stroke: Some(stroke),
         });
-        // Stone number tag for hit-target legibility.
+        // Inner ring for unlit stones — gives them the "empty socket" feel.
+        if !is_lit && !is_cracked {
+            prims.push(RenderPrimitive::Circle {
+                x: sx, y: sy, r: stone_r - 5.0,
+                fill: Color(0, 0, 0, 0),
+                stroke: Some(stroke.with_alpha(120)),
+            });
+        }
+
+        // Stone number tag — large, bright on unlit so it reads as a
+        // numbered placeholder, dark text on lit so contrast inverts.
+        let num_color = if is_lit {
+            Color(20, 18, 4, 255)
+        } else if is_cracked {
+            Color(40, 0, 0, 255)
+        } else if is_next {
+            theme.bridge_sound
+        } else {
+            theme.text
+        };
+        let num_str = format!("{}", i + 1);
         prims.push(RenderPrimitive::Text {
-            x: sx - 4.0, y: sy + 5.0,
-            s: format!("{}", i + 1),
-            color: if i < stones_lit { Color(20, 18, 4, 255) } else { theme.text_dim },
-            size: 14.0, bold: true,
+            x: sx - 5.0, y: sy + 6.0,
+            s: num_str,
+            color: num_color, size: 18.0, bold: true,
         });
     }
 
@@ -682,47 +877,59 @@ fn draw_bridge_stage(
     }
 }
 
-fn draw_pillar(
+/// A short chunky tower-island that anchors one side of the deck. Replaces
+/// the old tall pillars: the deck now reads as the hero, with these
+/// islands as low pedestals on either end. Wider than tall, with the
+/// pier-count rendered in big numerals.
+fn draw_island(
     prims: &mut Vec<RenderPrimitive>,
     x: f32, y: f32, w: f32, h: f32,
     body: Color, glow: Color,
-    title: &str, subtitle: &str,
+    title: &str, pier_count: usize,
     theme: &Theme,
 ) {
-    // Glow halo around the pillar.
+    // Outer glow halo.
     prims.push(RenderPrimitive::Rect {
-        x: x - 6.0, y: y - 6.0, w: w + 12.0, h: h + 12.0,
-        fill: glow.with_alpha(40), stroke: None,
+        x: x - 8.0, y: y - 6.0, w: w + 16.0, h: h + 16.0,
+        fill: glow.with_alpha(50), stroke: None,
     });
-    // Body.
+    // Solid island body with a glowing top cap so it reads as a pedestal.
     prims.push(RenderPrimitive::Rect {
-        x, y, w, h, fill: body, stroke: Some(glow),
+        x, y, w, h,
+        fill: body, stroke: Some(glow),
     });
-    // Pillar cap.
+    // Heavy cap on top — this is where the deck visually meets the island.
     prims.push(RenderPrimitive::Rect {
-        x: x - 4.0, y, w: w + 8.0, h: 10.0,
+        x: x - 4.0, y: y - 4.0, w: w + 8.0, h: 14.0,
         fill: glow, stroke: None,
     });
-    // Pillar base.
+    // Stepped base lines to suggest a stone plinth.
     prims.push(RenderPrimitive::Rect {
-        x: x - 4.0, y: y + h - 10.0, w: w + 8.0, h: 10.0,
-        fill: glow, stroke: None,
+        x: x - 6.0, y: y + h - 12.0, w: w + 12.0, h: 12.0,
+        fill: glow.with_alpha(220), stroke: None,
     });
-    // Vertical glow stripe down the centre.
     prims.push(RenderPrimitive::Rect {
-        x: x + w * 0.5 - 2.0, y: y + 12.0,
-        w: 4.0, h: h - 24.0,
-        fill: glow.with_alpha(170), stroke: None,
+        x: x - 10.0, y: y + h - 4.0, w: w + 20.0, h: 6.0,
+        fill: glow.with_alpha(140), stroke: None,
     });
 
-    // Title.
+    // Title across the cap area.
     prims.push(RenderPrimitive::Text {
-        x: x + 10.0, y: y + 30.0,
-        s: title.into(), color: theme.text, size: 13.0, bold: true,
+        x: x + 12.0, y: y + 24.0,
+        s: title.into(), color: theme.text, size: 14.0, bold: true,
+    });
+    // Big pier-count numeral so the island actually carries information,
+    // not just decoration. This replaces the small "Data·N" labels that
+    // used to float above the pillars.
+    prims.push(RenderPrimitive::Text {
+        x: x + 12.0, y: y + h * 0.55 + 12.0,
+        s: format!("{}", pier_count),
+        color: glow, size: 34.0, bold: true,
     });
     prims.push(RenderPrimitive::Text {
-        x: x + 10.0, y: y + 46.0,
-        s: subtitle.into(), color: theme.text_dim, size: 10.0, bold: false,
+        x: x + 12.0, y: y + h * 0.55 + 28.0,
+        s: "card(s)".into(),
+        color: theme.text_dim, size: 11.0, bold: false,
     });
 }
 
@@ -738,36 +945,68 @@ fn draw_card_strip(
     state: &AppState, theme: &Theme, tower: Tower,
     x: f32, y: f32, w: f32, h: f32,
     title: &str, bg: Color, glow: Color,
+    strip_state: StripState,
     prims: &mut Vec<RenderPrimitive>, hits: &mut Vec<HitBox>,
 ) {
+    // Per-state visual emphasis so the player's eye is drawn to the
+    // strip that matters next:
+    //   * Current — bright halo, full-strength card art, "Pick one ↓".
+    //   * Locked  — visible but de-emphasised, "(locked)" label.
+    //   * Waiting — dimmer than Active, "Next ↓" hint.
+    //   * Active  — both strips equally lit during free-build.
+    let (halo_a, body_a, stroke_a, content_a) = match strip_state {
+        StripState::Current => (95u8, 255u8, 255u8, 255u8),
+        StripState::Active  => (35u8, 230u8, 220u8, 230u8),
+        StripState::Waiting => (20u8, 170u8, 150u8, 170u8),
+        StripState::Locked  => (12u8, 130u8, 110u8, 130u8),
+    };
+
     // Soft halo + plate.
     prims.push(RenderPrimitive::Rect {
         x: x - 4.0, y: y - 4.0, w: w + 8.0, h: h + 8.0,
-        fill: glow.with_alpha(28), stroke: None,
+        fill: glow.with_alpha(halo_a), stroke: None,
     });
     prims.push(RenderPrimitive::Rect {
-        x, y, w, h, fill: bg, stroke: Some(glow),
+        x, y, w, h, fill: bg.with_alpha(body_a), stroke: Some(glow.with_alpha(stroke_a)),
     });
     // Title strip.
-    let header_h = 28.0;
+    let header_h = 32.0;
     prims.push(RenderPrimitive::Rect {
-        x, y, w, h: header_h, fill: glow.with_alpha(60), stroke: None,
+        x, y, w, h: header_h,
+        fill: glow.with_alpha(if strip_state == StripState::Current { 130 } else { 50 }),
+        stroke: None,
     });
     prims.push(RenderPrimitive::Text {
-        x: x + 12.0, y: y + 19.0, s: title.into(),
+        x: x + 14.0, y: y + 21.0, s: title.into(),
         color: theme.text, size: 14.0, bold: true,
     });
 
-    // Compact recipe chip rail under the geometry header (anchors hit
-    // regions for `RecipeChip(id)`). Only the geometry strip carries them
-    // so the data strip stays as clean as possible.
-    let inner_top = if tower == Tower::Geometry {
-        draw_recipe_chips(state, theme,
-            x + 12.0, y + header_h + 6.0, w - 24.0,
-            prims, hits) + 6.0
-    } else {
-        y + header_h + 6.0
+    // Near-card step pointer in the header — second-most-important prompt
+    // after the bridge hero line. Always pinned to the right of the
+    // header so the player learns where to look.
+    let (hint_text, hint_color) = match strip_state {
+        StripState::Current => (Some("Pick one ↓"), theme.bridge_sound),
+        StripState::Locked  => (Some("(locked)"),   theme.text_dim),
+        StripState::Waiting => (Some("Next ↓"),     theme.text_dim),
+        StripState::Active  => (None, theme.text_dim),
     };
+    if let Some(t) = hint_text {
+        prims.push(RenderPrimitive::Text {
+            x: x + w - 110.0, y: y + 21.0,
+            s: t.into(),
+            color: hint_color, size: 13.0, bold: true,
+        });
+    }
+
+    let is_active = matches!(strip_state, StripState::Current | StripState::Active);
+    let tile_alpha = content_a;
+
+    // Recipe chips no longer live inside the card strips — they have
+    // moved to a single dedicated chip row (`draw_recipe_rail`) between
+    // the toolbar and the cards. That keeps both strips visually
+    // consistent (same header, same first-row offset) and stops the
+    // recipe buttons competing with the primary "pick a card" action.
+    let inner_top = y + header_h + 8.0;
 
     // 2-column card grid — fewer, larger cards.
     let cols: usize = 2;
@@ -810,21 +1049,33 @@ fn draw_card_strip(
                     prims.push(RenderPrimitive::Rect {
                         x: tx - 3.0, y: ty - 3.0,
                         w: tile_w + 6.0, h: TILE_H + 6.0,
-                        fill: glow.with_alpha(110), stroke: None,
+                        fill: glow.with_alpha(if is_active { 140 } else { 80 }),
+                        stroke: None,
                     });
                 }
+                // Dimmed tile alpha for inactive strips so unrelated cards
+                // visibly recede when it's not their turn.
+                let tile_a: u8 = tile_alpha;
+                let stroke_a: u8 = tile_alpha;
                 prims.push(RenderPrimitive::Rect {
                     x: tx, y: ty, w: tile_w, h: TILE_H,
-                    fill, stroke: Some(cclr),
+                    fill: fill.with_alpha(tile_a),
+                    stroke: Some(cclr.with_alpha(stroke_a)),
                 });
                 // Bold claim stripe (left edge).
                 prims.push(RenderPrimitive::Rect {
                     x: tx, y: ty, w: 6.0, h: TILE_H,
-                    fill: cclr, stroke: None,
+                    fill: cclr.with_alpha(stroke_a), stroke: None,
                 });
                 // Primary label — big and bold.
                 let label = friendly_label(&node.id, &node.name);
-                let txt_color = if selected { Color(8, 14, 22, 255) } else { theme.text };
+                let txt_color = if selected {
+                    Color(8, 14, 22, 255)
+                } else if is_active {
+                    theme.text
+                } else {
+                    theme.text_dim
+                };
                 prims.push(RenderPrimitive::Text {
                     x: tx + 14.0, y: ty + 24.0,
                     s: truncate(&label, 22),
@@ -883,42 +1134,55 @@ fn draw_card_strip(
     let _ = col;
 }
 
-/// Render the recipe chip rail and return the y-coordinate below it so
-/// callers can flow content underneath. Chips stay hittable as required
-/// by `recipe_chips_are_hittable`.
-fn draw_recipe_chips(
+/// Render the dedicated "Try Recipe" chip rail between the toolbar and
+/// the card strips. Returns the total rail height. Chips stay hittable
+/// as required by `recipe_chips_are_hittable`.
+///
+/// Unlike the previous in-strip chips (which only existed on the geometry
+/// strip and visually competed with the primary card-pick action), this
+/// rail is a single quiet row at canvas-bottom, easy to ignore but always
+/// available for one-click presets.
+fn draw_recipe_rail(
     state: &AppState, theme: &Theme,
     x: f32, y: f32, w: f32,
     prims: &mut Vec<RenderPrimitive>, hits: &mut Vec<HitBox>,
 ) -> f32 {
-    let chip_h = 24.0;
+    let chip_h = 22.0;
+    let rail_h = chip_h + 6.0;
+    // Background plate — low contrast so the rail reads as secondary.
+    prims.push(RenderPrimitive::Rect {
+        x, y: y + 2.0, w, h: chip_h + 2.0,
+        fill: Color(8, 12, 22, 255),
+        stroke: Some(theme.text_dim.with_alpha(80)),
+    });
     prims.push(RenderPrimitive::Text {
-        x, y: y + 16.0,
+        x: x + 10.0, y: y + 18.0,
         s: "Try Recipe:".into(),
         color: theme.bridge_sound, size: 11.0, bold: true,
     });
-    let mut cx = x + 80.0;
-    let max_x = x + w;
+    let mut cx = x + 90.0;
+    let max_x = x + w - 8.0;
     for recipe in state.recipes.iter() {
         let label = format!("{} ({})", recipe.title, recipe.tile_ids.len());
-        let cw = (label.len() as f32) * 6.5 + 16.0;
+        let cw = (label.len() as f32) * 6.3 + 14.0;
         if cx + cw > max_x { break; }
         prims.push(RenderPrimitive::Rect {
-            x: cx, y, w: cw, h: chip_h,
-            fill: theme.recipe_chip, stroke: Some(theme.bridge_sound),
+            x: cx, y: y + 3.0, w: cw, h: chip_h - 2.0,
+            fill: theme.recipe_chip,
+            stroke: Some(theme.bridge_sound.with_alpha(180)),
         });
         prims.push(RenderPrimitive::Text {
-            x: cx + 8.0, y: y + 16.0,
+            x: cx + 8.0, y: y + 18.0,
             s: label,
             color: theme.text, size: 11.0, bold: false,
         });
         hits.push(HitBox {
-            x: cx, y, w: cw, h: chip_h,
+            x: cx, y: y + 3.0, w: cw, h: chip_h - 2.0,
             region: HitRegion::RecipeChip(recipe.id.clone()),
         });
         cx += cw + 6.0;
     }
-    y + chip_h
+    rail_h
 }
 
 /// Compact honesty / science strip — a single low-contrast line at the
@@ -1024,6 +1288,55 @@ mod tests {
         assert!(regions.contains(&HitRegion::ButtonHillClimb));
         assert!(regions.contains(&HitRegion::ButtonAnneal));
         assert!(regions.contains(&HitRegion::ButtonBenchmark));
+        assert!(regions.contains(&HitRegion::ButtonUndo),
+            "Undo button must be hittable so the player can recover from a mis-pick");
+    }
+
+    #[test]
+    fn current_step_progresses_with_picks() {
+        let mut state = s();
+        assert_eq!(current_step(&state), PlayerStep::PickData);
+        let data_id = state.catalog.nodes.iter()
+            .find(|n| n.kind.tower() == Tower::Data
+                && n.claim != ClaimStatus::HighRiskOrFalsified)
+            .map(|n| n.id.clone());
+        if let Some(id) = data_id {
+            state.apply(crate::input::UiEvent::ToggleTile(id));
+            assert_eq!(current_step(&state), PlayerStep::PickGeometry);
+        }
+    }
+
+    /// Game-feel: while the player is on Step 1 (pick Data), the active
+    /// strip must surface a near-card "Pick one ↓" pointer so the player
+    /// doesn't have to scan the whole canvas for the next click target.
+    #[test]
+    fn current_step_strip_shows_pick_pointer() {
+        let m = layout(&s(), vp(), &Theme::default());
+        let pointer_present = m.primitives.iter().any(|p| match p {
+            RenderPrimitive::Text { s, .. } => s.contains("Pick one"),
+            _ => false,
+        });
+        assert!(pointer_present, "expected a near-card 'Pick one ↓' pointer on the active strip");
+    }
+
+    /// Game-feel: once the player picks a Data card, the BLUE Data strip
+    /// stops being the current step — its near-card pointer should now
+    /// read "(locked)" so the player knows attention has moved to PURPLE.
+    #[test]
+    fn inactive_strip_shows_locked_label() {
+        let mut state = s();
+        let data_id = state.catalog.nodes.iter()
+            .find(|n| n.kind.tower() == Tower::Data
+                && n.claim != ClaimStatus::HighRiskOrFalsified)
+            .map(|n| n.id.clone());
+        let Some(id) = data_id else { return; };
+        state.apply(crate::input::UiEvent::ToggleTile(id));
+        let m = layout(&state, vp(), &Theme::default());
+        let any_locked = m.primitives.iter().any(|p| match p {
+            RenderPrimitive::Text { s, .. } => s.contains("(locked)"),
+            _ => false,
+        });
+        assert!(any_locked, "data strip should show a 'locked' marker once step 2 is active");
     }
 
     #[test]

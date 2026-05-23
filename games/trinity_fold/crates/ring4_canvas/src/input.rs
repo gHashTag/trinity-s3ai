@@ -20,6 +20,8 @@ pub enum UiEvent {
     RunAnneal { seed: u64, iters: usize },
     /// Replace the board with the tiles named by a GOLDEN BRIDGE recipe.
     LoadRecipe(String),
+    /// Remove the most recently-picked tile (single-step undo).
+    UndoLast,
     Tick,
 }
 
@@ -41,6 +43,8 @@ pub enum KeyCode {
     Anneal,
     /// `b` — toggle benchmark mode.
     ToggleBenchmark,
+    /// `u` — undo last pick.
+    Undo,
     /// `Esc` — drop focus.
     Escape,
 }
@@ -54,6 +58,7 @@ impl KeyCode {
             "h" | "H" => Some(KeyCode::HillClimb),
             "a" | "A" => Some(KeyCode::Anneal),
             "b" | "B" => Some(KeyCode::ToggleBenchmark),
+            "u" | "U" => Some(KeyCode::Undo),
             "Escape" | "Esc" => Some(KeyCode::Escape),
             _ => None,
         }
@@ -74,6 +79,7 @@ pub fn resolve(model: &RenderModel, action: InputAction) -> Option<UiEvent> {
                 iters: 500,
             }),
             Some(HitRegion::ButtonBenchmark) => Some(UiEvent::ToggleBenchmark),
+            Some(HitRegion::ButtonUndo) => Some(UiEvent::UndoLast),
             Some(HitRegion::RecipeChip(id)) => Some(UiEvent::LoadRecipe(id)),
             None => None,
         },
@@ -89,6 +95,7 @@ pub fn resolve(model: &RenderModel, action: InputAction) -> Option<UiEvent> {
                 iters: 500,
             },
             KeyCode::ToggleBenchmark => UiEvent::ToggleBenchmark,
+            KeyCode::Undo => UiEvent::UndoLast,
             KeyCode::Escape => UiEvent::Hover(None),
         }),
     }
@@ -181,7 +188,29 @@ mod tests {
     #[test]
     fn dom_key_parsing() {
         assert_eq!(KeyCode::from_dom_key("c"), Some(KeyCode::Clear));
+        assert_eq!(KeyCode::from_dom_key("u"), Some(KeyCode::Undo));
         assert_eq!(KeyCode::from_dom_key("Escape"), Some(KeyCode::Escape));
         assert_eq!(KeyCode::from_dom_key("F12"), None);
+    }
+
+    #[test]
+    fn undo_button_click_resolves_to_undo_last() {
+        let m = model_with(vec![HitBox {
+            x: 0.0, y: 0.0, w: 80.0, h: 40.0,
+            region: HitRegion::ButtonUndo,
+        }]);
+        assert_eq!(
+            resolve(&m, InputAction::Click { x: 10.0, y: 10.0 }),
+            Some(UiEvent::UndoLast)
+        );
+    }
+
+    #[test]
+    fn undo_key_maps_to_undo_last() {
+        let m = model_with(vec![]);
+        assert_eq!(
+            resolve(&m, InputAction::Key(KeyCode::Undo)),
+            Some(UiEvent::UndoLast)
+        );
     }
 }

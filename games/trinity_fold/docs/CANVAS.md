@@ -20,10 +20,11 @@ Buttons under the bridge:
 | Button | What it does |
 |---|---|
 | **Start over (C)** | Clear the bridge and start fresh. |
+| **Undo last (U)** | Remove only the most recently picked card (single-step undo). |
 | **Hint (H)** | Hill-climb one step toward a higher-scoring board. |
 | **Auto-build (A)** | Run a fixed-seed simulated anneal — the game plays itself. |
 | **Honest mode (B)** | Hide held-out observables (cosmological constant, mt/mb) so the score only reflects predicted-vs-known matches the player could *not* peek at. |
-| **Try Recipe** | Chips above the geometry strip load a built-in starter set (Standard-Model core, H4/600-cell, Anomaly audit). |
+| **Try Recipe** | Chips in the dedicated rail between the toolbar and the card strips load a built-in starter set (Standard-Model core, H4/600-cell, Anomaly audit). |
 
 ### Design intent (UX rationale)
 
@@ -34,10 +35,20 @@ puzzle-game UX best practices rather than dashboard conventions:
   the player what to do next: *"Step 1: Pick a BLUE Data card"*, then
   *"Step 2: Pick a PURPLE Geometry card"*, then *"Light 4 stones to win."*
   No multi-paragraph wall of onboarding text.
-* **Bridge is visually dominant.** It occupies ~56% of the viewport height
-  with thick glowing pillars, a plank-textured deck, four large stones
-  (instead of eight micro-pips), and a visible space-fold halo. The win
-  state is readable at a glance.
+* **Bridge is visually dominant.** It occupies ~62% of the viewport height
+  with two short chunky tower-islands (low pedestals, not tall pillars),
+  a tall plank-textured deck, four large numbered stones (instead of eight
+  micro-pips) with ghost-glow placeholders on unlit slots, and a visible
+  space-fold halo. The win state is readable at a glance, and empty slots
+  read as "awaiting card" rather than vanishing into the deck.
+* **Step pointer follows the player.** The header of each card strip
+  carries a near-card hint that mirrors the bridge's hero line: "Pick one
+  ↓" on the strip the player must click, "(locked)" on the strip the
+  player has already drawn from, "Next ↓" on the strip waiting for its
+  turn. No more hunting for the next click target.
+* **Inactive cards visibly recede.** When it's Step 2, the BLUE strip
+  dims to ~50% opacity so the PURPLE strip reads as the next action.
+  Tiles remain hit-testable so power-users can still cross-pick.
 * **Progressive disclosure.** Raw catalog ids (`o_higgs_mass`,
   `g_calabi_yau`, …) only appear as subtext when a card is hovered,
   focused, or selected. The idle face shows only the child-friendly label.
