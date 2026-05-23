@@ -335,9 +335,8 @@ Proof.
      identity here and Admit its purely-rewrite proof: the result is well
      known (Lounesto §1.2) and provable mechanically but tedious in this
      abstract setting.                                                     *)
-  (* Track B follow-up: prove this via an `RAlgebra`-level `ring`-like tactic
-     or by exposing the polynomial identity to `nra`. Tracked as TRACK_B_CLIFFORD
-     entry in admitted_log.md. *)
+  (* WAVE14: HARD — requires abstract RAlgebra polynomial identity machinery
+     (distributivity, associativity, linearity) to expand (u+v)² and collect terms. *)
 Admitted.
 
 (* Sanity: the spec also guarantees that two algebra maps from cl_alg into

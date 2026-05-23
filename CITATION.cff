@@ -6,8 +6,8 @@ authors:
   - name: "Trinity S³AI Research Collective"
 repository-code: "https://github.com/gHashTag/trinity-s3ai"
 license: MIT
-version: 1.0-wave12
-date-released: 2026-05-22
+version: 1.0-wave14
+date-released: 2026-05-23
 # doi: 10.5281/zenodo.XXXXXXX  # Uncomment and fill after Zenodo release
 keywords:
   - noncommutative-geometry

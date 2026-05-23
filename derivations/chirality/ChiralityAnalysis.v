@@ -63,10 +63,8 @@ Qed.
 (* the minimal polynomial 4x^2 - 2x - 1 = 0.                                  *)
 Lemma phi_eq_2cos_pi5 : phi = 2 * cos (PI / 5).
 Proof.
-  (* [ADMITTED: algebraic trig identity]                                       *)
-  (* Verified numerically to 1e-6 precision by phi_2cos_pi5_approx.            *)
-  (* Exact proof: phi/2 and cos(pi/5) are both positive roots of 4x^2-2x-1=0. *)
-  admit.
+  (* WAVE14: HARD — requires algebraic trig proof of 4cos²(π/5) - 2cos(π/5) - 1 = 0
+     from sin(2π/5) = sin(3π/5), quadratic formula, and positivity. *)
 Admitted.
 
 (******************************************************************************)

@@ -121,10 +121,8 @@ Proof.
   (*    (Cl_n0_spec — axiomatized);                                          *)
   (*  - the volume-element computation ω² = (-1)^{n(n-1)/2 + q} · 1.         *)
   (*                                                                          *)
-  (* All three are non-trivial in stdlib Coq. We Admit and track this in    *)
-  (* admitted_log.md as TRACK_B_CLIFFORD. The result is published, well     *)
-  (* understood, and machine-checkable once the tensor-product infrastructure*)
-  (* is in place (mathlib4 provides this in the Lean 4 ecosystem).          *)
+  (* WAVE14: HARD — requires tensor-product infrastructure for RAlgebras and
+     explicit volume-element squaring in arbitrary signature. *)
 Admitted.
 
 (* Corollary: Cl(8, 0) ≅ M_{16}(R) (the n = 0 base case modulo tensor-with-R). *)
@@ -141,7 +139,8 @@ Proof.
   (* e.g. via the Pauli-like recursive tensor construction (Lawson-        *)
   (* Michelsohn I.4.16). The map is a bijection by dimension count         *)
   (* (2^8 = 256 = 16 · 16). Mechanically checkable but lengthy; out of     *)
-  (* scope for the T3 launch PR.                                            *)
+  (* WAVE14: HARD — requires explicit 16×16 real matrix representation of
+     Cl(8,0) generators and dimension-count bijection. *)
 Admitted.
 
 (* Consequence: combining T3 with T3_Cl80_iso_M16R gives                     *)

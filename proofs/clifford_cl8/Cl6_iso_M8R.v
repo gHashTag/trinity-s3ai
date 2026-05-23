@@ -177,8 +177,8 @@ Proof.
   (* skew-symmetric 8×8 real matrices with e_i² = -I_8. Six such matrices    *)
   (* exist (e.g. via the Pauli-like recursive construction over the          *)
   (* quaternions); they generate M_8(R) on each factor of the direct sum.    *)
-  (* Verifying the relations is a finite check; surjectivity follows from    *)
-  (* dimension counting (64 = 2 · 64).                                       *)
+  (* WAVE14: HARD — requires explicit 8×8 real matrix construction for Cl_{0,6}
+     generators and verification of anticommutation relations (finite but large). *)
 Admitted.
 
 (* Corollary: dimensional statement, also Admitted at this stage. *)
