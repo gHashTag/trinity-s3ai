@@ -122,23 +122,25 @@ Source of truth: `FORMULAS.md` v4.0 (783 lines)
 | sin²θ₁₃ | 0.02200 | JUNO 0.0220±0.0007 | 2027 | ⏳ **Pending** (0.003% error) |
 | sin θ₁₃ | 0.14833 | JUNO 0.1484±0.0025 | 2027 | ⏳ **Pending** (0.001% error) |
 | m_νe | 0.103 eV | KATRIN <0.8 eV | 2025+ | ⏳ **Pending** |
-| δ_CP | **65.66°** | DUNE ±10° (2028) | 2028-2032 | 🔴 **High stakes — 5.6σ tension** |
+| δ_CP | **65.66°** (Coq lemma; physical interpretation withdrawn — see [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md)) | NuFIT-6.0 NO bf 177° ± 20°; T2K+NOvA 3σ NO [112°, 414°] | DUNE 2034–2037 | 🔴 **Already excluded at 5.6σ by current global fits** |
 | λ_Higgs | 0.1295 | HL-LHC ~0.13±0.022 | 2030 | ⏳ **Pending** |
 | Σm_ν | 0.060 eV | Cosmology ~0.06-0.12 | 2025+ | ⏳ **Pending** |
 
-### δ_CP: The Make-or-Break Prediction
+### δ_CP: Pre-registered, Now Largely Disfavored
 
-**Trinity predicts δ_CP = 3/φ² = 65.66°**
+**Trinity Coq lemma**: `delta_CP_pred = 3/φ² = 65.66°` (mathematically proven in `proofs/trinity/Predictions.v`).
 
-Current global fit: ~177° ± 20° (NOvA + T2K). The Trinity value is **5.6σ away** from current data.
+**Physical interpretation as the leptonic CP phase**: **excluded at 5.6σ by current global fits**.
 
-| DUNE Outcome | Implication |
-|-------------|-------------|
-| If DUNE measures 180° ± 10° | Trinity **falsified** at ~11σ |
-| If DUNE measures 70° ± 10° | Trinity **confirmed** at ~4σ |
-| If DUNE measures 120° ± 10° | Inconclusive — framework needs revision |
+- [NuFIT-6.0 (Sep 2024)](https://arxiv.org/abs/2410.05380): NO best fit **177° ± 20°** (3σ 124°–364°); IO best fit 285° (3σ 201°–348°).
+- [T2K+NOvA joint analysis (Nature, Oct 2025)](https://www.nature.com/articles/s41586-025-09599-3): 3σ NO interval [112°, 414°]; 3σ IO interval [194°, 353°].
+- 65.66° falls **outside the 3σ range** of every current global fit.
+- The earlier framing "high-stakes, DUNE 2028 decides" is replaced by: **current global data already substantially decide this against Trinity**; DUNE 2034–2037 will provide independent confirmation of what NuFIT-6.0 and T2K+NOvA already show.
 
-Pre-registration: `dune_preregistration.md`
+Updated falsification thresholds, full historical context, and discussion of which PMNS observables survive: [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md).
+Pre-registration (preserved as historical scientific record): [`dune_preregistration.md`](./dune_preregistration.md).
+
+**What survives in the PMNS sector**: θ₁₂ (0.16σ), θ₁₃ (0.18σ) — both within 0.2σ of NuFIT-6.0 NO best fit. θ₂₃ is in 1.7σ tension (lower-octant prediction vs upper-octant fit). δ_CP is the only PMNS observable in catastrophic conflict.
 
 ---
 
@@ -162,7 +164,7 @@ Pre-registration: `dune_preregistration.md`
 | Issue | Severity | Why It's Still Open |
 |-------|----------|-------------------|
 | **No peer-reviewed publication** | 🔴 Critical | Needs human endorser for hep-th arXiv category |
-| **δ_CP = 65.66° vs ~177°** | 🔴 Critical | 5.6σ tension. DUNE 2028 decides. No theoretical fix available without breaking other predictions |
+| **δ_CP = 65.66° excluded at 5.6σ** | 🔴 Critical | NuFIT-6.0 NO bf 177° (3σ 124°–364°) and T2K+NOvA (3σ NO [112°, 414°]) both exclude 65.66° outside 3σ. Physical interpretation of δ_CP = 3/φ² is **withdrawn** pending DUNE 2034+; Coq lemma preserved as mathematical statement. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) |
 | **Needs arXiv endorser** | 🟡 Serious | Template ready but no endorser secured |
 | **Coq 47% compilation** | 🟡 Serious | 10 files fail on interval/numerical tactics. Not a dependency issue — individual fixes needed per file |
 

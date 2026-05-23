@@ -3,7 +3,7 @@
 
 **Date:** 2026-05-20
 **Status:** 130 formulas (61 SG-class), 19/19 Coq compile (100%), 12/13 Lagrangian proven (92.3%)
-**Critical Issue:** delta_CP = 65.66° in 5.6sigma tension with NuFit 6.0; 0 peer-reviewed publications
+**Critical Issue:** delta_CP = 65.66° excluded at 5.6sigma by NuFIT-6.0 NO best fit 177° and outside 3sigma of T2K+NOvA joint analysis (Nature, Oct 2025); physical interpretation withdrawn — see [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md). 0 peer-reviewed publications.
 
 ---
 
@@ -15,7 +15,7 @@
 | 2 | **Resolve 6 Admitted in Coq** | 3-5 | 9 | 1.80 | **P0** |
 | 3 | **Write honest blog post** | 1-2 | 8 | 4.00 | **P0** |
 | 4 | **Add 10 more SG-class formulas** | 5-7 | 7 | 1.00 | **P1** |
-| 5 | **Fix delta_CP: search alternative derivations** | 3-5 | 9 | 1.80 | **P0** |
+| 5 | ~~Fix delta_CP: search alternative derivations~~ **REMOVED 2026-05-23** — would be 4th post-hoc formula iteration; explicitly warned against in `delta_cp_analysis.md` §6.2 | — | — | — | **Withdrawn** |
 | 6 | **Complete Lagrangian proof (#13)** | 7-10 | 8 | 0.80 | **P1** |
 | 7 | **Improve uniqueness proofs** | 5-7 | 7 | 1.00 | **P1** |
 | 8 | **Add RG running proof** | 7-10 | 6 | 0.60 | **P2** |
@@ -38,7 +38,7 @@ P0 (Impact/Effort >= 2.0):  Must do immediately
 
 P1 (Impact/Effort 1.0-2.0):  Do within 2 weeks
   6. Resolve 6 Admitted .................. 1.80  (3-5 days)
-  7. Fix delta_CP alternatives ............. 1.80  (3-5 days)
+  7. ~~Fix delta_CP alternatives~~ WITHDRAWN  (would be post-hoc fit #4)
   8. Animated visualizations .............. 1.67  (2-3 days)
   9. Jekyll website ........................ 1.20  (3-5 days)
   10. Add 10 SG formulas ................... 1.00  (5-7 days)
@@ -57,7 +57,7 @@ P2 (Impact/Effort < 1.0):  Do when P0/P1 complete
 These 5 actions can be completed in 1-3 days each and will significantly impress reviewers:
 
 ### QW1: OSF Pre-registration (1 day) — IMPACT: 8/10
-**Action:** Register the delta_CP = 65.66 prediction on the Open Science Framework (osf.io)
+**Action (HISTORICAL — OBSOLETED 2026-05-23):** ~~Register the delta_CP = 65.66 prediction on the Open Science Framework (osf.io)~~ — Do NOT pre-register a prediction already excluded at 5.6sigma by current global fits. The existing `dune_preregistration.md` document is preserved as historical record of the original act, but new OSF registration of an already-falsified value would be misleading. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md).
 
 **Why it impresses:**
 - Shows scientific integrity — pre-committing to a falsifiable prediction
@@ -90,7 +90,7 @@ These 5 actions can be completed in 1-3 days each and will significantly impress
 1. Hook: "Can a geometric shape predict particle physics?" (the 600-cell)
 2. What we found: 130 formulas, 61 at sub-0.01% precision
 3. The honest part: 7 failed, 6 Admitted in proofs, no Lagrangian derivation
-4. The risky prediction: delta_CP = 65.66 (5.6 sigma tension with some data)
+4. The risky prediction: delta_CP = 65.66 — **already excluded at 5.6sigma by NuFIT-6.0 and outside 3sigma of T2K+NOvA Nature 2025**; physical interpretation withdrawn
 5. What makes this different from numerology (H4 is a real group, not ad-hoc)
 6. What we need help with (open problems)
 7. Call to action: DUNE 2028 will decide
@@ -251,7 +251,7 @@ The 5.6 sigma tension with NuFit 6.0 is the biggest risk.
    - **The best fit has been wandering for a decade. No value is firmly established.**
 
 4. **Produce a standalone delta_CP paper:**
-   - Title: "delta_CP = 3/phi^2 = 65.66°: A Pre-registered Prediction"
+   - ~~Title: "delta_CP = 3/phi^2 = 65.66°: A Pre-registered Prediction"~~ **WITHDRAWN** — see DELTA_CP_HONEST_STATUS.md. Replacement title for a viable paper: "PMNS Angles theta_12 and theta_13 from H4 Coxeter Geometry" (delta_CP excluded; consider angles separately)
    - Document all experimental values and their tensions
    - Frame the quark-lepton CP angle equality as the core prediction
    - Pre-register on OSF
@@ -369,12 +369,12 @@ These 3 actions would make Trinity a landmark paper:
 
 **Tier 3 — Ambitious:**
 - **Communications in Mathematical Physics** — if spectral triple derivation succeeds
-- **Nature Physics** — if DUNE confirms delta_CP = 65.66°
+- ~~**Nature Physics** — if DUNE confirms delta_CP = 65.66°~~ (contingent on a DUNE 2034–2037 result that overturns NuFIT-6.0 and T2K+NOvA — currently very unlikely)
 - **Science** — only if multiple predictions are confirmed
 
 **Simultaneous strategy:**
 1. Submit to arXiv immediately (QW4)
-2. Submit short delta_CP prediction letter to PRL (1-2 months prep)
+2. ~~Submit short delta_CP prediction letter to PRL~~ **WITHDRAWN 2026-05-23** — publishing a delta_CP claim that is already excluded at 5.6sigma by NuFIT-6.0 and T2K+NOvA would damage the project's credibility. Replace with: submit a PMNS angle paper (theta_12, theta_13) where the predictions match NuFIT-6.0 within 0.2sigma
 3. Submit full paper to JHEP/PRD while Tier 1 is under review
 4. If DUNE 2028 confirms: submit to Nature
 
@@ -417,13 +417,13 @@ These 3 actions would make Trinity a landmark paper:
 
 Trinity predicts delta_CP = 3/phi^2 = 65.66°. Current experimental landscape:
 
-| Data Source | delta_CP Best Fit | Uncertainty | Distance from Trinity | Tension |
-|------------|-------------------|-------------|----------------------|---------|
-| **PDG 2024** | **65.5°** | **+/- 1.6°** | **0.16°** | **0.1 sigma — EXCELLENT AGREEMENT** |
-| NuFit 6.0 | ~177° | +/- 20° | 111° | 5.6 sigma — MAJOR TENSION |
-| T2K+NOvA | ~234° | +/- 20° | 168° | 8.4 sigma — EXTREME TENSION |
+| Data Source | delta_CP Best Fit / 3sigma range | Status of Trinity 65.66° |
+|------------|-------------------|----------------------|
+| **NuFIT-6.0** (Sep 2024, IC24 + SK atm) | NO bf 177° ± 20° (3sigma 124°–364°); IO bf 285° (3sigma 201°–348°) | **Outside 3sigma for both orderings** — 5.6sigma |
+| **T2K+NOvA Nature** (Oct 2025) | NO 3sigma [112°, 414°]; IO 3sigma [194°, 353°] | **Outside 3sigma for both orderings** |
+| PDG 2024 combined (legacy) | 65.5° ± 1.6° | Agrees — but PDG 2024 is a **legacy compilation superseded** by the global fits above |
 
-**Critical insight:** The field is in DISAGREEMENT with itself. PDG 2024 agrees with Trinity. NuFit and T2K/NOvA disagree with Trinity AND with each other. The experimental situation for delta_CP is genuinely unsettled.
+**Critical correction (2026-05-23):** The previous framing in this section — "PDG 2024 agrees with Trinity; NuFit and T2K/NOvA disagree with each other" — was selective. PDG 2024 is a legacy compilation that **predates** the joint T2K+NOvA analysis and the IC24+SK NuFIT-6.0 update. The two modern global fits (NuFIT-6.0 and T2K+NOvA Nature 2025) **both exclude 65.66° outside their 3sigma ranges**. Their mutual differences are about which mass ordering is preferred and the exact best fit, not about whether 65.66° is allowed — it is not allowed by either.
 
 ### Option Analysis
 
@@ -458,22 +458,25 @@ Trinity predicts delta_CP = 3/phi^2 = 65.66°. Current experimental landscape:
 **Analysis:**
 - Claiming T2K, NOvA, and NuFit are all systematically wrong is a bold claim
 - However, the evidence is mixed:
-  - PDG 2024 (the most authoritative compilation) agrees with Trinity
-  - Different experiments give wildly different best fits
-  - The delta_CP measurement is notoriously difficult with large systematics
-  - Matter effects, flux uncertainties, and cross-section modeling are all imperfect
+  - PDG 2024 (legacy compilation) gave 65.5° ± 1.6°, but it is **superseded by NuFIT-6.0 (Sep 2024) and T2K+NOvA Nature (Oct 2025)** — both of which exclude 65.66° outside 3sigma
+  - Different experiments give different best fits (NuFIT 177°; T2K+NOvA wide intervals) but their **disagreement is not about whether 65.66° is allowed** (it is not)
+  - The delta_CP measurement is genuinely difficult with large systematics, which is why DUNE 2034–2037 is needed for independent confirmation
+  - Matter effects, flux uncertainties, and cross-section modeling remain imperfect but are unlikely to shift global best fits by >100°
 
 **The honest framing (NOT "data is wrong"):**
 ```
-"The experimental determination of delta_CP is currently unsettled. 
-Different global fits (PDG, NuFit, T2K/NOvA) give best fits spanning 
-65° to 234°. Trinity predicts 65.66°, in agreement with PDG 2024 
-(0.1 sigma) but in tension with NuFit 6.0 (5.6 sigma). DUNE 2028 
-will provide the definitive measurement with sufficient precision 
-to resolve this discrepancy."
+"The Trinity pre-registered prediction delta_CP = 3/phi^2 = 65.66° 
+is excluded at 5.6sigma by the NuFIT-6.0 NO global best fit (177° ± 20°, 
+3sigma range 124°–364°) and falls outside the 3sigma range of the 
+T2K+NOvA Nature 2025 joint analysis for both mass orderings. The 
+physical interpretation of delta_CP = 3/phi^2 as the leptonic CP 
+phase is withdrawn pending DUNE 2034–2037 independent confirmation. 
+The Coq lemma proving 3/phi^2 = 65.66° numerically is preserved as 
+a mathematical statement. The pre-registration document is preserved 
+as a historical scientific record. See DELTA_CP_HONEST_STATUS.md."
 ```
 
-**Verdict:** Do NOT claim the data is wrong. Frame the experimental disagreement honestly and let DUNE decide.
+**Verdict:** Do NOT claim the data is wrong. The two modern global fits (NuFIT-6.0 and T2K+NOvA Nature 2025) **both exclude 65.66° outside 3sigma**. The honest framing is now: **current global data already substantially disfavor 65.66°**; DUNE 2034–2037 will provide independent confirmation. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md).
 
 ---
 
