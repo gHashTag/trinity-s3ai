@@ -2,7 +2,7 @@
 ## "What to Improve Next: Highest Impact Actions"
 
 **Date:** 2026-05-20
-**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md)
+**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](./delta_cp_analysis.md) (formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22)
 **Critical Issue:** delta_CP = 65.66° in 5.6sigma tension with NuFit 6.0; 0 peer-reviewed publications
 
 ---

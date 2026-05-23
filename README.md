@@ -38,7 +38,7 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [admitted_log.md](admitted_log.md) | Log of all Admitted with their tags |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
 | [scripts/prepare_zenodo.md](scripts/prepare_zenodo.md) | Zenodo publication guide |
-| [proofs/trinity/FOUNDATIONS.md](proofs/trinity/FOUNDATIONS.md) | Axiom stratification and open assumptions |
+| [FOUNDATIONS.md](FOUNDATIONS.md) | Axiom stratification and open assumptions |
 | [proofs/clifford_cl8/README.md](proofs/clifford_cl8/README.md) | **Track B (Wave 12)** — Cl(p,q) formalization launch (T1–T3) |
 | [GOLDEN BRIDGE (live)](https://t27.ai/trinity-s3ai/) | Live hypothesis-discovery puzzle (not evidence; see game README) |
 

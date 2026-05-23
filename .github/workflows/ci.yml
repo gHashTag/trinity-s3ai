@@ -45,6 +45,18 @@ jobs:
         # README table / generated GOLDEN BRIDGE card JSON is stale.
         run: python3 scripts/generate_claims.py --check
 
+  # ── Job 1b: Markdown link audit (fast, no network) ────────────────────────
+  markdown_links:
+    runs-on: ubuntu-latest
+    name: Markdown link audit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check internal markdown links (no external HTTP)
+        run: python3 scripts/check_markdown_links.py --check --all
+
   # ── Job 2: Coq proof build + Python validators ────────────────────────────
   build:
     runs-on: ubuntu-latest

@@ -26,6 +26,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 - [ ] The `Anti-Numerology Gate` badge is `PASS`.
 - [ ] [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) gates Coq build on the anti-numerology job (correct order).
 - [ ] [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) deploys `games/trinity_fold/web/canvas`; the canvas is live at <https://t27.ai/trinity-s3ai/>.
+- [ ] `python3 scripts/check_markdown_links.py --check --all` exits 0 — no broken internal markdown links and no broken `github.com/gHashTag/trinity-s3ai/blob/...` paths. External HTTP links are intentionally not fetched.
 
 ## C. Proof debt
 

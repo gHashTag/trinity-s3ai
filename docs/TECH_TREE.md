@@ -155,7 +155,7 @@ content, including the four No-Go theorems and the interval bounds.
 | 14 refutation theorems (`*_refuted`) | **verified** | `proofs/trinity/` |
 | Track B: Cl(p,q) universal property, Cl(0,6) ≅ M₈(R)⊕M₈(R), Bott 8-periodicity | **open_conjecture** — Wave 17 honest counter reports 0 real `Admitted.`; load-bearing statements remain as cited `Axiom`s (Lounesto 2001 Table 16.3; Wieser–Song 2022 §6; Atiyah–Bott–Shapiro 1964 Table 3; Lawson–Michelsohn 1989 Prop. I.4.1) | [`proofs/clifford_cl8/`](../proofs/clifford_cl8/) |
 | Chirality analysis | **open_conjecture** for the full physical claim; NGT3 (the chirality No-Go on the 600-cell) is `Qed.` in `NoGoTheorems.v` | `derivations/chirality/ChiralityAnalysis.v` |
-| Lean 4 build of `TrinityLean` | **red** on `main` as of `0832b72` — `H4RootSystem.lean` parse error and `Snub24Z3.lean` Mathlib synthesis issues; tracked as follow-up, not in scope of the review-readiness docs PR | [`.github/workflows/lean.yml`](../.github/workflows/lean.yml), [`TrinityLean/`](../TrinityLean/) |
+| Lean 4 build of `TrinityLean` | **red** on `main` as of `0832b72` — `H4RootSystem.lean` parse error and `Snub24Z3.lean` Mathlib synthesis issues; tracked as follow-up, not in scope of the review-readiness docs PR | [`.github/workflows/lean.yml`](../.github/workflows/lean.yml), [`derivations/lean_port/TrinityLean/`](../derivations/lean_port/TrinityLean/) |
 
 **Next milestone.** Promote NGT-5..7 from paper / analysis level to
 Coq-formal theorems in `proofs/trinity/NoGoTheorems.v`; fix the
