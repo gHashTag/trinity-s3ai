@@ -56,7 +56,7 @@ and are tracked for promotion to `Qed.` in future waves.
   derivations.** Every such formula is tagged `[phenomenological_fit]`
   or `[NUMERICAL_FIT]`, and the
   [anti-numerology gate](scripts/anti_numerology_gate.py) enforces the
-  tagging on every PR. See [`Catalog42_corrected.v`](Catalog42_corrected.v).
+  tagging on every PR. See [`Catalog42_corrected.v`](proofs/catalog/Catalog42_corrected.v).
 - **A large body of real Coq mathematics.** As of Wave 17 the
   comment-stripped honest counter
   ([`scripts/count_admitted_honest.py`](scripts/count_admitted_honest.py))

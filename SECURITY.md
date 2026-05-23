@@ -10,8 +10,8 @@ that nonetheless exists, and how to report a problem responsibly.
 
 | Component | What it is | Security surface |
 |-----------|------------|------------------|
-| Coq proofs (`proofs/`, `derivations/`, `Catalog42_corrected.v`) | Static `.v` source | none |
-| Python scripts (`scripts/`, `validate_v4.py`, etc.) | Local validators / gates | local file I/O only; no network |
+| Coq proofs (`proofs/`, `derivations/`) | Static `.v` source | none |
+| Python scripts (`scripts/`, including `scripts/validators/`) | Local validators / gates | local file I/O only; no network |
 | Rust crates (`trinity_rust/`, `games/trinity_fold/`) | Local binaries, library code, and a wasm-compiled canvas UI | runs locally or in the browser; no server |
 | Static site at <https://t27.ai/trinity-s3ai/> | GitHub Pages deploy of `games/trinity_fold/web/canvas` | client-side wasm + SVG; no backend |
 | CI workflows (`.github/workflows/`) | GitHub Actions | uses only the default `GITHUB_TOKEN` with the minimum permissions documented in each workflow |

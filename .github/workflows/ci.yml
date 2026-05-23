@@ -102,15 +102,15 @@ jobs:
         run: pip install --upgrade pip && pip install mpmath numpy
 
       - name: Run validate_v4.py (canonical formula validator, gates build)
-        run: python3 validate_v4.py
+        run: python3 scripts/validators/validate_v4.py
 
       - name: Run test_comprehensive.py (diagnostic, historical failures)
         continue-on-error: true
-        run: python3 test_comprehensive.py
+        run: python3 scripts/validators/test_comprehensive.py
 
       - name: Run honest_pvalue_final.py (diagnostic, hardcoded path)
         continue-on-error: true
-        run: python3 honest_pvalue_final.py
+        run: python3 scripts/validators/honest_pvalue_final.py
 
       - name: Upload Coq artifacts
         uses: actions/upload-artifact@v4

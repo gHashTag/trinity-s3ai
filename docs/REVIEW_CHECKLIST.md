@@ -16,7 +16,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 - [ ] `python3 --version` reports 3.10 or later.
 - [ ] `python3 scripts/anti_numerology_gate.py` exits 0; last line ends with `VERDICT: PASS`.
 - [ ] `python3 scripts/count_admitted_honest.py` runs to completion and prints a per-directory table plus a JSON block.
-- [ ] `pip install mpmath numpy` succeeds; `python3 validate_v4.py` runs without unhandled exceptions.
+- [ ] `pip install mpmath numpy` succeeds; `python3 scripts/validators/validate_v4.py` runs without unhandled exceptions.
 - [ ] (If Rust is available) `cd games/trinity_fold && cargo test --workspace` is green.
 - [ ] (If Coq is available) `cd proofs/trinity && coq_makefile -f _CoqProject -o Makefile.coq && make -f Makefile.coq -j$(nproc)` is green. This step is slow and is **not** required for a first-pass review; the CI logs are the canonical evidence.
 
@@ -68,7 +68,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 ## H. Reproducibility
 
 - [ ] Every figure in the paper / repository has a script that regenerates it (see [`TRACEABILITY.md`](analysis/TRACEABILITY.md)).
-- [ ] Every formula in `Catalog42.v` and friends has a stated error bound that `validate_v4.py` can reproduce.
+- [ ] Every formula in `Catalog42.v` and friends has a stated error bound that `scripts/validators/validate_v4.py` can reproduce.
 - [ ] Versions are pinned: Coq 8.20.1, Lean 4 v4.13.0, Rust edition 2024, Python 3.12 in CI.
 - [ ] Build instructions in [`README.md`](../README.md) §"Build Instructions" and [`CONTRIBUTING.md`](../CONTRIBUTING.md) match what CI actually runs.
 

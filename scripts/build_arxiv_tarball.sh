@@ -50,7 +50,7 @@ cp "paper/wave13_paper.pdf" "$SUBDIR/"  # reference copy, not submitted to arXiv
 cp -r "figures" "$SUBDIR/"
 
 # Ancillary Python scripts
-cp "validate_v4.py" "$SUBDIR/anc/"
+cp "scripts/validators/validate_v4.py" "$SUBDIR/anc/"
 cp "derivations/trinity_d4/d4_analysis.py" "$SUBDIR/anc/"
 cp "derivations/higgs_spectral_action/spectral_action.py" "$SUBDIR/anc/"
 cp "derivations/f4_spectrum/f4_spectrum.py" "$SUBDIR/anc/"

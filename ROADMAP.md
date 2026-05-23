@@ -12,7 +12,7 @@ This document synthesizes the results of Waves 1–3 (completed) and the literat
 | Qed theorems | 436 (+203 in this cycle) |
 | Admitted | 25 (5 new, all carrying `(* HONEST: ... *)`) |
 | Axiom | 12 (2 new, explicitly declared) |
-| validate_v4.py | 25/25 = 100% |
+| scripts/validators/validate_v4.py | 25/25 = 100% |
 | MD narratives | 16 (including 4 literature reviews under `derivations/literature/`) |
 
 **Hard truths from the audit (`derivations/catalog_audit/audit_report.md`):**
@@ -176,7 +176,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 1. **KO-dim = 6 mod 8 for H₄/600-cell** — structural compatibility with SM NCG (`KODimension.v`, Qed).
 2. **η = −2 on S³/2I** — necessary condition for spectral chirality; APS balance verified (`EtaInvariant.v`, Qed).
 3. **2I ⊂ SU(2) motivates ℍ ⊂ A_F** — algebraic fact, independent of physical claims (`QuaternionicLinearity.v`, Qed).
-4. **25/25 catalog formulas verified numerically** — with honest R/S/NF tags (`validate_v4.py`, `Catalog42.v`).
+4. **25/25 catalog formulas verified numerically** — with honest R/S/NF tags (`scripts/validators/validate_v4.py`, `Catalog42.v`).
 5. **Machine-verified honesty framework** — 312 Qed theorems + 100 honest Admitted tags.
 6. **Four rigorous no-go theorems** — mapping the boundaries of H₄-based unification.
 

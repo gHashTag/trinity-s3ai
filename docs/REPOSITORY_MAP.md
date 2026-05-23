@@ -4,7 +4,10 @@ This page is a reviewer-facing index of where each kind of artifact lives in
 the Trinity S3AI repository. It was introduced as part of the Phase-1
 repository structure cleanup (PR `chore/repo-cleanup-phase1`) which moved ~70
 top-level files into purpose-specific subfolders so the root directory stays
-small and reviewable.
+small and reviewable. Phase 2 (PR `chore/repo-cleanup-phase2`) then moved the
+remaining root-level executable scripts under `scripts/validators/` and
+relocated `Catalog42_corrected.v` under `proofs/catalog/`, in lockstep with
+the CI workflow and the arxiv tarball builder.
 
 If you are a peer reviewer arriving cold, the recommended reading order is:
 
@@ -24,9 +27,9 @@ If you are a peer reviewer arriving cold, the recommended reading order is:
 | `HONESTY_MANIFEST.md` | Ground-truth statistics about proofs / Admitted counts. |
 | `SALVAGE.md` | Honest summary of the constructive-negative-result framing. |
 | `ROADMAP.md`, `ROADMAP_WAVE17_PLUS.md` | Active program-level roadmaps. |
-| `Catalog42_corrected.v` | Root-level Coq catalog of 42 SM-parameter formulas (referenced from `README.md`, `SALVAGE.md`, `docs/CLAIM_STATUS.md`, `docs/TECH_TREE.md`). |
-| `validate_v4.py`, `test_comprehensive.py`, `honest_pvalue_final.py` | Python validators invoked directly from `.github/workflows/ci.yml`. Kept at the root in Phase 1 to avoid touching CI; a Phase-2 follow-up may move them under `scripts/validators/` together with the workflow update. |
 | `Gemfile`, `.zenodo.json` | Bundler config (for Pages preview tooling) and Zenodo deposit metadata. |
+| `proofs/catalog/Catalog42_corrected.v` | Reference Coq catalog of 25 corrected SM-parameter formulas. Moved here in Phase 2 (was at the repo root); referenced from `README.md`, `SALVAGE.md`, `docs/CLAIM_STATUS.md`, `docs/TECH_TREE.md`. Not part of `proofs/trinity/_CoqProject` — it is a standalone reference file. |
+| `scripts/validators/validate_v4.py`, `scripts/validators/test_comprehensive.py`, `scripts/validators/honest_pvalue_final.py` | Python validators invoked from `.github/workflows/ci.yml`. Moved out of the repo root in Phase 2 in lockstep with the CI workflow and `scripts/build_arxiv_tarball.sh`. |
 | `proofs/` | Coq proof tree (`trinity/`, `clifford_cl8/`). |
 | `derivations/` | Per-topic derivation notes and origin logs. |
 | `scripts/` | Active maintenance scripts (claims generator, link checker, anti-numerology gate, English-only check, arxiv tarball builder, …). |
@@ -58,24 +61,42 @@ If you are a peer reviewer arriving cold, the recommended reading order is:
 | `docs/experiments/` | Experimental analyses and pre-registrations: `DUNE_RISKY_PREDICTION`, `dune_preregistration`, `juno_analysis`, `delta_cp_analysis`, `experimental_protocol`, `lhc_lambda_analysis`. |
 | `docs/applications/` | Applied / cross-domain notes. Currently contains `AGENTS_H4_APPLICATION.md`, which describes how the H4-derived numerical invariants feed neural-network optimizer hyperparameters (introduced in commit `39b7bebb`, paired with `proofs/trinity/OptimizerInvariants.v`). This is **not** generic agent guidance — the project does not use an `AGENTS.md` workflow file. |
 
-## Phase 1 vs Phase 2
+## Phase history
 
-This cleanup intentionally stopped short of two larger changes that were
-deferred to a Phase 2 follow-up to keep the diff reviewable:
+**Phase 1** (PR #40, `chore/repo-cleanup-phase1`) moved ~70 root-level files
+into purpose-specific subfolders (`docs/status/`, `docs/analysis/`,
+`docs/experiments/`, `docs/roadmaps/`, `docs/applications/`, `scripts/legacy/`,
+`reports/`, `releases/`, `archive/legacy/`, …) and added this map.
 
-1. **CI Python validators stay at the repo root.** `validate_v4.py`,
-   `test_comprehensive.py`, and `honest_pvalue_final.py` are invoked by name
-   from `.github/workflows/ci.yml`. Moving them requires a coordinated
-   workflow change and a re-run on `main`, which is out of scope here.
-2. **`Catalog42_corrected.v` stays at the repo root.** It is referenced from
-   five public docs; a clean move under `proofs/catalog/` is straightforward
-   but again deserves a focused PR.
+**Phase 2** (this PR, `chore/repo-cleanup-phase2`) finishes the root by moving
+the four files Phase 1 explicitly deferred:
 
-Phase-2 candidates (not in this PR):
+1. `validate_v4.py` → `scripts/validators/validate_v4.py`
+2. `test_comprehensive.py` → `scripts/validators/test_comprehensive.py`
+3. `honest_pvalue_final.py` → `scripts/validators/honest_pvalue_final.py`
+4. `Catalog42_corrected.v` → `proofs/catalog/Catalog42_corrected.v`
 
-- Move CI validators under `scripts/validators/` and update `ci.yml` /
-  `scripts/build_arxiv_tarball.sh` in lockstep.
-- Move `Catalog42_corrected.v` under `proofs/catalog/` and update its five
-  inbound references.
-- Consolidate `arxiv_submission/` and `paper/` once we decide whether the
-  arXiv package is a snapshot or a primary source.
+Files updated in lockstep with the moves:
+
+- `.github/workflows/ci.yml` — three `python3 …` invocations rewritten.
+- `.github/PULL_REQUEST_TEMPLATE.md` — checklist path.
+- `scripts/build_arxiv_tarball.sh` — `cp validate_v4.py …` rewritten (the
+  inside-the-tarball `Run: python3 validate_v4.py` instruction is unchanged
+  because the file lands at `anc/validate_v4.py` after unpacking).
+- `scripts/prepare_arxiv.md` — the "manual equivalent" bash snippet.
+- `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `SALVAGE.md`, `ROADMAP.md`.
+- `docs/REVIEW_GUIDE.md`, `docs/REVIEW_CHECKLIST.md`, `docs/CLAIM_STATUS.md`,
+  `docs/TECH_TREE.md`.
+
+What is **not** touched in Phase 2 (deferred to a future pass):
+
+- `arxiv_submission/` vs `paper/` consolidation. The arXiv package is a
+  self-contained snapshot and overlaps with `paper/wave13_paper.tex`. A
+  clean split (snapshot vs primary source) deserves its own focused PR.
+- Russian-language historical files under `derivations/` mention
+  `validate_v4.py` and `Catalog42_corrected.v` by name as historical
+  identifiers, not live paths. These are intentionally left untouched: the
+  public-docs English-only rule covers user-facing documentation, not
+  archival origin logs.
+- `archive/legacy/README_v46.md` references the old root location; it is
+  preserved verbatim as a historical document.
