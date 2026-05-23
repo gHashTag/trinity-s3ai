@@ -1,11 +1,16 @@
 # Trinity S³AI delta_CP Pre-registration for DUNE
 
-## STATUS: HIGH-RISK PREDICTION
+> ⚠️ **STATUS UPDATE (2026-05-23): ALREADY IN 5.6σ TENSION WITH CURRENT GLOBAL FITS** — The pre-registered prediction δ_CP = 3/φ² = 65.66° below is **excluded outside the 3σ range** of both [NuFIT-6.0 (Sep 2024)](https://arxiv.org/abs/2410.05380) (NO best fit 177°, 3σ 124°–364°; IO 3σ 201°–348°) and the [T2K+NOvA joint analysis (Nature, Oct 2025)](https://www.nature.com/articles/s41586-025-09599-3) (3σ NO [−248°, 54°]; 3σ IO [194°, 353°]). DUNE 2028–2037 will provide independent confirmation, but **current global data already substantially decides this against Trinity**. The pre-registration itself is preserved as a legitimate scientific act (prediction was made, hashed, time-stamped); the falsification thresholds in §5 below are kept for historical reference but should be read against the updated thresholds in [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) §5.
+
+---
+
+## STATUS: HIGH-RISK PREDICTION (PRE-REGISTERED, NOW LARGELY DISFAVORED)
 
 This is a **genuinely risky prediction** that could falsify the entire Trinity framework.
 Most "predictions" in physics are actually post-dictions or retroactive fits.
-This one is pre-registered and high-stakes.
+This one is pre-registered and high-stakes — **and current global fits already substantially disfavor it.**
 
+**See also:** [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) (2026-05-23 honest reassessment)
 **See also:** `/DUNE_RISKY_PREDICTION.md` (full risky prediction framing)
 **See also:** `/RISKY_PREDICTIONS.md` (all Trinity risky predictions)
 
