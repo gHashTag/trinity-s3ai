@@ -285,6 +285,10 @@ TRINITY V3.3 — HONEST P-VALUE ANALYSIS REPORT
 print(report)
 
 # Save report to file
-with open('/mnt/agents/output/trinity-v33/honest_pvalue_report.txt', 'w') as f:
+import os
+report_dir = os.environ.get('TRINITY_OUTPUT_DIR', 'reports')
+os.makedirs(report_dir, exist_ok=True)
+report_path = os.path.join(report_dir, 'honest_pvalue_report.txt')
+with open(report_path, 'w') as f:
     f.write(report)
-print("Report saved to /mnt/agents/output/trinity-v33/honest_pvalue_report.txt")
+print(f"Report saved to {report_path}")
