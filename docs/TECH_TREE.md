@@ -58,16 +58,20 @@ content, including the four No-Go theorems and the interval bounds.
 
 | Aspect | Status | Pointer |
 |--------|--------|---------|
-| Four No-Go Theorems NGT1–NGT4 | **verified** | [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) |
-| `Qed.` count (comment-stripped) | **verified** at 1 762 across 79 `.v` files | [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) |
-| Real `Admitted.` count | **5**, each tagged | [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) §2 |
+| Four Coq-formal No-Go Theorems NGT1–NGT4 | **verified** (`Qed.`) | [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) |
+| Additional No-Go results NGT-5 (D₄/24-cell), NGT-6 (no σ-field under string/orbifold rescue), NGT-7 (F₄ 3-generation hierarchy) | **verified** at paper / analysis level (not yet Coq-formalised in `NoGoTheorems.v`) | [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP.md`](../ROADMAP.md), [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) |
+| `Qed.`+`Defined.` count (comment-stripped, Wave 17) | **verified** at **1 790** across **81** `.v` files in the canonical tree (52 in `proofs/trinity/` with **1 063** `Qed.`+`Def.`) | run [`scripts/count_admitted_honest.py`](../scripts/count_admitted_honest.py); see [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) |
+| Real `Admitted.` count (comment-stripped, Wave 17) | **0** across the canonical tree (all surface "Admitted" strings in `proofs/trinity/` are inside historical comments) | [`scripts/count_admitted_honest.py`](../scripts/count_admitted_honest.py) JSON output |
 | 14 refutation theorems (`*_refuted`) | **verified** | `proofs/trinity/` |
-| Track B: Cl(p,q) universal property, Cl(0,6) ≅ M₈(R)⊕M₈(R), Bott 8-periodicity | **open_conjecture** (4 `Admitted` with citations) | [`proofs/clifford_cl8/`](../proofs/clifford_cl8/) |
-| Chirality analysis | **open_conjecture** (1 `Admitted`, `[OPEN_PROBLEM]`) | `derivations/chirality/ChiralityAnalysis.v` |
+| Track B: Cl(p,q) universal property, Cl(0,6) ≅ M₈(R)⊕M₈(R), Bott 8-periodicity | **open_conjecture** — Wave 17 honest counter reports 0 real `Admitted.`; load-bearing statements remain as cited `Axiom`s (Lounesto 2001 Table 16.3; Wieser–Song 2022 §6; Atiyah–Bott–Shapiro 1964 Table 3; Lawson–Michelsohn 1989 Prop. I.4.1) | [`proofs/clifford_cl8/`](../proofs/clifford_cl8/) |
+| Chirality analysis | **open_conjecture** for the full physical claim; NGT3 (the chirality No-Go on the 600-cell) is `Qed.` in `NoGoTheorems.v` | `derivations/chirality/ChiralityAnalysis.v` |
+| Lean 4 build of `TrinityLean` | **red** on `main` as of `0832b72` — `H4RootSystem.lean` parse error and `Snub24Z3.lean` Mathlib synthesis issues; tracked as follow-up, not in scope of the review-readiness docs PR | [`.github/workflows/lean.yml`](../.github/workflows/lean.yml), [`TrinityLean/`](../TrinityLean/) |
 
-**Next milestone.** Discharge the 4 Track B Admitteds with mechanical
-or citation-driven proofs; close the chirality `[OPEN_PROBLEM]` or
-record it as a permanent open question.
+**Next milestone.** Promote NGT-5..7 from paper / analysis level to
+Coq-formal theorems in `proofs/trinity/NoGoTheorems.v`; fix the
+`TrinityLean` parse / synthesis failures so the Lean side matches the
+Coq side; replace the citation-backed `Axiom`s in `proofs/clifford_cl8/`
+with in-tree proofs over the next waves of Track B.
 
 ---
 
@@ -98,7 +102,9 @@ spectral action, attempted derivation of the Standard Model Lagrangian.
 | Aspect | Status | Pointer |
 |--------|--------|---------|
 | Spectral triple construction | **open_conjecture** (`Axiom` scaffolding) | `SpectralExtras.v` |
-| σ-field for H4 | **high_risk_or_falsified** | NGT2 in `NoGoTheorems.v` |
+| σ-field for H4 | **high_risk_or_falsified** | NGT2 in `NoGoTheorems.v` (Coq-formal `Qed.`); reinforced by paper-level NGT-6 (no σ-field under string / orbifold rescue) — see [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) |
+| E₈ plumbing / B-matrix η convergence to −2 | **high_risk_or_falsified** — Wave 17 honesty notes state the η discrepancy does not converge to −2 and the B-matrix is a heuristic, not rigorously derived | [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md) |
+| String / heterotic / F-theory / orbifold rescue of the SM mass hierarchy | **high_risk_or_falsified** — no known string compactification selects H4 / F4; toy Z₂ orbifold ~2× vs required ~5000× improvement on Yukawa eigenvalue ratio | [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) §"Wave 17.2 Findings", `derivations/string_correspondence/` |
 | Spectral action computation | **empirical_fit** numerically | [`spectral_action_compute.py`](../spectral_action_compute.py), [`spectral_action_results.md`](../spectral_action_results.md) |
 | SM Lagrangian "from H4" | **open_conjecture** with substantial fit content | [`LAGRANGIAN_HONEST_STATUS.md`](../LAGRANGIAN_HONEST_STATUS.md), [`lagrangian_roadmap.md`](../lagrangian_roadmap.md) |
 | Yukawa coupling derivation | **empirical_fit** | [`yukawa_from_h4_derivation.md`](../yukawa_from_h4_derivation.md), [`yukawa_h4_results.json`](../yukawa_h4_results.json) |
@@ -154,14 +160,19 @@ What is in scope: the paper, arXiv submission, citation metadata.
 
 | Aspect | Status | Pointer |
 |--------|--------|---------|
-| Paper draft v2 (Wave 17) | **draft** | [`paper/wave17_paper_v2.pdf`](../paper/wave17_paper_v2.pdf), [`paper/wave17_paper_v2.tex`](../paper/wave17_paper_v2.tex) |
+| Paper draft v2 (Wave 17) — negative-result framing | **draft, review-ready per Wave 17 report** | [`paper/wave17_paper_v2.pdf`](../paper/wave17_paper_v2.pdf), [`paper/wave17_paper_v2.tex`](../paper/wave17_paper_v2.tex), [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md) |
+| Seminar talk v2 (Wave 17) | **draft, review-ready per Wave 17 report** | [`talks/wave17_talk.pdf`](../talks/wave17_talk.pdf), [`talks/wave17_talk.tex`](../talks/wave17_talk.tex), [`talks/QANDA_PREP.md`](../talks/QANDA_PREP.md) |
 | arXiv submission tarball | **prepared** | [`trinity-s3ai-arxiv.tar.gz`](../trinity-s3ai-arxiv.tar.gz), [`paper/arxiv_checklist.md`](../paper/arxiv_checklist.md) |
 | Citation metadata | **verified** | [`CITATION.cff`](../CITATION.cff), [`CITATION.bib`](../CITATION.bib) |
 | Zenodo deposit | **planned** (DOI pending) | [`scripts/prepare_zenodo.md`](../scripts/prepare_zenodo.md) |
+| Post-Wave-17 roadmap (Tracks A / B / C) | **published** | [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) |
 | External validation | **not yet sought** | — |
 
-**Next milestone.** arXiv submission and Zenodo deposit; update DOI
-badge in the root README when assigned.
+**Next milestone.** arXiv submission (Track C: negative-result paper)
+and Zenodo deposit; update DOI badge in the root README when assigned.
+Tracks A (honest phenomenology / p-value) and B (Cl(8) formalisation)
+continue per [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md).
+No Theory-of-Everything or prize-level claim is made or planned.
 
 ---
 

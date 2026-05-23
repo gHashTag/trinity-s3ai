@@ -95,14 +95,17 @@ status for the project's most-referenced statements as of Wave 17.
 
 | Claim | Status | Pointer |
 |-------|--------|---------|
-| H4 / 600-cell cannot produce a consistent NCG model of the SM (four impossibilities) | **verified** | [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) (NGT1–NGT4) |
+| H4 / 600-cell cannot produce a consistent NCG model of the SM (four Coq-formal impossibilities NGT1–NGT4) | **verified** | [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) (NGT1–NGT4, all `Qed.`) |
+| Additional Wave 11–17 No-Go results: NGT-5 (D₄/24-cell), NGT-6 (no σ-field under string/orbifold rescue), NGT-7 (F₄ cannot produce 3-generation hierarchy) | **verified** (at paper / analysis level — not yet Coq-formalised in `proofs/trinity/NoGoTheorems.v`) | [`ROADMAP.md`](../ROADMAP.md) §"No-Go theorems", [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) |
 | 59 numerical matches between H4 invariants and PDG 2024 observables, within stated error windows | **verified** (bound check) + **empirical_fit** (physical reading) | [`Catalog42.v`](../Catalog42_corrected.v) |
 | `m_H = 4 φ³ e² ≈ 125.1 GeV` is the Higgs mass | **empirical_fit** | `HiggsPrediction.v`, [`higgs_potential_proven.md`](../higgs_potential_proven.md) |
 | Koide relation in H4 | **high_risk_or_falsified** | `KoideOrigins.v` (the "Koide ≠ 2/3 in H4" theorem is `Qed.`) |
-| H4 chirality fully derived | **open_conjecture** | `derivations/chirality/ChiralityAnalysis.v` (one tagged `Admitted`) |
-| Cl(0,6) ≅ M₈(R) ⊕ M₈(R); Bott 8-periodicity | **open_conjecture** | `proofs/clifford_cl8/` (4 `Admitted`, all with published citations) |
+| H4 chirality fully derived | **open_conjecture** | `derivations/chirality/ChiralityAnalysis.v`; chirality No-Go is NGT3 (`Qed.`) |
+| Cl(0,6) ≅ M₈(R) ⊕ M₈(R); Bott 8-periodicity | **open_conjecture** | `proofs/clifford_cl8/` — Wave 17 honest counter reports 0 real `Admitted.`; load-bearing statements retained as `Axiom` with published citations (Lounesto 2001, Wieser–Song 2022, Atiyah–Bott–Shapiro 1964, Lawson–Michelsohn 1989) |
 | Standard Model Lagrangian "derived from H4" | **open_conjecture** with substantial empirical-fit content | [`LAGRANGIAN_HONEST_STATUS.md`](../LAGRANGIAN_HONEST_STATUS.md) |
 | RG running of gauge couplings | **verified** (as a numerical scheme) | `RGRunningExtras.v`, [`RG_RUNNING_PROVEN.md`](../RG_RUNNING_PROVEN.md) |
+| E₈ plumbing η discrepancy converges to −2 | **high_risk_or_falsified** — Wave 17 reports the η discrepancy does **not** converge to −2 and that the underlying B-matrix is a heuristic, not a rigorous derivation | [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md) "Honesty Notes" |
+| String / heterotic / F-theory / orbifold compactification predicts H4 or F4 and rescues the SM mass hierarchy | **high_risk_or_falsified** — no known string compactification selects H4 or F4; toy Z₂ orbifold improves Yukawa eigenvalue ratio ~2× against required ~5000× | [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) §"Wave 17.2 Findings" |
 | DUNE / JUNO / LHC predictions for δ_CP, mass ordering, Λ_NP | **risky_prediction** under the project's own typology — treat as **open_conjecture** until data lands | [`RISKY_PREDICTIONS.md`](../RISKY_PREDICTIONS.md), [`DUNE_RISKY_PREDICTION.md`](../DUNE_RISKY_PREDICTION.md) |
 | Theory of Everything | **not claimed** | — |
 | Nobel-level / prize-worthy claim | **not claimed** | — |

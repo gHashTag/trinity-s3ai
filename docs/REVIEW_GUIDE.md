@@ -8,14 +8,18 @@ This guide is intentionally short. It points to the documents that
 hold the detail and tells you in what order to read them.
 
 > **One-line framing.** Trinity S3AI is a *constructive negative
-> result* on whether H4 / 600-cell geometry can support a noncommutative
-> geometry (NCG) model of the Standard Model. Four formal Coq No-Go
-> Theorems prove specific impossibilities. The remaining content is a
+> result* on whether H4 / 600-cell geometry (and, in Wave 17, the
+> broader F4 / E8 / string-correspondence neighbourhood) can support a
+> noncommutative geometry (NCG) model of the Standard Model. Four
+> Coq-formal No-Go Theorems (NGT1–NGT4) and additional paper-level
+> No-Go results (NGT-5..7, see `paper/CHANGELOG_v1_to_v2.md`) prove or
+> document specific impossibilities. The remaining content is a
 > catalogue of numerological coincidences, all *explicitly tagged as
 > phenomenological fits*, not derivations. We make no Theory-of-
 > Everything claim and no prize claim. See
 > [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) for how each claim is
-> labelled.
+> labelled, and [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md)
+> for Tracks A / B / C of the post-Wave-17 program.
 
 ---
 
@@ -26,7 +30,7 @@ hold the detail and tells you in what order to read them.
 | 1 | Read this section | 1 min | You are here. |
 | 2 | Read [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) | 2 min | The claim ledger: what is verified, what is a fit, what is open, what is refuted. |
 | 3 | Skim [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) | 1 min | Ground-truth Coq statistics with comments stripped. |
-| 4 | Skim the [No-Go Theorems](../proofs/trinity/NoGoTheorems.v) | 2 min | The four formal impossibility results NGT1–NGT4. |
+| 4 | Skim the [No-Go Theorems](../proofs/trinity/NoGoTheorems.v) | 2 min | The four Coq-formal impossibility results NGT1–NGT4 (Qed). Additional No-Go results NGT-5..7 are documented at paper level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md). |
 | 5 | Open the live GOLDEN BRIDGE canvas | 1 min | <https://t27.ai/trinity-s3ai/> — a hypothesis-discovery puzzle, **not** evidence. |
 | 6 | Read [`docs/TECH_TREE.md`](TECH_TREE.md) | 2 min | Layered status: infra → claim ledger → proofs → geometry → fits → game → paper. |
 | 7 | Use the [Review Checklist](REVIEW_CHECKLIST.md) | 1 min | Tick off install/run/tests/no-secrets/no-hype/reproducibility. |
@@ -156,6 +160,18 @@ Or use the published Coq Docker image as documented in
 The status of the most recent runs is reflected by the badges at the
 top of the [root README](../README.md).
 
+> **Known state at the Wave 17 baseline (commit `0832b72`).**
+> The `CI` (Anti-Numerology Gate + Coq build + Python validators) and
+> `pages.yml` workflows are green. The `lean.yml` Lean 4 build is
+> currently **red** on `main` due to pre-existing issues in
+> `TrinityLean/H4RootSystem.lean` (parse error) and
+> `TrinityLean/Snub24Z3.lean` (Mathlib `maxRecDepth` / synthesis
+> issues). These are out of scope for the present review-readiness PR
+> (which is docs-only and does not touch Lean) and are tracked as
+> follow-up work in [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md).
+> Reviewers should evaluate the Coq side and the docs / claim ledger
+> independently of this Lean breakage.
+
 ---
 
 ## 5. How to judge the claims
@@ -169,18 +185,30 @@ public-facing claim against them.
    *numeric interval*; it does not prove that the expression is
    physically derived from H4. Check the surrounding comments and the
    `[phenomenological_fit]` or `[NUMERICAL_FIT]` tag.
-2. **An `Admitted` is a gap.** The honest count is 5 across the whole
-   tree (see `HONESTY_MANIFEST.md`); each one is documented with a
-   citation or `[OPEN_PROBLEM]` label in
+2. **An `Admitted` is a gap.** As of Wave 17 the honest, comment-
+   stripped count produced by `scripts/count_admitted_honest.py` is
+   **0 real `Admitted.`** across the canonical Coq tree (see
+   [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) and the script's
+   table). All historical occurrences of "Admitted" in `proofs/trinity/`
+   are inside comments. Any new `Admitted.` introduced in a PR must
+   have a citation or `[OPEN_PROBLEM]` label in
    [`admitted_log.md`](../admitted_log.md).
 3. **Empirical fit ≠ derivation.** Any formula combining ≥2 of {φ, π, e,
    √n} that matches a PDG value is, by repository policy, a
    phenomenological fit unless explicitly proved otherwise. The
    anti-numerology gate enforces this for new code.
 4. **A No-Go theorem is a negative claim with a formal proof.** The
-   four No-Go theorems (NGT1–NGT4) are real Coq proofs of specific
-   structural impossibilities. They are not omnibus impossibility
-   claims for "any H4-based theory"; read the statement.
+   four Coq-formal No-Go theorems NGT1–NGT4 in
+   [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v)
+   close with `Qed.` and rule out specific constructions
+   (cosmology ansatz; σ-field from H4; chirality on the 600-cell;
+   mass hierarchy from 2I-equivariant D_F). They are not omnibus
+   impossibility claims for "any H4-based theory"; read the
+   statement. Additional Wave 11–17 No-Go results — NGT-5 (D₄/24-cell),
+   NGT-6 (no σ-field under string/orbifold rescue), NGT-7 (F₄
+   3-generation hierarchy) — are documented at paper / analysis
+   level (see [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md)
+   and [`ROADMAP.md`](../ROADMAP.md)).
 5. **The GOLDEN BRIDGE game is not evidence.** A high "bridge strength"
    says nothing about the underlying physics. If any tile is
    `HighRiskOrFalsified`, the bridge collapses by design.
@@ -206,17 +234,72 @@ they are easy to find rather than hidden in long appendices.
   mutually inconsistent sets of Coq metrics across older documents. The
   canonical numbers are produced by
   `scripts/count_admitted_honest.py`; treat anything else as historical.
-- **Track B (Cl(8))** is a parallel exploration with four genuine
-  `Admitted`s and published citations; do not read it as proven yet.
-- **Chirality.** `derivations/chirality/ChiralityAnalysis.v` has one
-  `Admitted` labelled as an open problem.
+- **Track B (Cl(8))** is a parallel exploration. As of Wave 17 the
+  Coq-formal status reported by `count_admitted_honest.py` is 0 real
+  `Admitted.` in `proofs/clifford_cl8/`, but the substantive Cl(0,6)
+  and Bott-8 theorems are stated as `Axiom` with published citations
+  (Lounesto 2001, Wieser–Song 2022, Atiyah–Bott–Shapiro 1964,
+  Lawson–Michelsohn 1989). Reviewers should treat these as
+  *citation-backed assumptions*, not yet as in-tree proofs.
+- **Chirality.** `derivations/chirality/ChiralityAnalysis.v` is the
+  reference for the chirality No-Go (NGT3); the comment-stripped
+  honest counter reports 0 real `Admitted.` there in Wave 17.
+- **E8 plumbing.** The Wave 17 paper / changelog report that the
+  E8-plumbing η discrepancy does **not** converge to −2 and that the
+  underlying B-matrix is a heuristic, not a rigorous derivation
+  (see [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md)
+  "Honesty Notes"). Treat E8 plumbing as **open_conjecture /
+  high_risk** until that gap closes.
+- **String / orbifold rescue.** Wave 17.2 found that no known string
+  compactification predicts H4 / F4 and that toy Z₂ orbifold projection
+  improves the Yukawa eigenvalue ratio by ~2×, far short of the ~5000×
+  required for the SM hierarchy (see
+  [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) §"Wave 17.2
+  Findings"). Treat the string-correspondence layer as
+  **high_risk_or_falsified** for the original mass-hierarchy aim.
 - **Lagrangian derivations** are work-in-progress; see
   [`LAGRANGIAN_HONEST_STATUS.md`](../LAGRANGIAN_HONEST_STATUS.md) for
   what is and is not derived.
 
 ---
 
-## 7. If you find a problem
+## 7. Wave 17 outcome and next steps
+
+The Wave 17 outcome, in one paragraph: H4, F4 and the immediate E8 /
+heterotic / orbifold neighbourhood **do not** rescue the mass-hierarchy
+program. The E8-plumbing η discrepancy does not converge to −2; the
+string correspondence is too weak to predict H4 or F4; an orbifold Z₂
+projection improves the Yukawa eigenvalue ratio by ~2× against a
+required ~5000×. See
+[`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) for the detailed
+findings.
+
+The post-Wave-17 program has three tracks, none of which claims a
+Theory of Everything:
+
+- **Track A — Honest phenomenology.** Treat the catalogued formulas as
+  a statistically tested fit, compute an honest p-value, publish a
+  data paper.
+- **Track B — Cl(8) / J₃(𝕆) / triality.** Continue the parallel
+  exploration in `proofs/clifford_cl8/`; the Wave 17 honest counter
+  reports 0 real `Admitted.`, with the load-bearing isomorphisms
+  retained as cited `Axiom`s. Replace these with in-tree proofs over
+  the next waves.
+- **Track C — Negative-result publication.** Submit the Coq-formal
+  NGT1–NGT4 plus the paper-level NGT-5..7 as a negative-result paper.
+  arXiv submission (`trinity-s3ai-arxiv.tar.gz`) and Zenodo deposit
+  (`scripts/prepare_zenodo.md`) are prepared; the seminar talk v2 is
+  in [`talks/wave17_talk.tex`](../talks/wave17_talk.tex).
+
+Reviewers can therefore judge the present state as: *negative result,
+formally backed in the four NGT1–NGT4 theorems, with the further
+Wave 17 negative findings documented but not yet Coq-formalised*. No
+claim is upgraded above its honest status, and no Theory-of-Everything
+or prize-level claim is made.
+
+---
+
+## 8. If you find a problem
 
 Open a GitHub issue using
 [`.github/ISSUE_TEMPLATE.md`](../.github/ISSUE_TEMPLATE.md). Please

@@ -29,6 +29,8 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [docs/TECH_TREE.md](docs/TECH_TREE.md) | Layered status of the whole stack (infra → proofs → fits → game → paper) |
 | [docs/REVIEW_CHECKLIST.md](docs/REVIEW_CHECKLIST.md) | Mechanical review-readiness checklist |
 | [SALVAGE.md](SALVAGE.md) | Honest summary: what H4 can/cannot do |
+| [ROADMAP_WAVE17_PLUS.md](ROADMAP_WAVE17_PLUS.md) | **Post-Wave-17 program**: Tracks A (honest phenomenology), B (Cl(8) / J3(O)), C (negative-result paper) |
+| [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new No-Go NGT-7, updated counters, E8-plumbing / string-correspondence honesty notes |
 | [SECURITY.md](SECURITY.md) | Security policy and reporting path |
 | [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
 | [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal no-go theorems NGT1–NGT4 |

@@ -23,7 +23,7 @@ constructive negative result, and is honest about it.
 
 ## What H4 *cannot* do (proven in Coq)
 
-The four No-Go Theorems in
+The four Coq-formal No-Go Theorems in
 [`proofs/trinity/NoGoTheorems.v`](proofs/trinity/NoGoTheorems.v):
 
 | | Statement | What it rules out |
@@ -37,6 +37,17 @@ These are formal Coq theorems with closing `Qed.`s. They are negative
 claims; they do not say "no H4-based theory of anything is possible",
 they say "*these specific constructions fail*".
 
+Three further Wave 11–17 No-Go results are documented at paper /
+analysis level — **NGT-5** (D₄/24-cell does not yield 3 generations,
+Wave 11), **NGT-6** (no σ-field under string / orbifold rescue,
+Wave 14–17.2) and **NGT-7** (F₄ cannot produce the SM 3-generation
+hierarchy, Wave 16) — see
+[`paper/CHANGELOG_v1_to_v2.md`](paper/CHANGELOG_v1_to_v2.md),
+[`ROADMAP.md`](ROADMAP.md) §"No-Go theorems" and
+[`ROADMAP_WAVE17_PLUS.md`](ROADMAP_WAVE17_PLUS.md). These are honestly
+flagged as *not yet Coq-formalised in `proofs/trinity/NoGoTheorems.v`*
+and are tracked for promotion to `Qed.` in future waves.
+
 ## What H4 *can* do (and what it means)
 
 - **59 numerical matches.** Combinations of φ, π, e and small
@@ -46,11 +57,16 @@ they say "*these specific constructions fail*".
   or `[NUMERICAL_FIT]`, and the
   [anti-numerology gate](scripts/anti_numerology_gate.py) enforces the
   tagging on every PR. See [`Catalog42_corrected.v`](Catalog42_corrected.v).
-- **A large body of real Coq mathematics.** 1 762 `Qed.` theorems
-  across 79 `.v` files (count with comments stripped — see
-  [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md)). Most of these are
-  bound checks and structural lemmas; the No-Go theorems are the
-  load-bearing physical content.
+- **A large body of real Coq mathematics.** As of Wave 17 the
+  comment-stripped honest counter
+  ([`scripts/count_admitted_honest.py`](scripts/count_admitted_honest.py))
+  reports **1 790 `Qed.`+`Defined.`** across **81** `.v` files in the
+  canonical tree, with **1 063** of those in `proofs/trinity/`
+  (52 files), and **0** real `Admitted.` anywhere in the canonical
+  tree. Most of these are bound checks and structural lemmas; the
+  No-Go theorems are the load-bearing physical content. See
+  [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md) for the reconciliation
+  with older inconsistent metric documents.
 - **A falsification protocol.** Risky predictions for DUNE, JUNO and
   LHC are listed in [`RISKY_PREDICTIONS.md`](RISKY_PREDICTIONS.md) with
   criteria that would falsify them. The protocol is in
