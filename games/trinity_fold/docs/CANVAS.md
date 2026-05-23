@@ -87,7 +87,64 @@ python3 -m http.server 8000
 ```
 
 The page detects a missing bundle and shows a fallback notice with the same
-build command, so a fresh checkout never silently breaks.
+build command, so a fresh checkout never silently breaks. The fallback also
+embeds a static SVG snapshot of the GOLDEN BRIDGE layout so the preview is
+visually meaningful even without the wasm bundle.
+
+### Static SVG fallback
+
+To regenerate the snapshot used by the fallback panel:
+
+```bash
+cd games/trinity_fold
+cargo run -p ring4_canvas --example snapshot_svg -- \
+  web/canvas/snapshot.svg
+```
+
+The snapshot is produced by calling the same
+`ring4_canvas::render::layout` function the wasm shell consumes, so the
+fallback cannot drift from the live UI without a corresponding change in
+ring 4. It is intentionally a static picture of the initial state (empty
+board, default catalog, benchmark off) and is clearly labelled as
+non-interactive in the page.
+
+### GitHub Pages deploy
+
+A workflow at `.github/workflows/pages.yml` builds the wasm canvas and
+publishes `games/trinity_fold/web/canvas/` (plus the generated `pkg/`
+directory and the `docs/` folder for the in-page links) as a GitHub Pages
+artifact. The workflow:
+
+1. installs the stable Rust toolchain with the `wasm32-unknown-unknown`
+   target,
+2. installs `wasm-pack` via the upstream installer script,
+3. runs `cargo test --workspace`,
+4. regenerates `web/canvas/snapshot.svg` from `ring4_canvas`,
+5. runs
+   ```
+   wasm-pack build crates/ring4_canvas --target web --features wasm \
+       --out-dir ../../web/canvas/pkg
+   ```
+   (so the on-disk layout matches the local build above),
+6. stages everything into `_site/`, uploads it via
+   `actions/upload-pages-artifact@v3`, and deploys with
+   `actions/deploy-pages@v4`.
+
+The workflow requests the minimum permissions Pages needs
+(`contents: read`, `pages: write`, `id-token: write`) and uses
+`actions/configure-pages@v5` so the site URL is filled in automatically.
+
+**Enabling Pages on a fresh checkout.** The workflow is committed, but a
+repository administrator must flip Pages to "GitHub Actions" mode once:
+
+> Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+
+After that, pushes to `main` that touch `games/trinity_fold/**` (or the
+workflow itself) republish the site. The deployed URL is
+`https://<owner>.github.io/<repo>/`. For this repository that is
+`https://gHashTag.github.io/trinity-s3ai/` once the setting is enabled
+and the first run on `main` succeeds. Until then the workflow's deploy
+step will error in CI rather than silently no-op.
 
 ### Legacy JS UI
 

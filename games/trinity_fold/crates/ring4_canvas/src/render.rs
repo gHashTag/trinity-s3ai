@@ -64,32 +64,36 @@ pub struct Theme {
 
 impl Default for Theme {
     fn default() -> Self {
+        // Game-like, true-black stage with neon-style game accents.
+        // Selected/hover/recipe affordances are deliberately higher contrast
+        // than the resting palette so the board reads as a playable game,
+        // not a research dashboard.
         Self {
-            bg: Color(11, 14, 22, 255),
-            tower_data: Color(30, 50, 70, 255),
-            tower_geom: Color(50, 30, 70, 255),
-            tile_idle: Color(40, 48, 64, 255),
-            tile_selected: Color(70, 130, 180, 255),
-            tile_hover: Color(90, 110, 140, 255),
-            tile_falsified: Color(180, 50, 50, 255),
-            tile_open: Color(180, 140, 60, 255),
-            tile_verified: Color(60, 160, 100, 255),
-            tile_empirical: Color(100, 140, 200, 255),
-            tile_unverified: Color(110, 110, 110, 255),
-            stroke: Color(180, 200, 220, 255),
-            text: Color(230, 235, 240, 255),
-            text_dim: Color(140, 150, 165, 255),
-            edge_requires: Color(120, 200, 140, 255),
-            edge_incompat: Color(220, 80, 80, 255),
-            triangle: Color(220, 200, 80, 200),
-            button: Color(60, 80, 110, 255),
-            button_active: Color(90, 150, 200, 255),
-            bridge_deck: Color(212, 175, 55, 220),       // gold deck
-            bridge_collapsed: Color(220, 80, 80, 230),
-            bridge_sound: Color(212, 175, 55, 230),
-            bridge_provisional: Color(180, 140, 60, 220),
-            recipe_chip: Color(60, 100, 90, 255),
-            fold_ring: Color(120, 150, 200, 60),
+            bg: Color(0, 0, 0, 255),
+            tower_data: Color(10, 22, 38, 255),
+            tower_geom: Color(28, 12, 40, 255),
+            tile_idle: Color(18, 22, 32, 255),
+            tile_selected: Color(56, 168, 232, 255),
+            tile_hover: Color(80, 110, 150, 255),
+            tile_falsified: Color(230, 60, 70, 255),
+            tile_open: Color(240, 180, 70, 255),
+            tile_verified: Color(80, 220, 140, 255),
+            tile_empirical: Color(120, 180, 240, 255),
+            tile_unverified: Color(150, 150, 150, 255),
+            stroke: Color(170, 200, 230, 255),
+            text: Color(240, 244, 248, 255),
+            text_dim: Color(150, 165, 185, 255),
+            edge_requires: Color(120, 220, 150, 255),
+            edge_incompat: Color(240, 90, 90, 255),
+            triangle: Color(255, 215, 90, 220),
+            button: Color(24, 38, 58, 255),
+            button_active: Color(255, 196, 70, 255),
+            bridge_deck: Color(255, 200, 70, 235),       // bright gold deck
+            bridge_collapsed: Color(240, 70, 80, 240),
+            bridge_sound: Color(255, 210, 80, 240),
+            bridge_provisional: Color(220, 160, 70, 230),
+            recipe_chip: Color(28, 70, 70, 255),
+            fold_ring: Color(140, 180, 230, 90),
         }
     }
 }
@@ -138,7 +142,15 @@ const HEADER_H: f32 = 64.0;
 const BUTTON_H: f32 = 32.0;
 const SCORE_PANEL_W: f32 = 280.0;
 /// Height reserved for the GOLDEN BRIDGE deck strip across the canvas.
-const BRIDGE_DECK_H: f32 = 78.0;
+///
+/// The strip is divided into three vertical bands so the integrity header
+/// (top) never overlaps the pier counters (Data·N / Geometry·N) drawn
+/// alongside the pier columns below it:
+///
+///   `[ 0..BRIDGE_HEADER_BAND_H ]`  integrity header text
+///   `[ BRIDGE_HEADER_BAND_H .. BRIDGE_DECK_H ]`  piers + deck line + spans
+const BRIDGE_DECK_H: f32 = 96.0;
+const BRIDGE_HEADER_BAND_H: f32 = 26.0;
 const RECIPE_CHIP_H: f32 = 26.0;
 
 fn claim_color(claim: ClaimStatus, theme: &Theme) -> Color {
@@ -282,17 +294,40 @@ fn draw_bridge_deck(
     x: f32, y: f32, w: f32, h: f32,
     prims: &mut Vec<RenderPrimitive>,
 ) {
-    // Background plate.
+    // Background plate — deep navy "stage" against the pure-black body so
+    // the deck reads as a lit game arena, not a flat panel.
     prims.push(RenderPrimitive::Rect {
         x, y, w, h,
-        fill: Color(16, 20, 30, 255),
+        fill: Color(6, 10, 22, 255),
         stroke: Some(theme.stroke),
+    });
+    // Inset highlight stripe at the very top of the plate — gives the
+    // deck strip a subtle "metallic edge" so the gold deck line has
+    // somewhere to sit visually.
+    prims.push(RenderPrimitive::Rect {
+        x: x + 1.0, y: y + 1.0, w: w - 2.0, h: 2.0,
+        fill: Color(40, 60, 100, 200), stroke: None,
+    });
+
+    // The deck strip is split into two horizontal bands so the integrity
+    // header text at the top cannot overlap the pier counters and span
+    // markers below it.
+    let lower_top = y + BRIDGE_HEADER_BAND_H;
+    let lower_h = h - BRIDGE_HEADER_BAND_H;
+
+    // Faint divider between header band and pier band — visual hint, not
+    // load-bearing.
+    prims.push(RenderPrimitive::Line {
+        x0: x + 8.0, y0: lower_top,
+        x1: x + w - 8.0, y1: lower_top,
+        color: theme.fold_ring, width: 1.0,
     });
 
     // Space-fold motif: concentric arcs hint at compression of a high-D space
     // into a small consistent set. Pure decoration; carries no scoring weight.
+    // Centred on the *lower* band so it never bleeds into the header band.
     let cx = x + w * 0.5;
-    let cy = y + h * 0.55;
+    let cy = lower_top + lower_h * 0.55;
     for k in 0..4 {
         let r = 18.0 + k as f32 * 14.0 + bridge.compression as f32 * 28.0;
         prims.push(RenderPrimitive::Circle {
@@ -302,33 +337,46 @@ fn draw_bridge_deck(
         });
     }
 
-    // Pier columns.
-    let pier_w = 14.0;
-    let pier_top = y + 12.0;
-    let pier_h = h - 24.0;
+    // Pier columns — anchored inside the lower band, now with a slightly
+    // wider plinth so they read as game-piece "piers" rather than ticks.
+    let pier_w = 18.0;
+    let pier_top = lower_top + 14.0;
+    let pier_h = lower_h - 26.0;
     let data_x = x + 18.0;
     let geom_x = x + w - 18.0 - pier_w;
+    // Data pier (left) — cool teal accent with body fill.
     prims.push(RenderPrimitive::Rect {
         x: data_x, y: pier_top, w: pier_w, h: pier_h,
         fill: theme.tower_data, stroke: Some(theme.stroke),
     });
     prims.push(RenderPrimitive::Rect {
+        x: data_x, y: pier_top, w: 3.0, h: pier_h,
+        fill: theme.tile_empirical, stroke: None,
+    });
+    // Geometry pier (right) — warm magenta accent.
+    prims.push(RenderPrimitive::Rect {
         x: geom_x, y: pier_top, w: pier_w, h: pier_h,
         fill: theme.tower_geom, stroke: Some(theme.stroke),
     });
+    prims.push(RenderPrimitive::Rect {
+        x: geom_x + pier_w - 3.0, y: pier_top, w: 3.0, h: pier_h,
+        fill: Color(200, 120, 220, 255), stroke: None,
+    });
+    // Pier counters sit *between* the header band divider and the pier
+    // column top, so they cannot overlap the integrity header above.
     prims.push(RenderPrimitive::Text {
-        x: data_x - 4.0, y: pier_top - 4.0,
+        x: data_x - 4.0, y: pier_top - 2.0,
         s: format!("Data·{}", bridge.data_pier_count),
         color: theme.text_dim, size: 11.0, bold: true,
     });
     prims.push(RenderPrimitive::Text {
-        x: geom_x - 24.0, y: pier_top - 4.0,
+        x: geom_x - 24.0, y: pier_top - 2.0,
         s: format!("Geometry·{}", bridge.geom_pier_count),
         color: theme.text_dim, size: 11.0, bold: true,
     });
 
-    // Deck line.
-    let deck_y = y + h * 0.5;
+    // Deck line — centred vertically inside the lower band.
+    let deck_y = lower_top + lower_h * 0.5;
     let deck_color = match bridge.integrity {
         BridgeIntegrity::Empty => theme.text_dim,
         BridgeIntegrity::Sound => theme.bridge_sound,
@@ -375,10 +423,12 @@ fn draw_bridge_deck(
         });
     }
 
-    // Header label inside the deck area.
+    // Header label sits in its own band at the top of the deck strip —
+    // BRIDGE_HEADER_BAND_H of vertical space is reserved above the piers
+    // so this never collides with the Data·N / Geometry·N counters.
     let integrity_col = integrity_color(bridge.integrity, theme);
     prims.push(RenderPrimitive::Text {
-        x: x + 12.0, y: y + 16.0,
+        x: x + 12.0, y: y + 17.0,
         s: format!(
             "GOLDEN BRIDGE — integrity: {}   strength: {:+.3}   compression: {:.0}%",
             bridge.integrity.label(),
@@ -388,8 +438,10 @@ fn draw_bridge_deck(
         color: integrity_col, size: 13.0, bold: true,
     });
     if bridge.integrity == BridgeIntegrity::Collapsed {
+        // Collapse warning is drawn below the deck line so it does not
+        // re-enter the header band.
         prims.push(RenderPrimitive::Text {
-            x: x + 12.0, y: y + 32.0,
+            x: x + 12.0, y: deck_y + 28.0,
             s: format!(
                 "Honesty floor tripped: {} falsified tile(s) on the span.",
                 bridge.falsified_count
@@ -514,6 +566,24 @@ fn draw_tower(
                 theme.tile_idle
             };
             let stroke = claim_color(node.claim, theme);
+
+            // Selected/hover glow halo — a slightly larger rect behind the
+            // tile gives a game-like affordance without changing layout.
+            if selected {
+                prims.push(RenderPrimitive::Rect {
+                    x: tx - 2.0, y: ty - 2.0,
+                    w: TILE_W + 4.0, h: TILE_H + 4.0,
+                    fill: Color(theme.tile_selected.0, theme.tile_selected.1, theme.tile_selected.2, 90),
+                    stroke: None,
+                });
+            } else if hovered {
+                prims.push(RenderPrimitive::Rect {
+                    x: tx - 1.0, y: ty - 1.0,
+                    w: TILE_W + 2.0, h: TILE_H + 2.0,
+                    fill: Color(theme.tile_hover.0, theme.tile_hover.1, theme.tile_hover.2, 60),
+                    stroke: None,
+                });
+            }
 
             prims.push(RenderPrimitive::Rect {
                 x: tx, y: ty, w: TILE_W, h: TILE_H, fill, stroke: Some(stroke),
@@ -775,6 +845,46 @@ mod tests {
             _ => false,
         });
         assert!(has_label);
+    }
+
+    /// Regression: the integrity header (top of the deck strip) and the
+    /// pier counters (`Data·N`, `Geometry·N`) used to share a vertical
+    /// band and overlapped in the deployed static preview. They must now
+    /// live in distinct horizontal bands with daylight between them.
+    #[test]
+    fn integrity_header_does_not_overlap_pier_counters() {
+        let m = layout(&s(), vp(), &Theme::default());
+        // Approximate text height for the 13.0-px integrity header and
+        // 11.0-px pier counter, matching the conservative metric used by
+        // the canvas shell. Text y-coordinates are baselines, so the
+        // glyph box extends roughly `size * 1.1` upward.
+        fn box_top_bottom(y: f32, size: f32) -> (f32, f32) {
+            (y - size * 1.1, y + size * 0.25)
+        }
+        let mut integrity_y: Option<f32> = None;
+        let mut pier_ys: Vec<f32> = Vec::new();
+        for p in &m.primitives {
+            if let RenderPrimitive::Text { s, y, size, .. } = p {
+                if s.starts_with("GOLDEN BRIDGE — integrity:") {
+                    integrity_y = Some(*y);
+                    let _ = size; // size pinned in box_top_bottom below
+                } else if s.starts_with("Data·") || s.starts_with("Geometry·") {
+                    pier_ys.push(*y);
+                }
+            }
+        }
+        let iy = integrity_y.expect("integrity header text missing");
+        let (_, ih_bot) = box_top_bottom(iy, 13.0);
+        assert!(!pier_ys.is_empty(), "expected pier counter labels");
+        for py in pier_ys {
+            let (p_top, _) = box_top_bottom(py, 11.0);
+            assert!(
+                ih_bot < p_top,
+                "integrity header (bottom y={:.1}) must sit above pier counter \
+                 (top y={:.1}); overlap regression",
+                ih_bot, p_top,
+            );
+        }
     }
 
     #[test]
