@@ -299,6 +299,29 @@
 \end{frame}
 
 % ============================================================
+\begin{frame}{Wave 18: Statistical Assessment}
+  \textbf{Pre-registered Monte-Carlo test} (50\,K trials, 2\,K formulas/trial)
+  \vspace{0.3cm}
+  \begin{tabular}{lccc}
+    \textbf{Metric} & \textbf{Trinity} & \textbf{Random} & \textbf{$p$-value} \\
+    \hline
+    Mean rel.\ error & 0.08\% & 0.59\% & \textcolor{green!60!black}{$<10^{-4}$} \\
+    Hits $<0.1\%$ & 20/25 & 5/25 & \textcolor{green!60!black}{$<10^{-4}$} \\
+    Hits $<1.0\%$ & 25/25 & 21/25 & \textcolor{green!60!black}{0.006} \\
+  \end{tabular}
+  \vspace{0.3cm}
+  \begin{itemize}
+    \item \textbf{Collective} precision is highly significant
+    \item Only 10/25 formulas are individually significant
+    \item 3 formulas fail $\sigma$-distance: $1/\alpha$, $m_p/m_e$, $m_\mu/m_e$
+      (experimental precision is $10^5\!\!-\!\!10^6\times$ better than Trinity)
+  \end{itemize}
+  \vspace{0.2cm}
+  \footnotesize
+  \textit{Honest framing: statistically non-trivial ``periodic table'', not a derivation.}
+\end{frame}
+
+% ============================================================
 \begin{frame}{Conclusion: What Survives?}
   \begin{columns}
     \begin{column}{0.48\textwidth}
