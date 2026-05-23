@@ -1,0 +1,48 @@
+{
+  "E6": {
+    "plumbing": "E6",
+    "nodes": 6,
+    "boundary": 24,
+    "total_vertices": 30,
+    "dp_dim": 120,
+    "sigma": -6,
+    "sigma_target": -6,
+    "eta_boundary": -4.0,
+    "eta_target": -1.5,
+    "eta_error": 2.5,
+    "boundary_pos": 20,
+    "boundary_neg": 24,
+    "boundary_zero": 4,
+    "hermitian": true
+  },
+  "E7": {
+    "plumbing": "E7",
+    "nodes": 7,
+    "boundary": 24,
+    "total_vertices": 31,
+    "dp_dim": 124,
+    "sigma": -7,
+    "sigma_target": -7,
+    "eta_boundary": -2.0,
+    "eta_target": -1.75,
+    "eta_error": 0.25,
+    "boundary_pos": 23,
+    "boundary_neg": 25,
+    "boundary_zero": 0,
+    "hermitian": true,
+    "mass_shift": 0.020833333333333332,
+    "note": "Reduced 24-vertex model; full 2O has 48 vertices"
+  },
+  "E8": {
+    "plumbing": "E8",
+    "nodes": 8,
+    "boundary": 120,
+    "total_vertices": 128,
+    "dp_dim": 512,
+    "sigma": -8,
+    "sigma_target": -8,
+    "eta_boundary": null,
+    "eta_target": -2.0,
+    "note": "Reference from Wave 8.3; explicit D_P not built here"
+  }
+}

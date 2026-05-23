@@ -139,3 +139,65 @@
 - [arXiv:0711.0770](https://arxiv.org/abs/0711.0770) — Lisi E8 ToE
 - [arXiv:1103.3694](https://arxiv.org/abs/1103.3694) — Coldea E8 в CoNb2O6
 - [arXiv:0806.0102](https://arxiv.org/abs/0806.0102) — BHV F-theory GUTs
+
+---
+
+## Wave 12 Status (2026-05-22)
+
+Wave 12 is a **communication and consolidation wave**. No new physics claims are introduced. The focus is on honest registry of predictions, roadmap update, and preparation of scientific communication artifacts.
+
+### Honest Checklist
+
+| # | Item | Status | Evidence |
+|---|------|--------|----------|
+| 1 | H₄/600-cell: KO-dim = 6 mod 8 | ✅ Confirmed | `proofs/trinity/KODimension.v` — sign triple (+,+,+) proved (`Qed`); off-diagonal J admitted as `PHYSICAL_AXIOM` |
+| 2 | D₄/24-cell: KO-dim = 5 mod 8 | ✅ Confirmed (negative result) | `derivations/trinity_d4/trinity_d4_analysis.md` — explicit numeric computation gives (−,+,+) → KO-dim 5, **not SM-like** |
+| 3 | η(2I) = −2 | ✅ Confirmed | `proofs/trinity/EtaInvariant.v` — `eta_poincare_nonzero`, `eta_poincare_negative`, `eta_poincare_magnitude` all `Qed` |
+| 4 | η(2T) = −3/2 | ✅ Open (convention-dependent) | `derivations/eta_2t_2o/eta_table_analysis.md` — adopted from plumbing convention η = σ/4; Dedekind-sum cross-check gives different value under natural metric |
+| 5 | η(2O) = −7/4 | ✅ Open (convention-dependent) | Same status as η(2T) |
+| 6 | Spectral action Higgs: 132.88 GeV | ✅ Refuted | `derivations/higgs_spectral_action/higgs_analysis.md` — PDG 2024: 125.10 ± 0.14 GeV; **55.6σ discrepancy** |
+| 7 | 1-loop Higgs correction | ⬜ OPEN | Wave 12.4 — can quantum effects bridge 132.88 → 125.10? |
+| 8 | E₆/E₇ explicit D_P | ⬜ OPEN | Wave 12.5 — no positive results yet |
+| 9 | All Admitted closed | ⬜ OPEN | **100 Admitted remain** in Coq (`proofs/trinity/*.v`) |
+| 10 | Lean port complete | ⬜ OPEN | **6 `sorry` remain** in Lean 4 port (`derivations/lean_port/TrinityLean/`) |
+
+### No-Go Theorems (with citations)
+
+| Theorem | Claim | Status | Source |
+|---------|-------|--------|--------|
+| **NGT-1** | Cosmological parameters from H₄ formulas | **Refuted** | Wave 8.5; `derivations/no_go_analysis/no_go_theorems.md` — Λ off by 92 orders; Ω_b h² off by 754σ |
+| **NGT-2** | σ-field from H₄ geometry | **Proved impossible** | Wave 5.3; `proofs/trinity/UnimodularityAndSigma.v` — `H4_degree2_is_constant_on_orbit` (Qed) |
+| **NGT-3** | Chirality from 600-cell alone | **Proved impossible** | Wave 6; `proofs/trinity/ChiralityAnalysis.v` — antipodal symmetry forces vector-like spectrum |
+| **NGT-4** | Mass hierarchy from 2I-equivariant D_F | **Proved impossible** | Wave 8.4; `proofs/trinity/DFSpectrum.v` — σ = 5.62 > 5σ from SM spectrum |
+| **NGT-5** | D₄/24-cell as SM finite geometry | **Ruled out** | Wave 11.2; `derivations/trinity_d4/trinity_d4_analysis.md` — KO-dim 5 ≠ 6; triality does not yield 3 generations |
+
+### Surviving Positive Results
+
+1. **KO-dim = 6 mod 8 for H₄/600-cell** — structural compatibility with SM NCG (`KODimension.v`, Qed).
+2. **η = −2 on S³/2I** — necessary condition for spectral chirality; APS balance verified (`EtaInvariant.v`, Qed).
+3. **2I ⊂ SU(2) motivates ℍ ⊂ A_F** — algebraic fact, independent of physical claims (`QuaternionicLinearity.v`, Qed).
+4. **25/25 catalog formulas verified numerically** — with honest R/S/NF tags (`validate_v4.py`, `Catalog42.v`).
+5. **Machine-verified honesty framework** — 312 Qed theorems + 100 honest Admitted tags.
+6. **Four rigorous no-go theorems** — mapping the boundaries of H₄-based unification.
+
+### New Artifacts in Wave 12
+
+| File | Description |
+|------|-------------|
+| `derivations/falsification/PREDICTIONS_REGISTRY.md` | Falsifiable predictions registry with traceability to source files |
+| `derivations/falsification/SEMINAR_TALK_20MIN.md` | 20-minute seminar outline with speaker notes |
+| `ROADMAP.md` (this section) | Updated honest checklist and open problems |
+
+---
+
+## Wave 13+ — Tentative Directions
+
+1. **Complete Lean 4 port** — close remaining `sorry` in KODimension and QuaternionicLinearity.
+2. **E₆/E₇ scouting** — explicit Dirac operators for E₆ and E₷ plumbing geometries (Wave 12.5 follow-up).
+3. **1-loop Higgs computation** — numerical check whether 1-loop corrections can rescue tree-level 132.88 GeV (Wave 12.4 follow-up).
+4. **arXiv preprint** — draft *"Trinity S³AI: Constructive Negative Results in H₄-Based Geometric Unification"*.
+5. **DUNE 2028 watch** — maintain δ_CP = 65.66° registry until experimental decision.
+
+---
+
+*Wave 12 consolidated: 2026-05-22.*
