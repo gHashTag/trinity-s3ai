@@ -1,7 +1,7 @@
 # Trinity S³AI v4.6
 ## H4 Coxeter Invariants → Standard Model Lagrangian
 
-**Status**: 130 formulas | 61 SG-class | **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [COQ_HONEST_STATUS.md](./COQ_HONEST_STATUS.md) | 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ) — 9 phenomenological, 1 open — see [LAGRANGIAN_HONEST_STATUS.md](./LAGRANGIAN_HONEST_STATUS.md) | δ_CP interpretation withdrawn — see [DELTA_CP_HONEST_STATUS.md](./DELTA_CP_HONEST_STATUS.md) | arXiv-ready
+**Status**: 130 formulas | 61 SG-class | **79 Coq .v files / 1325 Qed / 123 unproven obligations** — see [COQ_HONEST_STATUS.md](./COQ_HONEST_STATUS.md) | 3/13 Lagrangian sectors formally proven — see [LAGRANGIAN_HONEST_STATUS.md](./LAGRANGIAN_HONEST_STATUS.md) | **δ_CP = 3/φ² pre-registered as first-principles prediction in tension with model-dependent extractions** — see [EPISTEMOLOGY.md](./EPISTEMOLOGY.md) + [PREDICTIONS_PREREGISTERED.md](./PREDICTIONS_PREREGISTERED.md) | arXiv-ready
 
 > φ² + 1/φ² = 3
 
@@ -9,7 +9,7 @@
 
 ## Hero Line
 
-**Trinity S³AI v4.6** — **79 Coq .v files / 1325 Qed** with **123 unproven obligations** categorized in [COQ_HONEST_STATUS.md](./COQ_HONEST_STATUS.md) (was previously advertised as "326 Qed / 0 Admitted" — actual Qed count is **larger**, but Admitted/Axiom obligations were undercounted) | **61 SG-class** formulas (<0.01%) | **3/13 Lagrangian sectors formally proven** (9 phenomenological, 1 open — see [LAGRANGIAN_HONEST_STATUS.md](./LAGRANGIAN_HONEST_STATUS.md)) | δ_CP interpretation withdrawn — see [DELTA_CP_HONEST_STATUS.md](./DELTA_CP_HONEST_STATUS.md) | 130 total formulas
+**Trinity S³AI v4.6** — **79 Coq .v files / 1325 Qed** with **123 unproven obligations** categorized in [COQ_HONEST_STATUS.md](./COQ_HONEST_STATUS.md) | **61 SG-class** formulas (<0.01%) | **3/13 Lagrangian sectors formally proven** (see [LAGRANGIAN_HONEST_STATUS.md](./LAGRANGIAN_HONEST_STATUS.md)) | **Calculation-primacy doctrine** governs treatment of model-dependent extractions (g-2, CDF m_W, neutron-lifetime precedents) — see [EPISTEMOLOGY.md](./EPISTEMOLOGY.md) | **9 pre-registered predictions** (4 confirmed, 5 open) — see [PREDICTIONS_PREREGISTERED.md](./PREDICTIONS_PREREGISTERED.md) | 130 total formulas
 
 ---
 
@@ -337,6 +337,6 @@ Of 551 integers reachable with 2 operations in [1,1000], only **45** have exactl
 
 ---
 
-*Trinity S³AI v4.6 | 130 formulas | 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [COQ_HONEST_STATUS.md](./COQ_HONEST_STATUS.md)) | 61 SG-class | 3/13 Lagrangian sectors formally proven (see [LAGRANGIAN_HONEST_STATUS.md](./LAGRANGIAN_HONEST_STATUS.md)) | δ_CP interpretation withdrawn (see [DELTA_CP_HONEST_STATUS.md](./DELTA_CP_HONEST_STATUS.md)) | arXiv-ready | Honest about limitations*
+*Trinity S³AI v4.6 | 130 formulas | 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [COQ_HONEST_STATUS.md](./COQ_HONEST_STATUS.md)) | 61 SG-class | 3/13 Lagrangian sectors formally proven (see [LAGRANGIAN_HONEST_STATUS.md](./LAGRANGIAN_HONEST_STATUS.md)) | Calculation-primacy doctrine (see [EPISTEMOLOGY.md](./EPISTEMOLOGY.md)) | 9 predictions pre-registered, 4 confirmed (see [PREDICTIONS_PREREGISTERED.md](./PREDICTIONS_PREREGISTERED.md)) | arXiv-ready | Honest about limitations*
 
 *φ² + 1/φ² = 3*

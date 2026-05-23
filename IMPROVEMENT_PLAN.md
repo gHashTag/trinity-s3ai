@@ -2,8 +2,8 @@
 ## "What to Improve Next: Highest Impact Actions"
 
 **Date:** 2026-05-20
-**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md)
-**Critical Issue:** delta_CP = 65.66° in 5.6sigma tension with NuFit 6.0; 0 peer-reviewed publications
+**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** — see [`COQ_HONEST_STATUS.md`](./COQ_HONEST_STATUS.md); 3/13 Lagrangian sectors formally proven — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md); **calculation-primacy doctrine** governs treatment of model-dependent extractions — see [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md); **9 pre-registered predictions** (4 confirmed, 5 open including δ_CP=3/φ²) — see [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md)
+**Open question:** δ_CP = 65.66° (first-principles, zero free parameters) in tension with NuFIT-6.0 model-dependent extraction; awaits DUNE 2028+ model-clean adjudication — see [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md) and [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md) P1; 0 peer-reviewed publications
 
 ---
 
