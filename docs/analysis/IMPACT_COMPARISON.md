@@ -51,7 +51,7 @@
 - **Verdict**: The formal proof infrastructure is world-class. This is the strongest dimension.
 
 #### Novel Predictions: **6/10** — Promising but Unverified
-- N_gen = 3 (correct, but was already known)
+- N_gen = 3 (**not derived from H4** — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md); `proofs/trinity/ThreeGenerations.v` formally proves no H4 mechanism yields 3 from first principles; N_gen=3 is empirical input from PDG)
 - Strong CP solution (θ_QCD ≈ 0 — matches observation, but mechanism must differ from Peccei-Quinn)
 - Higgs mass derivation (matches m_H ≈ 125 GeV — confirmed)
 - Yukawa couplings structure (pattern claim, not numerical values)
@@ -83,7 +83,7 @@
 
 #### Unification Power: **7/10** — Strong (if claims hold)
 - Claims to derive entire SM Lagrangian from single H4 Coxeter group
-- 3 generations from H4 structure (not put in by hand)
+- 3 generations is **input** (PDG empirical value), **not derived** from H4 — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md). The Coq corpus contains a formal **negative** result on H4 N_gen derivation.
 - Gauge + Higgs + Yukawa from one object
 - 61 SG-class formulas (< 0.01% — extraordinary precision if verified)
 - **Verdict**: The ambition matches E8 (Lisi) and exceeds NCG (Connes), but must survive scrutiny.
@@ -142,7 +142,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 - H4 Coxeter group is mathematically natural as a starting point
 - 3/13 sectors formally derived from first principles (m_H, gauge couplings, λ), if even directionally correct, is meaningful — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md)
 - The 61 SG-class formulas represent a strong phenomenological claim
-- Strong CP and N_gen derivations, if valid, solve two SM mysteries
+- Strong CP derivation, if valid, solves one SM mystery (N_gen=3 derivation is **not** valid in the Coq corpus — see [`N_GEN_HONEST_STATUS.md`](./N_GEN_HONEST_STATUS.md))
 
 ### 4.3 Why 4/10 (not higher):
 - **Zero peer review** — the single most important filter in physics
