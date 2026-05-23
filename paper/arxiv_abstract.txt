@@ -1,0 +1,5 @@
+We present a systematic test of the hypothesis that the parameters of the Standard Model (SM) derive from the geometry of the H4 Coxeter group and the 600-cell. Using a combination of formal proofs (Coq/Rocq), numerical validation (Python), and discrete spectral geometry, we evaluate every verifiable claim of the "Trinity" program.
+
+Our positive results include: (i) the eta-invariant eta(S^3/2I) = -2 via the Atiyah-Patodi-Singer theorem applied to the E8 plumbing; (ii) KO-dimension 6 (mod 8) for the H4/600-cell Dirac operator, matching the Connes-Chamseddine SM requirement; (iii) numerical verification of 25 SM parameter formulas against PDG 2024 with mean relative error 0.1%.
+
+Our negative results include five No-Go theorems: sigma-field unavailable in H4 (NGT-1); no 3-generation structure from H4 (NGT-2); D4 KO-dimension 5 (mod 8) != 6 (NGT-3); spectral action Higgs mass 132.88 GeV != 125.10 GeV (NGT-4); E6/E7 plumbing discretization mismatch (NGT-5). We discuss the surviving open directions and conclude that naive geometric unification via discrete Coxeter groups is refuted as a complete SM derivation, while retaining partial structural insights.

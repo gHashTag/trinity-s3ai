@@ -57,32 +57,47 @@ Proof. unfold v_SM. nra. Qed.
 Theorem VEV_corrected_matches_SM :
   v_corrected = v_SM.
 Proof.
-  (* [LIBRARY_GAP] v_corrected = sqrt(v_SM^2) = v_SM requires sqrt_square
-     which needs v_SM >= 0; the chain mu_sq/lambda = v_SM^2 unfolds but
-     sqrt of a square of a Parameter e does not simplify automatically. *)
-  admit.
-Admitted.
+  unfold v_corrected, mu_sq_corrected, lambda_corrected.
+  assert (H1: m_H_Trinity ^ 2 / (2 * v_SM ^ 2) * v_SM ^ 2 / (m_H_Trinity ^ 2 / (2 * v_SM ^ 2)) = v_SM ^ 2).
+  { field. repeat split; try (unfold v_SM; lra); try (apply Rgt_not_eq; apply m_H_Trinity_pos). }
+  rewrite H1.
+  rewrite sqrt_pow2.
+  reflexivity.
+  unfold v_SM; lra.
+Qed.
 
 (* Test m_H_corrected_matches_Trinity *)
 Theorem m_H_corrected_matches_Trinity :
   m_H_corrected = m_H_Trinity.
 Proof.
-  (* [LIBRARY_GAP] m_H_corrected = sqrt(2*lambda)*v_SM where lambda =
-     m_H_Trinity^2/(2*v_SM^2); reduces to sqrt(m_H_Trinity^2) = m_H_Trinity
-     which needs sqrt_sq and positivity of m_H_Trinity — automation fails
-     to chain these rewrites automatically. *)
-  admit.
-Admitted.
+  unfold m_H_corrected, lambda_corrected.
+  assert (H2: 2 * (m_H_Trinity ^ 2 / (2 * v_SM ^ 2)) = m_H_Trinity ^ 2 / v_SM ^ 2).
+  { field. repeat split; try (unfold v_SM; lra); try (apply Rgt_not_eq; apply m_H_Trinity_pos). }
+  rewrite H2.
+  assert (H3: sqrt (m_H_Trinity ^ 2 / v_SM ^ 2) = m_H_Trinity / v_SM).
+  { rewrite sqrt_div_alt.
+    2: { unfold v_SM; lra. }
+    rewrite sqrt_pow2.
+    2: { apply Rlt_le. apply m_H_Trinity_pos. }
+    rewrite sqrt_pow2.
+    2: { unfold v_SM; lra. }
+    reflexivity. }
+  rewrite H3.
+  field. repeat split; try (unfold v_SM; lra); try (apply Rgt_not_eq; apply m_H_Trinity_pos).
+Qed.
 
 (* Test Higgs_mass_from_curvature *)
 Theorem Higgs_mass_from_curvature :
   sqrt (2 * mu_sq_corrected) = m_H_Trinity.
 Proof.
-  (* [LIBRARY_GAP] sqrt(2*mu_sq_corrected) = sqrt(2*lambda*v_SM^2) =
-     sqrt(m_H_Trinity^2) = m_H_Trinity; same sqrt-of-square chain as above.
-     Automation cannot unfold the nested definitions and apply sqrt_sq. *)
-  admit.
-Admitted.
+  unfold mu_sq_corrected, lambda_corrected.
+  assert (H1: 2 * (m_H_Trinity ^ 2 / (2 * v_SM ^ 2) * v_SM ^ 2) = m_H_Trinity ^ 2).
+  { field. repeat split; try (unfold v_SM; lra); try (apply Rgt_not_eq; apply m_H_Trinity_pos). }
+  rewrite H1.
+  rewrite sqrt_pow2.
+  reflexivity.
+  apply Rlt_le, m_H_Trinity_pos.
+Qed.
 
 End TestScratch.
 Close Scope R_scope.

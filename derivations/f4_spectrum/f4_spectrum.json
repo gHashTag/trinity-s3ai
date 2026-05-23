@@ -1,7 +1,7 @@
 {
-  "n_roots": 48,
-  "n_2o_found": 16,
-  "n_2o_expected": 48,
+  "n_2o": 48,
+  "norm_ok": true,
+  "closure_ok": true,
   "D_dim": 192,
   "hermitian_error": 0.0,
   "eigenvalue_min": -1.522737,
@@ -9,6 +9,9 @@
   "positive_count": 60,
   "negative_count": 60,
   "zero_count": 72,
+  "eta_discrete": 0.0,
+  "eta_target": -1.75,
   "KO_dim_estimate": 6,
-  "honest_note": "2O incomplete; spectrum uses F4 root adjacency only"
+  "D_anticommutes_Gamma": true,
+  "honest_note": "2O complete; eta discrete vs APS target differs"
 }

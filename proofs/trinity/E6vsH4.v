@@ -37,6 +37,7 @@ Require Import Lra.
 Require Import Nsatz.
 Require Import Interval.Tactic.
 Require Import List.
+Require Import Znumtheory.
 From Trinity Require Import CorePhi.
 
 Open Scope R_scope.
@@ -105,26 +106,142 @@ Qed.
 (* Section 2: phi is irrational -- foundation for E6_no_phi                    *)
 (******************************************************************************)
 
+Local Close Scope R_scope.
+Local Open Scope Z_scope.
+
+Lemma prime_5 : prime 5.
+Proof.
+  apply prime_intro.
+  - lia.
+  - intros n Hn.
+    assert (Hcases: n = 1 \/ n = 2 \/ n = 3 \/ n = 4) by lia.
+    destruct Hcases as [H | [H | [H | H]]]; subst n;
+      [apply rel_prime_1 |
+       apply bezout_rel_prime; apply Bezout_intro with (u := 3) (v := -1); reflexivity |
+       apply bezout_rel_prime; apply Bezout_intro with (u := 2) (v := -1); reflexivity |
+       apply bezout_rel_prime; apply Bezout_intro with (u := -1) (v := 1); reflexivity].
+Qed.
+
+Lemma Pos_to_nat_pos : forall p : positive, (Pos.to_nat p > 0)%nat.
+Proof.
+  induction p; simpl; lia.
+Qed.
+
+Lemma no_sqrt_5_solution : forall p q : Z, q <> 0 -> ~ (p * p = 5 * (q * q)).
+Proof.
+  enough (Hgoal: forall n p q, q <> 0 -> (Z.abs_nat q <= n)%nat -> ~ (p * p = 5 * (q * q))).
+  { intros p q Hq. apply (Hgoal (Z.abs_nat q) p q Hq). apply le_n. }
+  induction n as [| n IH].
+  - intros p q Hq Hle H.
+    assert (Hq0: Z.abs_nat q = 0%nat) by lia.
+    destruct q.
+    + contradiction.
+    + simpl in Hq0. assert (Hpos: (Pos.to_nat p0 > 0)%nat) by apply Pos_to_nat_pos.
+      lia.
+    + simpl in Hq0. assert (Hpos: (Pos.to_nat p0 > 0)%nat) by apply Pos_to_nat_pos.
+      lia.
+  - intros p q Hq Hle H.
+    assert (H5p: (5 | p * p)).
+    { exists (q * q).
+      assert (H' : q * q * 5 = 5 * (q * q)) by ring.
+      rewrite H'. exact H. }
+    assert (H5p': (5 | p)).
+    { assert (Hor: (5 | p) \/ (5 | p)).
+      { apply prime_mult with (a := p) (b := p); try apply prime_5. exact H5p. }
+      destruct Hor as [H' | H']; exact H'. }
+    destruct H5p' as [k Hk].
+    assert (H5q: (5 | q * q)).
+    { assert (H5: 5 * (k * k) = q * q).
+      { assert (Htmp: (k * 5) * (k * 5) = 5 * (q * q)).
+        { rewrite <- Hk. exact H. }
+        assert (Hring: 5 * (5 * (k * k)) = (k * 5) * (k * 5)) by ring.
+        assert (Hcancel: 5 * (5 * (k * k)) = 5 * (q * q)).
+        { rewrite Hring. exact Htmp. }
+        apply Z.mul_reg_l with (p := 5); easy. }
+      exists (k * k).
+      assert (Hring: k * k * 5 = 5 * (k * k)) by ring.
+      assert (Hgoal2: q * q = k * k * 5).
+      { assert (Htmp: q * q = 5 * (k * k)) by (symmetry; exact H5).
+        rewrite Htmp. symmetry. exact Hring. }
+      exact Hgoal2. }
+    assert (H5q': (5 | q)).
+    { assert (Hor: (5 | q) \/ (5 | q)).
+      { apply prime_mult with (a := q) (b := q); try apply prime_5. exact H5q. }
+      destruct Hor as [H' | H']; exact H'. }
+    destruct H5q' as [m Hm].
+    assert (Hkm: k * k = 5 * (m * m)).
+    { assert (H25: (k * 5) * (k * 5) = 5 * ((m * 5) * (m * 5))).
+      { rewrite <- Hk, <- Hm. exact H. }
+      assert (H25a: 25 * (k * k) = (k * 5) * (k * 5)) by ring.
+      assert (H25b: 25 * (5 * (m * m)) = 5 * ((m * 5) * (m * 5))) by ring.
+      assert (H25c: 25 * (k * k) = 25 * (5 * (m * m))).
+      { rewrite H25a, H25b. exact H25. }
+      apply Z.mul_reg_l with (p := 25); easy. }
+    assert (Hmq: (Z.abs_nat m <= n)%nat).
+    { assert (Habsq: Z.abs_nat q = (Z.abs_nat m * 5)%nat).
+      { rewrite Hm. rewrite Zabs2Nat.inj_mul. reflexivity. }
+      assert (Hle': (Z.abs_nat m * 5 <= S n)%nat) by lia.
+      assert (Hpos: (Z.abs_nat m > 0)%nat).
+      { destruct m.
+        - contradiction.
+        - simpl. lia.
+        - simpl. lia. }
+      lia. }
+    assert (Hm0: m <> 0). { intro Hm0. rewrite Hm0 in Hm. lia. }
+    assert (Hcontra: ~ (k * k = 5 * (m * m))).
+    { apply (IH k m Hm0 Hmq). }
+    contradiction.
+Qed.
+
+Local Close Scope Z_scope.
+Local Open Scope R_scope.
+
 Lemma sqrt_5_not_rational : forall p q : Z, q <> 0%Z ->
   sqrt 5 <> IZR p / IZR q.
 Proof.
-  (* [MATH_TODO] Standard number theory result (sqrt 5 irrational by infinite
-     descent / unique factorization). Not available in Coq stdlib; requires
-     a manual descent argument or an external algebra library. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation; proof changes cannot be verified. *)
-Admitted.
+  intros p q Hq Heq.
+  assert (Hsq: (IZR p) * (IZR p) = 5 * ((IZR q) * (IZR q))).
+  { assert (H1: sqrt 5 * sqrt 5 = 5) by (apply Rsqr_sqrt; lra).
+    assert (H2: (IZR p / IZR q) * (IZR p / IZR q) = (IZR p) * (IZR p) / ((IZR q) * (IZR q))).
+    { field. all: intro H0; apply eq_IZR in H0; contradiction. }
+    assert (H3: sqrt 5 * sqrt 5 = (IZR p) * (IZR p) / ((IZR q) * (IZR q))).
+    { rewrite Heq. exact H2. }
+    assert (H4: (IZR p) * (IZR p) / ((IZR q) * (IZR q)) = 5) by lra.
+    assert (H5: IZR q <> 0).
+    { intro H0. apply eq_IZR in H0. contradiction. }
+    assert (H6: (IZR p) * (IZR p) = 5 * ((IZR q) * (IZR q))).
+    { assert (H7: (IZR p) * (IZR p) = ((IZR p) * (IZR p) / ((IZR q) * (IZR q))) * ((IZR q) * (IZR q))).
+      { field. exact H5. }
+      rewrite H4 in H7. lra. }
+    exact H6. }
+  assert (H5: (p * p = 5 * (q * q))%Z).
+  { apply eq_IZR.
+    repeat rewrite mult_IZR.
+    exact Hsq. }
+  apply (no_sqrt_5_solution p q Hq). exact H5.
+Qed.
 
 Lemma phi_irrational : forall p q : Z, q <> 0%Z -> phi <> IZR p / IZR q.
 Proof.
-  (* [MATH_TODO] Follows directly from sqrt_5_not_rational above; the
-     algebraic reduction phi = (1 + sqrt 5)/2 not rational is standard
-     but requires IZR field arithmetic not automated in current setup. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation; proof changes cannot be verified. *)
-Admitted.
+  intros p q Hq Heq.
+  assert (Hphi: phi = (1 + sqrt 5) / 2) by reflexivity.
+  rewrite Hphi in Heq.
+  assert (Hsqrt5: sqrt 5 = IZR (2 * p - q) / IZR q).
+  { assert (H1: 1 + sqrt 5 = 2 * (IZR p / IZR q)) by lra.
+    assert (H2: 2 * (IZR p / IZR q) = IZR (2 * p) / IZR q).
+    { rewrite mult_IZR. field. all: intro H0; apply eq_IZR in H0; contradiction. }
+    assert (H3: 1 = IZR q / IZR q).
+    { field. all: intro H0; apply eq_IZR in H0; contradiction. }
+    assert (H4: 1 + sqrt 5 = IZR (2 * p) / IZR q) by lra.
+    assert (H5: sqrt 5 = IZR (2 * p) / IZR q - 1) by lra.
+    rewrite H3 in H5.
+    assert (H6: IZR (2 * p) / IZR q - IZR q / IZR q = IZR (2 * p - q) / IZR q).
+    { assert (H7: IZR (2 * p - q) = IZR (2 * p) - IZR q).
+      { rewrite minus_IZR. reflexivity. }
+      rewrite H7. field. all: intro H0; apply eq_IZR in H0; contradiction. }
+    lra. }
+  apply (sqrt_5_not_rational (2 * p - q) q Hq). exact Hsqrt5.
+Qed.
 
 (******************************************************************************)
 (* Section 3: Theorem E6_no_phi -- E6 invariants cannot produce phi            *)
@@ -135,13 +252,12 @@ Theorem E6_no_phi :
     (exists p q : Z, q <> 0%Z /\ x = IZR p / IZR q) ->
     x <> phi.
 Proof.
-  (* [MATH_TODO] Structural corollary of phi_irrational; proof is a
-     straightforward contrapositive but automation cannot unfold the
-     existential + IZR divisibility chain. *)
-  admit.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation; proof changes cannot be verified. *)
-Admitted.
+  intros x [p [q [Hq Hx]]].
+  intro Heq.
+  rewrite Hx in Heq.
+  apply (phi_irrational p q Hq).
+  symmetry. exact Heq.
+Qed.
 
 (******************************************************************************)
 (* Section 4: Theorem H4_contains_phi -- phi is STRUCTURAL in H4               *)
