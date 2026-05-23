@@ -2,7 +2,7 @@
 ## "What to Improve Next: Highest Impact Actions"
 
 **Date:** 2026-05-20
-**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) and [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md)
+**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) and [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md); **calculation-primacy doctrine** governs treatment of model-dependent extractions — see [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md); **9 pre-registered predictions** (4 confirmed, 5 open) — see [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md)
 **Critical Issue:** delta_CP = 65.66° excluded at 5.6sigma by NuFIT-6.0 NO best fit 177° and outside 3sigma of T2K+NOvA joint analysis (Nature, Oct 2025); physical interpretation withdrawn. 0 peer-reviewed publications.
 
 ---
