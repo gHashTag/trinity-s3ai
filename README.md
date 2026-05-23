@@ -210,11 +210,13 @@ Each layer below states what is currently **Checked**, what is a known
   "no derivation, no claim" gate on the Lagrangian docs.
 
 ### L5 - Numerical Fits and Validation
-- **Checked:** 59 formulas matching PDG 2024 inside stated windows
-  (interval-bound `Qed.` in `proofs/catalog/Catalog42_corrected.v`), falsifiability
-  protocol, honest p-value computation, RG running scheme.
+- **Checked:** 26 core + 33 extended formulas matching PDG 2024 / NuFit 6.0 inside stated windows
+  (interval-bound `Qed.` in `proofs/trinity/Catalog42.v`), falsifiability protocol, RG running scheme.
+- **Honest p-value (Wave 20, 500k trials):** mean rel. error p = 0.077 (not significant);
+  SG-hit density p < 0.0001 (highly significant). Random search matches average precision but rarely achieves the same density of ultra-precise hits.
+- **σ-ranking:** median σ-distance = 0.085σ; 13/26 within 0.1σ; 3 "ultra-precision traps" (G01, Pr, L01) fail on σ only because measurements are 10⁵–10⁶× more precise than the formulas.
 - **Blind spots:** `e^2` (electric charge) derivation, full RG closure,
-  numerology / look-elsewhere risk, post-data prediction risk.
+  numerology / look-elsewhere risk, post-data prediction risk, G03 (sin²θ_W) is a genuine 84σ failure.
 - **Next unlock:** fit registry tied to the claim ledger, systematic
   ablations, RG quest, pre-registered prediction lock for any new
   numerical claim.
@@ -324,7 +326,8 @@ inward-only dependency direction is enforced by integration tests in
 | `Axiom` + `Conjecture` + `Parameter` | **85** |
 | Refutation theorems | **14** |
 | SG-class formulas (error < 0.01 %) | 11 |
-| V-class formulas (error 0.01–0.3 %) | 14 |
+| V-class formulas (error 0.01–0.3 %) | 12 |
+| Honest p-value (500k trials) | p = 0.077 (mean error); p < 0.0001 (SG-hit density) |
 | Anti-numerology gate | ✓ PASS (59 formulas tagged) |
 | Honest-count script | [`scripts/count_admitted_honest.py`](scripts/count_admitted_honest.py) |
 
@@ -447,3 +450,4 @@ Also see [CITATION.bib](CITATION.bib) for formatted references.
 | 17 | Formal retraction of δ_CP = 65.66° (5.6σ excluded); 0 real `Admitted.` in proofs/trinity/ |
 | 18 | Merge of honesty-pass PRs #21–#23 (Lagrangian status, δ_CP withdrawal, Coq audit) |
 | 19 | Merge of honesty-pass PRs #29, #31, #32 (calculation-primacy, N_gen=3 withdrawn, Strong CP withdrawn); all old PRs merged |
+| 20 | Honest phenomenology refresh: 500k-trial p-value, σ-ranking updated (26 obs, δ_CP withdrawn, sin²θ_13/23/W + |V_ub| + λ added) |

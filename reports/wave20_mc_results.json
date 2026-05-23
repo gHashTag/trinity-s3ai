@@ -1,0 +1,228 @@
+{
+  "protocol": {
+    "n_trials": 500000,
+    "sample_size": 2000,
+    "seed": 20260523,
+    "search_space_rationals": 60854,
+    "search_space_exponents": 13,
+    "search_space_templates": 5,
+    "templates": {
+      "T1": "C * phi^a * pi^b * e^c",
+      "T2": "C + phi^a * pi^b * e^c",
+      "T3": "C * phi^a / (pi^b * e^c)",
+      "T4": "C * phi^a + D * pi^b * e^c",
+      "T5": "(C + phi^a) / (D + pi^b * e^c)"
+    }
+  },
+  "trinity": {
+    "mean_rel_error_percent": 0.4515692153815953,
+    "mean_sigma_distance": 73248.52465171207,
+    "hits_1pct": 24,
+    "hits_01pct": 20,
+    "hits_sg": 11,
+    "per_observable": {
+      "L01": {
+        "rel_error_percent": 0.013491471664128939,
+        "sigma_distance": 6064.366154641507
+      },
+      "L02": {
+        "rel_error_percent": 0.001886866023633384,
+        "sigma_distance": 0.28846236236032297
+      },
+      "L03": {
+        "rel_error_percent": 0.008866760208434153,
+        "sigma_distance": 1.5416192636394044
+      },
+      "Q01": {
+        "rel_error_percent": 0.06394488249194796,
+        "sigma_distance": 0.01641251983959998
+      },
+      "Q02": {
+        "rel_error_percent": 0.14001832708057657,
+        "sigma_distance": 0.043245660449743796
+      },
+      "Q03": {
+        "rel_error_percent": 0.21572972847946284,
+        "sigma_distance": 0.11735697229282778
+      },
+      "Q04": {
+        "rel_error_percent": 0.024980510135491553,
+        "sigma_distance": 0.17027964733857814
+      },
+      "Q05": {
+        "rel_error_percent": 0.0035848658777732608,
+        "sigma_distance": 0.016110387254713032
+      },
+      "Q07": {
+        "rel_error_percent": 0.0015321181129479557,
+        "sigma_distance": 0.0004377480322708445
+      },
+      "G01": {
+        "rel_error_percent": 0.02427512122521213,
+        "sigma_distance": 1584078.8047534088
+      },
+      "G03": {
+        "rel_error_percent": 3.7619742931637523,
+        "sigma_distance": 84.02745781210557
+      },
+      "N01": {
+        "rel_error_percent": 0.09796861676879351,
+        "sigma_distance": 0.023135665652322775
+      },
+      "N03": {
+        "rel_error_percent": 0.423325204409419,
+        "sigma_distance": 0.11006455314644893
+      },
+      "Sin13": {
+        "rel_error_percent": 0.002582243019300732,
+        "sigma_distance": 0.0008115620917802301
+      },
+      "C01": {
+        "rel_error_percent": 0.9575108988897577,
+        "sigma_distance": 4.337524371970602
+      },
+      "C02": {
+        "rel_error_percent": 0.005298489104784806,
+        "sigma_distance": 0.002982607825235113
+      },
+      "C03": {
+        "rel_error_percent": 5.680331074524395,
+        "sigma_distance": 1.0849432352341595
+      },
+      "H01": {
+        "rel_error_percent": 0.07367572417758274,
+        "sigma_distance": 0.8379608956233979
+      },
+      "H02": {
+        "rel_error_percent": 0.005414986771883277,
+        "sigma_distance": 0.06071898319774593
+      },
+      "H03": {
+        "rel_error_percent": 0.09417170952501226,
+        "sigma_distance": 1.0707075549988843
+      },
+      "v21": {
+        "rel_error_percent": 0.00034065447804740485,
+        "sigma_distance": 0.00012825641098484792
+      },
+      "v31": {
+        "rel_error_percent": 0.0003829951171253439,
+        "sigma_distance": 0.00032043924799487106
+      },
+      "N21": {
+        "rel_error_percent": 0.001532094639442964,
+        "sigma_distance": 0.0005260269937013347
+      },
+      "Pr": {
+        "rel_error_percent": 0.0018824533935469065,
+        "sigma_distance": 314224.71192441165
+      },
+      "Snu": {
+        "rel_error_percent": 0.04504053783057833,
+        "sigma_distance": 0.0022069863536983377
+      },
+      "Lambda": {
+        "rel_error_percent": 0.09105697280844383,
+        "sigma_distance": 0.004698539796915702
+      }
+    }
+  },
+  "monte_carlo": {
+    "mean_rel_error_percent": {
+      "median": 0.6518670587084032,
+      "mean": 0.6787931646913453,
+      "std": 0.18642099656789296,
+      "min": 0.19462468117293866,
+      "max": 2.3006717257020153,
+      "p_value_trinity_le_random": 0.077076
+    },
+    "mean_sigma_distance": {
+      "median": 3967145.182509126,
+      "mean": 5433810.789311625,
+      "std": 4836065.729419469,
+      "min": 4125.637478798175,
+      "max": 65105737.530868836,
+      "p_value_trinity_le_random": 0.000538
+    },
+    "hits_1pct": {
+      "median": 21,
+      "mean": 21.266496,
+      "std": 1.7426852504063952,
+      "min": 11,
+      "max": 26,
+      "p_value_trinity_ge_random": 0.092034
+    },
+    "hits_01pct": {
+      "median": 5,
+      "mean": 5.05605,
+      "std": 1.9687773864761857,
+      "min": 0,
+      "max": 15,
+      "p_value_trinity_ge_random": 0.0
+    },
+    "hits_sg": {
+      "median": 0,
+      "mean": 0.572524,
+      "std": 0.7453269547145064,
+      "min": 0,
+      "max": 7,
+      "p_value_trinity_ge_random": 0.0
+    },
+    "per_observable_p_rel": {
+      "L01": 0.032816,
+      "L02": 0.007822,
+      "L03": 0.009346,
+      "Q01": 0.14912,
+      "Q02": 0.373496,
+      "Q03": 0.370112,
+      "Q04": 0.110504,
+      "Q05": 0.012286,
+      "Q07": 0.006308,
+      "G01": 0.06041,
+      "G03": 0.999522,
+      "N01": 0.195936,
+      "N03": 0.67918,
+      "Sin13": 0.002962,
+      "C01": 0.854492,
+      "C02": 0.006866,
+      "C03": 0.986556,
+      "H01": 0.177502,
+      "H02": 0.017274,
+      "H03": 0.26577,
+      "v21": 0.000114,
+      "v31": 0.000272,
+      "N21": 0.001876,
+      "Pr": 0.002902,
+      "Snu": 0.059322,
+      "Lambda": 0.141576
+    },
+    "per_observable_p_sigma": {
+      "L01": 0.032816,
+      "L02": 0.007822,
+      "L03": 0.009346,
+      "Q01": 0.14912,
+      "Q02": 0.373496,
+      "Q03": 0.370112,
+      "Q04": 0.110504,
+      "Q05": 0.012286,
+      "Q07": 0.006308,
+      "G01": 0.06041,
+      "G03": 0.999522,
+      "N01": 0.195936,
+      "N03": 0.67918,
+      "Sin13": 0.002962,
+      "C01": 0.854492,
+      "C02": 0.006866,
+      "C03": 0.986556,
+      "H01": 0.177502,
+      "H02": 0.017274,
+      "H03": 0.26577,
+      "v21": 0.000114,
+      "v31": 0.000272,
+      "N21": 0.001876,
+      "Pr": 0.002902,
+      "Snu": 0.059322,
+      "Lambda": 0.141576
+    }
+  }
+}
