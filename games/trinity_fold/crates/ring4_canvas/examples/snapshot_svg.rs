@@ -31,7 +31,7 @@ use ring4_canvas::render::{
 use ring4_canvas::state::AppState;
 
 fn main() -> io::Result<()> {
-    let viewport = ViewportSize { width: 1280.0, height: 980.0 };
+    let viewport = ViewportSize { width: 1280.0, height: 1080.0 };
     let state = AppState::new(
         default_catalog(),
         benchmark_holdout_ids().iter().map(|s| s.to_string()).collect(),
