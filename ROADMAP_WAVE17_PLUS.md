@@ -147,7 +147,7 @@ This roadmap reflects the current best assessment of the project. It is subject 
 - A mathematical breakthrough connects H₄ to known string compactifications.
 - Track B produces a positive structural result.
 
-**The guiding principle remains: "Не врать!! Честным будь!"**
+**The guiding principle remains: "Do not lie. Be honest."**
 
 ---
 

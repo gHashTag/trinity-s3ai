@@ -20,8 +20,8 @@
 **Transition:**
 > "Before I show you why it fails, let me explain why anyone thought it might work."
 
-**[RU] alternate opening:**
-> «Добрый день. Сегодня я расскажу о проекте Trinity S³AI — и сразу обозначу финал. Мы спрашивали: можно ли вывести Стандартную модель из геометрии группы Кокстера H₄? Ответ — нет. Но путь к этому «нет» оказался неожиданно плодотворным.»
+**Alternate opening:**
+> "Good afternoon. Today I will present the Trinity S³AI project — and I will state the conclusion upfront. We asked: can the Standard Model be derived from the geometry of the Coxeter group H₄? The answer is no. But the road to that 'no' turned out to be unexpectedly fruitful."
 
 ---
 

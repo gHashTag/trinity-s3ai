@@ -1,143 +1,143 @@
-# Trinity-s3ai — План улучшений (ROADMAP)
+# Trinity-s3ai — Improvement Plan (ROADMAP)
 
-Документ синтезирует результаты Wave 1-3 (выполнено) и литературный обзор (NCG, E8/H4, формулы масс, формализация в Coq/Lean) в дорожную карту на Wave 4-7.
+This document synthesizes the results of Waves 1–3 (completed) and the literature review (NCG, E8/H4, mass formulas, Coq/Lean formalization) into a roadmap for Waves 4–7.
 
 ---
 
-## Где мы сейчас (статус после Wave 1-3, merged в main: [670aa5c](https://github.com/gHashTag/trinity-s3ai/commit/670aa5c))
+## Where we are now (status after Waves 1–3, merged into main: [670aa5c](https://github.com/gHashTag/trinity-s3ai/commit/670aa5c))
 
-| Метрика | Значение |
+| Metric | Value |
 |---|---|
-| Coq файлов | 34 |
-| Qed теорем | 436 (+203 в этом цикле) |
-| Admitted | 25 (5 новых, все с `(* HONEST: ... *)`) |
-| Axiom | 12 (2 новых, явно задекларированы) |
+| Coq files | 34 |
+| Qed theorems | 436 (+203 in this cycle) |
+| Admitted | 25 (5 new, all carrying `(* HONEST: ... *)`) |
+| Axiom | 12 (2 new, explicitly declared) |
 | validate_v4.py | 25/25 = 100% |
-| MD-нарративов | 16 (включая 4 литературных обзора в `derivations/literature/`) |
+| MD narratives | 16 (including 4 literature reviews under `derivations/literature/`) |
 
-**Жёсткая правда из аудита (`derivations/catalog_audit/audit_report.md`):**
-- Из 25 формул каталога: 0 (R) выведены из первых принципов, 8 (S) структурно мотивированы, 17 (NF) — чистая подгонка
-- Coq-теорема `alpha_from_H4_refuted: Qed.` доказывает математическую ложность ключевого claim
-- δ_CP=65.66° vs NuFit 6.0 ~177° — за пределами 3σ, DUNE 2028 фальсифицирует
-- Koide: H4 даёт Q≈0.834, физика 0.6667 — расхождение 25%
+**Hard truths from the audit (`derivations/catalog_audit/audit_report.md`):**
+- Out of the 25 catalog formulas: 0 (R) derived from first principles, 8 (S) structurally motivated, 17 (NF) — pure numerical fits
+- The Coq theorem `alpha_from_H4_refuted: Qed.` formally proves a key claim is mathematically false
+- δ_CP = 65.66° vs NuFit 6.0 ~177° — beyond 3σ; DUNE 2028 will falsify
+- Koide: H4 gives Q ≈ 0.834, physics 0.6667 — 25% discrepancy
 
-**Литература показывает:**
-- H4/600-cell ↔ E8 — математически строгая связь (McKay, икосиане; см. [e8_h4_in_physics.md](derivations/literature/e8_h4_in_physics.md))
-- Trinity-s3ai является **первой** попыткой вывести массы фермионов из H4-структуры (нет prior art)
-- Программа Connes NCG жива, но имеет нерешённые проблемы (Lorentz signature, gravity, neutrino sector); см. [ncg_state_of_art.md](derivations/literature/ncg_state_of_art.md)
-- F-theory Pati-Salam 2025 нашла 2 модели, воспроизводящие массы; модулярные A4/S4 модели предсказывают всю лептонную структуру одним параметром τ; см. [mass_formulas_state_of_art.md](derivations/literature/mass_formulas_state_of_art.md)
-- Уровень формализации NCG в Coq/Lean ~ нулевой — Trinity-s3ai потенциально в авангарде; см. [formalization_state_of_art.md](derivations/literature/formalization_state_of_art.md)
-
----
-
-## Wave 4 — Очистка и переименование (1-2 недели)
-
-**Цель**: устранить ложные claims без потери структурного содержания. Это критическая фаза доверия.
-
-1. **Переименовать NF-формулы в `*_phenomenological_fit`** во всех `.v` файлах. Удалить ★SG=0% маркировку для CMB01-04, INF01-06 в `FORMULAS.md` (они дают ошибку 26-97%, не 0%; см. [cosmology_origins.md](derivations/cosmology/cosmology_origins.md))
-2. **Удалить или переименовать `alpha_from_H4` и `alpha_s_from_H4`** — заменить на `restated_*` теоремы из `RGRunningExtras.v` (Qed). Старые Admitted уже опровергнуты теоремой `alpha_from_H4_refuted`
-3. **Структурировать `Admitted` по таксономии** (урок 1 из formalization обзора):
-   - `[PHYSICAL_AXIOM]` — физическое допущение (RG boundary)
-   - `[NUMERICAL_FIT]` — без вывода
-   - `[MATH_TODO]` — доказуемо но не доказано
-   - `[LIBRARY_GAP]` — ограничение coq-interval
-4. **Создать `admitted_log.md`** — живой реестр всех Admitted с обоснованием
-5. **Использовать `Print Assumptions` после каждой основной теоремы** — публиковать минимальные наборы аксиом
-
-**Acceptance**: 0 ложных claims о точности, каждый Admitted имеет тег и обоснование
+**The literature shows:**
+- H4/600-cell ↔ E8 — a mathematically rigorous connection (McKay, icosians; see [e8_h4_in_physics.md](derivations/literature/e8_h4_in_physics.md))
+- Trinity-s3ai is **the first** attempt to derive fermion masses from H4 structure (no prior art)
+- The Connes NCG program is alive but has unresolved problems (Lorentz signature, gravity, neutrino sector); see [ncg_state_of_art.md](derivations/literature/ncg_state_of_art.md)
+- F-theory Pati-Salam 2025 found two models reproducing masses; modular A4/S4 models predict the whole leptonic structure with a single parameter τ; see [mass_formulas_state_of_art.md](derivations/literature/mass_formulas_state_of_art.md)
+- The level of NCG formalization in Coq/Lean is ~ zero — Trinity-s3ai is potentially at the frontier; see [formalization_state_of_art.md](derivations/literature/formalization_state_of_art.md)
 
 ---
 
-## Wave 5 — Connes-style вывод алгебры A_F из H4 (4-8 недель, исследовательская)
+## Wave 4 — Cleanup and renaming (1–2 weeks)
 
-**Цель**: ответить на ключевой вопрос «почему именно эта алгебра?» способом, который Connes принимает.
+**Goal**: remove false claims without losing structural content. This is a critical trust phase.
 
-Урок 11 из NCG обзора: альтернативные геометрические объяснения A_F = ℂ⊕ℍ⊕M₃(ℂ) уже существуют в литературе (KO-размерность = 6 mod 8, кватернионная линейность). Текущий проект А_F **постулирует**, а не **выводит** из H4.
+1. **Rename NF formulas to `*_phenomenological_fit`** across all `.v` files. Remove the ★SG=0% marking for CMB01–04, INF01–06 in `FORMULAS.md` (real errors are 26–97%, not 0%; see [cosmology_origins.md](derivations/cosmology/cosmology_origins.md)).
+2. **Remove or rename `alpha_from_H4` and `alpha_s_from_H4`** — replace with `restated_*` theorems from `RGRunningExtras.v` (Qed). The old Admitteds are already refuted by `alpha_from_H4_refuted`.
+3. **Structure `Admitted`s by taxonomy** (lesson 1 from the formalization review):
+   - `[PHYSICAL_AXIOM]` — physical assumption (RG boundary)
+   - `[NUMERICAL_FIT]` — no derivation
+   - `[MATH_TODO]` — provable but not yet proved
+   - `[LIBRARY_GAP]` — coq-interval limitation
+4. **Create `admitted_log.md`** — a living registry of all Admitted with justification.
+5. **Use `Print Assumptions` after every major theorem** — publish minimal axiom sets.
 
-Параллельные субагенты:
-
-1. **Агент A**: Вычислить KO-размерность геометрии H4/600-cell. Если ≠ 6 mod 8 — это серьёзная проблема; если = 6 — мост построен
-2. **Агент B**: Проверить кватернионную линейность для 120 вершин 600-cell (они образуют бинарную икосаэдральную группу — кватернионная структура есть!). Это сильный кандидат на rigorous derivation
-3. **Агент C**: Унимодулярность определителя для проекций — формальный Coq-доказательство
-4. **Агент D**: Найти или опровергнуть аналог σ-поля Chamseddine-Connes (которое исправило m_H в 2012)
-
-**Acceptance**: либо новый файл `H4_to_AF_derivation.v` с теоремой `A_F_from_H4_structure: Qed.`, либо честный `NoGo_theorem.v` показывающий несовместимость
-
----
-
-## Wave 6 — Хиральность и фальсификация Lisi-pattern (3-5 недель)
-
-**Цель**: ответить на вопрос «попадает ли Trinity под Distler-Garibaldi?»
-
-Уроки 1, 2, 15 из E8 обзора: H4 не алгебра Ли, поэтому теорема Distler-Garibaldi формально не применяется — но проблема хиральности не закрыта.
-
-1. **Сформулировать гипотезу хиральности явно** в `.v` файле: `Definition chiral_embedding := ...` (что именно вкладывается в H4-структуру)
-2. **Проверить применимость аналога Distler-Garibaldi** для групп Кокстера: если есть аналог теоремы → опровержение проекта; если нет → обоснование альтернативы
-3. **Связать с F-theory подходом** (BHV, Donagi-Wijnholt): если H4 происходит из 6D геометрии (600-cell как сечение CY3 или fibration), хиральность приходит "сверху"
-4. **Сравнить с реализациями E8 в природе**: CoNb2O6 (Coldea 2010), BaCo2V2O8 (2024) — там E8 спектр **измерен** в условиях quantum critical Ising. Если Trinity-s3ai даёт похожие предсказания для других материалов — это сильное независимое подтверждение
-
-**Acceptance**: `chirality_analysis.md` + либо `chirality_theorem.v` (Qed), либо честное опровержение проекта
+**Acceptance**: 0 false accuracy claims; every Admitted carries a tag and justification.
 
 ---
 
-## Wave 7 — Тестируемые предсказания и публикация (продолжающаяся)
+## Wave 5 — Connes-style derivation of the algebra A_F from H4 (4–8 weeks, exploratory)
 
-**Цель**: превратить проект из numerology в фальсифицируемую науку.
+**Goal**: answer the key question "why precisely this algebra?" in a way Connes would accept.
 
-1. **δ_CP при DUNE 2028-2032**: текущее предсказание 65.66° = 3/φ² уже >3σ от NuFit 6.0 (~177°). Регистрировать это **до** результата DUNE на arXiv с timestamp
-2. **f₀ = 12.8 ТГц предсказание** (урок 14 из mass formulas): искать спектроскопическое подтверждение в материалах с икосаэдральной симметрией (квазикристаллы Al-Mn-Pd)
-3. **Cравнение с Koide на 5+ digits** (урок 5 из mass formulas): признать 9.3 ppm точность Koide как benchmark; не пытаться "побить" её на лептонах, использовать как cross-check
-4. **Готовить статью для arXiv hep-ph**: один результат — например, формальный Coq-вывод A_F из H4 (если Wave 5 даёт это). Не публиковать каталог 25 формул как "теорию"
-5. **Lean 4 port** дифференциально-геометрических частей (урок 6 из формализации): mathlib имеет лучшую поддержку Lie groups / manifolds; Coq оставить для arithmetic identities
-6. **AI-ассистент**: подключить Claude+rocq-mcp / Goedel-Prover-V2 (90.4% MiniF2F) для автоматического закрытия Admitted (урок 7 из формализации)
+Lesson 11 from the NCG review: alternative geometric explanations of A_F = ℂ⊕ℍ⊕M₃(ℂ) already exist in the literature (KO-dimension = 6 mod 8, quaternionic linearity). The current project **postulates** A_F rather than **deriving** it from H4.
 
-**Acceptance**: 1 arXiv preprint, 1 falsifiable prediction зарегистрированный, 1 Coq → Lean 4 port раздела
+Parallel subagents:
 
----
+1. **Agent A**: Compute the KO-dimension of the H4/600-cell geometry. If ≠ 6 mod 8 — a serious problem; if = 6 — the bridge is built.
+2. **Agent B**: Check quaternionic linearity for the 120 vertices of the 600-cell (they form the binary icosahedral group — the quaternionic structure is present). A strong candidate for a rigorous derivation.
+3. **Agent C**: Unimodularity of the determinant for projections — a formal Coq proof.
+4. **Agent D**: Find or rule out an analog of the Chamseddine-Connes σ-field (which fixed m_H in 2012).
 
-## Wave 8+ — Долгосрочные исследовательские направления
-
-- **Спектр D_F (480×480)**: формальное Coq-доказательство ключевой аксиомы `H01_spectral_key_identity` (HiggsOrigins.v) через прямое вычисление собственных значений
-- **Космология честно**: либо вывести Λ, H₀, n_s из H4 на правильных масштабах, либо удалить раздел Tier 3 из FORMULAS.md
-- **Связь с интегрируемой Toda-теорией E8**: massы Замолодчикова уже содержат φ — это рецензируемая физика. Может Trinity-s3ai дать предсказания для другой интегрируемой системы H4-типа?
-- **53-цикл** (урок 3 из mass formulas): проект упоминает 53-цикл как ключевой artefact, но это не объяснено — структурное объяснение нужно
-- **Зеркальные фермионы** (урок 13 из mass formulas): преимущество H4 в том, что он реальный (зеркальных фермионов нет); это можно проверить
+**Acceptance**: either a new file `H4_to_AF_derivation.v` with theorem `A_F_from_H4_structure: Qed.`, or an honest `NoGo_theorem.v` proving incompatibility.
 
 ---
 
-## Принципы (общие для всех волн)
+## Wave 6 — Chirality and falsification of the Lisi pattern (3–5 weeks)
 
-1. **Честность важнее красоты**: лучше `Admitted` с `(* HONEST: ... *)` чем `Qed` с натяжкой
-2. **Falsifiability**: каждая физическая претензия должна иметь экспериментальную проверку
-3. **Соразмерность**: численная подгонка φ^a·π^b·e^c → не "вывод", а "корреляция"
-4. **Cross-check с established**: Koide (9.3 ppm), Connes (m_H в 2018 предсказание), F-theory Pati-Salam — известные эталоны
-5. **Coq как контроль качества, не как маркетинг**: 436 Qed ничего не значат, если они доказывают тривиальности
+**Goal**: answer the question "does Trinity fall under Distler-Garibaldi?"
+
+Lessons 1, 2, 15 from the E8 review: H4 is not a Lie algebra, so the Distler-Garibaldi theorem does not formally apply — but the chirality problem is not closed.
+
+1. **Formalize the chirality hypothesis explicitly** in a `.v` file: `Definition chiral_embedding := ...` (what exactly is embedded into the H4 structure).
+2. **Check the applicability of a Distler-Garibaldi analog** for Coxeter groups: if such a theorem exists → refutation of the project; if not → justification of the alternative.
+3. **Connect to the F-theory approach** (BHV, Donagi-Wijnholt): if H4 comes from 6D geometry (600-cell as a CY3 section or fibration), chirality comes "from above".
+4. **Compare with E8 realizations in nature**: CoNb2O6 (Coldea 2010), BaCo2V2O8 (2024) — the E8 spectrum is **measured** there under quantum-critical Ising conditions. If Trinity-s3ai gives similar predictions for other materials — that is strong independent support.
+
+**Acceptance**: `chirality_analysis.md` + either `chirality_theorem.v` (Qed) or an honest refutation of the project.
 
 ---
 
-## Метрика успеха
+## Wave 7 — Testable predictions and publication (ongoing)
 
-| Wave | Критерий успеха |
+**Goal**: turn the project from numerology into falsifiable science.
+
+1. **δ_CP at DUNE 2028–2032**: the current prediction 65.66° = 3/φ² is already >3σ from NuFit 6.0 (~177°). Register this **before** the DUNE result on arXiv with a timestamp.
+2. **f₀ = 12.8 THz prediction** (lesson 14 from mass formulas): seek spectroscopic confirmation in materials with icosahedral symmetry (Al-Mn-Pd quasicrystals).
+3. **Compare with Koide at 5+ digits** (lesson 5 from mass formulas): recognize Koide's 9.3 ppm precision as a benchmark; do not try to "beat" it on leptons, use it as a cross-check.
+4. **Prepare an arXiv hep-ph paper**: a single result — for example, a formal Coq derivation of A_F from H4 (if Wave 5 delivers it). Do not publish the 25-formula catalog as "a theory".
+5. **Lean 4 port** of the differential-geometric parts (lesson 6 from formalization): mathlib has better support for Lie groups / manifolds; leave Coq for arithmetic identities.
+6. **AI assistant**: hook up Claude+rocq-mcp / Goedel-Prover-V2 (90.4% MiniF2F) for automatic closing of Admitteds (lesson 7 from formalization).
+
+**Acceptance**: 1 arXiv preprint, 1 falsifiable prediction registered, 1 Coq → Lean 4 port of a section.
+
+---
+
+## Wave 8+ — Long-term research directions
+
+- **D_F spectrum (480×480)**: a formal Coq proof of the key axiom `H01_spectral_key_identity` (HiggsOrigins.v) via direct eigenvalue computation.
+- **Honest cosmology**: either derive Λ, H₀, n_s from H4 at the right scales, or remove the Tier 3 section from FORMULAS.md.
+- **Connection to integrable Toda theory at E8**: Zamolodchikov masses already contain φ — that is peer-reviewed physics. Can Trinity-s3ai give predictions for another integrable H4-type system?
+- **53-cycle** (lesson 3 from mass formulas): the project mentions the 53-cycle as a key artefact, but it is not explained — a structural explanation is needed.
+- **Mirror fermions** (lesson 13 from mass formulas): an advantage of H4 is that it is real (no mirror fermions); this can be checked.
+
+---
+
+## Principles (common to all waves)
+
+1. **Honesty over elegance**: better `Admitted` with `(* HONEST: ... *)` than a forced `Qed`.
+2. **Falsifiability**: every physical claim must have an experimental test.
+3. **Proportionality**: a numerical fit φ^a·π^b·e^c is a "correlation", not a "derivation".
+4. **Cross-check against established work**: Koide (9.3 ppm), Connes (m_H predicted in 2018), F-theory Pati-Salam — known benchmarks.
+5. **Coq as a quality control, not as marketing**: 436 Qeds mean nothing if they prove trivialities.
+
+---
+
+## Success metrics
+
+| Wave | Success criterion |
 |---|---|
-| 4 | 0 ложных claims; admitted_log.md полный |
-| 5 | Либо derivation A_F из H4, либо честное no-go |
-| 6 | Анализ хиральности завершён; pattern Distler-Garibaldi разрешён |
-| 7 | 1 arXiv preprint, 1 falsifiable prediction, Lean 4 port одного раздела |
+| 4 | 0 false claims; admitted_log.md complete |
+| 5 | Either A_F derivation from H4, or an honest no-go |
+| 6 | Chirality analysis complete; Distler-Garibaldi pattern resolved |
+| 7 | 1 arXiv preprint, 1 falsifiable prediction, Lean 4 port of one section |
 
 ---
 
-## Источники
+## Sources
 
-- [e8_h4_in_physics.md](derivations/literature/e8_h4_in_physics.md) — 15 уроков, 28 КБ
-- [ncg_state_of_art.md](derivations/literature/ncg_state_of_art.md) — 18 уроков, 35 КБ
-- [mass_formulas_state_of_art.md](derivations/literature/mass_formulas_state_of_art.md) — 15 уроков, 37 arXiv-ссылок
-- [formalization_state_of_art.md](derivations/literature/formalization_state_of_art.md) — 15 уроков, 30 КБ
+- [e8_h4_in_physics.md](derivations/literature/e8_h4_in_physics.md) — 15 lessons, 28 KB
+- [ncg_state_of_art.md](derivations/literature/ncg_state_of_art.md) — 18 lessons, 35 KB
+- [mass_formulas_state_of_art.md](derivations/literature/mass_formulas_state_of_art.md) — 15 lessons, 37 arXiv references
+- [formalization_state_of_art.md](derivations/literature/formalization_state_of_art.md) — 15 lessons, 30 KB
 
-Ключевые arXiv:
-- [arXiv:0905.2658](https://arxiv.org/abs/0905.2658) — Distler-Garibaldi, no-go для E8
+Key arXiv references:
+- [arXiv:0905.2658](https://arxiv.org/abs/0905.2658) — Distler-Garibaldi, no-go for E8
 - [arXiv:1208.1030](https://arxiv.org/abs/1208.1030) — Chamseddine-Connes "Resilience"
 - [arXiv:0711.0770](https://arxiv.org/abs/0711.0770) — Lisi E8 ToE
-- [arXiv:1103.3694](https://arxiv.org/abs/1103.3694) — Coldea E8 в CoNb2O6
+- [arXiv:1103.3694](https://arxiv.org/abs/1103.3694) — Coldea E8 in CoNb2O6
 - [arXiv:0806.0102](https://arxiv.org/abs/0806.0102) — BHV F-theory GUTs
 
 ---
