@@ -552,3 +552,31 @@ S_eff = Tr(f(D²/Λ²))
 *REWRITE.md создан в рамках Wave 8.5 — Honest Cosmology (2026-05-23).*  
 *Все числовые значения погрешностей верифицированы против первичных источников.*  
 *Источники: Planck 2018 DOI 10.1051/0004-6361/201833910; DESI 2024 arXiv:2404.03002; BICEP/Keck arXiv:2110.00483.*
+
+---
+
+## Wave 7 W7.4 — Перекрёстная ссылка: честное разделение предсказаний
+
+Добавлено в рамках Wave 7 (W7.4, 2026-05-23).
+
+Секция "Honest split: pre-data vs post-data predictions" добавлена в:
+`derivations/falsifiability/registered_predictions.md`
+
+Ключевые выводы, релевантные для REWRITE.md:
+
+1. Все формулы COS01-COS04 являются post-data: они зарегистрированы после DESI 2024 (arXiv:2404.03002, 2024-04-03). Репозиторий trinity-s3ai создан 2026-05-20. Никаких pre-data предсказаний по тёмной энергии нет.
+
+2. COS04 (w = -0.999) зафиксирован как FALSIFIED (~2.7 sigma от w0 = -0.827 +/- 0.063). DESI DR2 (arXiv:2503.14738, 2025-03-18) усилил отклонение до 4.2 sigma. Подробности: derivations/honest_cosmology/cosmology_falsified_log.md
+
+3. Честное разделение (из registered_predictions.md, секция W7.4):
+   - Pre-data по DESI/тёмной энергии: NONE (COS01-COS04 зарегистрированы постфактически)
+   - Post-data: COS01-COS04, m_H, sin2_theta_W, массы лептонов (Koide), три поколения
+   - Falsified: COS04 w, m_nu1, Lambda, delta_CP (BORDERLINE)
+   - Forward pre-data (данных нет): аксион theta-bar, LISA, M_PS, delta_CP при IO
+
+Источники:
+- DESI 2024 BAO: https://arxiv.org/abs/2404.03002
+- DESI DR2: https://arxiv.org/abs/2503.14738
+- DESI DR2 пресс-релиз: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
+
+*Обновление: Wave 7 W7.4, 2026-05-23.*

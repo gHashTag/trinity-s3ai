@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: snub24_z3.aux
+The style file: amsplain.bst
+Database file #1: snub24_z3.bib
+Warning--missing pages in Chamseddine2025
+Warning--missing pages in Dechant2021
+Warning--missing pages in FureyHughes2024
+Warning--missing pages in Koca2011
+Warning--missing pages in PetcovTitov2025
+Warning--missing pages in Wilson2021
+Warning--missing pages in Wilson2024
+You've used 20 entries,
+            2213 wiz_defined-function locations,
+            633 strings with 6749 characters,
+and the built_in function-call counts, 5262 in all, are:
+= -- 444
+> -- 217
+< -- 3
++ -- 90
+- -- 67
+* -- 433
+:= -- 870
+add.period$ -- 20
+call.type$ -- 20
+change.case$ -- 95
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 229
+empty$ -- 481
+format.name$ -- 67
+if$ -- 1073
+int.to.chr$ -- 0
+int.to.str$ -- 20
+missing$ -- 45
+newline$ -- 70
+num.names$ -- 39
+pop$ -- 131
+preamble$ -- 1
+purify$ -- 74
+quote$ -- 0
+skip$ -- 120
+stack$ -- 0
+substring$ -- 265
+swap$ -- 33
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 68
+warning$ -- 7
+while$ -- 51
+width$ -- 22
+write$ -- 177
+(There were 7 warnings)

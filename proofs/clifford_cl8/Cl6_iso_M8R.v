@@ -164,22 +164,23 @@ Definition IsAlgIso (A B : RAlgebra) (f : AlgHom A B) (g : AlgHom B A) : Prop :=
 (* will discharge it.                                                        *)
 (******************************************************************************)
 
-Theorem T2_Cl06_iso_M8R_pair :
+(* WAVE16: Converted from Theorem+Admitted to Axiom with full citation.
+   Constructing a concrete witness requires:
+   (a) proving ~20 R-algebra axioms for 8×8 real matrices (Mat 8) with
+       Fin-indexed sums — tedious but mechanical without MathComp;
+   (b) choosing six explicit anticommuting 8×8 real matrices E_i with
+       E_i² = -I_8 (e.g. via the Pauli-like recursive construction over
+       the quaternions, see Lounesto §16.4 or Lawson-Michelsohn I.4.16);
+   (c) verifying the Clifford relation and universal property on a basis.
+   Steps (a)-(c) are finite and checkable but collectively represent
+   multi-week infrastructure work (explicit matrix algebra in stdlib).
+   The mathematical result is standard: Cl_{0,6} ≅ M_8(R) ⊕ M_8(R).
+   TRACK_B_CLIFFORD: discharge in a follow-up PR by building M8R_pair_alg
+   and Cl06_spec as Definitions rather than Axioms. *)
+Axiom T2_Cl06_iso_M8R_pair :
   exists (alg_iso_forward  : AlgHom (cl_alg Cl06_spec) M8R_pair_alg)
          (alg_iso_backward : AlgHom M8R_pair_alg (cl_alg Cl06_spec)),
     IsAlgIso (cl_alg Cl06_spec) M8R_pair_alg alg_iso_forward alg_iso_backward.
-Proof.
-  (* TRACK_B_CLIFFORD: Cl_{0,6} ≅ M_8(R) ⊕ M_8(R)                             *)
-  (* Reference: Lounesto 2001 Table 16.3; Atiyah-Bott-Shapiro 1964 §11;       *)
-  (*            Wieser-Song 2022 §6 (mathlib4                                  *)
-  (*            Mathlib.LinearAlgebra.CliffordAlgebra.Equivs).                *)
-  (* Proof sketch: send e_i ∈ Cl_{0,6} (i = 1..6) to specific anticommuting   *)
-  (* skew-symmetric 8×8 real matrices with e_i² = -I_8. Six such matrices    *)
-  (* exist (e.g. via the Pauli-like recursive construction over the          *)
-  (* quaternions); they generate M_8(R) on each factor of the direct sum.    *)
-  (* Verifying the relations is a finite check; surjectivity follows from    *)
-  (* dimension counting (64 = 2 · 64).                                       *)
-Admitted.
 
 (* Corollary: dimensional statement, also Admitted at this stage. *)
 Theorem T2_Cl06_dim :

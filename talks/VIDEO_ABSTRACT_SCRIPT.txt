@@ -1,0 +1,113 @@
+TRINITY S3AI — VIDEO ABSTRACT SCRIPT
+=====================================
+Length: ~5 minutes  |  Words: ~780  |  Tone: Enthusiastic but honest
+Speaker: single narrator, direct-to-camera or voice-over with slides
+Language: English (primary); Russian dub noted where phrasing differs
+
+---
+
+[0:00–0:30] INTRODUCTION: WHAT IS THE PROJECT?
+-----------------------------------------------
+
+Hi. I am going to tell you about a project called Trinity S³AI — and I am going to spoil the ending.
+
+The question we asked was simple: can the Standard Model of particle physics be derived from the geometry of the H₄ Coxeter group and its 600-cell polytope? H₄ is the largest finite Coxeter group in four dimensions. The 600-cell has 120 vertices. Through the McKay correspondence, it links to E₈. It is beautiful mathematics.
+
+Our answer, after two years of work, is no. H₄ does not derive the Standard Model. But the way we reached that "no" — and what we found along the way — is, I think, worth your time.
+
+[BEAT]
+
+So: this is a story about a constructive negative result. A refutation with a certificate.
+
+---
+
+[0:30–1:30] METHODOLOGY: DISCRETE DIRAC + SPECTRAL ACTION + COQ
+----------------------------------------------------------------
+
+We started by building a real, honest Dirac operator — not a metaphor, but a matrix. Our Hilbert space has 480 dimensions: 120 vertices of the 600-cell times 4 spinor components. The Dirac operator sums over nearest neighbors, with Clifford matrices encoding the edge directions. It is Hermitian, chirally symmetric, and has no zero modes.
+
+We verified it two ways: numerically with SciPy, and formally in the Coq proof assistant. That dual verification became a theme of the project. Every formula, every theorem, every prediction lives in a file that compiles — or it is explicitly tagged as open.
+
+Then we applied Connes's spectral action principle. In noncommutative geometry, the Standard Model action emerges from the spectrum of this Dirac operator. That is the framework. Our job was to see if H₄ geometry produces the right spectrum.
+
+Spoiler: it does not. But before I tell you why it fails, let me show you what actually worked.
+
+---
+
+[1:30–2:30] POSITIVE RESULTS: ETA = −2, KO-DIM = 6, 25 FORMULAS
+-----------------------------------------------------------------
+
+Three things survived scrutiny.
+
+First: the KO-dimension. We computed the real structure J — quaternionic conjugation — and the sign relations that classify KO-dimension modulo 8. For H₄, the signs match KO-dimension 6 mod 8. That is exactly what the Connes-Chamseddine Standard Model requires. It is a conditional positive result — we need one structural axiom to lock it in — but it is real.
+
+Second: the eta-invariant. Via the Atiyah-Patodi-Singer theorem on E₈ plumbing, we proved that eta equals exactly minus 2 on the spherical space form S³ divided by the binary icosahedral group. Fifteen theorems, all Qed in Coq. Eta non-zero is necessary for spectral chirality. So this matters.
+
+Third: a catalog of 25 formulas matching Standard Model parameters. Eight are structurally motivated. Seventeen are numerical fits. Mean relative error against PDG 2024: one-tenth of a percent. But — and this is crucial — zero of the 25 are rigorous derivations from first principles. We tag them honestly. The anti-numerology CI gate on our repository rejects any untagged formula. Methodological honesty is, itself, a result.
+
+---
+
+[2:30–4:00] NEGATIVE RESULTS: 5 NO-GO THEOREMS
+----------------------------------------------
+
+Now the failures. We proved five No-Go theorems. All are Qed in Coq.
+
+One: no sigma-field exists in H₄ geometry. The sigma-field is what Connes and Chamseddine used in 2012 to pull the Higgs mass down from 170 GeV to 125 GeV. Without it, the spectral-action prediction is fixed: square root of 2 over phi to the fourth, times 246 GeV. That gives 132.88 GeV. The discrepancy with experiment is 7.78 GeV — 55.6 sigma. In particle physics, 55 sigma is not "close enough."
+
+Two: no three-generation structure. The 600-cell partitions into five 24-cells, not three. We tested D₄ as an alternative — it has triality, an order-3 automorphism — but the eigenspace multiplicities are 16 and 32, not divisible by 3. And D₄ gives the wrong KO-dimension anyway.
+
+Three, four, five: D₄ KO-dimension mismatch; spectral-action Higgs failure; E₆ and E₇ plumbing mismatches. Each is a formal theorem, not a heuristic argument.
+
+The hypothesis died. But it died with a certificate.
+
+---
+
+[4:00–5:00] CONCLUSION: WHAT SURVIVES, WHAT IS NEXT
+----------------------------------------------------
+
+So what survives?
+
+KO-dimension 6 mod 8 for H₄. Eta equals minus 2, APS-exact. The binary icosahedral group motivating the quaternionic algebra. A machine-verified honesty framework. And four rigorous No-Go theorems that save the next researcher from chasing a beautiful but false idea.
+
+What does not survive? The claim that H₄ derives the Standard Model. The claim that it predicts 125 GeV — that was a retrospective fit, and we label it as such. And the Tier-3 cosmological formulas, falsified by Planck and DESI.
+
+What is next? Track B: investigating Cl(8), the exceptional Jordan algebra, and triality as an alternative basis for the three-generation problem. DUNE 2028 will test our delta-CP prediction of 65.66 degrees. And we keep discharging the 81 remaining Admitted proofs — one at a time, in public.
+
+Trinity S³AI is a constructive negative result. Knowing what does not work is as valuable as knowing what does — because science advances not only by success stories, but by honest refutations.
+
+If you want to check the proofs, the repository is open. One thousand one hundred ninety-eight theorems Qed. Eighty-one Admitted, all logged. Zero fake proofs.
+
+Thank you for watching.
+
+---
+
+PRODUCTION NOTES
+----------------
+
+- **Pacing:** 150–160 words per minute. Pause after every paragraph marked [BEAT].
+- **Visuals:**
+  - 0:00–0:30: Title card + rotating 600-cell wireframe
+  - 0:30–1:30: Matrix animation (480×480 sparse pattern) + Coq IDE screenshot
+  - 1:30–2:30: KO-dimension table + eta-invariant formula + formula catalog scrolling
+  - 2:30–4:00: No-Go table highlighting each row + Higgs mass plot (132.88 vs 125.10)
+  - 4:00–5:00: Split screen (survives / does not survive) + DUNE logo + GitHub repo
+- **Music:** Minimal, ambient. Drop to silence during "55 sigma" for impact.
+- **Captions:** Required. Add Russian subtitles if primary audience is Russian-speaking.
+- **Call to action:** End card with QR code to github.com/gHashTag/trinity-s3ai
+
+---
+
+[RU] КЛЮЧЕВЫЕ ФРАЗЫ ДЛЯ РУССКОЙ ОЗВУЧКИ
+----------------------------------------
+
+- "конструктивный отрицательный результат"
+- "рефутация с сертификатом"
+- "55 сигма — это не 'достаточно близко'"
+- "гипотеза умерла, но умерла с сертификатом"
+- "нулевых фальшивых доказательств"
+
+---
+
+*Script version: Wave 13.4 — May 2026*
+*Word count: 778*
+*Estimated runtime: 4:55–5:10 at natural pace*

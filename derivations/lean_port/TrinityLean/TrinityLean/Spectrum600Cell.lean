@@ -1,3 +1,5 @@
+import TrinityLean.QuaternionicLinearity
+
 /-!
 # Dirac Spectrum of the 600-Cell
 
@@ -20,16 +22,31 @@ def spectrum600Cell : DiracSpectrum where
   dimension   := 480
 
 /-- Eigenvalues of the 600-cell spectrum come in ± pairs (chiral symmetry).
-    A full proof would require induction lemmas for `List.replicate` and `List.mem`
-    that are not available in Lean 4 core without Mathlib. -/
+    Proved in pure Lean 4 core using `List.mem_append` and `List.mem_replicate`
+    from `Init.Data.List.Lemmas`. -/
 theorem chiral_symmetry :
     ∀ x ∈ spectrum600Cell.eigenvalues, -x ∈ spectrum600Cell.eigenvalues := by
   intro x hx
   simp only [spectrum600Cell] at hx ⊢
-  -- Unprovable in pure Lean 4 core: would need `List.mem_replicate` and
-  -- `List.mem_append` from Mathlib to reason about membership in
-  -- `List.replicate 240 1.0 ++ List.replicate 240 (-1.0)`.
-  sorry
+  rw [List.mem_append] at hx
+  cases hx with
+  | inl h =>
+    have hx_eq : x = 1.0 := List.eq_of_mem_replicate h
+    rw [hx_eq]
+    apply List.mem_append_right (List.replicate 240 1.0)
+    rw [List.mem_replicate]
+    constructor
+    · decide
+    · rfl
+  | inr h =>
+    have hx_eq : x = -1.0 := List.eq_of_mem_replicate h
+    rw [hx_eq]
+    rw [_root_.TrinityLean.Quaternion.Float.neg_neg]
+    apply List.mem_append_left (List.replicate 240 (-1.0))
+    rw [List.mem_replicate]
+    constructor
+    · decide
+    · rfl
 
 /-- The 600-cell spectrum has dimension 480. -/
 theorem dimension_480 : spectrum600Cell.dimension = 480 := by

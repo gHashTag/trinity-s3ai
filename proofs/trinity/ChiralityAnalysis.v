@@ -30,6 +30,7 @@ Require Import Lra.
 Require Import List.
 Require Import Interval.Tactic.
 From Trinity Require Import CorePhi.
+From Trinity Require Import E6vsH4.
 
 Open Scope R_scope.
 Import ListNotations.
@@ -63,11 +64,8 @@ Qed.
 (* the minimal polynomial 4x^2 - 2x - 1 = 0.                                  *)
 Lemma phi_eq_2cos_pi5 : phi = 2 * cos (PI / 5).
 Proof.
-  (* [ADMITTED: algebraic trig identity]                                       *)
-  (* Verified numerically to 1e-6 precision by phi_2cos_pi5_approx.            *)
-  (* Exact proof: phi/2 and cos(pi/5) are both positive roots of 4x^2-2x-1=0. *)
-  admit.
-Admitted.
+  exact phi_as_2_cos_pi_5.
+Qed.
 
 (******************************************************************************)
 (* Section 1: 600-Cell Combinatorial Data                                     *)
