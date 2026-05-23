@@ -2,7 +2,7 @@
 ## "What to Improve Next: Highest Impact Actions"
 
 **Date:** 2026-05-20
-**Status:** 130 formulas (61 SG-class), 19/19 Coq compile (100%), 12/13 Lagrangian proven (92.3%)
+**Status:** 130 formulas (61 SG-class), 19/19 Coq compile (100%), 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ); 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md)
 **Critical Issue:** delta_CP = 65.66° in 5.6sigma tension with NuFit 6.0; 0 peer-reviewed publications
 
 ---
@@ -203,7 +203,7 @@ These 5 actions transform the project from "interesting idea" to "serious conten
 ---
 
 ### MT2: Complete Lagrangian Sector #13 (1-2 weeks) — IMPACT: 8/10
-**Current state:** 12/13 proven (92.3%). One sector remains.
+**Current state:** 3/13 sectors formally proven (m_H, gauge couplings, λ); 9 phenomenological fits; 1 open (RG running). See [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md). The earlier "12/13 proven (92.3%)" framing is withdrawn.
 
 **What sector #13 likely is:** Based on the FINAL_STATUS_v44.md, the 13 sectors are:
 1. Gauge kinetic, 2. Higgs lambda, 3. Higgs m_H, 4. Higgs potential, 5. Lepton/quark masses,
@@ -496,7 +496,7 @@ to resolve this discrepancy."
 
 **What to prepare NOW:**
 1. Document which predictions are INDEPENDENT of delta_CP
-2. Show that the Lagrangian derivation (92.3%) does not depend on the PMNS phase
+2. Show that the Lagrangian derivation (the 3 formally proven sectors per [`LAGRANGIAN_HONEST_STATUS.md`](./LAGRANGIAN_HONEST_STATUS.md)) does not depend on the PMNS phase
 3. Prepare the narrative: "PMNS sector needs revision; rest of framework stands"
 
 ---
