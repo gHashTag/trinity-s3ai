@@ -318,9 +318,12 @@ Qed.
    Refutation left Admitted due to computational limitation. *)
 Theorem phi_squared_nat_refuted : ~(1618 * 1618 = 2618724).
 Proof.
-  (* 1618 * 1618 = 2617924 <> 2618724, verified by external calculation.
-     Rocq 9.1.1's Nat.of_num_uint representation prevents closing this. *)
-Admitted.
+  intro H.
+  assert (Hmod: (1618 * 1618) mod 9 = 2618724 mod 9).
+  { rewrite H. reflexivity. }
+  vm_compute in Hmod.
+  discriminate Hmod.
+Qed.
 
 (* Structural Theorem 5: The golden ratio is the unique irrational number    *)
 (* systematically appearing across all Trinity formulas because it is the     *)
@@ -414,7 +417,9 @@ Qed.
 (******************************************************************************)
 (* Section 11: Proof Statistics                                               *)
 (*                                                                            *)
-(* - 0 Admitted                                                               *)
+(* - 1 Admitted (Section 7, line 323: refutation left Admitted due to        *)
+(*   computational limitation — see COQ_HONEST_STATUS.md for full corpus     *)
+(*   metrics across all 79 .v files)                                          *)
 (* - 0 Axioms                                                                 *)
 (* - All proofs: vm_compute + reflexivity (purely computational)              *)
 (* - Cross-references: UniquenessTheorem.v, CorePhi.v                         *)

@@ -178,16 +178,11 @@ Qed.
 Lemma Koide_correct_forms_equal :
   Koide_formula_correct = Koide_formula_correct_inv.
 Proof.
-  (* [LIBRARY_GAP] field/ring tactics fail on sqrt expressions with concrete
-     denominators in Rocq 9.1.1. The equality is algebraically trivial
-     (both sides are the same expression rearranged) but automation cannot
-     handle division by sqrt-containing denominators. *)
   unfold Koide_formula_correct, Koide_formula_correct_inv, R1_H4, R2_H4.
-(* WAVE11 OBSTRUCTION: File imports Interval.Tactic. Inconsistent coq-interval
-   installation prevents compilation. An algebraic proof was verified in isolation
-   (sqrt_one_div + unfold Rdiv + rewrite Rmult_1_l + reflexivity) but cannot
-   be injected here without breaking compilation. *)
-Admitted.
+  repeat rewrite Rdiv_1_l.
+  repeat rewrite sqrt_inv.
+  reflexivity.
+Qed.
 
 (* Correct formula relative error: ~25% *)
 Lemma Koide_correct_error_bounds :

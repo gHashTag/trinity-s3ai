@@ -225,7 +225,13 @@ Record SpectralTriple : Type := mkSpectralTriple {
 
   (* Axiom 5: First order — [[D,a], JbJ^{-1}] = 0 for a,b ∈ A *)
   (* MATH_TODO: Not yet proved for the 600-cell D. Key NCG obstruction. *)
+  (* ALTERNATIVE PATH: See TwistedSpectralTriple.v for twisted FOC via σ. *)
   axiom_first_order_field : True;  (* placeholder — see Axiom below *)
+
+  (* Axiom 5b (alternative): Twisted first-order condition via automorphism σ *)
+  (* Research direction per Martinetti-Nieuviarts-Zeitoun arXiv:2401.07848      *)
+  (* This does NOT replace Axiom 5; it is a speculative parallel path.          *)
+  axiom_twisted_first_order_field : True;
 
   (* Axiom 6: Orientation — γ realized as Hochschild n-cycle *)
   (* MATH_TODO: Hochschild cycle realization requires explicit D (Wave 8.1) *)
@@ -465,6 +471,13 @@ Axiom axiom_first_order_MATH_TODO :
   (* Status: requires explicit D from Wave 8.1 (parallel construction).       *)
   (* Difficulty: HIGH — this is a non-trivial matrix condition.               *)
   (* Physical consequence: without this, we cannot claim NCG in Connes sense. *)
+  (*                                                                             *)
+  (* ALTERNATIVE RESEARCH DIRECTION:                                           *)
+  (*   Twisted spectral triples (TwistedSpectralTriple.v) offer a modified    *)
+  (*   first-order condition: [[D,a], J σ(b) J^{-1}] = 0 with σ an algebra    *)
+  (*   automorphism of ℂ[2I].  See Martinetti-Nieuviarts-Zeitoun 2024,        *)
+  (*   arXiv:2401.07848, and Nieuviarts 2025, arXiv:2502.18105.                *)
+  (*   This is the active research path but does NOT yet close this TODO.      *)
   (* Tag: MATH_TODO                                                            *)
   True.
 
@@ -620,6 +633,9 @@ Definition cell600_spectral_triple : SpectralTriple :=
     (* Axiom 5 field: First order — MATH_TODO (axiom_first_order_MATH_TODO) *)
     axiom_first_order_MATH_TODO
 
+    (* Axiom 5b field: Twisted FOC — alternative research direction *)
+    axiom_first_order_MATH_TODO
+
     (* Axiom 6 field: Orientation — MATH_TODO (Hochschild cycle) *)
     axiom_orientation_hochschild
 
@@ -712,6 +728,7 @@ Qed.
    - axiom_first_order             [MATH_TODO — MAIN OPEN PROBLEM]
    - axiom_orientation_hochschild  [MATH_TODO — Hochschild cycle]
    - axiom_poincare_nondegeneracy  [MATH_TODO — K-theory pairing]
+   - axiom_twisted_first_order     [SPECULATIVE — TwistedSpectralTriple.v]
 *)
 
 End AxiomSummary.

@@ -1,0 +1,19 @@
+[package]
+name = "trinity_fold_app"
+description = "Trinity Fold orchestration ring — CLI binary that composes ring0..ring3."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "trinity-fold"
+path = "src/main.rs"
+
+[dependencies]
+ring0_core = { workspace = true }
+ring1_constraints = { workspace = true }
+ring2_search = { workspace = true }
+ring3_adapters = { workspace = true }

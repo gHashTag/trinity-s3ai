@@ -1,0 +1,13 @@
+[package]
+name = "ring2_search"
+description = "Trinity Fold ring 2 — deterministic search (hill-climb, seed-stable annealing). Depends on ring0 + ring1."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+ring0_core = { workspace = true }
+ring1_constraints = { workspace = true }
