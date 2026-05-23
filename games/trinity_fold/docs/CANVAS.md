@@ -36,9 +36,11 @@ moves, and benchmark logic are the *same* code paths exercised by `cargo run`.
 
 | File | Purpose |
 |---|---|
-| `src/state.rs`   | `AppState` — owns `Board`, `Catalog`, latest `ScoreBreakdown`, view options. The only mutator is `AppState::apply(UiEvent)`. |
+| `src/state.rs`   | `AppState` — owns `Board`, `Catalog`, latest `ScoreBreakdown`, view options, recipes, and the GOLDEN BRIDGE view. The only mutator is `AppState::apply(UiEvent)`. |
 | `src/input.rs`   | `UiEvent`, `InputAction`, `KeyCode`. `resolve(model, action) -> Option<UiEvent>` does pure hit-testing against the latest render model. |
-| `src/render.rs`  | `layout(state, viewport, theme) -> RenderModel`. Emits `RenderPrimitive`s (rect, line, circle, text) and `HitBox`es — no DOM types. |
+| `src/render.rs`  | `layout(state, viewport, theme) -> RenderModel`. Emits `RenderPrimitive`s (rect, line, circle, text) and `HitBox`es — no DOM types. Renders the GOLDEN BRIDGE deck (piers + span line + space-fold motif + integrity banner + recipe rail) above the two towers. |
+| `src/bridge.rs`  | `BridgeView` — view projection over `Board` + `Catalog` + `ScoreBreakdown`. Computes pier counts, span nodes with `SpanStatus`, `BridgeIntegrity` (Empty/Sound/Provisional/Collapsed), and a `compression` ratio. Introduces no new scoring. |
+| `src/recipes.rs` | Built-in `Recipe` list (named tile sets with rationale). Clicking a recipe chip emits `UiEvent::LoadRecipe(id)`. |
 | `src/wasm.rs`    | Browser shell, compiled only for `target_arch = "wasm32"` and feature `wasm`. Wires DOM events to `input::resolve` and paints `RenderModel` onto a `CanvasRenderingContext2d`. |
 
 The Rust pipeline runs:
@@ -135,13 +137,23 @@ holds no game data at all.
 
 ## Testing surface
 
-Ring 4 ships 19 unit tests, all native (no browser):
+Ring 4 ships 38 unit tests, all native (no browser):
 
-- `state::tests` — apply/toggle/clear/benchmark/hill-climb/anneal determinism
-  and unknown-id handling.
+- `state::tests` — apply/toggle/clear/benchmark/hill-climb/anneal determinism,
+  unknown-id handling, GOLDEN BRIDGE view tracking, recipe loading.
 - `render::tests` — hit-region coverage of the catalog, toolbar buttons,
-  worst-claim text, colour CSS formatting, truncation.
-- `input::tests` — pure hit-testing, including topmost-wins overlap.
+  worst-claim text, GOLDEN BRIDGE branding, integrity label, collapse
+  warning, recipe-chip hits, colour CSS formatting, truncation.
+- `input::tests` — pure hit-testing, including topmost-wins overlap and
+  recipe-chip → `LoadRecipe` resolution.
+- `bridge::tests` — pier partitioning, falsified-tile collapse,
+  provisional-vs-sound integrity, compression bounds, tower ordering.
+- `recipes::tests` — built-in recipes are non-empty and rebind cleanly
+  against the default catalog.
+
+The GOLDEN BRIDGE concept (piers, span, honesty floor, recipes, space-fold
+motif) is documented separately in
+[`GOLDEN_BRIDGE.md`](GOLDEN_BRIDGE.md).
 
 The boundary test
 [`ring_boundaries::no_inner_ring_imports_ring4`](../crates/app/tests/ring_boundaries.rs)

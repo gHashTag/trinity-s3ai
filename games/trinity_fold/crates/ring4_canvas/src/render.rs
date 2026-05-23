@@ -13,6 +13,7 @@
 
 use ring0_core::{ClaimStatus, NodeKind, Tower};
 
+use crate::bridge::{BridgeIntegrity, BridgeView, SpanStatus};
 use crate::state::AppState;
 
 #[derive(Clone, Copy, Debug, Default)]
@@ -51,6 +52,14 @@ pub struct Theme {
     pub triangle: Color,
     pub button: Color,
     pub button_active: Color,
+    /// GOLDEN BRIDGE deck colours.
+    pub bridge_deck: Color,
+    pub bridge_collapsed: Color,
+    pub bridge_sound: Color,
+    pub bridge_provisional: Color,
+    pub recipe_chip: Color,
+    /// Space-fold motif (concentric rings under the span).
+    pub fold_ring: Color,
 }
 
 impl Default for Theme {
@@ -75,6 +84,12 @@ impl Default for Theme {
             triangle: Color(220, 200, 80, 200),
             button: Color(60, 80, 110, 255),
             button_active: Color(90, 150, 200, 255),
+            bridge_deck: Color(212, 175, 55, 220),       // gold deck
+            bridge_collapsed: Color(220, 80, 80, 230),
+            bridge_sound: Color(212, 175, 55, 230),
+            bridge_provisional: Color(180, 140, 60, 220),
+            recipe_chip: Color(60, 100, 90, 255),
+            fold_ring: Color(120, 150, 200, 60),
         }
     }
 }
@@ -94,6 +109,8 @@ pub enum HitRegion {
     ButtonHillClimb,
     ButtonAnneal,
     ButtonBenchmark,
+    /// "Load recipe" pill in the GOLDEN BRIDGE recipe rail.
+    RecipeChip(String),
 }
 
 #[derive(Clone, Debug)]
@@ -120,6 +137,9 @@ const TOWER_PAD: f32 = 18.0;
 const HEADER_H: f32 = 64.0;
 const BUTTON_H: f32 = 32.0;
 const SCORE_PANEL_W: f32 = 280.0;
+/// Height reserved for the GOLDEN BRIDGE deck strip across the canvas.
+const BRIDGE_DECK_H: f32 = 78.0;
+const RECIPE_CHIP_H: f32 = 26.0;
 
 fn claim_color(claim: ClaimStatus, theme: &Theme) -> Color {
     match claim {
@@ -128,6 +148,25 @@ fn claim_color(claim: ClaimStatus, theme: &Theme) -> Color {
         ClaimStatus::OpenConjecture => theme.tile_open,
         ClaimStatus::HighRiskOrFalsified => theme.tile_falsified,
         ClaimStatus::Unverified => theme.tile_unverified,
+    }
+}
+
+fn span_color(status: SpanStatus, theme: &Theme) -> Color {
+    match status {
+        SpanStatus::Gold => theme.bridge_sound,
+        SpanStatus::Empirical => theme.tile_empirical,
+        SpanStatus::Open => theme.bridge_provisional,
+        SpanStatus::Collapsed => theme.bridge_collapsed,
+        SpanStatus::Unverified => theme.tile_unverified,
+    }
+}
+
+fn integrity_color(integrity: BridgeIntegrity, theme: &Theme) -> Color {
+    match integrity {
+        BridgeIntegrity::Empty => theme.text_dim,
+        BridgeIntegrity::Sound => theme.bridge_sound,
+        BridgeIntegrity::Provisional => theme.bridge_provisional,
+        BridgeIntegrity::Collapsed => theme.bridge_collapsed,
     }
 }
 
@@ -154,29 +193,57 @@ pub fn layout(state: &AppState, viewport: ViewportSize, theme: &Theme) -> Render
         stroke: None,
     });
 
-    // Header.
+    // Header — GOLDEN BRIDGE branding.
     prims.push(RenderPrimitive::Text {
         x: 24.0, y: 32.0,
-        s: "Trinity Fold — Rust canvas UI (ring 4)".into(),
-        color: theme.text, size: 22.0, bold: true,
+        s: format!("{} — Rust canvas UI (ring 4)", crate::PRODUCT_NAME),
+        color: theme.bridge_deck, size: 22.0, bold: true,
     });
     prims.push(RenderPrimitive::Text {
         x: 24.0, y: 54.0,
-        s: "Puzzle prototype. NOT a Theory of Everything. Every score is gated by claim status.".into(),
+        s: format!(
+            "{} Hypothesis-discovery puzzle, NOT a proven Theory of Everything.",
+            crate::PRODUCT_TAGLINE
+        ),
         color: theme.text_dim, size: 12.0, bold: false,
     });
 
     // Towers + score panel.
     let panel_x = (viewport.width - SCORE_PANEL_W) * 0.5;
     let tower_w = panel_x - TOWER_PAD * 2.0;
-    let towers_y = HEADER_H + BUTTON_H + 16.0;
+    let toolbar_bottom = HEADER_H + BUTTON_H + 16.0;
+    let bridge_y = toolbar_bottom;
+    let towers_y = bridge_y + BRIDGE_DECK_H + RECIPE_CHIP_H + 16.0;
     let towers_h = (viewport.height - towers_y - 16.0).max(200.0);
+
+    // GOLDEN BRIDGE deck spans the full content width above the towers.
+    draw_bridge_deck(
+        &state.bridge,
+        theme,
+        TOWER_PAD,
+        bridge_y,
+        viewport.width - TOWER_PAD * 2.0,
+        BRIDGE_DECK_H,
+        &mut prims,
+    );
+
+    // Recipe rail (built-in starting points). Hit-testable.
+    draw_recipe_rail(
+        state,
+        theme,
+        TOWER_PAD,
+        bridge_y + BRIDGE_DECK_H + 4.0,
+        viewport.width - TOWER_PAD * 2.0,
+        RECIPE_CHIP_H,
+        &mut prims,
+        &mut hits,
+    );
 
     // Data Tower (left).
     draw_tower(
         state, theme, Tower::Data,
         TOWER_PAD, towers_y, tower_w, towers_h,
-        "Data Tower", "observables & constraints",
+        "Data Tower (pier)", "observables & constraints",
         theme.tower_data,
         &mut prims, &mut hits,
     );
@@ -185,7 +252,7 @@ pub fn layout(state: &AppState, viewport: ViewportSize, theme: &Theme) -> Render
     draw_tower(
         state, theme, Tower::Geometry,
         panel_x + SCORE_PANEL_W + TOWER_PAD, towers_y, tower_w, towers_h,
-        "Geometry Tower", "symmetry, geometry, fields, constants",
+        "Geometry Tower (pier)", "symmetry, geometry, fields, constants",
         theme.tower_geom,
         &mut prims, &mut hits,
     );
@@ -204,6 +271,165 @@ pub fn layout(state: &AppState, viewport: ViewportSize, theme: &Theme) -> Render
     draw_toolbar(state, theme, viewport, &mut prims, &mut hits);
 
     RenderModel { primitives: prims, hit_regions: hits, viewport }
+}
+
+/// Draw the GOLDEN BRIDGE deck: two piers (Data, Geometry), a deck line
+/// whose colour mirrors `BridgeView::integrity`, span markers per selected
+/// tile, and a space-fold motif behind the deck.
+fn draw_bridge_deck(
+    bridge: &BridgeView,
+    theme: &Theme,
+    x: f32, y: f32, w: f32, h: f32,
+    prims: &mut Vec<RenderPrimitive>,
+) {
+    // Background plate.
+    prims.push(RenderPrimitive::Rect {
+        x, y, w, h,
+        fill: Color(16, 20, 30, 255),
+        stroke: Some(theme.stroke),
+    });
+
+    // Space-fold motif: concentric arcs hint at compression of a high-D space
+    // into a small consistent set. Pure decoration; carries no scoring weight.
+    let cx = x + w * 0.5;
+    let cy = y + h * 0.55;
+    for k in 0..4 {
+        let r = 18.0 + k as f32 * 14.0 + bridge.compression as f32 * 28.0;
+        prims.push(RenderPrimitive::Circle {
+            x: cx, y: cy, r,
+            fill: Color(0, 0, 0, 0),
+            stroke: Some(theme.fold_ring),
+        });
+    }
+
+    // Pier columns.
+    let pier_w = 14.0;
+    let pier_top = y + 12.0;
+    let pier_h = h - 24.0;
+    let data_x = x + 18.0;
+    let geom_x = x + w - 18.0 - pier_w;
+    prims.push(RenderPrimitive::Rect {
+        x: data_x, y: pier_top, w: pier_w, h: pier_h,
+        fill: theme.tower_data, stroke: Some(theme.stroke),
+    });
+    prims.push(RenderPrimitive::Rect {
+        x: geom_x, y: pier_top, w: pier_w, h: pier_h,
+        fill: theme.tower_geom, stroke: Some(theme.stroke),
+    });
+    prims.push(RenderPrimitive::Text {
+        x: data_x - 4.0, y: pier_top - 4.0,
+        s: format!("Data·{}", bridge.data_pier_count),
+        color: theme.text_dim, size: 11.0, bold: true,
+    });
+    prims.push(RenderPrimitive::Text {
+        x: geom_x - 24.0, y: pier_top - 4.0,
+        s: format!("Geometry·{}", bridge.geom_pier_count),
+        color: theme.text_dim, size: 11.0, bold: true,
+    });
+
+    // Deck line.
+    let deck_y = y + h * 0.5;
+    let deck_color = match bridge.integrity {
+        BridgeIntegrity::Empty => theme.text_dim,
+        BridgeIntegrity::Sound => theme.bridge_sound,
+        BridgeIntegrity::Provisional => theme.bridge_provisional,
+        BridgeIntegrity::Collapsed => theme.bridge_collapsed,
+    };
+    if bridge.integrity == BridgeIntegrity::Collapsed {
+        // Two short segments with a gap in the middle to suggest collapse.
+        let mid = (data_x + pier_w + geom_x) * 0.5;
+        let gap = 38.0;
+        prims.push(RenderPrimitive::Line {
+            x0: data_x + pier_w, y0: deck_y,
+            x1: mid - gap, y1: deck_y + 12.0,
+            color: deck_color, width: 4.0,
+        });
+        prims.push(RenderPrimitive::Line {
+            x0: mid + gap, y0: deck_y + 12.0,
+            x1: geom_x, y1: deck_y,
+            color: deck_color, width: 4.0,
+        });
+        prims.push(RenderPrimitive::Text {
+            x: mid - 36.0, y: deck_y + 32.0,
+            s: "COLLAPSE".into(),
+            color: theme.bridge_collapsed, size: 14.0, bold: true,
+        });
+    } else {
+        prims.push(RenderPrimitive::Line {
+            x0: data_x + pier_w, y0: deck_y,
+            x1: geom_x, y1: deck_y,
+            color: deck_color, width: 4.0,
+        });
+    }
+
+    // Span nodes drawn along the deck.
+    let span_left = data_x + pier_w + 8.0;
+    let span_right = geom_x - 8.0;
+    for sn in &bridge.span_nodes {
+        let sx = span_left + (span_right - span_left) * sn.pier_t;
+        let r = 7.0;
+        prims.push(RenderPrimitive::Circle {
+            x: sx, y: deck_y, r,
+            fill: span_color(sn.status, theme),
+            stroke: Some(theme.stroke),
+        });
+    }
+
+    // Header label inside the deck area.
+    let integrity_col = integrity_color(bridge.integrity, theme);
+    prims.push(RenderPrimitive::Text {
+        x: x + 12.0, y: y + 16.0,
+        s: format!(
+            "GOLDEN BRIDGE — integrity: {}   strength: {:+.3}   compression: {:.0}%",
+            bridge.integrity.label(),
+            bridge.strength,
+            bridge.compression * 100.0,
+        ),
+        color: integrity_col, size: 13.0, bold: true,
+    });
+    if bridge.integrity == BridgeIntegrity::Collapsed {
+        prims.push(RenderPrimitive::Text {
+            x: x + 12.0, y: y + 32.0,
+            s: format!(
+                "Honesty floor tripped: {} falsified tile(s) on the span.",
+                bridge.falsified_count
+            ),
+            color: theme.bridge_collapsed, size: 11.0, bold: true,
+        });
+    }
+}
+
+fn draw_recipe_rail(
+    state: &AppState, theme: &Theme,
+    x: f32, y: f32, w: f32, h: f32,
+    prims: &mut Vec<RenderPrimitive>, hits: &mut Vec<HitBox>,
+) {
+    prims.push(RenderPrimitive::Text {
+        x, y: y + 14.0,
+        s: "Recipes:".into(),
+        color: theme.text_dim, size: 11.0, bold: true,
+    });
+    let mut cx = x + 70.0;
+    let max_x = x + w;
+    for recipe in state.recipes.iter() {
+        let label = format!("{} ({})", recipe.title, recipe.tile_ids.len());
+        let cw = (label.len() as f32) * 6.8 + 18.0;
+        if cx + cw > max_x { break; }
+        prims.push(RenderPrimitive::Rect {
+            x: cx, y, w: cw, h,
+            fill: theme.recipe_chip, stroke: Some(theme.stroke),
+        });
+        prims.push(RenderPrimitive::Text {
+            x: cx + 9.0, y: y + 17.0,
+            s: label,
+            color: theme.text, size: 11.0, bold: false,
+        });
+        hits.push(HitBox {
+            x: cx, y, w: cw, h,
+            region: HitRegion::RecipeChip(recipe.id.clone()),
+        });
+        cx += cw + 6.0;
+    }
 }
 
 fn draw_toolbar(
@@ -353,6 +579,12 @@ fn draw_score_panel(
         color: claim_color(s.worst_claim, theme),
         size: 12.0, bold: true,
     });
+    prims.push(RenderPrimitive::Text {
+        x: x + 14.0, y: y + 98.0,
+        s: format!("bridge: {}", state.bridge.integrity.label()),
+        color: integrity_color(state.bridge.integrity, theme),
+        size: 12.0, bold: true,
+    });
 
     let rows = [
         ("consistency", s.consistency),
@@ -364,7 +596,7 @@ fn draw_score_panel(
         ("symmetry_coherence", s.symmetry_coherence),
         ("reproducibility", s.reproducibility),
     ];
-    let mut ry = y + 108.0;
+    let mut ry = y + 124.0;
     for (label, val) in rows {
         prims.push(RenderPrimitive::Text {
             x: x + 14.0, y: ry, s: label.into(),
@@ -451,7 +683,11 @@ mod tests {
     }
 
     fn vp() -> ViewportSize {
-        ViewportSize { width: 1280.0, height: 800.0 }
+        // The GOLDEN BRIDGE deck + recipe rail reserve ~120px of vertical
+        // space above the towers, so the test viewport is sized accordingly.
+        // Tower drawing intentionally stops at the bottom of its box, so this
+        // height must accommodate every section in the geometry tower.
+        ViewportSize { width: 1280.0, height: 980.0 }
     }
 
     #[test]
@@ -519,5 +755,65 @@ mod tests {
         assert_eq!(truncate("abc", 10), "abc");
         let t = truncate("abcdefghijklmnop", 5);
         assert!(t.ends_with("…"));
+    }
+
+    #[test]
+    fn header_uses_golden_bridge_name() {
+        let m = layout(&s(), vp(), &Theme::default());
+        let has_brand = m.primitives.iter().any(|p| match p {
+            RenderPrimitive::Text { s, .. } => s.contains("GOLDEN BRIDGE"),
+            _ => false,
+        });
+        assert!(has_brand, "header text must surface GOLDEN BRIDGE branding");
+    }
+
+    #[test]
+    fn bridge_deck_renders_integrity_label() {
+        let m = layout(&s(), vp(), &Theme::default());
+        let has_label = m.primitives.iter().any(|p| match p {
+            RenderPrimitive::Text { s, .. } => s.contains("integrity:"),
+            _ => false,
+        });
+        assert!(has_label);
+    }
+
+    #[test]
+    fn collapsed_bridge_shows_collapse_warning() {
+        let mut state = s();
+        let falsified_id = state
+            .catalog
+            .nodes
+            .iter()
+            .find(|n| n.claim == ClaimStatus::HighRiskOrFalsified)
+            .map(|n| n.id.clone());
+        let Some(id) = falsified_id else { return; };
+        state.apply(crate::input::UiEvent::ToggleTile(id));
+        let m = layout(&state, vp(), &Theme::default());
+        let has_collapse = m.primitives.iter().any(|p| match p {
+            RenderPrimitive::Text { s, .. } => s.contains("COLLAPSE") || s.contains("Honesty floor"),
+            _ => false,
+        });
+        assert!(has_collapse, "collapsed bridge must surface a visible warning");
+    }
+
+    #[test]
+    fn recipe_chips_are_hittable() {
+        let state = s();
+        let m = layout(&state, vp(), &Theme::default());
+        let chip_ids: Vec<_> = m
+            .hit_regions
+            .iter()
+            .filter_map(|h| if let HitRegion::RecipeChip(id) = &h.region {
+                Some(id.clone())
+            } else { None })
+            .collect();
+        // The rail may truncate trailing chips if viewport is narrow; assert
+        // at least the first built-in recipe is hittable on the standard vp.
+        assert!(
+            chip_ids.contains(&state.recipes[0].id),
+            "expected first recipe `{}` to be hittable, got {:?}",
+            state.recipes[0].id,
+            chip_ids
+        );
     }
 }

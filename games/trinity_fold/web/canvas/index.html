@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Trinity Fold — Rust canvas UI</title>
+<title>GOLDEN BRIDGE — Rust canvas UI (games/trinity_fold)</title>
 <style>
   :root { color-scheme: dark; }
   html, body { margin: 0; padding: 0; background: #0b0e16; color: #e6ebf0;
@@ -24,8 +24,9 @@
 </head>
 <body>
   <header>
-    <h1>Trinity Fold — Rust canvas UI (ring 4)</h1>
+    <h1>GOLDEN BRIDGE — Rust canvas UI (ring 4)</h1>
     <p>
+      Build a structural bridge between data and geometry — without collapsing it.
       Pure-Rust render model + Canvas2D shell via wasm-bindgen. The game state lives
       in <code>ring4_canvas::state::AppState</code>; JavaScript only forwards mouse/key
       events and translates render primitives into draw calls.
@@ -34,10 +35,11 @@
 
   <div id="notice">
     <strong>Honesty notice.</strong>
-    Trinity Fold is a puzzle prototype, not a Theory of Everything. A high score
-    only means the board passes more of the illustrative consistency checks than
-    alternatives. Every tile is gated by a <code>claim status</code>; the worst
-    such status is rendered next to the total.
+    GOLDEN BRIDGE is a hypothesis-discovery puzzle, not a proven Theory of
+    Everything. A high "bridge strength" only means the board passes more of
+    the illustrative consistency checks than alternatives. Every tile is gated
+    by a <code>claim status</code>; the worst such status is rendered next to
+    the total. A falsified tile collapses the bridge regardless of the rest.
   </div>
 
   <canvas id="game-canvas" width="1280" height="800"></canvas>

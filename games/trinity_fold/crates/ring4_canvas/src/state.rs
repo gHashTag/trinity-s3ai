@@ -10,7 +10,9 @@ use ring0_core::{Board, Catalog, ClaimStatus};
 use ring1_constraints::{ScoreBreakdown, ScoreWeights, score_board};
 use ring2_search::{anneal, hill_climb};
 
+use crate::bridge::BridgeView;
 use crate::input::UiEvent;
+use crate::recipes::{Recipe, builtin_recipes};
 
 #[derive(Clone, Debug)]
 pub struct ViewOptions {
@@ -42,6 +44,8 @@ pub struct AppState {
     pub board: Board,
     pub holdout: Vec<String>,
     pub score: ScoreBreakdown,
+    pub bridge: BridgeView,
+    pub recipes: Vec<Recipe>,
     pub view: ViewOptions,
 }
 
@@ -49,11 +53,18 @@ impl AppState {
     pub fn new(catalog: Catalog, holdout: Vec<String>) -> Self {
         let board = Board::new();
         let score = score_board(&catalog, &board);
+        let bridge = BridgeView::build(&catalog, &board, &score);
+        let mut recipes = builtin_recipes();
+        for r in recipes.iter_mut() {
+            r.rebind_to(&catalog);
+        }
         Self {
             catalog,
             board,
             holdout,
             score,
+            bridge,
+            recipes,
             view: ViewOptions::default(),
         }
     }
@@ -77,6 +88,25 @@ impl AppState {
         } else {
             self.score = score_board(&self.catalog, &self.board);
         }
+        // GOLDEN BRIDGE projection is derived state — rebuild whenever score
+        // does. Keeps the render path free of branching on benchmark mode.
+        self.bridge = BridgeView::build(&self.catalog, &self.board, &self.score);
+    }
+
+    /// Replace the board with the tiles named by a recipe. Unknown ids are
+    /// ignored (they were already stripped by `Recipe::rebind_to` at startup).
+    pub fn load_recipe(&mut self, recipe_id: &str) -> bool {
+        let Some(recipe) = self.recipes.iter().find(|r| r.id == recipe_id) else {
+            return false;
+        };
+        let new_board = Board::from_ids(recipe.tile_ids.clone());
+        if new_board.is_empty() {
+            return false;
+        }
+        self.board = new_board;
+        self.view.focus_id = None;
+        self.rescore();
+        true
     }
 
     /// Apply a typed UI event to the state. Returns true if the state
@@ -140,6 +170,7 @@ impl AppState {
                 self.rescore();
                 true
             }
+            UiEvent::LoadRecipe(id) => self.load_recipe(&id),
             UiEvent::Tick => {
                 self.view.frame = self.view.frame.wrapping_add(1);
                 // Animations are cosmetic — do not force a full redraw every tick.
@@ -226,6 +257,40 @@ mod tests {
         b.apply(UiEvent::RunHillClimb);
         assert_eq!(a.board.ids().collect::<Vec<_>>(), b.board.ids().collect::<Vec<_>>());
         assert_eq!(a.score.total, b.score.total);
+    }
+
+    #[test]
+    fn bridge_view_tracks_board() {
+        let mut s = fresh();
+        assert_eq!(s.bridge.span_nodes.len(), 0);
+        let id = s.catalog.nodes[0].id.clone();
+        s.apply(UiEvent::ToggleTile(id));
+        assert_eq!(s.bridge.span_nodes.len(), 1);
+        s.apply(UiEvent::ClearBoard);
+        assert_eq!(s.bridge.span_nodes.len(), 0);
+    }
+
+    #[test]
+    fn load_recipe_replaces_board() {
+        let mut s = fresh();
+        // Pre-populate the board with one unrelated tile.
+        let other = s.catalog.nodes[0].id.clone();
+        s.apply(UiEvent::ToggleTile(other.clone()));
+        let recipe_id = s.recipes.first().expect("a builtin recipe").id.clone();
+        let changed = s.apply(UiEvent::LoadRecipe(recipe_id.clone()));
+        assert!(changed);
+        // The pre-existing tile should be gone, replaced by recipe tiles.
+        let recipe = s.recipes.iter().find(|r| r.id == recipe_id).unwrap();
+        for id in &recipe.tile_ids {
+            assert!(s.board.contains(id), "recipe tile `{}` should be on board", id);
+        }
+    }
+
+    #[test]
+    fn load_unknown_recipe_is_noop() {
+        let mut s = fresh();
+        assert!(!s.apply(UiEvent::LoadRecipe("definitely_not_a_recipe".into())));
+        assert!(s.board.is_empty());
     }
 
     #[test]

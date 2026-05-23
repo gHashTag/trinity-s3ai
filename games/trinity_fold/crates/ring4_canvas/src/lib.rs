@@ -21,13 +21,24 @@
 
 #![forbid(unsafe_code)]
 
+pub mod bridge;
 pub mod input;
+pub mod recipes;
 pub mod render;
 pub mod state;
 
 #[cfg(all(target_arch = "wasm32", feature = "wasm"))]
 pub mod wasm;
 
+pub use bridge::{BridgeIntegrity, BridgeView, SpanNode, SpanStatus};
 pub use input::{InputAction, KeyCode, UiEvent};
+pub use recipes::{Recipe, builtin_recipes};
 pub use render::{Color, RenderModel, RenderPrimitive, Theme, ViewportSize, layout};
 pub use state::{AppState, ViewOptions};
+
+/// Product / concept name surfaced in the UI header. The crate folder
+/// remains `trinity_fold` for historical reasons (the workspace was created
+/// before the rename); user-facing copy refers to it as **GOLDEN BRIDGE**.
+pub const PRODUCT_NAME: &str = "GOLDEN BRIDGE";
+pub const PRODUCT_TAGLINE: &str =
+    "Build a structural bridge between data and geometry — without collapsing it.";
