@@ -12,7 +12,7 @@ the CI workflow and the arxiv tarball builder.
 If you are a peer reviewer arriving cold, the recommended reading order is:
 
 1. [`README.md`](../README.md) — project entry point and claim table.
-2. [`SALVAGE.md`](../SALVAGE.md) — honest summary: what H4 can and cannot do.
+2. [`RESEARCH_STATUS.md`](../RESEARCH_STATUS.md) — honest summary: what H4 can and cannot do.
 3. [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) — ground-truth statistics.
 4. [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) — claim-status vocabulary and rules.
 5. [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md) — how to verify the proofs and the
@@ -25,10 +25,10 @@ If you are a peer reviewer arriving cold, the recommended reading order is:
 | `README.md`, `LICENSE`, `CITATION.{cff,bib}`, `CONTRIBUTING.md`, `SECURITY.md` | Standard project metadata. |
 | `FORMULAS.md` | Public-facing SSOT for the 59 catalogued formulas. |
 | `HONESTY_MANIFEST.md` | Ground-truth statistics about proofs / Admitted counts. |
-| `SALVAGE.md` | Honest summary of the constructive-negative-result framing. |
+| `RESEARCH_STATUS.md` | Honest summary of the constructive-negative-result framing. |
 | `ROADMAP.md`, `ROADMAP_WAVE17_PLUS.md` | Active program-level roadmaps. |
 | `Gemfile`, `.zenodo.json` | Bundler config (for Pages preview tooling) and Zenodo deposit metadata. |
-| `proofs/catalog/Catalog42_corrected.v` | Reference Coq catalog of 25 corrected SM-parameter formulas. Moved here in Phase 2 (was at the repo root); referenced from `README.md`, `SALVAGE.md`, `docs/CLAIM_STATUS.md`, `docs/TECH_TREE.md`. Not part of `proofs/trinity/_CoqProject` — it is a standalone reference file. |
+| `proofs/catalog/Catalog42_corrected.v` | Reference Coq catalog of 25 corrected SM-parameter formulas. Moved here in Phase 2 (was at the repo root); referenced from `README.md`, `RESEARCH_STATUS.md`, `docs/CLAIM_STATUS.md`, `docs/TECH_TREE.md`. Not part of `proofs/trinity/_CoqProject` — it is a standalone reference file. |
 | `scripts/validators/validate_v4.py`, `scripts/validators/test_comprehensive.py`, `scripts/validators/honest_pvalue_final.py` | Python validators invoked from `.github/workflows/ci.yml`. Moved out of the repo root in Phase 2 in lockstep with the CI workflow and `scripts/build_arxiv_tarball.sh`. |
 | `proofs/` | Coq proof tree (`trinity/`, `clifford_cl8/`). |
 | `derivations/` | Per-topic derivation notes and origin logs. |
@@ -84,7 +84,7 @@ Files updated in lockstep with the moves:
   inside-the-tarball `Run: python3 validate_v4.py` instruction is unchanged
   because the file lands at `anc/validate_v4.py` after unpacking).
 - `scripts/prepare_arxiv.md` — the "manual equivalent" bash snippet.
-- `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `SALVAGE.md`, `ROADMAP.md`.
+- `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `RESEARCH_STATUS.md`, `ROADMAP.md`.
 - `docs/REVIEW_GUIDE.md`, `docs/REVIEW_CHECKLIST.md`, `docs/CLAIM_STATUS.md`,
   `docs/TECH_TREE.md`.
 

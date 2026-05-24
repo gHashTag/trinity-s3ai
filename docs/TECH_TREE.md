@@ -224,4 +224,4 @@ Tier 3 формулы полностью опровергнуты. Это **си
 ---
 
 *Версия: Wave 22 | 2026-05-24 | Vasileva (gHashTag)*  
-*Связанные файлы: [SALVAGE.md](../SALVAGE.md) | [EPISTEMOLOGY.md](../EPISTEMOLOGY.md) | [PREDICTIONS_PREREGISTERED.md](../PREDICTIONS_PREREGISTERED.md)*
+*Связанные файлы: [RESEARCH_STATUS.md](../RESEARCH_STATUS.md) | [EPISTEMOLOGY.md](../EPISTEMOLOGY.md) | [PREDICTIONS_PREREGISTERED.md](../PREDICTIONS_PREREGISTERED.md)*

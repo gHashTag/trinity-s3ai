@@ -251,7 +251,7 @@ Of 551 integers reachable with 2 operations in [1,1000], only **45** have exactl
 | **Connes NCG (1990s)** | ~5 | ✅ **Yes** | ✅ Yes | ~2000 | Respected, post-hoc m_H fix |
 | **Trinity S³AI (2025)** | **130** | 3/13 formally proven (9 fit, 1 open) | ❌ No | **0** | **This project** |
 
-**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), 61 SG-class formulas, DUNE pre-registration, full uniqueness enumeration, honest a₄ documentation, **formal Coq no-go theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md) — a negative result is still a real result), and an explicit honesty pass (Waves 1-6) reconciling every public claim with `proofs/` (see STRONG_CP_HONEST_STATUS.md).
+**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), 61 SG-class formulas, DUNE pre-registration, full uniqueness enumeration, honest a₄ documentation, **formal Coq obstruction theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md) — a negative result is still a real result), and an explicit honesty pass (Waves 1-6) reconciling every public claim with `proofs/` (see STRONG_CP_HONEST_STATUS.md).
 
 **What Connes has that Trinity doesn't**: Peer-reviewed publications, ~2000 citations, mathematical community acceptance, working RG running. (Direct "% of Lagrangian derived" comparisons with Connes are not apples-to-apples and have been removed; see [`LAGRANGIAN_HONEST_STATUS.md`](../../docs/status/LAGRANGIAN_HONEST_STATUS.md).)
 

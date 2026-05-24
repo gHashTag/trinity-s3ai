@@ -102,7 +102,7 @@ Source: `derivations/catalog_audit/audit_report.md`, `validate_v4.py`.
 | Structural compatibilities (S) | 8 formulas |
 | Numerical fits (NF) | 17 formulas |
 
-**Bottom line:** The project has produced **rigorous negative results** (no-go theorems) and **structural mathematical matches** (KO-dim 6, η = −2). It has **not** produced any phenomenological prediction that survived independent experimental test as a *genuine prior* prediction. The Higgs fit (125.20 GeV) is impressive numerically but is a retrospective correlation, not a prediction.
+**Bottom line:** The project has produced **rigorous negative results** (obstruction theorems) and **structural mathematical matches** (KO-dim 6, η = −2). It has **not** produced any phenomenological prediction that survived independent experimental test as a *genuine prior* prediction. The Higgs fit (125.20 GeV) is impressive numerically but is a retrospective correlation, not a prediction.
 
 ---
 

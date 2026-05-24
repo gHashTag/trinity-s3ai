@@ -33,9 +33,9 @@ other tiles agree with experiment. Full concept docs are in
 
 ## Why this exists
 
-The Trinity S3AI repository is a constructive negative result on H4/600-cell
-NCG models of the Standard Model (see [`SALVAGE.md`](../../README.md) and the
-four No-Go Theorems in
+The Trinity S3AI repository is a active boundary-mapping research program on H4/600-cell
+NCG models of the Standard Model (see [`RESEARCH_STATUS.md`](../../README.md) and the
+four Obstruction Theorems in
 [`proofs/trinity/NoGoTheorems.v`](../../proofs/trinity/NoGoTheorems.v)).
 This game inherits that culture:
 

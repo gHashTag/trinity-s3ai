@@ -83,11 +83,11 @@ See `derivations/string_correspondence/orbifold_yukawa_test.py`.
 
 ### Direction C: Formal Negative-Result Publication
 
-**Goal:** Publish the No-Go Theorems (NGT-1 through NGT-6) as a contribution to mathematical physics.
+**Goal:** Publish the Obstruction Theorems (NGT-1 through NGT-6) as a contribution to mathematical physics.
 
 | Action | Priority | Owner | Deadline |
 |--------|----------|-------|----------|
-| C1. Write paper "Six No-Go Theorems for H₄ Standard Model Unification" | 🟡 Important | Wave 19 | 2026-07 |
+| C1. Write paper "Six Obstruction Theorems for H₄ Standard Model Unification" | 🟡 Important | Wave 19 | 2026-07 |
 | C2. Submit to SIGMA (Symmetry, Integrability and Geometry) or similar math-phys journal | 🟢 Exploration | Wave 20 | 2026-08 |
 | C3. Archive Coq proofs with Zenodo + permanent DOI | 🟡 Important | Wave 19 | 2026-07 |
 
@@ -110,10 +110,10 @@ These are PhD-level problems. Without a concrete breakthrough, do not allocate f
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
-| Track A (F₄/H₄) generates no publishable physics | High | High | Pivot to data paper (Direction A) or negative-result paper (Direction C). |
-| Track B (Cl(8)) also hits no-go theorems | Medium | High | Maintain honest admitted_log; do not overclaim. |
+| Track A (F₄/H₄) generates no publishable physics | High | High | Pivot to data paper (Direction A) or boundary-result paper (Direction C). |
+| Track B (Cl(8)) also hits obstruction theorems | Medium | High | Maintain honest admitted_log; do not overclaim. |
 | Honest p-value shows catalog is no better than random | Medium | Medium | Pre-register analysis protocol; report regardless of sign. |
-| Reviewers reject negative-result paper | Low | Medium | Target journals that explicitly welcome negative results (e.g., PLOS ONE, SIGMA). |
+| Reviewers reject boundary-result paper | Low | Medium | Target journals that explicitly welcome negative results (e.g., PLOS ONE, SIGMA). |
 
 ---
 
@@ -134,7 +134,7 @@ These are PhD-level problems. Without a concrete breakthrough, do not allocate f
 |------|-----------|
 | 2026-06-15 | Wave 18: Honest p-value computed; catalog ranked by σ-distance |
 | 2026-07-01 | Decision gate: Go/No-Go for Track A data paper |
-| 2026-07-15 | Wave 19: Data paper drafted OR negative-result paper submitted |
+| 2026-07-15 | Wave 19: Data paper drafted OR boundary-result paper submitted |
 | 2026-08-01 | Wave 20: Track B Cl(8) T1–T3 formalization complete |
 | 2026-08-15 | Final review: All active tracks evaluated; roadmap updated to Wave 21+ |
 

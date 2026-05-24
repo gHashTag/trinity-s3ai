@@ -9,7 +9,7 @@
 
 ## Brief summary
 
-After eight waves of formalisation, 340 machine-verified theorems and 4 no-go theorems (NGT-1–4), the project is at a point of honest reckoning. This document defines:
+After eight waves of formalisation, 340 machine-verified theorems and 4 obstruction theorems (NGT-1–4), the project is at a point of honest reckoning. This document defines:
 
 - **KEEP**: mathematical and methodological achievements of independent value
 - **ARCHIVE**: physical claims that have been refuted or falsified
@@ -75,7 +75,7 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 no-go th
 
 | Claim | Wave of refutation | Reason |
 |-------|-------------------|--------|
-| "Trinity derives the Standard Model" | Wave 9.6 (NGT-1–4) | The combined force of four no-go theorems |
+| "Trinity derives the Standard Model" | Wave 9.6 (NGT-1–4) | The combined force of four obstruction theorems |
 | "α is computed from H4" | Wave 3 | alpha_from_H4_refuted (Qed) |
 | "σ-field from H4-structure" | Wave 5.3 | sigma_no_go (NGT-2) |
 | "600-cell is chiral" | Wave 6 | Antipodal symmetry (NGT-3) |
@@ -106,19 +106,19 @@ This name is inaccurate: the formalisation **did not achieve** SM unification. T
 
 ### 3.2 Proposed new name
 
-> **"Trinity-s3ai: A formal exploration of H4/600-cell symmetry in the context of Noncommutative Geometry, with constructive negative results"**
+> **"Trinity-s3ai: A formal exploration of H4/600-cell symmetry in the context of Noncommutative Geometry, with active boundary-mapping research programs"**
 
 **Why this is better:**
 
 1. **Honest:** the word "exploration" accurately describes what was done.
-2. **Valuable:** "constructive negative results" — a format accepted in serious journals.
+2. **Valuable:** "active boundary-mapping research programs" — a format accepted in serious journals.
 3. **Accurate:** "H4/600-cell symmetry" — the real object of study.
 4. **Not disappointing:** the reader knows what to expect.
 
 ### 3.3 Alternative titles for the paper
 
-- *«H4 and the 600-cell: Four No-Go Theorems for NCG-based Standard Model Unification»*
-- *«Machine-Verified No-Go Theorems in Speculative Unified Physics: The Trinity-s3ai Framework»*
+- *«H4 and the 600-cell: Four Obstruction Theorems for NCG-based Standard Model Unification»*
+- *«Machine-Verified Obstruction Theorems in Speculative Unified Physics: The Trinity-s3ai Framework»*
 - *«What H4 Cannot Do: A Coq-Formalized Audit of the 600-Cell Approach to Standard Model Unification»*
 
 ---
@@ -163,7 +163,7 @@ This contrasts with the practice of hiding `Admitted` or using them without expl
 
 - [x] Create `no_go_theorems.md` — formulation of NGT-1–4 (done)
 - [x] Create `NoGoTheorems.v` — 32 Qed, 0 Admitted (done)
-- [x] Update README.md: add a warning that the project has reached constructive negative results
+- [x] Update README.md: add a warning that the project has reached active boundary-mapping research programs
 - [ ] Add `Status: ARCHIVED` tag to falsified claims
 
 ### Step 2: Short-term (Month 1)
@@ -206,7 +206,7 @@ All three — open questions, not claims.
 
 **Conclusion:**
 
-The Trinity-s3ai project conducted eight waves of honest formalisation. The result is not a "theory of everything", but a **constructive negative result**: H4/600-cell in its current formulation is insufficient to derive the SM. This is a scientific contribution. It should be published as such.
+The Trinity-s3ai project conducted eight waves of honest formalisation. The result is not a "theory of everything", but a **active boundary-mapping research program**: H4/600-cell in its current formulation is insufficient to derive the SM. This is a scientific contribution. It should be published as such.
 
 *"An honest negative result is worth more than a failed positive claim."*
 

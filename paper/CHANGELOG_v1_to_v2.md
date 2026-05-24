@@ -20,12 +20,12 @@
 ### 1. Section 5 — Extended Negative Results (Waves 16–17)
 A new main section inserted between the original No-Go theorems (now §4) and Discussion (now §6).
 
-#### 5.1 F₄ Yukawa Test (No-Go Theorem 7)
+#### 5.1 F₄ Yukawa Test (Obstruction Theorem 7)
 - Describes the numerical scan of 5 models per fermion type
 - Reports the D₄ triality structural cap at ~20:1
 - Documents that symmetric models fail (χ² > 9 for all fermion types)
 - Documents that weighted/block models fit only with 3–4 free parameters lacking geometric origin
-- **No-Go Theorem 7:** F₄ cannot produce the observed 3-generation hierarchy without external parameters
+- **Obstruction Theorem 7:** F₄ cannot produce the observed 3-generation hierarchy without external parameters
 
 #### 5.2 E₈ Plumbing Convergence
 - Reports η values for reduced model (20 vertices): sign-count η = 0

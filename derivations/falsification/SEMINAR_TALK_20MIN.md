@@ -113,7 +113,7 @@
 - Discrepancy: +7.78 GeV = **55.6σ** from PDG.
 
 **Speaker notes:**
-> “The sigma field was the trick that saved Connes’s prediction. We proved it cannot arise from H₄. That is a rigorous no-go theorem. The consequence is catastrophic: the tree-level Higgs mass is 133 GeV, which is fifty-five sigma away from experiment.”
+> “The sigma field was the trick that saved Connes’s prediction. We proved it cannot arise from H₄. That is a rigorous obstruction theorem. The consequence is catastrophic: the tree-level Higgs mass is 133 GeV, which is fifty-five sigma away from experiment.”
 
 ---
 
@@ -197,7 +197,7 @@
 - η = −2 on S³/2I (necessary condition for chirality).
 - 2I ⊂ SU(2) motivates quaternionic structure ℍ ⊂ A_F.
 - Machine-verified honesty framework: 312 Qed + honest Admitted tags.
-- Four rigorous no-go theorems (cosmology, σ, chirality, mass hierarchy).
+- Four rigorous obstruction theorems (cosmology, σ, chirality, mass hierarchy).
 
 **What does not survive:**
 - “H₄ derives the Standard Model” — refuted.
@@ -205,7 +205,7 @@
 - All Tier-3 cosmological formulas — falsified by Planck/DESI.
 
 **Speaker notes:**
-> “So what is left? A set of rigorous mathematical results about the 600-cell, a compatibility with KO-dimension six, and four no-go theorems that map the boundaries of what H₄ can do. In science, knowing what does not work is as valuable as knowing what does. Trinity S³AI is a constructive negative result — and that is its honest contribution.”
+> “So what is left? A set of rigorous mathematical results about the 600-cell, a compatibility with KO-dimension six, and four obstruction theorems that map the boundaries of what H₄ can do. In science, knowing what does not work is as valuable as knowing what does. Trinity S³AI is a active boundary-mapping research program — and that is its honest contribution.”
 
 ---
 
@@ -228,7 +228,7 @@
 ## Appendix — Key phrases for Q&A
 
 **Q: “Is the project a failure?”**  
-A: “It is a *constructive negative result*. We proved rigorously that several naïve hopes about H₄ are false. That limits the space of possible theories.”
+A: “It is a *active boundary-mapping research program*. We proved rigorously that several naïve hopes about H₄ are false. That limits the space of possible theories.”
 
 **Q: “Why keep the 125 GeV formula?”**  
 A: “We keep it as a *catalog entry* with an honest NF tag. It is a numerical fit, not a prediction. Retrospective fits have pedagogical value but must not be misrepresented.”

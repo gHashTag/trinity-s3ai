@@ -10,7 +10,7 @@
 
 This document provides complete transparency about every `Axiom`, `Admitted`, and `admit` in the Trinity S3AI codebase. It is the companion to `admitted_log.md` (which covers the Admitted/admit registry) and extends it with stratification of all 88 `Axiom` declarations.
 
-A formal Coq proof is only as strong as its axioms. The four No-Go Theorems (NGT1–NGT4) in `NoGoTheorems.v` are formally verified **modulo** the axioms listed below.
+A formal Coq proof is only as strong as its axioms. The four Obstruction Theorems (NGT1–NGT4) in `NoGoTheorems.v` are formally verified **modulo** the axioms listed below.
 
 ---
 
@@ -223,7 +223,7 @@ decoupled, so it can be developed in parallel with the core proofs.
 
 ## Impact on NGT1–NGT4
 
-The no-go theorems NGT1–NGT4 **do not depend** on:
+The obstruction theorems NGT1–NGT4 **do not depend** on:
 - DFSpectrum.v `True` placeholders
 - SpectralTripleAxioms.v open conditions
 - HiggsOrigins.v spectral identities

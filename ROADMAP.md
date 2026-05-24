@@ -161,7 +161,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 | 9 | All Admitted closed | ⬜ OPEN | **100 Admitted remain** in Coq (`proofs/trinity/*.v`) |
 | 10 | Lean port complete | ⬜ OPEN | **6 `sorry` remain** in Lean 4 port (`derivations/lean_port/TrinityLean/`) |
 
-### No-Go Theorems (with citations)
+### Obstruction Theorems (with citations)
 
 | Theorem | Claim | Status | Source |
 |---------|-------|--------|--------|
@@ -178,7 +178,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 3. **2I ⊂ SU(2) motivates ℍ ⊂ A_F** — algebraic fact, independent of physical claims (`QuaternionicLinearity.v`, Qed).
 4. **25/25 catalog formulas verified numerically** — with honest R/S/NF tags (`scripts/validators/validate_v4.py`, `Catalog42.v`).
 5. **Machine-verified honesty framework** — 312 Qed theorems + 100 honest Admitted tags.
-6. **Four rigorous no-go theorems** — mapping the boundaries of H₄-based unification.
+6. **Four rigorous obstruction theorems** — mapping the boundaries of H₄-based unification.
 
 ### New Artifacts in Wave 12
 

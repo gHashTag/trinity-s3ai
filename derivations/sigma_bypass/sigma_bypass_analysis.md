@@ -95,7 +95,7 @@ All Laplacians are strictly positive on C²; there is **no zero mode**.
 
 ### Interpretation
 
-**No-Go Theorem 6 (reduced model):**  
+**Obstruction Theorem 6 (reduced model):**  
 In the reduced simplicial model, **dim H² = 0 for E₈, F₄, and H₄**.  
 No harmonic 2-form exists → **no sigma-field candidate** in this approximation.
 
@@ -111,7 +111,7 @@ No harmonic 2-form exists → **no sigma-field candidate** in this approximation
 
 ### Conclusion
 
-The **geometric test on the reduced model supports No-Go Theorem 6**: no system admits a harmonic 2-form, so no sigma-field candidate emerges from this discrete de Rham complex.
+The **geometric test on the reduced model supports Obstruction Theorem 6**: no system admits a harmonic 2-form, so no sigma-field candidate emerges from this discrete de Rham complex.
 
 However, because the reduced model is contractible and cannot resolve the true 4-manifold topology of the plumbing construction, **this result does not definitively rule out a sigma-field in the full E₈ or F₄ geometry**. A genuine proof would require:
 
@@ -120,7 +120,7 @@ However, because the reduced model is contractible and cannot resolve the true 4
 3. Verification that the Hodge Laplacian on that full complex has dim H² = 8 for E₈ (matching the true second Betti number).
 4. Only then could one ask whether any of those harmonic 2-forms can serve as a sigma-field in the spectral action.
 
-**Status: No-Go Theorem 6 holds in the reduced model, but the full 4-manifold topology remains untested.**
+**Status: Obstruction Theorem 6 holds in the reduced model, but the full 4-manifold topology remains untested.**
 
 The sigma-field bypass via E₈/F₄ remains a viable research direction for a future wave with sufficient computational resources to handle the full 128-vertex triangulation.
 

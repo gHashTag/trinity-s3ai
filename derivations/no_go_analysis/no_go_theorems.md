@@ -1,4 +1,4 @@
-# Wave 9.6: Honest Meta-Analysis of Trinity-s3ai — No-Go Theorems
+# Wave 9.6: Honest Meta-Analysis of Trinity-s3ai — Obstruction Theorems
 
 **Project:** Trinity S3AI — formalization of H4/600-cell in the NCG context  
 **Version:** Wave 9.6  
@@ -11,7 +11,7 @@
 ## Contents
 
 1. [Why this matters: honesty as a scientific principle](#section-1-why-this-matters)
-2. [Four no-go theorems](#section-2-four-no-go-theorems)
+2. [Four obstruction theorems](#section-2-four-no-go-theorems)
 3. [Proof sketches](#section-3-proof-sketches)
 4. [What survives](#section-4-what-survives-after-no-go-theorems)
 5. [Publication strategy](#section-5-publication-strategy)
@@ -45,11 +45,11 @@ From the first wave, the Trinity-s3ai project declared the principle: **"Do not 
 - Formulas are classified by rigor: **(R) Rigorous / (S) Structural / (NF) Numerical Fit**.
 - Negative results are documented as thoroughly as positive ones.
 
-By Wave 9.6, enough negative results had accumulated to formulate them **as strict no-go theorems**. This may be the most valuable scientific contribution of the project.
+By Wave 9.6, enough negative results had accumulated to formulate them **as strict obstruction theorems**. This may be the most valuable scientific contribution of the project.
 
-### 1.2 Why No-Go Theorems Are Valuable
+### 1.2 Why Obstruction Theorems Are Valuable
 
-Physics is full of no-go theorems that became cornerstones of science:
+Physics is full of obstruction theorems that became cornerstones of science:
 
 - **Gödel's theorem** (1931) — the first important "no" in mathematics.
 - **CPT theorem** (Lüders 1954) — CPT cannot be violated in a local theory.
@@ -65,11 +65,11 @@ There are two ways to conclude eight waves of formalization:
 
 **Bad path:** continue claiming that "eventually everything will be derived," accumulating `Admitted.` without progress.
 
-**Good path:** honestly formulate *what exactly* is impossible, and explain *why*. This transforms the project from a "failed theory of everything" into a "constructive negative result on H4 unification" — and such a result **is publishable**.
+**Good path:** honestly formulate *what exactly* is impossible, and explain *why*. This transforms the project from a "failed theory of everything" into a "active boundary-mapping research program on H4 unification" — and such a result **is publishable**.
 
 ---
 
-## Section 2: Four No-Go Theorems
+## Section 2: Four Obstruction Theorems
 
 ---
 
@@ -219,7 +219,7 @@ because the adjacency matrix A is also antipodally symmetric (v and -v have the 
 
 ---
 
-## Section 4: What Survives After the No-Go Theorems
+## Section 4: What Survives After the Obstruction Theorems
 
 ### 4.1 Survivability Table
 
@@ -271,7 +271,7 @@ Systematic refutation of cosmological claims with specific σ-distances — this
 **An honest negative result is publishable. A failed positive claim is not.**
 
 The history of physics is full of examples:
-- The no-go theorem for a "theory of everything" in E8 (Distler–Garibaldi 2010, CMP) — refuted Lisi's approach, but became an important paper.
+- The obstruction theorem for a "theory of everything" in E8 (Distler–Garibaldi 2010, CMP) — refuted Lisi's approach, but became an important paper.
 - The "no-hair theorem" (Israel 1967) — a restriction, not a direct result.
 - The proof of impossibility of hidden variables (Bell 1964, physics of Bell inequalities).
 
@@ -280,12 +280,12 @@ The history of physics is full of examples:
 **Option A: Foundations of Physics**  
 Suitable for: philosophically oriented works on foundations of physical theories; publishes critical analyses.  
 Strategy: present Trinity-s3ai as an investigation of *what are the minimal requirements for a discrete geometry to reproduce the SM*.  
-Title: *"H4 and the 600-cell in Noncommutative Geometry: Four No-Go Theorems for Standard Model Unification"*
+Title: *"H4 and the 600-cell in Noncommutative Geometry: Four Obstruction Theorems for Standard Model Unification"*
 
 **Option B: Studies in History and Philosophy of Modern Physics (SHPMP)**  
 Suitable for: methodological works on the role of formalization and machine verification in theoretical physics.  
 Strategy: present the Coq formalization as a new methodological tool; negative results as a demonstration of the method.  
-Title: *"Machine-Verified No-Go Theorems in Speculative Physics: The Trinity-s3ai Case Study"*
+Title: *"Machine-Verified Obstruction Theorems in Speculative Physics: The Trinity-s3ai Case Study"*
 
 **Option C: arXiv (math-ph or hep-th)**  
 Suitable for: more technical works without journal requirements.  
@@ -302,7 +302,7 @@ Strategy: 340 Qed, structure of 2I, η-invariant — mathematically new results.
 1. Introduction: H4/600-cell in physics — motivation and prior work
 2. Formal framework: Coq formalization of H4 (340 Qed)
 3. Positive structural results: KO-dim, 2I, η
-4. Four no-go theorems (NGT-1 through NGT-4)
+4. Four obstruction theorems (NGT-1 through NGT-4)
 5. Proof sketches and machine verification
 6. Comparison with E8/Lisi (DG2010)
 7. Conclusion: salvage value and open questions
@@ -353,7 +353,7 @@ Negative result (no monopoles in the SM in observable quantities) became motivat
 **Coleman–Mandula theorem (1967):**  
 Supersymmetry became the only "bypass" precisely because all other paths were closed by this theorem.
 
-**Conclusion:** in physics, no-go theorems create a map of the possible.
+**Conclusion:** in physics, obstruction theorems create a map of the possible.
 
 ### 6.3 Place of Trinity-s3ai on This Map
 
@@ -412,7 +412,7 @@ This restriction is **informative** in itself: it tells theorists what to look f
 
 **Was:** "Trinity-s3ai: Framework for H4/600-cell Standard Model Unification"
 
-**Become:** "Trinity-s3ai: A formal exploration of H4/600-cell symmetry in the context of NCG, with constructive negative results"
+**Become:** "Trinity-s3ai: A formal exploration of H4/600-cell symmetry in the context of NCG, with active boundary-mapping research programs"
 
 This accurately reflects what the project has done: it **honestly and formally** explored a space that turned out to be more restricted than expected. Such honesty is science itself.
 

@@ -3,7 +3,7 @@
 [![CI](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml/badge.svg)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
 [![Anti-Numerology Gate](https://img.shields.io/badge/anti--numerology-PASS-brightgreen)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
 [![Coq](https://img.shields.io/badge/Coq-8.20.1-blue)](https://coq.inria.fr)
-[![Negative Result](https://img.shields.io/badge/negative--result-ASSET-orange)](docs/TECH_TREE.md)
+[![Active Research](https://img.shields.io/badge/active--research-blue)](docs/TECH_TREE.md)
 [![DOI](https://img.shields.io/badge/DOI-pending%20Zenodo-lightgrey)](scripts/prepare_zenodo.md)
 
 ---
@@ -13,13 +13,13 @@
 
 ### Status
 
-> **This is a constructive negative result. See [SALVAGE.md](SALVAGE.md).**
+> **This is an active boundary-mapping research program. See [RESEARCH_STATUS.md](RESEARCH_STATUS.md).**
 
-This repository contains formal Coq proofs investigating whether the H4 Coxeter group geometry (and its associated 600-cell polytope) can serve as the basis for a noncommutative geometry model of the Standard Model of particle physics.
+This repository documents an ongoing investigation into whether geometric invariants of the H4 Coxeter group (and related structures such as the 600-cell and Clifford algebras Cl(8)) can encode or constrain the parameters of the Standard Model of particle physics.
 
-**The answer is NO** — four formal No-Go Theorems prove specific structural impossibilities.
+**Boundary theorems (NGT-1–NGT4)** map specific obstruction points: they prove that *certain direct constructions* from H4 geometry do not reproduce the SM. These are **guideposts**, not tombstones — they narrow the search space and direct future exploration toward Tracks A (honest phenomenology), B (Cl(8) / J₃(𝕆)), and C (publication of boundary results).
 
-What is preserved (the "salvage") is a catalog of 59 numerological coincidences between H4 invariants and PDG 2024 measurements, all formally verified as interval bounds in Coq and explicitly tagged as phenomenological fits.
+The project maintains a living catalog of 59 numerical coincidences between H4 invariants and PDG 2024 measurements, all formally verified in Coq and tagged by epistemic status. Whether these coincidences are deep or accidental is itself an open research question.
 
 ### Quick Links
 
@@ -30,14 +30,14 @@ What is preserved (the "salvage") is a catalog of 59 numerological coincidences 
 | [docs/CLAIM_STATUS.md](docs/CLAIM_STATUS.md) | Claim-status rule book (verified / empirical fit / open / refuted) |
 | [docs/TECH_TREE.md](docs/TECH_TREE.md) | Layered status of the whole stack (infra → proofs → fits → game → paper) |
 | [docs/REVIEW_CHECKLIST.md](docs/REVIEW_CHECKLIST.md) | Mechanical review-readiness checklist |
-| [SALVAGE.md](SALVAGE.md) | Honest summary: what H4 can/cannot do |
+| [RESEARCH_STATUS.md](RESEARCH_STATUS.md) | Honest boundary map: what H4 paths are open, obstructed, or under exploration |
 | [EPISTEMOLOGY.md](EPISTEMOLOGY.md) | Calculation-primacy doctrine: how model-dependent extractions are handled |
 | [PREDICTIONS_PREREGISTERED.md](PREDICTIONS_PREREGISTERED.md) | 9 pre-registered predictions (0 theoretically confirmed, 4 numerically verified, 4 open, 1 withdrawn) |
-| [ROADMAP_WAVE17_PLUS.md](ROADMAP_WAVE17_PLUS.md) | **Post-Wave-17 program**: Tracks A (honest phenomenology), B (Cl(8) / J3(O)), C (negative-result paper) |
-| [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new No-Go NGT-7, updated counters, E8-plumbing / string-correspondence honesty notes |
+| [ROADMAP_WAVE17_PLUS.md](ROADMAP_WAVE17_PLUS.md) | **Active research program**: Tracks A (honest phenomenology), B (Cl(8) / J3(O)), C (boundary-result paper) |
+| [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new obstruction NGT-7, updated counters, E8-plumbing / string-correspondence boundary notes |
 | [SECURITY.md](SECURITY.md) | Security policy and reporting path |
 | [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
-| [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal no-go theorems NGT1–NGT4 |
+| [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal obstruction theorems NGT1–NGT4 (boundary markers, not dead ends) |
 | [Catalog42.v](proofs/trinity/Catalog42.v) | 42 SM parameter formulas (tagged phenomenological) |
 | [admitted_log.md](docs/analysis/admitted_log.md) | Log of all Admitted with their tags |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
@@ -305,7 +305,7 @@ inward-only dependency direction is enforced by integration tests in
 
 ---
 
-## The Four No-Go Theorems
+## The Four Obstruction Theorems
 
 | Theorem | Statement | File |
 |---------|-----------|------|
@@ -389,7 +389,7 @@ python3 scripts/anti_numerology_gate.py       # honesty check
 proofs/trinity/              — Coq .v source files (50 files)
   CorePhi.v                  — Golden ratio φ and its algebra
   Catalog42.v                — 42 SM parameter formulas [phenomenological_fit]
-  NoGoTheorems.v             — NGT1–NGT4 formal no-go theorems
+  NoGoTheorems.v             — NGT1–NGT4 formal obstruction theorems
   HiggsPrediction.v          — Higgs mass formulas [phenomenological_fit]
   CosmologyOrigins.v         — Cosmological formulas [HONEST: ...]
   ...
@@ -402,7 +402,7 @@ scripts/
   workflows/ci.yml           — CI: anti_numerology_check → build
   workflows/release.yml      — Release: coq bundle + PDF
   PULL_REQUEST_TEMPLATE.md   — Enforces "verified/open" PR section
-SALVAGE.md                   — Honest summary of results
+RESEARCH_STATUS.md                   — Honest summary of results
 CITATION.cff                 — Citation metadata (Zenodo)
 CONTRIBUTING.md              — Contribution rules (Russian + English)
 ```
@@ -444,7 +444,7 @@ Also see [CITATION.bib](CITATION.bib) for formatted references.
 | 1–3 | Initial φ/π/e formula catalog |
 | 4.1 | Honesty tags: `[phenomenological_fit]`, `[NUMERICAL_FIT]` added |
 | 5–8 | NCG derivations, spectral action |
-| 9.6 | NGT1–NGT4 no-go theorems formalized |
+| 9.6 | NGT1–NGT4 obstruction theorems formalized |
 | 10.5 | Anti-numerology CI gate; CITATION.cff; CONTRIBUTING.md |
 | 12 | Track B launch: Cl(p,q) formalization (T1–T3) |
 | 15.1 | Honest counting system: comments stripped before statistics |

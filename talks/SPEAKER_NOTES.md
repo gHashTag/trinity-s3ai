@@ -88,7 +88,7 @@
 
 ---
 
-## Slide 6: Table of No-Go Theorems (8:00–9:30)
+## Slide 6: Table of Obstruction Theorems (8:00–9:30)
 
 **What to say:**
 > "We proved five No-Go theorems — all Qed in Coq. One: no sigma-field exists in H₄ geometry. Two: no three-generation structure emerges from H₄. Three: the D₄ alternative gives KO-dimension five mod eight, not six. Four: the spectral-action prediction for the Higgs mass is one hundred thirty-two point eight eight GeV. Five: E₆ and E₇ plumbing also mismatch. Every refutation is a formal theorem, not a heuristic argument. This is the core of the talk: the hypothesis is dead, but it died with a certificate."
@@ -167,11 +167,11 @@
 ## Slide 11: Conclusion — What Survives? (16:30–18:00)
 
 **What to say:**
-> "On the left, what survives: KO-dimension six mod eight for H₄; eta equals minus two on the spherical space form; the fact that the binary icosahedral group motivates the quaternionic part of the algebra; the machine-verified honesty framework; and four rigorous No-Go theorems. On the right, what does not survive: the claim that H₄ derives the Standard Model — refuted. The claim that H₄ predicts one hundred twenty-five GeV — that was a retrospective fit, and we label it as such. And all Tier-Three cosmological formulas — falsified by Planck and DESI. The honest summary is this: Trinity S³AI is a constructive negative result. Knowing what does not work is as valuable as knowing what does — because it saves the next researcher two years of chasing the same beautiful hypothesis."
+> "On the left, what survives: KO-dimension six mod eight for H₄; eta equals minus two on the spherical space form; the fact that the binary icosahedral group motivates the quaternionic part of the algebra; the machine-verified honesty framework; and four rigorous No-Go theorems. On the right, what does not survive: the claim that H₄ derives the Standard Model — refuted. The claim that H₄ predicts one hundred twenty-five GeV — that was a retrospective fit, and we label it as such. And all Tier-Three cosmological formulas — falsified by Planck and DESI. The honest summary is this: Trinity S³AI is a active boundary-mapping research program. Knowing what does not work is as valuable as knowing what does — because it saves the next researcher two years of chasing the same beautiful hypothesis."
 
 **Key phrases to emphasize:**
 - *"what survives"* vs *"what does not survive"* — gesture left then right.
-- *"constructive negative result"* — the brand; say it with confidence.
+- *"active boundary-mapping research program"* — the brand; say it with confidence.
 - *"saves the next researcher two years"* — the utility argument; make eye contact.
 
 **Transition:**

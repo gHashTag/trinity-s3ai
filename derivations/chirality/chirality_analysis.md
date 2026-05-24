@@ -67,7 +67,7 @@ In Lisi's approach fermions are **embedded in the adjoint representation** of E8
 - not an embedding in the adjoint;
 - a discrete eigensystem of an operator.
 
-The Distler–Garibaldi no-go theorem works within the Lie-theoretic framework and does not cover discrete spectral constructions.
+The Distler–Garibaldi obstruction theorem works within the Lie-theoretic framework and does not cover discrete spectral constructions.
 
 ### Summary of Section 2
 
@@ -77,7 +77,7 @@ The Distler–Garibaldi no-go theorem works within the Lie-theoretic framework a
 | Embedding of fermions in adj(E8) | ✓ satisfied | ✗ vertices of 600-cell ≠ adj |
 | Check of self-conjugacy of $V_{2,1}$ | → no-go proved | Inapplicable: no SL(2,ℂ)×G |
 
-**Conclusion:** The Distler–Garibaldi theorem is formally inapplicable to the Trinity-s3ai approach. **This does not mean that chirality is solved — it means that the no-go theorem is not established, but the mechanism is not built either.**
+**Conclusion:** The Distler–Garibaldi theorem is formally inapplicable to the Trinity-s3ai approach. **This does not mean that chirality is solved — it means that the obstruction theorem is not established, but the mechanism is not built either.**
 
 ---
 

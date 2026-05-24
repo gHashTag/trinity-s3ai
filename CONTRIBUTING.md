@@ -6,7 +6,7 @@
 
 ## HONESTY-FIRST Principle
 
-This repository is a **constructive negative result**. See `SALVAGE.md` for a summary of what H4 *can* and *cannot* do. The main findings are four formal No-Go Theorems in `proofs/trinity/NoGoTheorems.v`.
+This repository is a **active boundary-mapping research program**. See `RESEARCH_STATUS.md` for a summary of what H4 *can* and *cannot* do. The main findings are four formal Obstruction Theorems in `proofs/trinity/NoGoTheorems.v`.
 
 The greatest ongoing risk is **silent regression**: someone adds a new `φ^a · π^b · e^c = X` formula without an explicit honesty tag, and it silently appears to be a first-principles derivation.
 
@@ -108,8 +108,8 @@ scripts/               — Python utilities and gates
 .github/workflows/
   ci.yml               — Main CI (anti_numerology_check → build)
   release.yml          — Release artifact builder
-SALVAGE.md             — What H4 can/cannot do (read first)
-NoGoTheorems.v         — Formal no-go theorems NGT1–NGT4
+RESEARCH_STATUS.md             — What H4 can/cannot do (read first)
+NoGoTheorems.v         — Formal obstruction theorems NGT1–NGT4
 CITATION.cff           — Citation metadata
 CONTRIBUTING.md        — This file
 ```

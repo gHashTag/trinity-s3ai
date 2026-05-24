@@ -7,7 +7,7 @@
 
 ## Contents
 
-1. [Lisi's Theory of Everything (E8-ToE) and the Distler–Garibaldi No-Go Theorem](#1-lisis-theory-of-everything-e8-toe-and-the-distlergaribaldi-no-go-theorem)
+1. [Lisi's Theory of Everything (E8-ToE) and the Distler–Garibaldi Obstruction Theorem](#1-lisis-theory-of-everything-e8-toe-and-the-distlergaribaldi-no-go-theorem)
 2. [F-Theory and GUTs with Exceptional E_n Groups](#2-f-theory-and-guts-with-exceptional-e_n-groups)
 3. [The 600-Cell, Icosians, and E8 Symmetry in Condensed Matter](#3-the-600-cell-icosians-and-e8-symmetry-in-condensed-matter)
 4. [The Golden Ratio φ in Physics: Coxeter Eigenvalues, E8 Toda, Affleck–Ludwig](#4-the-golden-ratio-φ-in-physics-coxeter-eigenvalues-e8-toda-affleckludwig)
@@ -17,7 +17,7 @@
 
 ---
 
-## 1. Lisi's Theory of Everything (E8-ToE) and the Distler–Garibaldi No-Go Theorem
+## 1. Lisi's Theory of Everything (E8-ToE) and the Distler–Garibaldi Obstruction Theorem
 
 ### 1.1 Lisi's Paper (2007)
 
@@ -36,7 +36,7 @@
 
 ---
 
-### 1.2 The Distler–Garibaldi No-Go Theorem (2009)
+### 1.2 The Distler–Garibaldi Obstruction Theorem (2009)
 
 **Reference:** J. Distler, S. Garibaldi, «There is no 'Theory of Everything' inside E8», *Commun. Math. Phys.* **298**, 419–436 (2010); arXiv:[0905.2658](https://arxiv.org/abs/0905.2658).
 
@@ -62,7 +62,7 @@
 
 **The Distler–Garibaldi theorem does not apply to H4 directly:** it is explicitly proven for E8 and its real forms. The prohibition on chiral embedding in H4 is not established by peer-reviewed mathematical literature — for the simple reason that H4 is not a Lie group and does not have a standard notion of "representation in the sense of Lie algebras".
 
-> **Important:** Absence of a no-go theorem ≠ existence of a working model. For the H4 approach, an independent proof of chirality or a specific physical mechanism must be constructed.
+> **Important:** Absence of a obstruction theorem ≠ existence of a working model. For the H4 approach, an independent proof of chirality or a specific physical mechanism must be constructed.
 
 ---
 

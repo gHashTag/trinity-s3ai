@@ -4,7 +4,7 @@
 **Date**: 2026-05-23  
 **Status**: Constructive negative result
 
-> **IMPORTANT**: This is a "constructive negative result" release. The DOI will point
+> **IMPORTANT**: This is a "active boundary-mapping research program" release. The DOI will point
 > to a software record documenting No-Go theorems and falsification tests, not to
 > a positive unification claim.
 

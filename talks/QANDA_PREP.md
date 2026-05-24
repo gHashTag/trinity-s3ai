@@ -1,6 +1,6 @@
 # Trinity S³AI — Q&A Preparation (Wave 13 Talk)
 
-**Goal:** Be honest, not defensive. Every answer should reinforce the core message: *this is a constructive negative result, reported with transparency.*
+**Goal:** Be honest, not defensive. Every answer should reinforce the core message: *this is a active boundary-mapping research program, reported with transparency.*
 
 ---
 

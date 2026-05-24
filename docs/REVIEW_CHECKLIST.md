@@ -54,7 +54,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 
 ## F. Public docs are English-only
 
-- [ ] [`README.md`](../README.md), [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md), [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md), [`docs/TECH_TREE.md`](TECH_TREE.md), [`docs/REVIEW_CHECKLIST.md`](REVIEW_CHECKLIST.md), [`SECURITY.md`](../SECURITY.md), [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md), and [`SALVAGE.md`](../SALVAGE.md) contain no non-English prose.
+- [ ] [`README.md`](../README.md), [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md), [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md), [`docs/TECH_TREE.md`](TECH_TREE.md), [`docs/REVIEW_CHECKLIST.md`](REVIEW_CHECKLIST.md), [`SECURITY.md`](../SECURITY.md), [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md), and [`RESEARCH_STATUS.md`](../RESEARCH_STATUS.md) contain no non-English prose.
 - [ ] [`ROADMAP.md`](../ROADMAP.md), [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md), [`FORMULAS.md`](../FORMULAS.md), and [`derivations/formulas_cleanup/PROPOSAL.md`](../derivations/formulas_cleanup/PROPOSAL.md) are English-only. New top-level public docs default to English-only.
 - [ ] Run the scan: `bash scripts/check_english_only.sh` exits 0. The script scans top-level public docs (README/SECURITY/HONESTY_MANIFEST/SALVAGE/FORMULAS/ROADMAP*/CONTRIBUTING, all of `docs/`, `.github/`, and `scripts/*.md`) and reports any Cyrillic. Deeper research notes under `derivations/` are out of scope (private research analyses; tracked as a follow-up).
 
@@ -80,11 +80,11 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 
 ## J1. Wave 17 honest-negative-result discipline
 
-- [ ] The README and `SALVAGE.md` describe the project as a *constructive negative result*, not as a successful unification.
+- [ ] The README and `RESEARCH_STATUS.md` describe the project as a *active boundary-mapping research program*, not as a successful unification.
 - [ ] The four Coq-formal No-Go theorems NGT1–NGT4 in [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) close with `Qed.` and are listed in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) §4.
 - [ ] The additional Wave 11–17 No-Go results NGT-5 (D₄/24-cell), NGT-6 (no σ-field under string/orbifold rescue) and NGT-7 (F₄ 3-generation hierarchy) are documented at paper / analysis level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP.md`](../ROADMAP.md) and [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md), and are flagged as *not yet Coq-formalised* in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) and [`docs/TECH_TREE.md`](TECH_TREE.md).
 - [ ] The E₈-plumbing η-convergence claim and the string / heterotic / orbifold rescue claim are both classified as **high_risk_or_falsified** in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) §4, consistent with the Wave 17 honesty notes in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md) and the findings in [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md).
-- [ ] The post-Wave-17 program is published as Tracks A (honest phenomenology), B (Cl(8) / J₃(𝕆)) and C (negative-result paper) in [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md); no track claims a Theory of Everything or prize-level recognition.
+- [ ] The post-Wave-17 program is published as Tracks A (honest phenomenology), B (Cl(8) / J₃(𝕆)) and C (boundary-result paper) in [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md); no track claims a Theory of Everything or prize-level recognition.
 
 ## J. Known blind spots are visible
 
@@ -99,7 +99,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 
 A reviewer who has ticked every box above can fairly say:
 
-> *Trinity S3AI is review-ready as a constructive negative result: the
+> *Trinity S3AI is review-ready as a active boundary-mapping research program: the
 > proofs that exist are real, the fits that exist are tagged, the
 > impossibilities that are claimed are formal, and no Theory-of-
 > Everything claim is made.*
