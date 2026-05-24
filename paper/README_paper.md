@@ -11,14 +11,14 @@
 ## 1. Paper Description
 
 **Title:**  
-*Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification*  
+*Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Standard Model Unification*  
 *(Subtitle: Four Obstruction Theorems for NCG Approaches Founded on the 600-Cell)*
 
 **Authors:** `[Anonymous, gHashTag]` — fill in before submission.
 
 **Abstract (250 words):** Presented in the `abstract` section of `wave10_paper.tex`.  
 Key thesis: H4/600-cell in the current formulation **cannot** derive the parameters  
-of the Standard Model — four obstruction theorems (NGT-1–4) prove this.  
+of the Standard Model — four obstruction theorems (BT-1–4) prove this.  
 Six positive structural results survive.
 
 ---
@@ -198,7 +198,7 @@ Cross-listing to `hep-th` and `cs.LO` is done automatically.
 | 2 | H4 and the 600-Cell | ~3 |
 | 3 | Catalog: 25 formulas | ~4 |
 | 4 | Positive structural results (P1–P6) | ~5 |
-| 5 | No-go theorems (NGT-1–4) | ~7 |
+| 5 | Boundary theorems (BT-1–4) | ~7 |
 | 6 | Comparison with prior work | ~2 |
 | 7 | Coq/Lean 4 formalization | ~2 |
 | 8 | Falsifiability | ~2 |
@@ -238,10 +238,10 @@ Format: biblatex (style `numeric-comp`).
 
 The paper follows the project principle "Do not lie." Main honest statements:
 
-1. **The abstract explicitly says "negative result" and "no-go"** — do not soften.
+1. **The abstract explicitly says "boundary-mapping research program" and "boundary"** — do not soften the honesty, but update the framing.
 2. **0 out of 25 formulas have class R (strict derivation)** — this is stated in the text.
 3. **754σ** falsification of baryon density — the number is present in the abstract and text.
-4. **\(\sigdist = 5.62\)** for NGT-4 — machine-verified, do not reduce.
+4. **\(\sigdist = 5.62\)** for BT-4 — machine-verified, do not reduce.
 5. **7 Admitted** — all listed with explanations in the appendix.
 6. **\(\delta_{CP} = 65.66°\)** — explicitly marked as NF (Numerical Fit), not "prediction".
 

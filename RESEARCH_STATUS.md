@@ -11,7 +11,7 @@ live elsewhere and are linked below.
 
 Trinity S³AI is an active research program that **tests multiple geometric hypotheses** for encoding the parameters of the Standard Model of particle physics. We explore H4 Coxeter group invariants, 600-cell geometry, E8 embeddings, Clifford algebras Cl(8), and φ/π/e phenomenological coincidences — formalizing what works, rigorously bounding what does not, and redirecting toward new ansätze when obstructions are proven. The project does not commit to a single theory; it is a **living laboratory of hypothesis testing**.
 
-**Boundary theorems (NGT-1–NGT4)** mark specific obstruction points: they
+**Boundary theorems (BT-1–BT-4)** mark specific obstruction points: they
 prove that *certain direct constructions* from H4 geometry do not reproduce
 the SM. These are **guideposts**, not dead ends — they narrow the search
 space and direct ongoing work toward Tracks A, B, and C.
@@ -28,14 +28,14 @@ to map the full boundary of why such a bridge is difficult.
 ## Known Obstructions (proven in Coq)
 
 The four Coq-formal obstruction theorems in
-[`proofs/trinity/NoGoTheorems.v`](proofs/trinity/NoGoTheorems.v):
+[`proofs/trinity/BoundaryTheorems.v`](proofs/trinity/BoundaryTheorems.v):
 
 | | Statement | What it bounds |
 |---|-----------|----------------|
-| **NGT1** | φ^a · π^b · e^c formulas cannot reproduce Λ or Ω_b | Cosmological constant / baryon fraction from this ansatz |
-| **NGT2** | No NCG σ-field from H4 root structure alone | A core NCG ingredient in the obvious H4 construction |
-| **NGT3** | 600-cell D_F is vector-like (antipodal symmetry) | Chiral fermions in the obvious construction |
-| **NGT4** | 2I-equivariant D_F cannot reproduce lepton mass ratios | Lepton mass hierarchy in the obvious construction |
+| **BT-1** | φ^a · π^b · e^c formulas cannot reproduce Λ or Ω_b | Cosmological constant / baryon fraction from this ansatz |
+| **BT-2** | No NCG σ-field from H4 root structure alone | A core NCG ingredient in the obvious H4 construction |
+| **BT-3** | 600-cell D_F is vector-like (antipodal symmetry) | Chiral fermions in the obvious construction |
+| **BT-4** | 2I-equivariant D_F cannot reproduce lepton mass ratios | Lepton mass hierarchy in the obvious construction |
 
 These are formal Coq theorems with closing `Qed.`s. They are **boundary**
 claims: they do not say "no H4-based theory of anything is possible", they
@@ -44,14 +44,14 @@ detours, alternative algebras, or entirely different geometric starting
 points.
 
 Three further Wave 11–17 boundary results are documented at paper /
-analysis level — **NGT-5** (D₄/24-cell does not yield 3 generations,
-Wave 11), **NGT-6** (no σ-field under string / orbifold rescue,
-Wave 14–17.2) and **NGT-7** (F₄ cannot produce the SM 3-generation
+analysis level — **BT-5** (D₄/24-cell does not yield 3 generations,
+Wave 11), **BT-6** (no σ-field under string / orbifold rescue,
+Wave 14–17.2) and **BT-7** (F₄ cannot produce the SM 3-generation
 hierarchy, Wave 16) — see
 [`paper/CHANGELOG_v1_to_v2.md`](paper/CHANGELOG_v1_to_v2.md),
 [`ROADMAP.md`](ROADMAP.md) §"Boundary theorems" and
 [`ROADMAP_WAVE17_PLUS.md`](ROADMAP_WAVE17_PLUS.md). These are honestly
-flagged as *not yet Coq-formalised in `proofs/trinity/NoGoTheorems.v`*
+flagged as *not yet Coq-formalised in `proofs/trinity/BoundaryTheorems.v`*
 and are tracked for promotion to `Qed.` in future waves.
 
 ## What the project delivers now

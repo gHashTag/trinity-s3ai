@@ -17,7 +17,7 @@
 
 This repository documents an ongoing investigation into whether geometric invariants of the H4 Coxeter group (and related structures such as the 600-cell and Clifford algebras Cl(8)) can encode or constrain the parameters of the Standard Model of particle physics.
 
-**Boundary theorems (NGT-1–NGT4)** map specific obstruction points: they prove that *certain direct constructions* from H4 geometry do not reproduce the SM. These are **guideposts**, not tombstones — they narrow the search space and direct future exploration toward Tracks A (honest phenomenology), B (Cl(8) / J₃(𝕆)), and C (publication of boundary results).
+**Boundary theorems (BT-1–BT-4)** map specific obstruction points: they prove that *certain direct constructions* from H4 geometry do not reproduce the SM. These are **guideposts**, not tombstones — they narrow the search space and direct future exploration toward Tracks A (honest phenomenology), B (Cl(8) / J₃(𝕆)), and C (publication of boundary results).
 
 The project maintains a living catalog of 59 numerical coincidences between H4 invariants and PDG 2024 measurements, all formally verified in Coq and tagged by epistemic status. Whether these coincidences are deep or accidental is itself an open research question.
 
@@ -37,7 +37,7 @@ The project maintains a living catalog of 59 numerical coincidences between H4 i
 | [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new obstruction NGT-7, updated counters, E8-plumbing / string-correspondence boundary notes |
 | [SECURITY.md](SECURITY.md) | Security policy and reporting path |
 | [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
-| [NoGoTheorems.v](proofs/trinity/NoGoTheorems.v) | Formal obstruction theorems NGT1–NGT4 (boundary markers, not dead ends) |
+| [BoundaryTheorems.v](proofs/trinity/BoundaryTheorems.v) | Formal obstruction theorems BT-1–BT-4 (boundary markers, not dead ends) |
 | [Catalog42.v](proofs/trinity/Catalog42.v) | 42 SM parameter formulas (tagged phenomenological) |
 | [admitted_log.md](docs/analysis/admitted_log.md) | Log of all Admitted with their tags |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
@@ -73,11 +73,11 @@ _Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_cla
 |-------|-------|--------|----------|--------------|
 | GOLDEN BRIDGE live canvas deployed on GitHub Pages (Rust + wasm) | L0 | `verified` | .github/workflows/pages.yml; live at https://t27.ai/trinity-s3ai/ | — |
 | Wave 17 honest counter reports 0 real `Admitted.` in proofs/trinity/ | L2 | `verified` | scripts/count_admitted_honest.py output; HONESTY_MANIFEST.md | Holds only for proofs/trinity/. Track B (proofs/clifford_cl8/) retains load-bearing Axioms with citations; the Lagrangian derivation is not closed. |
-| NGT1-NGT4: four formal No-Go theorems closed with `Qed.` | L2 | `verified` | proofs/trinity/NoGoTheorems.v (NGT1, NGT2, NGT3, NGT4 all Qed) | — |
+| BT-1–BT-4: four formal Boundary theorems closed with `Qed.` | L2 | `verified` | proofs/trinity/BoundaryTheorems.v (BT-1, BT-2, BT-3, BT-4 all Qed) | — |
 | E8 plumbing: eta discrepancy does NOT converge to -2 | L4 | `high_risk_or_falsified` | paper/CHANGELOG_v1_to_v2.md (Honesty Notes); Wave 17 audit | — |
 | No known string / heterotic / F-theory / orbifold compactification rescues the SM hierarchy from H4 or F4 | L4 | `high_risk_or_falsified` | ROADMAP_WAVE17_PLUS.md (Wave 17.2 Findings) | — |
 | `a4` conversion factor not fully reconciled across three derivations | L3 | `open_conjecture` | docs/analysis/a4_conversion_factor_analysis.md; docs/analysis/a4_honest_resolution.md | Produce a single derivation that all three (analytic, spectral, fit) paths agree on, or document why they cannot agree and downgrade the relevant fits. |
-| `m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass | L5 | `empirical_fit` | proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md | Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the NGT2 sigma-field obstruction. |
+| `m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass | L5 | `empirical_fit` | proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md | Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the BT-2 sigma-field obstruction. |
 | GOLDEN BRIDGE puzzle is a hypothesis-discovery game, not evidence | L6 | `verified` | games/trinity_fold/README.md; ring0_core::ClaimStatus enum | — |
 | No Theory-of-Everything claim and no prize claim is made | L1 | `verified` | docs/CLAIM_STATUS.md §2; README.md preamble | — |
 
@@ -132,7 +132,7 @@ grep-friendly summary.
                                            |
                        +-------------------+-----------------+
                        | L2  Formal Proofs (Coq / Lean)      |
-                       | NGT1..NGT4 Qed, refutation theorems |
+                       | BT-1..BT-4 Qed, refutation theorems |
                        +-------------------^-----------------+
                                            |
                        +-------------------+-----------------+
@@ -178,7 +178,7 @@ Each layer below states what is currently **Checked**, what is a known
 - **Checked:** Coq / Rocq build (Wave 17 baseline: 1 790 `Qed.`+`Defined.`
   across the canonical tree; 0 real `Admitted.` after comment stripping),
   Lean 4 scaffolding (`TrinityLean/`), 14 refutation theorems
-  (`*_refuted`), NGT1..NGT4 closed with `Qed.`.
+  (`*_refuted`), BT-1..BT-4 closed with `Qed.`.
 - **Blind spots:** the formal layer does **not** close the Lagrangian
   derivation; Track B Clifford statements still rest on cited `Axiom`s;
   Lean side is red on `main` (`H4RootSystem.lean`, `Snub24Z3.lean`).
@@ -203,7 +203,7 @@ Each layer below states what is currently **Checked**, what is a known
   comparison target; the derivation chain that the project would need
   to close is enumerated.
 - **Blind spots:** gauge structure, Higgs sector, Yukawa couplings, and
-  the three-generation structure are not derived; NGT2 (no sigma-field
+  the three-generation structure are not derived; BT-2 (no sigma-field
   from H4) and NGT-6 (no string / orbifold rescue) bound what can be
   recovered.
 - **Next unlock:** finite-algebra candidate, Dirac-operator construction,
@@ -256,7 +256,7 @@ Each layer below states what is currently **Checked**, what is a known
 
 ## Track B — Cl(p,q) formalization (Wave 12 launch)
 
-Following the no-go results on the H4/600-cell side, Wave 12 launches a
+Following the boundary results on the H4/600-cell side, Wave 12 launches a
 parallel **Track B** investigating Cl(8) / J3(O) / triality as an
 alternative basis for the three-generations question (per
 `outputs/B_program_T1_T12.md`).
@@ -309,10 +309,10 @@ inward-only dependency direction is enforced by integration tests in
 
 | Theorem | Statement | File |
 |---------|-----------|------|
-| **NGT1** (Cosmology) | φ^a π^b e^c formulas cannot reproduce Λ or Ω_b | NoGoTheorems.v |
-| **NGT2** (σ-field) | No NCG σ-field from H4 root structure alone | NoGoTheorems.v |
-| **NGT3** (Chirality) | 600-cell D_F is vector-like (antipodal symmetry) | NoGoTheorems.v |
-| **NGT4** (Mass hierarchy) | 2I-equivariant D_F cannot reproduce lepton mass ratios | NoGoTheorems.v |
+| **BT-1** (Cosmology) | φ^a π^b e^c formulas cannot reproduce Λ or Ω_b | BoundaryTheorems.v |
+| **BT-2** (σ-field) | No NCG σ-field from H4 root structure alone | BoundaryTheorems.v |
+| **BT-3** (Chirality) | 600-cell D_F is vector-like (antipodal symmetry) | BoundaryTheorems.v |
+| **BT-4** (Mass hierarchy) | 2I-equivariant D_F cannot reproduce lepton mass ratios | BoundaryTheorems.v |
 
 ---
 
@@ -389,7 +389,7 @@ python3 scripts/anti_numerology_gate.py       # honesty check
 proofs/trinity/              — Coq .v source files (50 files)
   CorePhi.v                  — Golden ratio φ and its algebra
   Catalog42.v                — 42 SM parameter formulas [phenomenological_fit]
-  NoGoTheorems.v             — NGT1–NGT4 formal obstruction theorems
+  BoundaryTheorems.v             — BT-1–BT-4 formal obstruction theorems
   HiggsPrediction.v          — Higgs mass formulas [phenomenological_fit]
   CosmologyOrigins.v         — Cosmological formulas [HONEST: ...]
   ...
@@ -411,7 +411,7 @@ CONTRIBUTING.md              — Contribution rules (Russian + English)
 
 ## Honesty Statement
 
-The 59 formulas in `Catalog42.v` and related files match Standard Model parameters to <0.01% precision using combinations of φ, π, and e. **This is a catalog of numerical coincidences, not a physical theory.** The No-Go theorems prove that these coincidences cannot be elevated to a consistent NCG model of the Standard Model.
+The 59 formulas in `Catalog42.v` and related files match Standard Model parameters to <0.01% precision using combinations of φ, π, and e. **This is a catalog of numerical coincidences, not a physical theory.** The Boundary theorems prove that these coincidences cannot be elevated to a consistent NCG model of the Standard Model.
 
 Every formula is tagged with `[phenomenological_fit]` and is automatically checked by the anti-numerology CI gate (`scripts/anti_numerology_gate.py`). Any new formula without an approved honesty tag will be rejected by CI.
 
@@ -425,7 +425,7 @@ After Zenodo deposit, the DOI badge above will be updated. For now, cite the Git
 
 ```bibtex
 @software{trinity_s3ai_2026,
-  title  = {Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification},
+  title  = {Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Standard Model Unification},
   author = {[Author Name]},
   year   = {2026},
   url    = {https://github.com/gHashTag/trinity-s3ai},
@@ -444,7 +444,7 @@ Also see [CITATION.bib](CITATION.bib) for formatted references.
 | 1–3 | Initial φ/π/e formula catalog |
 | 4.1 | Honesty tags: `[phenomenological_fit]`, `[NUMERICAL_FIT]` added |
 | 5–8 | NCG derivations, spectral action |
-| 9.6 | NGT1–NGT4 obstruction theorems formalized |
+| 9.6 | BT-1–BT-4 obstruction theorems formalized |
 | 10.5 | Anti-numerology CI gate; CITATION.cff; CONTRIBUTING.md |
 | 12 | Track B launch: Cl(p,q) formalization (T1–T3) |
 | 15.1 | Honest counting system: comments stripped before statistics |

@@ -151,7 +151,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
 | 1 | H₄/600-cell: KO-dim = 6 mod 8 | ✅ Confirmed | `proofs/trinity/KODimension.v` — sign triple (+,+,+) proved (`Qed`); off-diagonal J admitted as `PHYSICAL_AXIOM` |
-| 2 | D₄/24-cell: KO-dim = 5 mod 8 | ✅ Confirmed (negative result) | `derivations/trinity_d4/trinity_d4_analysis.md` — explicit numeric computation gives (−,+,+) → KO-dim 5, **not SM-like** |
+| 2 | D₄/24-cell: KO-dim = 5 mod 8 | ✅ Confirmed (boundary finding) | `derivations/trinity_d4/trinity_d4_analysis.md` — explicit numeric computation gives (−,+,+) → KO-dim 5, **not SM-like** |
 | 3 | η(2I) = −2 | ✅ Confirmed | `proofs/trinity/EtaInvariant.v` — `eta_poincare_nonzero`, `eta_poincare_negative`, `eta_poincare_magnitude` all `Qed` |
 | 4 | η(2T) = −3/2 | ✅ Open (convention-dependent) | `derivations/eta_2t_2o/eta_table_analysis.md` — adopted from plumbing convention η = σ/4; Dedekind-sum cross-check gives different value under natural metric |
 | 5 | η(2O) = −7/4 | ✅ Open (convention-dependent) | Same status as η(2T) |
@@ -165,11 +165,11 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 
 | Theorem | Claim | Status | Source |
 |---------|-------|--------|--------|
-| **NGT-1** | Cosmological parameters from H₄ formulas | **Refuted** | Wave 8.5; `derivations/no_go_analysis/no_go_theorems.md` — Λ off by 92 orders; Ω_b h² off by 754σ |
-| **NGT-2** | σ-field from H₄ geometry | **Proved impossible** | Wave 5.3; `proofs/trinity/UnimodularityAndSigma.v` — `H4_degree2_is_constant_on_orbit` (Qed) |
-| **NGT-3** | Chirality from 600-cell alone | **Proved impossible** | Wave 6; `proofs/trinity/ChiralityAnalysis.v` — antipodal symmetry forces vector-like spectrum |
-| **NGT-4** | Mass hierarchy from 2I-equivariant D_F | **Proved impossible** | Wave 8.4; `proofs/trinity/DFSpectrum.v` — σ = 5.62 > 5σ from SM spectrum |
-| **NGT-5** | D₄/24-cell as SM finite geometry | **Ruled out** | Wave 11.2; `derivations/trinity_d4/trinity_d4_analysis.md` — KO-dim 5 ≠ 6; triality does not yield 3 generations |
+| **BT-1** | Cosmological parameters from H₄ formulas | **Refuted** | Wave 8.5; `derivations/no_go_analysis/no_go_theorems.md` — Λ off by 92 orders; Ω_b h² off by 754σ |
+| **BT-2** | σ-field from H₄ geometry | **Proved impossible** | Wave 5.3; `proofs/trinity/UnimodularityAndSigma.v` — `H4_degree2_is_constant_on_orbit` (Qed) |
+| **BT-3** | Chirality from 600-cell alone | **Proved impossible** | Wave 6; `proofs/trinity/ChiralityAnalysis.v` — antipodal symmetry forces vector-like spectrum |
+| **BT-4** | Mass hierarchy from 2I-equivariant D_F | **Proved impossible** | Wave 8.4; `proofs/trinity/DFSpectrum.v` — σ = 5.62 > 5σ from SM spectrum |
+| **BT-5** | D₄/24-cell as SM finite geometry | **Ruled out** | Wave 11.2; `derivations/trinity_d4/trinity_d4_analysis.md` — KO-dim 5 ≠ 6; triality does not yield 3 generations |
 
 ### Surviving Positive Results
 

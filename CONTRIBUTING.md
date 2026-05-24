@@ -6,7 +6,7 @@
 
 ## HONESTY-FIRST Principle
 
-This repository is a **active boundary-mapping research program**. See `RESEARCH_STATUS.md` for a summary of what H4 *can* and *cannot* do. The main findings are four formal Obstruction Theorems in `proofs/trinity/NoGoTheorems.v`.
+This repository is a **active boundary-mapping research program**. See `RESEARCH_STATUS.md` for a summary of what H4 *can* and *cannot* do. The main findings are four formal Obstruction Theorems in `proofs/trinity/BoundaryTheorems.v`.
 
 The greatest ongoing risk is **silent regression**: someone adds a new `φ^a · π^b · e^c = X` formula without an explicit honesty tag, and it silently appears to be a first-principles derivation.
 
@@ -36,7 +36,7 @@ Any `Definition` combining ≥2 of {φ, π, e, √n} in its RHS and matching a p
 
 ```coq
 (* [phenomenological_fit] Numerical coincidence with PDG 2024. Error 0.024%. *)
-(* NOT derived from H4 geometry; see NoGoTheorems.v NGT4.                   *)
+(* NOT derived from H4 geometry; see BoundaryTheorems.v BT-4.                   *)
 Definition G01_formula : R := 36 * phi * (exp 1) * (exp 1) / PI.
 ```
 
@@ -109,7 +109,7 @@ scripts/               — Python utilities and gates
   ci.yml               — Main CI (anti_numerology_check → build)
   release.yml          — Release artifact builder
 RESEARCH_STATUS.md             — What H4 can/cannot do (read first)
-NoGoTheorems.v         — Formal obstruction theorems NGT1–NGT4
+BoundaryTheorems.v         — Formal obstruction theorems BT-1–BT-4
 CITATION.cff           — Citation metadata
 CONTRIBUTING.md        — This file
 ```

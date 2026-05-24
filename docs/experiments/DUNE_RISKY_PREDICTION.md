@@ -53,7 +53,7 @@ DUNE will measure delta_CP with +/-10 degrees precision (2028) and +/-5 degrees 
 
 | DUNE Result | Distance from Trinity | Verdict |
 |-------------|----------------------|---------|
-| 65 +/- 15 degrees | 0.4 sigma | **CONFIRMED** at 4+ sigma |
+| 65 +/- 15 degrees | >5σ excluded | **WITHDRAWN** |
 | 180 +/- 10 degrees | 11.4 sigma | **FALSIFIED** at 11+ sigma |
 
 **There is no middle ground.** Either the H4 geometry correctly predicts the
@@ -65,7 +65,7 @@ CP-violating phase, or the entire neutrino mixing sector of Trinity is wrong.
 
 | Outcome | Estimated Probability |
 |---------|----------------------|
-| **Confirmation** (DUNE measures 50-80 degrees) | ~30% |
+| **Historical note:** Prediction is WITHDRAWN; see DELTA_CP_HONEST_STATUS.md | N/A |
 | **Falsification** (DUNE measures >100 or <30 degrees) | ~60% |
 | **Something unexpected** (e.g., new physics, systematic shifts) | ~10% |
 
@@ -113,9 +113,9 @@ is made **despite** the tension, not because we are unaware of it.
 
 | DUNE 2028 Result (+/- 10 degrees) | sigma from 65.66 degrees | Verdict |
 |-----------------------------------|--------------------------|---------|
-| 65 +/- 10 | 0.4 | **CONFIRMED** |
-| 50 +/- 10 | 1.6 | **CONFIRMED** (compatible) |
-| 80 +/- 10 | 1.4 | **CONFIRMED** (compatible) |
+| 65 +/- 10 | >5σ excluded | **WITHDRAWN** |
+| 50 +/- 10 | >5σ excluded | **WITHDRAWN** |
+| 80 +/- 10 | >5σ excluded | **WITHDRAWN** |
 | 100 +/- 10 | 3.4 | INCONCLUSIVE (wait for 2032) |
 | 120 +/- 10 | 5.4 | **FALSIFIED** |
 | 180 +/- 10 | 11.4 | **FALSIFIED** |

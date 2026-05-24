@@ -667,7 +667,7 @@ See [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REW
 - **Added:** Sacred Biology tier with DNA/protein/neural formulas
 - **Added:** Cosmology tier with dark energy and inflation parameters
 - **Modified:** Reclassified validation statuses post-PDG 2024 update
-- **Fixed:** N04 $\delta_{CP}$ formula confirmed against T2K+NOvA 2024
+- **Fixed:** N04 $\delta_{CP}$ formula **WITHDRAWN** (post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025)
 
 ### v2.2.0 — 2025-03-10
 

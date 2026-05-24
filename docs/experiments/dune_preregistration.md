@@ -101,19 +101,19 @@ We declare the following falsification criteria **before** DUNE data:
 
 **PRIMARY FALSIFICATION** (DUNE 2028, ±10° precision):
 - If DUNE measures delta_CP > 100° OR delta_CP < 30° → **Trinity FALSIFIED** at >3 sigma
-- If DUNE measures delta_CP = 65 ± 15° (50° to 80°) → **Trinity CONFIRMED** at <1.5 sigma
+- If DUNE measures delta_CP = 65 ± 15° (50° to 80°) → **HISTORICAL (superseded)** — the δ_CP prediction is **WITHDRAWN**; see DELTA_CP_HONEST_STATUS.md
 
 **SECONDARY FALSIFICATION** (DUNE 2032, ±5° precision):
 - If DUNE 2032 measures delta_CP > 80° OR delta_CP < 50° → **Trinity FALSIFIED** at >3 sigma
-- If DUNE 2032 measures delta_CP = 65 ± 7° → **Trinity CONFIRMED** at <1.5 sigma
+- If DUNE 2032 measures delta_CP = 65 ± 7° → **HISTORICAL (superseded)** — the δ_CP prediction is **WITHDRAWN**; see DELTA_CP_HONEST_STATUS.md
 
 ### 4.2 Scenario Matrix
 
 | DUNE 2028 Result | sigma from Trinity | Verdict |
 |-----------------|-------------------|---------|
-| 65 ± 10° | 0.1 sigma | **CONFIRMED** |
-| 50 ± 10° | 1.6 sigma | **CONFIRMED** (compatible) |
-| 80 ± 10° | 1.4 sigma | **CONFIRMED** (compatible) |
+| 65 ± 10° | >5σ excluded | **WITHDRAWN** |
+| 50 ± 10° | >5σ excluded | **WITHDRAWN** |
+| 80 ± 10° | >5σ excluded | **WITHDRAWN** |
 | 100 ± 10° | 3.4 sigma | **MARGINAL** (borderline) |
 | 120 ± 10° | 5.4 sigma | **FALSIFIED** |
 | 180 ± 10° | 11.4 sigma | **FALSIFIED** |

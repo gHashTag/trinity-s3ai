@@ -6,7 +6,7 @@
 
 ## 0. TL;DR
 
-The public-facing claim that Trinity S³AI **derives** the number of fermion generations N_gen = 3 from H4/600-cell geometry is **not supported by the project's own Coq formalization**. The project's internal proofs (`proofs/trinity/ThreeGenerations.v`, `proofs/trinity/AltCrystallography.v`) constitute a **formal negative result**: no mechanism in the H4/600-cell + 2I geometry yields exactly three generations from first principles. This document brings the public-facing claim into agreement with the basement Coq reality.
+The public-facing claim that Trinity S³AI **derives** the number of fermion generations N_gen = 3 from H4/600-cell geometry is **not supported by the project's own Coq formalization**. The project's internal proofs (`proofs/trinity/ThreeGenerations.v`, `proofs/trinity/AltCrystallography.v`) constitute a **formal boundary finding**: no mechanism in the H4/600-cell + 2I geometry yields exactly three generations from first principles. This document brings the public-facing claim into agreement with the basement Coq reality.
 
 | Document | Previous claim | Coq reality |
 |---|---|---|
@@ -20,13 +20,13 @@ The public-facing claim that Trinity S³AI **derives** the number of fermion gen
 
 ## 1. What the Coq Code Actually Proves
 
-### 1.1 `proofs/trinity/ThreeGenerations.v` — Formal No-Go on Five Mechanisms
+### 1.1 `proofs/trinity/ThreeGenerations.v` — Formal Boundary Result on Five Mechanisms
 
 The file header (lines 5–13) states:
 
 > **HONEST ASSESSMENT**: This file formalises five candidate mechanisms for deriving exactly three fermion generations from the H4/600-cell + 2I geometry.
 > **RESULT: NO mechanism gives 3 from first principles.**
-> Each mechanism either fails outright or reduces to an ad hoc choice. This is documented as a NEGATIVE RESULT strengthening the no-go case for H4-based automatic 3-generation derivation.
+> Each mechanism either fails outright or reduces to an ad hoc choice. This is documented as a BOUNDARY FINDING strengthening the boundary case for H4-based automatic 3-generation derivation.
 
 The final theorem `wave9_5_no_h4_mechanism_yields_three_generations` (lines 429–453) is a single Qed proof aggregating five sub-failures:
 
@@ -40,7 +40,7 @@ The final theorem `wave9_5_no_h4_mechanism_yields_three_generations` (lines 429�
 
 The file's own final summary (lines 530–540) states verbatim:
 
-> **HONEST VERDICT**: The H4/600-cell + 2I geometry does not produce the number 3 automatically from first principles. This is a significant negative result, strengthening the no-go case for H4-based unification.
+> **HONEST VERDICT**: The H4/600-cell + 2I geometry does not produce the number 3 automatically from first principles. This is a significant boundary finding, strengthening the boundary case for H4-based unification.
 
 ### 1.2 `proofs/trinity/AltCrystallography.v` — D4 Triality Is Aspirational, Not Derivational
 

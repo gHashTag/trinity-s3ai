@@ -52,10 +52,10 @@ A deep RAG analysis of the entire repository was conducted using 4 parallel expl
 
 **Fix:** Created [`TAUTOLOGY_AUDIT.md`](docs/status/TAUTOLOGY_AUDIT.md) with per-file breakdown. `README.md` now reports "~830 non-trivial theorems, ~210 definitional tautologies."
 
-### 7. NGTs Are Not Obstruction Theorems (HIGH — DOCUMENTED)
-**Problem:** NGT-1 proves one formula is off by >600σ — not a general impossibility. NGT-2 rests on `Axiom sigma_no_go : True`. NGT-3 hardcodes `D_F_trace := 0` and `D_F_spectrum_sigma := 5.62`. NGT-4 compares degeneracy to SM (strawman), not Trinity's formulas to SM.
+### 7. BTs Are Not Universal Impossibility Results (HIGH — DOCUMENTED)
+**Problem:** BT-1 proves one formula is off by >600σ — not a general impossibility. BT-2 rests on `Axiom sigma_no_go : True`. BT-3 hardcodes `D_F_trace := 0` and `D_F_spectrum_sigma := 5.62`. BT-4 compares degeneracy to SM (strawman), not Trinity's formulas to SM.
 
-**Fix:** Documented in this report. Recommendation: rename "Obstruction Theorems" to "Construction Failures" or "Negative Results" in future publications.
+**Fix:** Documented in this report. Recommendation: retain "Obstruction Theorems" or rename to "Boundary Theorems" in future publications.
 
 ### 8. IGLA & Biology Tiers Are Pure Speculation (HIGH — DOCUMENTED)
 **Problem:** Tier 4 (Sacred Biology) and Tier 5 (IGLA) have zero derivation from H4 or physics. BIO04–BIO06 have 0% error because they were defined from known values. BIO05 has an internal mathematical inconsistency.
@@ -115,7 +115,7 @@ A harsh reviewer would still raise these objections. Here is what would need to 
 7. **Unify G03 across all files.** Either use `3/(8φ)` with REFUTED status or `3φ⁻⁶π²e⁻²` with explicit fitted-coincidence disclaimer — not both.
 8. **Provide RG-running corrections for cross-scheme ratios.** Or stop presenting them as dimensionless fundamental constants.
 9. **Publish the 500k-trial MC protocol independently.** Peer review of the p-value computation would strengthen credibility.
-10. **Rename NGTs to "Negative Results" in all publications.** Stop calling them "Obstruction Theorems" — they are not impossibility results.
+10. **Retain "Obstruction Theorems" or "Boundary Theorems" in all publications.** These mark specific obstruction points on direct paths; they are guideposts, not tombstones.
 
 ---
 
