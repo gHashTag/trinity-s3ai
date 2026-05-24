@@ -637,6 +637,18 @@ Proof.
   reflexivity.
 Qed.
 
+Lemma i_02_e1 : i_02 e1_02 = mkH 0 1 0 0.
+Proof.
+  unfold i_02, e1_02. simpl.
+  apply H_eq; simpl; ring.
+Qed.
+
+Lemma i_02_e2 : i_02 e2_02 = mkH 0 0 1 0.
+Proof.
+  unfold i_02, e2_02. simpl.
+  apply H_eq; simpl; ring.
+Qed.
+
 Lemma cl02_hom_factor (B : RAlgebra) (j : Vec 2 -> carrier B)
   (j_add : forall v w, j (vec_add v w) = alg_add B (j v) (j w))
   (j_smul : forall r v, j (vec_smul r v) = alg_smul B r (j v)) :
@@ -656,28 +668,10 @@ Proof.
   rewrite Hv.
   rewrite i_02_linear. rewrite i_02_smul. rewrite i_02_smul.
   rewrite cl02_hom_add. rewrite cl02_hom_smul. rewrite cl02_hom_smul.
-  assert (Hi : cl02_hom_fn B j (i_02 e1_02) = j e1_02).
-  { unfold i_02, cl02_hom_fn. simpl.
-    replace (1 * 0 + 0 * 0) with 0 by ring.
-    replace (1 * 1 + 0 * 0) with 1 by ring.
-    replace (1 * 0 + 0 * 1) with 0 by ring.
-    rewrite alg_smul_1.
-    repeat rewrite alg_smul_0.
-    repeat rewrite alg_add_0_l.
-    rewrite alg_add_0_r.
-    reflexivity. }
-  assert (Hj' : cl02_hom_fn B j (i_02 e2_02) = j e2_02).
-  { unfold i_02, cl02_hom_fn. simpl.
-    replace (0 * 0 + 1 * 0) with 0 by ring.
-    replace (0 * 1 + 1 * 0) with 0 by ring.
-    replace (0 * 0 + 1 * 1) with 1 by ring.
-    rewrite alg_smul_1.
-    repeat rewrite alg_smul_0.
-    repeat rewrite alg_add_0_l.
-    rewrite alg_add_0_r.
-    reflexivity. }
-  rewrite Hi. rewrite Hj'.
-  rewrite j_add. rewrite j_smul. rewrite j_smul.
+  rewrite i_02_e1, i_02_e2.
+  rewrite cl02_hom_i, cl02_hom_j.
+  rewrite <- j_smul, <- j_smul.
+  rewrite <- j_add.
   reflexivity.
 Qed.
 
@@ -712,7 +706,8 @@ Lemma cl02_univ_unique :
 Proof.
   intros B j f1 f2 H1 H2 [a b c d].
   assert (Hdecomp : mkH a b c d = alg_add H_RAlgebra (alg_smul H_RAlgebra a (alg_one H_RAlgebra)) (alg_add H_RAlgebra (alg_smul H_RAlgebra b (i_02 e1_02)) (alg_add H_RAlgebra (alg_smul H_RAlgebra c (i_02 e2_02)) (alg_smul H_RAlgebra d (alg_mul H_RAlgebra (i_02 e1_02) (i_02 e2_02)))))).
-  { unfold i_02, alg_one, alg_smul, alg_mul, alg_add. simpl.
+  { rewrite i_02_e1, i_02_e2.
+    unfold alg_one, alg_smul, alg_mul, alg_add. simpl.
     apply H_eq; simpl; ring. }
   rewrite Hdecomp.
   repeat rewrite (hom_add f1). repeat rewrite (hom_add f2).

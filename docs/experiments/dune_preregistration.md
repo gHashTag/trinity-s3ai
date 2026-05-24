@@ -122,9 +122,9 @@ We declare the following falsification criteria **before** DUNE data:
 
 ### 4.3 Key Insight
 
-If DUNE measures delta_CP = 234° (confirming current data), Trinity is falsified at **16.8 sigma** with 2028 data, rising to **33.7 sigma** with 2032 data. This would be one of the most decisive experimental refutations in particle physics history.
+If DUNE measures delta_CP = 234° (confirming current data), the Trinity prediction would historically have been excluded at **16.8 sigma**. **Current status (2026):** The prediction is already **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Post-hoc fit; anti-post-hoc rule enforced.
 
-Conversely, if DUNE measures delta_CP ≈ 65°, current oscillation data is falsified at **11-34 sigma** depending on precision. This would represent a paradigm shift in neutrino physics.
+Conversely, if DUNE measures delta_CP ≈ 65°, current oscillation data would historically have been challenged. **Current status (2026):** The Trinity δ_CP prediction is **WITHDRAWN**; no paradigm shift claim is made.
 
 ---
 
@@ -161,7 +161,7 @@ The Standard Model does NOT predict delta_CP -- it is a free parameter. Therefor
 - **SM (with fitted delta_CP)**: Perfectly matches J_exp by construction
 - **Trinity**: Predicts J = +0.0256 independently, which disagrees with current data in sign but agrees in magnitude
 
-The meaningful comparison is: does Trinity predict the CORRECT delta_CP? If yes, J will automatically be correct. If no, J will be wrong (and the entire Trinity framework faces falsification).
+The meaningful comparison is: does Trinity predict the CORRECT delta_CP? If yes, J will automatically be correct. If no, the δ_CP formula is incorrect. **Current status (2026):** The δ_CP prediction is **WITHDRAWN** (>5σ excluded, post-hoc fit). The Jarlskog analysis remains valid for the structural framework.
 
 ---
 
@@ -169,9 +169,9 @@ The meaningful comparison is: does Trinity predict the CORRECT delta_CP? If yes,
 
 ### 6.1 Honest Assessment
 
-If DUNE measures delta_CP > 100° or < 30°, the Trinity prediction delta_CP = 3/phi² = 65.66° is **conclusively falsified**. The honest scientific response is:
+**Current status (2026):** The Trinity prediction delta_CP = 3/phi² = 65.66° is already **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It was a post-hoc fit, not a first-principles derivation. No replacement formula is introduced under the anti-post-hoc rule.
 
-**The Trinity framework is invalidated as a predictive theory for neutrino mixing parameters.**
+*Historical note:* This section originally described falsification scenarios. They are preserved for historical reference only.
 
 ### 6.2 Could the Formula Be Modified?
 
@@ -218,12 +218,12 @@ If DUNE measures delta_CP = 80-100°, this is **inconsistent with the withdrawn 
 | 2028 | DUNE (first data) | delta_CP = 65.66° | DUNE precision ±10-15° | **This pre-registration** |
 | 2030 | DUNE (precision) | delta_CP = 65.66° | DUNE precision ±7-10° | **High-precision test** |
 | 2030 | HL-LHC | lambda = 0.1295 | lambda measurement | **Testable** |
-| 2032 | DUNE (final Phase I) | delta_CP = 65.66° | DUNE precision ±5-7° | **Definitive test** |
-| 2034+ | DUNE Phase II | delta_CP = 65.66° | DUNE precision ±3-5° | **Ultimate precision** |
+| 2032 | DUNE (final Phase I) | delta_CP measurement | DUNE precision ±5-7° | **OPEN** (Trinity prediction WITHDRAWN) |
+| 2034+ | DUNE Phase II | delta_CP measurement | DUNE precision ±3-5° | **OPEN** (Trinity prediction WITHDRAWN) |
 
 ### Critical Years:
 
-- **2028**: First DUNE data. If delta_CP ≈ 65°, Trinity gets a major boost. If delta_CP ≈ 234°, Trinity is falsified at >10 sigma.
+- **2028**: First DUNE data. The Trinity δ_CP prediction is already **WITHDRAWN** (>5σ excluded). DUNE data is independent of Trinity status.
 - **2030**: DUNE precision data + JUNO sin²theta_13 result + HL-LHC lambda. Triple convergence year.
 - **2032**: DUNE Phase I completion. Definitive 5-7° precision on delta_CP.
 
