@@ -5,10 +5,20 @@ type: software
 authors:
   - name: "Dmitrii Vasilev"
 repository-code: "https://github.com/gHashTag/trinity-s3ai"
+url: "https://t27.ai/trinity-s3ai/"
 license: MIT
 version: 1.0-wave23
 date-released: 2026-05-25
-doi: 10.5281/zenodo.PLACEHOLDER  # Replace with real DOI after Zenodo sync
+doi: 10.5281/zenodo.PLACEHOLDER  # Replace with real DOI after Zenodo sync — see scripts/prepare_zenodo.md
+abstract: |
+  Trinity S³AI is an active boundary-mapping research program that tests
+  whether geometric invariants of the H4 Coxeter group (and related structures
+  such as the 600-cell and Clifford algebra Cl(8)) can encode or constrain the
+  parameters of the Standard Model of particle physics. The repository contains
+  formal Coq proofs (50+ files, 1000+ Qed), numeric validation scripts, a Rust
+  formula catalog, and hardware documentation including the GF16 (GoldenFloat16)
+  silicon-bound floating-point format. All claims are tagged with honest status
+  (verified / empirical_fit / open_conjecture) per the HONESTY_MANIFEST.
 keywords:
   - noncommutative-geometry
   - spectral-triples
@@ -20,3 +30,18 @@ keywords:
   - lean4
   - falsifiability
   - boundary-theorems
+  - golden-ratio
+  - gf16
+  - floating-point
+  - tinytapeout
+  - hardware-attestation
+identifiers:
+  - type: url
+    value: "https://github.com/gHashTag/trinity-s3ai"
+    description: "Primary source repository"
+  - type: url
+    value: "https://t27.ai/trinity-s3ai/"
+    description: "Live game and interactive interface"
+  - type: url
+    value: "https://github.com/gHashTag/zig-golden-float"
+    description: "Zig reference implementation of GoldenFloat formats"

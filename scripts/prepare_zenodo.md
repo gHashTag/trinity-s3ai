@@ -1,7 +1,7 @@
 # Preparing Zenodo Release — Trinity S3AI
 
-**Version**: v1.0-wave14  
-**Date**: 2026-05-23  
+**Version**: v1.0-wave23  
+**Date**: 2026-05-25  
 **Status**: Active boundary-mapping research program
 
 > **IMPORTANT**: This is a "active boundary-mapping research program" release. The DOI will point
@@ -23,17 +23,17 @@
 
 ---
 
-## Step 2: Push Tag `v1.0-wave14` to GitHub
+## Step 2: Push Tag `v1.0-wave23` to GitHub
 
-> **Screenshot 2** — Terminal showing `git push origin v1.0-wave14` and the
+> **Screenshot 2** — Terminal showing `git push origin v1.0-wave23` and the
 > successful remote confirmation.
 
 ```bash
 # Verify the tag exists locally
-git tag -l v1.0-wave14
+git tag -l v1.0-wave23
 
 # Push the annotated tag to GitHub
-git push origin v1.0-wave14
+git push origin v1.0-wave23
 ```
 
 Alternatively, run the helper script (does **not** execute automatically):
@@ -72,11 +72,11 @@ Click **Edit** on the draft record and complete or verify the following fields:
 |-------|-------|
 | **Title** | Trinity S3AI: An Active Boundary-Mapping Research Program in Geometric Unification |
 | **Authors** | [Fill in real names and ORCID iDs] |
-| **Description** | Formal proofs, numerical validation, and discrete spectral geometry testing the hypothesis that Standard Model parameters derive from the H4 Coxeter group and 600-cell. |
+| **Description** | Formal proofs, numerical validation, discrete spectral geometry, and hardware documentation (GF16 floating-point format, TinyTapeout silicon attestation) testing the hypothesis that Standard Model parameters derive from the H4 Coxeter group and 600-cell. |
 | **Resource type** | Software |
 | **License** | MIT |
-| **Keywords** | noncommutative geometry, Coxeter groups, Standard Model, Coq, formal proof |
-| **Version** | v1.0-wave14 |
+| **Keywords** | noncommutative geometry, Coxeter groups, Standard Model, Coq, formal proof, golden ratio, GF16, hardware attestation, TinyTapeout |
+| **Version** | v1.0-wave23 |
 | **Related identifiers** | GitHub: `https://github.com/gHashTag/trinity-s3ai` |
 
 Add any additional references, funding information, or institutional affiliations as needed.
@@ -116,7 +116,7 @@ Commit and push the updates:
 
 ```bash
 git add CITATION.cff README.md
-git commit -m "docs: add Zenodo DOI v1.0-wave14"
+git commit -m "docs: add Zenodo DOI v1.0-wave23"
 git push origin main
 ```
 
@@ -137,7 +137,7 @@ curl -s "https://zenodo.org/api/records/XXXXXXX" | python3 -m json.tool | head -
 ## Checklist
 
 - [ ] Zenodo–GitHub integration enabled for `gHashTag/trinity-s3ai`
-- [ ] Local tag `v1.0-wave14` pushed to GitHub (`git push origin v1.0-wave14`)
+- [ ] Local tag `v1.0-wave23` pushed to GitHub (`git push origin v1.0-wave23`)
 - [ ] Zenodo draft record appears at [https://zenodo.org/deposit](https://zenodo.org/deposit)
 - [ ] Metadata (title, authors, description, keywords, license) verified in Zenodo
 - [ ] Record published and DOI obtained
@@ -147,4 +147,4 @@ curl -s "https://zenodo.org/api/records/XXXXXXX" | python3 -m json.tool | head -
 
 ---
 
-*Wave 15.3 — Trinity S3AI Zenodo Release Preparation*
+*Wave 23 — Trinity S3AI Zenodo Release Preparation*
