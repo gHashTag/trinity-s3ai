@@ -1,7 +1,7 @@
 //! Renormalization Group Running from H4 Boundary Conditions
 //!
-//! H4-derived values at high scale run down to low energy via SM RGEs.
-//! The boundary conditions come from H4 invariants (phi, e, pi combinations).
+//! Fitted formulas evaluated at high scale run down to low energy via standard SM RGEs.
+//! The boundary conditions are phenomenological coincidences, not derived from H4.
 
 use crate::ring::phi_pow;
 
@@ -142,7 +142,7 @@ impl StrongCP {
 pub struct RGRunning;
 
 impl RGRunning {
-    /// Verify that H4-derived alpha_s runs correctly to low energy
+    /// Verify that fitted alpha_s formula runs correctly via standard SM RGEs
     pub fn verify_running() -> bool {
         let alpha_s_mz = (5f64.sqrt() - 2.0) / 2.0;
         let alpha_s_tau = QCDBeta::alpha_s_mtau(alpha_s_mz);
@@ -152,7 +152,7 @@ impl RGRunning {
 
     /// Unification scale from running couplings
     pub fn unification_scale() -> f64 {
-        // H4-derived GUT scale ~ 10^16 GeV
+        // Standard GUT scale ~ 10^16 GeV (not derived from H4)
         1e16
     }
 

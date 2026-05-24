@@ -18,7 +18,7 @@ pub struct HiggsPotential {
 
 impl HiggsPotential {
     pub fn from_h4_invariants() -> Self {
-        // λ₁ and λ₂ derived from phi structure
+        // λ₁ and λ₂ fitted from phi structure (retrospective coincidence, not derivation)
         let lambda1 = 1.0 / QSqrt5::phi().eval().powi(4); // (2-phi)^2
         let lambda2 = -lambda1; // Koide condition: λ₂ = -λ₁
 
@@ -47,7 +47,7 @@ impl HiggsPotential {
     }
 }
 
-/// Trinity Higgs parameters (proven formulas)
+/// Trinity Higgs parameters (fitted formulas, not derived from first principles)
 pub struct HiggsTrinity;
 
 impl HiggsTrinity {
@@ -80,7 +80,7 @@ impl HiggsTrinity {
         Self::m_higgs() / Self::m_higgs_over_m_z()
     }
 
-    /// Higgs VEV: v = 246 GeV (derived from Fermi constant)
+    /// Higgs VEV: v = 246 GeV (measured SM input, not derived from H4)
     pub fn vev() -> f64 {
         Self::m_higgs() / (2.0 * QSqrt5::phi().eval().powi(-4)).sqrt()
     }

@@ -106,7 +106,7 @@ The Trinity project builds a spectral triple over the 600-cell (regular 4-dimens
 
 | # | Formula | Physical Meaning | Trinity Prediction | Experiment (PDG/NuFit) | σ-distance | Code in catalog | R/S/NF Status | **Verdict** |
 |---|---------|-----------------|---------------------|-------------------------|-------------|----------------|---------------|-------------|
-| **P1** | \(\delta_{CP} = \frac{3}{\varphi^2} \times \frac{180°}{\pi}\) | CP-phase of PMNS | **65.66°** | 197° (NO, NuFit 6.0) | **~2.7σ** | N04 | NF | **BORDERLINE** |
+| **P1** | \(\delta_{CP} = \frac{3}{\varphi^2} \times \frac{180°}{\pi}\) | CP-phase of PMNS | **65.66°** | 197° (NO, NuFit 6.0) | **>5σ excluded** | N04 | NF | **WITHDRAWN** |
 | **P2** | \(m_H = 4\varphi^3 e^2\) [GeV] | Higgs boson mass | **125.202 GeV** | 125.20 ± 0.11 GeV | 0.02σ | H01 | NF | **COMPATIBLE** |
 | **P3** | \(f_0 = E_0/h,\; E_0 = (\varphi e/\pi)^6 \times 10^{-5}\) [eV → THz] | Vacuum frequency / THz line | **12.8 THz** | Not measured | — | v21+Lesson 14 | NF | **PENDING** |
 | **P4** | \(m_{DM} = \varphi^5 \pi / e\) | WIMP dark matter mass | **12.82 GeV** | No WIMP signal (LZ/XENONnT) | — | Predictions.v | NF | **PENDING** |

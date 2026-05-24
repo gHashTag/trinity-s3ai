@@ -88,7 +88,7 @@ impl LeptonMasses {
         sum / (sqrt_sum * sqrt_sum)
     }
 
-    /// H4-derived Koide (using coefficients only, scale-independent)
+    /// Koide-like sum from H4 coefficients (numerical coincidence, not derived from H4 geometry)
     pub fn koide_h4() -> f64 {
         let c1: f64 = 1.0;
         let c2: f64 = 239.0;
@@ -152,7 +152,7 @@ impl QuarkMasses {
         8.0 * phi.powi(4) * e * e / 3.0
     }
 
-    /// m_t derived from m_t/m_c ratio and m_c = 1.27 GeV
+    /// m_t computed from fitted m_t/m_c ratio and m_c = 1.27 GeV (not derived from H4)
     pub fn m_t() -> f64 {
         Self::m_t_over_c() * 1.27
     }

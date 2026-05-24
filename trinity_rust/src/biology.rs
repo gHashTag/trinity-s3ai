@@ -5,7 +5,7 @@
 
 use crate::ring::phi_pow;
 
-/// Biology constants derived from phi
+/// Biology constants fitted from phi (speculative Tier 4 formulas)
 pub struct BiologyConstants;
 
 impl BiologyConstants {

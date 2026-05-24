@@ -216,13 +216,13 @@ pub fn all_stages() -> Vec<Stage> {
         Stage {
             number: 11,
             name: "RG Running",
-            description: "H4-derived couplings run via SM RGEs to low energy. \
-                          beta_0 = 23/(12*pi). Unification at ~10¹⁶ GeV.",
+            description: "Fitted coupling formulas run via standard SM RGEs to low energy. \
+                          beta_0 = 23/(12*pi). Unification at ~10¹⁶ GeV (not H4-derived).",
             status: StageStatus::Fitted,
             key_results: vec![
                 "alpha_s runs: 0.118 → 0.330 at m_tau (standard SM RGE, not H4-derived)",
                 "Lambda_QCD^(5) = ~88 MeV (standard 1-loop QCD)",
-                "GUT scale ~ 10^16 GeV from H4",
+                "GUT scale ~ 10^16 GeV (standard SUSY GUT, not H4-derived)",
                 "1/alpha_GUT = phi³*e/(2*pi) ≈ 24.8",
             ],
         },

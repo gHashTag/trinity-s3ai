@@ -145,7 +145,7 @@ Each formula is classified by epistemic status:
 
 | Class | Description | Count | Criteria |
 |-------|-------------|-------|----------|
-| **SG** (Structural-Geometric) | Directly computable from $H_4$ geometry, no free parameters | 6 | Sub-0.01\% error, coefficients from $H_4$ invariants |
+| **SG** (Structural-Geometric) | Fitted coincidence using $H_4$ invariants; no free parameters after the fit | 6 | Sub-0.01\% error, coefficients selected from search over $H_4$ invariants |
 | **V** (Verified) | Achieves sub-0.1\% error with one scale factor | 7 | Sub-0.1\% error, independently verified |
 | **W** (Working) | Sub-1\% accuracy, functional but less precise | 5 | Sub-1\% error, empirical match |
 | **F** (Failed) | Fails independent verification | 7 | Error $>1\%$ |
@@ -328,7 +328,7 @@ Applying the spectral action formalism [6] to the 600-cell geometry yields:
 
 ### 8.3 The Higgs Mass Discrepancy
 
-**The spectral action predicts $m_H \approx 87.4$ GeV, while the Trinity formula H01 predicts $m_H \approx 125.2$ GeV and the LHC measures $m_H = 125.2$ GeV.**
+**The spectral action predicts $m_H \approx 87.4$ GeV, while the Trinity fitted formula H01 gives $m_H \approx 125.2$ GeV (retrospective fit to LHC data).**
 
 This is a major discrepancy:
 1. The spectral action (derived from first principles) gives the WRONG Higgs mass
@@ -419,7 +419,7 @@ The spectral action applied to the 600-cell Dirac operator predicts $m_H \approx
 
 **Status: WITHDRAWN.** The formula $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ was a post-hoc fit to outdated PDG-2024 data. NuFIT-6.0 + T2K+NOvA 2025 exclude it at >5σ. 
 
-The previous formula $e/2 \approx 77.9^\circ$ was found to be excluded at $7.7\sigma$ by current data. The corrected formula $3/\varphi^2$ emerges naturally from the $H_4$ framework:
+The previous formula $e/2 \approx 77.9^\circ$ was found to be excluded at $7.7\sigma$ by current data. The corrected formula $3/\varphi^2$ was found by brute-force search over H4-invariant combinations targeting the outdated PDG-2024 central value:
 - $\varphi^2 = \varphi + 1 \approx 2.618$ appears in the $H_4$ degree structure
 - The coefficient 3 relates to the fundamental $H_4$ invariant via $3 = |H_4|/4800$
 - This gives $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$, within $0.16^\circ$ of the measured $65.5^\circ$

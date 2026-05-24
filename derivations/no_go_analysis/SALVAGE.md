@@ -64,7 +64,7 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 obstruct
 | D = R_i: first-order condition | ✅ SURVIVES | Exact result |
 | Unimodularity via H4 → A4 → SU(5) | ✅ SURVIVES | Embedding chain |
 | 25 formulas with NF/S/R tags | ✅ SURVIVES (as catalogue) | Honest numerology |
-| δ_CP = 65.66° | ⏳ PENDING | DUNE 2028 will give the answer |
+| δ_CP = 65.66° | ❌ **WITHDRAWN** | >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025; post-hoc fit |
 
 ### 1.4 Lean port (scaffold)
 

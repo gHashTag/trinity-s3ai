@@ -1,4 +1,4 @@
-(* Catalog42.v — Complete Catalog: 25/25 SM Parameters from H4 Invariants *)
+(* Catalog42.v — Complete Catalog: 25 SM Parameter Formulas Fitted from H4 Invariants *)
 (* Trinity S3AI v3.5 — ALL FORMULAS VERIFIED AND CORRECTED *)
 (* 12 SG-class | 13 V-class | 3 Exact | 4 Predictions *)
 (* CORRECTION 2025-07-28: sin^2_theta_13 formula fixed, promoted to SG-class *)

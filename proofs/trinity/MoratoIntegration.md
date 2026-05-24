@@ -54,9 +54,9 @@ This document provides the detailed technical specification for embedding Trinit
 **The Solution:** We establish a precise mapping between Trinity's coefficients (L01=239, L03=549, Q07=24, etc.) and the corresponding terms in the Connes-Chamseddine spectral action S_Lambda[D] = Tr(f(D/Lambda)). Each Trinity coefficient maps to a specific entry in the Yukawa coupling matrices Y_u, Y_d, Y_e, or to combinations of Seeley-DeWitt coefficients a_{2k}(D_A^2).
 
 **Key Results:**
-- The projection defect 239 = |E8 roots| - 1 = 240 - 1 emerges as the fundamental quantum number linking E8 geometry to H4 invariants
+- The projection defect 239 = |E8 roots| - 1 = 240 - 1 is a fitted coincidence linking E8 geometry to H4 invariants (not derived from first principles)
 - Yukawa ratios y_mu/y_e = 239 * (e/pi) * (v/M_Pl) are identified with specific matrix elements of the finite Dirac operator D_F
-- The spectral action's a_4(D^2) term encodes all 17 Trinity coefficients through its dependence on traces of Yukawa products
+- The spectral action's a_4(D^2) term is postulated to encode Trinity coefficients; no derivation from H4 geometry exists
 - The integration preserves Morató's uniqueness theorem: the moduli space remains a single point
 
 **Status:** This document provides the theoretical framework. Numerical verification requires collaboration between both groups.
@@ -321,7 +321,7 @@ In the Connes-Chamseddine framework, the gauge couplings at unification satisfy:
 g_3^2 = g_2^2 = (5/3) g_1^2    at scale Lambda
 ```
 
-This SU(5)-like relation emerges from the a_4 coefficient. Trinity's formulas modify this through H4-invariant corrections:
+This SU(5)-like relation is postulated to arise from the a_4 coefficient. Trinity's formulas modify this through H4-invariant corrections (no derivation from spectral action exists):
 
 ```
 g_1^2(Lambda) = (4pi) · (phi^3 / 239) · (pi/e)
@@ -427,7 +427,7 @@ The experimental value is |V_us| ≈ 0.225. Again, RG running and the precise st
 |V_us| = (e/239) · phi^2 · (v/M_Pl) · sqrt(m_d·m_c / (m_s·m_u))
 ```
 
-This structure naturally emerges when the 600-cell's 53-cycle automorphism is used to generate the off-diagonal elements from the orbit structure (22, 8, 1).
+This structure is postulated to arise from the 600-cell's 53-cycle automorphism; no proof that it generates the off-diagonal elements from the orbit structure (22, 8, 1) exists.
 
 ---
 
@@ -1061,7 +1061,7 @@ The integration can be verified through a three-step program:
 
 - Verify that Trinity's 17 formulas, when evaluated at the Planck scale, produce values consistent with Morató's mass formula parameters (alpha_k, beta_k) within 10%.
 - Compute the explicit mapping between Trinity coefficients and Morató's orbit sizes (22, 8, 1).
-- Verify that the projection defect 239 appears naturally in the 600-cell spectral data.
+- Verify whether the projection defect 239 appears in the 600-cell spectral data as a structural feature or as a fitted coincidence.
 
 **Step 2: Dynamic Verification (within 6 months)**
 
@@ -1177,7 +1177,7 @@ Using the identification R^4 ≅ H (quaternions):
 V_600 = { ±1, ±i, ±j, ±k, (±1±i±j±k)/2, (±phi±i±j/phi±k)/2, ... }
 ```
 
-The golden ratio phi = (1+sqrt(5))/2 appears naturally because the icosian ring is the ring of integers in the quaternion algebra over Q(sqrt(5)).
+The golden ratio phi = (1+sqrt(5))/2 is structurally present because the icosian ring is the ring of integers in the quaternion algebra over Q(sqrt(5)).
 
 **H4 Invariant Theory:**
 
@@ -1266,7 +1266,7 @@ These numbers are NOT arbitrary but are determined by the geometry of the E8 →
 
 ### Key Findings
 
-1. **Structural Compatibility:** Trinity's 17 H4-invariant formulas are structurally compatible with Morató's 600-cell spectral triple. The Trinity coefficients (239, 549, 24, phi^2, etc.) map naturally to entries in the Yukawa matrices that define the finite Dirac operator D_F.
+1. **Structural Compatibility:** Trinity's 17 H4-invariant formulas are structurally compatible with Morató's 600-cell spectral triple. The Trinity coefficients (239, 549, 24, phi^2, etc.) are postulated to map to entries in the Yukawa matrices that define the finite Dirac operator D_F.
 
 2. **Spectral Action Embedding:** Each Trinity coefficient appears in the Seeley-DeWitt coefficient a_4(D^2) of the spectral action through traces of Yukawa matrix products. The mapping is:
    - Linear traces Tr(Y†Y) → gauge couplings, Higgs parameters

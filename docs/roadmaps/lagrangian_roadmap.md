@@ -205,12 +205,12 @@ The Trinity a_4 = 8phi^3 gives the correct Higgs mass (125.202 GeV), but **there
 
 | File | Status | Key Contribution | Gap |
 |------|--------|------------------|-----|
-| `CorePhi.v` | **PROVEN** (0 Admitted) | phi definition, phi^2=phi+1, powZ, Lucas numbers | Foundation solid |
-| `H4Derivations.v` | **PROVEN** (0 Admitted) | 17 derivation theorems from H4 invariants | Derivations are numerical bounds, not physical derivations |
+| `CorePhi.v` | **QED** (0 Admitted) | phi definition, phi^2=phi+1, powZ, Lucas numbers | Foundation solid |
+| `H4Derivations.v` | **QED** (0 Admitted) | 17 interval-bound theorems from H4 invariants | Derivations are numerical bounds, not physical derivations |
 | `H4GaugeEmbedding.v` | **MIXED** (1 Admitted) | H4 subgroups -> SM gauge structure | Gauge group assignments motivated, not derived from spectral action |
-| `UniquenessTheorem.v` | **PROVEN** (0 Admitted) | Enumeration of H4 invariant combinations | Most coefficients have multiple derivations; uniqueness claims are honest |
-| `Koide.v` | **PROVEN** (0 Admitted) | Honest consistency check: Koide != 2/3 | H4-derived Koide = 0.6399, not 0.6667; ~4% deviation |
-| `Predictions.v` | **PROVEN** (0 Admitted) | 5 testable predictions with interval bounds | Predictions phenomenological, not derived from Lagrangian |
+| `UniquenessTheorem.v` | **QED** (0 Admitted) | Enumeration of H4 invariant combinations | Most coefficients have multiple derivations; uniqueness claims are honest |
+| `Koide.v` | **QED** (0 Admitted) | Honest consistency check: Koide != 2/3 | H4-derived Koide = 0.6399, not 0.6667; ~4% deviation |
+| `Predictions.v` | **QED** (0 Admitted) | 5 testable predictions with interval bounds | Predictions phenomenological, not derived from Lagrangian |
 
 ---
 
@@ -750,15 +750,15 @@ Morato's "600-Cell Spectral Triple" (referenced in H4Lagrangian.v) provides:
 
 | File | Status | Admitted | Key Theorems |
 |------|--------|----------|-------------|
-| CorePhi.v | **PROVEN** | 0 | phi_sq, phi_cubed, phi_fourth |
-| E6vsH4.v | **PROVEN** | 2 | E6_no_phi, H4_contains_phi, H4_minimal |
-| H4Derivations.v | **PROVEN** | 0 | 17 derivations (bounds) |
-| UniquenessTheorem.v | **PROVEN** | 0 | count_derivations, uniqueness_L01 |
+| CorePhi.v | **QED** | 0 | phi_sq, phi_cubed, phi_fourth |
+| E6vsH4.v | **QED** | 2 | E6_no_phi, H4_contains_phi, H4_minimal |
+| H4Derivations.v | **QED** | 0 | 17 interval-bound theorems |
+| UniquenessTheorem.v | **QED** | 0 | count_derivations, uniqueness_L01 |
 | H4GaugeEmbedding.v | **MIXED** | 1 | subgroup embeddings, coupling formulas |
-| Predictions.v | **PROVEN** | 0 | 5 testable predictions with bounds |
-| Koide.v | **PROVEN** | 0 | Koide != 2/3 (honest) |
+| Predictions.v | **QED** | 0 | 5 testable predictions with interval bounds |
+| Koide.v | **QED** | 0 | Koide != 2/3 (honest) |
 | HiggsPrediction.v | **ADMITTED** | 3 | H01 bounds (all admitted) |
-| SpectralAction600Cell.v | **PROVEN** | 0 | a4_total, gauge couplings, Higgs lambda |
+| SpectralAction600Cell.v | **QED** | 0 | a4_total, gauge couplings, Higgs lambda (predicts wrong m_H) |
 | H4Lagrangian.v | **MIXED** | 0 | order-of-magnitude bounds only |
 | HonestPValue.v | Unknown | ? | p-value computation |
 | Bounds_LeptonMasses.v | Unknown | ? | Mass bounds |

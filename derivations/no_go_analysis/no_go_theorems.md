@@ -233,7 +233,7 @@ because the adjacency matrix A is also antipodally symmetric (v and -v have the 
 | "H4 derives the Standard Model" | **REFUTED** | BT-1,2,3,4 collectively |
 | "α is computed from H4" | **REFUTED** | Wave 3, alpha_from_H4_refuted (Qed) |
 | "Λ = φ^(-144)/2" | **FALSIFIED** | Wave 7, ~118 orders deviation |
-| "δ_CP = 3/φ² = 65.66°" | **FALSIFIABLE** | Wave 3, ~2.7σ deviation; DUNE 2028 will answer |
+| "δ_CP = 3/φ² = 65.66°" | **WITHDRAWN** | >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025; post-hoc fit |
 | All Tier-3 formulas for CMB | **FALSIFIED** | Wave 8.5 (9 formulas, Planck/DESI) |
 | D_F from 2I gives SM spectrum | **REFUTED** | Wave 8.4, σ = 5.62 > 5 |
 | KO-dimension = 6 mod 8 | **SURVIVES** | Structural result (Wave 5.1, Qed) |
@@ -393,7 +393,7 @@ This restriction is **informative** in itself: it tells theorists what to look f
 
 - **25 formulas with NF/S tags** and verified accuracies — honest catalog.
 - **9 falsified Tier-3 formulas** with σ-distances — boundary finding for the record.
-- **δ_CP = 65.66°** — remains a falsifiable prediction (DUNE 2028).
+- **δ_CP = 65.66°** — **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
 - **KO-dim = 6 mod 8** — positive structural result.
 
 ### 7.3 Methodological Results (Preserve)

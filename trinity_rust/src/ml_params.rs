@@ -1,7 +1,7 @@
 //! Tier 6: Parameter Golf — ML Hyperparameters from phi
 //!
 //! Empirical hyperparameter formulas for neural-network training,
-//! derived from golden-ratio scaling rules.
+//! fitted from golden-ratio scaling rules (Tier 6 Parameter Golf — speculative).
 
 use crate::ring::phi_pow;
 
