@@ -77,6 +77,84 @@ cluster around the representational sweet spot.
 better precision than bfloat16 (9 vs 7 mantissa bits). The 6-bit exponent
 with bias=31 positions 1.0 at the center of a practical ML/inference range.
 
+### 2.5 Relation to DLFloat16 (IBM Research, ARITH 2019)
+
+The **bit layout** of GF16 — 1 sign + 6 exponent + 9 mantissa, bias 31 — is
+*identical* to **DLFloat16** introduced by IBM Research at ARITH 2019:
+
+> **Reference:** "DLFloat: A 16-b Floating Point Format Designed for Deep
+> Learning Training and Inference" (IBM Research, ARITH 2019).  
+> [IBM Research publication](https://research.ibm.com/publications/dlfloat-a-16-b-floating-point-format-designed-for-deep-learning-training-and-inference)
+
+IBM demonstrated DLFloat16 in silicon: **512 DLFloat16 FPUs** in a 1.5 TFLOPS
+AI core, achieving **~20× area savings** over 64-bit FPUs (VLSI 2018).
+
+**Critical differences** — GF16 is NOT identical to DLFloat16:
+
+| Feature | DLFloat16 (IBM) | GF16 (Trinity) |
+|---------|-----------------|----------------|
+| **Subnormals** | Eliminated (flush to zero) | **Preserved** (exp=0, mant≠0) |
+| **NaN / Infinity** | Merged into single "NaN-infinity" symbol | **Separate** (+Inf 0x7E00, −Inf 0xFE00, NaN 0xFE01) |
+| **Signed zero** | Unsigned (sign bit don't-care) | **Signed** (+0 = 0x0000, −0 = 0x8000) |
+| **φ-optimized rounding** | None | **PHI_BIAS = 60** in `gf16_round_phi` |
+| **Motivation** | DL training dynamic range | φ-anchored physics quantization |
+| **Special exp=63 binade** | Mostly normal, only all-1s mantissa = NaN-inf | All-1s exp = Inf/NaN (IEEE-style) |
+
+**Trinity's contribution is the φ-semantic overlay and hardware binding**, not
+the raw bit layout:
+- DLFloat16 was designed for deep-learning convergence.
+- GF16 re-interprets the *same* 1-6-9 layout as a **φ-anchored quantization
+  basis**: the 6/9 split gives `exp/mant = 2/3 ≈ 0.667`, and the distance to
+  the golden ratio `|6/9 - 1/φ| ≈ 0.049` becomes a **measure of structural
+  alignment** with φ-based physics data.
+- The bias value 31 encodes 1.0 at the "natural center" of φ-scaled
+  exponents.
+- **PHI_BIAS = 60** provides φ-aware rounding decisions for sacred-physics
+  calculations — a feature with no counterpart in DLFloat16.
+
+**Formal foundation:** The φ-optimal bit split is proven in
+"GoldenFloat: A Formally Verified, φ-Optimal Floating-Point Family"
+(NeurIPS 2026 OPT Workshop):
+- **Proposition 1 (Golden Self-Similarity):** φ is the unique self-similar
+  proportion for bit allocation (`e/m = 1/φ`).
+- **Proposition 2 (Optimal Integer Rounding):** `round((N−1)/φ²)` minimizes
+  φ-distance; verified 7/7 for the GoldenFloat family.
+- **Theorem 3 (Universal Attractor):** φ is the unique fixed point of the
+  balancing recursion `f(x) = (x + x⁻¹ + 1)/2` (Banach fixed-point proof).
+
+### 2.6 GoldenFloat family
+
+GF16 is the **primary** format in a φ-structured family. All members target
+`exp/mant ≈ 1/φ ≈ 0.618`:
+
+| Format | Bits | S | E | M | Bias | exp/mant | phi-distance | Use |
+|--------|------|---|---|---|------|----------|---------------|-----|
+| GF4 | 4 | 1 | 1 | 2 | 0 | 0.500 | 0.118 | Masks / sparsity |
+| GF8 | 8 | 1 | 3 | 4 | 3 | 0.750 | 0.132 | Weight compression |
+| GF12 | 12 | 1 | 4 | 7 | 7 | 0.571 | 0.047 | Attention, embeddings |
+| **GF16** | **16** | **1** | **6** | **9** | **31** | **0.667** | **0.049** | **Primary inference** |
+| GF20 | 20 | 1 | 7 | 12 | 63 | 0.583 | 0.035 | Training, gradients |
+| GF24 | 24 | 1 | 9 | 14 | 255 | 0.643 | 0.025 | High precision |
+| GF32 | 32 | 1 | 12 | 19 | 2047 | 0.632 | 0.014 | Same size as FP32 |
+
+The full family is specified in `t27/conformance/FORMAT-SPEC-001.json`.
+
+### 2.7 phi-distance definition
+
+For a format with `E` exponent bits and `M` mantissa bits (excluding sign):
+
+```
+phi_distance = | E/M - 1/φ |
+```
+
+- **GF16:** `|6/9 - 1/φ| = |0.667 - 0.618| ≈ 0.049`
+- **IEEE float16:** `|5/10 - 1/φ| = |0.500 - 0.618| ≈ 0.118`
+- **bfloat16:** `|8/7 - 1/φ| = |1.143 - 0.618| ≈ 0.524`
+
+A smaller `phi_distance` means the format's exponent/mantissa balance is
+closer to the golden ratio, which is hypothesized (not proven) to improve
+information density for φ-structured data distributions.
+
 ---
 
 ## 3. Hardware Architecture

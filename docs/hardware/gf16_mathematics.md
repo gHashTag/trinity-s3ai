@@ -199,11 +199,95 @@ specification.
 
 ---
 
-## 6. References
+## 6. Formal Propositions (NeurIPS 2026 OPT Workshop)
+
+The following results appear in "GoldenFloat: A Formally Verified,
+φ-Optimal Floating-Point Family for Ternary-Native Mixed-Precision
+Computing" (t27 Project Team, April 2026, target: NeurIPS 2026 OPT
+Workshop).
+
+### 6.1 Proposition 1 — Golden Self-Similarity
+
+**Statement:** The golden ratio φ is the *unique* self-similar proportion
+for bit allocation in floating-point formats.
+
+**Proof sketch:**
+Let `r = e/m` be the exponent-to-mantissa ratio. Self-similarity requires
+that this ratio equals its complement over the total allocation:
+
+```
+r = m / (e + m)
+```
+
+Since `e + m = N − 1` (sign bit excluded), we have `m = (N−1)/(1+r)`.
+Substituting:
+
+```
+r = 1 / (r + 1)
+```
+
+Solving `r² + r − 1 = 0` gives the positive root `r = (√5 − 1)/2 = 1/φ`.
+Therefore `e/m = 1/φ`, or equivalently `φ = (e+m)/e`.
+
+**Key distinction:** This is NOT an optimization result. Maximizing the
+product `e·m` gives `r = 1` by AM-GM inequality, not `r = 1/φ`. The
+self-similarity condition is a *defining property* of φ, not the outcome
+of maximizing an objective function.
+
+### 6.2 Proposition 2 — Optimal Integer Rounding
+
+**Statement:** For a total bit budget `N`, the integer allocation
+`exp_bits = round((N−1)/φ²)` minimizes the φ-distance `|e/m − 1/φ|`
+between the actual and ideal φ-proportion.
+
+**Verification:** All seven GoldenFloat formats satisfy this rule exactly:
+
+| Format | N | (N−1)/φ² | round() | e_actual | Match |
+|--------|---|----------|---------|----------|-------|
+| GF4 | 4 | 1.146 | 1 | 1 | Yes |
+| GF8 | 8 | 2.674 | 3 | 3 | Yes |
+| GF12 | 12 | 4.202 | 4 | 4 | Yes |
+| **GF16** | **16** | **5.729** | **6** | **6** | **Yes** |
+| GF20 | 20 | 7.257 | 7 | 7 | Yes |
+| GF24 | 24 | 8.785 | 9 | 9 | Yes |
+| GF32 | 32 | 11.841 | 12 | 12 | Yes |
+
+**Conclusion:** The GoldenFloat formats are NOT arbitrary deviations from
+the φ-split. They are **optimal integer approximations** to the
+φ-proportion via the rounding rule.
+
+### 6.3 Theorem 3 — Universal Attractor
+
+**Statement:** φ is the unique fixed point of the balancing recursion
+`f(x) = (x + x⁻¹ + 1)/2` on R⁺.
+
+**Proof sketch:**
+1. **Fixed-point verification:** `f(φ) = (φ + φ⁻¹ + 1)/2 = (φ + (φ−1) + 1)/2 = (2φ)/2 = φ`.
+2. **Contraction property:** For `x > 0`, `|f'(x)| = |(1 − x⁻²)/2| < 0.5` in a
+   neighbourhood of the attractor.
+3. **By Banach fixed-point theorem:** A contraction mapping on a complete
+   metric space has exactly one fixed point. Since φ is a fixed point and
+   `f` is a contraction, φ is the **unique attractor**.
+
+**Convergence rate:** `λ = (√5 − 1)/4 ≈ 0.309` (exponential convergence from
+any positive starting point).
+
+**Implication for bit allocation:** If exponent/mantissa ratio evolves
+under any balancing dynamic of the form `f`, convergence to `1/φ` is
+guaranteed regardless of initialization. The GoldenFloat formats represent
+a discrete-integer realization of this continuous attractor.
+
+---
+
+## 7. References
 
 - `t27/docs/arxiv-trinity-gf16-draft.md` — Hardware draft
 - `t27/specs/02-gf16-format.tri` — Format specification
 - `t27/conformance/gf16_bench_results.json` — Measured benchmarks
+- t27 Project Team, "GoldenFloat: A Formally Verified, φ-Optimal
+  Floating-Point Family" (NeurIPS 2026 OPT Workshop target, April 2026).
+- IBM Research, "DLFloat: A 16-b Floating Point Format Designed for Deep
+  Learning" (ARITH 2019 / VLSI 2018).
 - Knuth, TAOCP vol. 2 §4.2 — Floating-point arithmetic
 - Conway & Sloane, "Sphere Packings, Lattices and Groups" — Optimal
   quantization lattices (related to golden-ratio packings)

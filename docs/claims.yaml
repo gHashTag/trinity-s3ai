@@ -207,19 +207,21 @@ claims:
   # ---------------------------------------------------------------------------
 
   - id: gf16-format-spec
-    title: "GF16 (DLFloat-6:9, bias 31) phi-anchored float format specified and FPGA-verified"
+    title: "GF16 (1-6-9, bias 31) phi-anchored float format specified and FPGA-verified"
     short_label: "GF16 format spec"
     layer: L0
     status: verified
-    evidence: "docs/hardware/gf16_spec.md §2; t27/docs/arxiv-trinity-gf16-draft.md §2; t27/specs/02-gf16-format.tri"
+    evidence: "docs/hardware/gf16_spec.md §2–2.6; t27/conformance/FORMAT-SPEC-001.json; NeurIPS 2026 OPT paper (Prop 1–2, Thm 3); IBM DLFloat16 (ARITH 2019, layout identical, 6 differences documented)"
     owner_file: "docs/hardware/gf16_spec.md"
     blocking_gap: ""
     game_card:
       kind: infra
       description: >-
         16-bit float with 1/6/9 layout and bias 31. phi-distance 0.049 vs
-        IEEE fp16 0.118. RTL multiplier and adder exist; 35/35 FPGA tests pass
-        at 323 MHz on Artix-7.
+        IEEE fp16 0.118. GoldenFloat family (GF4–GF32) proven optimal via
+        round((N-1)/phi^2). RTL multiplier and adder exist; 35/35 FPGA tests pass
+        at 323 MHz on Artix-7. Layout identical to IBM DLFloat16 (ARITH 2019);
+        semantic overlay (phi-distance, PHI_BIAS=60 rounding) is Trinity contribution.
       tags: []
 
   - id: gf16-bpb-benchmark
@@ -283,7 +285,7 @@ claims:
     short_label: "0.694-bit phi step"
     layer: L3
     status: verified
-    evidence: "docs/hardware/gf16_mathematics.md §3; log2(phi) = 0.6942419136..."
+    evidence: "docs/hardware/gf16_mathematics.md §3, §6.1–6.3; log2(phi) = 0.6942419136...; NeurIPS 2026 Prop 1 (Golden Self-Similarity), Prop 2 (Optimal Integer Rounding), Thm 3 (Universal Attractor)"
     owner_file: "docs/hardware/gf16_mathematics.md"
     blocking_gap: ""
     game_card:
@@ -291,7 +293,26 @@ claims:
       description: >-
         Mathematical identity: log2(phi) ≈ 0.694 bits. For a uniform phi-spaced
         quantizer, each additional level adds ~0.694 bits of information.
-        Verified by pocket-calculator / Python derivation.
+        Verified by pocket-calculator / Python derivation. Supported by three
+        formal propositions from the NeurIPS 2026 OPT Workshop paper.
+      tags: []
+
+  - id: coq-phi-identity-binary64
+    title: "Coq/Flocq proof: phi^2 = phi + 1 holds exactly in IEEE binary64"
+    short_label: "phi identity (binary64)"
+    layer: L2
+    status: verified
+    evidence: "proofs/trinity/PhiFloat.v (adapted from t27/coq/Kernel/PhiFloat.v); phi_sq_f64 = phi_plus_one_f64 by vm_compute; residual 0.0 < tolerance 1e-15"
+    owner_file: "proofs/trinity/PhiFloat.v"
+    blocking_gap: >-
+      Extend to GF16: prove phi identity holds (or bound error) in the
+      1-6-9 format. Currently proved only for binary64, not for GF16.
+    game_card:
+      kind: geometry
+      description: >-
+        Formal proof using Coq Flocq library that the IEEE-754 binary64
+        rounding of phi satisfies fl(phi*phi) = fl(phi+1) bit-identically.
+        GF16 extension is open.
       tags: []
 
   - id: three-crowns
