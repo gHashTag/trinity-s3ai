@@ -161,44 +161,44 @@ The closure relation L01 * L02_exp = L03 holds to high accuracy, confirming inte
 
 | Quark | PDG 2024 Value | Scale | Status |
 |-------|---------------|-------|--------|
-| m_u | 2.16 +/- 0.07 MeV | mu = 2 GeV (MSbar) | CONFIRMED |
-| m_d | 4.67 +/- 0.17 MeV | mu = 2 GeV (MSbar) | CONFIRMED |
-| m_s | 93.4 +/- 0.8 MeV | mu = 2 GeV (MSbar) | CONFIRMED |
-| m_c | 1.27 +/- 0.02 GeV | mu = m_c (MSbar) | CONFIRMED |
-| m_b | 4.18 +/- 0.02 GeV | mu = m_b (MSbar) | CONFIRMED |
-| m_t | 173.1 +/- 0.6 GeV | Pole mass | CONFIRMED |
+| m_u | 2.16 +/- 0.07 MeV | mu = 2 GeV (MSbar) | NUMERICALLY VERIFIED |
+| m_d | 4.67 +/- 0.17 MeV | mu = 2 GeV (MSbar) | NUMERICALLY VERIFIED |
+| m_s | 93.4 +/- 0.8 MeV | mu = 2 GeV (MSbar) | NUMERICALLY VERIFIED |
+| m_c | 1.27 +/- 0.02 GeV | mu = m_c (MSbar) | NUMERICALLY VERIFIED |
+| m_b | 4.18 +/- 0.02 GeV | mu = m_b (MSbar) | NUMERICALLY VERIFIED |
+| m_t | 173.1 +/- 0.6 GeV | Pole mass | NUMERICALLY VERIFIED |
 
 ### 3.2 Lepton Masses
 
 | Lepton | PDG 2024 Value | Type | Status |
 |--------|---------------|------|--------|
-| m_e | 0.51099895000 MeV | Pole mass | CONFIRMED |
-| m_mu | 105.6583745 MeV | Pole mass | CONFIRMED |
-| m_tau | 1776.86 MeV | Pole mass | CONFIRMED |
+| m_e | 0.51099895000 MeV | Pole mass | NUMERICALLY VERIFIED |
+| m_mu | 105.6583745 MeV | Pole mass | NUMERICALLY VERIFIED |
+| m_tau | 1776.86 MeV | Pole mass | NUMERICALLY VERIFIED |
 
 ### 3.3 Boson Masses
 
 | Boson | PDG 2024 Value | Type | Status |
 |-------|---------------|------|--------|
-| m_W | 80.377 +/- 0.012 GeV | Pole mass | CONFIRMED |
-| m_Z | 91.1876 +/- 0.0021 GeV | Pole mass | CONFIRMED |
-| m_H | 125.20 +/- 0.11 GeV | Pole mass | CONFIRMED |
+| m_W | 80.377 +/- 0.012 GeV | Pole mass | NUMERICALLY VERIFIED |
+| m_Z | 91.1876 +/- 0.0021 GeV | Pole mass | NUMERICALLY VERIFIED |
+| m_H | 125.20 +/- 0.11 GeV | Pole mass | NUMERICALLY VERIFIED |
 
 ### 3.4 Couplings and Mixings
 
 | Parameter | PDG 2024 Value | Status |
 |-----------|---------------|--------|
-| 1/alpha | 137.035999206 | CONFIRMED |
-| alpha_s(m_Z) | 0.1179 +/- 0.0010 | CONFIRMED |
-| sin^2(theta_W)(m_Z) | 0.23121 +/- 0.00004 | CONFIRMED |
-| sin^2(theta_12) (PMNS) | 0.307 +/- 0.013 | CONFIRMED |
-| sin^2(theta_23) (PMNS) | 0.546^{+0.033}_{-0.009} | CONFIRMED |
-| sin^2(theta_13) (PMNS) | 0.0219 +/- 0.0007 | CONFIRMED |
-| |V_us| | 0.22650 +/- 0.00048 | CONFIRMED |
-| |V_cb| | 0.04100 +/- 0.00130 | CONFIRMED |
-| |V_ub| | 0.00394 +/- 0.00036 | CONFIRMED |
-| Delta_m^2_21 | 7.53e-5 eV^2 | CONFIRMED |
-| Delta_m^2_31 | 2.473e-3 eV^2 | CONFIRMED |
+| 1/alpha | 137.035999206 | NUMERICALLY VERIFIED |
+| alpha_s(m_Z) | 0.1179 +/- 0.0010 | NUMERICALLY VERIFIED |
+| sin^2(theta_W)(m_Z) | 0.23121 +/- 0.00004 | NUMERICALLY VERIFIED |
+| sin^2(theta_12) (PMNS) | 0.307 +/- 0.013 | NUMERICALLY VERIFIED |
+| sin^2(theta_23) (PMNS) | 0.546^{+0.033}_{-0.009} | NUMERICALLY VERIFIED |
+| sin^2(theta_13) (PMNS) | 0.0219 +/- 0.0007 | NUMERICALLY VERIFIED |
+| |V_us| | 0.22650 +/- 0.00048 | NUMERICALLY VERIFIED |
+| |V_cb| | 0.04100 +/- 0.00130 | NUMERICALLY VERIFIED |
+| |V_ub| | 0.00394 +/- 0.00036 | NUMERICALLY VERIFIED |
+| Delta_m^2_21 | 7.53e-5 eV^2 | NUMERICALLY VERIFIED |
+| Delta_m^2_31 | 2.473e-3 eV^2 | NUMERICALLY VERIFIED |
 
 ---
 

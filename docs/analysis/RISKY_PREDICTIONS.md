@@ -36,7 +36,7 @@ The predictions listed here are **pre-registered** and **high-stakes**.
 
 | DUNE Result | Verdict |
 |-------------|---------|
-| 50-80 degrees | **CONFIRMED** (Trinity validated) |
+| 50-80 degrees | **WITHDRAWN** (δ_CP prediction superseded) |
 | 80-100 degrees | INCONCLUSIVE (wait for precision) |
 | <30 or >100 degrees | **FALSIFIED** (PMNS sector invalidated) |
 
@@ -70,7 +70,7 @@ The CP violation *magnitude* is correct even if the *phase* is tensioned.
 
 | KATRIN Result | Verdict |
 |---------------|---------|
-| m_nue > 0.08 eV | **CONFIRMED** (consistent with 0.103) |
+| m_nue > 0.08 eV | **NUMERICALLY VERIFIED** (consistent with 0.103) |
 | 0.05 < m_nue < 0.08 eV | TENSION (requires revised formula) |
 | m_nue < 0.05 eV | **FALSIFIED** (neutrino mass sector wrong) |
 
@@ -106,7 +106,7 @@ The CP violation *magnitude* is correct even if the *phase* is tensioned.
 
 | JUNO Result | Verdict |
 |-------------|---------|
-| 0.0210 - 0.0230 | **CONFIRMED** |
+| 0.0210 - 0.0230 | **NUMERICALLY VERIFIED** |
 | 0.0200 - 0.0210 or 0.0230 - 0.0240 | TENSION (small correction needed) |
 | <0.0200 or >0.0240 | **FALSIFIED** (unexpected) |
 

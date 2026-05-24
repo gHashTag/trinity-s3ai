@@ -10,7 +10,7 @@ This analysis examines Wheeler's One-Electron Universe hypothesis (1940) in ligh
 - **The 240 E8 roots** correspond to 240 possible states of the single electron, with 239 = |E8| - 1 representing the "missing electron" that IS the universe
 - **No fourth generation** is predicted due to stability constraints from the H4 resonant orbit structure
 
-**Verdict:** The one-electron universe + H4 hypothesis is a fertile theoretical framework with several confirmed predictions, though challenges remain in deriving the full gauge group structure and quark mass hierarchy.
+**Verdict:** The one-electron universe + H4 hypothesis is a fertile theoretical framework with several numerically verified coincidences, though challenges remain in deriving the full gauge group structure and quark mass hierarchy.
 
 ---
 
@@ -617,5 +617,5 @@ Koide angle: theta_K = arctan(sqrt(2)) = 54.74 deg
 
 *Analysis completed. Total steps used: 17/60.*
 *Framework: One-Electron Universe + H4 Coxeter Group + E8 Quasicrystal Projection*
-*Status: Promising theoretical framework with confirmed numerical predictions*
+*Status: Promising theoretical framework with numerically verified coincidences*
 *Recommended priority: Compute 600-cell Laplacian spectrum and extend to quark sector*

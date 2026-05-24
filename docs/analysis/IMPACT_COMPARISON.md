@@ -6,7 +6,7 @@
 
 ## 1. Master Comparison Table
 
-| Discovery | Year | Citations | Lagrangian derived? | From first principles? | Peer review? | Exp. confirmed? | Math rigor | Impact |
+| Discovery | Year | Citations | Lagrangian derived? | From first principles? | Peer review? | Exp. verified? | Math rigor | Impact |
 |-----------|------|-----------|---------------------|------------------------|--------------|-----------------|------------|--------|
 | **Einstein GR** | 1915 | 100,000+ | N/A (gravity) | ✅ Yes | ✅ Yes (1915-1919) | ✅ LIGO, GPS, BH | High | **10/10** |
 | **Dirac Equation** | 1928 | 50,000+ | N/A (QED precursor) | ✅ Yes | ✅ Yes | ✅ PET, positron | High | **10/10** |
@@ -53,17 +53,17 @@
 #### Novel Predictions: **6/10** — Promising but Unverified
 - N_gen = 3 (**not derived from H4** — see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md); `proofs/trinity/ThreeGenerations.v` formally proves no H4 mechanism yields 3 from first principles; N_gen=3 is empirical input from PDG)
 - Strong CP — **OPEN** (Wave 6 honesty pass): the "real D_F → θ=0" argument is not a Coq theorem and is refuted in HARSH_REVIEW_v49.md §9 (smooth spectral cutoff doesn't see instantons; framework predicts δ_CP ≠ 0 in PMNS from the same D_F). θ < 10⁻¹⁰ is the experimental bound, not a Trinity prediction. See [STRONG_CP_HONEST_STATUS.md](../../STRONG_CP_HONEST_STATUS.md).
-- Higgs mass derivation (matches m_H ≈ 125 GeV — confirmed)
+- Higgs mass derivation (matches m_H ≈ 125 GeV — numerically verified coincidence)
 - Yukawa couplings structure (pattern claim, not numerical values)
 - Gauge group identification (SU(3)×SU(2)×U(1) — post-hoc or derived?)
 - **Tension**: δ_CP in tension with data is a significant concern
 - **Verdict**: Only m_H is experimentally checked. Others are structural claims.
 
 #### Experimental Confirmation: **2/10** — Critically Weak
-- **Confirmed**: Higgs mass m_H ≈ 125 GeV (but many theories can fit this)
-- **Not confirmed**: N_gen mechanism (we know N=3 empirically)
-- **Not confirmed**: Strong CP mechanism (θ_QCD ≈ 0 known, but axion searches ongoing)
-- **Not confirmed**: Yukawa coupling values (no numerical predictions tested)
+- **Numerically verified**: Higgs mass m_H ≈ 125 GeV (but many theories can fit this)
+- **Not numerically verified**: N_gen mechanism (we know N=3 empirically)
+- **Not numerically verified**: Strong CP mechanism (θ_QCD ≈ 0 known, but axion searches ongoing)
+- **Not numerically verified**: Yukawa coupling values (no numerical predictions tested)
 - **Tension**: δ_CP value conflicts with experimental measurements
 - **Verdict**: This is the weakest dimension. Trinity currently explains one number (m_H) that many theories explain.
 
@@ -237,7 +237,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 |--|:-----------:|:----------:|:-------:|:----------------:|
 | **Years to validate** | 4 (1915→1919) | 25+ (still pending) | 1 (2007→2008 refuted) | **TBD** |
 | **Mathematical framework** | Differential geometry | Non-commutative geometry | E8 Lie algebra | **H4 Coxeter + Coq** |
-| **Predictions confirmed** | Light bending, GPS, LIGO | m_H (post-hoc) | 0 | **m_H only** |
+| **Predictions numerically verified** | Light bending, GPS, LIGO | m_H (post-hoc fit) | 0 | **m_H only** |
 | **Key vulnerability** | Initially: few tests | No new predictions | Chiral fermion problem | **δ_CP + peer review** |
 | **Final impact** | 10/10 | 6/10 | 3/10 | **4/10 (now)** |
 

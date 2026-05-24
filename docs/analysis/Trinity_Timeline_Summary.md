@@ -3,10 +3,10 @@
 TRINITY S³AI v4.0 - EXPERIMENTAL TEST TIMELINE & FALSIFIABILITY SUMMARY
 ================================================================================
 
-CONFIRMED PREDICTIONS:
+NUMERICALLY VERIFIED COINCIDENCES:
 ----------------------
 Prediction       Value              Experiment  Year  Status
-m_H              125.202 GeV        LHC         2012  CONFIRMED (0.02 sigma)
+m_H              125.202 GeV        LHC         2012  NUMERICALLY VERIFIED (0.02 sigma)
 
 PREDICTIONS TESTABLE IN NEAR FUTURE (2025-2035):
 --------------------------------------------------
@@ -40,19 +40,19 @@ CRITICAL ISSUES FOUND & RESOLVED:
 FALSIFIABILITY VERDICT TABLE:
 -----------------------------
 Prediction       Strong?  Testable by?   Falsified if...            Status
-m_H              YES      NOW            > 3 sigma away             CONFIRMED
-sin^2 theta_13   YES      2031           > 0.025 (3.4 sigma)        CONFIRMED (0.003%)
+m_H              YES      NOW            > 3 sigma away             NUMERICALLY VERIFIED
+sin^2 theta_13   YES      2031           > 0.025 (3.4 sigma)        NUMERICALLY VERIFIED (0.003%)
 delta_CP         YES      2028+ (DUNE)   Any value not near 65 deg  DISFAVORED
 m_nue            NO       2030+          < 50 meV (NO confirmed)    Consistent
 lambda_Higgs     YES      2050+          > 0.2 or < 0.05 (10% prec) Untestable
 Delta m^2_21     YES      2031 (JUNO)    < 7.40e-5 (5.7 sigma)      Consistent
 Delta m^2_31     YES      2032 (DUNE/HK) > 2.60e-3 (6.9 sigma)      Consistent
 
-* SG-class prediction confirmed against current data
+* SG-class coincidence numerically verified against current data
 
 BOTTOM LINE:
 ------------
-- 2 confirmed (m_H, sin^2 theta_13), 1 already disfavored (delta_CP)
+- 2 numerically verified (m_H, sin^2 theta_13), 1 WITHDRAWN (delta_CP)
 - 1 remaining formula notation issue (Delta m^2_31)
 - 3 predictions consistent with data but need future tests
 - delta_CP is the ACHILLES HEEL: if DUNE confirms ~180 deg, Trinity collapses
