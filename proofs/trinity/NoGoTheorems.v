@@ -2,18 +2,18 @@
 (*                                                                            *)
 (*  NoGoTheorems.v                                                            *)
 (*                                                                            *)
-(*  Wave 9.6: Formal No-Go Theorems for H4/600-cell Standard Model           *)
+(*  Wave 9.6: Formal Boundary Theorems for H4/600-cell Standard Model           *)
 (*            Unification                                                     *)
 (*                                                                            *)
 (*  HONESTY STATEMENT: This file formalizes what Trinity-s3ai CANNOT do.     *)
-(*  A clean negative result is more scientifically valuable than a failed    *)
+(*  A clean boundary finding is more scientifically valuable than a failed    *)
 (*  positive claim. (Principle: "Don't lie! Be honest!")                     *)
 (*                                                                            *)
-(*  FOUR NO-GO THEOREMS:                                                      *)
-(*    NGT1 (Cosmology)   : φ^a π^b e^c formulas cannot reproduce Λ, Ω_b    *)
-(*    NGT2 (σ-field)     : No NCG σ-field from H4 root structure alone       *)
-(*    NGT3 (Chirality)   : 600-cell D_F is vector-like (antipodal symmetry)  *)
-(*    NGT4 (Mass hier.)  : 2I-equivariant D_F cannot reproduce lepton ratios *)
+(*  FOUR BOUNDARY THEOREMS:                                                      *)
+(*    BT-1 (Cosmology)   : φ^a π^b e^c formulas cannot reproduce Λ, Ω_b    *)
+(*    BT-2 (σ-field)     : No NCG σ-field from H4 root structure alone       *)
+(*    BT-3 (Chirality)   : 600-cell D_F is vector-like (antipodal symmetry)  *)
+(*    BT-4 (Mass hier.)  : 2I-equivariant D_F cannot reproduce lepton ratios *)
 (*                                                                            *)
 (*  IMPORTS: CorePhi only (self-contained by design).                         *)
 (*  Wave 5+6+8 results are CITED by reference; key lemmas are restated.      *)
@@ -65,32 +65,32 @@ Definition ratio_mu_e : R := 206.77.  (* m_mu / m_e *)
 Definition ratio_tau_e : R := 3477.2. (* m_tau / m_e *)
 
 (******************************************************************************)
-(* Section 1: NGT-1 Auxiliary Lemmas — Cosmological No-Go                    *)
+(* Section 1: BT-1 Auxiliary Lemmas — Cosmological Boundary                    *)
 (*                                                                            *)
 (* Planck 2018 measurements falsify Trinity Tier-3 cosmology formulas.       *)
 (* We prove the key discrepancies as lemmas.                                 *)
 (******************************************************************************)
 
-Section NGT1_Cosmology.
+Section BT1_Cosmology.
 
 (* Trinity formula for baryon density: phi^(-3) * pi^(-2) * e^(-1) *)
 (* Use Rinv since negative exponents are not supported in R with ^ *)
 Definition trinity_omega_b : R := / (phi^3) * / (PI^2) * / (exp 1).
 
-(* NGT1-L1: The Trinity formula gives a value < 0.01 *)
+(* BT1-L1: The Trinity formula gives a value < 0.01 *)
 Lemma trinity_omega_b_lt_001 : trinity_omega_b < 0.01.
 Proof.
   unfold trinity_omega_b, phi.
   interval with (i_prec 60).
 Qed.
 
-(* NGT1-L2: The Planck measured value is > 0.022 *)
+(* BT1-L2: The Planck measured value is > 0.022 *)
 Lemma planck_omega_b_gt_022 : omega_b_h2_planck > 0.022.
 Proof.
   unfold omega_b_h2_planck. lra.
 Qed.
 
-(* NGT1-L3: Absolute discrepancy is > 0.012 *)
+(* BT1-L3: Absolute discrepancy is > 0.012 *)
 Lemma omega_b_discrepancy_large :
   omega_b_h2_planck - trinity_omega_b > 0.012.
 Proof.
@@ -99,7 +99,7 @@ Proof.
   lra.
 Qed.
 
-(* NGT1-L4: The sigma-distance exceeds 5 sigma:
+(* BT1-L4: The sigma-distance exceeds 5 sigma:
    sigma = (planck - trinity) / error > 0.012 / 0.000018 > 666 >> 5 *)
 Lemma omega_b_sigma_distance_exceeds_5 :
   (omega_b_h2_planck - trinity_omega_b) / omega_b_h2_error > 5.
@@ -115,7 +115,7 @@ Proof.
   - lra.
 Qed.
 
-(* NGT1: Main no-go theorem for cosmology.
+(* BT1: Main boundary theorem for cosmology.
    The Trinity Omega_b formula is falsified at >> 5 sigma by Planck 2018. *)
 Theorem NGT1_cosmology_nogo :
   (omega_b_h2_planck - trinity_omega_b) / omega_b_h2_error > 600.
@@ -130,10 +130,10 @@ Proof.
   - lra.
 Qed.
 
-End NGT1_Cosmology.
+End BT1_Cosmology.
 
 (******************************************************************************)
-(* Section 2: NGT-2 Auxiliary Results — σ-field No-Go                        *)
+(* Section 2: BT-2 Auxiliary Results — σ-field Boundary                        *)
 (*                                                                            *)
 (* Citing Wave 5.3 (UnimodularityAndSigma.v):                                *)
 (*   Theorem H4_degree2_is_constant_on_orbit : Qed                           *)
@@ -143,7 +143,7 @@ End NGT1_Cosmology.
 (* We restate key bounds here for self-containment.                          *)
 (******************************************************************************)
 
-Section NGT2_SigmaField.
+Section BT2_SigmaField.
 
 (* The degree-2 Coxeter invariant of H4 *)
 Definition H4_degree2_invariant : R := 2.  (* first fundamental degree of H4 *)
@@ -152,7 +152,7 @@ Definition H4_degree2_invariant : R := 2.  (* first fundamental degree of H4 *)
 (* M_sigma ~ 10^15 GeV.  We encode this as a ratio to the Planck scale. *)
 Definition sigma_mass_ratio_to_planck : R := 1e-4.  (* 10^15 / 10^19 GeV *)
 
-(* NGT2-L1: The degree-2 invariant of H4 is the smallest fundamental degree.
+(* BT2-L1: The degree-2 invariant of H4 is the smallest fundamental degree.
    This means the "sigma singlet" is simply the norm-squared — a constant
    on each orbit, hence not dynamical. *)
 Lemma H4_smallest_degree_is_2 :
@@ -161,7 +161,7 @@ Proof.
   unfold H4_degree2_invariant. ring.
 Qed.
 
-(* NGT2-L2: The H4 fundamental degrees {2, 12, 20, 30} are all even. *)
+(* BT2-L2: The H4 fundamental degrees {2, 12, 20, 30} are all even. *)
 (* An even-degree invariant restricted to the unit sphere S^3 is a
    polynomial in cos(theta), hence constant along orbits under H4 rotation. *)
 Lemma H4_degrees_are_even :
@@ -170,12 +170,12 @@ Proof.
   repeat split; reflexivity.
 Qed.
 
-(* NGT2-L3: The Higgs mass error without sigma-field correction.
+(* BT2-L3: The Higgs mass error without sigma-field correction.
    From Wave 5.3: m_H(Trinity) = 11*phi/20 + 2/3 ≈ 1.5559... in m_W units.
    Actual ratio: m_H / m_W = 125.25 / 80.377 ≈ 1.5580.
    Error: |1.5559 - 1.5580| / 1.5580 ≈ 0.0013 (0.13%).
    But with sigma-field correction, Connes shows error reduces to < 0.1%.
-   Without sigma-field (NGT2), error floor is ~ 6.2% from a different formula
+   Without sigma-field (BT2), error floor is ~ 6.2% from a different formula
    — specifically the mass-ratio discrepancy in the Higgs sector. *)
 Definition trinity_H_W_ratio : R := 11 * phi / 20 + 2 / 3.
 Definition actual_H_W_ratio : R := 1.5580.  (* 125.25 / 80.377 *)
@@ -187,7 +187,7 @@ Proof.
   interval with (i_prec 60).
 Qed.
 
-(* NGT2-L4: Without sigma-field, the spectral action a4 coefficient has
+(* BT2-L4: Without sigma-field, the spectral action a4 coefficient has
    a SINGLE source. We encode this as a counting theorem. *)
 Definition a4_vertex_sources : nat := 1.  (* only vertex contribution *)
 Definition a4_sigma_sources : nat := 0.   (* no sigma contribution *)
@@ -198,7 +198,7 @@ Proof.
   unfold a4_vertex_sources, a4_sigma_sources. lia.
 Qed.
 
-(* NGT2: Main theorem — σ-field no-go from H4 structure.
+(* BT2: Main theorem — σ-field boundary from H4 structure.
    Statement: The H4 spectral data yield exactly 1 vertex contribution to a4
    and 0 sigma contributions. A dynamical sigma field requires an additional
    input not derivable from the 600-cell alone. *)
@@ -216,10 +216,10 @@ Proof.
   - unfold a4_sigma_sources. lia.
 Qed.
 
-End NGT2_SigmaField.
+End BT2_SigmaField.
 
 (******************************************************************************)
-(* Section 3: NGT-3 Auxiliary Results — Chirality No-Go                      *)
+(* Section 3: BT-3 Auxiliary Results — Chirality Boundary                      *)
 (*                                                                            *)
 (* The 600-cell has an exact antipodal involution v -> -v.                   *)
 (* The group 2I contains -1 (the central element of SU(2)).                  *)
@@ -232,7 +232,7 @@ End NGT2_SigmaField.
 (*   Therefore if (v, λ) is an eigenpair, so is ((-1)v, ±λ).               *)
 (******************************************************************************)
 
-Section NGT3_Chirality.
+Section BT3_Chirality.
 
 (* The order of 2I *)
 Definition two_I_size : nat := 120.
@@ -247,13 +247,13 @@ Definition antipodal_map_well_defined : Prop :=
   (* For every v in 2I, -v is also in 2I *)
   True.  (* This is true by group axioms: -1 ∈ 2I, multiplication closed *)
 
-(* NGT3-L1: 2I has even order, hence contains elements of order 2. *)
+(* BT3-L1: 2I has even order, hence contains elements of order 2. *)
 Lemma two_I_even_order : Nat.even two_I_size = true.
 Proof.
   unfold two_I_size. reflexivity.
 Qed.
 
-(* NGT3-L2: The center of 2I has order 2 (contains -1 and +1). *)
+(* BT3-L2: The center of 2I has order 2 (contains -1 and +1). *)
 Definition center_2I_order : nat := 2.
 
 Lemma center_2I_is_Z2 : (center_2I_order = 2)%nat.
@@ -261,14 +261,14 @@ Proof.
   unfold center_2I_order. lia.
 Qed.
 
-(* NGT3-L3: The number of antipodal pairs (v, -v) equals half the vertices. *)
+(* BT3-L3: The number of antipodal pairs (v, -v) equals half the vertices. *)
 Lemma antipodal_pairs_count :
   (cell600_vertices / 2 = 60)%nat.
 Proof.
   unfold cell600_vertices. reflexivity.
 Qed.
 
-(* NGT3-L4: If D_F commutes with the antipodal involution, then
+(* BT3-L4: If D_F commutes with the antipodal involution, then
    Tr(D_F) = 0.
    [Numerically verified in Wave 8.4: Tr(D_F) = 0 to machine precision] *)
 Definition D_F_trace : R := 0.  (* machine-verified numerical result, Wave 8.4 *)
@@ -278,7 +278,7 @@ Proof.
   unfold D_F_trace. ring.
 Qed.
 
-(* NGT3-L5: The log-sigma distance for the D_F spectrum vs SM.
+(* BT3-L5: The log-sigma distance for the D_F spectrum vs SM.
    From Wave 8.4: sigma = 5.62.
    Threshold for compatibility: sigma < 0.5.
    Hence D_F spectrum is incompatible at >> 5 sigma. *)
@@ -291,7 +291,7 @@ Proof.
   unfold D_F_spectrum_sigma, D_F_sigma_threshold. lra.
 Qed.
 
-(* NGT3-L6: The number of 2I irreducible representations (= conjugacy classes) *)
+(* BT3-L6: The number of 2I irreducible representations (= conjugacy classes) *)
 Definition two_I_irreps : nat := 9.
 
 (* The 9 irreps have dimensions summing to 29 *)
@@ -299,7 +299,7 @@ Lemma two_I_irreps_count :
   (two_I_irreps = 9)%nat.
 Proof. unfold two_I_irreps. reflexivity. Qed.
 
-(* NGT3: Main theorem — chirality obstruction.
+(* BT3: Main theorem — chirality obstruction.
    The antipodal symmetry of the 600-cell forces vector-like spectrum,
    as evidenced by Tr(D_F) = 0 and spectral sigma = 5.62 >> 0.5. *)
 Theorem NGT3_chirality_nogo :
@@ -316,22 +316,22 @@ Proof.
   - apply antipodal_pairs_count.
 Qed.
 
-End NGT3_Chirality.
+End BT3_Chirality.
 
 (******************************************************************************)
-(* Section 4: NGT-4 Auxiliary Results — Mass Hierarchy No-Go                 *)
+(* Section 4: BT-4 Auxiliary Results — Mass Hierarchy Boundary                 *)
 (*                                                                            *)
 (* The 2I-equivariant Dirac operator has Schur-lemma block structure.        *)
 (* Lepton mass ratios 1:206.77:3477.2 require breaking 2I-equivariance.      *)
 (******************************************************************************)
 
-Section NGT4_MassHierarchy.
+Section BT4_MassHierarchy.
 
 (* Lepton mass ratios from PDG 2022 *)
 Definition ratio_mu_e_val : R := 206.77.
 Definition ratio_tau_e_val : R := 3477.2.
 
-(* NGT4-L1: The log of the muon/electron mass ratio is large *)
+(* BT4-L1: The log of the muon/electron mass ratio is large *)
 Lemma log_ratio_mu_e_large :
   ln ratio_mu_e_val > 5.
 Proof.
@@ -344,7 +344,7 @@ Proof.
   interval with (i_prec 60).
 Qed.
 
-(* NGT4-L2: The log of the tau/electron mass ratio is even larger *)
+(* BT4-L2: The log of the tau/electron mass ratio is even larger *)
 Lemma log_ratio_tau_e_large :
   ln ratio_tau_e_val > 8.
 Proof.
@@ -357,7 +357,7 @@ Proof.
   interval with (i_prec 60).
 Qed.
 
-(* NGT4-L3: The log-sigma metric between trivial prediction (all equal)
+(* BT4-L3: The log-sigma metric between trivial prediction (all equal)
    and SM values:
    sigma^2 = (1/3)[ (ln 1)^2 + (ln 206.77)^2 + (ln 3477.2)^2 ]
            > (1/3)[ 0 + 25 + 64 ] = 89/3 > 29
@@ -376,7 +376,7 @@ Proof.
   lra.
 Qed.
 
-(* NGT4-L4: The 2I-equivariant Dirac operator has 9 blocks
+(* BT4-L4: The 2I-equivariant Dirac operator has 9 blocks
    (one per irreducible representation of 2I). *)
 Definition n_2I_blocks : nat := 9.  (* = number of conjugacy classes of 2I *)
 
@@ -385,12 +385,12 @@ Proof.
   unfold n_2I_blocks. lia.
 Qed.
 
-(* NGT4-L5: Sum of irrep dimensions for 2I *)
+(* BT4-L5: Sum of irrep dimensions for 2I *)
 Lemma sum_2I_irrep_dims :
   (1 + 2 + 3 + 4 + 5 + 6 + 4 + 2 + 2 = 29)%nat.
 Proof. reflexivity. Qed.
 
-(* NGT4-L6: None of the lepton-like irreps have dimension 3 (for 3 generations
+(* BT4-L6: None of the lepton-like irreps have dimension 3 (for 3 generations
    from a SINGLE 2I irrep). The only dim-3 irrep of 2I has index 3.
    Lepton mass hierarchy within one generation: m_e : m_mu : m_tau.
    These are 3 distinct generations, each a DIFFERENT flavor.
@@ -408,7 +408,7 @@ Proof.
   unfold schur_degeneracy_dim3, observed_generations. lia.
 Qed.
 
-(* NGT4: Main theorem — mass hierarchy no-go.
+(* BT4: Main theorem — mass hierarchy boundary.
    The 2I-equivariant structure forces degenerate lepton masses;
    the actual log-sigma distance from SM is >> 5. *)
 Theorem NGT4_mass_hierarchy_nogo :
@@ -427,13 +427,13 @@ Proof.
   - apply two_I_has_nine_blocks.
 Qed.
 
-End NGT4_MassHierarchy.
+End BT4_MassHierarchy.
 
 (******************************************************************************)
 (* Section 5: Survival Theorems — What DOES hold                              *)
 (*                                                                            *)
 (* These theorems capture the POSITIVE core of Trinity-s3ai,                 *)
-(* the results that survive the no-go theorems.                              *)
+(* the results that survive the boundary theorems.                              *)
 (******************************************************************************)
 
 Section Survival.
@@ -583,20 +583,20 @@ Qed.
 End Survival.
 
 (******************************************************************************)
-(* Section 6: Meta-theorem — No-Go Summary                                    *)
+(* Section 6: Meta-theorem — Boundary Summary                                    *)
 (******************************************************************************)
 
-Section MetaNoGo.
+Section MetaBoundary.
 
-(* The four no-go results in conjunction *)
+(* The four boundary results in conjunction *)
 Theorem META_four_nogo_theorems :
-  (* NGT1: Cosmological formulas falsified >> 5 sigma *)
+  (* BT1: Cosmological formulas falsified >> 5 sigma *)
   (omega_b_h2_planck - trinity_omega_b) / omega_b_h2_error > 600 /\
-  (* NGT2: sigma-field absent from H4 data *)
+  (* BT2: sigma-field absent from H4 data *)
   (a4_sigma_sources = 0)%nat /\
-  (* NGT3: D_F trace zero (antipodal symmetry confirmed) *)
+  (* BT3: D_F trace zero (antipodal symmetry confirmed) *)
   D_F_trace = 0 /\
-  (* NGT4: Mass hierarchy sigma >> threshold *)
+  (* BT4: Mass hierarchy sigma >> threshold *)
   (1/3) * ((ln 1)^2 + (ln ratio_mu_e_val)^2 + (ln ratio_tau_e_val)^2) > 25.
 Proof.
   refine (conj _ (conj _ (conj _ _))).
@@ -630,14 +630,14 @@ Proof.
   - apply SURV7_honest_catalog_total.
 Qed.
 
-End MetaNoGo.
+End MetaBoundary.
 
 (******************************************************************************)
 (* QED COUNT:                                                                  *)
-(*   NGT1_cosmology_nogo             : Qed  (1)                               *)
-(*   NGT2_sigma_nogo                 : Qed  (2)                               *)
-(*   NGT3_chirality_nogo             : Qed  (3)                               *)
-(*   NGT4_mass_hierarchy_nogo        : Qed  (4)                               *)
+(*   BT1_cosmology_boundary             : Qed  (1)                               *)
+(*   BT2_sigma_boundary                 : Qed  (2)                               *)
+(*   BT3_chirality_boundary             : Qed  (3)                               *)
+(*   BT4_mass_hierarchy_boundary        : Qed  (4)                               *)
 (*   SURV1_KO_dimension              : Qed  (5)                               *)
 (*   SURV2_quaternionic_motivation   : Qed  (6)                               *)
 (*   SURV3_unimodularity             : Qed  (7)                               *)
@@ -648,7 +648,7 @@ End MetaNoGo.
 (*   delta_CP_trinity_positive       : Qed  (12)                              *)
 (*   delta_CP_trinity_lt_90          : Qed  (13)                              *)
 (*   SURV_positive_core              : Qed  (14)                              *)
-(*   META_four_nogo_theorems         : Qed  (15)                              *)
+(*   META_four_boundary_theorems         : Qed  (15)                              *)
 (*   META_survival_core              : Qed  (16)                              *)
 (*   Plus auxiliary lemmas: ~15 more Qed                                      *)
 (*                                                                            *)
@@ -664,5 +664,5 @@ End MetaNoGo.
 (*    delta_CP_wrong_quadrant        : Qed  (crisis documentation)            *)
 (******************************************************************************)
 
-(* Wave 9.6 — honest conclusion. A negative result is also a result.          *)
+(* Wave 9.6 — honest conclusion. A boundary finding is also a result.          *)
 (* "Don't lie! Be honest!" — principle upheld.                                *)

@@ -9,7 +9,7 @@
 (*                                                                            *)
 (*   RESULT: NO mechanism gives 3 from first principles.                     *)
 (*   Each mechanism either fails outright or reduces to an ad hoc choice.    *)
-(*   This is documented as a NEGATIVE RESULT strengthening the no-go case    *)
+(*   This is documented as a BOUNDARY FINDING strengthening the boundary case    *)
 (*   for H4-based automatic 3-generation derivation.                         *)
 (*                                                                            *)
 (* STRUCTURE:                                                                 *)
@@ -19,7 +19,7 @@
 (*   Section 4: Mechanism C -- factorisation 120=2^3*3*5 (Qed)              *)
 (*   Section 5: Mechanism D -- Coxeter arithmetic (Qed + weak verdict)       *)
 (*   Section 6: Mechanism E -- anomaly cancellation (Qed + failure theorem)  *)
-(*   Section 7: Global negative result theorem                               *)
+(*   Section 7: Global boundary finding theorem                               *)
 (*                                                                            *)
 (* Dependencies: Lia, ZArith (no Reals needed for combinatorial facts)       *)
 (******************************************************************************)
@@ -342,7 +342,7 @@ Proof.
 Qed.
 
 (******************************************************************************)
-(* SECTION 7: The global negative result                                      *)
+(* SECTION 7: The global boundary finding                                      *)
 (*                                                                            *)
 (* All five mechanisms fail to derive 3 from first principles.               *)
 (* This is the main theorem of Wave 9.5.                                     *)
@@ -538,7 +538,7 @@ Qed.
 (*                                                                            *)
 (* HONEST VERDICT: The H4/600-cell + 2I geometry does not produce the         *)
 (* number 3 automatically from first principles. This is a significant       *)
-(* negative result, strengthening the no-go case for H4-based unification.   *)
+(* boundary finding, strengthening the boundary case for H4-based unification.   *)
 (******************************************************************************)
 
 (* END OF FILE *)

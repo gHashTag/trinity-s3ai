@@ -487,7 +487,7 @@ def summary(results):
 
     if not any_yes:
         print("""
-NEGATIVE RESULT (honest assessment):
+BOUNDARY FINDING (honest assessment):
 
 None of the five mechanisms DERIVES exactly 3 fermion generations
 from the H4/600-cell + 2I geometry alone, without additional assumptions.
@@ -505,7 +505,7 @@ Most promising partial path:
   This is theoretically consistent but requires choosing rho_4 by hand.
   A deeper principle selecting rho_4 (not rho_7 or rho_9) is absent.
 
-This constitutes a NEGATIVE RESULT for H4-based automatic 3-generation
+This constitutes a BOUNDARY FINDING for H4-based automatic 3-generation
 derivation. The count 3 does not emerge naturally from the combinatorics
 of the 600-cell, the group theory of 2I, or the Coxeter arithmetic of H4.
 """)

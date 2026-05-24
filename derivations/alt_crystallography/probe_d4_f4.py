@@ -3,7 +3,7 @@ Wave 10.4: Probe D4 and F4 root systems as alternatives to H4
 =============================================================
 
 CONTEXT:
-  Wave 9 closed the Trinity-H4 program with multiple no-go results.
+  Wave 9 closed the Trinity-H4 program with multiple boundary findings.
   This script scouts D4 and F4 as candidate root systems for a
   "Trinity-style" program, focusing on the D4 triality automorphism
   (order 3, Z_3 outer automorphism) as a potential 3-generation mechanism.

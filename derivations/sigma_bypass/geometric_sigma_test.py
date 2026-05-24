@@ -440,7 +440,7 @@ def main():
         print(f"{name:<6} {r['n_vertices']:>6} {r['n_edges']:>6} {r['n_triangles']:>6} "
               f"{r['n_tetrahedra']:>6} {r['n_4simplices']:>7} {r['dim_H2']:>8}")
     
-    # Determine No-Go Theorem 6 status
+    # Determine Boundary Theorem 6 status
     print("\n" + "="*60)
     print("SIGMA-FIELD CANDIDATE ANALYSIS")
     print("="*60)
@@ -456,10 +456,10 @@ def main():
     
     if any_positive:
         print("\n  At least one system admits harmonic 2-forms.")
-        print("  No-Go Theorem 6: NOT proven (sigma-field may be available).")
+        print("  Boundary Theorem 6: NOT proven (sigma-field may be available).")
         no_go_status = "NOT proven"
     else:
-        print("\n  No-Go Theorem 6: PROVEN — No system admits harmonic 2-forms.")
+        print("\n  Boundary Theorem 6: PROVEN — No system admits harmonic 2-forms.")
         print("  The sigma-field is unavailable in ALL tested root systems.")
         no_go_status = "PROVEN"
     

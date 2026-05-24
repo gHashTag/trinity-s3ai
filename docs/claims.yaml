@@ -82,7 +82,7 @@ claims:
       tags: []
 
   - id: ngt1-ngt4-coq
-    title: "NGT1-NGT4: four formal No-Go theorems closed with `Qed.`"
+    title: "BT-1–BT-4: four formal Boundary theorems closed with `Qed.`"
     short_label: "NGT1-NGT4 (Qed)"
     layer: L2
     status: verified
@@ -111,7 +111,7 @@ claims:
       description: >-
         Wave 17 audit found that the E8-plumbing eta discrepancy does not
         converge to -2 and that the underlying B-matrix is heuristic, not a
-        rigorous derivation. Listed as a no-go for this route.
+        rigorous derivation. Listed as a boundary for this route.
       tags: [no_go]
 
   - id: string-orbifold-no-rescue

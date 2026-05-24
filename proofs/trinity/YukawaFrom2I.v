@@ -255,7 +255,7 @@ Proof. exact I. Qed.
 (* 10. VERDICT THEOREMS                                                       *)
 (******************************************************************************)
 
-(** Main negative result: the 2I-equivariant Yukawa does NOT match SM *)
+(** Main boundary finding: the 2I-equivariant Yukawa does NOT match SM *)
 Theorem yukawa_2I_does_not_match_SM_leptons :
   sigma_lepton_best_fit > sigma_threshold.
 Proof.

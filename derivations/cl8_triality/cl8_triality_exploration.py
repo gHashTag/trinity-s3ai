@@ -365,7 +365,7 @@ for three generations, but it does not DERIVE them. The mapping
 from algebraic ideals to physical fermions requires additional
 assumptions beyond Clifford algebra structure.
 
-This is Wave 20's honest negative result for Track B.
+This is Wave 20's honest boundary finding for Track B.
     """)
     
     # Save results

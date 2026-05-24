@@ -61,7 +61,7 @@ Trinity S^3AI — Ancillary Files
 ================================
 
 This directory contains Python validation scripts accompanying the paper
-"Trinity S^3AI: A Constructive Negative Result in Geometric Unification".
+"Trinity S^3AI: An Active Boundary-Mapping Research Program in Geometric Unification".
 
 Files
 -----
@@ -138,7 +138,7 @@ echo "1. Go to https://arxiv.org/submit"
 echo "2. Select Category: hep-th (High Energy Physics - Theory)"
 echo "3. Upload the tarball: $PROJECT_ROOT/$TARBALL"
 echo "4. Metadata:"
-echo "   Title:   Trinity S^3AI: A Constructive Negative Result in Geometric Unification"
+echo "   Title:   Trinity S^3AI: An Active Boundary-Mapping Research Program in Geometric Unification"
 echo "   Authors: [Author List TBD]"
 echo "   Abstract: (copy from paper/arxiv_abstract.txt)"
 echo "   Comments: 6 pages, ancillary files include Python validation scripts"

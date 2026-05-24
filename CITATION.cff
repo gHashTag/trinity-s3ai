@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Trinity S3AI: A Constructive Negative Result in Geometric Unification"
+title: "Trinity S3AI: An Active Boundary-Mapping Research Program in Geometric Unification"
 message: "If you use this software, please cite it using these metadata."
 type: software
 authors:
@@ -19,4 +19,4 @@ keywords:
   - coq
   - lean4
   - falsifiability
-  - no-go-theorems
+  - boundary-theorems

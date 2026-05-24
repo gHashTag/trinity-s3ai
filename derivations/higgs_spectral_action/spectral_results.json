@@ -36,6 +36,6 @@
     "diff_trinity_GeV": 0.10217569851857888,
     "sigma_trinity": 0.7298264179898492
   },
-  "verdict": "NEGATIVE: The 600-cell spectral action WITHOUT \u03c3-field fails to predict the correct Higgs mass. The structural prediction m_H = 132.88 GeV deviates by 55.6\u03c3 from PDG. The \u03c3-field correction (Connes\u2013Marcolli) is unavailable in H4 per Wave 5.3.  This is another no-go for the pure geometric programme.",
+  "verdict": "NEGATIVE: The 600-cell spectral action WITHOUT \u03c3-field fails to predict the correct Higgs mass. The structural prediction m_H = 132.88 GeV deviates by 55.6\u03c3 from PDG. The \u03c3-field correction (Connes\u2013Marcolli) is unavailable in H4 per Wave 5.3.  This is another boundary result for the pure geometric programme.",
   "chiral_symmetry_ok": true
 }

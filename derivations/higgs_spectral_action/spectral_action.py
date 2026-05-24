@@ -523,7 +523,7 @@ def main():
             f"The structural prediction m_H = {m_h_nocorr:.2f} GeV "
             f"deviates by {sigma_nocorr:.1f}σ from PDG. "
             "The σ-field correction (Connes–Marcolli) is unavailable in H4 "
-            "per Wave 5.3.  This is another no-go for the pure geometric programme."
+            "per Wave 5.3.  This is another boundary result for the pure geometric programme."
         )
 
     print(verdict)

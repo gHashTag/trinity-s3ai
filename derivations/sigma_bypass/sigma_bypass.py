@@ -170,7 +170,7 @@ def main():
         print(f"  {name:4s}: {status}")
 
     if not results['E8'] and not results['F4']:
-        print("\n  NO-GO THEOREM 6: Neither E8 nor F4 support the Hodge * operator")
+        print("\n  BOUNDARY THEOREM 6: Neither E8 nor F4 support the Hodge * operator")
         print("  required for the sigma-field correction.")
         print("  The sigma-field is unavailable in ALL tested root systems.")
     elif results['E8']:

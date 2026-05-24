@@ -597,7 +597,7 @@ print(f"""
   (2) Add a generation index not tied to 2I action, or  
   (3) Use a non-equivariant modification of D_F.
   
-  This is a STRONG NEGATIVE result, not a failure of the method.
+  This is a STRONG BOUNDARY FINDING, not a failure of the method.
   It clarifies exactly what 2I symmetry can and cannot predict.
 """)
 
