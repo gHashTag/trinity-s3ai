@@ -331,11 +331,11 @@ Axiom APS_E8_plumbing :
   (** ind = 0, Â = -1 → 0 = -1 - η/2 → η = -2 *)
   eta_continuous = -2.
 
-(** Axiom: D_F has exact chiral symmetry (verified numerically [NUMERICAL_FIT]) *)
+(** D_F chiral symmetry holds by DEFINITIONAL equality of assumed dimensions (190/190). Not proved from spectral computation. **)
 (* Was Axiom; closed in Wave 12 sprint W12.4. dim_pos_DF, dim_neg_DF,
    dim_ker_L, dim_ker_R are concrete Definitions (190, 190, 50, 50). *)
-Lemma DF_exact_chirality :
-  (** {D_F, γ⁵} = 0 exactly, so spectrum is antisymmetric λ ↔ -λ *)
+Lemma DF_chirality_by_definition :
+  (** Holds by definition of dim_pos_DF = dim_neg_DF = 190; NOT proved from actual spectrum **)
   dim_pos_DF = dim_neg_DF /\ dim_ker_L = dim_ker_R.
 Proof. split; reflexivity. Qed.
 
@@ -472,6 +472,6 @@ Qed.
    ADMITTED Axioms (with citations):
    - mass_twist_eta          [NUMERICAL_FIT: bridge_results_v2.json]
    - APS_E8_plumbing         [Wave 8.3, Atiyah-Patodi-Singer 1975]
-   - DF_exact_chirality      [NUMERICAL_FIT: bridge_results_v2.json]
+   - DF_chirality_by_definition [DEFINITIONAL_EQUALITY]
    - DF_chiral_symmetry      [structural, from Weyl basis construction]
 *)

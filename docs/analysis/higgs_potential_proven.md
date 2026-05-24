@@ -1,11 +1,15 @@
-# Higgs Potential: POSTULATED → NUMERICALLY VERIFIED (pending Coq proof)
+# LEGACY DOCUMENT — Higgs Potential: Historical Overclaim
 ## Closing the 6% VEV Gap in Trinity's Spectral Action
+# Current status: This document contains withdrawn overclaims.
+# The Higgs potential is NOT proven; m_H = 4φ³e² is a RETROSPECTIVE FIT.
+# See HiggsPotentialCorrected.v and BoundaryTheorems.v for honest assessment.
+# 0/26 formulas are rigorous derivations from first principles.
 
 ---
 
 ## 0. Executive Summary
 
-**Status Change:** `POSTULATED` → `PROVEN` (with ~6% theoretical uncertainty)
+**Status Change:** `POSTULATED` → `FITTED` (with ~6% theoretical uncertainty; NOT proven)
 
 **The 6% VEV gap is RESOLVED.** The gap arose from an inconsistent mixing of two
 different approximation levels in the spectral action computation:

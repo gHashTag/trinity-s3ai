@@ -6,16 +6,16 @@
 # See PREDICTIONS_PREREGISTERED.md and EPISTEMOLOGY.md for canonical assessment.
 # 0/26 formulas are rigorous derivations from first principles.
 
-# Yukawa Couplings from H4: POSTULATED → PROVEN
+# Yukawa Couplings from H4: POSTULATED → FITTED (LEGACY CLAIM, REFUTED)
 
 ## Executive Summary
 
-This document presents the derivation of all Standard Model Yukawa couplings from the H4 (hypericosahedral) finite algebra. Previously marked POSTULATED in the SM Lagrangian assembly, the Yukawa sector is now PROVEN as a consequence of H4 geometry.
+This document presents historical claims about deriving Standard Model Yukawa couplings from H4 geometry. These claims were REFUTED by BT-4 (Boundary Theorem 4). The Yukawa sector contains FITTED COINCIDENCES, not proofs.
 
 **Key Results:**
-- All 9 charged fermion Yukawa couplings derive from H4 structure
+- 0/9 charged fermion Yukawa couplings are derived from H4 structure (BT-4 proves impossibility)
 - Mass ratios match experiment to < 0.1% (leptons) and < 0.1% (quarks)
-- CKM matrix elements derive from H4 Clebsch-Gordan coefficients
+- CKM matrix elements are fitted coincidences, not derived from H4 Clebsch-Gordan coefficients
 - The only input: y_t ≈ 1 (from H4 spectral action normalization)
 
 ---

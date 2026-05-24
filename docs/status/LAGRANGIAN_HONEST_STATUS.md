@@ -69,8 +69,8 @@ From `lagrangian_roadmap.md` (project's own internal audit):
 From `HARSH_REVIEW_v49.md`:
 - The "92.3% proven" framing was identified as **post-hoc fitting** dressed in derivation language.
 
-From `admitted_log.md`:
-- 68 `Axiom` + 34 `Admitted` + 17 `admit` declarations remain in the proof base, against an earlier advertised "0-25".
+From `COQ_HONEST_STATUS.md` (canonical):
+- 73 `Axiom` + 25 `Admitted` + 18 `admit` + 7 `Parameter` = 123 unproven obligations across 79 Coq files.
 
 From `proofs/trinity/SpectralTripleAxioms.v`:
 - 4 NCG axioms unclosed: `first_order`, `axiom4`, `orientation_hochschild`, `poincare_nondegeneracy`.

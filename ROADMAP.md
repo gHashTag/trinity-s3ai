@@ -8,11 +8,11 @@ This document synthesizes the results of Waves 1–3 (completed) and the literat
 
 | Metric | Value |
 |---|---|
-| Coq files | 34 |
-| Qed theorems | 436 (+203 in this cycle) |
-| Admitted | 25 (5 new, all carrying `(* HONEST: ... *)`) |
-| Axiom | 12 (2 new, explicitly declared) |
-| scripts/validators/validate_v4.py | 25/25 = 100% |
+| Coq files | 79 |
+| Qed theorems | 1,325 |
+| Admitted | 25 |
+| Axiom | 73 |
+| scripts/validators/validate_v4.py | 25/25 evaluated (0 rigorous derivations) |
 | MD narratives | 16 (including 4 literature reviews under `derivations/literature/`) |
 
 **Hard truths from the audit (`derivations/catalog_audit/audit_report.md`):**
@@ -158,7 +158,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 | 6 | Spectral action Higgs: 132.88 GeV | ✅ Refuted | `derivations/higgs_spectral_action/higgs_analysis.md` — PDG 2024: 125.10 ± 0.14 GeV; **55.6σ discrepancy** |
 | 7 | 1-loop Higgs correction | ⬜ OPEN | Wave 12.4 — can quantum effects bridge 132.88 → 125.10? |
 | 8 | E₆/E₇ explicit D_P | ⬜ OPEN | Wave 12.5 — no positive results yet |
-| 9 | All Admitted closed | ⬜ OPEN | **5 real `Admitted.` remain** across the full Coq tree (`proofs/trinity/` has 0; `proofs/clifford_cl8/` has 4; `derivations/chirality/` has 1). Total unproven obligations: 25 `Admitted.` + 18 `admit` + 73 `Axiom` + 7 `Parameter` = 123. See [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md) |
+| 9 | All Admitted closed | ⬜ OPEN | **25 real `Admitted.`** across the full Coq tree (`proofs/trinity/` has 0; `proofs/clifford_cl8/` has 4; `derivations/chirality/` has 1). Total unproven obligations: 25 `Admitted.` + 18 `admit` + 73 `Axiom` + 7 `Parameter` = 123. See [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md) |
 | 10 | Lean port complete | ⬜ OPEN | **6 `sorry` remain** in Lean 4 port (`derivations/lean_port/TrinityLean/`) |
 
 ### Boundary Theorems (with citations)
@@ -169,7 +169,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 | **BT-2** | σ-field from H₄ geometry | **Proved impossible** | Wave 5.3; `proofs/trinity/UnimodularityAndSigma.v` — `H4_degree2_is_constant_on_orbit` (Qed) |
 | **BT-3** | Chirality from 600-cell alone | **Proved impossible** | Wave 6; `proofs/trinity/ChiralityAnalysis.v` — antipodal symmetry forces vector-like spectrum |
 | **BT-4** | Mass hierarchy from 2I-equivariant D_F | **Proved impossible** | Wave 8.4; `proofs/trinity/DFSpectrum.v` — σ = 5.62 > 5σ from SM spectrum |
-| **BT-5** | D₄/24-cell as SM finite geometry | **Ruled out** | Wave 11.2; `derivations/trinity_d4/trinity_d4_analysis.md` — KO-dim 5 ≠ 6; triality does not yield 3 generations |
+| **BT-5** | D₄/24-cell as SM finite geometry | **Ruled out** | Wave 11.2; `derivations/trinity_d4/trinity_d4_analysis.md` — KO-dim 5 ≠ 6; triality does not yield 3 generations. **NOTE: BT-5 is a negative-result analysis, not a canonical boundary theorem (BT-1..BT-4).** |
 
 ### Surviving Positive Results
 

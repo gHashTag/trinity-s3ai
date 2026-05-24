@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ================================================================================
-INDEPENDENT VERIFICATION OF ALL 25 TRINITY FORMULAS
+INDEPENDENT EVALUATION OF ~25 TRINITY FORMULAS
 ================================================================================
 Skeptical reviewer mode: Verify each formula independently using PDG 2024 data.
 NO TUNING. NO EXCUSES. If a formula fails, it fails.
@@ -601,5 +601,5 @@ if f_main > 0:
         print(f"    #{r['id']:2.0f} {r['name']:10s} {r['formula']:22s}  →  {r['rel_err']:>8.4f}% error")
 
 print("\n" + "=" * 100)
-print("VERIFICATION COMPLETE -- Independent skeptical reviewer")
+print("EVALUATION COMPLETE -- Independent skeptical reviewer")
 print("=" * 100)

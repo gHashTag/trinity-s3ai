@@ -133,18 +133,17 @@ impl ValidationReport {
 
 /// p-value estimation (honest assessment)
 pub fn honest_pvalue() -> f64 {
-    // Based on 25 independent formulas, each matching to <0.1%
-    // p ~ (0.001)^25 = 10^{-75} (extremely significant)
-    // Honest: account for formula search space ~ 10^6
-    // Corrected p ~ 10^{-69}
-    1e-69
+    // Wave 20 MC (500k trials): mean error p = 0.077 (not significant).
+    // Old naive p = 1e-69 was fabricated; no proper MC supported it.
+    // SG-hit density p < 0.0001 is significant but does NOT prove derivation.
+    f64::NAN // placeholder: requires proper Monte Carlo simulation
 }
 
 /// Significance in sigma
 pub fn significance_sigma() -> f64 {
-    // sqrt(2) * erfc^{-1}(p)
-    // For p = 10^{-69}, sigma ≈ 17.5
-    17.5
+    // Naive sigma = 17.5 was derived from fabricated p = 1e-69.
+    // Wave 20 honest MC: p = 0.077 → not significant.
+    f64::NAN // placeholder: requires proper Monte Carlo simulation
 }
 
 #[cfg(test)]

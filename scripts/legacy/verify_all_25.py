@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Trinity Formula Verification Script
-Numerical verification of ALL 25 Trinity formulas against PDG 2024 data.
+Numerical evaluation of ~25 Trinity formulas against PDG 2024 data.
 """
 
 import math
@@ -557,5 +557,5 @@ print(f"  m_c/m_d        = {PDG['m_c/m_d']:.4f}")
 print(f"  α_s            = {PDG['alpha_s']}")
 
 print("\n" + "=" * 90)
-print("VERIFICATION COMPLETE")
+print("EVALUATION COMPLETE")
 print("=" * 90)

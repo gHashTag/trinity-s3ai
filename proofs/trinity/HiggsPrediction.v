@@ -1,7 +1,7 @@
 (* ========================================================================== *)
 (* HiggsPrediction.v                                                          *)
 (*                                                                            *)
-(* Higgs mass prediction from H4 invariants — Trinity Formula v3.3            *)
+(* Higgs mass numerical fit to H4 invariants — Trinity Formula v3.3 [RETROSPECTIVE_FIT] *)
 (*                                                                            *)
 (* [phenomenological_fit] Wave 10.5: All Higgs formulas in this file are      *)
 (* empirical numerical coincidences. The Trinity formula 4*phi^3*e^2 and     *)
@@ -70,14 +70,14 @@ Definition cells_600cell : R := 600.
 (*                                                                            *)
 (* The Trinity formula arises from the H4 invariant structure where the       *)
 (* product of the three fundamental H4 invariants (phi^3, e^2, 4) produces    *)
-(* the Higgs mass scale. This is the PRIMARY prediction.                      *)
+(* the Higgs mass scale. This is the PRIMARY retrospective fit.               *)
 (* -------------------------------------------------------------------------- *)
 
 Definition H01_theoretical : R := 4 * phi^3 * (exp 1)^2.
 
 (* Numerical value computed externally: approximately 125.202176 GeV *)
 
-(* Theorem: The Trinity formula prediction is within 3sigma of PDG 2024 *)
+(* Theorem: The Trinity formula fit agrees with PDG 2024 within 3sigma *)
 (*                                                                        *)
 (* |H01_theoretical - 125.20| / 125.20 < 0.01  (1% error bound)           *)
 (*                                                                        *)

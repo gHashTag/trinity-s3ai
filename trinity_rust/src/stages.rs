@@ -1,14 +1,14 @@
-//! ALL STAGES: H4 Coxeter Group → Standard Model Complete Derivation
+//! ALL STAGES: H4 Coxeter Group → Standard Model Pipeline
 //!
-//! This module implements the full derivation pipeline:
+//! This module implements the full pipeline of fitted coincidences and documented steps:
 //!
 //! Stage 0: E8 → H4 Projection (Dechant's construction)
 //! Stage 1: H4 Coxeter Group (root system, invariants)
 //! Stage 2: Reflection Subgroups (A2, A1, classification)
-//! Stage 3: Gauge Group Derivation (SU(3)×SU(2)×U(1))
+//! Stage 3: Gauge Group Documentation (SU(3)×SU(2)×U(1))
 //! Stage 4: Spectral Triple (A, H, D) from 600-cell
 //! Stage 5: Spectral Action (heat kernel coefficients)
-//! Stage 6: Gauge Sector (couplings from H4 invariants)
+//! Stage 6: Gauge Sector (couplings fitted to H4 invariants)
 //! Stage 7: Higgs Sector (potential, VEV, mass)
 //! Stage 8: Yukawa Sector (mass ratios, 3 generations)
 //! Stage 9: Mixing Matrices (CKM, PMNS)
@@ -245,7 +245,7 @@ pub fn all_stages() -> Vec<Stage> {
 /// Execute full derivation and print results
 pub fn run_full_derivation() {
     println!("╔══════════════════════════════════════════════════════════════════════╗");
-    println!("║     TRINITY S³AI v5.0 — H4 → STANDARD MODEL DERIVATION             ║");
+    println!("║     TRINITY S³AI v5.0 — H4 → STANDARD MODEL PIPELINE               ║");
     println!("║     ALL STAGES — Rust Implementation with Algebraic Rings            ║");
     println!("╚══════════════════════════════════════════════════════════════════════╝");
 
@@ -256,7 +256,7 @@ pub fn run_full_derivation() {
 
     // Print numerical results
     println!("\n═══════════════════════════════════════════════════════════════════════");
-    println!("NUMERICAL PREDICTIONS FROM H4 INVARIANTS:");
+    println!("NUMERICAL FITTED COINCIDENCES FROM H4 INVARIANTS:");
     println!("═══════════════════════════════════════════════════════════════════════");
 
     println!("\n--- GAUGE SECTOR ---");
@@ -352,7 +352,7 @@ pub fn run_full_derivation() {
     );
 
     println!("\n═══════════════════════════════════════════════════════════════════════");
-    println!("DERIVATION COMPLETE: 13/13 stages | 130 formulas | 61 SG-class");
+    println!("PIPELINE COMPLETE: 13/13 stages | ~80 formulas | ~20 SG-class fitted coincidences");
     println!("═══════════════════════════════════════════════════════════════════════");
 }
 

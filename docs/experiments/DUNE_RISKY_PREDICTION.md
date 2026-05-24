@@ -89,10 +89,11 @@ is made **despite** the tension, not because we are unaware of it.
    We will know within 3-5 years. The binary nature of the test means
    there will be no ambiguity.
 
-3. **Even if falsified**: The Lagrangian derivation (92.3%), N_gen=3 theorem,
-   Strong CP solution, and Higgs mass prediction remain valid. Only the
-   PMNS mixing sector would need revision. The H4 geometric structure may
-   still be correct but require a different mapping to neutrino parameters.
+3. **Even if falsified**: 3/13 Lagrangian sectors are formally proven; N_gen=3
+   is empirical input (not derived); Strong CP is an open problem; Higgs mass
+   is a retrospective fit. Only the PMNS mixing sector would need revision.
+   The H4 geometric structure may still be correct but require a different
+   mapping to neutrino parameters.
 
 4. **Pre-registration prevents backtracking**: By documenting this prediction
    publicly before DUNE data, we commit to accepting the experimental verdict

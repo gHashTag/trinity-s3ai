@@ -267,7 +267,7 @@ pub fn sync_with_formulas() {
     }
 
     if mismatches.is_empty() {
-        println!("All Rust formulas have Coq counterparts.");
+        println!("Some Rust formulas have Coq counterparts; {} mismatches found.", mismatches.len());
     } else {
         println!("Total mismatches: {}/{}", mismatches.len(), rust_formulas.len());
     }

@@ -16,7 +16,7 @@ pub struct ArxivSubmission {
 impl Default for ArxivSubmission {
     fn default() -> Self {
         ArxivSubmission {
-            title: "Trinity S³AI: Deriving the Standard Model from the H4 Coxeter Group".into(),
+            title: "Trinity S³AI: Numerical Coincidences between H4 Invariants and Standard Model Parameters".into(),
             authors: vec![
                 "Trinity S³AI Framework".into(),
             ],
@@ -34,7 +34,7 @@ impl Default for ArxivSubmission {
                 "Higgs mass: 125.09 ± 0.24 GeV (retrospective fit, not a prediction)".into(),
                 "Top quark mass: 173.1 ± 0.9 GeV".into(),
             ],
-            validation_status: "ALL VALIDATIONS PASSED".into(),
+            validation_status: "All fitted coincidences within tolerance".into(),
         }
     }
 }

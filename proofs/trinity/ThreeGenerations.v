@@ -313,7 +313,7 @@ Proof. lia. Qed.
 (* A_{111} = Sum_L Y^3 - Sum_R Y^3 where sum is over left-handed fermions.*)
 (* Here we state the known result as an axiom.                            *)
 
-Axiom sm_cubic_anomaly_zero_per_gen :
+Axiom sm_cubic_anomaly_zero_per_gen [PHYSICAL_AXIOM] :
   (* The [U(1)_Y]^3 anomaly cancels within each SM generation. *)
   (* This is a standard computation: the result is 0. *)
   (* Explicit: (1/6)^3*6 + (2/3)^3*3 + (-1/3)^3*3 + (-1/2)^3*2 + (-1)^3 = 0 *)

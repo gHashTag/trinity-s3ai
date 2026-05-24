@@ -146,7 +146,7 @@ impl QuarkMasses {
 
     /// Q06: m_t/m_c = 8*phi^4*e^2/3 = 135.05 (0.44% error) [CORRECTED]
     /// The original formula 4*phi^3*e^4/1000 was erroneous (gives 0.925).
-    /// H4 derivation: 8 = |E8_roots|/h = 240/30, phi^4, 3 = h/10.
+    /// Post-hoc H4 interpretation: 8 = |E8_roots|/h = 240/30, phi^4, 3 = h/10.
     pub fn m_t_over_c() -> f64 {
         let phi = phi_pow(1);
         let e = std::f64::consts::E;

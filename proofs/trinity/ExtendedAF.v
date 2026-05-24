@@ -143,7 +143,7 @@ End ExtendedAlgebra.
 (*******************************************************************************)
 (* Section 3: BT-2 — sigma-field source count in the extension                *)
 (*                                                                             *)
-(* In BoundaryTheorems.v the obstruction BT-2 is encoded as                       *)
+(* In BoundaryTheorems.v the boundary BT-2 is encoded as                       *)
 (*     a4_sigma_sources = 0                                                    *)
 (* on the standard algebra C + H + M_3(C): there is no central degree of      *)
 (* freedom available to play the role of the Chamseddine–Connes scalar field. *)
@@ -190,7 +190,7 @@ Qed.
 (* [MATH_TODO]: identify the central element gamma_4 of Cl_4^+ with the      *)
 (* Chamseddine–Connes scalar field whose VEV breaks SU(2)_R x U(1)_{B-L}.    *)
 (* This is the physics content of Wave 3 W3.3; encoded here as an axiom so   *)
-(* that downstream theorems can quantify the obstruction.                    *)
+(* that downstream theorems can quantify the boundary.                    *)
 Axiom sigma_field_in_Cl4_plus_axiom :
   (* The Cl_4^+ centre contributes a non-trivial dynamical scalar source      *)
   (* to the a4 coefficient of the spectral action.                            *)
@@ -205,7 +205,7 @@ Axiom sigma_field_in_Cl4_plus_axiom :
 (* of BT-2 no longer rules out a dynamical sigma. The deeper physical claim  *)
 (* — that the new source IS the Chamseddine–Connes sigma — is the content    *)
 (* of sigma_field_in_Cl4_plus_axiom.                                          *)
-Theorem BT2_obstruction_resolved_in_extension :
+Theorem BT2_boundary_resolved_in_extension :
   (* Standard finite algebra: no sigma source (re-stated for clarity) *)
   a4_sigma_sources_std = 0%nat
   /\
@@ -226,12 +226,12 @@ End SigmaField.
 (*******************************************************************************)
 (* Section 4: BT-3 — chirality / 2I-equivariance defect                        *)
 (*                                                                             *)
-(* In BoundaryTheorems.v the obstruction BT-3 is encoded by                       *)
+(* In BoundaryTheorems.v the boundary BT-3 is encoded by                       *)
 (*     D_F_trace = 0    (antipodal symmetry: lambda <-> -lambda).             *)
 (* The key fact is that the antipodal involution is exactly the action of    *)
 (* the centre Z(2I) = { +1, -1 } on the 600-cell.                            *)
 (*                                                                             *)
-(* If gamma_4 in Cl_4^+ commutes with the 2I-action then the obstruction      *)
+(* If gamma_4 in Cl_4^+ commutes with the 2I-action then the boundary      *)
 (* persists. The Wave 3 W3.3 thesis is that gamma_4 is NOT 2I-equivariant:    *)
 (* under the central element (-1) of 2I the natural lift of gamma_4 picks    *)
 (* up a sign, exactly as in 4-dimensional KO-theory.                          *)
@@ -275,7 +275,7 @@ Proof. unfold D_F_ext_trace_chirality_witness. lia. Qed.
 (* the antipodal involution. In the extension this constraint is lifted by    *)
 (* gamma4_breaks_2I_equivariance_axiom; the chirality witness count therefore *)
 (* becomes strictly positive.                                                  *)
-Theorem BT3_obstruction_resolved_in_extension :
+Theorem BT3_boundary_resolved_in_extension :
   (* Standard setting: gamma_4 is centrally 2I-equivariant *)
   gamma4_central_equivariance_flag_std = 1%nat
   /\
@@ -328,8 +328,8 @@ End JointSummary.
 (*   A_F_std_dim_value, A_F_ext_dim_value, A_F_ext_new_dof_count              *)
 (*   a4_sigma_sources_ext_value, a4_sigma_sources_ext_strictly_increased      *)
 (*   gamma4_std_is_equivariant, D_F_ext_trace_chirality_witness_positive      *)
-(*   BT2_obstruction_resolved_in_extension                                    *)
-(*   BT3_obstruction_resolved_in_extension                                    *)
+(*   BT2_boundary_resolved_in_extension                                    *)
+(*   BT3_boundary_resolved_in_extension                                    *)
 (*   A_F_ext_lifts_BT2_and_BT3                                               *)
 (*                                                                             *)
 (* Axioms (each one is a Wave 3 W3.3 physics assumption, NOT a math fact):    *)

@@ -138,10 +138,9 @@ def main():
         "total_refutations": total["refuted"],
         "by_directory": by_dir,
         "honest_assessment": (
-            "proofs/trinity/ is 100% closed (0 real Admitted); "
-            "remaining open proof gaps are 4 Admitted in proofs/clifford_cl8/ "
-            "and 1 in derivations/chirality/. All 77 occurrences of 'Admitted' in "
-            "proofs/trinity/ are inside historical comments."
+            "proofs/trinity/ has 0 real Admitted but 123 total unproven obligations "
+            "(25 Admitted + 18 admit + 73 Axiom + 7 Parameter) across 79 Coq files; "
+            "4 Admitted in proofs/clifford_cl8/ and 1 in derivations/chirality/. "
         ),
     }
 

@@ -68,10 +68,10 @@ Boundary-mapping principle:
 ║     → ⛔ DIRECT PATH OBSTRUCTED: H4 → SM fermion chirality      ║
 ║                                                                  ║
 ║  ✅ BT-4 — 2I-equivariant D_F does not yield lepton masses       ║
-║     → ⛔ DIRECT PATH OBSTRUCTED: H4 → lepton mass hierarchy     ║
+║     → ⛔ DIRECT PATH BLOCKED (boundary theorem): H4 → lepton mass hierarchy ║
 ║                                                                  ║
 ║  ✅ 14 refutation theorems (*_refuted)                           ║
-║  ✅ 1762 Qed. theorems, 0 real Admitted in proofs/trinity/       ║
+║  ✅ 1325 Qed. theorems, 25 Admitted + 123 obligations             ║
 ╚══════════════════════════════════════════════════════════════════╝
                              │
          ┌───────────────────┼───────────────────┐

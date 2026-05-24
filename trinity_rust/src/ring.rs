@@ -1,7 +1,7 @@
-//! Algebraic Ring Structures for Trinity H4 -> SM Derivation
+//! Algebraic Ring Structures for Trinity H4 -> SM Pipeline
 //!
 //! Implements the algebraic foundations: Ring, Field, and specialized
-//! H4-invariant number systems. All SM parameters derive from these structures.
+//! H4-invariant number systems. SM parameters are fitted to these structures, not derived.
 
 use std::fmt::Debug;
 use std::ops::{Add, Mul, Neg, Sub};

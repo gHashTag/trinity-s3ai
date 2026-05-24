@@ -299,7 +299,7 @@ Lemma two_I_irreps_count :
   (two_I_irreps = 9)%nat.
 Proof. unfold two_I_irreps. reflexivity. Qed.
 
-(* BT3: Main theorem — chirality obstruction.
+(* BT3: Main theorem — chirality boundary.
    The antipodal symmetry of the 600-cell forces vector-like spectrum,
    as evidenced by Tr(D_F) = 0 and spectral sigma = 5.62 >> 0.5. *)
 Theorem BT3_chirality_boundary :
