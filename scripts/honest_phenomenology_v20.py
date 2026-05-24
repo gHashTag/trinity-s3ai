@@ -675,7 +675,7 @@ def generate_report(results: dict) -> str:
             "The Trinity catalog does NOT show statistically significant improvement "
             f"over random sampling (mean error p = {p_mean_rel:.4f}). "
             "The observed precision is consistent with searching a large enough space. "
-            "This is an honest negative result — the formulas are phenomenological fits, "
+            "This is an honest boundary finding — the formulas are phenomenological fits, "
             "not first-principles derivations."
         )
 

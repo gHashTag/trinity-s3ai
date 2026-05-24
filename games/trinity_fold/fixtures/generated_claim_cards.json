@@ -45,7 +45,7 @@
       "id": "e8-eta-non-convergence",
       "kind": "constraint",
       "name": "E8 eta non-convergence",
-      "description": "Wave 17 audit found that the E8-plumbing eta discrepancy does not converge to -2 and that the underlying B-matrix is heuristic, not a rigorous derivation. Listed as a no-go for this route.",
+      "description": "Wave 17 audit found that the E8-plumbing eta discrepancy does not converge to -2 and that the underlying B-matrix is heuristic, not a rigorous derivation. Listed as a boundary for this route.",
       "claim": "high_risk_or_falsified",
       "layer": "L4",
       "evidence": "paper/CHANGELOG_v1_to_v2.md (Honesty Notes); Wave 17 audit",
