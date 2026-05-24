@@ -3,7 +3,7 @@
 **Project:** Trinity S3AI v3.5  
 **File:** `derivations/neutrinos/N01_origins.md`  
 **Date:** 2025-01-01  
-**Status:** Honest assessment — SG/V-class numerical formulas confirmed; group-theoretic connection is post-hoc matching (explicit mechanism absent).
+**Status:** Honest assessment — SG/V-class numerical formulas numerically verified; group-theoretic connection is post-hoc matching (explicit mechanism absent).
 
 ---
 

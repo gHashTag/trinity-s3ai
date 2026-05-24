@@ -294,17 +294,17 @@ The framework makes five testable predictions:
 - Current experimental: $65.5^{+3.5}_{-4.5}^\circ$ (T2K+NOvA+Daya Bay combined) [2]
 - Deviation: **$0.2\%$** ($\sim 0.1\sigma$ from central value)
 - **Test:** DUNE (2030+) aims for $\sim 10^\circ$ precision; Hyper-Kamiokande (2030+)
-- **Falsifiability:** NONE --- prediction is confirmed within current data ($0.1\sigma$ agreement)
+- **Falsifiability:** WITHDRAWN (post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025)
 
 ### 7.2 Honest Assessment of Predictions
 
 | Prediction | Status | Confidence | Timeline |
 |-----------|--------|-----------|----------|
 | $\sin^2\theta_{13}$ | Consistent with data | LOW testability | JUNO 2027+ |
-| $m_H$ | CONFIRMED (post-diction) | N/A (post-hoc) | Already tested |
+| $m_H$ | NUMERICALLY VERIFIED (post-diction) | N/A (post-hoc) | Already tested |
 | $m_{\nu_e}$ | Not yet testable | MEDIUM | KATRIN-II 2028+ |
 | $\lambda$ | Consistent, untestable | LOW (uncertainty too large) | HL-LHC 2035+ |
-| $\delta_{CP}$ | **$0.1\sigma$ agreement** | CONFIRMED | Current data |
+| $\delta_{CP}$ | **>5σ excluded** | WITHDRAWN | N/A |
 
 The $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ prediction agrees with the current experimental value $65.5^\circ$ within $0.2\%$ ($0.1\sigma$). This is one of the most precise agreements in the framework. DUNE will provide further precision testing.
 
@@ -349,7 +349,7 @@ This is a major discrepancy:
 | **Trinity (this work)** | 25 (18 verified) | $\sim 3 \times 10^{-6}$ | 5 (1 in tension) | No |
 | D4D (Furey) | 3-4 SM charges | Not quantitative | 0 | Partial (Clifford algebra) |
 | String theory landscape | $\sim 10^{500}$ vacua | Anthropic (no p-value) | 0 | Yes (from string Lagrangian) |
-| Asymptotic safety | Coupling unification | Not SM-specific | $m_H$ confirmed | Yes (FRG equations) |
+| Asymptotic safety | Coupling unification | Not SM-specific | $m_H$ numerically verified | Yes (FRG equations) |
 | Spectral SM (Connes) | $\sim 5$ parameters | Not quantitative | $m_H$ (initially wrong) | Yes (NCG framework) |
 | GUT models | 3 gauge couplings | Not quantitative | Proton decay (not seen) | Yes (SU(5), SO(10)) |
 
@@ -392,7 +392,7 @@ This work has the following explicit limitations:
 
 8. **Spectral action discrepancy.** The spectral action applied to the 600-cell predicts $m_H \approx 87.4$ GeV, while the phenomenological formula H01 gives $m_H \approx 125.2$ GeV. This 30% discrepancy suggests the phenomenological formula is not a consequence of the spectral geometry.
 
-9. **$\delta_{CP}$ prediction confirmed.** The corrected formula $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ agrees with the experimental $65.5^\circ$ within $0.2\%$ ($0.1\sigma$). The previous formula $e/2 \approx 77.9^\circ$ was excluded at $7.7\sigma$ and has been superseded.
+9. **$\delta_{CP}$ prediction WITHDRAWN.** The formula $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ was a post-hoc fit to outdated data and is excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025. The previous formula $e/2 \approx 77.9^\circ$ was excluded at $7.7\sigma$ and has been superseded.
 
 10. **Coq proofs do not compile.** The formal Coq proofs are written but have not been verified by the Coq proof checker. All claims about formal verification are provisional.
 
@@ -415,16 +415,16 @@ The spectral action applied to the 600-cell Dirac operator predicts $m_H \approx
 
 **Possible approaches:** Compute higher-order Seeley-DeWitt coefficients $a_6(D^2)$ and $a_8(D^2)$; explore product geometries $M \times F$ with non-trivial 4D manifold $M$; modify the Dirac operator to include $H_4$-specific terms as proposed by Morató [4].
 
-### 11.2 The $\delta_{CP}$ Confirmation (RESOLVED)
+### 11.2 The $\delta_{CP}$ Withdrawal (RESOLVED)
 
-**Status: RESOLVED.** The corrected formula $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ agrees with the experimental $65.5^\circ$ within $0.2\%$ ($0.1\sigma$). 
+**Status: WITHDRAWN.** The formula $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ was a post-hoc fit to outdated PDG-2024 data. NuFIT-6.0 + T2K+NOvA 2025 exclude it at >5σ. 
 
 The previous formula $e/2 \approx 77.9^\circ$ was found to be excluded at $7.7\sigma$ by current data. The corrected formula $3/\varphi^2$ emerges naturally from the $H_4$ framework:
 - $\varphi^2 = \varphi + 1 \approx 2.618$ appears in the $H_4$ degree structure
 - The coefficient 3 relates to the fundamental $H_4$ invariant via $3 = |H_4|/4800$
 - This gives $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$, within $0.16^\circ$ of the measured $65.5^\circ$
 
-DUNE (2030+) will provide further precision testing, but the prediction is already confirmed within current data.
+DUNE (2030+) will test the PMNS sector, but the $\delta_{CP} = 3/\varphi^2$ prediction is **WITHDRAWN** (>5σ excluded by current global fits).
 
 ### 11.3 Uniqueness of Coefficients (Serious)
 
