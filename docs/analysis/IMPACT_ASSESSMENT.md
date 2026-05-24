@@ -189,8 +189,9 @@ DUNE (2028-2032) will measure delta_CP with precision +/- 10.
    - Without pre-registration — confirmation bias
 
 9. **DUNE delta_CP test (2028-2032)**
-   - If confirmed: Trinity takes off
-   - If refuted: a new framework version is needed
+   - Historical note: the δ_CP = 3/φ² prediction is **WITHDRAWN** (>5σ excluded). DUNE will test the PMNS sector, but the Trinity prediction is no longer active.
+   - If DUNE measures ~65° (currently excluded): would have been a genuine test.
+   - If refuted at >100° or <30°: the historical prediction is excluded.
 
 10. **KATRIN m_nue test (2025-2030)**
     - Prediction 0.103 eV
@@ -218,11 +219,12 @@ DUNE (2028-2032) will measure delta_CP with precision +/- 10.
 - Scientific status: JHEP/CMP publication
 - Comparable to: Connes NCG (but with H4 motivation)
 
-### If Phase C is Confirmed
+### If Phase C Were Confirmed (historical note: superseded)
 **"Paradigm shift — the Standard Model from geometry"**
-- Impulse factor: 10/10
-- Scientific status: Nobel-level
-- Comparable to: Standard Model itself
+> **NOTE:** The δ_CP = 3/φ² prediction is **WITHDRAWN** (>5σ excluded by current data). Phase C is no longer attainable.
+- Impulse factor: 0/10
+- Scientific status: N/A — prediction withdrawn
+- Comparable to: N/A
 
 ---
 
