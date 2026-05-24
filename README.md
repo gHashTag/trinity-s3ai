@@ -3,6 +3,7 @@
 [![CI](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml/badge.svg)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
 [![Anti-Numerology Gate](https://img.shields.io/badge/anti--numerology-PASS-brightgreen)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
 [![Coq](https://img.shields.io/badge/Coq-8.20.1-blue)](https://coq.inria.fr)
+[![Negative Result](https://img.shields.io/badge/negative--result-ASSET-orange)](docs/TECH_TREE.md)
 [![DOI](https://img.shields.io/badge/DOI-pending%20Zenodo-lightgrey)](scripts/prepare_zenodo.md)
 
 ---
