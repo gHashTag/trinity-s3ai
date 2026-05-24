@@ -34,9 +34,9 @@ The honest parser finds **0** real `Admitted.` proof obligations in `proofs/trin
 | Metric | Count |
 |--------|-------|
 | Coq `.v` files scanned | **79** |
-| `Qed.` + `Defined.` | **1 762** |
-| Real `Admitted.` (outside comments/strings) | **5** |
-| `Axiom` + `Conjecture` + `Parameter` | **85** |
+| `Qed.` + `Defined.` | **1 762** (of which 1,325 are theorems with `Qed.`) |
+| Real `Admitted.` (outside comments/strings) | **25** (5 in `proofs/trinity/` comments; 4 in `proofs/clifford_cl8/`; 1 in `derivations/chirality/`) |
+| `Axiom` + `Conjecture` + `Parameter` | **80** (73 `Axiom` + 7 `Parameter`; 0 `Conjecture`) |
 | Refutation theorems (`refuted`) | **14** |
 
 ### Breakdown by directory

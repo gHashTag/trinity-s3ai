@@ -1,12 +1,12 @@
 //! Gauge Sector: SU(3)_C × SU(2)_L × U(1)_Y from H4 Subgroups
 //!
-//! Derivation chain:
+//! Subgroup chain (documented, not derived):
 //!   H4 (order 14400, rank 4)
 //!     -> A2 x A2 (order 36, rank 4) = SU(3) x SU(3)
 //!     -> A2 x A1 (order 12, rank 3) = SU(3) x SU(2)
 //!     -> SU(3)_C x SU(2)_L x U(1)_Y (Standard Model)
 //!
-//! U(1)_Y emerges from orthogonal complement: rank(A2) - rank(A1) = 2 - 1 = 1
+//! U(1)_Y is documented as orthogonal complement: rank(A2) - rank(A1) = 2 - 1 = 1
 
 use crate::h4::H4Subgroup;
 use crate::ring::QSqrt5;

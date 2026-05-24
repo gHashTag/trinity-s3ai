@@ -5,7 +5,7 @@
 #!/usr/bin/env python3
 """
 Trinity Formula Verification Suite - v3.6 Final
-Verifies ALL 27 formulas against experimental data with 50-digit precision.
+Evaluates ~27 formulas against experimental data with 50-digit precision.
 Uses mpmath for high-precision arithmetic and Monte Carlo for p-values.
 """
 
@@ -381,7 +381,7 @@ def run_verification():
 def print_summary_table(results):
     """Print formatted summary table."""
     print("\n" + "=" * 105)
-    print("  VERIFICATION RESULTS - ALL 27 FORMULAS")
+    print("  EVALUATION RESULTS - ~27 FORMULAS")
     print("=" * 105)
     print(f"  {'ID':>4}  {'Formula':<45} {'Computed':>14} {'Target':>14} {'Rel.Err':>10} {'Cls':>4}")
     print("-" * 105)
@@ -560,12 +560,12 @@ def main():
     print("=" * 60)
     print("  FINAL SUMMARY")
     print("=" * 60)
-    print(f"    Formulas verified     : {total}")
+    print(f"    Formulas evaluated     : {total}")
     print(f"    SG class (< 0.01%)    : {counts['SG']}")
     print(f"    Total Pass (< 1%)     : {counts['SG'] + counts['V'] + counts['Pass']}")
     print(f"    Fail (> 1%)           : {counts['Fail']}")
     print(f"    MC p-value (binomial) : {binom_p:.2e}")
-    print(f"    v3.6 status           : ALL 3 NEW FORMULAS VALIDATED")
+    print(f"    v3.6 status           : 3 NEW FORMULAS CHECKED")
     print()
     
     # Save results to file

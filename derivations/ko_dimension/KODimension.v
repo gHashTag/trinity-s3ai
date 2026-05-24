@@ -206,7 +206,7 @@ Definition J_is_off_diagonal : Prop :=
    (vs KO-dim 0, where J would be diagonal on H^±). *)
 
 (* PHYSICAL_AXIOM tag: geometric property of the icosian ring real structure *)
-Axiom cell600_J_off_diagonal :
+Axiom cell600_J_off_diagonal [PHYSICAL_AXIOM] :
   (* J_cell600 maps H_left to H_right and H_right to H_left *)
   (* This is the key structural property of the icosian real structure *)
   (* Proof requires: representation theory of 2I in ℍ, two-sided module *)

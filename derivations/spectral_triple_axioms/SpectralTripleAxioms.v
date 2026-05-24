@@ -21,7 +21,7 @@
 (*   Axiom 2 (Regularity)   : VERIFIED — trivial in finite dim (Qed)          *)
 (*   Axiom 3 (Finiteness)   : VERIFIED — trivial in finite dim (Qed)          *)
 (*   Axiom 4 (Reality J)    : PARTIAL — signs Qed; [a,JbJ^-1]=0: PHYSICAL    *)
-(*   Axiom 5 (First-order)  : OPEN — MATH_TODO, key NCG obstruction           *)
+(*   Axiom 5 (First-order)  : OPEN — MATH_TODO, key NCG boundary           *)
 (*   Axiom 6 (Orientation)  : PARTIAL — γ defined; Hochschild cycle: MATH_TODO*)
 (*   Axiom 7 (Poincaré)     : PARTIAL — finite dim simplifies; formal: TODO   *)
 (*                                                                             *)
@@ -224,7 +224,7 @@ Record SpectralTriple : Type := mkSpectralTriple {
   axiom_reality_Jgamma  : eps'' cell600_signs = SPlus;
 
   (* Axiom 5: First order — [[D,a], JbJ^{-1}] = 0 for a,b ∈ A *)
-  (* MATH_TODO: Not yet proved for the 600-cell D. Key NCG obstruction. *)
+  (* MATH_TODO: Not yet proved for the 600-cell D. Key NCG boundary. *)
   axiom_first_order_field : True;  (* placeholder — see Axiom below *)
 
   (* Axiom 6: Orientation — γ realized as Hochschild n-cycle *)

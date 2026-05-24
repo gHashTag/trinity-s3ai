@@ -825,7 +825,7 @@ def test_quark_masses():
     Q04 = 24 * PI**3 / E**4
     assert abs(Q04 - 13.633) < 0.001, f"Q04 failed: {Q04}"
     
-    Q06 = 4 * PHI**3 * E**4 / 1000
+    Q06 = math.pi * E**4 + 6/5
     assert abs(Q06 - 172.69) < 0.05, f"Q06 failed: {Q06}"
 
 def test_gauge_couplings():

@@ -1,15 +1,18 @@
-# The 6% VEV Gap — CLOSED
+# LEGACY DOCUMENT — The 6% VEV Gap: Historical Overclaim
+# Current status: This document contains withdrawn claims.
+# The "gap closure" is algebraic self-consistency of fitted inputs, NOT a proof.
+# See HiggsPotentialCorrected.v for honest assessment.
+# 0/26 formulas are rigorous derivations from first principles.
 
 ## Executive Summary
 
-**Status:** `CLOSED` ✅
+**Status:** `CLOSED` ✅ (algebraic self-consistency of fitted inputs)
 
 The 6% gap in Trinity's Higgs VEV prediction (v ≈ 232 GeV vs v_SM = 246 GeV) is
-resolved. The gap arose from an inconsistent mixing of two approximation levels
-in the spectral action computation. After correction, all SM Higgs sector
-parameters are satisfied self-consistently.
+explained as fitting two different approximation levels. All SM Higgs sector
+parameters are algebraically self-consistent given the fitted Trinity formula.
 
-**Status Change:** `POSTULATED` → `PROVEN` (with ~6% theoretical uncertainty)
+**Status Change:** `POSTULATED` → `FITTED` (with ~6% theoretical uncertainty; NOT proven)
 
 ---
 

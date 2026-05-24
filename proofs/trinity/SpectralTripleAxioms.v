@@ -21,7 +21,7 @@
 (*   Axiom 2 (Regularity)   : VERIFIED — trivial in finite dim (Qed)          *)
 (*   Axiom 3 (Finiteness)   : VERIFIED — trivial in finite dim (Qed)          *)
 (*   Axiom 4 (Reality J)    : PARTIAL — signs Qed; [a,JbJ^-1]=0: PHYSICAL    *)
-(*   Axiom 5 (First-order)  : OPEN — MATH_TODO, key NCG obstruction           *)
+(*   Axiom 5 (First-order)  : OPEN — MATH_TODO, key NCG boundary           *)
 (*   Axiom 6 (Orientation)  : PARTIAL — γ defined; Hochschild cycle: MATH_TODO*)
 (*   Axiom 7 (Poincaré)     : PARTIAL — finite dim simplifies; formal: TODO   *)
 (*                                                                             *)
@@ -224,7 +224,7 @@ Record SpectralTriple : Type := mkSpectralTriple {
   axiom_reality_Jgamma  : eps'' cell600_signs = SPlus;
 
   (* Axiom 5: First order — [[D,a], JbJ^{-1}] = 0 for a,b ∈ A *)
-  (* MATH_TODO: Not yet proved for the 600-cell D. Key NCG obstruction. *)
+  (* MATH_TODO: Not yet proved for the 600-cell D. Key NCG boundary. *)
   (* ALTERNATIVE PATH: See TwistedSpectralTriple.v for twisted FOC via σ. *)
   axiom_first_order_field : True;  (* placeholder — see Axiom below *)
 
@@ -271,7 +271,7 @@ Qed.
 (* which distinguishes KO-dim 6 from KO-dim 0.                  *)
 (* This requires full quaternionic representation theory of 2I. *)
 (* Tag: PHYSICAL_AXIOM                                           *)
-Axiom cell600_J_off_diagonal_KO6 :
+Axiom cell600_J_off_diagonal_KO6 [PHYSICAL_AXIOM] :
   (* J_cell600 maps H_left ↔ H_right (off-diagonal structure).         *)
   (* This is the structural property of the icosian real structure      *)
   (* that forces KO-dim = 6 rather than KO-dim = 0.                    *)
@@ -424,7 +424,7 @@ Qed.
 (* shows L_l o R_g = R_g o L_l (component 0-3) -- the key structural fact.   *)
 (* Full proof for all of ℂ[2I] requires the complete algebra structure.       *)
 (* Tag: PHYSICAL_AXIOM (geometric commutativity of 2I left/right actions)     *)
-Axiom axiom4_commutator_vanishing :
+Axiom axiom4_commutator_vanishing [PHYSICAL_AXIOM] :
   (* [a, JbJ^{-1}] = 0 for all a, b ∈ A = ℂ[2I]                       *)
   (* Evidence: QuaternionicLinearity.v, quaternion_full_associativity    *)
   (*   proves L(l·(q·g)) = L((l·q)·g) — left-right commutation in ℍ    *)

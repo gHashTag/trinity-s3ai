@@ -1,6 +1,10 @@
-# RG Running Proof: H4 Boundary Conditions to Trinity Predictions
+# LEGACY DOCUMENT — RG Running: Historical Numerical Coincidence Claim
+# Current status: This document contains overclaims that have been withdrawn.
+# The RG sector is NOT proven; formulas are phenomenological fits.
+# See LAGRANGIAN_HONEST_STATUS.md for canonical assessment.
+# 0/26 formulas are rigorous derivations from first principles.
 
-## Theorem
+## Historical Claim (Withdrawn)
 
 **Gauge couplings using H4-inspired boundary conditions, when run down from unification scale $\Lambda_{H4}$ to electroweak scale $m_Z$ using Standard Model RGEs, match the Trinity fitted formulas numerically:**
 
@@ -10,7 +14,7 @@
 | $\alpha_s(m_Z)$ | $(\sqrt{5}-2)/2$ | 0.118034 | 0.118111 | 0.07% |
 | $\sin^2\theta_W^{\text{on-shell}}(m_Z)$ | $3\varphi^{-6}\pi^2 e^{-2}$ | 0.223309 | 0.225381 | 0.93% |
 
-**Status: PROVEN** (agreement at the level of expected 3-loop/threshold corrections)
+**Status: FITTED COINCIDENCE** (numerical agreement only; no derivation from H4 RGEs exists)
 
 ---
 

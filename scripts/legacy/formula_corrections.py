@@ -3,7 +3,7 @@
 Trinity S³AI v3.5 — Complete Formula Corrections
 =================================================
 
-This module contains the CORRECTED Trinity formulas verified against
+This module contains the CORRECTED Trinity formulas fitted to
 PDG 2024 experimental data with 50-digit precision using mpmath.
 
 KEY FINDINGS FROM CORRECTION PROCESS:
@@ -255,7 +255,7 @@ class TrinityFormulas:
 
 
 def verify_all():
-    """Run complete verification of all formulas."""
+    """Run complete evaluation of all formulas."""
     tf = TrinityFormulas()
 
     tests = [
@@ -292,7 +292,7 @@ def verify_all():
     tests.append(('sum_nu', sum_nu_target, 'Σm_ν'))
 
     print("="*90)
-    print("TRINITY S³AI v3.5 — COMPLETE FORMULA VERIFICATION")
+    print("TRINITY S³AI v3.5 — COMPLETE FORMULA EVALUATION")
     print("="*90)
     print(f"{'Formula':<20s} {'Physical':<18s} {'Computed':<20s} {'Target':<20s} {'Error':<10s} Class")
     print("-"*90)

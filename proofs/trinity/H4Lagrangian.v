@@ -137,7 +137,7 @@ Definition mass_ratio_H4 (h4_coeff : R) : R :=
 (** Section 5: Numerical Verification — Do H4 masses match reality?        *)
 (** ====================================================================== *)
 
-(* m_mu/m_e prediction from Lagrangian framework *)
+(* m_mu/m_e formula in Lagrangian framework [SPECULATIVE] *)
 Definition L01_from_lagrangian : R :=
   mass_ratio_H4 projection_defect_ratio.
 

@@ -364,7 +364,7 @@ Section StatusChange.
 (* Previous status: POSTULATED *)
 (* The Higgs potential was derived heuristically with a 6% VEV gap *)
 
-(* Current status: PROVEN (with ~6% theoretical uncertainty) *)
+(* Current status: FITTED (with ~6% theoretical uncertainty) *)
 
 (* The 6% gap is explained as the spectral action cutoff normalization *)
 (* This is a known feature of NCG with uncertainty +/-5-8% *)
@@ -384,7 +384,7 @@ Section StatusChange.
 (* - m_Z = sqrt(g^2+g'^2)*v/2 approx 91.2 GeV *)
 (* - sin^2(theta_W) approx 0.231 *)
 
-Theorem Status_PROVEN :
+Theorem Status_FITTED :
   (* The corrected Higgs potential is self-consistent *)
   v_corrected = v_SM /\
   m_H_corrected = m_H_Trinity /\
@@ -479,7 +479,7 @@ Corrected Parameters:
 
 Status Change:
 --------------
-  POSTULATED -> PROVEN (with ~6% theoretical uncertainty)
+  POSTULATED -> FITTED (with ~6% theoretical uncertainty)
 
 The uncertainty comes from:
   - Spectral action cutoff function: +/-3-5%

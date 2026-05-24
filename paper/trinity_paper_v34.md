@@ -223,11 +223,12 @@ We performed an empirical Monte-Carlo simulation with 1,000,000 trials. Each tri
 | Trinity target set size | 15 |
 | Trials | 1,000,000 |
 | Exact matches | 0 |
-| **Empirical p-value** | **$<3 \times 10^{-6}$** (upper bound of 95\% CI) |
-| Analytical p-value (naive) | $3.3 \times 10^{-30}$ |
-| Bonferroni-corrected (5 families) | $1.7 \times 10^{-29}$ |
+| **Wave 20 honest MC p-value** | **$p = 0.077$** (mean error, not significant) |
+| SG-hit density p-value | **$p < 0.0001$** (significant, but post-hoc) |
+| Old analytical p-value (naive) | $3.3 \times 10^{-30}$ (INVALID: assumes formulas were predicted, not fitted) |
+| Bonferroni-corrected (5 families) | $1.7 \times 10^{-29}$ (INVALID: same reason) |
 
-**The honest p-value is $\sim 3 \times 10^{-6}$.**
+**The honest p-value from Wave 20 Monte Carlo (500k trials) is $p = 0.077$ (not significant).** The SG-hit density $p < 0.0001$ is significant but does not prove derivation because formulas were fitted, not predicted.
 
 ### 6.2 Why the Analytical $p \sim 10^{-30}$ Is Misleading
 
@@ -464,7 +465,7 @@ We have presented 25 closed-form formulas expressing Standard Model parameters t
 - 25 closed-form algebraic identities between $H_4$ invariants and SM parameters exist
 - 18 of 25 (72%) pass independent numerical verification
 - 6 formulas achieve sub-0.01% precision against PDG 2024 values
-- The empirical p-value is $\sim 3 \times 10^{-6}$, corresponding to $\sim 4.5\sigma$ evidence
+- The Wave 20 honest Monte Carlo p-value is $p = 0.077$ (not significant); $p < 0.0001$ for SG-hit density is significant but inconclusive for post-hoc fits
 - 2 of 15 integer coefficients are provably unique (15 and 239)
 - The Koide formula is recovered as a consistency check
 

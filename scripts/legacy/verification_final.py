@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ================================================================================
-TRINITY S3AI v3.5 -- COMPLETE INDEPENDENT VERIFICATION OF ALL 25 FORMULAS
+TRINITY S3AI v3.5 -- INDEPENDENT NUMERICAL CHECK OF ~25 FITTED FORMULAS
 ================================================================================
 Computational physicist review: high-precision mpmath verification against
 PDG 2024 experimental data with Monte Carlo p-value estimation.
@@ -246,22 +246,22 @@ FORMULAS.extend([
      "mixing", ""),
 ])
 
-# -- ADDITIONAL/PREDICTION FORMULAS --
+# -- ADDITIONAL/SPECULATIVE FORMULAS --
 FORMULAS.extend([
     ("P1", "m_νe", "1/(6φ)",
      lambda: 1 / (6 * PHI),
      "m_νe bound", PDG['m_nue_bound'],
-     "prediction", "KATRIN-II 2028; passes all bounds"),
+     "speculative_fit", "KATRIN-II 2028; passes all bounds"),
 
     ("P2", "δ_CP", "e/2 rad",
      lambda: E / 2,
      "δ_CP (rad)", PDG['delta_CP_rad'],
-     "prediction", "DUNE 2030; 18.8% discrepancy with PDG -- FALSIFIABLE"),
+     "withdrawn_fit", "DUNE 2030; 18.8% discrepancy -- WITHDRAWN, replaced by corrected formula"),
 
     ("P3", "Lambda", "√φ/π²",
      lambda: mp.sqrt(PHI) / PI**2,
      "λ_Higgs", mp.mpf('0.129'),
-     "prediction", "Higgs self-coupling; theory ~0.129"),
+     "speculative_fit", "Higgs self-coupling; theory ~0.129"),
 
     ("A1", "Q06", "φ⁴e²/3",
      lambda: PHI**4 * E**2 / 3,
@@ -336,16 +336,16 @@ def analyze_delta_cp():
     delta_pdg = float(PDG['delta_CP_rad'])
     delta_pdg_deg = delta_pdg * 180 / float(PI)
 
-    print(f"\nTrinity prediction: δ_CP = e/2 = {delta_trinity:.6f} rad = {delta_trinity_deg:.2f}°")
+    print(f"\nTrinity WITHDRAWN formula: δ_CP = e/2 = {delta_trinity:.6f} rad = {delta_trinity_deg:.2f}°")
     print(f"PDG 2024 value:     δ_CP = {delta_pdg:.6f} rad = {delta_pdg_deg:.1f}°")
     print(f"Discrepancy:        {abs(delta_trinity - delta_pdg):.4f} rad = {abs(delta_trinity_deg - delta_pdg_deg):.1f}°")
     print(f"Relative error:     {pct_err(delta_trinity, delta_pdg):.2f}%")
     print(f"")
-    print(f"VERDICT: This is a FALSIFIABLE PREDICTION.")
-    print(f"  - If DUNE 2030 measures δ_CP ≈ 78°, Trinity is vindicated.")
-    print(f"  - If DUNE 2030 confirms δ_CP ≈ 65°, Trinity is ruled out for δ_CP.")
-    print(f"  - Current PDG uncertainty: ±1.6° (statistical error on δ_CP)")
-    print(f"  - The discrepancy is 12.4°, which is ~7.8σ from the central value.")
+    print(f"VERDICT: This was a post-hoc fit that was falsified and replaced.")
+    print(f"  - δ_CP = e/2 (78°) is excluded at >5σ; the corrected post-hoc fit is 3/φ² ≈ 65.66°.")
+    print(f"  - Neither formula is a prediction; both were fitted to data.")
+    print(f"  - Current PDG: δ_CP ≈ 230° (not 65° or 78°).")
+    print(f"  - All δ_CP formulas are WITHDRAWN per anti-post-hoc rule.")
 
 
 def analyze_neutrino():
@@ -359,7 +359,7 @@ def analyze_neutrino():
     print(f"\n1. m_νe = 1/(6φ) = {m_nue:.6f} eV")
     print(f"   Cosmological bound: < {float(PDG['m_nue_bound'])} eV  → PASSES ({m_nue:.4f} < {float(PDG['m_nue_bound'])})")
     print(f"   KATRIN bound: < {float(PDG['m_nue_katrin'])} eV  → PASSES ({m_nue:.4f} < {float(PDG['m_nue_katrin'])})")
-    print(f"   STATUS: CONSISTENT with all bounds. PREDICTION for KATRIN-II 2028.")
+    print(f"   STATUS: CONSISTENT with all bounds. SPECULATIVE BOUND-COMPATIBLE VALUE for KATRIN-II 2028.")
 
     # Neutrino mass splitting RATIO (this works!)
     dm_ratio = float(PI / (40 * PHI**2))
@@ -571,10 +571,9 @@ def print_summary(results, p_value, sigma):
     print(f"  p = {p_value:.2e}  (~{sigma:.1f} sigma)")
     print(f"  Based on {N_MC_TRIALS} random formulas of similar complexity")
     print(f"")
-    print(f"  CONCLUSION: The Trinity formula set is extraordinarily unlikely")
-    print(f"  to arise by chance. The p-value of {p_value:.2e} corresponds to a")
-    print(f"  {sigma:.1f}-sigma detection, far beyond the 5-sigma particle physics")
-    print(f"  discovery threshold.")
+    print(f"  CONCLUSION: The naive Monte Carlo p-value of {p_value:.2e} does NOT account")
+    print(f"  for the fact that formulas were fitted, not predicted. The {sigma:.1f}-sigma")
+    print(f"  claim is INVALID for post-hoc fits. See Wave 20 honest MC: p=0.077 (not sig.).")
 
     print(f"\n{'='*80}")
     print(f"KEY FINDINGS:")
@@ -587,10 +586,10 @@ def print_summary(results, p_value, sigma):
     if ff:
         print(f"6. {len(ff)} formula(s) FAIL and need investigation")
     print(f"7. The ratio-based interpretation is CORRECT; absolute mass labels are misleading")
-    print(f"8. δ_CP = e/2 is a FALSIFIABLE prediction (18.8% discrepancy with PDG)")
+    print(f"8. δ_CP = e/2 was a falsified post-hoc fit (18.8% discrepancy); corrected to 3/phi²")
 
     print("\n" + "=" * 130)
-    print("VERIFICATION COMPLETE -- Independent computational physicist review")
+    print("EVALUATION COMPLETE -- Independent computational physicist review")
     print("=" * 130)
 
 

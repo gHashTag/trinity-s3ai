@@ -137,7 +137,7 @@ flowchart BT
 | **BT-3** (Chirality) | 600-cell D_F is vector-like (antipodal symmetry) | The 600-cell cannot source SM chirality; chirality must enter via a different mechanism. |
 | **BT-4** (Mass hierarchy) | 2I-equivariant D_F cannot reproduce lepton mass ratios | Icosahedral symmetry-breaking ansatz for lepton masses is insufficient; needs stronger breaking. |
 
-**Coq Stats (Wave 23):** 1,762 Qed · 0 real Admitted (`proofs/trinity/`) · 14 refutation theorems  
+**Coq Stats (Wave 23):** 1,325 theorems with `Qed.` · 25 `Admitted.` + 123 total unproven obligations · 14 refutation theorems  
 **Honest p-value:** p = 0.077 (mean error, not significant) · p < 0.0001 (SG-hit density, significant)
 
 > *"Not a proof is also a proof."* — We share what we tried to prove and could not,

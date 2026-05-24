@@ -189,27 +189,27 @@ Qed.
 (* Theorem DG_inapplicable: The formal hypotheses of the Distler-Garibaldi    *)
 (* theorem (arXiv:0905.2658) require the ambient group to be a Lie group      *)
 (* (specifically E8 or a real form thereof). H4 is a finite Coxeter group,   *)
-(* not a Lie group. Three structural obstructions are formalized below.       *)
+(* not a Lie group. Three structural boundarys are formalized below.       *)
 (******************************************************************************)
 
-(* Obstruction 1: H4 order is finite, SL(2,C) is infinite.
+(* Boundary 1: H4 order is finite, SL(2,C) is infinite.
    A finite group cannot contain an infinite continuous subgroup. *)
 (* H4 is a finite group: its order is the natural number 14400 *)
 Lemma H4_order_val : H4_order = 14400%nat.
 Proof. reflexivity. Qed.
 
-Theorem DG_obstruction_1_finite_order :
+Theorem DG_boundary_1_finite_order :
   H4_order = 14400%nat.
 Proof. reflexivity. Qed.
 
-(* Obstruction 2: H4 is non-crystallographic.
+(* Boundary 2: H4 is non-crystallographic.
    The Distler-Garibaldi theorem uses the Dynkin classification, which only
    covers crystallographic root systems (A, B, C, D, E, F, G types).
    H4 has Coxeter label 5 and is non-crystallographic:
    no lattice in R^4 is preserved by H4. *)
 Definition H4_coxeter_label : nat := 5.  (* the "5" in the H4 Dynkin diagram *)
 
-Theorem DG_obstruction_2_non_crystallographic :
+Theorem DG_boundary_2_non_crystallographic :
   (* The label 5 indicates 5-fold symmetry, incompatible with crystallographic
      lattices. Specifically, 2*cos(pi/5) = phi, which is irrational. *)
   let c := H4_coxeter_label in
@@ -220,18 +220,18 @@ Proof.
   split; interval.
 Qed.
 
-(* Obstruction 3: H4 has no adjoint representation in the Lie algebra sense.
+(* Boundary 3: H4 has no adjoint representation in the Lie algebra sense.
    The Distler-Garibaldi proof decomposes adj(E8) under SL(2,C) x G and
    checks self-conjugacy of V_{2,1}. No such decomposition exists for H4
    since H4 has no Lie algebra structure. *)
-Theorem DG_obstruction_3_no_adjoint :
+Theorem DG_boundary_3_no_adjoint :
   (* H4 rank (4 simple reflections) < dimension of any rank-4 simple Lie algebra.
      Sp(4)=C2 has dim 10, A4=SU(5) has dim 24, etc. *)
   (4 < 10)%nat.
 Proof. lia. Qed.
 
 (* Structural theorem: Distler-Garibaldi is inapplicable to H4.
-   This is a formal summary of the three obstructions above. *)
+   This is a formal summary of the three boundarys above. *)
 Theorem DG_inapplicable_to_H4 :
   (* H4 is finite (not a Lie group): its order is 14400 *)
   H4_order = 14400%nat /\
