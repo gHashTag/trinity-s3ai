@@ -126,7 +126,7 @@ the [`pages.yml`](../.github/workflows/pages.yml) workflow — is at:
 The game **does not prove** any Theory-of-Everything claim. It is a
 hypothesis-discovery puzzle with a `ClaimStatus` on every tile and a
 falsification floor; a high score is not evidence. See
-[`games/trinity_fold/docs/GOLDEN_BRIDGE.md`](../games/trinity_fold/docs/GOLDEN_BRIDGE.md)
+[`games/trinity_fold/docs/GOLDEN_CHAIN.md`](../games/trinity_fold/docs/GOLDEN_CHAIN.md)
 for the full honesty policy.
 
 ### 3.5 Full Coq proofs (~10 min, requires Coq 8.20.1 + libraries)
