@@ -52,19 +52,30 @@ These remain canonical in their respective repositories:
 
 ## Critical boundary — GF16 number type
 
-`trios-trainer-igla` contains a **temporary** `gf16.rs` (bias=15, IEEE-like range) that is **not canonical**.
+`trios-trainer-igla` contains a **local** `gf16.rs` that is **not yet imported**
+from the canonical `trios-golden-float` crate, but its numeric parameters
+are now aligned with hardware.
 
-| Property | trios-trainer-igla (temporary) | Canonical (trinity-s3ai / zig-golden-float) |
+| Property | trios-trainer-igla (local) | Canonical (trinity-s3ai / zig-golden-float) |
 |---|---|---|
-| Exponent bias | **15** | **31** |
-| 1.0 encoding | exp=15 | exp=31 |
-| Dynamic range | 4.66×10⁻⁵ – 6.55×10⁴ | ~9.31×10⁻¹⁰ – ~4.29×10⁹ |
+| Exponent bias | **31** (fixed 2026-05-25) | **31** |
+| 1.0 encoding | exp=31 | exp=31 |
+| Dynamic range | ~9.31×10⁻¹⁰ – ~4.29×10⁹ | ~9.31×10⁻¹⁰ – ~4.29×10⁹ |
 | Special values | No subnormals; Inf/NaN clamped | Preserved per DLFloat16 spec |
-| Status | DELETE pending (SOURCE_OF_TRUTH.md line 51) | **SSOT** |
+| Status | Aligned but **still local** — migration pending | **SSOT** |
 
-**Impact:** Any BPB or accuracy benchmark run with `trios-trainer-igla/src/gf16.rs` produces **different numeric results** than the hardware GF16 (bias=31). Trinity hardware claims are **only valid** for bias=31. Trainer results with bias=15 must not be cited for hardware attestation.
+**Bias fix history:**
+- 2026-05-25 — bias changed from 15 → 31 in `trios-trainer-igla` commit `042c2b5`
+  (branch `fix/509-qat-v2`) and nested railway submodule commit `9830432`
+  (branch `revert-pr-71-regression`).
+- Pre-fix trainer BPB results (bias=15) are **invalid** for hardware attestation.
+- Post-fix results are **valid** but should still be cross-checked against
+  `zig-golden-float` BENCH-001–006 before claiming hardware equivalence.
 
-The canonical GoldenFloat16 type lives in `gHashTag/trios-golden-float` (Rust crate) and `gHashTag/zig-golden-float` (Zig impl). `trios-trainer-igla` should consume it as a versioned dependency, not re-implement.
+The canonical GoldenFloat16 type lives in `gHashTag/trios-golden-float`
+(Rust crate) and `gHashTag/zig-golden-float` (Zig impl).
+`trios-trainer-igla` should eventually consume it as a versioned dependency,
+not re-implement.
 
 ---
 
@@ -72,7 +83,7 @@ The canonical GoldenFloat16 type lives in `gHashTag/trios-golden-float` (Rust cr
 
 | File path inside `trios-trainer-igla` | Outcome | Where canonical |
 |---|---|---|
-| `src/gf16.rs` (bias=15) | **DELETE**; import from `trios-golden-float` | `trios-golden-float` crate |
+| `src/gf16.rs` (local, bias=31) | **DELETE**; import from `trios-golden-float` | `trios-golden-float` crate |
 | `src/fake_quant.rs` | Keep (65+ format enum); reference canonical GF16 | `trios-trainer-igla` |
 | `src/bench.rs` BPB formula | Keep; cite `trinity-s3ai` as downstream consumer | `trios-trainer-igla` |
 | BENCH-001–006 results | Reference as upstream evidence | `zig-golden-float` |
