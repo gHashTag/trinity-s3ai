@@ -83,11 +83,11 @@ See `derivations/string_correspondence/orbifold_yukawa_test.py`.
 
 ### Direction C: Formal Negative-Result Publication
 
-**Goal:** Publish the Obstruction Theorems (BT-1 through BT-6) as a contribution to mathematical physics.
+**Goal:** Publish the Boundary Theorems (BT-1 through BT-6) as a contribution to mathematical physics.
 
 | Action | Priority | Owner | Deadline |
 |--------|----------|-------|----------|
-| C1. Write paper "Six Obstruction Theorems for H₄ Standard Model Unification" | 🟡 Important | Wave 19 | 2026-07 |
+| C1. Write paper "Six Boundary Theorems for H₄ Standard Model Unification" | 🟡 Important | Wave 19 | 2026-07 |
 | C2. Submit to SIGMA (Symmetry, Integrability and Geometry) or similar math-phys journal | 🟢 Exploration | Wave 20 | 2026-08 |
 | C3. Archive Coq proofs with Zenodo + permanent DOI | 🟡 Important | Wave 19 | 2026-07 |
 
@@ -111,9 +111,9 @@ These are PhD-level problems. Without a concrete breakthrough, do not allocate f
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
 | Track A (F₄/H₄) generates no publishable physics | High | High | Pivot to data paper (Direction A) or boundary-result paper (Direction C). |
-| Track B (Cl(8)) also hits obstruction theorems | Medium | High | Maintain honest admitted_log; do not overclaim. |
+| Track B (Cl(8)) also hits boundary theorems | Medium | High | Maintain honest admitted_log; do not overclaim. |
 | Honest p-value shows catalog is no better than random | Medium | Medium | Pre-register analysis protocol; report regardless of sign. |
-| Reviewers reject boundary-result paper | Low | Medium | Target journals that welcome obstruction theorems and methodological papers (e.g., PLOS ONE, SIGMA). |
+| Reviewers reject boundary-result paper | Low | Medium | Target journals that welcome boundary theorems and methodological papers (e.g., PLOS ONE, SIGMA). |
 
 ---
 

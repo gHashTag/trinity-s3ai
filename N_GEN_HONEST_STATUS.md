@@ -139,7 +139,7 @@ The wave fixes the **public documentation**, not the mathematics.
 
 ## 7. References
 
-- `proofs/trinity/ThreeGenerations.v` (lines 1–24 header, 180–205 Mechanism B, 425–455 final obstruction theorem, 525–545 verdict comment)
+- `proofs/trinity/ThreeGenerations.v` (lines 1–24 header, 180–205 Mechanism B, 425–455 final boundary theorem, 525–545 verdict comment)
 - `proofs/trinity/AltCrystallography.v` (lines 10–18 honest disclaimer, 180–185 Axiom D4_triality_exists)
 - `proofs/trinity/README.md`
 - `LAGRANGIAN_HONEST_STATUS.md` row 10 (already mentioned Snub 24-cell refutation)

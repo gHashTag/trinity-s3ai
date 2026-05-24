@@ -35,7 +35,7 @@ other tiles agree with experiment. Full concept docs are in
 
 The Trinity S3AI repository is a active boundary-mapping research program on H4/600-cell
 NCG models of the Standard Model (see [`RESEARCH_STATUS.md`](../../README.md) and the
-four Obstruction Theorems in
+four Boundary Theorems (BT-1–BT-4) in
 [`proofs/trinity/BoundaryTheorems.v`](../../proofs/trinity/BoundaryTheorems.v)).
 This game inherits that culture:
 

@@ -109,7 +109,7 @@ scripts/               — Python utilities and gates
   ci.yml               — Main CI (anti_numerology_check → build)
   release.yml          — Release artifact builder
 RESEARCH_STATUS.md             — What H4 can/cannot do (read first)
-BoundaryTheorems.v         — Formal obstruction theorems BT-1–BT-4
+BoundaryTheorems.v         — Formal boundary theorems BT-1–BT-4
 CITATION.cff           — Citation metadata
 CONTRIBUTING.md        — This file
 ```
