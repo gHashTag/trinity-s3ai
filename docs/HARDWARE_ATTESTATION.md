@@ -21,6 +21,7 @@
 | **DLFloat16 relation** | Layout identical; 6 critical differences documented | `docs/hardware/gf16_spec.md` §2.5 |
 | **GoldenFloat family** | 7 formats (GF4–GF32) with φ-derived bit splits | `docs/hardware/gf16_spec.md` §2.6 |
 | **Coq phi identity (binary64)** | `phi_sq_f64 = phi_plus_one_f64` verified via Flocq | `proofs/trinity/PhiFloat.v` |
+| **Zig reference implementation** | `zig-golden-float` — integer-backed GF16, MNIST MLP 97.67% (0.00% gap vs f32), compiler stability tests | `gHashTag/zig-golden-float` repo, BENCH-001–006 |
 
 **Reproduce:**
 ```bash
@@ -57,10 +58,13 @@ python3 bpb_benchmark.py         # BPB compression benchmark
 |-------|--------|--------------|
 | **TTSKY26a tapeout** | Submitted, awaiting silicon | GDS-II signoff confirmation; post-silicon test results expected ~Aug 2026 |
 | **0x47C0 silicon anchor** | RTL design only | No reset-witness module in t27 RTL yet; no testbench; no logic-analyzer trace |
-| **Three Crowns (Phi/Euler/Gamma)** | Two submitted, one pending | Need at least one crown validated on real silicon before upgrade |
+| **Three Crowns (Phi/Euler/Gamma)** | Submitted to TTSKY26b (May 2026) | Await silicon return ~Nov 2026; post-silicon validation required before upgrade |
 | **~1 GOPS @ ~50 MHz @ ~1 W** | RTL simulation only | Post-silicon clock sweep and power measurement required |
 
-**Honest note on TTSKY26b:** README.md mentions "TTSKY26b". The t27 draft says **TTSKY26a** (May 2026). TTSKY26b is a *planned* follow-up for Gamma and any respins. The "26b" claim should be read as "the 26b generation of the chip", not "already fabricated on 26b".
+**Honest note on TTSKY shuttles:**
+- **TTSKY26a** (May 2026) — original single-chip GF16 (`tt-trinity-gf16`), PR #322.
+- **TTSKY26b** (May 2026) — Three Crowns family (`tt-trinity-phi`, `tt-trinity-euler`, `tt-trinity-gamma`), 21 closed PRs.
+Both shuttles were submitted. TTSKY26b carries the multi-chip family; TTSKY26a carries the original single-chip design. Chips expected back ~Aug (26a) and ~Nov (26b) 2026.
 
 ---
 
@@ -89,6 +93,7 @@ All artifacts copied from the `t27` hardware repository are attributed in `docs/
 | NeurIPS paper | `neurips/gf_paper.pdf` | `docs/hardware/RELATED_WORK.md` §6.5 |
 | Coq phi identity | `coq/Kernel/PhiFloat.v` | `proofs/trinity/PhiFloat.v` |
 | GoldenFloat family SSOT | `conformance/FORMAT-SPEC-001.json` | cited in `docs/hardware/gf16_spec.md` |
+| Zig reference impl + BENCH-001–006 | `gHashTag/zig-golden-float` repo | cited in `docs/hardware/RELATED_WORK.md` §8 |
 
 To verify t27 commit SHA:
 ```bash

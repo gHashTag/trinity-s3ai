@@ -359,14 +359,139 @@ documentation gap that should be closed in the camera-ready version.
 
 ---
 
-## 13. Summary: Where Trinity Fits
+## 13. zig-golden-float — Zig Reference Implementation (2026)
+
+**Repo:** [github.com/gHashTag/zig-golden-float](https://github.com/gHashTag/zig-golden-float)  
+**Authors:** Dmitrii Vasilev (gHashTag)  
+**Status:** Active development; BENCH-001–006 completed
+
+**What it is:**
+A clean-room **Zig** implementation of the GoldenFloat family (GF4–GF32) using
+integer-backed storage (`u16` / `u32`) to avoid native `f16` compiler bugs.
+The decoder expands to `f32` only at the final computation step.
+
+**Key benchmarks (BENCH-001–006):**
+
+| Bench | Claim | Result | Status |
+|-------|-------|--------|--------|
+| BENCH-001 | MNIST MLP accuracy gap vs f32 = 0% | **97.67%** (f32 = 97.67%, gap 0.00%) | PASS |
+| BENCH-002 | BF16 catastrophic failure on same MLP | **9.80%** accuracy (BF16 baseline) | Confirmed |
+| BENCH-003 | FPGA LUT overhead vs ternary MAC | **1.37×** at MAC level; 47–59× at unit level | Documented |
+| BENCH-004 | Compiler stability (no f16 native bugs) | Zero LLVM/Zig f16 crashes across 62+ known cases | PASS |
+| BENCH-005 | Energy projection vs FP32 inference | **~10×** savings (projected, not measured) | Design target |
+| BENCH-006 | Cross-language bindings (Rust/C++) | Zig `export` + C ABI verified | PASS |
+
+**Honest gap:**
+- The MNIST result is on a **toy network** (784-128-10 MLP). No ResNet-50 or
+  LLaMA accuracy data yet.
+- BENCH-005 energy numbers are **projected from synthesis reports**, not
+  wall-power measurements.
+- The repo does **not** include TinyTapeout RTL; it is a software reference
+  for algorithmic validation only.
+
+**Relevance to GF16:**
+`zig-golden-float` provides an **independent software replication** of the
+GF16/GoldenFloat encoding/decoding logic. The BENCH-001 zero-gap result
+supports the claim that φ-anchored quantization does not degrade accuracy
+on φ-structured data, but it does not prove hardware correctness.
+
+---
+
+## 14. HiFloat4 (HiF4) — Huawei (arXiv 2026)
+
+**Paper:** "HiFloat4: A 4-bit Block Floating-Point Format for Efficient LLM
+Inference"  
+**Authors:** Huawei Noah's Ark Lab  
+**Venue:** arXiv:2602.11287 (February 2026)  
+**Link:** [arXiv:2602.11287](https://arxiv.org/abs/2602.11287)
+
+**Key claim:**
+- **4-bit BFP** with a three-level scaling hierarchy: E6M2 global scale +
+  micro-exponents per 64-element group.
+- Outperforms NVIDIA NVFP4 on accuracy with lower incremental hardware area
+  for matrix multiplication.
+
+**Relevance to GF16:**
+HiF4 and GF4 occupy the same 4-bit niche. Both reject vanilla IEEE-754 in
+favor of a domain-specific layout. HiF4 uses block-scaling; GF4 uses
+φ-structured mantissa.
+
+**Honest gap:**
+- HiF4 is **block-scale-dependent** (needs per-block AMAX extraction); GF4 is
+  **static** (single bias=31).
+- HiF4 has a **Huawei Ascend/NVIDIA silicon roadmap**; GF4 has only a
+  **TinyTapeout open-PDK submission**. The industrial traction gap is large.
+- No head-to-head accuracy or compression benchmark.
+
+---
+
+## 15. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
+
+**Paper:** "Harmonia: Algorithm-Hardware Co-Design for Memory- and
+Compute-Efficient BFP-based LLM Inference"  
+**Authors:** Academic team (target venue not specified)  
+**Venue:** arXiv:2602.04595 (February 2026)  
+**Link:** [arXiv:2602.04595](https://arxiv.org/abs/2602.04595)
+
+**Key claim:**
+- All-layer BFP inference for LLMs, converting both linear and attention layers.
+- Mixed precision: 8-bit mantissa for activations, 4-bit for KV-cache.
+- **5.05× area efficiency** and **3.90× energy efficiency** vs. baseline on
+  TSMC 28nm test chip.
+
+**Relevance to GF16:**
+Harmonia demonstrates that **non-uniform precision across layers** is viable
+in silicon. GF16's φ-structured allocation is a different flavor of the same
+principle: not all bits need the same precision everywhere.
+
+**Honest gap:**
+- Harmonia is **BFP** (shared exponent per block); GF16 is **per-element FP**.
+- The 28nm test chip validates the BFP approach but says nothing about
+  φ-structured formats.
+
+---
+
+## 16. TinyTapeout IHP26A Ecosystem (2025–2026)
+
+The **IHP26A** shuttle (IHP 130nm `sg13g2` open PDK) launched November 2025,
+with chips expected **September 2026**. It carries a dense cluster of
+custom floating-point and MAC experiments — a parallel open-silicon universe
+to TTSKY26a/b.
+
+| Project # | Title | Author | Format | Frequency |
+|-----------|-------|--------|--------|-----------|
+| **232** | 8-bit SEM Floating-Point Multiplier | Jordan Delos Reyes | SEM 1-4-3 | — |
+| **370** | 8Bit Posit MAC Unit | Ripunjay Singh et al. | Posit8 | — |
+| **489** | OCP MXFP8 Streaming MAC Unit | Olivier Chatelain | MXFP8 | — |
+| **497** | 2×2 Systolic Array with DFT and bfloat16 v2 | Julia Desmazes | bfloat16 subset | 100 MHz target |
+| **528** | float_synth | Niklaus Leuenberger | float8 | 550 MHz |
+| **714** | SEQ_MAC_INF_16H3 — NN Inference Accelerator | Neuromurf | Mixed | — |
+
+**Relevance to Trinity:**
+The IHP26A cluster proves that **custom numeric formats on open PDKs** are
+now a crowded field. Trinity's differentiation is not "custom FP on open
+silicon" (many do this), but the **φ-semantic overlay + formal theorems +
+reset-time anchor** combination.
+
+**Honest gap:**
+IHP26A uses a **different foundry** (IHP 130nm) and **different shuttle
+infrastructure** than TTSKY26a/b (SkyWater 130nm via TinyTapeout). The two
+tapeout streams are independent; IHP26A success does not imply TTSKY26a/b
+success.
+
+---
+
+## 17. Summary: Where Trinity Fits
 
 | Project | Base | Layout | φ-aware? | Silicon? | Format type |
 |---------|------|--------|----------|----------|-------------|
 | **DLFloat16** | IBM | 1-6-9 bias 31 | No | Yes (VLSI 2018) | Custom FP16 |
 | **Golden Quantizer** | Linköping | Fibonacci bins | **Yes** | No | Scalar quantizer |
 | **GF16 / GoldenFloat** | Trinity | 1-6-9 bias 31 | **Yes** | Submitted (TTSKY26a/b) | Custom FP16 |
+| **zig-golden-float** | Trinity | 1-6-9 bias 31 (Zig ref) | **Yes** | Software only | Reference impl |
 | **AetherFloat** | Morisaki | Quad-radix base-4 | No | Yes (130nm chip) | Custom FP |
+| **HiFloat4** | Huawei | 4-bit BFP E6M2+micro | No | Yes (Ascend/NVIDIA) | Block FP4 |
+| **Harmonia** | Academic | Mixed BFP (8/4-bit) | No | Yes (28nm test chip) | Block FP |
 | **FlexiBit** | UC Irvine | Arbitrary | No | FPGA/ASIC | Flexible FP/INT |
 | **F-BFQ** | Glasgow | BFP | No | FPGA (KV260) | Block FP |
 | **DB-Attn** | SEU/Houmo | BFP | No | FPGA/ASIC | Block FP |
@@ -381,18 +506,25 @@ documentation gap that should be closed in the camera-ready version.
 **Trinity's unique claim:** The only project that combines (a) a proven
 16-bit FP layout (DLFloat16) with (b) **three formal theorems** linking the
 bit split to the golden ratio, (c) a **published φ-quantization predecessor**
-(Golden Quantizer 2017), and (d) a **hardware-silicon binding**
-(0x47C0 reset witness, Three Crowns milestones).
+(Golden Quantizer 2017), (d) a **hardware-silicon binding**
+(0x47C0 reset witness, Three Crowns milestones), and (e) an **independent
+software reference implementation** (`zig-golden-float`) with reproducible
+benchmarks (BENCH-001–006).
 
 Whether the φ-structured quantization theory provides measurable compression
 or accuracy advantages beyond the base DLFloat16 layout is an **open
-empirical question** — tracked in `docs/hardware/bpb_benchmark.py`.
+empirical question** — tracked in `docs/hardware/bpb_benchmark.py` and
+`gHashTag/zig-golden-float` BENCH-001–006.
 
 ---
 
-## 14. References
+## 18. References
 
 - `docs/hardware/gf16_spec.md` — Format specification with DLFloat16 relation
 - `docs/hardware/gf16_mathematics.md` — φ-step and optimal field derivations
 - `docs/hardware/silicon_anchor.md` — TTSKY26a/b submission status
 - `docs/HARDWARE_ATTESTATION.md` — Honest proof inventory
+- `gHashTag/zig-golden-float` — Zig reference implementation with BENCH-001–006
+- arXiv:2602.11287 — HiFloat4 (Huawei)
+- arXiv:2602.04595 — Harmonia (algorithm-hardware co-design)
+- [TinyTapeout IHP26A chip list](https://tinytapeout.com/chips/ttihp26a/) — Open-silicon FP ecosystem

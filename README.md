@@ -138,7 +138,7 @@ Every link is independently auditable: the Coq side builds in CI, the silicon an
 | **Euler** (Compact) | `tt_um_ghtag_trinity_gf16` | 8×2 | 90 | `0xAE` | **GF(16) Galois-field carrier** |
 | **Gamma** (Full) | `tt_um_trinity_max_true` | 8×4 | 105 | `0x93` | Full Trinity-S³AI DNA |
 
-All three crowns carry the canonical anchor **`0x47C0`** at `{uio_out, uo_out}` on reset — a direct silicon witness of `φ² + φ⁻² = 3` via the Lucas chain L₂ = 3 → GF(16) dot4 trace.
+All three crowns are **designed** to carry the canonical anchor **`0x47C0`** at `{uio_out, uo_out}` on reset — a planned silicon witness of `φ² + φ⁻² = 3` via the Lucas chain L₂ = 3 → GF(16) dot4 trace. Post-silicon logic-analyzer validation is pending (see `docs/hardware/silicon_anchor.md` §3.3).
 
 ### Why GF16?
 
