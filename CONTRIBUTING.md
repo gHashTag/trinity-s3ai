@@ -6,7 +6,7 @@
 
 ## HONESTY-FIRST Principle
 
-This repository is a **active boundary-mapping research program**. See `RESEARCH_STATUS.md` for a summary of what H4 *can* and *cannot* do. The main findings are four formal Obstruction Theorems in `proofs/trinity/BoundaryTheorems.v`.
+This repository is a **active boundary-mapping research program**. See `RESEARCH_STATUS.md` for a summary of what H4 *can* and *cannot* do. The main findings are four formal Boundary Theorems (BT-1–BT-4) in `proofs/trinity/BoundaryTheorems.v`.
 
 The greatest ongoing risk is **silent regression**: someone adds a new `φ^a · π^b · e^c = X` formula without an explicit honesty tag, and it silently appears to be a first-principles derivation.
 

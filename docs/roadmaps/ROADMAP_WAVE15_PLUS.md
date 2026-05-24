@@ -25,7 +25,7 @@
 - The H₄/600-cell → E₈ correspondence is **mathematically solid** (McKay, Baez).
 - The Dirac spectrum is **computable** for all three Platonic groups (2T, 2O, 2I).
 - The **η-invariant mismatch** (discrete η = 0 vs APS target) remains unresolved.
-- The **σ-field is absent** (Obstruction Theorem 6), blocking dynamic Higgs mass generation.
+- The **σ-field is absent** (Boundary Theorem 6, BT-6), blocking dynamic Higgs mass generation.
 - The **3-generation structure** has no automatic geometric origin in F₄ (no triality).
 - The **δ_CP = 65.66°** prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Post-hoc fit; anti-post-hoc rule enforced.
 
@@ -203,7 +203,7 @@ Prepare a revised version of the Trinity paper for journal submission, addressin
 
 1. **δ_CP**: Prediction is **WITHDRAWN** (>5σ excluded). It was a post-hoc fit, not a pre-registered first-principles prediction. Document the withdrawal transparently.
 2. **η-invariant mismatch**: Report results from full E₈ plumbing. If mismatch persists, discuss regularization subtleties.
-3. **σ-field absence**: State Obstruction Theorem 6 clearly. Discuss workarounds or declare it an open problem.
+3. **σ-field absence**: State Boundary Theorem 6 (BT-6) clearly. Discuss workarounds or declare it an open problem.
 4. **3-generation structure**: If F₄ scan fails, discuss alternative mechanisms (D₄ triality, orbifolds).
 5. **Honest classification**: All formulas must be labeled (R), (S), or (NF). No false ★SG claims.
 6. **Comparison with NCG**: Clarify differences from Connes' program. Trinity is inspired by NCG but uses discrete geometry.

@@ -9,7 +9,7 @@
 
 ## 0. Context
 
-Wave 9 closed the Trinity-H₄ program with four obstruction theorems:
+Wave 9 closed the Trinity-H₄ program with four boundary theorems (BT-1–BT-4):
 
 - **BT-1 (Cosmology):** Formulas φ^a π^b e^c do not reproduce Λ and Ω_b
 - **BT-2 (σ-field):** No NCG σ-field from the H₄ root structure

@@ -3,7 +3,7 @@
 **Status:** Research wave. Analytical review with elements of numerical verification.  
 **Date:** May 2026  
 **Author:** Trinity S3AI, Wave 17.2  
-**Inputs:** Wave 16.1 (F₄ Yukawa scan — failure), Wave 14.4 (Obstruction Theorem 6: σ-field absent), Wave 11.2 (KO-dimension of D₄ = 5, not SM-like).
+**Inputs:** Wave 16.1 (F₄ Yukawa scan — failure), Wave 14.4 (Boundary Theorem 6: σ-field absent), Wave 11.2 (KO-dimension of D₄ = 5, not SM-like).
 
 **Honesty principle:** All statements are either cited or explicitly marked as speculation (🜁). No statement can be used to advertise a "proof" of Trinity from string theory.
 

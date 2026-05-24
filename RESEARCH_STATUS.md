@@ -27,7 +27,7 @@ to map the full boundary of why such a bridge is difficult.
 
 ## Known Obstructions (proven in Coq)
 
-The four Coq-formal obstruction theorems in
+The four Coq-formal boundary theorems (BT-1–BT-4) in
 [`proofs/trinity/BoundaryTheorems.v`](proofs/trinity/BoundaryTheorems.v):
 
 | | Statement | What it bounds |
@@ -70,7 +70,7 @@ and are tracked for promotion to `Qed.` in future waves.
   canonical tree, with **1 063** of those in `proofs/trinity/`
   (52 files), and **0** real `Admitted.` anywhere in the canonical
   tree. Most of these are bound checks and structural lemmas; the
-  obstruction theorems are the load-bearing physical content. See
+  boundary theorems are the load-bearing physical content. See
   [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md) for the reconciliation
   with older inconsistent metric documents.
 - **A falsification protocol.** Risky predictions for DUNE, JUNO and

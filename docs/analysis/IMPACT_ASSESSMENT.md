@@ -11,7 +11,7 @@ A theory that only makes safe predictions is not testable science.
 
 | Prediction | Risk Level | Current Tension | Experiment | Year |
 |------------|------------|-----------------|------------|------|
-| **delta_CP = 65.66°** | CRITICAL | **5.6 sigma** | DUNE | 2028-2032 |
+| **delta_CP = 65.66°** | **WITHDRAWN** | >5σ excluded (post-hoc fit) | N/A | N/A |
 | **m_nue = 0.103 eV** | HIGH | Medium | KATRIN | 2025-2030 |
 | **sin^2(theta_13) = 0.0220** | LOW | Agrees | JUNO | 2027-2028 |
 
@@ -34,7 +34,7 @@ Either outcome is scientifically valuable.
 
 ---
 
-## 1. Where Trinity Is Now (v4.0)
+## 1. Where Trinity Is Now (Wave 20)
 
 | Metric | Value |
 |---------|----------|

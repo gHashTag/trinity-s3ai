@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (admitted_log.md — Wave 12 historical audit)
+# Current status: This log reflects the Admitted/Axiom audit status as of Wave 12.
+# Current canonical metrics: see COQ_HONEST_STATUS.md (1325 Qed / 25 Admitted / 73 Axiom / 7 Parameter).
+
 # admitted_log.md — Registry of all Admitted in Trinity S3AI
 
 **Last updated:** Wave 12 sprint W12.4 (SHOULD_BE_THEOREM closures — follow-up to W11.7), rebased onto Wave 12 Track B (Cl(8) launch)

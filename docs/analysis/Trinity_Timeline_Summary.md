@@ -1,3 +1,8 @@
+LEGACY DOCUMENT (Trinity Timeline Summary v4.0 — historical version)
+Current status: This timeline contains claims that have been withdrawn or refuted.
+Key withdrawals: δ_CP (>5σ excluded, post-hoc fit, WITHDRAWN under anti-post-hoc rule).
+See PREDICTIONS_PREREGISTERED.md, EPISTEMOLOGY.md, and TECH_TREE.md for canonical assessment.
+
 
 ================================================================================
 TRINITY S³AI v4.0 - EXPERIMENTAL TEST TIMELINE & FALSIFIABILITY SUMMARY

@@ -12,13 +12,13 @@
 
 **Title:**  
 *Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Standard Model Unification*  
-*(Subtitle: Four Obstruction Theorems for NCG Approaches Founded on the 600-Cell)*
+*(Subtitle: Four Boundary Theorems for NCG Approaches Founded on the 600-Cell)*
 
 **Authors:** `[Anonymous, gHashTag]` — fill in before submission.
 
 **Abstract (250 words):** Presented in the `abstract` section of `wave10_paper.tex`.  
 Key thesis: H4/600-cell in the current formulation **cannot** derive the parameters  
-of the Standard Model — four obstruction theorems (BT-1–4) prove this.  
+of the Standard Model — four boundary theorems (BT-1–4) prove this.  
 Six positive structural results survive.
 
 ---
@@ -163,13 +163,13 @@ Dear Professor [Name],
 I am writing to request arXiv endorsement for a submission to hep-th.
 
 The paper, "Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based
-Standard Model Unification," presents four machine-verified obstruction theorems
+Standard Model Unification," presents four machine-verified boundary theorems
 showing that the H4 Coxeter group (600-cell symmetry group) cannot serve as
 the geometric foundation for deriving Standard Model parameters in the
 noncommutative geometry (NCG) framework.
 
 Key features of the paper:
-- Four explicit obstruction theorems (cosmological impossibility, no sigma-field,
+- Four explicit boundary theorems (cosmological impossibility, no sigma-field,
   vector-like spectrum, mass hierarchy obstruction via Schur's lemma)
 - Six positive structural results (KO-dim 6 mod 8, eta = -2, first-order
   condition, etc.)

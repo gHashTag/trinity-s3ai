@@ -11,7 +11,7 @@ hold the detail and tells you in what order to read them.
 > result* on whether H4 / 600-cell geometry (and, in Wave 17, the
 > broader F4 / E8 / string-correspondence neighbourhood) can support a
 > noncommutative geometry (NCG) model of the Standard Model. Four
-> Coq-formal Obstruction Theorems (BT-1–BT-4) and additional paper-level
+> Coq-formal Boundary Theorems (BT-1–BT-4) and additional paper-level
 > Boundary results (BT-5..7, see `paper/CHANGELOG_v1_to_v2.md`) prove or
 > document specific impossibilities. The remaining content is a
 > catalogue of numerological coincidences, all *explicitly tagged as

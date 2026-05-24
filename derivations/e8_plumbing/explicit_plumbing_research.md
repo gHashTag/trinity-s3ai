@@ -214,7 +214,7 @@ with regularization parameter $\varepsilon \to 0$.
 2. **No — fundamental:** The discrete Dirac operator anticommutes with Γ⁵, forcing symmetric spectra and η = 0 for any sign count. Zeta regularization is required, but its implementation on a finite graph is subtle.
 3. **Partial — fractional zero modes:** The 600-cell graph has abundant zero modes. Their regularization (how to count them in η) determines the answer.
 
-### 5.2 σ-Field Absence (Obstruction Theorem 6)
+### 5.2 σ-Field Absence (Boundary Theorem 6, BT-6)
 
 The σ-field (analogous to Chamseddine-Connes' scalar field that corrects the Higgs mass in NCG) is **absent** in the E₈ plumbing construction. This is documented in `no_go_analysis/`.
 

@@ -88,7 +88,7 @@
 
 ---
 
-## Slide 6: Table of Obstruction Theorems (8:00–9:30)
+## Slide 6: Table of Boundary Theorems (8:00–9:30)
 
 **What to say:**
 > "We proved five Boundary theorems — all Qed in Coq. One: no sigma-field exists in H₄ geometry. Two: no three-generation structure emerges from H₄. Three: the D₄ alternative gives KO-dimension five mod eight, not six. Four: the spectral-action prediction for the Higgs mass is one hundred thirty-two point eight eight GeV. Five: E₆ and E₇ plumbing also mismatch. Every refutation is a formal theorem, not a heuristic argument. This is the core of the talk: the hypothesis is dead, but it died with a certificate."

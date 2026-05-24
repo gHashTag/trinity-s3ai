@@ -37,7 +37,7 @@ The project maintains a living catalog of 59 numerical coincidences between H4 i
 | [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new obstruction BT-7, updated counters, E8-plumbing / string-correspondence boundary notes |
 | [SECURITY.md](SECURITY.md) | Security policy and reporting path |
 | [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
-| [BoundaryTheorems.v](proofs/trinity/BoundaryTheorems.v) | Formal obstruction theorems BT-1–BT-4 (boundary markers, not dead ends) |
+| [BoundaryTheorems.v](proofs/trinity/BoundaryTheorems.v) | Formal boundary theorems BT-1–BT-4 (boundary markers, not dead ends) |
 | [Catalog42.v](proofs/trinity/Catalog42.v) | 42 SM parameter formulas (tagged phenomenological) |
 | [admitted_log.md](docs/analysis/admitted_log.md) | Log of all Admitted with their tags |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules + build instructions |
@@ -305,7 +305,7 @@ inward-only dependency direction is enforced by integration tests in
 
 ---
 
-## The Four Obstruction Theorems
+## The Four Boundary Theorems
 
 | Theorem | Statement | File |
 |---------|-----------|------|
@@ -389,7 +389,7 @@ python3 scripts/anti_numerology_gate.py       # honesty check
 proofs/trinity/              — Coq .v source files (50 files)
   CorePhi.v                  — Golden ratio φ and its algebra
   Catalog42.v                — 42 SM parameter formulas [phenomenological_fit]
-  BoundaryTheorems.v             — BT-1–BT-4 formal obstruction theorems
+  BoundaryTheorems.v             — BT-1–BT-4 formal boundary theorems
   HiggsPrediction.v          — Higgs mass formulas [phenomenological_fit]
   CosmologyOrigins.v         — Cosmological formulas [HONEST: ...]
   ...
@@ -444,7 +444,7 @@ Also see [CITATION.bib](CITATION.bib) for formatted references.
 | 1–3 | Initial φ/π/e formula catalog |
 | 4.1 | Honesty tags: `[phenomenological_fit]`, `[NUMERICAL_FIT]` added |
 | 5–8 | NCG derivations, spectral action |
-| 9.6 | BT-1–BT-4 obstruction theorems formalized |
+| 9.6 | BT-1–BT-4 boundary theorems formalized |
 | 10.5 | Anti-numerology CI gate; CITATION.cff; CONTRIBUTING.md |
 | 12 | Track B launch: Cl(p,q) formalization (T1–T3) |
 | 15.1 | Honest counting system: comments stripped before statistics |
