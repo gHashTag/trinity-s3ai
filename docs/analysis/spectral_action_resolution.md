@@ -1,4 +1,4 @@
-# Spectral Action Higgs Mass Discrepancy — RESOLVED
+# Spectral Action Higgs Mass Discrepancy — Replaced with H4-Fitted Formula (not rigorously resolved)
 
 ## Executive Summary
 

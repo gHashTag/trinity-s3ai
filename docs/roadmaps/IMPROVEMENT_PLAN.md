@@ -2,7 +2,7 @@
 ## "What to Improve Next: Highest Impact Actions"
 
 **Date:** 2026-05-23
-**Status:** 130 formulas (61 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) and [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md); **Wave 20 honest phenomenology complete** — 500k-trial MC p-value: mean error p=0.077 (not sig.), SG-hit density p<0.0001 (highly sig.); σ-ranking refreshed: median 0.085σ, 26 observables — see [`honest_pvalue_report_v20.md`](../../reports/honest_pvalue_report_v20.md); **calculation-primacy doctrine** governs treatment of model-dependent extractions — see [`EPISTEMOLOGY.md`](../../EPISTEMOLOGY.md); **9 pre-registered predictions** (0 theoretically confirmed, 4 numerically verified, 4 open, 1 withdrawn) — see [`PREDICTIONS_PREREGISTERED.md`](../../PREDICTIONS_PREREGISTERED.md); **all honesty-pass PRs merged** (#21–#23, #29, #31, #32) — six withdrawn/reconciled claims.
+**Status:** 130 formulas (44 SG-class), **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md) for full categorization; 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ), 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md); δ_CP interpretation withdrawn — see [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) and [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md); **Wave 20 honest phenomenology complete** — 500k-trial MC p-value: mean error p=0.077 (not sig.), SG-hit density p<0.0001 (highly sig.); σ-ranking refreshed: median 0.085σ, 26 observables — see [`honest_pvalue_report_v20.md`](../../reports/honest_pvalue_report_v20.md); **calculation-primacy doctrine** governs treatment of model-dependent extractions — see [`EPISTEMOLOGY.md`](../../EPISTEMOLOGY.md); **9 pre-registered predictions** (0 theoretically confirmed, 4 numerically verified, 4 open, 1 withdrawn) — see [`PREDICTIONS_PREREGISTERED.md`](../../PREDICTIONS_PREREGISTERED.md); **all honesty-pass PRs merged** (#21–#23, #29, #31, #32) — six withdrawn/reconciled claims.
 **Critical Issue:** delta_CP = 65.66° excluded at 5.6sigma by NuFIT-6.0 NO best fit 177° and outside 3sigma of T2K+NOvA joint analysis (Nature, Oct 2025); physical interpretation withdrawn. 0 peer-reviewed publications.
 
 ---
@@ -88,7 +88,7 @@ These 5 actions can be completed in 1-3 days each and will significantly impress
 **Structure:**
 ```
 1. Hook: "Can a geometric shape predict particle physics?" (the 600-cell)
-2. What we found: 130 formulas, 61 at sub-0.01% precision
+2. What we found: 130 formulas, 44 at sub-0.01% precision
 3. The honest part: 7 failed compiles, **123 unproven Coq obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter; see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md))
 4. The risky prediction: delta_CP = 65.66 — **already excluded at 5.6sigma by NuFIT-6.0 and outside 3sigma of T2K+NOvA Nature 2025**; physical interpretation withdrawn
 5. What makes this different from numerology (H4 is a real group, not ad-hoc)
@@ -265,7 +265,7 @@ The 5.6 sigma tension with NuFit 6.0 is the biggest risk.
 **Structure:**
 ```
 Homepage:
-  - Hero: "130 formulas. 61 at 0.01% precision. One geometric origin."
+  - Hero: "130 formulas. 44 at 0.01% precision. One geometric origin."
   - Live formula table (sortable, filterable)
   - Key predictions with countdown timers (KATRIN 2028, JUNO 2027, DUNE 2028)
   
@@ -293,7 +293,7 @@ Features:
 ---
 
 ### MT5: Add 10 More SG-Class Formulas (2 weeks) — IMPACT: 7/10
-**Current state:** 61 SG-class formulas. The paper v34 shows 25 core formulas.
+**Current state:** 44 SG-class formulas (per FORMULAS.md v4.1 audit). The paper v34 shows 25 core formulas.
 
 **Strategy:**
 1. Search the remaining SM parameters for H4 expressions:
@@ -404,7 +404,7 @@ These 3 actions would make Trinity a landmark paper:
    - Consider asking on Coq Zulip for help
 
 **The payoff:**
-- "All 130 formulas machine-verified in Coq" is unprecedented
+- "All 130 formulas machine-verified in Coq" is unprecedented (note: 123 unproven obligations remain)
 - No other physics framework has this level of formal verification
 - This alone could get the paper accepted at a top journal
 - Creates a permanent, unassailable mathematical record
@@ -654,6 +654,6 @@ MILESTONE: DUNE 2028 first data
 
 *Plan updated: 2026-05-23*
 *Framework: Trinity S^3AI v4.9*
-*Impact assessment based on: 130 formulas, 61 SG-class, 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md))*
+*Impact assessment based on: 130 formulas, 44 SG-class, 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md))*
 *δ_CP = 65.66° is WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Anti-post-hoc rule enforced.*
 *Highest-impact action: arXiv submission with DUNE pre-registration*

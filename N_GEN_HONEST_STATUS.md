@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (Wave 5 honesty pass — historical)
+# Current status: See RESEARCH_STATUS.md and TECH_TREE.md for canonical assessment.
+# Key withdrawals: δ_CP prediction (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 # N_GEN_HONEST_STATUS.md — Three Fermion Generations Claim Reconciliation
 
 **Wave 5 of the honesty pass.** Companion to `LAGRANGIAN_HONEST_STATUS.md`, `COQ_HONEST_STATUS.md`, `DELTA_CP_HONEST_STATUS.md`, `EPISTEMOLOGY.md`, `PREDICTIONS_PREREGISTERED.md`.
@@ -129,7 +134,7 @@ This is the most important wave in epistemic terms. Without it, the doctrine of 
 ## 6. What This Does NOT Claim
 
 - **It does not invalidate the Coq corpus.** The 1325 Qed theorems remain valid. The boundary finding `wave9_5_no_h4_mechanism_yields_three_generations` *is* one of them.
-- **It does not invalidate H4 as a starting point.** H4 still motivates 61 SG-class formulas, m_H (0.09%), gauge couplings (0.024%), λ (0.4%), PMNS θ₁₂/θ₁₃.
+- **It does not invalidate H4 as a starting point.** H4 still motivates 44 SG-class formulas, m_H (0.09%), gauge couplings (0.024%), λ (0.4%), PMNS θ₁₂/θ₁₃.
 - **It does not preclude future N_gen derivation.** A future Trinity wave could attempt to formalize the Γ(29) viability argument in Coq — which would be a genuine derivation if successful.
 - **It does not require D4 triality to be wrong.** D4 triality may indeed lead to N_gen=3 in some future extension. But that extension does not yet exist, and D4 ≠ H4.
 

@@ -85,7 +85,7 @@
 - Claims to derive entire SM Lagrangian from single H4 Coxeter group
 - 3 generations is **input** (PDG empirical value), **not derived** from H4 — see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md). The Coq corpus contains a formal **negative** result on H4 N_gen derivation.
 - Gauge + Higgs + Yukawa from one object
-- 61 SG-class formulas (< 0.01% — extraordinary precision if verified)
+- 44 SG-class formulas (< 0.01% — extraordinary precision if verified)
 - **Verdict**: The ambition matches E8 (Lisi) and exceeds NCG (Connes), but must survive scrutiny.
 
 ---
@@ -141,7 +141,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 - The Coq formalization effort is genuinely impressive (**1325 Qed across 79 .v files**, with **123 unproven obligations** transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md) — not the previously advertised "0 Admitted")
 - H4 Coxeter group is mathematically natural as a starting point
 - 3/13 sectors formally derived from first principles (m_H, gauge couplings, λ), if even directionally correct, is meaningful — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md)
-- The 61 SG-class formulas represent a strong phenomenological claim
+- The 44 SG-class formulas represent a strong phenomenological claim
 - N_gen and Strong CP derivations were claimed to "solve two SM mysteries" but **both have been withdrawn** by the Wave 5-6 honesty pass: N_gen=3 is refuted by `wave9_5_no_h4_mechanism_yields_three_generations` (see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md)), Strong CP is refuted by HARSH_REVIEW_v49.md §9 (see STRONG_CP_HONEST_STATUS.md). What remains valid: m_H, gauge couplings, λ, PMNS θ₁₂/θ₁₃.
 
 ### 4.3 Why 4/10 (not higher):
@@ -294,7 +294,7 @@ Trinity S³AI currently has:
 
 Trinity S³AI is a **high-potential, high-risk theoretical framework** with exceptional formal rigor but zero community validation. Its 4/10 impact score reflects not the quality of the work but the absence of standard scientific filters: peer review, independent verification, and experimental confirmation.
 
-The 3/13 first-principles derivations (m_H, gauge couplings, λ), **1325 Coq Qed proofs** (with 123 unproven obligations transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md)), and 61 SG-class formulas are genuinely impressive artifacts. But history teaches us that formal beauty is necessary, not sufficient, for physical truth.
+The 3/13 first-principles derivations (m_H, gauge couplings, λ), **1325 Coq Qed proofs** (with 123 unproven obligations transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md)), and 44 SG-class formulas are genuinely impressive artifacts. But history teaches us that formal beauty is necessary, not sufficient, for physical truth.
 
 **The next 18 months are critical.** If Trinity navigates peer review, acknowledges δ_CP withdrawal transparently, and produces one independent verification, it could become a significant SM foundation advance. If it fails any of these, it joins E8 and others in the graveyard of beautiful ideas.
 

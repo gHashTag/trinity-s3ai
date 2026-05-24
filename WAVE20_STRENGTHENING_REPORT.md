@@ -132,7 +132,7 @@ A harsh reviewer would still raise these objections. Here is what would need to 
 - 0/26 formulas are rigorously derived from first principles
 - 20.2% of theorems are tautologies; 7 physical conclusions are Axioms in disguise
 - The "0 Admitted" claim is marketing, not epistemology
-- NGTs are circumstantial limitations, not fundamental impossibility results
+- BTs (Boundary Theorems) are circumstantial limitations, not fundamental impossibility results
 - 1 formula (G03) is genuinely failed at 84σ
 - Q06 contained a catastrophic typo (0.925 vs 172.69 GeV) for an unknown duration
 - IGLA and Biology tiers are recreational mathematics, not physics

@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical risky prediction pre-registration)
+# Current status: δ_CP prediction is WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 # delta_CP = 65.66 degrees -- Risky Prediction Pre-registration
 
 ## Status: HIGH-RISK PREDICTION

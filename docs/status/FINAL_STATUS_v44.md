@@ -61,7 +61,7 @@
 
 ---
 
-### Formulas: 130 total, 61 SG-class
+### Formulas: 130 total, 44 SG-class
 
 - Total formulas in FORMULAS.md: 130
 - SG-class (single golden ratio + e + π): 61

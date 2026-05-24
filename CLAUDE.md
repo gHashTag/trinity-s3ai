@@ -5,7 +5,7 @@
 Trinity S³AI is an active boundary-mapping research program investigating whether geometric invariants of the H4 Coxeter group (and related structures such as the 600-cell and Clifford algebra Cl(8)) can encode or constrain the parameters of the Standard Model of particle physics.
 
 **Repository:** https://github.com/gHashTag/trinity-s3ai  
-**Second brain:** PostgreSQL database on Railway (configured in `.mcp.json`)  
+**Second brain (RAG):** `trios-mcp-rag` MCP server — https://github.com/gHashTag/trios-mcp-rag  
 **Live game:** https://t27.ai/trinity-s3ai/
 
 **Most important rule:** A numeric coincidence is not a derivation.
@@ -27,7 +27,7 @@ Trinity S³AI is an active boundary-mapping research program investigating wheth
 - `empirical_fit` — numerical coincidence, tagged in source
 - `open_conjecture` — honestly open, not yet proved or refuted
 - `high_risk_or_falsified` — refuted by data or proof
-- `unverified` — not yet assessed
+- `unverified` / `retracted` — not yet assessed or withdrawn
 
 ### Boundary Theorems (BT-1..BT-4)
 These are `verified` impossibility results. They prove that *certain direct constructions* from H4 geometry do not reproduce the SM. They are **guideposts**, not tombstones.
@@ -56,10 +56,10 @@ cd games/trinity_fold && cargo test --workspace
 cd trinity_rust && cargo test
 ```
 
-### Database Health Check
+### RAG / Second Brain
 ```bash
-# Requires TRINITY_DATABASE_URL env var
-python3 scripts/audit_brain.py
+# MCP server is auto-started by Claude Code via ~/.claude/mcp.json
+# Use /mcp to see available servers (trios-mcp-rag, trinity-postgres)
 ```
 
 ---
@@ -95,8 +95,19 @@ python3 scripts/audit_brain.py
 
 ## MCP & Second Brain
 
-- PostgreSQL MCP server is configured in `.mcp.json` as `trinity-postgres`
-- Connection string uses `${TRINITY_DATABASE_URL}` environment variable (never commit credentials)
-- The database contains RAG embeddings (`ssot.embeddings`, `ssot_brochure.embeddings`), chapter content (`ssot.chapters`), agent memory (`ssot.agent_memory`), BPB benchmarks (`ssot.bpb_samples`), and scarab training fleet data
-- Use the `second-brain` skill to query claim status, proof obligations, and RAG context
-- Use the `brain-health` skill to audit and heal database anomalies
+Two MCP servers are configured in `~/.claude/mcp.json`:
+
+### `trios-mcp-rag` (dedicated RAG server)
+- **Binary:** `/Users/playra/trios-mcp-rag/target/release/trios-mcp-rag`
+- **Database:** Railway PostgreSQL `ssot_brochure.chapters` (80 chapters)
+- **Tools:** `search_chapters`, `get_chapter`, `list_chapters`, `forbidden_audit`, `build_cover`, `build_pdf`, `build_book`, `get_claim_status`, `list_claims`, `get_honest_counters`, `preview_chapter_update`, `backup_ssot`
+- **Rules:** Read-only by default; writes require `confirm=true` or `dry_run=false` + explicit confirmation
+
+### `trinity-postgres` (generic SQL access)
+- **Package:** `@modelcontextprotocol/server-postgres`
+- **Database:** Full Railway PostgreSQL instance (all schemas: `ssot`, `ssot_brochure`, `public`)
+- **Use for:** Raw SQL queries, `brain_status` audit, BPB benchmarks, scarab fleet data
+
+**Environment variable:** `DATABASE_URL` is set in `~/.zshenv` and points to the Railway PostgreSQL instance.
+
+**To activate:** Restart Claude Code or run `/mcp` to see registered servers.

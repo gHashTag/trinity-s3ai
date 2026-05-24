@@ -1,4 +1,4 @@
-# Higgs Potential: POSTULATED → PROVEN
+# Higgs Potential: POSTULATED → NUMERICALLY VERIFIED (pending Coq proof)
 ## Closing the 6% VEV Gap in Trinity's Spectral Action
 
 ---

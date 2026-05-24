@@ -117,7 +117,7 @@ Trinity-s3ai does **not** predict a standard WIMP. The framework's dark matter c
 | **First beam** | **2028–2029** (beamline commissioning) |
 | **Beam physics data** | **2031** (with near detector) |
 | **Non-beam physics** | **2029** (solar, atmospheric, supernova neutrinos) |
-| **Trinity prediction** | δ_CP = 3/φ² rad = **65.66°** |
+| **Trinity prediction (WITHDRAWN)** | δ_CP = 3/φ² rad = **65.66°** — excluded at >5σ by current global fits |
 | **Current data** | ~220° ± 30° (NuFit 6.0 global fit, NO: consistent with CP conservation; IO: ~270°–285°) |
 | **Tension** | **>3σ** (δ_CP = 65.66° lies outside 1σ–3σ allowed regions of all global-fit scenarios) |
 | **DUNE precision** | ±10° (2028), ±5° (2032) |
@@ -125,7 +125,7 @@ Trinity-s3ai does **not** predict a standard WIMP. The framework's dark matter c
 
 ### This is the Riskiest Trinity Prediction
 
-δ_CP = 65.66° is the **critical-risk** prediction in the Trinity registry. It is:
+δ_CP = 65.66° was the **critical-risk** prediction in the Trinity registry. It is now **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Historically, it was:
 
 - **Mathematically fixed**: derived from H4 Coxeter geometry, not adjustable.
 - **In strong tension** with current global fits (NuFit 6.0, 2024).
@@ -342,7 +342,7 @@ Trinity does **not** make specific predictions for the CKM phase in the quark se
 |------------|-------------------|------------------------|---------|-------------------|---------------------|
 | **JUNO** | sin²θ₁₃ = 0.0220; Δm²₂₁ = 7.53×10⁻⁵ | Δm²₂₁ = (7.50±0.12)×10⁻⁵ | **0.25σ** (Δm²₂₁) | 2027–2028 | Minor adjustment |
 | **LZ/XENONnT** | No WIMP | Null (LZ: 2.2×10⁻⁴⁸ cm²) | None | 2028–2030 | Minor (DM sector flexible) |
-| **DUNE** | δ_CP = 65.66° | Global fit excludes 65° at >3σ | **🔥 >3σ** | 2028–2032 | **PMNS sector invalidated** |
+| **DUNE** | δ_CP measurement | Trinity prediction **WITHDRAWN** (>5σ excluded) | **🔥 >5σ** | 2028–2032 | PMNS sector historically challenged |
 | **Hyper-K** | Normal ordering | Construction; ops 2027–2028 | — | 2028–2035 | Secondary PMNS check |
 | **HL-LHC** | λ = 0.129; m_H = 125.18 GeV | Not yet measured | — | 2029–2035 | Higgs sector revision |
 | **KATRIN** | m_νe = 0.103 eV | < 0.45 eV (2025); <0.3 eV (proj.) | Medium (limit still > pred.) | 2025–2030 | Neutrino mass mechanism wrong |
