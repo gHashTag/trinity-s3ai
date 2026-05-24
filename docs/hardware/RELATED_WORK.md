@@ -268,7 +268,129 @@ operator). The only runtime is the TinyTapeout Verilog wrapper.
 
 ---
 
-## 9. M2XFP — Shanghai Jiao Tong University / Huawei (ASPLOS 2026)
+## 9. Posit Hardware Ecosystem (2025–2026)
+
+The **Posit** format (Gustafson 2017) is historically orthogonal to GF16 — it
+uses variable-length regime fields and a *quire* accumulator rather than
+fixed IEEE-style exponent/mantissa. However, 2025–2026 saw a surge in
+Posit hardware prototypes that occupy the same "custom low-bit format" niche
+as GF4/GF16.
+
+### 9.1 PVU — Posit Vector Unit (arXiv 2025)
+
+**Paper:** "PVU: A Posit Vector Processor Unit Based on RISC-V Extension for
+Advanced Floating-Point Computation"  
+**Authors:** Southwest University of Science and Technology  
+**Venue:** arXiv:2503.01313v1 (March 2025)  
+**Link:** [arXiv:2503.01313](https://arxiv.org/abs/2503.01313)
+
+**Key claim:**
+- First **open-source Posit Vector Arithmetic Unit** in Chisel, integrated with
+  RISC-V Vector Extension (RVV).
+- Supports vector add/sub/mul/div/dot with parameterized bit-width and
+  exponent size (`ES`).
+- FPGA validation: **65,407 LUTs**, 100% accuracy for add/mul/dot, 95.84% for
+  div (Newton reciprocal).
+
+**Honest gap:**
+- Posit variable-length regime is **fundamentally different** from GF16's
+  fixed 1-6-9 layout. No φ-connection whatsoever.
+- PVU is **vector CPU**, not dot-product accelerator. Different design point.
+
+### 9.2 SPADE — SIMD Posit MAC for DNNs (arXiv 2026)
+
+**Paper:** "SPADE: A SIMD Posit-enabled Compute Engine for Accelerating DNN
+Efficiency"  
+**Authors:** IIT Indore et al.  
+**Venue:** arXiv:2601.17279 (January 2026)  
+**Link:** [arXiv:2601.17279](https://arxiv.org/abs/2601.17279)
+
+**Key claim:**
+- Unified multi-precision Posit MAC supporting Posit(8,0), Posit(16,1),
+  Posit(32,2) via hierarchical lane fusion.
+- ASIC (TSMC 28nm): **1.38 GHz at 6.1 mW**, 0.025 mm².
+- FPGA (Virtex-7): **45.13% LUT reduction** vs standalone Posit MACs.
+
+**Honest gap:**
+- Multi-precision fusion is **similar in spirit** to GoldenFloat family
+  (GF4–GF32), but Posit uses quire accumulation, not φ-spacing.
+- No physics-data accuracy claims; evaluated on MNIST/CIFAR-10 only.
+
+### 9.3 B-Posit — Bounded-Regime Posit (arXiv 2026)
+
+**Paper:** "Closing the Gap Between Float and Posit Hardware Efficiency"  
+**Authors:** BITS Pilani / Arizona State University  
+**Venue:** arXiv:2603.01615v1 (March 2026)  
+**Link:** [arXiv:2603.01615](https://arxiv.org/abs/2603.01615)
+
+**Key claim:**
+- **b-posit** limits max regime length (`rS = 6`) to reduce variable-length
+  decode overhead, compensating with larger exponent (`eS = 5`).
+- Post-layout ASIC (FreePDK45): b-posit32 decoder is **79% less power**,
+  **71% smaller area**, **60% lower latency** than standard posit32 decoder.
+- At 64-bit, b-posit decode is **2× faster** than IEEE float64, **3× faster**
+  than standard posit64.
+
+**Honest gap:**
+- B-Posit **beats IEEE float on hardware efficiency** — a rare result for
+  non-standard formats. This raises the bar for any new format (including
+  GF16) to prove similar efficiency gains.
+- No golden-ratio connection; the bounded-regime trick is purely engineering.
+
+### 9.4 EULER-ADAS — Approximate B-Posit Engine (arXiv 2026)
+
+**Paper:** "EULER-ADAS: Energy-Efficient & SIMD-Unified Logarithmic-Posit
+Engine for Precision-Reconfigurable Approximate ADAS Acceleration"  
+**Authors:** IIT Indore, University of Ljubljana, Bar-Ilan University  
+**Venue:** arXiv:2605.06875 (May 2026)  
+**Link:** [arXiv:2605.06875](https://arxiv.org/abs/2605.06875)
+
+**Key claim:**
+- First **approximate Bounded-Posit neural compute engine** combining:
+  bounded-regime Posit + stage-adaptive logarithmic multiplier (ILM) +
+  SIMD-shared quire accumulation.
+- ASIC (28nm): **0.013–0.016 mm²**, **19.8–22.1 mW**, **1.84 GHz**.
+- **10× lower EDP** than exact radix-4 Booth Posit multipliers.
+- Tiny-YOLOv3 on Pynq-Z2: **78 ms/frame at 0.29 W** (22.6 mJ/frame).
+
+**Honest gap:**
+- Approximate arithmetic is **not comparable** to GF16's exact φ-structured
+  rounding. Different accuracy/complexity trade-off.
+- Posit quire accumulator has no GF16 equivalent.
+
+---
+
+## 10. Logarithmic Number Systems for Deep Learning (2025)
+
+### 10.1 Dynamic LNS for LLMs — PNNL (MICRO 2024 / Jan 2025)
+
+**Paper:** "Bridging the Gap Between LLMs and LNS with Dynamic Data Format
+and Architecture Codesign"  
+**Authors:** Pacific Northwest National Laboratory (PNNL)  
+**Venue:** MICRO 2024 (published January 2025)  
+**Link:** [PNNL publication](https://www.pnnl.gov/publications/bridging-gap-between-llms-and-lns-dynamic-data-format-and-architecture-codesign)
+
+**Key claim:**
+- **Dynamic LNS** format with per-vector outlier detection, allocating higher
+  precision to outliers via flexible encoding.
+- Implemented on Alveo U280 FPGA systolic array.
+- **15.4% accuracy improvement** over floating-point and **16% over original
+  LNS** on four state-of-the-art LLMs.
+- NVIDIA has demonstrated LNS potential for next-generation tensor cores.
+
+**Relevance to GF16:**
+Both GF16 and Dynamic LNS reject uniform IEEE-754 in favor of a **domain-
+specific encoding**: GF16 uses φ-spacing, LNS uses log-domain quantization
+with outlier-aware dynamic range.
+
+**Honest gap:**
+- LNS requires **log/exp conversion** on every operation; GF16 uses standard
+  FP add/mul with bias=31. The hardware cost models are not comparable.
+- No head-to-head accuracy or compression benchmark.
+
+---
+
+## 11. M2XFP — Shanghai Jiao Tong University / Huawei (ASPLOS 2026)
 
 **Paper:** "M²XFP: A Metadata-Augmented Microscaling Data Format for
 Efficient Low-bit Quantization"  
@@ -303,7 +425,7 @@ that reject vanilla FP4.
 
 ---
 
-## 10. AetherFloat — Keita Morisaki (2026)
+## 12. AetherFloat — Keita Morisaki (2026)
 
 **Paper:** "AetherFloat: A Quad-Radix Floating-Point Format for Deep Learning"  
 **Author:** Keita Morisaki  
@@ -328,9 +450,9 @@ radix-4 for hardware simplicity; GF16 chooses φ-rooting for compression.
 
 ---
 
-## 11. TinyTapeout / Open-Silicon Floating-Point Projects
+## 13. TinyTapeout / Open-Silicon Floating-Point Projects
 
-### 11.1 `tt_um_float_synth` — NikLeberg
+### 13.1 `tt_um_float_synth` — NikLeberg
 
 **Repo:** [github.com/NikLeberg/tt_um_float_synth](https://github.com/NikLeberg/tt_um_float_synth)  
 **Shuttle:** IHP26A (TinyTapeout)
@@ -338,7 +460,7 @@ radix-4 for hardware simplicity; GF16 chooses φ-rooting for compression.
 Synthesizes floating-point units (VHDL/Verilog) using open-source toolchains
 (Yosys, GHDL, OpenROAD) on the IHP 130nm open PDK.
 
-### 11.2 `Systolic_Array_with_DFT_v2` — Essenceia
+### 13.2 `Systolic_Array_with_DFT_v2` — Essenceia
 
 **Repo:** [github.com/Essenceia/Systolic_Array_with_DFT_v2](https://github.com/Essenceia/Systolic_Array_with_DFT_v2)  
 **Shuttle:** IHP26A (TinyTapeout)
@@ -353,7 +475,7 @@ submission to TTSKY26a follows the same open-silicon methodology.
 
 ---
 
-## 12. Custom FP for FPGAs (ECP5)
+## 14. Custom FP for FPGAs (ECP5)
 
 **Repo:** [Marc103/Floating-Point-Image-Processing-SV-RTL](https://github.com/Marc103/Floating-Point-Image-Processing-SV-RTL)
 
@@ -364,7 +486,7 @@ philosophy to DLFloat/GF16.
 
 ---
 
-## 13. GoldenFloat Paper (t27 Project, NeurIPS 2026 OPT target)
+## 15. GoldenFloat Paper (t27 Project, NeurIPS 2026 OPT target)
 
 **Paper:** "GoldenFloat: A Formally Verified, φ-Optimal Floating-Point
 Family for Ternary-Native Mixed-Precision Computing" (April 2026)  
@@ -398,7 +520,7 @@ The NeurIPS camera-ready version should carry the same citation.
 
 ---
 
-## 14. zig-golden-float — Zig Reference Implementation (2026)
+## 16. zig-golden-float — Zig Reference Implementation (2026)
 
 **Repo:** [github.com/gHashTag/zig-golden-float](https://github.com/gHashTag/zig-golden-float)  
 **Authors:** Dmitrii Vasilev (gHashTag)  
@@ -436,7 +558,7 @@ on φ-structured data, but it does not prove hardware correctness.
 
 ---
 
-## 15. HiFloat4 (HiF4) — Huawei (arXiv 2026)
+## 17. HiFloat4 (HiF4) — Huawei (arXiv 2026)
 
 **Paper:** "HiFloat4: A 4-bit Block Floating-Point Format for Efficient LLM
 Inference"  
@@ -464,7 +586,7 @@ favor of a domain-specific layout. HiF4 uses block-scaling; GF4 uses
 
 ---
 
-## 16. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
+## 18. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
 
 **Paper:** "Harmonia: Algorithm-Hardware Co-Design for Memory- and
 Compute-Efficient BFP-based LLM Inference"  
@@ -490,7 +612,7 @@ principle: not all bits need the same precision everywhere.
 
 ---
 
-## 17. TinyTapeout IHP26A Ecosystem (2025–2026)
+## 19. TinyTapeout IHP26A Ecosystem (2025–2026)
 
 The **IHP26A** shuttle (IHP 130nm `sg13g2` open PDK) launched November 2025,
 with chips expected **September 2026**. It carries a dense cluster of
@@ -520,7 +642,7 @@ success.
 
 ---
 
-## 18. Summary: Where Trinity Fits
+## 20. Summary: Where Trinity Fits
 
 | Project | Base | Layout | φ-aware? | Silicon? | Format type |
 |---------|------|--------|----------|----------|-------------|
@@ -539,6 +661,11 @@ success.
 | **DFloat11** | Rice | Huffman exponents | No | Software | Dynamic FP |
 | **ECF8** | Rice | Alpha-stable FP8 | No | Software | Data-tuned FP8 |
 | **M2XFP** | SJTU/Huawei | Metadata-augmented FP4 | No | Yes (ASPLOS 2026) | Research format |
+| **PVU** | SWUST | Posit vector (RISC-V) | No | FPGA | Vector CPU |
+| **SPADE** | IIT Indore | Posit SIMD MAC | No | Yes (TSMC 28nm) | Custom FP |
+| **B-Posit** | BITS/ASU | Bounded-regime Posit | No | Yes (FreePDK45) | Custom FP |
+| **EULER-ADAS** | IIT Indore | Approx B-Posit | No | Yes (TSMC 28nm) | Approximate FP |
+| **Dynamic LNS** | PNNL | Log-domain + outlier-aware | No | FPGA (Alveo U280) | LNS |
 | **MXFP4/6/8** | OCP | Micro-block scaled | No | Yes (multiple vendors) | Industry standard |
 | **tt_um_float_synth** | Community | Custom | No | IHP26A submitted | Open-silicon FP |
 | **Systolic_Array** | Community | bfloat16 subset | No | IHP26A submitted | Open-silicon FP |
@@ -558,13 +685,18 @@ empirical question** — tracked in `docs/hardware/bpb_benchmark.py` and
 
 ---
 
-## 18. References
+## 20. References
 
 - `docs/hardware/gf16_spec.md` — Format specification with DLFloat16 relation
 - `docs/hardware/gf16_mathematics.md` — φ-step and optimal field derivations
 - `docs/hardware/silicon_anchor.md` — TTSKY26a/b submission status
 - `docs/HARDWARE_ATTESTATION.md` — Honest proof inventory
 - `gHashTag/zig-golden-float` — Zig reference implementation with BENCH-001–006
+- arXiv:2503.01313 — PVU (Posit Vector Unit, RISC-V)
+- arXiv:2601.17279 — SPADE (SIMD Posit MAC)
+- arXiv:2603.01615 — B-Posit (bounded-regime Posit)
+- arXiv:2605.06875 — EULER-ADAS (approximate B-Posit engine)
+- PNNL MICRO 2024 — Dynamic LNS for LLMs
 - arXiv:2601.19213 — M2XFP (SJTU/Huawei, ASPLOS 2026)
 - arXiv:2602.11287 — HiFloat4 (Huawei)
 - arXiv:2602.04595 — Harmonia (algorithm-hardware co-design)

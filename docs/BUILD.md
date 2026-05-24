@@ -71,6 +71,37 @@ python3 scripts/count_admitted_honest.py
 
 ---
 
+## Hardware Build (FPGA / RTL)
+
+```bash
+# GF16 RTL synthesis (Yosys + nextpnr, openXC7 toolchain)
+cd docs/hardware/rtl
+
+# Synthesize GF16 multiplier
+yosys -p "read_verilog gf16_mul.v; synth_xilinx -flatten -abc9 -arch xc7 -top gf16_mul; write_json gf16_mul.json"
+
+# Run testbench with Icarus Verilog
+iverilog -o gf16_mul_tb.vvp gf16_mul_tb.v gf16_mul.v
+vvp gf16_mul_tb.vvp
+
+# Full dot4 unit
+cd build/
+yosys -p "read_verilog ../gf16_dot4.v ../gf16_mul.v ../gf16_add.v; synth_xilinx -flatten -abc9 -arch xc7 -top gf16_dot4; write_json gf16_dot4.json"
+```
+
+**Requirements:**
+- Yosys 0.40+
+- nextpnr-xilinx (openXC7)
+- Icarus Verilog 12.0+
+- GTKWave (optional, for VCD inspection)
+
+**FPGA target:** Xilinx Artix-7 XC7A100T (QMTech board).  
+**Performance:** 323 MHz combinational, 35/35 tests pass.
+
+See `docs/hardware/rtl/build/` for pre-generated synthesis reports.
+
+---
+
 ## CI Workflows
 
 | Workflow | What it gates | File |

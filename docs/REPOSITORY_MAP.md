@@ -60,6 +60,7 @@ If you are a peer reviewer arriving cold, the recommended reading order is:
 | `docs/analysis/` | Topic-specific analyses: `a4_*`, `IMPACT_*`, `Trinity_*`, `literature_review_complete`, `peer_review_PRD`, `formula_search_space`, `koide_honest_assessment`, `one_electron_analysis`, `mass_scheme_analysis`, `sin2thetaW_schemes`, `ghost_strongcp_rg_analysis`, `three-generations-proof`, `EXPLAINED_Lagrangian`, `FOUNDATIONS`, `TRACEABILITY`, `admitted_log`, `fix_Q*`, `uniqueness_*`, `higgs_*`, `spectral_action_*`, `yukawa_*`, `p1_h4_to_standard_model`, `RG_RUNNING_PROVEN`, `RISKY_PREDICTIONS`. |
 | `docs/experiments/` | Experimental analyses and pre-registrations: `DUNE_RISKY_PREDICTION`, `dune_preregistration`, `juno_analysis`, `delta_cp_analysis`, `experimental_protocol`, `lhc_lambda_analysis`. |
 | `docs/applications/` | Applied / cross-domain notes. Currently contains `AGENTS_H4_APPLICATION.md`, which describes how the H4-derived numerical invariants feed neural-network optimizer hyperparameters (introduced in commit `39b7bebb`, paired with `proofs/trinity/OptimizerInvariants.v`). This is **not** generic agent guidance — the project does not use an `AGENTS.md` workflow file. |
+| `docs/hardware/` | Hardware proof basis: GF16 spec, RTL, BPB benchmarks, silicon anchor, prior-art catalog. See `docs/hardware/README.md` for index. |
 
 ## Phase history
 
