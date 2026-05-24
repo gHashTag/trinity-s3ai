@@ -147,8 +147,8 @@ jobs:
 
           ### Key results
           - 4 formal Boundary Theorems (BT-1–BT-4) — see `proofs/trinity/BoundaryTheorems.v`
-          - 326 Qed / 0 Admitted across 23 Coq files (Coq 8.20.1)
-          - 59 phenomenological formulas cataloged and tagged `[phenomenological_fit]`
+          - 1325 Qed / 25 Admitted + 18 admit + 73 Axiom + 7 Parameter = 123 unproven obligations across 79 Coq files (Coq 8.20.1)
+          - 59 phenomenological formulas cataloged and tagged `[phenomenological_fit]` (0 rigorous derivations)
           - Anti-numerology CI gate: all formulas verified at PASS
 
           ### What this is NOT

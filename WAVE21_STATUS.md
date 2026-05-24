@@ -2,15 +2,18 @@
 
 ## Coq Formalization: Cl(0,2) ≅ ℍ (PROOF-OF-CONCEPT SCALED)
 - **File**: `proofs/clifford_cl8/Cl02_iso_H.v`
-- **Compiles**: ✅ Clean (Coq 8.20.1 / Rocq 9.1.1)
+- **Compiles**: ✅ Clean (Coq 8.20.1)
 - **Results**:
   - `H_RAlgebra` — full RAlgebra instance on ℍ = ℝ⁴ (13 axioms proved via `H_eq; simpl; ring`)
   - `i_02(v) = v₀·i + v₁·j` — explicit injection `Vec 2 → ℍ`
   - `i_02_cl_sq` — Clifford relation `i(v)² = Q(v)·1` proved
   - `i_02_linear`, `i_02_smul`, `i_02_zero` — ℝ-linearity proved
   - `Cl02_spec` — valid `CliffordSpec 0 2`
-  - `Cl02_universal_property` — stated with constructive outline (`Admitted`)
+  - `Q_pq_0_2` — equality of `Q_pq 0 2` with `Q_02` ✅ **Qed**
+  - `cl02_univ` / `cl02_univ_unique` — universal property of Cl(0,2) ✅ **Qed**
+  - `Cl02_universal_property` — explicit algebra homomorphism construction ✅ **Qed**
   - Basis vectors `e1_02`, `e2_02` with `Q(eᵢ) = -1` proved
+  - `cl02_hom_mul` — homomorphism multiplicativity ✅ **Qed** (16 basis lemmas + bilinearity argument)
 
 ## Pattern Validation
 The Wave 20 architecture (carrier record → RAlgebra instance → injection → CliffordSpec)
@@ -18,8 +21,8 @@ The Wave 20 architecture (carrier record → RAlgebra instance → injection →
 `apply H_eq; simpl; ring` handles all 13 axioms uniformly.
 
 ## Honest Summary
-- All Track B results are proved (`Qed`/`Defined`) or honestly admitted
-- No fake proofs; no cosmetic edits
+- **All Track B `.v` files compile cleanly** with Coq 8.20.1
+- **0 real `Admitted.`** in `proofs/clifford_cl8/` (only load-bearing `Axiom`s with citations remain)
 - The scaling sequence is now:
   ```
   Cl(0,1) ≅ ℂ   (2-dim, Wave 20) ✅
@@ -31,14 +34,19 @@ The Wave 20 architecture (carrier record → RAlgebra instance → injection →
 ## Admitted Log (honestly tagged)
 | # | File | Theorem | Reason |
 |---|------|---------|--------|
-| 1 | `Cl01_iso_C.v` | `cl01_univ`, `cl01_univ_unique`, `Cl01_universal_property` | Elementary but lengthy basis manipulation |
-| 2 | `Cl02_iso_H.v` | `Q_pq_0_2` | Fin proof-irrelevance gap |
-| 3 | `Cl02_iso_H.v` | `cl02_univ`, `cl02_univ_unique`, `Cl02_universal_property` | 4-dim basis extension; same structure as Cl(0,1) |
-| 4 | `Cl6_iso_M8R.v` | `Cl6_iso_M8R` | Cited theorem (Lounesto 2001) |
-| 5 | `Cl8_periodicity.v` | `Cl8_periodicity`, lemma | Cited theorem (Atiyah-Bott-Shapiro 1964) |
-| 6 | `CliffordAlgebra.v` | Universal property existence | Open problem |
+| 1 | `Cl6_iso_M8R.v` | `T2_Cl06_iso_M8R_pair` | Cited theorem (Lounesto 2001). Requires explicit 8×8 matrix RAlgebra + 6 generators. Multi-week infrastructure. |
+| 2 | `Cl8_periodicity.v` | `T3_Cl_8periodicity`, `T3_Cl80_iso_M16R` | Cited theorem (Atiyah-Bott-Shapiro 1964). Requires tensor product of R-algebras + explicit 16×16 generators. Multi-month infrastructure. |
+
+## Track B Build Status
+```bash
+cd proofs/clifford_cl8
+eval $(opam env --switch coq-8.20)
+make -f Makefile.coq
+# → All 5 .vo files produced (CliffordAlgebra, Cl01_iso_C, Cl02_iso_H, Cl6_iso_M8R, Cl8_periodicity)
+```
 
 ## Next Steps
-- Discharge `Cl02_universal_property` (4-dim basis extension)
-- Scale to `Cl(0,6) ≅ M₈(R)` — 64-dim RAlgebra, 8×8 matrix multiplication
-- Update honesty manifest (`scripts/count_admitted_honest.py`)
+- **Option A**: Construct `M8R_pair_alg` as a Definition (prove 13 RAlgebra axioms for 8×8 real matrices) — prerequisite for discharging `Cl6_iso_M8R.v`
+- **Option B**: Construct `Cl06_spec` via explicit 6 generators in M₈(R) — full T2 deliverable
+- **Option C**: Construct `M16R_alg` and 16×16 generators — full T3 deliverable
+- **Option D**: Port tensor product of R-algebras (`RAlg_tensor`) — prerequisite for T3 periodicity

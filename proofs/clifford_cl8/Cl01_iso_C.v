@@ -17,13 +17,13 @@
 (*                                                                            *)
 (******************************************************************************)
 
-From Stdlib Require Import Reals.
-From Stdlib Require Import Lra.
-From Stdlib Require Import Lia.
-From Stdlib Require Import Ring.
-From Stdlib Require Import Arith.
-From Stdlib Require Import ProofIrrelevance.
-From Stdlib Require Import FunctionalExtensionality.
+From Coq Require Import Reals.
+From Coq Require Import Lra.
+From Coq Require Import Lia.
+From Coq Require Import Ring.
+From Coq Require Import Arith.
+From Coq Require Import ProofIrrelevance.
+From Coq Require Import FunctionalExtensionality.
 From CliffordCl8 Require Import CliffordAlgebra.
 
 Open Scope R_scope.

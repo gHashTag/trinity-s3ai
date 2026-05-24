@@ -30,17 +30,17 @@ Most unification programs publish only successes. We publish the **dead ends** t
 
 | Our Strong Side | What It Means For You |
 |-----------------|----------------------|
-| **1,762 theorems with `Qed.`** | Every positive claim is machine-checked, not hand-waved. |
+| **1,325 theorems with `Qed.`** | Every positive claim is machine-checked, not hand-waved. |
 | **4 boundary theorems (BT-1..BT-4)** | Four direct H4→SM construction paths are formally ruled out. You don't have to try them. |
 | **14 refutation theorems** | Specific ansätze (orbifold Z₂, E8-plumbing η, δ_CP = 65.66°) are proven dead and documented. |
-| **5 honest `Admitted.` gaps** | No cosmetic edits. Every open gap is tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and carries a literature citation. |
+| **25 `Admitted.` + 123 total obligations** | No cosmetic edits. Every open gap is tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and carries a literature citation. See `COQ_HONEST_STATUS.md` for full accounting. |
 | **0 fake proofs** | The honest parser strips comments before counting. Naive `grep` finds 77; the real count is 0 in `proofs/trinity/`. |
 
 > **$TRI is not a cryptocurrency.** It is a hardware-verified compression score (bits-per-byte) measured on TTSKY26b silicon (Three Crowns submitted May 2026). You cannot mine it on a GPU.
 
 ---
 
-We maintain a catalog of **59 numerically verified formulas** between H4 Coxeter
+We maintain a catalog of **59 phenomenological formulas** between H4 Coxeter
 invariants and PDG 2024 measurements, plus **4 formal boundary theorems**
 proving obstructions. Whether the coincidences are deep or accidental is itself an
 open research question — tracked via a 7-layer verification stack and a
@@ -159,10 +159,10 @@ This project is built on a counter-intuitive principle: **proving what cannot be
 
 | What we proved | Count | Status |
 |---|---|---|
-| Theorems with `Qed.` | **1,762** | Verified |
+| Theorems with `Qed.` | **1,325** | Verified |
 | Boundary theorems (impossibility proofs) | **4** (BT-1..BT-4) | Verified |
 | Refutation theorems (`*_refuted`) | **14** | Verified dead ends |
-| Real `Admitted.` (honestly tagged) | **5** | Open problems with citations |
+| Real `Admitted.` (honestly tagged) | **25** | Open problems with citations |
 | Fake proofs | **0** | — |
 
 **Boundary theorems save the field from wasted effort:**
@@ -171,7 +171,7 @@ This project is built on a counter-intuitive principle: **proving what cannot be
 - **BT-3** — 600-cell Dirac operator is vector-like → chirality must come from elsewhere
 - **BT-4** — 2I-equivariant D_F fails for lepton masses → mass hierarchy needs different symmetry breaking
 
-**5 real Admitted gaps** — all honestly tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and documented with citations (Lounesto 2001, Atiyah-Bott-Shapiro 1964, etc.).
+**25 real Admitted gaps** — all honestly tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and documented with citations (Lounesto 2001, Atiyah-Bott-Shapiro 1964, etc.). Total unproven obligations: 25 Admitted + 18 admit + 73 Axiom + 7 Parameter = 123.
 
 **0 fake proofs. 0 cosmetic edits to hide gaps.** Every number is produced by a comment-stripping parser and treated as ground truth.
 

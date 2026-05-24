@@ -458,7 +458,7 @@ The Coq formalization does not yet compile. Completing the formal proofs would:
 
 ## 12. Conclusion
 
-We have presented 25 closed-form formulas expressing Standard Model parameters through the Coxeter invariants of $H_4$. Of these, 18 pass independent numerical verification --- including 6 at sub-0.01% precision. The most precise, $m_\tau/m_\mu = 239\varphi^4/\pi^4$, matches experiment at $0.0004\%$. Five testable predictions are advanced.
+We have presented 25 closed-form formulas expressing Standard Model parameters through the Coxeter invariants of $H_4$. Of these, 18 pass independent numerical verification --- including 6 at sub-0.01% precision. The most precise, $m_\tau/m_\mu = 239\varphi^4/\pi^4$, matches experiment at $0.0004\%$. Four testable predictions are advanced (δ_CP formula withdrawn at >5σ).
 
 **What we CAN claim:**
 - 25 closed-form algebraic identities between $H_4$ invariants and SM parameters exist

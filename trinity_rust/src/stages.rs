@@ -365,10 +365,12 @@ mod tests {
         let stages = all_stages();
         assert_eq!(stages.len(), 13);
 
-        let proven = stages
+        let qed = stages
             .iter()
             .filter(|s| s.status == StageStatus::Proven)
             .count();
-        assert!(proven >= 10, "Too few proven stages: {}", proven);
+        // Only 2 stages (H4 Coxeter Group, Reflection Subgroups) are mathematical facts.
+        // All others are fitted coincidences, documented, or withdrawn.
+        assert_eq!(qed, 2, "Expected exactly 2 mathematically proven stages, found {}", qed);
     }
 }

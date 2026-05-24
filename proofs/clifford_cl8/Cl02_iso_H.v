@@ -15,13 +15,13 @@
 (*                                                                            *)
 (******************************************************************************)
 
-From Stdlib Require Import Reals.
-From Stdlib Require Import Lra.
-From Stdlib Require Import Lia.
-From Stdlib Require Import Ring.
-From Stdlib Require Import ProofIrrelevance.
-From Stdlib Require Import FunctionalExtensionality.
-From Stdlib Require Import Compare_dec.
+From Coq Require Import Reals.
+From Coq Require Import Lra.
+From Coq Require Import Lia.
+From Coq Require Import Ring.
+From Coq Require Import ProofIrrelevance.
+From Coq Require Import FunctionalExtensionality.
+From Coq Require Import Compare_dec.
 From CliffordCl8 Require Import CliffordAlgebra.
 
 Open Scope R_scope.
@@ -592,19 +592,66 @@ Lemma cl02_hom_mul (B : RAlgebra) (j : Vec 2 -> carrier B)
   forall x y, cl02_hom_fn B j (H_mul x y) = alg_mul B (cl02_hom_fn B j x) (cl02_hom_fn B j y).
 Proof.
   intros x y.
-  assert (Hx : x = H_add (H_smul (h_re x) H_one_v) (H_add (H_smul (h_i x) H_i_v) (H_add (H_smul (h_j x) H_j_v) (H_smul (h_k x) H_k_v))))
-    by (apply H_eq; simpl; ring).
-  assert (Hy : y = H_add (H_smul (h_re y) H_one_v) (H_add (H_smul (h_i y) H_i_v) (H_add (H_smul (h_j y) H_j_v) (H_smul (h_k y) H_k_v))))
-    by (apply H_eq; simpl; ring).
-  rewrite Hx, Hy.
-  repeat rewrite H_mul_linear_l. repeat rewrite H_mul_smul_l.
-  repeat rewrite H_mul_linear_r. repeat rewrite H_mul_smul_r.
-  repeat rewrite cl02_hom_add. repeat rewrite cl02_hom_smul.
-  repeat rewrite alg_distr_l. repeat rewrite alg_distr_r.
-  repeat rewrite alg_smul_mul_l. repeat rewrite alg_smul_mul_r.
-  admit.
-Admitted.
-
+  assert (Hone : forall y, cl02_hom_fn B j (H_mul H_one_v y) = alg_mul B (cl02_hom_fn B j H_one_v) (cl02_hom_fn B j y)).
+  { intros y'.
+    assert (Hy' : y' = H_add (H_smul (h_re y') H_one_v) (H_add (H_smul (h_i y') H_i_v) (H_add (H_smul (h_j y') H_j_v) (H_smul (h_k y') H_k_v)))) by (apply H_eq; simpl; ring).
+    rewrite Hy'.
+    repeat (first [rewrite H_mul_linear_r | rewrite H_mul_smul_r]).
+    repeat (first [rewrite cl02_hom_add | rewrite cl02_hom_smul]).
+    repeat (first [rewrite alg_distr_l | rewrite alg_smul_mul_r]).
+    rewrite H_basis_1_1.
+    rewrite H_basis_1_i.
+    rewrite H_basis_1_j.
+    rewrite H_basis_1_k.
+    reflexivity. }
+  assert (Hi : forall y, cl02_hom_fn B j (H_mul H_i_v y) = alg_mul B (cl02_hom_fn B j H_i_v) (cl02_hom_fn B j y)).
+  { intros y'.
+    assert (Hy' : y' = H_add (H_smul (h_re y') H_one_v) (H_add (H_smul (h_i y') H_i_v) (H_add (H_smul (h_j y') H_j_v) (H_smul (h_k y') H_k_v)))) by (apply H_eq; simpl; ring).
+    rewrite Hy'.
+    repeat (first [rewrite H_mul_linear_r | rewrite H_mul_smul_r]).
+    repeat (first [rewrite cl02_hom_add | rewrite cl02_hom_smul]).
+    repeat (first [rewrite alg_distr_l | rewrite alg_smul_mul_r]).
+    rewrite H_basis_i_1.
+    rewrite (H_basis_i_i B j j_add Hj).
+    rewrite H_basis_i_j.
+    rewrite (H_basis_i_k B j j_add Hj).
+    reflexivity. }
+  assert (Hj_v : forall y, cl02_hom_fn B j (H_mul H_j_v y) = alg_mul B (cl02_hom_fn B j H_j_v) (cl02_hom_fn B j y)).
+  { intros y'.
+    assert (Hy' : y' = H_add (H_smul (h_re y') H_one_v) (H_add (H_smul (h_i y') H_i_v) (H_add (H_smul (h_j y') H_j_v) (H_smul (h_k y') H_k_v)))) by (apply H_eq; simpl; ring).
+    rewrite Hy'.
+    repeat (first [rewrite H_mul_linear_r | rewrite H_mul_smul_r]).
+    repeat (first [rewrite cl02_hom_add | rewrite cl02_hom_smul]).
+    repeat (first [rewrite alg_distr_l | rewrite alg_smul_mul_r]).
+    rewrite H_basis_j_1.
+    rewrite (H_basis_j_i B j j_add Hj).
+    rewrite (H_basis_j_j B j j_add Hj).
+    rewrite (H_basis_j_k B j j_add Hj).
+    reflexivity. }
+  assert (Hk : forall y, cl02_hom_fn B j (H_mul H_k_v y) = alg_mul B (cl02_hom_fn B j H_k_v) (cl02_hom_fn B j y)).
+  { intros y'.
+    assert (Hy' : y' = H_add (H_smul (h_re y') H_one_v) (H_add (H_smul (h_i y') H_i_v) (H_add (H_smul (h_j y') H_j_v) (H_smul (h_k y') H_k_v)))) by (apply H_eq; simpl; ring).
+    rewrite Hy'.
+    repeat (first [rewrite H_mul_linear_r | rewrite H_mul_smul_r]).
+    repeat (first [rewrite cl02_hom_add | rewrite cl02_hom_smul]).
+    repeat (first [rewrite alg_distr_l | rewrite alg_smul_mul_r]).
+    rewrite H_basis_k_1.
+    rewrite (H_basis_k_i B j j_add Hj).
+    rewrite (H_basis_k_j B j j_add Hj).
+    rewrite (H_basis_k_k B j j_add Hj).
+    reflexivity. }
+  assert (Hx : x = H_add (H_smul (h_re x) H_one_v) (H_add (H_smul (h_i x) H_i_v) (H_add (H_smul (h_j x) H_j_v) (H_smul (h_k x) H_k_v)))) by (apply H_eq; simpl; ring).
+  rewrite Hx.
+  repeat (first [rewrite H_mul_linear_l | rewrite H_mul_smul_l]).
+  repeat (first [rewrite cl02_hom_add | rewrite cl02_hom_smul]).
+  repeat rewrite alg_distr_r.
+  repeat rewrite alg_smul_mul_l.
+  rewrite Hone.
+  rewrite Hi.
+  rewrite Hj_v.
+  rewrite Hk.
+  reflexivity.
+Qed.
 Lemma cl02_hom_i (B : RAlgebra) (j : Vec 2 -> carrier B) :
   cl02_hom_fn B j (mkH 0 1 0 0) = j e1_02.
 Proof.

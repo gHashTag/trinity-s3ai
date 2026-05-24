@@ -4,7 +4,7 @@ CORRECTED Spectral Action Computation for 600-Cell + Standard Model
 
 This is the CORRECTED version of spectral_action_compute.py that fixes
 the Higgs mass discrepancy by using the proper Trinity spectral action
-formula derived from H4 invariants.
+fitted formula post-hoc selected from H4 invariants to match measured Higgs mass.
 
 The original code computed m_H ≈ 87.4 GeV using an ad-hoc formula.
 This corrected version uses the H4-invariant spectral action formula

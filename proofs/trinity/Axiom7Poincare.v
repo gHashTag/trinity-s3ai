@@ -276,7 +276,7 @@ Qed.
 End McKayCorrespondence.
 
 (******************************************************************************)
-(* Section 6: Main Theorems — Axiom 7 VERIFIED                             *)
+(* Section 6: Main Theorems — Axiom 7 POSTULATED (verified only via axioms)  *)
 (******************************************************************************)
 
 Section Axiom7Conclusion.

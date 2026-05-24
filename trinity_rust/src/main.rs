@@ -68,13 +68,13 @@ fn main() {
     println!("╔══════════════════════════════════════════════════════════════════════╗");
     println!("║  FINAL STATUS                                                        ║");
     println!("╠══════════════════════════════════════════════════════════════════════╣");
-    println!("║  20/20 Coq files compile (100%)    |  311 Qed / 22 Admitted         ║");
-    println!("║  13/13 Lagrangian sectors PROVEN   |  61 SG-class formulas          ║");
-    println!("║  5 Key Theorems PROVEN             |  arXiv-ready                   ║");
+    println!("║  79 Coq files (partial compilation) |  1325 Qed / 123 unproven       ║");
+    println!("║  3/13 Lagrangian sectors formally proven |  44 SG-class fitted coincidences ║");
+    println!("║  5 Boundary Theorems QED           |  NOT submitted to arXiv        ║");
     println!("╚══════════════════════════════════════════════════════════════════════╝");
 
     if report.is_success() {
-        println!("\n✅ ALL VALIDATIONS PASSED — H4 → SM derivation is consistent.\n");
+        println!("\n✅ ALL VALIDATIONS PASSED — H4 → SM numerical coincidences are consistent.\n");
     } else {
         println!("\n⚠️  Some validations failed — review failures above.\n");
     }

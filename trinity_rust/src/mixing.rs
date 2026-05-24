@@ -1,7 +1,8 @@
 //! CKM and PMNS Mixing Matrices from H4 Clebsch-Gordan Coefficients
 //!
 //! The mixing matrices encode the mismatch between gauge eigenstates and mass eigenstates.
-//! In Trinity framework, they derive from H4 root overlap integrals.
+//! In Trinity framework, they are RETROSPECTIVE FITS to measured CKM/PMNS elements
+//! using H4 root overlap integrals — no derivation from first principles exists.
 
 use crate::ring::phi_pow;
 

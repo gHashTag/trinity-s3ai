@@ -1,6 +1,7 @@
 //! Yukawa Sector and Mass Ratios from H4 Invariants
 //!
-//! Hypothesis: Trinity coefficients ARE the Yukawa couplings scaled by projection defect.
+//! Hypothesis (POSTULATED): Trinity coefficients APPROXIMATE Yukawa couplings
+//! as fitted coincidences — no derivation from first principles exists.
 //!
 //! y_i = H4_invariant_i · (e/π) · (v_H4 / M_Pl)
 //!
