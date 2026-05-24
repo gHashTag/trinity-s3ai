@@ -1,6 +1,8 @@
-# PREDICTIONS_PREREGISTERED.md — Frozen First-Principles Predictions
+# PREDICTIONS_PREREGISTERED.md — Frozen Predictions (Wave 20 Honesty Refresh)
 
-**Wave 4 of the honesty pass.** Companion to [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md).
+**Wave 4 of the honesty pass, refreshed in Wave 20.** Companion to [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md).
+
+**CRITICAL HONESTY DISCLAIMER (Wave 20):** This document pre-registers predictions, but *none* of them are derived from first principles. The Coq theorems listed prove **interval bounds** (`|formula - value| < ε`), not physical derivations. "Confirmed" means "numerical coincidence matches experiment within the stated window" — it does **not** mean the H4 framework predicted the value. See [`audit_report.md`](derivations/catalog_audit/audit_report.md) for the canonical classification: **0/26 formulas are rigorous derivations.**
 
 This document formally pre-registers Trinity S³AI's open predictions — those that cannot yet be adjudicated against a model-clean measurement. Each entry includes the predicted value, the Coq theorem (where applicable), the falsification threshold, and the freeze commit hash.
 
@@ -14,13 +16,13 @@ Each prediction has five fields:
 
 | Field | Meaning |
 |---|---|
-| **Predicted value** | The exact number derived from H4 + Coq, with zero free parameters |
-| **Coq theorem** | The Coq identifier proving the value (where formal proof exists) or "phenomenological" |
+| **Predicted value** | The exact number fitted from H4 invariants + φ/π/e, with zero free parameters after the fit |
+| **Coq theorem** | The Coq identifier proving an **interval bound** on the formula's numerical accuracy, not a physical derivation |
 | **Current extraction** | What model-dependent extractions currently report, with the model assumed |
 | **Falsification threshold** | What experimental result, at what σ, in what experiment, would kill the prediction |
-| **Status** | OPEN (not yet adjudicated) / CONFIRMED / FALSIFIED |
+| **Status** | OPEN (not yet adjudicated) / WITHDRAWN / FALSIFIED / NUMERICALLY VERIFIED (not "confirmed" in the theoretical sense) |
 
-**Rule**: a prediction can only be moved from OPEN to FALSIFIED by a measurement that satisfies the criteria in [`EPISTEMOLOGY.md §6`](./EPISTEMOLOGY.md#6-what-would-falsify-trinity-under-this-doctrine) — model-independent, multiple-technique agreement, or Coq proof error.
+**Rule**: a prediction can only be moved from OPEN to FALSIFIED by a measurement that satisfies the criteria in [`EPISTEMOLOGY.md §6`](./EPISTEMOLOGY.md#6-what-would-falsify-trinity-under-this-doctrine) — model-independent, multiple-technique agreement, or Coq proof error. However, **Wave 20 override**: δ_CP is withdrawn regardless of doctrine, because the project's own honesty audit (`DELTA_CP_HONEST_STATUS.md`) found it was a post-hoc fit excluded at >5σ.
 
 ---
 
@@ -35,9 +37,9 @@ Each prediction has five fields:
 | **Sources** | [NuFIT-6.0](https://arxiv.org/abs/2410.05380), [T2K+NOvA Nature 2025](https://www.nature.com/articles/s41586-025-09599-3), [arXiv:2510.19888](https://arxiv.org/abs/2510.19888) |
 | **Falsification threshold** | DUNE 2028+ reporting `δ_CP` outside `[50°, 80°]` at ≥5σ **with explicit cross-section systematic budget bounded by independent measurements (MINERvA, T2K-NIR)**, **agreeing with Hyper-Kamiokande within 1σ on the same quantity** |
 | **NOT falsification** | NuFIT global-fit central value drifting; T2K or NOvA in isolation; any extraction whose nuclear-model systematic is treated as gaussian |
-| **Status** | **OPEN — pre-registered tension** |
+| **Status** | **WITHDRAWN — post-hoc fit excluded at >5σ** |
 
-**Comment**: This prediction was the subject of Wave 2 of the honesty pass, which used "withdrawn" language. Under the Wave 4 doctrine (see [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md)), that language is itself reframed: the prediction is **not** withdrawn; it is **in tension with a model-dependent extraction** pending DUNE adjudication. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) (revised in this wave).
+**Comment (Wave 20 refresh):** This prediction was the subject of Wave 2 of the honesty pass, which used "withdrawn" language. Under the Wave 4 doctrine (see [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md)), that language was reframed as "in tension with model-dependent extraction." **Wave 20 overrides this reframing.** The project's own `DELTA_CP_HONEST_STATUS.md` documents that δ_CP = 3/φ² was found by **brute-force search over a·φ^b·π^c·e^d targeting an outdated PDG value** (65.5° ± 1.6°). Three formula revisions (90.2° → 77.87° → 65.66°) constitute the signature of post-hoc fitting. NuFit 6.0 + T2K+NOvA 2025 exclude 65.66° at >5σ. The physical interpretation is **withdrawn**; the Coq lemma `delta_cp_value` is preserved as a mathematical curiosity, not a prediction. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md).
 
 ---
 
@@ -92,52 +94,54 @@ Each prediction has five fields:
 
 ---
 
-## P6. m_H (already confirmed — for symmetry of treatment)
+## P6. m_H (numerically verified coincidence)
 
 | Field | Value |
 |---|---|
 | **Predicted value** | `m_H = 125.10 GeV` |
-| **Coq theorem** | `HiggsPrediction.v` (0 Admitted, verified in [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)) |
+| **Coq theorem** | `HiggsPrediction.v` proves `Rabs(m_H_Trinity - m_H_measured) < 0.25` — an **interval bound**, not a derivation |
 | **Current measurement** | ATLAS+CMS direct invariant-mass reconstruction: `m_H = 125.20 ± 0.11 GeV` |
-| **Status** | **CONFIRMED at 0.09%** |
+| **Status** | **NUMERICALLY VERIFIED at 0.09%** |
 
-The Higgs mass extraction is **model-clean**: direct di-photon and 4-lepton invariant-mass reconstruction does not require nuclear-physics models. This is the kind of measurement that **can** falsify a prediction under the Wave 4 doctrine. The fact that it agrees is strong evidence for the H4 framework.
+**Honesty note:** The formula `m_H = 4φ³e²` was found **after** the LHC 2012 discovery. The Coq proof verifies that this fitted formula is close to the measured value; it does **not** derive the Higgs mass from H4 geometry. See `audit_report.md`: H01 is classified as NF (Numerical Fit), not R (Rigorous). Calling this "confirmed" would overstate the epistemic status.
 
 ---
 
-## P7. α₁, α₂, α₃ (gauge couplings, already confirmed)
+## P7. α₁, α₂, α₃ (gauge couplings, numerically verified coincidence)
 
 | Field | Value |
 |---|---|
-| **Predicted values** | Trinity H4 framework; see `proofs/trinity/H4Derivations.v` (0 Admitted) |
+| **Predicted values** | Fitted formulas; see `proofs/trinity/H4Derivations.v` (0 Admitted) |
 | **Current measurement** | PDG world averages |
-| **Agreement** | 0.024% across all three couplings |
-| **Status** | **CONFIRMED** |
+| **Agreement** | 0.024% for 1/α(0); α_s has 0.1% error (above V-class threshold); sin²θ_W is a genuine 84σ failure (see G03) |
+| **Status** | **NUMERICALLY VERIFIED (partial)** |
 
-Gauge coupling measurements are reasonably model-clean (LEP precision EW + low-energy measurements + RG running). This confirmation matters under the Wave 4 doctrine.
+**Honesty note:** Only `1/α(0)` matches well. The strong coupling formula `α_s = (√5−2)/2` has 0.1% error and is absent from `Catalog42.v`. The weak mixing formula `sin²θ_W = 3/(8φ)` is **refuted at 84σ** (3.8% error, not an ultra-precision artifact). The "0.024% across all three couplings" figure cherry-picks the best match.
 
 ---
 
-## P8. Higgs self-coupling λ (already confirmed)
+## P8. Higgs self-coupling λ (numerically verified coincidence)
 
 | Field | Value |
 |---|---|
 | **Predicted value** | `λ ≈ 0.129` |
-| **Coq theorem** | `proofs/trinity/HiggsPrediction.v` (0 Admitted) |
-| **Current value** | SM tree-level `λ = m_H²/(2v²) ≈ 0.1285` |
-| **Status** | **CONFIRMED at 0.4%** |
+| **Coq theorem** | `proofs/trinity/HiggsPrediction.v` proves an interval bound |
+| **Current value** | SM tree-level `λ = m_H²/(2v²) ≈ 0.1285`; experimental κ_λ = 1.02 ± 0.19 (ATLAS+CMS Run 2) |
+| **Status** | **NUMERICALLY VERIFIED at 0.4%** |
+
+**Honesty note:** The formula `λ = √φ/π²` was fitted, not derived. Experimental measurement of λ is weak (±15% uncertainty), so the "verification" is not stringent.
 
 ---
 
-## P9. PMNS θ₁₂ and θ₁₃ (already confirmed)
+## P9. PMNS θ₁₂ and θ₁₃ (numerically verified coincidence)
 
 | Field | Value |
 |---|---|
-| **Predicted θ₁₂** | Within NuFIT-6.0 1σ band (0.16σ deviation) |
-| **Predicted θ₁₃** | Within NuFIT-6.0 1σ band (0.18σ deviation) |
-| **Status** | **CONFIRMED** |
+| **Predicted θ₁₂** | Formula `8π/(φ⁵e²)` within NuFIT-6.0 1σ band (0.16σ deviation) |
+| **Predicted θ₁₃** | Formula `π²/(25φ⁶)` within NuFIT-6.0 1σ band (0.18σ deviation) |
+| **Status** | **NUMERICALLY VERIFIED** |
 
-These two PMNS angles are extracted from **reactor** experiments (Daya Bay, RENO, KamLAND) which are far more model-clean than accelerator extractions, because the source (β-decay) and detection (inverse β-decay) are well understood. The doctrine assigns these confirmations strong weight. The fact that δ_CP — the **most** model-dependent extraction — is also the only PMNS angle in tension is consistent with the Wave 4 thesis.
+**Honesty note:** Both formulas were found by search over φ/π/e combinations, not derived from H4 geometry. The reactor-extraction argument is correct about model-cleanliness, but it does not turn a fitted coincidence into a prediction. The Wave 4 thesis that "model-dependent extractions are in tension while model-clean ones match" is a post-hoc pattern, not a pre-registered prediction.
 
 ---
 
@@ -145,19 +149,19 @@ These two PMNS angles are extracted from **reactor** experiments (Daya Bay, RENO
 
 | ID | Quantity | Predicted | Status | Adjudicating experiment |
 |---|---|---|---|---|
-| P1 | δ_CP | 3/φ² ≈ 65.66° | OPEN (tension) | DUNE 2028+ |
+| P1 | δ_CP | 3/φ² ≈ 65.66° | **WITHDRAWN** (post-hoc fit, >5σ excluded) | N/A |
 | P2 | sin²θ₂₃ octant | upper, ≈0.563 | OPEN (mild) | DUNE + HK + JUNO |
 | P3 | a₄ bridge | (704+192√5)/19 | OPEN (algebraic) | None — internal |
 | P4 | Mass ordering | Normal | OPEN | JUNO |
 | P5 | Σmᵥ | ≈ 0.058 eV | OPEN | KATRIN final |
-| P6 | m_H | 125.10 GeV | **CONFIRMED 0.09%** | ATLAS+CMS done |
-| P7 | α₁,₂,₃ | (see Coq) | **CONFIRMED 0.024%** | PDG done |
-| P8 | λ | 0.129 | **CONFIRMED 0.4%** | SM EW done |
-| P9 | θ₁₂, θ₁₃ | (see Coq) | **CONFIRMED <0.2σ** | Reactor expts done |
+| P6 | m_H | 125.10 GeV | **NUMERICALLY VERIFIED 0.09%** | ATLAS+CMS done |
+| P7 | α₁,₂,₃ | (see Coq) | **NUMERICALLY VERIFIED (partial)** | PDG done |
+| P8 | λ | 0.129 | **NUMERICALLY VERIFIED 0.4%** | SM EW done |
+| P9 | θ₁₂, θ₁₃ | (see Coq) | **NUMERICALLY VERIFIED <0.2σ** | Reactor expts done |
 
-**4 confirmed, 5 open, 0 falsified under Wave 4 doctrine.**
+**0 confirmed (theoretical sense), 4 numerically verified, 4 open, 1 withdrawn under Wave 20 doctrine.**
 
-The four confirmations are all against **model-clean measurements** (direct invariant-mass, gauge-coupling running, reactor neutrinos). The five open predictions are against measurements that are either (a) not yet performed, or (b) currently extracted only through model-dependent forward modeling. This pattern is itself a signal.
+The four numerical verifications are all against **model-clean measurements**, but they are verifications of fitted coincidences, not confirmations of theoretical predictions. The Wave 4 pattern thesis ("model-dependent extractions disagree, model-clean ones agree") is a post-hoc observation, not a pre-registered prediction. See [`DELTA_CP_HONEST_STATUS.md`](./DELTA_CP_HONEST_STATUS.md) and [`audit_report.md`](derivations/catalog_audit/audit_report.md) for the honest canonical status.
 
 ---
 

@@ -137,7 +137,9 @@ The Trinity framework uses a **mixed mass scheme**:
 | Q04 | $m_c / m_s$ | $24\pi^3 / e^4$ | 13.63 | $13.633 \pm 0.020$ | 0.0003% | ★ SG | ⬜ | ✅ |
 | Q05 | $m_b / m_s$ **[phenomenological_fit]** | $43 + \pi / \phi$ | 44.94 | $44.94 \pm 0.10$ | 0.004% | ★ SG | ⬜ | ✅ |
 | Q05b | $m_b / m_c$ **[phenomenological_fit]** | $127\phi / 120 + 30/19$ | 3.291 | $3.2908 \pm 0.0030$ | 0.0009% | ★ SG | ⬜ | ✅ |
-| Q06 | $m_t$ **[phenomenological_fit]** | $4\phi^3 e^4 / 1000$ GeV | 172.69 GeV | $172.69 \pm 0.30$ GeV | 0.02% | P | ⬜ | ✅ |
+| Q06 | $m_t$ **[phenomenological_fit]** | $\pi e^4 + 6/5$ GeV | 172.73 GeV | $172.69 \pm 0.30$ GeV | 0.02% | P | ⬜ | ✅ |
+
+**⚠️ Wave 20 Correction:** The formula in prior versions (`4φ³e⁴/1000`) was **mathematically incorrect**, yielding ~0.925 GeV instead of 172.69 GeV. The corrected formula `πe⁴ + 6/5` was silently introduced in `validate_v4.py`. This is a textbook example of post-hoc formula revision. The Q06 ID has also been inconsistently assigned to `m_τ/m_μ` (Catalog42.v) and `m_t/m_c` (legacy scripts).
 | Q07 | $m_s / m_d$ | $24\phi^2 / \pi$ | 20.00 | $20.0 \pm 0.7$ | 0.0015% | ★ SG | ⬜ | ✅ |
 
 ### 1C — Gauge Couplings
@@ -148,7 +150,7 @@ The Trinity framework uses a **mixed mass scheme**:
 | G02 | $\alpha_s$ (strong coupling at $M_Z$) **[phenomenological_fit]** | $(\sqrt{5} - 2) / 2$ | 0.1180 | $0.1179 \pm 0.0010$ | 0.1% | P | ⬜ | ✅ |
 | G03 | $\sin^2\theta_W$ (weak mixing) | $3\phi^{-6}\pi^2 e^{-2}$ | 0.223 | $0.2232 \pm 0.0009$ (on-shell) | TBD | NV | ⬜ | ⬜ |
 
-**Note on G03:** This formula gives the **on-shell** value of $\sin^2\theta_W = 1 - m_W^2/m_Z^2$, not the MS-bar running value. The 3.4% difference between on-shell (0.2233) and MS-bar (0.2312) is the expected Standard Model radiative correction. See `sin2thetaW_schemes.md` for full scheme conversion details. For the MS-bar prediction, see EW02 below.
+**⚠️ Wave 20 Honesty Note:** The **legacy formula** `3/(8φ) ≈ 0.2318` is **REFUTED at 84σ** against the effective weak mixing angle (0.22336 ± 0.00010). This is a **genuine formula failure**, not an ultra-precision artifact. The current on-shell formula `3φ⁻⁶π²e⁻²` matches the on-shell value (0.2233) but has **no structural derivation** from H4 (exponents {-6, 2, -2} and coefficient 3 are not H4 invariants). It is a fitted coincidence, not a prediction.
 
 ### 1D — Neutrino Mixing (PMNS)
 

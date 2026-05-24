@@ -1,13 +1,17 @@
-# EPISTEMOLOGY.md — Calculation Primacy Doctrine
+# EPISTEMOLOGY.md — Calculation Primacy Doctrine (Wave 20 Honesty Refresh)
 
-**Wave 4 of the honesty pass.**
-**Status**: Foundational. Companion to `COQ_HONEST_STATUS.md`, `LAGRANGIAN_HONEST_STATUS.md`, `DELTA_CP_HONEST_STATUS.md`.
+**Wave 4 of the honesty pass, refreshed in Wave 20.**
+**Status**: Foundational. Companion to `COQ_HONEST_STATUS.md`, `LAGRANGIAN_HONEST_STATUS.md`, `DELTA_CP_HONEST_STATUS.md`, `AXIOM_LEDGER.md`, `TAUTOLOGY_AUDIT.md`.
 
 ---
 
 ## 0. Thesis
 
 > **Calculations are epistemically prior to measurements when the calculation is derived from first principles with zero free parameters, and the measurement is model-dependent extraction through a chain of corrections.**
+
+**Wave 20 Honesty Override:** The thesis above describes an *ideal*. Trinity S³AI currently has **zero calculations that meet this criterion for physical predictions**. The `audit_report.md` (Wave 20) classifies **0/26 core formulas as (R) Rigorous** — none are derived from first principles. All are either (S) Structural fits (integer coefficients from H4, transcendental parts fitted) or (NF) Numerical Fits (pure phenomenological coincidence).
+
+The Wave 4 doctrine was crafted to protect the δ_CP prediction from model-dependent extractions. **Wave 20 retracts this protection:** δ_CP = 3/φ² is withdrawn as a post-hoc fit excluded at >5σ. The doctrine remains valid as an *epistemological principle*, but it must not be invoked to shield predictions that the project's own honesty audit has found to be fitted, not derived.
 
 This is **not** a rejection of empiricism. It is a refinement of it. A measurement is not the bare physical event — it is a number obtained by inverting a forward model that maps theoretical parameters to detector counts. Every step of that inversion carries assumptions, corrections, and systematic uncertainties. When the forward model itself is in dispute, the "measurement" is conditional on the disputed model.
 
