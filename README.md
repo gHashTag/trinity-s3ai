@@ -142,10 +142,14 @@ All three crowns are **designed** to carry the canonical anchor **`0x47C0`** at 
 
 ### Why GF16?
 
-- **φ-structured step**: each quantization level approximates `φ⁻¹ ≈ 0.618`, giving **0.694-bit reduction per level** (`verified` — log₂ φ identity)
-- **Best BPB on synthetic data**: phi-4Q quantizer (4-bit) achieves raw BPB 0.125 vs 0.500 for 16-bit formats (`empirical_fit` — synthetic φ-monomial data only; real datasets untested)
-- **Optimal field size**: GF(2⁴) with primitive polynomial `x⁴ + x + 1` is the minimal field that carries 4 canonical Trinity basis vectors
+- **φ-structured step**: each quantization level approximates `φ⁻¹ ≈ 0.618`, giving **0.694-bit reduction per level** (`verified` — log₂ φ identity; Prop 1–2, Thm 3 in `gf16_mathematics.md`)
+- **16.2× better than bf16 on uniform data**: 9-bit mantissa vs bf16's 7 bits (`empirical_fit` — zig-golden-float BENCH-010 Uniform [-100,100])
+- **65× wider dynamic range than fp16**: max normal ~4.29×10⁹ vs fp16's 65504; exact powers-of-two at `-120.00 dB` NMSE (`empirical_fit` — `benchmark_nmse.py` D-5)
+- **Zero inference accuracy drop**: Fashion-MNIST MLP post-training quantization = 0.00% drop vs fp32 (`empirical_fit` — zig-golden-float BENCH-008)
+- **Optimal integer φ-split**: `round((N−1)/φ²)` gives exp=6/mant=9 for N=16; phi-distance 0.049 vs fp16 0.118 (`verified` — NeurIPS 2026 OPT Prop 2)
 - **Hardware exclusivity**: planned validation on TTSKY26b silicon (Three Crowns: Phi + Euler + Gamma)
+
+> **Honest note on BPB:** GF16 is a 16-bit float, so raw BPB = 0.500 — identical to fp16 and bfloat16 by bit-width. The 0.125 raw BPB claim belongs to the separate **phi-4Q** 4-bit quantizer (synthetic φ-structured data only). See `docs/hardware/bpb_benchmark.py` and `docs/hardware/gf16_mathematics.md` §2.2.
 
 ### Honest performance
 
