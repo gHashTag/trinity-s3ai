@@ -67,14 +67,14 @@ living claim ledger.
 
 ```mermaid
 flowchart BT
-    L7[📄 L7 Publication<br/>paper v2 / arXiv / Zenodo] --> L6
-    L6[🔗 L6 GOLDEN CHAIN<br/>hardware-verified chain] --> L5
-    L5[📐 L5 Numerical Fits<br/>59 formulas, p-values] --> L4
-    L4[🔬 L4 NCG / Lagrangian<br/>spectral action] --> L3
-    L3[📐 L3 Geometry<br/>H4 / 600-cell / Cl(8)] --> L2
-    L2[✅ L2 Formal Proofs<br/>Coq / Lean, BT-1..BT-4] --> L1
-    L1[📋 L1 Claim Ledger<br/>5-status SSOT] --> L0
-    L0[⚙️ L0 Infrastructure<br/>CI, honest counter, Pages]
+    L7["L7 Publication: paper v2 / arXiv / Zenodo"] --> L6
+    L6["L6 GOLDEN CHAIN: hardware-verified chain"] --> L5
+    L5["L5 Numerical Fits: 59 formulas, p-values"] --> L4
+    L4["L4 NCG / Lagrangian: spectral action"] --> L3
+    L3["L3 Geometry: H4 / 600-cell / Cl(8)"] --> L2
+    L2["L2 Formal Proofs: Coq / Lean, BT-1..BT-4"] --> L1
+    L1["L1 Claim Ledger: 5-status SSOT"] --> L0
+    L0["L0 Infrastructure: CI, honest counter, Pages"]
 
     style L2 fill:#90EE90,stroke:#333
     style L5 fill:#FFD700,stroke:#333
