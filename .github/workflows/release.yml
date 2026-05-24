@@ -143,10 +143,10 @@ jobs:
           cat > release_notes.md << 'EOF'
           ## Trinity S3AI — Release ${{ github.ref_name }}
 
-          **Status**: Constructive negative result on H4-based Standard Model unification.
+          **Status**: Active boundary-mapping research program on H4-based Standard Model unification.
 
           ### Key results
-          - 4 formal No-Go Theorems (NGT1–NGT4) — see `proofs/trinity/NoGoTheorems.v`
+          - 4 formal Boundary Theorems (BT-1–BT-4) — see `proofs/trinity/BoundaryTheorems.v`
           - 326 Qed / 0 Admitted across 23 Coq files (Coq 8.20.1)
           - 59 phenomenological formulas cataloged and tagged `[phenomenological_fit]`
           - Anti-numerology CI gate: all formulas verified at PASS

@@ -31,7 +31,7 @@ pub enum SpanStatus {
     Empirical,
     /// Amber cable — open conjecture; the cable is provisional.
     Open,
-    /// Red cable — falsified or no-go; the bridge collapses through this node.
+    /// Red cable — falsified or boundary; the bridge collapses through this node.
     Collapsed,
     /// Grey cable — unverified user input; cannot carry load.
     Unverified,

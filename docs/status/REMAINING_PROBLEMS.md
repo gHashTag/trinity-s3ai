@@ -97,7 +97,7 @@ bridge is not formally proved.
 
 ### 7. δ_CP prediction — RESOLVED ✅ (see v3.6 summary above)
 **Status**: Formula corrected from e/2 = 77.9° (excluded at 7.7σ) to **3/φ² = 65.66°**.
-**Result**: 0.1σ agreement with PDG 2024 (65.5° ± 1.6°) — CONFIRMED within current data.
+**Result**: WITHDRAWN. The 0.1σ agreement was with outdated PDG-2024 data; NuFIT-6.0 + T2K+NOvA 2025 exclude 65.66° at >5σ.
 **Action**: All documents updated. DUNE will test with ±3° precision by 2035.
 **Full analysis**: See `delta_cp_analysis.md`.
 
@@ -114,7 +114,7 @@ bridge is not formally proved.
 **Status**: 3 predictions still await verification.
 **Risk**: MEDIUM — earliest: KATRIN-II 2028 (3 years away).
 **Fix**: Focus on fast predictions:
-  - [RESOLVED 2025-07-28] sin²θ₁₃ = π²/(25φ⁶) = 0.02200 → CONFIRMED (0.003% error)
+  - [RESOLVED 2025-07-28] sin²θ₁₃ = π²/(25φ⁶) = 0.02200 → NUMERICALLY VERIFIED (0.003% error)
   - λ = √φ/π² = 0.129 → LHC Run 3 (data being analyzed)
 **Timeline**: 2026-2027 for these two.
 

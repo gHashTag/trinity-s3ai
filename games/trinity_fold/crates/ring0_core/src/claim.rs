@@ -20,7 +20,7 @@ pub enum ClaimStatus {
     EmpiricalFit,
     /// Stated but not proven; no falsifying evidence yet.
     OpenConjecture,
-    /// Currently contradicted by data or by an existing No-Go theorem.
+    /// Currently contradicted by data or by an existing Boundary theorem.
     HighRiskOrFalsified,
     /// Default for fresh user input. Must be promoted before it counts
     /// toward a non-trivial score contribution.

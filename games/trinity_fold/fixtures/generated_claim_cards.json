@@ -30,12 +30,12 @@
     {
       "id": "ngt1-ngt4-coq",
       "kind": "constraint",
-      "name": "NGT1-NGT4 (Qed)",
-      "description": "Four Coq-formal impossibility results: NGT1 (no phi^a pi^b e^c fits Lambda + Omega_b), NGT2 (no sigma-field from H4 alone), NGT3 (600-cell D_F is vector-like), NGT4 (2I-equivariant D_F cannot reproduce lepton mass hierarchy).",
+      "name": "BT-1–BT-4 (Qed)",
+      "description": "Four Coq-formal impossibility results: BT-1 (no phi^a pi^b e^c fits Lambda + Omega_b), BT-2 (no sigma-field from H4 alone), BT-3 (600-cell D_F is vector-like), BT-4 (2I-equivariant D_F cannot reproduce lepton mass hierarchy).",
       "claim": "verified",
       "layer": "L2",
-      "evidence": "proofs/trinity/NoGoTheorems.v (NGT1, NGT2, NGT3, NGT4 all Qed)",
-      "owner_file": "proofs/trinity/NoGoTheorems.v",
+      "evidence": "proofs/trinity/BoundaryTheorems.v (BT-1, BT-2, BT-3, BT-4 all Qed)",
+      "owner_file": "proofs/trinity/BoundaryTheorems.v",
       "blocking_gap": "",
       "tags": [
         "no_go"

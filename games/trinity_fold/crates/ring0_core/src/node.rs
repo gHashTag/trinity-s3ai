@@ -59,7 +59,7 @@ pub enum Tower {
 /// `requires` lists ids of other nodes that must be present on the board for
 /// this one to count (e.g. a Higgs-mass observable requires a Higgs field).
 /// `incompatible_with` lists ids that, if both present, falsify the board
-/// (e.g. an H4-only chirality claim is incompatible with NGT3).
+/// (e.g. an H4-only chirality claim is incompatible with BT-3).
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Node {
     pub id: String,

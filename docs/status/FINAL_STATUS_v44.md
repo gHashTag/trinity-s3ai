@@ -89,7 +89,7 @@ See FORMULAS.md and TRACEABILITY.md for complete catalog.
 
 | Prediction | Value | Experiment | Year | Status |
 |-----------|-------|------------|------|--------|
-| m_H | 125.20 GeV | 125.09±0.24 | 2012+ | ✅ Confirmed (0.09% error) |
+| m_H | 125.20 GeV | 125.09±0.24 | 2012+ | ✅ Numerically verified (0.09% error) |
 | sin²θ₁₃ | 0.0216 | 0.0220±0.0007 | JUNO 2027 | 📊 Testable |
 | m_νe | 0.103 eV | <0.8 eV | KATRIN 2025+ | 📊 Testable |
 | δ_CP | 65.66° | ~177°±20° | DUNE 2028 | ⚠️ 5.6σ tension |

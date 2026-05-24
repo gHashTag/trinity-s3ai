@@ -11,9 +11,9 @@
 (*     A_F_std  =  C  +  H  +  M3(C)                                          *)
 (* lifts the two main no-go obstructions established in NoGoTheorems.v:        *)
 (*                                                                             *)
-(*   - NGT2 (sigma-field): the dynamical scalar field of the spectral action   *)
+(*   - BT-2 (sigma-field): the dynamical scalar field of the spectral action   *)
 (*     becomes available as the central degree of freedom of Cl_4^+.           *)
-(*   - NGT3 (chirality):   the volume form gamma_4 in Cl_4^+ is *not* 2I-      *)
+(*   - BT-3 (chirality):   the volume form gamma_4 in Cl_4^+ is *not* 2I-      *)
 (*     equivariant; it therefore obstructs the antipodal involution that       *)
 (*     forced the 600-cell spectrum to be vector-like.                         *)
 (*                                                                             *)
@@ -23,7 +23,7 @@
 (*       total real dimension, sigma-source count, gamma_4 equivariance        *)
 (*       defect) by direct computation;                                        *)
 (*   (3) states the two "resolution" theorems that play the role of            *)
-(*       structural answers to NGT2 / NGT3 in the extension;                   *)
+(*       structural answers to BT-2 / BT-3 in the extension;                   *)
 (*   (4) marks every genuinely physical step as [MATH_TODO] via an explicit    *)
 (*       Axiom, so the dependency graph is visible but no false claim is       *)
 (*       sealed with Qed.                                                      *)
@@ -141,9 +141,9 @@ Qed.
 End ExtendedAlgebra.
 
 (*******************************************************************************)
-(* Section 3: NGT2 — sigma-field source count in the extension                *)
+(* Section 3: BT-2 — sigma-field source count in the extension                *)
 (*                                                                             *)
-(* In NoGoTheorems.v the obstruction NGT2 is encoded as                       *)
+(* In BoundaryTheorems.v the obstruction BT-2 is encoded as                       *)
 (*     a4_sigma_sources = 0                                                    *)
 (* on the standard algebra C + H + M_3(C): there is no central degree of      *)
 (* freedom available to play the role of the Chamseddine–Connes scalar field. *)
@@ -160,7 +160,7 @@ End ExtendedAlgebra.
 
 Section SigmaField.
 
-(* Sigma sources in the standard finite algebra (from NoGoTheorems.v, NGT2). *)
+(* Sigma sources in the standard finite algebra (from BoundaryTheorems.v, BT-2). *)
 Definition a4_sigma_sources_std : nat := 0.
 
 (* Extra sigma source provided by the centre of Cl_4^+.                       *)
@@ -196,16 +196,16 @@ Axiom sigma_field_in_Cl4_plus_axiom :
   (* to the a4 coefficient of the spectral action.                            *)
   (a4_sigma_sources_Cl4_plus >= 1)%nat.
 
-(* MAIN THEOREM (NGT2 resolution).                                            *)
+(* MAIN THEOREM (BT-2 resolution).                                            *)
 (*                                                                             *)
 (* In NoGoTheorems.v we proved                                                *)
-(*     NGT2_sigma_nogo : ... /\ a4_sigma_sources_std = 0.                     *)
+(*     BT2_sigma_boundary : ... /\ a4_sigma_sources_std = 0.                     *)
 (* The statement below is the structural counterpart in the extended algebra: *)
 (* the sigma source count is strictly positive, so the *combinatorial* part  *)
-(* of NGT2 no longer rules out a dynamical sigma. The deeper physical claim  *)
+(* of BT-2 no longer rules out a dynamical sigma. The deeper physical claim  *)
 (* — that the new source IS the Chamseddine–Connes sigma — is the content    *)
 (* of sigma_field_in_Cl4_plus_axiom.                                          *)
-Theorem NGT2_obstruction_resolved_in_extension :
+Theorem BT2_obstruction_resolved_in_extension :
   (* Standard finite algebra: no sigma source (re-stated for clarity) *)
   a4_sigma_sources_std = 0%nat
   /\
@@ -224,9 +224,9 @@ Qed.
 End SigmaField.
 
 (*******************************************************************************)
-(* Section 4: NGT3 — chirality / 2I-equivariance defect                        *)
+(* Section 4: BT-3 — chirality / 2I-equivariance defect                        *)
 (*                                                                             *)
-(* In NoGoTheorems.v the obstruction NGT3 is encoded by                       *)
+(* In BoundaryTheorems.v the obstruction BT-3 is encoded by                       *)
 (*     D_F_trace = 0    (antipodal symmetry: lambda <-> -lambda).             *)
 (* The key fact is that the antipodal involution is exactly the action of    *)
 (* the centre Z(2I) = { +1, -1 } on the 600-cell.                            *)
@@ -259,7 +259,7 @@ Axiom gamma4_breaks_2I_equivariance_axiom :
   gamma4_central_equivariance_flag_ext = 0%nat.
 
 (* Trace of the finite Dirac operator under the extension.                    *)
-(* In the standard setting Tr(D_F) = 0 by antipodal symmetry (NoGoTheorems.v *)
+(* In the standard setting Tr(D_F) = 0 by antipodal symmetry (BoundaryTheorems.v *)
 (* lemma D_F_trace_zero). In the extended setting the asymmetry between      *)
 (* gamma_4-positive and gamma_4-negative blocks gives a non-zero virtual     *)
 (* trace D_F_ext_trace_virtual; we count this with a non-negative integer.   *)
@@ -269,13 +269,13 @@ Lemma D_F_ext_trace_chirality_witness_positive :
   (D_F_ext_trace_chirality_witness >= 1)%nat.
 Proof. unfold D_F_ext_trace_chirality_witness. lia. Qed.
 
-(* MAIN THEOREM (NGT3 resolution).                                            *)
+(* MAIN THEOREM (BT-3 resolution).                                            *)
 (*                                                                             *)
-(* The structural content of NGT3 was the *forced* equivariance of D_F under *)
+(* The structural content of BT-3 was the *forced* equivariance of D_F under *)
 (* the antipodal involution. In the extension this constraint is lifted by    *)
 (* gamma4_breaks_2I_equivariance_axiom; the chirality witness count therefore *)
 (* becomes strictly positive.                                                  *)
-Theorem NGT3_obstruction_resolved_in_extension :
+Theorem BT3_obstruction_resolved_in_extension :
   (* Standard setting: gamma_4 is centrally 2I-equivariant *)
   gamma4_central_equivariance_flag_std = 1%nat
   /\
@@ -302,14 +302,14 @@ End Chirality.
 
 Section JointSummary.
 
-Theorem A_F_ext_lifts_NGT2_and_NGT3 :
+Theorem A_F_ext_lifts_BT2_and_BT3 :
   (* Dimension increment is exactly 8 (= dim_R Cl_4^+) *)
   (A_F_ext_total_dim A_F_ext_W33 - A_F_std_total_dim = 8)%nat
   /\
-  (* NGT2 sigma-source count strictly increased *)
+  (* BT-2 sigma-source count strictly increased *)
   (a4_sigma_sources_std < a4_sigma_sources_ext)%nat
   /\
-  (* NGT3 gamma_4 equivariance flag drops to 0 in the extension *)
+  (* BT-3 gamma_4 equivariance flag drops to 0 in the extension *)
   gamma4_central_equivariance_flag_ext = 0%nat.
 Proof.
   refine (conj _ (conj _ _)).
@@ -328,9 +328,9 @@ End JointSummary.
 (*   A_F_std_dim_value, A_F_ext_dim_value, A_F_ext_new_dof_count              *)
 (*   a4_sigma_sources_ext_value, a4_sigma_sources_ext_strictly_increased      *)
 (*   gamma4_std_is_equivariant, D_F_ext_trace_chirality_witness_positive      *)
-(*   NGT2_obstruction_resolved_in_extension                                    *)
-(*   NGT3_obstruction_resolved_in_extension                                    *)
-(*   A_F_ext_lifts_NGT2_and_NGT3                                               *)
+(*   BT2_obstruction_resolved_in_extension                                    *)
+(*   BT3_obstruction_resolved_in_extension                                    *)
+(*   A_F_ext_lifts_BT2_and_BT3                                               *)
 (*                                                                             *)
 (* Axioms (each one is a Wave 3 W3.3 physics assumption, NOT a math fact):    *)
 (*   sigma_field_in_Cl4_plus_axiom                                             *)

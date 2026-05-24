@@ -6,8 +6,8 @@
 (*             in the Trinity-style program                                   *)
 (*                                                                            *)
 (*  CONTEXT:                                                                  *)
-(*    Wave 9 closed the Trinity-H4 program with four no-go theorems          *)
-(*    (NGT1--NGT4 in NoGoTheorems.v).  This file scouts whether              *)
+(*    Wave 9 closed the Trinity-H4 program with four boundary theorems          *)
+(*    (BT1--BT4 in BoundaryTheorems.v).  This file scouts whether              *)
 (*    D4 (24 roots, Weyl group W(D4) order 192, Z3 triality outer aut)       *)
 (*    or F4 (48 roots, |W(F4)| = 1152, Z2 outer aut) would do better.       *)
 (*                                                                            *)
@@ -337,7 +337,7 @@ Proof. reflexivity. Qed.
    OPEN PROBLEMS for a Trinity-D4 program:
      1. Compute η(S³/2T) exactly (needs 2T character tables + APS formula)
      2. Compute KO-dimension of C*[2T] spectral triple
-     3. Show chirality from D4/2T (or prove analogous no-go to NGT3)
+     3. Show chirality from D4/2T (or prove analogous boundary to BT-3)
      4. Embed SM gauge group SU(3)×SU(2)×U(1) into D4/F4 suitably
 *)
 

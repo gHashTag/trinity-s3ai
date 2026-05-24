@@ -267,23 +267,23 @@ pub fn default_catalog() -> Catalog {
     let mut n = node(
         "cn_ngt3_chirality",
         NodeKind::Constraint,
-        "NGT3: H4 alone is vector-like",
-        "No-Go theorem: 600-cell D_F is antipodal -> vector-like. Falsifies any board that tries to derive chirality from H4 + 600-cell alone.",
+        "BT-3: H4 alone is vector-like",
+        "Boundary theorem: 600-cell D_F is antipodal -> vector-like. Falsifies any board that tries to derive chirality from H4 + 600-cell alone.",
         ClaimStatus::HighRiskOrFalsified,
     );
     n.tags.push("no_go".into());
-    n.citation = Some("proofs/trinity/NoGoTheorems.v (NGT3)".into());
+    n.citation = Some("proofs/trinity/BoundaryTheorems.v (BT-3)".into());
     nodes.push(n);
 
     let mut n = node(
         "cn_ngt1_cosmology",
         NodeKind::Constraint,
-        "NGT1: φ^a·π^b·e^c cannot fit Λ",
-        "No-Go theorem: no monomial in (φ, π, e) reproduces both Λ and Ω_b.",
+        "BT-1: φ^a·π^b·e^c cannot fit Λ",
+        "Boundary theorem: no monomial in (φ, π, e) reproduces both Λ and Ω_b.",
         ClaimStatus::HighRiskOrFalsified,
     );
     n.tags.push("no_go".into());
-    n.citation = Some("proofs/trinity/NoGoTheorems.v (NGT1)".into());
+    n.citation = Some("proofs/trinity/BoundaryTheorems.v (BT-1)".into());
     nodes.push(n);
 
     // --- Data tower: observables ---
