@@ -81,7 +81,7 @@ is made **despite** the tension, not because we are unaware of it.
    Einstein's prediction of light bending by the Sun was risky.
    The Higgs boson was a risky prediction. Safe predictions are not science.
 
-2. **DUNE will decide**: The experiment starts taking data in 2028.
+2. **DUNE will measure δ_CP independently** starting in 2028. The Trinity δ_CP prediction is already **WITHDRAWN** (>5σ excluded by current data).
    We will know within 3-5 years. The binary nature of the test means
    there will be no ambiguity.
 
@@ -100,11 +100,11 @@ is made **despite** the tension, not because we are unaware of it.
 
 ### Confirmation
 - **DUNE measures delta_CP in range [50 degrees, 80 degrees] at >=3 sigma**
-- This corresponds to Trinity confirmed at >=4 sigma
+- This corresponds to Trinity historically confirmed at >=4 sigma (prediction is WITHDRAWN)
 
 ### Falsification
 - **DUNE measures delta_CP > 100 degrees OR delta_CP < 30 degrees at >=3 sigma**
-- This corresponds to Trinity falsified at >=3 sigma
+- This corresponds to Trinity historically falsified at >=3 sigma (prediction is WITHDRAWN)
 
 ### Inconclusive Zone
 - **DUNE measures delta_CP in [80 degrees, 100 degrees] (overlap region)**

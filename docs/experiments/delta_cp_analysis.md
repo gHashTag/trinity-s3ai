@@ -14,7 +14,9 @@ The Trinity S^3AI prediction **delta_CP = e/2 = 77.87 deg** is in **7.7 sigma te
 4. **Theoretical interpretation** and correction mechanisms
 5. **Recommendation**: whether to retain or revise the Trinity prediction
 
-**Key Finding**: The formula **3 * phi^(-2) = 65.66 deg** provides an excellent fit (0.1 sigma) with remarkable simplicity. However, **e/2 retains unique theoretical status** as the only formula derived from a *single* fundamental constant via a simple operation. The discrepancy may signal new physics or a tree-loop correction structure.
+> **HISTORICAL NOTE (superseded 2026-05-23):** This analysis predates the Wave 20 withdrawal. The 3/φ² formula achieved 0.1σ against outdated PDG-2024 data but is now **WITHDRAWN** as a post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025.
+>
+> **Key Finding (historical)**: The formula **3 * phi^(-2) = 65.66 deg** achieved 0.1σ against outdated PDG-2024 data. However, **e/2 retains unique theoretical status** as the only formula derived from a *single* fundamental constant via a simple operation. The discrepancy may signal new physics or a tree-loop correction structure.
 
 ---
 
@@ -66,7 +68,9 @@ Comparison with Trinity's e/2:
 
 | Criterion | e/2 (Trinity) | 3/phi^2 (Alternative) |
 |-----------|--------------|----------------------|
-| Error from data | 12.37 deg (7.7 sigma) | 0.15 deg (0.1 sigma) |
+| Error from data | 12.37 deg (7.7 sigma) | 0.15 deg (0.1 sigma)* |
+
+*0.1σ claim is against outdated PDG-2024 data; NuFIT-6.0 + T2K+NOvA 2025 exclude 65.66° at >5σ.
 | Constants used | e | phi |
 | Operations | Division by 2 | Division by phi^2, multiplication by 3 |
 | Theoretical motivation | "e/2 from gauge symmetry" | Geometric (pentagonal) |
@@ -237,7 +241,7 @@ This factor ~0.84 does not obviously match any simple combination of phi, pi, or
 
 The alternative **delta_CP = 3/phi^2** has several appealing features:
 
-1. **Accuracy**: 0.1 sigma from experiment (essentially perfect)
+1. **Accuracy (historical)**: 0.1σ from outdated PDG-2024 data. **Current status**: WITHDRAWN (>5σ excluded).
 2. **Simplicity**: Only one constant (phi) with a rational coefficient
 3. **Geometric origin**: phi^2 appears in pentagonal geometry and Fibonacci spirals
 4. **Connections**: phi is already used in Trinity's other angle formulas
@@ -287,7 +291,7 @@ The 12.4 deg discrepancy between e/2 and the measured value could be interpreted
 
 **Option B: Replace with 3/phi^2**
 - Adopt delta_CP = 3/phi^2 as the working formula
-- Excellent agreement (0.1 sigma)
+- Excellent agreement with outdated PDG-2024 data (0.1σ); **WITHDRAWN** (>5σ excluded by current data)
 - Maintains phi-centric structure of Trinity angles
 - Cost: Loses the elegant e/2 connection
 
@@ -370,7 +374,7 @@ Row sum: 1.000 (unitarity satisfied)
 
 1. **e/2 = 77.87 deg is excluded by current data at 7.7 sigma**. This is not a small discrepancy that can be ignored.
 
-2. **The best alternative formula is 3/phi^2 = 65.66 deg**, fitting within 0.1 sigma of experiment. It is simple, elegant, and consistent with Trinity's phi-based angle framework.
+2. **The formula 3/phi^2 = 65.66 deg** achieved 0.1σ against outdated PDG-2024 data but is **WITHDRAWN** as a post-hoc fit (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It was simple, elegant, and consistent with Trinity's phi-based angle framework.
 
 3. **The Jarlskog analysis confirms the angles are correct** -- the discrepancy is isolated to delta_CP. The Trinity angles (theta_12, theta_23, theta_13) match experiment well.
 
@@ -378,7 +382,7 @@ Row sum: 1.000 (unitarity satisfied)
 
 5. **The CKM-PMNS phase coincidence** (gamma ~ delta_CP ~ 65.5 deg) is intriguing and may point to quark-lepton unification.
 
-6. **Recommendation**: Revise the Trinity prediction from **delta_CP = e/2** to **delta_CP = 3/phi^2**, while maintaining e/2 as a "tree-level" meta-prediction whose correction mechanism may reveal new physics.
+6. **Recommendation (SUPERSEDED 2026-05-23):** Following Wave 20, δ_CP = 3/phi² is **WITHDRAWN** under the anti-post-hoc rule. No replacement formula is permitted. The historical recommendation to revise from e/2 to 3/phi² is preserved for record-keeping only.
 
 ---
 

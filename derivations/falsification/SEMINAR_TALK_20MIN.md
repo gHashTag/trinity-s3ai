@@ -186,7 +186,7 @@
 2. **E₆/E₇ explicit D_P (Wave 12.5):** Does the E₆ or E₇ plumbing geometry give a better finite space? OPEN.
 3. **Admitted proofs:** 100 `Admitted` remain in Coq; 6 `sorry` in Lean port.
 4. **Chirality mechanism:** Can η = −2 on S³/2I be promoted to full SM chirality? OPEN.
-5. **DUNE 2028:** δ_CP = 65.66° is 2.7σ from NuFit 6.0. Will it survive?
+5. **DUNE 2028:** The Trinity δ_CP prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
 
 **Speaker notes:**
 > “We are not closing the book. There are open computational questions: one-loop corrections, E₆ and E₇ geometries, and the formal completion of the Coq and Lean libraries. But the core boundary theorems stand.”

@@ -33,3 +33,4 @@ Cargo.lock
 *.snm
 *.toc
 *.synctex.gz
+.mcp.json

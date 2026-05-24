@@ -179,7 +179,7 @@ START: Mathematical predictions (any time)
 | **2026** | LZ-2 upgrade operational | m_DM at 12.82 GeV / 36.0 GeV | Exclusion or signal in 10–40 GeV window |
 | **2026** | XENONnT full exposure | m_DM cross-section | Combined WIMP limits with LZ-2 |
 | **2027** | DESI final data release | Σm_ν, cosmology | Neutrino mass bound tightens; m_ν₁ = 0.103 eV remains excluded |
-| **2028** | DUNE first neutrino beam | δ_CP, sin²θ₂₃ | First direct test of P1 (δ_CP = 65.66°) |
+| **2028** | DUNE first neutrino beam | δ_CP, sin²θ₂₃ | Independent δ_CP measurement (Trinity P1 **WITHDRAWN**) |
 | **2028** | HL-LHC Run 4 start | m_H precision | Tree-level 132.88 GeV further refuted |
 | **2029** | JUNO mass ordering determination | Δm²₃₁ sign | Indirect constraint on oscillation model |
 | **2030** | Hyper-K first data | δ_CP (independent), proton decay | Cross-check of DUNE δ_CP measurement |
@@ -258,7 +258,7 @@ The following predictions are definitively refuted by existing experimental or o
 As of Wave 13.6, the Trinity S³AI framework has **zero phenomenological predictions that were made prior to the corresponding experimental measurement and subsequently confirmed**. The registry records:
 
 - **2 refuted prior predictions:** m_H(tree) = 132.88 GeV (refuted by LHC); Λ = φ⁻¹⁴⁴/2 (refuted by cosmology).
-- **2 open predictions awaiting test:** δ_CP = 65.66° (DUNE 2028–2035); f₀ = 12.8 THz (no data).
+- **1 open prediction awaiting test:** f₀ = 12.8 THz (no data). **δ_CP = 65.66° is WITHDRAWN** (>5σ excluded).
 - **2 retrospective fits:** m_H = 125.20 GeV (found after LHC 2012); sin²θ₁₃ = 0.02200 (corrected post-measurement).
 - **1 structural compatibility:** Δm²₂₁/Δm²₃₁ = 0.0300 (compatible at 0.1σ, but not a prediction of a *new* quantity).
 - **5 cosmological predictions:** All refuted by many orders of magnitude.

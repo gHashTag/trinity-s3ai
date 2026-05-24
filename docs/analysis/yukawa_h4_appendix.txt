@@ -127,7 +127,7 @@ Derivation:
 - The generation gap between gen 2 and gen 3:
   Δe = 23 - 17 = 6
 - Mass ratio: m_τ/m_μ = φ^(Δe) = φ⁶
-- This is the simplest H4 prediction for inter-generation mass ratio
+- This is the simplest H4-inspired formula for inter-generation mass ratio
 
 Q07: m_t/m_b = φ³π/e
 

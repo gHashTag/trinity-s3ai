@@ -98,7 +98,7 @@
 
 **Tone:** Enthusiastic about falsification.  
 **Key phrase:** *"The problem with numerology is not that it is wrong; it is that it is unfalsifiable."*  
-**Follow-up:** "But isn't 2.7 sigma already a strong hint that it is wrong?" → "In particle physics, 2.7 sigma happens all the time. We wait for 5 sigma. DUNE will decide."
+**Follow-up:** "But isn't 2.7 sigma already a strong hint that it is wrong?" → "In particle physics, 2.7 sigma happens all the time. We wait for 5 sigma. The Trinity δ_CP prediction is already WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025)."
 
 ---
 

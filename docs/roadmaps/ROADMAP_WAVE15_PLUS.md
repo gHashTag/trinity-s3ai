@@ -167,8 +167,8 @@ Maintain the experimental tracker and respond to new data as it arrives.
 | 2027-03 | LZ/XENONnT | Annual modulation analysis | Check for DM signals |
 | 2027-06 | JUNO | Mass ordering sensitivity | Assess normal vs. inverted |
 | 2027-12 | DUNE | Detector module 1 complete | Prepare for first beam |
-| 2028-06 | DUNE | **First neutrino beam data** | **Test δ_CP = 65.66°** |
-| 2028-12 | DUNE | 1 year data (±10° precision) | Confirm or falsify |
+| 2028-06 | DUNE | First neutrino beam data | δ_CP measurement (Trinity prediction **WITHDRAWN**) |
+| 2028-12 | DUNE | 1 year data (±10° precision) | Independent δ_CP measurement |
 | 2029-06 | HL-LHC | Start Run 4 | Monitor Higgs precision |
 | 2030-12 | DUNE | 3-year data (±5° precision) | Final δ_CP verdict |
 | 2030-12 | KATRIN | Final sensitivity (< 0.05 eV) | Final m_νe verdict |

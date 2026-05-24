@@ -112,7 +112,7 @@
 | **N01** | ✅ sin²θ₁₂ = 8π/(φ⁵e²) | ⬜ Bounds_Mixing.v (`theta_12_from_H4`) + H4Derivations.v (`N01_e3_e2_diff`) | ✅ verify_all_final.py | 🟡 partial |
 | **N02** | ✅ sin²θ₂₃ = φ²/e | ⬜ Bounds_Mixing.v (`theta_23_from_H4`) | ✅ verify_all_final.py | 🟡 partial |
 | **N03** | ✅ sin²θ₁₃ = 7φ⁻⁵π⁻¹e | ⬜ Bounds_Mixing.v (`theta_13_from_H4`) + H4Derivations.v (`N03_e3_e1_diff`) | ✅ verify_all_final.py | 🟡 partial |
-| **N04** | ✅ δ_CP = 3/φ² (rad) | ⬜ Bounds_Mixing.v (N04_radian_value, N04_degree_value, N04_within_experimental_range) + Predictions.v (delta_CP) | ✅ verify_all_final.py | 🟡 partial |
+| **N04** | ❌ δ_CP = 3/φ² (rad) — **WITHDRAWN** (>5σ excluded, post-hoc fit) | ⬜ Bounds_Mixing.v (N04_radian_value, N04_degree_value, N04_within_experimental_range) + Predictions.v (delta_CP) | ✅ verify_all_final.py | 🟡 partial |
 
 **Notes:**
 - N04: Strongest derivation — `N04_e2_sq_e4_higher_order` in H4Derivations.v (e2²−e4 = 121−29 = 92 → 3/φ²)

@@ -63,7 +63,7 @@ All gauge couplings, quark and lepton mass ratios, CKM and PMNS mixing angles, a
 
 ```
 Theorem honest_pvalue_bound: p_corrected < 10^-6.
-Proof: Analytical bound 17!/600^17 × 5 (Bonferroni) < 1.1×10^-32.
+Proof: Analytical bound 17!/600^17 × 5 (Bonferroni) < 1.1×10^-32. *Deprecated — Wave 20 MC gives mean error p = 0.077, SG-hit p < 0.0001.*
 Monte-Carlo: 1,000,000 trials → 0 random 17/17 matches → p < 3×10^-6.
 ```
 

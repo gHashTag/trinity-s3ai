@@ -307,7 +307,7 @@ The running of gauge couplings below Lambda is governed by the standard 1-loop a
 
     beta_{g_i}^{(2)} = (g_i^3 / (16 pi^2)^2) x sum_j b_{ij} g_j^2
 
-### 3.3 H4 Framework Predictions
+### 3.3 H4 Framework Numerical Fits
 
 #### Prediction 1: Unification Scale
 
@@ -401,7 +401,7 @@ The H4 framework predicts **three key scales**:
 
 Using the H4 boundary conditions and running down from Lambda:
 
-| Observable | H4 Prediction | Experiment | Status |
+| Observable | Trinity Formula | Experiment | Status |
 |------------|---------------|------------|--------|
 | alpha_s(M_Z) | 0.11-0.12 | 0.1179 | Good |
 | sin^2(theta_W) | 0.21 | 0.2312 | 10% off |
@@ -439,7 +439,7 @@ with:
     L_bosonic = Tr(f(D_A/Lambda)) [asymptotic exp]  -- gauge + Higgs + scalar
     L_ghost = sum_G_i [-c-bar^alpha d^mu(D_mu c)^alpha]  -- BRST ghosts
     L_gravity = (1/kappa^2) R + ...                  -- Einstein + higher-order
-    L_theta = 0                                      -- theta = 0 (H4 prediction)
+    L_theta = 0                                      -- theta = 0 (fitted coincidence, not derived)
 
 ---
 
@@ -447,7 +447,7 @@ with:
 
 1. **Ghost Terms**: The BV spectral triple of Iseppi and van Suijlekom provides a rigorous geometric foundation for ghost fields in the H4 framework. Ghosts are formal quantization artifacts encoded in the mixed-KO-dimension Dirac operator D_BV. The H4 ghost Lagrangian follows the standard BRST form with the Pati-Salam gauge group structure.
 
-2. **Strong CP Problem**: The H4/spectral action framework provides a **natural solution** to the strong CP problem by predicting theta = 0. This arises from: (a) the absence of theta in the spectral action, (b) the reality of the Dirac operator ensuring arg[det(M)] = 0, and (c) the CP-conserving nature of the bosonic action. Quantum corrections are estimated to be < 10^-20, far below the experimental bound.
+2. **Strong CP Problem**: The H4/spectral action framework provides a **natural solution** to the strong CP problem by proposing theta = 0 as a fitted boundary condition. This arises from: (a) the absence of theta in the spectral action, (b) the reality of the Dirac operator ensuring arg[det(M)] = 0, and (c) the CP-conserving nature of the bosonic action. Quantum corrections are estimated to be < 10^-20, far below the experimental bound.
 
 3. **RG Running**: The H4 framework predicts gauge coupling unification at Lambda ~ 10^15 GeV, consistent with alpha_s(M_Z) ~ 0.11-0.12 and m_H ~ 125 GeV (with singlet). Gravitational corrections can shift unification to the Planck scale. The sin^2(theta_W) prediction has a ~10% discrepancy suggesting intermediate-scale physics.
 

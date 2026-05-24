@@ -82,7 +82,7 @@ Predictions refuted by published data with sufficient statistical significance.
 | Prediction | Formula | Trinity Value | Measured Value | sigma | Source | Logged |
 |-------------|---------|-----------------|---------------------|-------|----------|---------------|
 | COS04 w = -0.999 | w = -1 + phi^(-8)*pi^(-2)*e^(-1) | -0.999 | w0 = -0.827 +/- 0.063 (DESI+CMB+SN) | ~2.7 sigma | arXiv:2404.03002 | derivations/honest_cosmology/cosmology_falsified_log.md |
-| delta_CP = 65.655 deg (NO) | 3/phi^2 radian | 65.655 deg | 197 deg best-fit (NO, NuFit 6.0); T2K+NOvA ~3 sigma | ~2.7-3.8 sigma | NuFit 6.0, T2K 2023, NOvA 2023 | Section P1 of this document (BORDERLINE) |
+| delta_CP = 65.655 deg (NO) | 3/phi^2 radian | 65.655 deg | 197 deg best-fit (NO, NuFit 6.0); T2K+NOvA ~3 sigma | ~2.7-3.8 sigma | NuFit 6.0, T2K 2023, NOvA 2023 | Section P1 of this document (**WITHDRAWN**) |
 | m_nu1 = 1/(6*phi) eV | m_nu1 | 0.103 eV | Sigma_m_nu < 0.072 eV (Planck+DESI 2024, 95% CL) | ~5 sigma | arXiv:2404.03002 + Planck 2018 | Section P6 of this document |
 | Lambda = phi^(-144)/2 | Lambda | ~4e-31 (Planck units) | ~1e-123 (Planck units) | >> 100 sigma | Planck 2018, PDG | Section P5 of this document |
 

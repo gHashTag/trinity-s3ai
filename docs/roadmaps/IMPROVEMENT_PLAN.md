@@ -57,7 +57,7 @@ P2 (Impact/Effort < 1.0):  Do when P0/P1 complete
 These 5 actions can be completed in 1-3 days each and will significantly impress reviewers:
 
 ### QW1: OSF Pre-registration (1 day) — IMPACT: 8/10
-**Action (HISTORICAL — OBSOLETED 2026-05-23):** ~~Register the delta_CP = 65.66 prediction on the Open Science Framework (osf.io)~~ — Do NOT pre-register a prediction already excluded at 5.6sigma by current global fits. The existing `dune_preregistration.md` document is preserved as historical record of the original act, but new OSF registration of an already-falsified value would be misleading. See [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md).
+**Action (HISTORICAL — OBSOLETED 2026-05-23):** ~~Register the delta_CP = 65.66 prediction on the Open Science Framework (osf.io)~~ — Do NOT pre-register a prediction already excluded at 5.6sigma by current global fits. The existing `dune_preregistration.md` document is preserved as historical record of the original act, but new OSF registration of an already-WITHDRAWN value would be misleading. See [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md).
 
 **Why it impresses:**
 - Shows scientific integrity — pre-committing to a falsifiable prediction
@@ -93,7 +93,7 @@ These 5 actions can be completed in 1-3 days each and will significantly impress
 4. The risky prediction: delta_CP = 65.66 — **already excluded at 5.6sigma by NuFIT-6.0 and outside 3sigma of T2K+NOvA Nature 2025**; physical interpretation withdrawn
 5. What makes this different from numerology (H4 is a real group, not ad-hoc)
 6. What we need help with (open problems)
-7. Call to action: DUNE 2028 will decide
+7. Call to action: DUNE 2028–2035 will measure δ_CP independently. The Trinity δ_CP prediction is already WITHDRAWN (>5σ excluded by current data).
 ```
 
 **Platforms:** Medium, personal blog, or cross-post to Physics Forums / r/Physics
@@ -240,7 +240,7 @@ The 5.6 sigma tension with NuFit 6.0 is the biggest risk.
    - CKM angle gamma = 65.9 +/- 3.3° (quark CP violation)
    - PMNS delta_CP = 65.5 +/- 1.6° (lepton CP violation, PDG)
    - These are equal within 0.4° — an extraordinary coincidence
-   - Trinity predicts BOTH from the same H4 structure
+   - Trinity has fitted formulas for BOTH from the same H4 structure
    - Frame as: "The equality gamma ~ delta_CP ~ 65.5° is the deepest prediction"
 
 3. **Document the experimental evolution:**
@@ -376,7 +376,7 @@ These 3 actions would make Trinity a landmark paper:
 1. Submit to arXiv immediately (QW4)
 2. ~~Submit short delta_CP prediction letter to PRL~~ **WITHDRAWN 2026-05-23** — publishing a delta_CP claim that is already excluded at 5.6sigma by NuFIT-6.0 and T2K+NOvA would damage the project's credibility. Replace with: submit a PMNS angle paper (theta_12, theta_13) where the predictions match NuFIT-6.0 within 0.2sigma
 3. Submit full paper to JHEP/PRD while Tier 1 is under review
-4. If DUNE 2028 confirms: submit to Nature
+4. DUNE 2028–2035 will measure δ_CP. The Trinity prediction is WITHDRAWN; no Nature submission based on δ_CP is planned.
 
 ---
 
@@ -526,7 +526,7 @@ as a historical scientific record. See DELTA_CP_HONEST_STATUS.md."
 3. Upload the prediction document with SHA-256 hash
 4. Set conditions:
    - **HISTORICAL (superseded):** This pre-registration was framed against outdated PDG-2024 data. The δ_CP prediction is now **WITHDRAWN** (>5σ excluded by current global fits).
-   - FALSIFIED: DUNE measures delta_CP > 100° OR < 30° at >= 3 sigma
+   - WITHDRAWN: The δ_CP = 3/φ² prediction is already excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025. Historical thresholds preserved for record-keeping only.
    - INCONCLUSIVE: [80°, 100°] — wait for 2032 precision data
 5. Generate DOI and embed in paper
 
@@ -534,11 +534,11 @@ as a historical scientific record. See DELTA_CP_HONEST_STATUS.md."
 
 | DUNE Result (2028) | Probability | Trinity Status |
 |-------------------|-------------|----------------|
-| 65 +/- 15° | ~25% | **SPECTACULAR CONFIRMATION** — Nature/Science paper |
-| 50-80° | ~20% | **CONFIRMED** — major credibility boost |
+| 65 +/- 15° | ~0% | **HISTORICAL NOTE:** Would have been spectacular confirmation — prediction is WITHDRAWN |
+| 50-80° | ~0% | **HISTORICAL NOTE:** Would have been confirmed — prediction is WITHDRAWN |
 | 80-100° | ~15% | **INCONCLUSIVE** — wait for 2032 |
 | 100-180° | ~25% | **TENSION** — PMNS sector revision needed |
-| 180-270° | ~15% | **FALSIFIED** — sector-specific, rest stands |
+| 180-270° | ~100% | **WITHDRAWN** — sector-specific, rest stands |
 
 ---
 
@@ -574,7 +574,7 @@ This is NOT a derivation — it's a numerical coincidence. But if H4 naturally p
 3. Could the physical delta_CP be the SUPPLEMENT of the geometric angle?
    - Similar to how some angles in the CKM matrix use supplementary relations
 
-**Verdict:** Keep 3/phi^2 as the primary prediction. The pi - 3/phi^2 = 171.6° coincidence is interesting but not a derivation. Do NOT use it as a backup — stick to the pre-registered prediction.
+**Verdict:** The δ_CP = 3/phi^2 prediction is **WITHDRAWN** (>5σ excluded). Do not present it as a primary or active prediction. The pi - 3/phi^2 = 171.6° coincidence is interesting but not a derivation. Anti-post-hoc rule enforced.
 
 ---
 

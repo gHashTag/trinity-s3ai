@@ -292,7 +292,7 @@ The framework makes five testable predictions:
 **P5: $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$**
 - Formula: $3/\varphi^2$ radians $= 180^\circ \times 3/(\pi\varphi^2) \approx 65.66^\circ$
 - Current experimental: $65.5^{+3.5}_{-4.5}^\circ$ (T2K+NOvA+Daya Bay combined) [2]
-- Deviation: **$0.2\%$** ($\sim 0.1\sigma$ from central value)
+- Deviation: **WITHDRAWN** — excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025 (post-hoc fit, not a prediction)
 - **Test:** DUNE (2030+) aims for $\sim 10^\circ$ precision; Hyper-Kamiokande (2030+)
 - **Falsifiability:** WITHDRAWN (post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025)
 
@@ -306,7 +306,7 @@ The framework makes five testable predictions:
 | $\lambda$ | Consistent, untestable | LOW (uncertainty too large) | HL-LHC 2035+ |
 | $\delta_{CP}$ | **>5σ excluded** | WITHDRAWN | N/A |
 
-The $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ prediction agrees with the current experimental value $65.5^\circ$ within $0.2\%$ ($0.1\sigma$). This is one of the most precise agreements in the framework. DUNE will provide further precision testing.
+The $\delta_{CP} = 3/\varphi^2$ prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It achieved 0.1σ against outdated PDG-2024 data but was a post-hoc fit, not a first-principles prediction.
 
 ---
 
@@ -367,7 +367,7 @@ This is a major discrepancy:
 - 7/25 formulas fail
 - p-value ($\sim 3 \times 10^{-6}$) is weaker than claimed in prior versions
 - Only 2/15 coefficients are provably unique
-- $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ agrees with data at $0.1\sigma$
+- $\delta_{CP} = 3/\varphi^2$ is **WITHDRAWN** (>5σ excluded); the 0.1σ claim used outdated PDG-2024 data
 - Spectral action gives wrong Higgs mass
 
 ---
@@ -474,7 +474,7 @@ We have presented 25 closed-form formulas expressing Standard Model parameters t
 - That the p-value is $< 10^{-9}$ (honest value is $\sim 3 \times 10^{-6}$)
 - That the Koide formula is derived (it is a consistency check)
 - That the spectral action validates the framework (it predicts $m_H = 87.4$ GeV, not 125.2 GeV)
-- That $\delta_{CP}$ is correctly predicted ($3/\varphi^2 \approx 65.66^\circ$ agrees with $65.5^\circ$ at $0.1\sigma$)
+- That $\delta_{CP}$ is correctly predicted (it is **WITHDRAWN** — post-hoc fit excluded at >5σ)
 - That the formulas are proved correct (Coq proofs do not compile)
 
 **The central question remains open:** Why should the invariants of a four-dimensional non-crystallographic Coxeter group determine the parameters of the Standard Model? Whether this correspondence reflects a deep structural property of nature or an elaborate coincidence remains to be determined. The construction of a dynamical framework that explains *why* the $H_4$ root system should determine SM parameters is the essential next step.

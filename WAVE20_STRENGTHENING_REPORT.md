@@ -10,7 +10,7 @@
 
 A deep RAG analysis of the entire repository was conducted using 4 parallel explore agents auditing:
 1. Core epistemological documents (FOUNDATIONS, FORMULAS, EPISTEMOLOGY, PREDICTIONS)
-2. Obstruction Theorems (Coq formalizations + markdown descriptions)
+2. Boundary Theorems (Coq formalizations + markdown descriptions)
 3. Formula catalog (Catalog42.v, audit reports, validation scripts)
 4. Coq codebase (Admitted lemmas, Axioms, tautologies, circular logic)
 
@@ -55,7 +55,7 @@ A deep RAG analysis of the entire repository was conducted using 4 parallel expl
 ### 7. BTs Are Not Universal Impossibility Results (HIGH — DOCUMENTED)
 **Problem:** BT-1 proves one formula is off by >600σ — not a general impossibility. BT-2 rests on `Axiom sigma_no_go : True`. BT-3 hardcodes `D_F_trace := 0` and `D_F_spectrum_sigma := 5.62`. BT-4 compares degeneracy to SM (strawman), not Trinity's formulas to SM.
 
-**Fix:** Documented in this report. Recommendation: retain "Obstruction Theorems" or rename to "Boundary Theorems" in future publications.
+**Fix:** Documented in this report. Recommendation: use "Boundary Theorems" in all publications.
 
 ### 8. IGLA & Biology Tiers Are Pure Speculation (HIGH — DOCUMENTED)
 **Problem:** Tier 4 (Sacred Biology) and Tier 5 (IGLA) have zero derivation from H4 or physics. BIO04–BIO06 have 0% error because they were defined from known values. BIO05 has an internal mathematical inconsistency.
@@ -115,7 +115,7 @@ A harsh reviewer would still raise these objections. Here is what would need to 
 7. **Unify G03 across all files.** Either use `3/(8φ)` with REFUTED status or `3φ⁻⁶π²e⁻²` with explicit fitted-coincidence disclaimer — not both.
 8. **Provide RG-running corrections for cross-scheme ratios.** Or stop presenting them as dimensionless fundamental constants.
 9. **Publish the 500k-trial MC protocol independently.** Peer review of the p-value computation would strengthen credibility.
-10. **Retain "Obstruction Theorems" or "Boundary Theorems" in all publications.** These mark specific obstruction points on direct paths; they are guideposts, not tombstones.
+10. **Use "Boundary Theorems" in all publications.** These mark specific obstruction points on direct paths; they are guideposts, not tombstones.
 
 ---
 

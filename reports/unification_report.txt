@@ -63,7 +63,7 @@ GAUGE COUPLING UNIFICATION ANALYSIS FROM H4
    at Λ_GUT^SUSY ≈ (2-4) × 10^16 GeV — the famous SUSY GUT result.
    H4 values break α1-α2 unification because α1(m_Z) is 40% too low.
 
-4. H4 PREDICTION FOR UNIFICATION SCALE
+4. H4 FIT / COINCIDENCE FOR UNIFICATION SCALE
 ================================================================================
    H4 invariants:
      φ = (1+√5)/2 ≈ 1.618  (golden ratio)
@@ -187,7 +187,7 @@ However:
 
 STATUS: EXPERIMENTAL → CONSISTENT (with the caveat that α1 must be fixed)
 
-If H4 predicts g1(m_Z) = 0.357 as a fundamental input, then H4 is
+If one treats the H4-fitted value g1(m_Z) = 0.357 as a fundamental input, then H4 is
 inconsistent with gauge coupling unification. But if H4 allows a
 corrected g1 that matches the measured value, then unification proceeds
 as in standard SUSY GUTs with Λ_GUT ~ 2×10^16 GeV.

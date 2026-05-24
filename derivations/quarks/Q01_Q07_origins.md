@@ -101,7 +101,7 @@ Q01 = d₁ · φ / L₄ = (first H4 degree) · φ / (fourth Lucas number)
 The degrees d₁=2=L₃−1... HONEST: the connection d₁=2 to Lucas numbers is non-obvious.
 The cleanest statement: 7 = L₄ algebraically, 2 is from H4.
 
-**Status:** Formula numerically confirmed (error 0.06%).
+**Status:** Formula numerically verified coincidence (error 0.06%).
 **HONEST:** The ratio m_u/m_d is poorly measured experimentally (error ≈ 30%),
 so any formula in the interval [0.38, 0.58] will "coincide."
 The structural derivation d₁/L₄ · φ is plausible but does not follow strictly from theory.

@@ -18,7 +18,7 @@ This document synthesizes the results of Waves 1–3 (completed) and the literat
 **Hard truths from the audit (`derivations/catalog_audit/audit_report.md`):**
 - Out of the 25 catalog formulas: 0 (R) derived from first principles, 8 (S) structurally motivated, 17 (NF) — pure numerical fits
 - The Coq theorem `alpha_from_H4_refuted: Qed.` formally proves a key claim is mathematically false
-- δ_CP = 65.66° vs NuFit 6.0 ~177° — beyond 3σ; DUNE 2028 will falsify
+- δ_CP = 65.66° vs NuFit 6.0 ~177° — >5σ excluded; prediction WITHDRAWN
 - Koide: H4 gives Q ≈ 0.834, physics 0.6667 — 25% discrepancy
 
 **The literature shows:**
@@ -84,7 +84,7 @@ Lessons 1, 2, 15 from the E8 review: H4 is not a Lie algebra, so the Distler-Gar
 
 **Goal**: turn the project from numerology into falsifiable science.
 
-1. **δ_CP at DUNE 2028–2032**: the current prediction 65.66° = 3/φ² is already >3σ from NuFit 6.0 (~177°). Register this **before** the DUNE result on arXiv with a timestamp.
+1. **δ_CP at DUNE 2028–2032**: The Trinity δ_CP = 3/φ² prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). DUNE will measure δ_CP independently.
 2. **f₀ = 12.8 THz prediction** (lesson 14 from mass formulas): seek spectroscopic confirmation in materials with icosahedral symmetry (Al-Mn-Pd quasicrystals).
 3. **Compare with Koide at 5+ digits** (lesson 5 from mass formulas): recognize Koide's 9.3 ppm precision as a benchmark; do not try to "beat" it on leptons, use it as a cross-check.
 4. **Prepare an arXiv hep-ph paper**: a single result — for example, a formal Coq derivation of A_F from H4 (if Wave 5 delivers it). Do not publish the 25-formula catalog as "a theory".

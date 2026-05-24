@@ -78,7 +78,7 @@ All 25 formulas in `validate_v4.py` are **verified to high precision** (mpmath, 
 | Lepton | L01–L03 | 0 | 2 | 1 | 0 | L01 is NF; L02, L03 are S |
 | Quark | Q01–Q07 | 0 | 1 | 6 | 1 | Q06 (m_t) is corrected typo |
 | Gauge | G01–G02 | 0 | 1 | 1 | 0 | G01 (1/α) is NF |
-| Neutrino | N01, N04, v21, v31, N21, Snu | 0 | 1 | 3 | 2 | N04 (δ_CP) borderline; Snu fail |
+| Neutrino | N01, N04, v21, v31, N21, Snu | 0 | 1 | 3 | 2 | N04 (δ_CP) **WITHDRAWN** (>5σ excluded); Snu fail |
 | CKM | C01–C02 | 0 | 1 | 1 | 0 | Structural motivation weak |
 | Higgs | H01–H03 | 1 | 1 | 1 | 0 | H01 is retrospective fit |
 | Other | Pr | 0 | 0 | 1 | 0 | Proton/electron ratio |

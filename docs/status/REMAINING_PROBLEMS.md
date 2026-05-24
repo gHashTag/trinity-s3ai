@@ -5,9 +5,9 @@
 
 ## RESOLVED IN V3.6
 
-### ✅ δ_CP discrepancy
-**Status**: **RESOLVED**. Formula corrected from e/2 = 77.9° (excluded at 7.7σ) to **3/φ² = 65.66°**.
-**Result**: 0.1σ agreement with PDG 2024 (65.5° ± 1.6°). DUNE will test with ±3° precision by 2035.
+### ❌ δ_CP prediction — WITHDRAWN
+**Status**: **WITHDRAWN**. The formula 3/φ² = 65.66° was a post-hoc fit to outdated PDG-2024 data. NuFIT-6.0 + T2K+NOvA 2025 exclude it at >5σ.
+**Result**: WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). The 0.1σ claim was against outdated PDG-2024 data.
 
 ### ✅ Spectral action Higgs mass
 **Status**: **RESOLVED**. Root cause identified: ad-hoc mass formula with no NCG foundation.
@@ -171,7 +171,7 @@ how many others have hidden alternatives?"
 - ✅ GitHub repository with full transparency
 
 ### What's IMPROVED (v3.6):
-- ✅ δ_CP: 7.7σ exclusion → 0.1σ agreement
+- ❌ δ_CP: 7.7σ exclusion (e/2) → WITHDRAWN (3/φ² post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025)
 - ✅ Higgs mass: 30% error → 0.002% error
 - ✅ 7 failed formulas → all corrected
 - ✅ Neutrino: 99% error → SG-class precision

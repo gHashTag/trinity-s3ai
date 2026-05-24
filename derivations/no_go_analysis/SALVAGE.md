@@ -179,7 +179,7 @@ This contrasts with the practice of hiding `Admitted` or using them without expl
 
 - [ ] Submit to Foundations of Physics or SHPMP (with emphasis on methodology)
 - [ ] Continue developing the Lean 4 port (broader audience)
-- [ ] If DUNE 2028 falsifies δ_CP: document as a predicted falsification
+- [ ] Document the δ_CP withdrawal in all public-facing materials (already excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025).
 
 ### Step 4: Long-term (possible open questions)
 

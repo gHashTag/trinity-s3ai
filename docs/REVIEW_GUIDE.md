@@ -30,7 +30,7 @@ hold the detail and tells you in what order to read them.
 | 1 | Read this section | 1 min | You are here. |
 | 2 | Read [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) and the README claim table | 2 min | The claim ledger: what is verified, what is a fit, what is open, what is refuted. The README table is auto-generated from [`docs/claims.yaml`](claims.yaml). |
 | 3 | Skim [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) | 1 min | Ground-truth Coq statistics with comments stripped. |
-| 4 | Skim the [Obstruction Theorems](../proofs/trinity/BoundaryTheorems.v) | 2 min | The four Coq-formal impossibility results BT-1–BT-4 (Qed). Additional Boundary results BT-5..7 are documented at paper level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md). |
+| 4 | Skim the [Boundary Theorems](../proofs/trinity/BoundaryTheorems.v) | 2 min | The four Coq-formal impossibility results BT-1–BT-4 (Qed). Additional Boundary results BT-5..7 are documented at paper level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md). |
 | 5 | Open the live GOLDEN BRIDGE canvas | 1 min | <https://t27.ai/trinity-s3ai/> — a hypothesis-discovery puzzle, **not** evidence. |
 | 6 | Read [`docs/TECH_TREE.md`](TECH_TREE.md) | 2 min | Layered status: infra → claim ledger → proofs → geometry → fits → game → paper. |
 | 7 | Use the [Review Checklist](REVIEW_CHECKLIST.md) | 1 min | Tick off install/run/tests/no-secrets/no-hype/reproducibility. |

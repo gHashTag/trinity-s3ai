@@ -15,7 +15,7 @@ Every blocked direct path is a **permanent asset** — it narrows the search spa
 
 ```
 Boundary-mapping principle:
-  Obstruction theorem = permanent scientific asset (narrows hypothesis space)
+  Boundary theorem = permanent scientific asset (narrows hypothesis space)
   Speed  = slow + careful
   Method = map boundaries, test alternatives, falsify boldly
   Goal   = single H4 → SM hypothesis, multiple research directions
@@ -182,7 +182,7 @@ Tier 3 monomial formulas failed. This is a **strength** of the repository — we
 
 | Prediction | Formula | Status | When resolved |
 |-----------|---------|--------|---------------|
-| δ_CP | 3/φ² = 65.66° | ❌ **WITHDRAWN** (5.6σ) | Resolved |
+| δ_CP | 3/φ² = 65.66° | ❌ **WITHDRAWN** (5.6σ) | N/A (withdrawn) |
 | γ (CKM) | 3/φ² = 65.66° | 🔬 EMPIRICAL (0.4%) | Pending |
 | sin²θ₁₃ | π²/(25φ⁶) | 🔬 EMPIRICAL (0.003%) | Pending |
 | Δm²₂₁ | (φe/π)⁶·10⁻⁵ | 🔬 EMPIRICAL (0.0003%) | Pending |

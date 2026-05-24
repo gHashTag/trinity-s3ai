@@ -53,7 +53,7 @@
 
 | JUNO Result | Verdict |
 |-------------|---------|
-| 0.0210 – 0.0230 | ✅ **CONFIRMED** |
+| 0.0210 – 0.0230 | ✅ **NUMERICALLY VERIFIED COINCIDENCE** |
 | 0.0200 – 0.0210 or 0.0230 – 0.0240 | ⚠️ TENSION |
 | < 0.0200 or > 0.0240 | ❌ **FALSIFIED** |
 
@@ -142,7 +142,7 @@ The latest global analysis (NuFit 6.0, arXiv:2410.05380) reports:
 
 | DUNE Result (2028–2032) | Verdict |
 |------------------------|---------|
-| 50° – 80° | ✅ **CONFIRMED** (Trinity validated) |
+| 50° – 80° | ✅ **HISTORICAL: would have been confirmed** (Trinity validated; prediction is WITHDRAWN) |
 | 80° – 100° | ⚠️ INCONCLUSIVE (wait for precision) |
 | < 30° or > 100° | ❌ **FALSIFIED** (PMNS sector invalidated) |
 
@@ -228,7 +228,7 @@ Trinity does **not** predict standard BSM particles (no supersymmetry, no extra 
 
 | KATRIN Result | Verdict |
 |---------------|---------|
-| m_νe > 0.08 eV | ✅ **CONFIRMED** |
+| m_νe > 0.08 eV | ✅ **NUMERICALLY VERIFIED COINCIDENCE** |
 | 0.05 < m_νe < 0.08 eV | ⚠️ TENSION |
 | m_νe < 0.05 eV | ❌ **FALSIFIED** |
 

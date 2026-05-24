@@ -210,7 +210,7 @@ In SU(5)-GUT with Gildibo normalization:
 1/α₁ + 1/α₂ + 1/α₃ = 1/α_s (at M_GUT, with normalization accounted for)
 ```
 
-From the H4 prediction:
+From the H4-inspired formula:
 
 ```
 α₁⁻¹ + α₂⁻¹ + α₃⁻¹ = (15 + 10 + 6) · φ/2 = 31 · φ/2 ≈ 25.08

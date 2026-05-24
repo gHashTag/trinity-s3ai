@@ -1,5 +1,5 @@
 # PEER REVIEW: "H4 Coxeter Invariants and Standard Model Parameters"
-## (Trinity S³AI v4.0) — Submitted to Physical Review D
+## (Trinity S³AI v4.0) — Simulated Peer Review Exercise (NOT submitted to Physical Review D)
 
 **Reviewer:** Anonymous Referee  
 **Date:** 2025  

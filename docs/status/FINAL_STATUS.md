@@ -119,7 +119,7 @@ The Trinity δ_CP prediction has been **corrected** from e/2 = 77.87° to **3/φ
 | Quantity | Value |
 |----------|-------|
 | Old prediction (e/2) | 77.87° — **excluded at 7.7σ** |
-| **New prediction (3/φ²)** | **65.66° — 0.1σ agreement with PDG 2024** |
+| **New prediction (3/φ²)** | **WITHDRAWN** — 0.1σ against outdated PDG 2024 only; >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025 |
 | PDG 2024 experimental | 65.5° ± 1.6° |
 | Alternative best fit | 4φ⁻²π⁻²e² = 65.54° (0.02σ, more complex) |
 
@@ -357,7 +357,7 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 
 ---
 
-*Honest assessment: Trinity v3.6 is a STRONG phenomenological framework with SOLID mathematical foundation. The v3.6 corrections eliminated all FAIL formulas, resolved the δ_CP discrepancy, and fixed the spectral action Higgs mass. Remaining work: Coq compilation (mechanical fixes) and Lagrangian derivation (deep theoretical work). Experimental tests from DUNE (2035) and KATRIN-II (2028) will provide definitive validation.*
+*Honest assessment: Trinity v3.6 is a STRONG phenomenological framework with SOLID mathematical foundation. The v3.6 corrections eliminated all FAIL formulas, withdrew the δ_CP prediction (now excluded at >5σ), and fixed the spectral action Higgs mass. Remaining work: Coq compilation (mechanical fixes) and Lagrangian derivation (deep theoretical work). Experimental tests from DUNE (2035) and KATRIN-II (2028) will provide definitive validation.*
 
 ---
 

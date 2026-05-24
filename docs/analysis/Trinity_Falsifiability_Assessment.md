@@ -11,7 +11,7 @@ EXECUTIVE SUMMARY
 ================================================================================
 
 Trinity S³AI v4.0 makes 7 falsifiable predictions. Of these:
-- 1 is CONFIRMED (m_H = 125.202 GeV)
+- 1 is NUMERICALLY VERIFIED COINCIDENCE (m_H = 125.202 GeV, retrospective fit)
 - 1 is STRONGLY DISFAVORED by current data (delta_CP = 65.66 deg)
 - 1 had a FORMULA ISSUE now RESOLVED (sin^2 theta_13)
 - 1 has a NOTATION ISSUE (Delta m^2_31)
@@ -24,7 +24,7 @@ CRITICAL FINDINGS:
    - OLD (broken): 7 phi^-5 pi^-1 e = 0.546 (2400% error, catastrophically wrong)
    - NEW (SG-class): pi^2/(25 phi^6) = 0.02200 (0.003% error)
    - Direct form: sin theta_13 = pi/(5 phi^3)
-   - The corrected formula achieves SG-class precision and is confirmed against
+   - The corrected formula achieves SG-class precision and is numerically verified against
      Daya Bay, RENO, and JUNO preliminary data.
 
 2. THE Delta m^2_31 FORMULA HAS REDUNDANT NOTATION: 15 phi^-5 pi^-2 e^-4
@@ -44,7 +44,7 @@ SECTION 1: PREDICTION-BY-PREDICTION ANALYSIS
 
 PREDICTION 1: m_H = 4 phi^3 e^2 = 125.202 GeV
 --------------------------------------------------------------------------------
-Status: CONFIRMED (within 0.02 sigma)
+Status: NUMERICALLY VERIFIED COINCIDENCE (within 0.02 sigma, retrospective fit)
 
   Trinity:     125.202 GeV
   Measured:    125.20 +/- 0.11 GeV
@@ -53,16 +53,16 @@ Status: CONFIRMED (within 0.02 sigma)
   This is the flagship success. The formula uses phi (golden ratio),
   e (Euler's number), and pi. The match is excellent.
 
-  FALSIFIABILITY: This was confirmed AFTER the formula was proposed
+  FALSIFIABILITY: This was numerically verified AFTER the formula was proposed
   (post-2012 Higgs discovery), so it serves as validation but NOT as a
   true prediction in the pre-registration sense.
 
   STRENGTH: Strong - the formula is fixed, no adjustable parameters.
-  VERDICT: Confirmed, but post-dictional.
+  VERDICT: Numerically verified coincidence, but post-dictional.
 
 PREDICTION 2: sin^2 theta_13 = pi^2/(25 phi^6) ~ 0.02200  [CORRECTED 2025-07-28]
 --------------------------------------------------------------------------------
-Status: CONFIRMED at 0.003% precision (SG-class)
+Status: NUMERICALLY VERIFIED COINCIDENCE at 0.003% precision (SG-class)
 
   FORMULA CORRECTION:
     OLD (broken): 7 phi^-5 pi^-1 e = 0.546 (2400% error)
@@ -89,7 +89,7 @@ Status: CONFIRMED at 0.003% precision (SG-class)
     If measured to 0.025 +/- 0.001, Trinity 0.02200 is 3.0 sigma away -> falsified.
 
   STRENGTH: Strong - corrected formula is fixed, achieves SG-class precision.
-  VERDICT: CONFIRMED at 0.003% error. Second most precise Trinity prediction
+  VERDICT: NUMERICALLY VERIFIED COINCIDENCE at 0.003% error.
            after m_tau/m_mu (0.0004%).
 
 PREDICTION 3: m_nue = 1/(6 phi) = 0.103 eV
@@ -267,15 +267,15 @@ SECTION 3: STRENGTH vs WEAKNESS ASSESSMENT
 ================================================================================
 
 STRONG PREDICTIONS (if wrong, formula is falsified):
-  [S1] m_H = 4 phi^3 e^2 -- CONFIRMED. Fixed formula, no parameters.
+  [S1] m_H = 4 phi^3 e^2 -- NUMERICALLY VERIFIED COINCIDENCE (retrospective fit).
   [S2] delta_CP = 3/phi^2 = 65.66 deg -- DISFAVORED at 5.6 sigma.
-         Already in tension with data. Will be tested by DUNE 2028+.
+         Already excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025. WITHDRAWN.
   [S3] Delta m^2_21 = (phi e/pi)^6 x 10^-5 -- Consistent. Tested by JUNO 2031.
   [S4] Delta m^2_31 = 15 phi^-5 pi^-2 e^-4 -- Consistent. Tested by DUNE 2032.
   [S5] lambda_Higgs = sqrt(phi)/pi^2 -- Consistent but UNTESTABLE before 2050.
 
-STRONG PREDICTIONS (confirmed):
-  [S6] sin^2 theta_13 = pi^2/(25 phi^6) = 0.02200 -- CONFIRMED at 0.003%.
+STRONG NUMERICAL COINCIDENCES (verified):
+  [S6] sin^2 theta_13 = pi^2/(25 phi^6) = 0.02200 -- NUMERICALLY VERIFIED COINCIDENCE at 0.003%.
          Corrected from broken formula 7 phi^-5 pi^-1 e on 2025-07-28.
          New formula achieves SG-class precision. Confirmed by Daya Bay + RENO.
 
@@ -291,7 +291,7 @@ SCENARIO A: DUNE measures delta_CP = 180 +/- 10 deg
   Trinity predicts: 65.66 deg
   Measurement:      180 +/- 10 deg
   Distance:         (180 - 65.66) / 10 = 11.4 sigma
-  RESULT: Trinity is FALSIFIED. The delta_CP formula is wrong.
+  RESULT: Trinity δ_CP prediction is WITHDRAWN (>5σ excluded). The formula was a post-hoc fit.
 
   Probability: HIGH. Current data already favors ~177 deg.
   This is the most likely outcome, and it would destroy Trinity.

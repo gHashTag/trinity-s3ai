@@ -2,7 +2,7 @@
 
 ## Theorem
 
-**Gauge couplings derived from H4 boundary conditions, when run down from unification scale $\Lambda_{H4}$ to electroweak scale $m_Z$ using Standard Model RGEs, reproduce the Trinity predictions:**
+**Gauge couplings using H4-inspired boundary conditions, when run down from unification scale $\Lambda_{H4}$ to electroweak scale $m_Z$ using Standard Model RGEs, match the Trinity fitted formulas numerically:**
 
 | Observable | Trinity Formula | Trinity Value | RGE Output | Error |
 |---|---|---|---|---|
@@ -185,7 +185,7 @@ shows a convergent series where each loop order brings the prediction closer to 
 
 ## Proof Summary
 
-**THEOREM PROVEN**: Gauge couplings derived from H4 boundary conditions, when run down from $\Lambda_{H4} = \varphi^{5/2} \times 10^{16}$ GeV to $m_Z$ using Standard Model 2-loop RGEs, reproduce the Trinity predictions to within ~1%, consistent with expected 3-loop and threshold corrections.
+**NUMERICALLY VERIFIED**: Gauge couplings using H4-inspired boundary conditions, when run down from $\Lambda_{H4} = \varphi^{5/2} \times 10^{16}$ GeV to $m_Z$ using Standard Model 2-loop RGEs, match the Trinity fitted formulas numerically to within ~1%, consistent with expected 3-loop and threshold corrections.
 
 ### Key Results:
 

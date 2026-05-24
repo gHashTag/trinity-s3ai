@@ -571,7 +571,7 @@ Key conclusions relevant for REWRITE.md:
 3. Honest split (from registered_predictions.md, W7.4 section):
    - Pre-data for DESI/dark energy: NONE (COS01-COS04 registered post-factum)
    - Post-data: COS01-COS04, m_H, sin2_theta_W, lepton masses (Koide), three generations
-   - Falsified: COS04 w, m_nu1, Lambda, delta_CP (BORDERLINE)
+   - Falsified: COS04 w, m_nu1, Lambda. **δ_CP is WITHDRAWN** (>5σ excluded), not borderline.
    - Forward pre-data (no data yet): axion theta-bar, LISA, M_PS, delta_CP for IO
 
 Sources:

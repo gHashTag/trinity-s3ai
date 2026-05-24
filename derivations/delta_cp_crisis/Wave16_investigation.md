@@ -232,7 +232,7 @@ The δ_CP = 3/φ² = 65.66° formula is:
 
 | Option | Action | Scientific Integrity |
 |--------|--------|---------------------|
-| A | **Retract the δ_CP prediction** and state clearly that the PMNS sector is falsified by current data | ✅ High — follows «do not lie» |
+| A | **Retract the δ_CP prediction** and state clearly that the PMNS sector prediction is WITHDRAWN (>5σ excluded by current data) | ✅ High — follows «do not lie» |
 | B | Wait for DUNE 2028 and maintain the pre-registered 65.66° as a falsifiable claim | ✅ Acceptable — if honestly framed as "already disfavored" |
 | C | Invent a new post-hoc formula (e.g., `e²/2`) and claim it was "hidden in H4" | ❌ Unacceptable — would be the 4th retro-fit |
 

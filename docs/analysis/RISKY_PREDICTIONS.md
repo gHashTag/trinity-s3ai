@@ -164,4 +164,4 @@ The 5.6 sigma tension on delta_CP is **precisely what makes this interesting**.
 
 *Registry version: 1.0*
 *Last updated: 2026-05-20*
-*Next update: After DUNE 2028 first data*
+*Next update: Continuous — δ_CP prediction is WITHDRAWN (>5σ excluded)*

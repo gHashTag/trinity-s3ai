@@ -101,7 +101,7 @@ or to a specific root system vector is not constructed.
 
 **Comparison with experiment:**
 - Experiment (PDG 2024, T2K+NOvA): δ_CP = 65.5° ± 4°
-- Trinity: 65.66° — agreement 0.1σ in this interpretation
+- Trinity: 65.66° — **WITHDRAWN** (0.1σ against outdated PDG-2024 only; >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025)
 - WARNING: NuFit 6.0 prefers ~177° (≈ -3°), T2K+NOvA ~234°
   The Trinity solution (65.66°) lies in the lower quadrant, opposite  
   current experimental preferences. This is a 5-8σ discrepancy.

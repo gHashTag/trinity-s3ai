@@ -139,7 +139,7 @@ See FORMULAS.md and TRACEABILITY.md for complete catalog.
 
 **Predictions vs Experiment:**
 
-| Observable | H4 Prediction | Experiment | Error | Status |
+| Observable | Trinity Formula | Experiment | Error | Status |
 |-----------|---------------|------------|-------|--------|
 | α_s(M_Z) | 0.11-0.12 | 0.1179±0.0010 | ~3% | ✅ Good |
 | sin²θ_W | 0.21-0.223 | 0.2312±0.0004 | 3.4-10% | ⚠️ Known issue |

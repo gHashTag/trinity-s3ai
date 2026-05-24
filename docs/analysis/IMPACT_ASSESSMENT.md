@@ -68,7 +68,7 @@ Either outcome is scientifically valuable.
 | | Eddington | Trinity |
 |--|-----------|---------|
 | Claim | 1/alpha = 137 (integer) | m_H = 4phi^3e^2 |
-| Result | Fully refuted | m_H confirmed |
+| Result | Fully refuted | m_H numerically verified coincidence (retrospective fit) |
 | Why it failed | alpha runs, not constant | — |
 | Lesson | Numerical coincidence != physical law | **Risk: same trap** |
 
@@ -131,9 +131,9 @@ Q_H4 = 0.6399 vs 2/3 = 0.6667. 4000 times worse than raw data.
 
 **65.66 < 96 (3-sigma lower bound)** — already excluded by current data!
 
-DUNE (2028-2032) will measure delta_CP with precision +/- 10.
+DUNE (2028-2032) will measure delta_CP with precision +/- 10. The Trinity δ_CP = 3/φ² prediction is already WITHDRAWN (>5σ excluded by current data).
 - If DUNE: 180 +/- 10 -> Trinity at 11.4 -> **FULLY REFUTED**
-- If DUNE: 70 +/- 10 -> Trinity at 4.3 -> CONFIRMED
+- If DUNE: 70 +/- 10 -> Trinity at 4.3 -> **HISTORICAL: would have been confirmed (prediction is WITHDRAWN)**
 
 **This is the most important prediction.** All other formulas are post-hoc; delta_CP = 3/phi^2 is the only genuinely pre-registered one.
 
@@ -146,7 +146,7 @@ DUNE (2028-2032) will measure delta_CP with precision +/- 10.
 1. **Fix the delta_CP formula or acknowledge failure**
    - 3/phi^2 = 65.66 is already in 5.6sigma tension with data
    - Find an alternative or honestly document the discrepancy
-   - DUNE 2028 will decide definitively
+   - DUNE 2028–2035 will provide independent δ_CP measurements. The Trinity prediction is already WITHDRAWN (>5σ excluded).
 
 2. **Fix the sin^2(theta_13) formula**
    - 7*phi^-5*pi^-1*e = 0.546, not 0.0216

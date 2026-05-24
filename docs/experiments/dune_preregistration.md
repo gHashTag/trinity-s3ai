@@ -215,7 +215,7 @@ If DUNE measures delta_CP = 80-100°, this is **inconsistent with the withdrawn 
 |------|-----------|-------------------|-------------------|--------|
 | 2025 | KATRIN | m_nue = 0.103 eV | m_nue < 0.8 eV (current) | **Testable** |
 | 2027 | JUNO | sin²theta_13 = 0.0216 | JUNO target precision ±0.0007 | **Testable** |
-| 2028 | DUNE (first data) | delta_CP = 65.66° | DUNE precision ±10-15° | **This pre-registration** |
+| 2028 | DUNE (first data) | delta_CP = 65.66° | DUNE precision ±10-15° | **HISTORICAL / WITHDRAWN** |
 | 2030 | DUNE (precision) | delta_CP = 65.66° | DUNE precision ±7-10° | **High-precision test** |
 | 2030 | HL-LHC | lambda = 0.1295 | lambda measurement | **Testable** |
 | 2032 | DUNE (final Phase I) | delta_CP measurement | DUNE precision ±5-7° | **OPEN** (Trinity prediction WITHDRAWN) |

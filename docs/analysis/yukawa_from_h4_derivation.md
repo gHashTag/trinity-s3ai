@@ -310,7 +310,7 @@ The number 239 is the **trace deficit** of the H4 Dirac operator:
 
 ### 6.3 What Remains Open
 
-❓ **Neutrino masses**: H4 predicts PMNS tribimaximal-like angles but not the absolute neutrino mass scale
+❓ **Neutrino masses**: H4 framework contains fitted formulas for PMNS tribimaximal-like angles but not the absolute neutrino mass scale
 ❓ **CKM CP violation**: The Jarlskog invariant J ~ 10⁻⁵ emerges but the sign of δ is not fixed
 ❓ **Why 3 generations**: H4 provides the framework but the fundamental reason for exactly 3 generations remains
 
