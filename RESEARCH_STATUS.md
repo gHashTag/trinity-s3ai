@@ -9,10 +9,7 @@ live elsewhere and are linked below.
 
 ## In one paragraph
 
-Trinity S³AI is an active research program investigating whether geometric
-invariants of the H4 Coxeter group (and related structures such as the
-600-cell, E8, and Clifford algebras Cl(8)) can encode or constrain the
-parameters of the Standard Model of particle physics.
+Trinity S³AI is an active research program that **tests multiple geometric hypotheses** for encoding the parameters of the Standard Model of particle physics. We explore H4 Coxeter group invariants, 600-cell geometry, E8 embeddings, Clifford algebras Cl(8), and φ/π/e phenomenological coincidences — formalizing what works, rigorously bounding what does not, and redirecting toward new ansätze when obstructions are proven. The project does not commit to a single theory; it is a **living laboratory of hypothesis testing**.
 
 **Boundary theorems (NGT-1–NGT4)** mark specific obstruction points: they
 prove that *certain direct constructions* from H4 geometry do not reproduce
@@ -88,14 +85,15 @@ and are tracked for promotion to `Qed.` in future waves.
   evidence. See
   [`games/trinity_fold/README.md`](games/trinity_fold/README.md).
 
-## Active Tracks
+## Hypotheses Under Active Investigation
 
-| Track | Status | Description |
-|-------|--------|-------------|
-| **A** | 🔄 Active | Honest phenomenology — refresh p-values, σ-rankings, pre-register predictions |
-| **B** | 🔄 Active | Cl(8) / J₃(𝕆) formalization — T1 ✅, T2–T3 🔄, T4–T12 🔄 |
-| **C** | 🔄 Active | Boundary-result paper — arXiv v2 with NGT-1–4 as guideposts, not tombstones |
+| Hypothesis | Status | Key Files |
+|------------|--------|-----------|
+| H4 / 600-cell → SM parameters | 🔄 Obstructed on direct path; coincidences catalogued | `proofs/trinity/`, `Catalog42.v`, `NoGoTheorems.v` |
+| Cl(8) / triality → 3 generations | 🔄 Active (T1 ✅, T2–T12 🔄) | `proofs/clifford_cl8/` |
+| E8 / F4 → gauge unification | 🔄 Partial (η discrepancy documented) | `derivations/e8_bulk/`, `derivations/string_correspondence/` |
+| φ/π/e → mass ratios & couplings | 🔄 59 coincidences; statistical audit ongoing | `FORMULAS.md`, `honest_phenomenology_v20.py` |
+| Exceptional groups → neutrino sector | 🔄 Open (δ_CP withdrawn; θ₁₂, θ₁₃ match) | `PREDICTIONS_PREREGISTERED.md` |
+| Discrete geometry → cosmology | ❌ Obstructed (NGT-1; >300σ) | `derivations/honest_cosmology/` |
 
-> **The research continues.** Obstructions are data. Every boundary theorem
-> tells us where *not* to look — which is as valuable as knowing where to
-> look. The goal is not to declare defeat; it is to chart the terrain.
+> **The research continues.** We test hypotheses, not dogmas. Obstructions are data. Every boundary theorem tells us where *not* to look — which is as valuable as knowing where to look. The goal is not to declare defeat; it is to chart the terrain and move to the next ansatz.

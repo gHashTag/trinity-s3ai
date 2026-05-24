@@ -1,4 +1,4 @@
-# Trinity S3AI — H4 Coxeter Group / Standard Model Unification
+# Trinity S³AI — Geometric Hypothesis Testing for Fundamental Physics
 
 [![CI](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml/badge.svg)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
 [![Anti-Numerology Gate](https://img.shields.io/badge/anti--numerology-PASS-brightgreen)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
@@ -30,7 +30,7 @@ The project maintains a living catalog of 59 numerical coincidences between H4 i
 | [docs/CLAIM_STATUS.md](docs/CLAIM_STATUS.md) | Claim-status rule book (verified / empirical fit / open / refuted) |
 | [docs/TECH_TREE.md](docs/TECH_TREE.md) | Layered status of the whole stack (infra → proofs → fits → game → paper) |
 | [docs/REVIEW_CHECKLIST.md](docs/REVIEW_CHECKLIST.md) | Mechanical review-readiness checklist |
-| [RESEARCH_STATUS.md](RESEARCH_STATUS.md) | Honest boundary map: what H4 paths are open, obstructed, or under exploration |
+| [RESEARCH_STATUS.md](RESEARCH_STATUS.md) | Boundary map: which hypotheses are open, obstructed, or under exploration |
 | [EPISTEMOLOGY.md](EPISTEMOLOGY.md) | Calculation-primacy doctrine: how model-dependent extractions are handled |
 | [PREDICTIONS_PREREGISTERED.md](PREDICTIONS_PREREGISTERED.md) | 9 pre-registered predictions (0 theoretically confirmed, 4 numerically verified, 4 open, 1 withdrawn) |
 | [ROADMAP_WAVE17_PLUS.md](ROADMAP_WAVE17_PLUS.md) | **Active research program**: Tracks A (honest phenomenology), B (Cl(8) / J3(O)), C (boundary-result paper) |
