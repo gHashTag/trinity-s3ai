@@ -333,7 +333,7 @@ SCENARIO E: All predictions match Trinity within 2 sigma
 SECTION 5: OVERALL ASSESSMENT
 ================================================================================
 
-HONESTY SCORE: The Trinity framework has 1 confirmed prediction (m_H) and
+HONESTY SCORE: The Trinity framework has 1 numerically verified coincidence (m_H) and
 several that are consistent with data. However:
 
 1. TWO FORMULAS APPEAR BROKEN (sin^2 theta_13 and Delta m^2_31 notation).
