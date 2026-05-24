@@ -143,7 +143,7 @@ START: LZ-2 / XENONnT searches for WIMP at 12.82 GeV (2026–2028)
 START: JUNO measures Δm²₂₁/Δm²₃₁ with <1% precision (2025–2030)
 │
 ├─ If ratio = 0.0300 ± 0.0003
-│  └─→ Trinity structural prediction (P5) is CONFIRMED
+│  └─→ Trinity structural prediction (P5) is VERIFIED
 │
 └─ If ratio deviates by > 0.003 (10%) at 3σ
    └─→ Trinity structural prediction π/(40φ²) is REFUTED
@@ -159,7 +159,7 @@ START: THz spectroscopy of quasicrystals (2025–2035)
 START: Mathematical predictions (any time)
 │
 ├─ If independent APS computation confirms η = σ/4 for E₆/E₇ plumbing
-│  └─→ M2 (η = −3/2) and M3 (η = −7/4) are CONFIRMED
+│  └─→ M2 (η = −3/2) and M3 (η = −7/4) are VERIFIED
 │
 ├─ If proof shows J must be diagonal for 600-cell spectral triple
 │  └─→ M4 (KO-dim 6) is REFUTED (KO-dim 0 instead)

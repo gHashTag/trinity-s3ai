@@ -274,7 +274,7 @@ The concrete powers (3, 5, 8) are fitted numerically.
 
 ## 5. Honest Classification of Results
 
-### 5.1 What is Genuinely Confirmed
+### 5.1 What is Genuinely Verified
 
 | Claim | Status |
 |------------|--------|
@@ -299,7 +299,7 @@ The concrete powers (3, 5, 8) are fitted numerically.
 1. **δ_CP = 65.66°** — DUNE 2028 will decide finally. Current NuFit prefers ~177°.
    Probability of confirmation: ~30% (per document DUNE_RISKY_PREDICTION.md).
 
-2. **sin²θ₁₃ = π²/(25φ⁶) = 0.0220** — already confirmed by PDG 2024 with error 0.003%.
+2. **sin²θ₁₃ = π²/(25φ⁶) = 0.0220** — already numerically verified against PDG 2024 with error 0.003%.
    This is the most reliable result.
 
 3. **|V_us| = 0.2243** — within 1σ of PDG, but PDG center 0.22650 differs by 0.9%.

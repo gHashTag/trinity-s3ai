@@ -273,7 +273,7 @@ The framework makes five testable predictions:
 - Formula: $4\varphi^3 e^2$
 - LHC measurement: $125.20 \pm 0.17$ GeV [2]
 - Deviation: $0.0017\%$ ($<0.01\sigma$)
-- **Status:** CONFIRMED by LHC (but post-hoc: the formula was constructed after the measurement)
+- **Status:** NUMERICALLY VERIFIED by LHC (but post-hoc: the formula was constructed after the measurement)
 - **Falsifiability:** NONE --- this is a post-diction, not a prediction
 
 **P3: $m_{\nu_e} = 0.00117$ eV**
