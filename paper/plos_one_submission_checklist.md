@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical PLOS ONE submission checklist — Wave 19)
+# Current status: This is a historical planning document. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current canonical assessment.
+
 # PLOS ONE Submission Checklist — Wave 19 Data Paper
 
 **Paper**: "H₄ Numerological Atlas: A Catalog of Standard Model Parameter Formulas"

@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (historical paper README — Wave 10.1)
+# Current status: This README describes a historical paper version. The paper
+# contains claims that have been withdrawn or refuted. See PREDICTIONS_PREREGISTERED.md,
+# EPISTEMOLOGY.md, and TECH_TREE.md for canonical current assessment.
+
 # README: Trinity-s3ai Paper for arXiv (Wave 10.1)
 
 **Paper file:** `wave10_paper.tex`  

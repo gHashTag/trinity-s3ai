@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Zenodo archive preparation — Wave 19)
+# Current status: This is a historical planning document. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current canonical assessment.
+
 # Zenodo Archive Preparation — Wave 19
 
 **Dataset**: H₄ Numerological Atlas

@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 18 status report)
+# Current status: This report reflects Wave 18 status (2026-05-22). See
+# honest_pvalue_report_v20.md and COQ_HONEST_STATUS.md for current canonical metrics.
+
 # Wave 18 Status — Honest Phenomenology & Statistical Assessment
 
 **Date:** 2026-05-22  

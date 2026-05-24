@@ -1,3 +1,9 @@
+# LEGACY DOCUMENT (external independent review — v4.12 era)
+# Current status: This review reflects an external assessment from the v4.12 era.
+# Several claims referenced in this review have been withdrawn or corrected.
+# See PREDICTIONS_PREREGISTERED.md, EPISTEMOLOGY.md, and TECH_TREE.md for
+# canonical current assessment.
+
 # Independent Physical Expert Review of the Trinity S³AI Project
 
 **Reviewer:** Independent theoretical physicist  
