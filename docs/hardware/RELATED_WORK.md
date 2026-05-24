@@ -390,7 +390,107 @@ with outlier-aware dynamic range.
 
 ---
 
-## 11. M2XFP — Shanghai Jiao Tong University / Huawei (ASPLOS 2026)
+## 11. Ternary LLM Accelerators (2025–2026)
+
+**Context:** The GoldenFloat paper targets the NeurIPS 2026 OPT Workshop with
+the title "...for Ternary-Native Mixed-Precision Computing." The "ternary"
+claim refers to a **mixed-precision datapath** where low-bit ternary weights
+interact with higher-precision φ-structured activations — not to pure ternary
+(BitNet b1.58) inference. Nevertheless, the 2025–2026 explosion of ternary
+hardware creates a crowded adjacent field.
+
+### 11.1 TerEffic — FPGA Ternary LLM (arXiv 2025)
+
+**Paper:** "TerEffic: Highly Efficient Ternary LLM Inference on FPGA"  
+**Venue:** arXiv:2502.16473 (February 2025)  
+**Link:** [arXiv:2502.16473](https://arxiv.org/abs/2502.16473)
+
+**Key claim:**
+- **TMat Core:** LUT-only ternary matrix-multiplication engine (no DSP
+  multipliers) for BitNet-style {-1, 0, +1} weights.
+- 1.6-bit weight compression (five ternary weights packed into 8 bits).
+- 370M model: **16,300 tokens/sec** on-chip (192× faster than Jetson Orin
+  Nano), **455 tokens/sec/W**.
+
+**Honest gap:**
+- TerEffic is **pure ternary** (no float path); GoldenFloat is **mixed**
+  (ternary-like low-bit weights + GF16 activations). Different architecture.
+- TerEffic targets **FPGA inference**; GoldenFloat targets **ASIC training**
+  (projected, not built).
+
+### 11.2 VitaLLM — Ultra-Compact Ternary ASIC (arXiv 2026)
+
+**Paper:** "VitaLLM: A Versatile, Ultra-Compact Ternary LLM Accelerator with
+Dependency-Aware Scheduling"  
+**Venue:** arXiv:2604.27396  
+**Link:** [arXiv:2604.27396](https://arxiv.org/abs/2604.27396)
+
+**Key claim:**
+- TSMC 16nm ASIC with heterogeneous dual-core: **TINT-Core** (multiplier-free
+  8×8 PE for ternary projections) + **BoothFlex-Core** (Radix-4 Booth for
+  attention INT8).
+- **70.70 tokens/sec** at **65.97 mW**, **0.223 mm²**, **17.4 TOPS/mm²/W**.
+- Leading-One-Prediction sparse-attention unit reduces KV-cache bandwidth ~55×.
+
+**Honest gap:**
+- VitaLLM is **BitNet b1.58 only**; GoldenFloat's mixed-precision claims
+  require co-existence of ternary and φ-structured float in the same datapath.
+  No published silicon implements this hybrid.
+
+### 11.3 TENET — LUT-Centric Ternary Edge (arXiv 2025)
+
+**Paper:** "TENET: An Efficient Sparsity-Aware LUT-Centric Architecture for
+Ternary LLM Inference On Edge"  
+**Venue:** arXiv:2509.13765 (September 2025)  
+**Link:** [arXiv:2509.13765](https://arxiv.org/abs/2509.13765)
+
+**Key claim:**
+- **Sparse Ternary LUT (STL) Core:** symmetric zero-aware precompute table with
+  sparse-gate indexing; eliminates adder trees.
+- Dynamic activation N:M sparsity (DAS) with butterfly routing.
+- **2.7× speedup** and **21.1× energy efficiency** vs NVIDIA A100.
+
+**Honest gap:**
+- TENET is **pure edge inference**; GoldenFloat is **training-oriented**
+  (AdamW + φ-LR schedule). Different optimization target.
+
+### 11.4 TOM — Ternary ROM Accelerator (arXiv 2026)
+
+**Paper:** "TOM: A Ternary Read-only Memory Accelerator for LLM-powered Edge
+Intelligence"  
+**Venue:** arXiv:2602.20662 (February 2026)  
+**Link:** [arXiv:2602.20662](https://arxiv.org/abs/2602.20662)
+
+**Key claim:**
+- Hybrid **ROM-SRAM** architecture: static base model in logic-synthesized
+  ROM (15.0 MB/mm² in 7nm), tunable QLoRA adapters in SRAM.
+- 16 parallel lanes, aggregate **200 TB/s** on-chip bandwidth.
+- BitNet-2B: **3,306 tokens/sec**, **63.7× speedup** over A100 batch=1,
+  >4000× better energy efficiency than CPU.
+
+**Honest gap:**
+- TOM uses **ROM-based static weights**; GoldenFloat's training claim
+  requires **mutable φ-structured gradients**. ROM is read-only; gradients
+  must be writable. No overlap in functionality.
+
+### 11.5 TernaryCore — Open-Source Trit Engine (2026)
+
+**Repo:** [shepherdscientific/ternarycore](https://github.com/shepherdscientific/ternarycore)  
+**Status:** April 2026; RTL simulations passing
+
+**Key claim:**
+- Open-source Verilog trit/ternary inference engine for BitNet b1.58.
+- Native {-1, 0, +1} arithmetic with **no multipliers** — only add/sub/mux.
+- Target: Xilinx Artix-7 (Arty A7-100T).
+
+**Honest gap:**
+- TernaryCore is the **closest open-source analog** to a ternary datapath,
+  but it has **no float path at all**. GoldenFloat's claim requires a
+  **mixed ternary+float MAC** — a significantly harder design problem.
+
+---
+
+## 12. M2XFP — Shanghai Jiao Tong University / Huawei (ASPLOS 2026)
 
 **Paper:** "M²XFP: A Metadata-Augmented Microscaling Data Format for
 Efficient Low-bit Quantization"  
@@ -425,7 +525,7 @@ that reject vanilla FP4.
 
 ---
 
-## 12. AetherFloat — Keita Morisaki (2026)
+## 13. AetherFloat — Keita Morisaki (2026)
 
 **Paper:** "AetherFloat: A Quad-Radix Floating-Point Format for Deep Learning"  
 **Author:** Keita Morisaki  
@@ -450,9 +550,9 @@ radix-4 for hardware simplicity; GF16 chooses φ-rooting for compression.
 
 ---
 
-## 13. TinyTapeout / Open-Silicon Floating-Point Projects
+## 14. TinyTapeout / Open-Silicon Floating-Point Projects
 
-### 13.1 `tt_um_float_synth` — NikLeberg
+### 14.1 `tt_um_float_synth` — NikLeberg
 
 **Repo:** [github.com/NikLeberg/tt_um_float_synth](https://github.com/NikLeberg/tt_um_float_synth)  
 **Shuttle:** IHP26A (TinyTapeout)
@@ -460,7 +560,7 @@ radix-4 for hardware simplicity; GF16 chooses φ-rooting for compression.
 Synthesizes floating-point units (VHDL/Verilog) using open-source toolchains
 (Yosys, GHDL, OpenROAD) on the IHP 130nm open PDK.
 
-### 13.2 `Systolic_Array_with_DFT_v2` — Essenceia
+### 14.2 `Systolic_Array_with_DFT_v2` — Essenceia
 
 **Repo:** [github.com/Essenceia/Systolic_Array_with_DFT_v2](https://github.com/Essenceia/Systolic_Array_with_DFT_v2)  
 **Shuttle:** IHP26A (TinyTapeout)
@@ -475,7 +575,7 @@ submission to TTSKY26a follows the same open-silicon methodology.
 
 ---
 
-## 14. Custom FP for FPGAs (ECP5)
+## 15. Custom FP for FPGAs (ECP5)
 
 **Repo:** [Marc103/Floating-Point-Image-Processing-SV-RTL](https://github.com/Marc103/Floating-Point-Image-Processing-SV-RTL)
 
@@ -486,7 +586,7 @@ philosophy to DLFloat/GF16.
 
 ---
 
-## 15. GoldenFloat Paper (t27 Project, NeurIPS 2026 OPT target)
+## 16. GoldenFloat Paper (t27 Project, NeurIPS 2026 OPT target)
 
 **Paper:** "GoldenFloat: A Formally Verified, φ-Optimal Floating-Point
 Family for Ternary-Native Mixed-Precision Computing" (April 2026)  
@@ -520,7 +620,7 @@ The NeurIPS camera-ready version should carry the same citation.
 
 ---
 
-## 16. zig-golden-float — Zig Reference Implementation (2026)
+## 17. zig-golden-float — Zig Reference Implementation (2026)
 
 **Repo:** [github.com/gHashTag/zig-golden-float](https://github.com/gHashTag/zig-golden-float)  
 **Authors:** Dmitrii Vasilev (gHashTag)  
@@ -558,7 +658,7 @@ on φ-structured data, but it does not prove hardware correctness.
 
 ---
 
-## 17. HiFloat4 (HiF4) — Huawei (arXiv 2026)
+## 18. HiFloat4 (HiF4) — Huawei (arXiv 2026)
 
 **Paper:** "HiFloat4: A 4-bit Block Floating-Point Format for Efficient LLM
 Inference"  
@@ -586,7 +686,7 @@ favor of a domain-specific layout. HiF4 uses block-scaling; GF4 uses
 
 ---
 
-## 18. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
+## 19. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
 
 **Paper:** "Harmonia: Algorithm-Hardware Co-Design for Memory- and
 Compute-Efficient BFP-based LLM Inference"  
@@ -612,7 +712,7 @@ principle: not all bits need the same precision everywhere.
 
 ---
 
-## 19. TinyTapeout IHP26A Ecosystem (2025–2026)
+## 20. TinyTapeout IHP26A Ecosystem (2025–2026)
 
 The **IHP26A** shuttle (IHP 130nm `sg13g2` open PDK) launched November 2025,
 with chips expected **September 2026**. It carries a dense cluster of
@@ -642,7 +742,7 @@ success.
 
 ---
 
-## 20. Summary: Where Trinity Fits
+## 21. Summary: Where Trinity Fits
 
 | Project | Base | Layout | φ-aware? | Silicon? | Format type |
 |---------|------|--------|----------|----------|-------------|
@@ -666,6 +766,11 @@ success.
 | **B-Posit** | BITS/ASU | Bounded-regime Posit | No | Yes (FreePDK45) | Custom FP |
 | **EULER-ADAS** | IIT Indore | Approx B-Posit | No | Yes (TSMC 28nm) | Approximate FP |
 | **Dynamic LNS** | PNNL | Log-domain + outlier-aware | No | FPGA (Alveo U280) | LNS |
+| **TerEffic** | Academic | Ternary LUT-only (BitNet) | No | FPGA (AMD U280) | Ternary |
+| **VitaLLM** | IIT Indore | Ternary ASIC (BitNet) | No | Yes (TSMC 16nm) | Ternary |
+| **TENET** | Academic | Sparse Ternary LUT | No | FPGA/ASIC | Ternary |
+| **TOM** | Academic | Ternary ROM accelerator | No | Yes (7nm) | Ternary |
+| **TernaryCore** | Open source | Ternary trit engine | No | FPGA (Artix-7) | Ternary |
 | **MXFP4/6/8** | OCP | Micro-block scaled | No | Yes (multiple vendors) | Industry standard |
 | **tt_um_float_synth** | Community | Custom | No | IHP26A submitted | Open-silicon FP |
 | **Systolic_Array** | Community | bfloat16 subset | No | IHP26A submitted | Open-silicon FP |
@@ -685,13 +790,18 @@ empirical question** — tracked in `docs/hardware/bpb_benchmark.py` and
 
 ---
 
-## 20. References
+## 21. References
 
 - `docs/hardware/gf16_spec.md` — Format specification with DLFloat16 relation
 - `docs/hardware/gf16_mathematics.md` — φ-step and optimal field derivations
 - `docs/hardware/silicon_anchor.md` — TTSKY26a/b submission status
 - `docs/HARDWARE_ATTESTATION.md` — Honest proof inventory
 - `gHashTag/zig-golden-float` — Zig reference implementation with BENCH-001–006
+- arXiv:2502.16473 — TerEffic (FPGA ternary LLM)
+- arXiv:2509.13765 — TENET (LUT-centric ternary edge)
+- arXiv:2602.20662 — TOM (ternary ROM accelerator)
+- arXiv:2604.27396 — VitaLLM (ternary ASIC, TSMC 16nm)
+- [shepherdscientific/ternarycore](https://github.com/shepherdscientific/ternarycore) — Open-source trit engine
 - arXiv:2503.01313 — PVU (Posit Vector Unit, RISC-V)
 - arXiv:2601.17279 — SPADE (SIMD Posit MAC)
 - arXiv:2603.01615 — B-Posit (bounded-regime Posit)
