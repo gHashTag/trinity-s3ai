@@ -3,11 +3,11 @@ title: "Trinity S3AI: An Active Boundary-Mapping Research Program in Geometric U
 message: "If you use this software, please cite it using these metadata."
 type: software
 authors:
-  - name: "Trinity S³AI Research Collective"
+  - name: "Dmitrii Vasilev"
 repository-code: "https://github.com/gHashTag/trinity-s3ai"
 license: MIT
-version: 1.0-wave14
-date-released: 2026-05-23
+version: 1.0-wave23
+date-released: 2026-05-25
 doi: 10.5281/zenodo.PLACEHOLDER  # Replace with real DOI after Zenodo sync
 keywords:
   - noncommutative-geometry

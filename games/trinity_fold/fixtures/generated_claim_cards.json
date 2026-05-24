@@ -31,7 +31,7 @@
       "id": "ngt1-ngt4-coq",
       "kind": "constraint",
       "name": "BT1-BT4 (Qed)",
-      "description": "Four Coq-formal boundary theorems: BT1 (no phi^a pi^b e^c fits Lambda + Omega_b), BT2 (no sigma-field from H4 alone), BT3 (600-cell D_F is vector-like), BT4 (2I-equivariant D_F cannot reproduce lepton mass hierarchy).","},{
+      "description": "Four Coq-formal boundary theorems: BT1 (no phi^a pi^b e^c fits Lambda + Omega_b), BT2 (no sigma-field from H4 alone), BT3 (600-cell D_F is vector-like), BT4 (2I-equivariant D_F cannot reproduce lepton mass hierarchy).",
       "claim": "verified",
       "layer": "L2",
       "evidence": "proofs/trinity/BoundaryTheorems.v (BT1, BT2, BT3, BT4 all Qed)",
