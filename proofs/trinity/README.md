@@ -1,3 +1,9 @@
+# LEGACY DOCUMENT (Proof Base v3.3 — historical version)
+# Current status: This README reflects an outdated assessment. See COQ_HONEST_STATUS.md
+# for current metrics (1325 Qed / 25 Admitted / 73 Axiom / 7 Parameter).
+# See PREDICTIONS_PREREGISTERED.md for prediction status (1 withdrawn, 4 numerically verified).
+# See EPISTEMOLOGY.md for the 0/26 rigorous derivations audit.
+
 # Trinity S3AI Proof Base v3.3
 
 > **A geometric derivation of Standard Model mass and coupling parameters from

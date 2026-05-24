@@ -1,3 +1,9 @@
+# LEGACY DOCUMENT (Scientific Impact Assessment v3.5 — historical version)
+# Current status: This assessment contains claims that have been withdrawn or refuted.
+# See PREDICTIONS_PREREGISTERED.md, EPISTEMOLOGY.md, and TECH_TREE.md for canonical assessment.
+# Key corrections: 0/26 formulas rigorous derivation; p-value mean error p=0.077 (not sig.);
+# SG-hit density p<0.0001 (sig.); δ_CP WITHDRAWN; N_gen=3 not derived; Strong CP not solved.
+
 # Scientific Impact Assessment — Trinity S³AI v3.5
 ## "H4 Coxeter Invariants and Standard Model Parameters"
 

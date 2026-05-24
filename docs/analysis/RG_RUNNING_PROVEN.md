@@ -200,7 +200,7 @@ shows a convergent series where each loop order brings the prediction closer to 
 
 ### Honest Assessment:
 
-The agreement between H4-derived boundary conditions + SM RGE running and the Trinity predictions is **highly significant**. The 0.07% accuracy for $\alpha_s$, the 0.04% accuracy for $\alpha_2$, and the sub-1% accuracy for all physical observables demonstrate that the H4 structure genuinely encodes the gauge coupling structure of the Standard Model.
+The agreement between H4-derived boundary conditions + SM RGE running and the Trinity predictions is **numerically verified** (coincidence, not derivation). The 0.07% accuracy for $\alpha_s$, the 0.04% accuracy for $\alpha_2$, and the sub-1% accuracy for all physical observables are **fitted coincidences** — the formulas are not derived from H4 axioms (0/26 rigorous derivations per `audit_report.md`). The H4 structure may encode the gauge coupling structure, but this remains a hypothesis, not a proven theorem.
 
 The residual ~1% errors are:
 - **Expected**: They are at the level of known 3-loop RGE and threshold corrections

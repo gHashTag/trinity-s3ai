@@ -201,7 +201,7 @@ PDG: 0.0409, error 0.9% (V-class, borderline with P-class)
 
 **Connection with H4:**
 - φ²π: product of pentagonal unit (φ²) and π — arises in volumes of rotations
-- Coefficient 3 = rank of A₂ = number of quark generations (N_gen = 3 from H4)
+- Coefficient 3 = rank of A₂ = number of quark generations (N_gen = 3 is **input**, not derived from H4 — see `ThreeGenerations.v` BT-3 and `N_GEN_HONEST_STATUS.md`)
 - Interpretation: 1/(3φ²π) ~ suppression of off-diagonal 2nd generation transition
 
 HONEST: Connection via N_gen=3 (from A₂ Coxeter number) is plausible, but not strict.
