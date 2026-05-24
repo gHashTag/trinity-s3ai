@@ -196,7 +196,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 2. **E₆/E₇ scouting** — explicit Dirac operators for E₆ and E₷ plumbing geometries (Wave 12.5 follow-up).
 3. **1-loop Higgs computation** — numerical check whether 1-loop corrections can rescue tree-level 132.88 GeV (Wave 12.4 follow-up).
 4. **arXiv preprint** — draft *"Trinity S³AI: Boundary-Mapping Research Program in H₄-Based Geometric Unification"*.
-5. **DUNE 2028 watch** — maintain δ_CP = 65.66° registry until experimental decision.
+5. **δ_CP withdrawal documentation** — ensure all publications and public docs transparently document the WITHDRAWN status (>5σ excluded, post-hoc fit, anti-post-hoc rule enforced).
 
 ---
 

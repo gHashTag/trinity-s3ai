@@ -240,7 +240,7 @@ All predictions are fixed **before** data in `PREDICTIONS_PREREGISTERED.md` with
 | 🔴 P1 | Lean 4: H4RootSystem.lean (red) | L2 fully green |
 | 🟡 P2 | T2–T3 Admitted → Qed (Cl(8)) | Track B advances |
 | 🟡 P2 | Paper v2 on arXiv | Track C |
-| 🟢 P3 | DUNE 2028: model-independent δ_CP | Final resolution N04 |
+| 🟢 P3 | Document δ_CP withdrawal transparently in all publications | Final resolution N04 (WITHDRAWN) |
 | 🟢 P3 | Snub 24-cell → three generations in Coq | Main open hypothesis |
 | 🟢 P3 | Independent validation of 500k MC protocol | Confirms or refutes Wave 20 |
 
