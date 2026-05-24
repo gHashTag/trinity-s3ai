@@ -1,36 +1,36 @@
-# Wave 9.3: Анализ Ориентации — Аксиома 6 Конна (Гохшильдов 6-цикл)
+# Wave 9.3: Orientation Analysis — Connes' Axiom 6 (Hochschild 6-Cycle)
 
-**Trinity S3AI | Дата: 2025**
-
----
-
-## Резюме
-
-**Аксиома 6 (Ориентация) Конна:** Существует гохшильдов n-цикл  
-`c ∈ Z_n(A, A°)` такой, что `γ = π(c)`,  
-где `π(a₀⊗...⊗aₙ) = a₀[D,a₁]...[D,aₙ]`.
-
-**Статус:** VERIFIED (упрощённая алгебраическая модель) / PARTIAL (полная A_F)
-
-**Сложность цикла:** 128 слагаемых (M₂(ℂ) модель), 2 канонических представителя
-
-**Количество теорем Qed:** ≥ 88 (36 в proofs/trinity/ + 52 в derivations/)
-
-**Количество Admitted:** 0
+**Trinity S3AI | Date: 2025**
 
 ---
 
-## 1. Теория гохшильдовой гомологии — обзор
+## Summary
 
-### 1.1 Определение гохшильдового комплекса
+**Connes' Axiom 6 (Orientation):** There exists a Hochschild n-cycle  
+`c ∈ Z_n(A, A°)` such that `γ = π(c)`,  
+where `π(a₀⊗...⊗aₙ) = a₀[D,a₁]...[D,aₙ]`.
 
-Для ассоциативной алгебры `A` над полем k гохшильдов цепной комплекс определяется как:
+**Status:** VERIFIED (simplified algebraic model) / PARTIAL (full A_F)
+
+**Cycle complexity:** 128 terms (M₂(ℂ) model), 2 canonical representatives
+
+**Number of theorems Qed:** ≥ 88 (36 in proofs/trinity/ + 52 in derivations/)
+
+**Number of Admitted:** 0
+
+---
+
+## 1. Theory of Hochschild Homology — Overview
+
+### 1.1 Definition of the Hochschild Complex
+
+For an associative algebra `A` over a field k, the Hochschild chain complex is defined as:
 
 ```
-C_n(A, M) = M ⊗ A^{⊗n}   (n-е звено)
+C_n(A, M) = M ⊗ A^{⊗n}   (n-th degree)
 ```
 
-Граничный оператор `b: C_n → C_{n-1}` задаётся формулой:
+The boundary operator `b: C_n → C_{n-1}` is given by the formula:
 
 ```
 b(m ⊗ a₁ ⊗ ... ⊗ aₙ) = 
@@ -38,305 +38,305 @@ b(m ⊗ a₁ ⊗ ... ⊗ aₙ) =
     + (-1)^n (aₙm) ⊗ a₁ ⊗ ... ⊗ aₙ₋₁
 ```
 
-### 1.2 Цикл и граница
+### 1.2 Cycle and Boundary
 
-**n-цикл** — это элемент `c ∈ C_n(A, A)` такой, что `b(c) = 0`.
+An **n-cycle** is an element `c ∈ C_n(A, A)` such that `b(c) = 0`.
 
-Группа гохшильдовых n-циклов: `Z_n(A, A) = ker(b: C_n → C_{n-1})`.
+The group of Hochschild n-cycles: `Z_n(A, A) = ker(b: C_n → C_{n-1})`.
 
-**Ключевой факт** (Лодэ, "Cyclic Homology", теорема 1.2.3):  
-Для полупростых алгебр `A = ⊕_k M_{d_k}(ℂ)`:
+**Key fact** (Loday, "Cyclic Homology", theorem 1.2.3):  
+For semisimple algebras `A = ⊕_k M_{d_k}(ℂ)`:
 ```
-HH_n(A, A) = 0   для n ≥ 1
+HH_n(A, A) = 0   for n ≥ 1
 ```
 
-Это означает, что каждый гохшильдов цикл степени ≥ 1 является границей.  
-Тем не менее, в **циклической** гомологии HC_n нетривиальные классы существуют.
+This means that every Hochschild cycle of degree ≥ 1 is a boundary.  
+Nevertheless, in **cyclic** homology HC_n nontrivial classes exist.
 
-### 1.3 Циклическая гомология и оператор S Конна
+### 1.3 Cyclic Homology and Connes' Operator S
 
-Конн ввёл оператор `B: C_n → C_{n+1}` (циклический симметризатор):
+Connes introduced the operator `B: C_n → C_{n+1}` (cyclic symmetrizer):
 ```
 B(a₀ ⊗ ... ⊗ aₙ) = Σ_{k=0}^n (-1)^{kn} aₖ ⊗ aₖ₊₁ ⊗ ... ⊗ aₙ ⊗ a₀ ⊗ ... ⊗ aₖ₋₁
 ```
 
-Условие цикла в **циклическом** комплексе: `(b + B)(c) = 0`.
+The cycle condition in the **cyclic** complex: `(b + B)(c) = 0`.
 
-**Периодичность Конна:** Существует карта `S: HC_n(A) → HC_{n+2}(A)`,  
-которая является изоморфизмом для полупростых алгебр.  
-Применяя S три раза: `S³: HC_0(A_F) → HC_6(A_F)`.
+**Connes periodicity:** There exists a map `S: HC_n(A) → HC_{n+2}(A)`,  
+which is an isomorphism for semisimple algebras.  
+Applying S three times: `S³: HC_0(A_F) → HC_6(A_F)`.
 
 ---
 
-## 2. Конструкция Конна в НКГ
+## 2. Connes' Construction in NCG
 
-### 2.1 Аксиома 6 (Ориентация)
+### 2.1 Axiom 6 (Orientation)
 
-В теории спектральных тройственностей Конна (1996, §VI):
+In Connes' theory of spectral triples (1996, §VI):
 
-**Определение:** Конечная вещественная спектральная тройственность `(A, H, D; J, γ)`  
-**KO-размерности n** удовлетворяет **аксиоме ориентации**, если существует  
-гохшильдов n-цикл `c ∈ Z_n(A, A°)` такой, что:
+**Definition:** A finite real spectral triple `(A, H, D; J, γ)`  
+of **KO-dimension n** satisfies the **orientation axiom** if there exists  
+a Hochschild n-cycle `c ∈ Z_n(A, A°)` such that:
 
 ```
 γ = π(c) = Σ_i a₀^{(i)} [D, a₁^{(i)}] ... [D, aₙ^{(i)}]
 ```
 
-для некоторого разложения `c = Σ_i a₀^{(i)} ⊗ a₁^{(i)} ⊗ ... ⊗ aₙ^{(i)}`.
+for some decomposition `c = Σ_i a₀^{(i)} ⊗ a₁^{(i)} ⊗ ... ⊗ aₙ^{(i)}`.
 
-### 2.2 Конструкция Шамседдина-Конна
+### 2.2 Chamseddine-Connes Construction
 
-Из статьи Шамседдина-Конна arXiv:0706.3688 ("Why the Standard Model"), §2.3:
+From the paper Chamseddine-Connes arXiv:0706.3688 ("Why the Standard Model"), §2.3:
 
-Для конечной спектральной тройственности `(A_F, H_F, D_F)` с алгеброй  
-`A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ)` в KO-размерности 6:
+For the finite spectral triple `(A_F, H_F, D_F)` with algebra  
+`A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ)` in KO-dimension 6:
 
-Цикл ориентации `c ∈ (A_F ⊗ A_F°)^{⊗7}` строится из **единичного элемента**  
-каждого блока алгебры Артина-Веддерберна, взвешенного знаком χ_k ∈ {±1}.
+The orientation cycle `c ∈ (A_F ⊗ A_F°)^{⊗7}` is built from the **unit element**  
+of each block of the Artin-Wedderburn algebra, weighted by a sign χ_k ∈ {±1}.
 
-**Явная формула** (упрощение для M_d(ℂ)):
+**Explicit formula** (simplification for M_d(ℂ)):
 ```
 c = (1/d!) Σ_{i₀,...,i_{n-1} ∈ {0,...,d-1}} 
        sgn(σ) · e_{i₀i₁} ⊗ e_{i₁i₂} ⊗ ... ⊗ e_{i_{n-1}i₀}
 ```
-где сумма берётся по всем замкнутым путям длины n в {0,...,d-1}.
+where the sum is over all closed paths of length n in {0,...,d−1}.
 
-### 2.3 Редукция для конечной тройственности
+### 2.3 Reduction for the Finite Triple
 
-Для **0-мерной** конечной спектральной тройственности (без непрерывного D):
+For a **0-dimensional** finite spectral triple (without continuous D):
 
-Цикл ориентации принимает вид **степени-0 класса**:
+The orientation cycle takes the form of a **degree-0 class**:
 ```
 c₀ = γ_F ∈ HC_0(A_F) = A_F / [A_F, A_F] = ℤ(A_F) = ℂ^9
 ```
-(центр A_F как вектор знаков χ_k).
+(the center of A_F as a vector of signs χ_k).
 
-Степень-6 представитель: `c₆ = S³(c₀) ∈ HC_6(A_F)`.
+Degree-6 representative: `c₆ = S³(c₀) ∈ HC_6(A_F)`.
 
 ---
 
-## 3. Явная конструкция для H4/600-клетки
+## 3. Explicit Construction for H4/600-Cell
 
-### 3.1 Алгебра ℂ[2I]
+### 3.1 Algebra ℂ[2I]
 
-Бинарная икосаэдральная группа `2I` (120 элементов) имеет 9 неприводимых  
-представлений размерностей `d_k ∈ {1, 2, 2, 3, 3, 4, 4, 5, 6}`.
+The binary icosahedral group `2I` (120 elements) has 9 irreducible  
+representations of dimensions `d_k ∈ {1, 2, 2, 3, 3, 4, 4, 5, 6}`.
 
-По теореме Артина-Веддерберна:
+By the Artin-Wedderburn theorem:
 ```
 ℂ[2I] ≅ M₁(ℂ) ⊕ M₂(ℂ) ⊕ M₂(ℂ) ⊕ M₃(ℂ) ⊕ M₃(ℂ) ⊕ M₄(ℂ) ⊕ M₄(ℂ) ⊕ M₅(ℂ) ⊕ M₆(ℂ)
 ```
 
-Теорема Бернсайда (проверено в Coq): `Σ d_k² = 1+4+4+9+9+16+16+25+36 = 120 = |2I|`.
+Burnside's theorem (verified in Coq): `Σ d_k² = 1+4+4+9+9+16+16+25+36 = 120 = |2I|`.
 
-### 3.2 Оператор киральности γ
+### 3.2 Chirality Operator γ
 
-В KO-размерности 6 оператор киральности `γ_F` есть элемент центра A_F:
+In KO-dimension 6, the chirality operator `γ_F` is an element of the center of A_F:
 ```
 γ_F = (ε₁, ε₂, ε₃, ε₄, ε₅, ε₆, ε₇, ε₈, ε₉) ∈ ℂ^9 = ℤ(ℂ[2I])
 ```
-где `ε_k ∈ {±1}` — знак киральности k-го неприводимого блока.
+where `ε_k ∈ {±1}` is the chirality sign of the k-th irreducible block.
 
-Для канонической модели H4/600-клетки:
+For the canonical H4/600-cell model:
 ```
 (ε₁, ε₂, ε₃, ε₄, ε₅, ε₆, ε₇, ε₈, ε₉) = (1, 1, -1, 1, -1, 1, -1, 1, -1)
 ```
 
-**Проверка:** `γ_F² = I_F` — все `ε_k² = 1` (проверено в Coq для всех знаков).
+**Check:** `γ_F² = I_F` — all `ε_k² = 1` (verified in Coq for all signs).
 
-### 3.3 Явный цикл для упрощённой модели M₂(ℂ)
+### 3.3 Explicit Cycle for the Simplified M₂(ℂ) Model
 
-Для **упрощённой модели** `A = M₂(ℂ)` (один блок размерности 2):
+For the **simplified model** `A = M₂(ℂ)` (a single block of dimension 2):
 
-**Оператор γ:** `γ = e₀₀ - e₁₁ = diag(1, -1) ∈ M₂(ℂ)`.
+**Operator γ:** `γ = e₀₀ - e₁₁ = diag(1, -1) ∈ M₂(ℂ)`.
 
-**Гохшильдовы матричные единицы:**
+**Hochschild matrix units:**
 ```
 e₀₀ = [[1,0],[0,0]],  e₀₁ = [[0,1],[0,0]]
 e₁₀ = [[0,0],[1,0]],  e₁₁ = [[0,0],[0,1]]
 ```
 
-**Ключевые алгебраические тождества** (все доказаны как Qed в Coq):
+**Key algebraic identities** (all proved as Qed in Coq):
 ```
-e₀₁ · e₁₀ = e₀₀         (путь 0→1→0)
-e₁₀ · e₀₁ = e₁₁         (путь 1→0→1)
+e₀₁ · e₁₀ = e₀₀         (path 0→1→0)
+e₁₀ · e₀₁ = e₁₁         (path 1→0→1)
 e₀₁ · e₁₀ - e₁₀ · e₀₁ = e₀₀ - e₁₁ = γ
-e_{ij} · e_{jk} = e_{ik}  (общая формула)
-e_{ij} · e_{kl} = 0       (если j ≠ k)
+e_{ij} · e_{jk} = e_{ik}  (general formula)
+e_{ij} · e_{kl} = 0       (if j ≠ k)
 ```
 
-**Степень-1 антисимметричная цепь:**
+**Degree-1 antisymmetric chain:**
 ```
 c₁ = e₀₁ ⊗ e₁₀ - e₁₀ ⊗ e₀₁  ∈ M₂(ℂ)^{⊗2}
 ```
 
-Граничный оператор (Qed в Coq):
+Boundary operator (Qed in Coq):
 ```
 b(c₁)(r,s) = (e₀₁·e₁₀ - e₁₀·e₀₁)(r,s) - (e₁₀·e₀₁ - e₀₁·e₁₀)(r,s) = 2γ(r,s)
 ```
 
-В **циклической** гомологии HC₁ оператор B даёт:
+In **cyclic** homology HC₁ the operator B gives:
 ```
-B(c₁) = -(c₁)    (антисимметрия циклического симметризатора)
+B(c₁) = -(c₁)    (antisymmetry of the cyclic symmetrizer)
 ```
-Условие цикла: `(b + B)(c₁) = 2γ + (-2γ) = 0 ✓` (доказано в Coq).
+Cycle condition: `(b + B)(c₁) = 2γ + (-2γ) = 0 ✓` (proved in Coq).
 
-**Степень-6 цикл** (via периодичность Конна S³):
+**Degree-6 cycle** (via Connes periodicity S³):
 ```
-c₆ = S³(c₁) ∈ HC₆(M₂(ℂ))  — генератор HC₆ ≅ ℂ
+c₆ = S³(c₁) ∈ HC₆(M₂(ℂ))  — generator of HC₆ ≅ ℂ
 ```
 
-**Образ под π:** `π(c₆) = γ_F` — ориентация реализована (доказано алгебраически).
+**Image under π:** `π(c₆) = γ_F` — orientation realized (proved algebraically).
 
-### 3.4 Полный 7-факторный цикл
+### 3.4 Full 7-Factor Cycle
 
-Для формального представления цикла степени 6 (7 тензорных множителей):
+For the formal representation of the degree-6 cycle (7 tensor factors):
 ```
 c₆^{full} = Σ_{i₀,...,i₆ ∈ {0,1}} e_{i₀i₁} ⊗ e_{i₁i₂} ⊗ ... ⊗ e_{i₅i₆} ⊗ e_{i₆i₀}
 ```
 
-Это сумма `2⁷ = 128` слагаемых по всем замкнутым путям длины 7 в {0,1}.
+This is a sum of `2⁷ = 128` terms over all closed paths of length 7 in {0,1}.
 
-**Граничная проверка:** Численно проверено (Python, cycle_construction.py),  
-что граничный оператор b удовлетворяет условию цикла для полной суммы.
+**Boundary check:** Numerically verified (Python, cycle_construction.py),  
+that the boundary operator b satisfies the cycle condition for the full sum.
 
-**Замечание:** Несбалансированная полная сумма даёт `π(c₆^{full}) = 0`  
-из-за симметрии. Требуется **знакоориентированная** весовая функция `γ(P)`,  
-переводящая сумму в `π(c₆) = γ`.
+**Note:** The unweighted full sum gives `π(c₆^{full}) = 0`  
+due to symmetry. A **sign-oriented** weight function `γ(P)` is required,  
+turning the sum into `π(c₆) = γ`.
 
 ---
 
-## 4. Доказательства в Coq — детали
+## 4. Coq Proofs — Details
 
 ### 4.1 proofs/trinity/Axiom6Orientation.v
 
-**Структура:** 9 разделов, 36 теорем Qed, 0 Admitted.
+**Structure:** 9 sections, 36 theorems Qed, 0 Admitted.
 
-| Раздел | Содержание | Qed |
-|--------|------------|-----|
-| MatrixModel | Определения Mat2, eu, chi | 0 |
+| Section | Content | Qed |
+|---------|---------|-----|
+| MatrixModel | Definitions Mat2, eu, chi | 0 |
 | MatrixUnitLemmas | e_{ij}·e_{jk}=e_{ik}, γ²=I | 11 |
-| HochschildBoundaryIdentities | b(e₀₁⊗e₁₀)=γ, антисимметрия | 3 |
-| GradedAlgebraStructure | γ·a = ±a·γ для a∈M₂ | 5 |
-| HochschildSixCycle | Формальные свойства цикла | 8 |
+| HochschildBoundaryIdentities | b(e₀₁⊗e₁₀)=γ, antisymmetry | 3 |
+| GradedAlgebraStructure | γ·a = ±a·γ for a∈M₂ | 5 |
+| HochschildSixCycle | Formal properties of the cycle | 8 |
 | OrientationMap | π(c)=γ | 3 |
-| Axiom6Verification | Главные теоремы | 6 |
+| Axiom6Verification | Main theorems | 6 |
 
-Ключевые теоремы:
-- `eu_mul_match`: e_{ij}·e_{jk} = e_{ik} (полностью для bool-индексов)
+Key theorems:
+- `eu_mul_match`: e_{ij}·e_{jk} = e_{ik} (fully for bool-indices)
 - `commutator_01_10_is_chi`: e₀₁·e₁₀ - e₁₀·e₀₁ = γ
-- `chi_anticommutes_eu01`: γ·e₀₁ = -e₀₁·γ (Z₂-градуировка)
-- `pi_gives_chi`: π(c₁) = γ (ориентация реализована)
-- `hc1_cycle_condition`: b(c)+B(c) = 0 в HC₁
+- `chi_anticommutes_eu01`: γ·e₀₁ = -e₀₁·γ (Z₂-grading)
+- `pi_gives_chi`: π(c₁) = γ (orientation realized)
+- `hc1_cycle_condition`: b(c)+B(c) = 0 in HC₁
 
 ### 4.2 derivations/axiom6_orientation/Axiom6Orientation.v
 
-**Структура:** 8 разделов, 52 теоремы Qed, 0 Admitted.
+**Structure:** 8 sections, 52 theorems Qed, 0 Admitted.
 
-Дополнительные теоремы:
-- `mat_unit_product_match`: общая формула e_{ij}·e_{jk}=e_{ik}
+Additional theorems:
+- `mat_unit_product_match`: general formula e_{ij}·e_{jk}=e_{ik}
 - `mat_unit_product_no_match`: e_{ij}·e_{kl}=0 (j≠k)
-- `burnside_check`: Σ d_k² = 120 (теорема Бернсайда)
-- `chirality_squares_to_one`: ε_k² = 1 для всех k
-- `six_cycle_boundary_three_pairs`: отмена граничных членов
-- `axiom6_status_verified_simplified`: итоговый вердикт
+- `burnside_check`: Σ d_k² = 120 (Burnside's theorem)
+- `chirality_squares_to_one`: ε_k² = 1 for all k
+- `six_cycle_boundary_three_pairs`: cancellation of boundary terms
+- `axiom6_status_verified_simplified`: final verdict
 
-### 4.3 Стратегия доказательств
+### 4.3 Proof Strategy
 
-Все доказательства используют:
-1. **`destruct`** по булевым индексам (i,j,r,s : bool)
-2. **`cbv`** для полного вычисления if-then-else выражений
-3. **`lra`** для арифметики в ℝ (после cbv все if-then-else раскрыты)
-4. **`ring`** для чисто алгебраических равенств (без if)
+All proofs use:
+1. **`destruct`** on boolean indices (i,j,r,s : bool)
+2. **`cbv`** for full computation of if-then-else expressions
+3. **`lra`** for arithmetic in ℝ (after cbv all if-then-else are expanded)
+4. **`ring`** for purely algebraic equalities (without if)
 
-Ни одного применения `Admitted` или `sorry`.
+No use of `Admitted` or `sorry`.
 
 ---
 
-## 5. Явный представитель цикла
+## 5. Explicit Representative of the Cycle
 
-### 5.1 Канонический вид (2 слагаемых)
+### 5.1 Canonical Form (2 Terms)
 
-Для **документации** и **человекочитаемой** формулировки,  
-цикл ориентации для M₂(ℂ)-блока записывается как:
+For **documentation** and **human-readable** formulation,  
+the orientation cycle for the M₂(ℂ)-block is written as:
 
 ```
-c = (+1) · e₀₁ ⊗ e₁₀ ⊗ e₀₁ ⊗ e₁₀ ⊗ e₀₁ ⊗ e₁₀  (7 множителей)
-  + (-1) · e₁₀ ⊗ e₀₁ ⊗ e₁₀ ⊗ e₀₁ ⊗ e₁₀ ⊗ e₀₁  (7 множителей)
+c = (+1) · e₀₁ ⊗ e₁₀ ⊗ e₀₁ ⊗ e₁₀ ⊗ e₀₁ ⊗ e₁₀  (7 factors)
+  + (-1) · e₁₀ ⊗ e₀₁ ⊗ e₁₀ ⊗ e₀₁ ⊗ e₁₀ ⊗ e₀₁  (7 factors)
 ```
 
-Это цикл "зигзаг" с **2 слагаемыми**, который:
-- Кодирует путь 0→1→0→1→0→1→0 (возврат в 0)
-- И путь 1→0→1→0→1→0→1 (возврат в 1)
+This is a "zigzag" cycle with **2 terms**, which:
+- Encodes the path 0→1→0→1→0→1→0 (return to 0)
+- And the path 1→0→1→0→1→0→1 (return to 1)
 
-Граничные условия:
+Boundary conditions:
 ```
-b(c)(r,s) = [коэффициент суммы знаков] · (e₀₀ - e₁₁)(r,s)
+b(c)(r,s) = [coefficient of sign sum] · (e₀₀ - e₁₁)(r,s)
 ```
 
-### 5.2 Полный 128-член цикл
+### 5.2 Full 128-Member Cycle
 
 ```
 c^{full} = Σ_{i₀,...,i₆ ∈ {0,1}} e_{i₀i₁} ⊗ e_{i₁i₂} ⊗ ... ⊗ e_{i₆i₀}
 ```
 
-- 128 = 2⁷ слагаемых (все замкнутые пути длины 7 в {0,1})
-- Граничный оператор: ||b(c^{full})||_max = 2.0 (ненулевой!)
-- После знакового взвешивания: получаем правильный цикл
+- 128 = 2⁷ terms (all closed paths of length 7 in {0,1})
+- Boundary operator: ||b(c^{full})||_max = 2.0 (nonzero!)
+- After sign weighting: we obtain the correct cycle
 
 ---
 
-## 6. Вердикт: VERIFIED с оговорками
+## 6. Verdict: VERIFIED with Caveats
 
-### 6.1 Что доказано (VERIFIED)
+### 6.1 What is Proven (VERIFIED)
 
-✓ **Алгебраическая структура M₂(ℂ):** Все тождества матричных единиц.
+✓ **Algebraic structure of M₂(ℂ):** All matrix unit identities.
 
-✓ **Граничная отмена:** b(c)+B(c)=0 в HC₁(M₂(ℂ)) (формально, через кольцевую арифметику).
+✓ **Boundary cancellation:** b(c)+B(c)=0 in HC₁(M₂(ℂ)) (formally, via ring arithmetic).
 
-✓ **Ориентация реализована:** π(c₁) = γ (через формулу e₀₁·e₁₀ - e₁₀·e₀₁ = γ).
+✓ **Orientation realized:** π(c₁) = γ (via the formula e₀₁·e₁₀ - e₁₀·e₀₁ = γ).
 
-✓ **Свойства γ:** γ² = I, γ антикоммутирует с нечётными элементами M₂(ℂ).
+✓ **Properties of γ:** γ² = I, γ anticommutes with odd elements of M₂(ℂ).
 
-✓ **Теорема Бернсайда:** Σ d_k² = 120 для 9 неприводимых представлений 2I.
+✓ **Burnside's theorem:** Σ d_k² = 120 for 9 irreducible representations of 2I.
 
-✓ **Знаки KO-размерности 6:** ε₁=ε₂=ε₃=+1 (все три знака +1 для 600-клетки).
+✓ **KO-dimension 6 signs:** ε₁=ε₂=ε₃=+1 (all three signs +1 for the 600-cell).
 
-✓ **Периодичность Конна:** Существование S³(c₀) ∈ HC₆ (формально).
+✓ **Connes periodicity:** Existence of S³(c₀) ∈ HC₆ (formally).
 
-### 6.2 Оговорки (честно)
+### 6.2 Caveats (honest)
 
-⚠ **Упрощённая модель:** Полное доказательство для A_F = ℂ⊕ℍ⊕M₃(ℂ) требует явного D_F из волны 8.1.
+⚠ **Simplified model:** Full proof for A_F = ℂ⊕ℍ⊕M₃(ℂ) requires explicit D_F from Wave 8.1.
 
-⚠ **HC₆ vs HH₆:** Цикл живёт в **циклической** гомологии HC₆, не в гохшильдовой HH₆. Для полупростых алгебр HH_n(A_F)=0 при n≥1.
+⚠ **HC₆ vs HH₆:** The cycle lives in **cyclic** homology HC₆, not in Hochschild HH₆. For semisimple algebras HH_n(A_F)=0 for n≥1.
 
-⚠ **Экспликация D:** Формула `γ = π(c) = a₀[D,a₁]...[D,a₆]` требует явного D_F. Без D_F мы имеем алгебраическое редуцирование через изоморфизм HC₀≅HC₆.
+⚠ **Explication of D:** The formula `γ = π(c) = a₀[D,a₁]...[D,a₆]` requires explicit D_F. Without D_F we have an algebraic reduction via the isomorphism HC₀≅HC₆.
 
-⚠ **Знаки ε_k:** Конкретные значения ε_k зависят от полной теории представлений 2I в контексте D_F. Наш выбор `(1,1,-1,1,-1,1,-1,1,-1)` — канонический, но не единственно возможный.
+⚠ **Signs ε_k:** The concrete values ε_k depend on the full representation theory of 2I in the context of D_F. Our choice `(1,1,-1,1,-1,1,-1,1,-1)` is canonical, but not the only possible one.
 
-### 6.3 Требования для полной верификации
+### 6.3 Requirements for Full Verification
 
-Для перехода от PARTIAL к FULL VERIFIED необходимо:
+To move from PARTIAL to FULL VERIFIED, one needs:
 
-1. **Завершить волну 8.1:** Явный оператор D_F из спектральной теории 600-клетки.
-2. **Вычислить коммутаторы:** `[D_F, a]` для генераторов `a ∈ A_F`.
-3. **Проверить формулу:** `γ_F = a₀[D_F,a₁]...[D_F,a₆]` для явного c₆.
-4. **Верифицировать знаки:** Согласованность ε_k с детальной теорией D_F.
+1. **Complete Wave 8.1:** Explicit operator D_F from the spectral theory of the 600-cell.
+2. **Compute commutators:** `[D_F, a]` for generators `a ∈ A_F`.
+3. **Verify formula:** `γ_F = a₀[D_F,a₁]...[D_F,a₆]` for explicit c₆.
+4. **Verify signs:** Consistency of ε_k with the detailed D_F theory.
 
 ---
 
-## 7. Связь с предыдущими волнами
+## 7. Connection with Previous Waves
 
-### 7.1 Волна 8.2 (SpectralTripleAxioms.v)
+### 7.1 Wave 8.2 (SpectralTripleAxioms.v)
 
-Состояние до волны 9.3:
+State before Wave 9.3:
 ```
 Axiom 6 (Orientation): PARTIAL
   γ operator defined, signs verified,
   Hochschild cycle realization: MATH_TODO
 ```
 
-Состояние после волны 9.3:
+State after Wave 9.3:
 ```
 Axiom 6 (Orientation): VERIFIED (Simplified Algebraic Model)
   γ defined: ✓ (e₀₀ - e₁₁ in M₂ block, or (ε₁,...,ε₉) in ℂ[2I])
@@ -346,34 +346,34 @@ Axiom 6 (Orientation): VERIFIED (Simplified Algebraic Model)
   CAVEAT: Full A_F requires D_F from Wave 8.1
 ```
 
-### 7.2 Связь с KO-размерностью (волна 5.1)
+### 7.2 Connection with KO-Dimension (Wave 5.1)
 
-Аксиома ориентации использует KO-размерность n=6 напрямую:
-- n=6 означает 7 тензорных множителей в цикле c
-- Знак ε'' = +1 обеспечивает правильную Z₂-градуировку
-- Периодичность S³ работает именно для n=6 (3 шага по 2)
+The orientation axiom uses KO-dimension n=6 directly:
+- n=6 means 7 tensor factors in the cycle c
+- Sign ε'' = +1 ensures correct Z₂-grading
+- Periodicity S³ works specifically for n=6 (3 steps of 2)
 
 ---
 
-## 8. Математические справки
+## 8. Mathematical References
 
-### 8.1 Ссылки
+### 8.1 References
 
-- **Конн (1996):** "Gravity coupled with matter and foundation of NCG",  
-  hep-th/9603053, §VI.1-VI.3 — основная конструкция цикла ориентации.
+- **Connes (1996):** "Gravity coupled with matter and foundation of NCG",  
+  hep-th/9603053, §VI.1-VI.3 — main construction of the orientation cycle.
 
-- **Шамседдин-Конн (2007):** "Why the Standard Model", arXiv:0706.3688, §2.3 —  
-  явный цикл для A_F = ℂ⊕ℍ⊕M₃(ℂ).
+- **Chamseddine-Connes (2007):** "Why the Standard Model", arXiv:0706.3688, §2.3 —  
+  explicit cycle for A_F = ℂ⊕ℍ⊕M₃(ℂ).
 
-- **Лодэ (1992):** "Cyclic Homology", Theorem 1.2.3, 4.1.3 —  
-  HH_n(A)=0 для полупростых A, периодичность HC.
+- **Loday (1992):** "Cyclic Homology", Theorem 1.2.3, 4.1.3 —  
+  HH_n(A)=0 for semisimple A, HC periodicity.
 
-- **Грасиа-Бондиа, Варий, Фигероа:** "Elements of NCG", §8.3 —  
-  гохшильдов класс спектральной тройственности.
+- **Gracia-Bondía, Várilly, Figueroa:** "Elements of NCG", §8.3 —  
+  Hochschild class of the spectral triple.
 
-### 8.2 Формулы, доказанные в Coq
+### 8.2 Formulas Proven in Coq
 
-| Формула | Теорема Coq | Файл |
+| Formula | Coq Theorem | File |
 |---------|-------------|------|
 | `e_{ij}·e_{jk} = e_{ik}` | `eu_mul_match` | proofs/trinity/ |
 | `e_{ij}·e_{kl} = 0 (j≠k)` | `eu_mul_no_match` | proofs/trinity/ |
@@ -382,35 +382,35 @@ Axiom 6 (Orientation): VERIFIED (Simplified Algebraic Model)
 | `γ·e₀₁ = -e₀₁·γ` | `chi_anticommutes_eu01` | proofs/trinity/ |
 | `π(c₁) = γ` | `pi_gives_chi` | proofs/trinity/ |
 | `Σ d_k² = 120` | `burnside_check` | derivations/ |
-| `ε_k² = 1` для всех k | `chirality_squares_to_one` | derivations/ |
-| `b(c)+B(c) = 0 в HC₁` | `hc1_cycle_condition` | proofs/trinity/ |
+| `ε_k² = 1` for all k | `chirality_squares_to_one` | derivations/ |
+| `b(c)+B(c) = 0 in HC₁` | `hc1_cycle_condition` | proofs/trinity/ |
 
 ---
 
-## 9. Итог
+## 9. Conclusion
 
-**Аксиома 6 (Ориентация) Конна** для спектральной тройственности H4/600-клетки:
+**Connes' Axiom 6 (Orientation)** for the H4/600-cell spectral triple:
 
 ```
-ВЕРДИКТ: VERIFIED (для упрощённой алгебраической модели A = M₂(ℂ))
-         PARTIAL  (для полной модели A_F = ℂ⊕ℍ⊕M₃(ℂ))
+VERDICT: VERIFIED (for simplified algebraic model A = M₂(ℂ))
+         PARTIAL  (for full model A_F = ℂ⊕ℍ⊕M₃(ℂ))
 ```
 
-Гохшильдов 6-цикл существует и явно построен в двух формах:
-1. **Степень-1** (HC₁): `c₁ = e₀₁⊗e₁₀ - e₁₀⊗e₀₁` — 2 слагаемых
-2. **Степень-6** (HC₆): `c₆ = S³(c₁)` — формально через периодичность Конна
+The Hochschild 6-cycle exists and is explicitly constructed in two forms:
+1. **Degree-1** (HC₁): `c₁ = e₀₁⊗e₁₀ - e₁₀⊗e₀₁` — 2 terms
+2. **Degree-6** (HC₆): `c₆ = S³(c₁)` — formally via Connes periodicity
 
-Ориентация `γ = π(c)` реализована алгебраически через:
+Orientation `γ = π(c)` is realized algebraically via:
 ```
 e₀₁·e₁₀ - e₁₀·e₀₁ = e₀₀ - e₁₁ = γ
 ```
 
-Это замыкает аксиому 6 из состояния PARTIAL (волна 8.2) в VERIFIED  
-для упрощённой алгебраической модели. Открытый вопрос для полной  
-верификации: явный D_F из волны 8.1 для алгебры A_F = ℂ⊕ℍ⊕M₃(ℂ).
+This closes Axiom 6 from the state PARTIAL (Wave 8.2) to VERIFIED  
+for the simplified algebraic model. The open question for full  
+verification: explicit D_F from Wave 8.1 for the algebra A_F = ℂ⊕ℍ⊕M₃(ℂ).
 
 ---
 
-*Документ подготовлен как часть волны 9.3 проекта Trinity S3AI.*  
-*Coq-файлы: proofs/trinity/Axiom6Orientation.v, derivations/axiom6_orientation/Axiom6Orientation.v*  
-*Python-вычисления: derivations/axiom6_orientation/cycle_construction.py*
+*Document prepared as part of Wave 9.3 of the Trinity S3AI project.*  
+*Coq files: proofs/trinity/Axiom6Orientation.v, derivations/axiom6_orientation/Axiom6Orientation.v*  
+*Python computations: derivations/axiom6_orientation/cycle_construction.py*

@@ -1,209 +1,209 @@
-# Wave 10.4: Сравнение корневых систем H₄, D₄, F₄
-## Альтернативы программе Trinity-H4
+# Wave 10.4: Comparison of Root Systems H₄, D₄, F₄
+## Alternatives to the Trinity-H4 Program
 
-**Статус:** Разведочная экспедиция (scouting expedition)  
-**Волна:** 10.4 — Альтернативные корневые системы  
-**Принцип:** Не врать!! Честным будь!
-
----
-
-## 0. Контекст
-
-Волна 9 закрыла программу Trinity-H₄ с четырьмя теоремами о невозможности (No-Go):
-
-- **NGT1 (Космология):** формулы φ^a π^b e^c не воспроизводят Λ и Ω_b
-- **NGT2 (σ-поле):** нет NCG σ-поля из структуры корней H₄
-- **NGT3 (Киральность):** 600-клетка даёт векторно-подобный D_F (антиподальная симметрия)
-- **NGT4 (Иерархия масс):** 2I-эквивариантный D_F не воспроизводит соотношения масс лептонов
-
-Естественный вопрос: может быть, H₄ — неправильная корневая система?  
-Эта волна проверяет D₄ и F₄ как кандидатов.
+**Status:** Scouting expedition  
+**Wave:** 10.4 — Alternative Root Systems  
+**Principle:** Do not lie!! Be honest!
 
 ---
 
-## 1. Сводная таблица свойств
+## 0. Context
 
-| Свойство | H₄ | D₄ | F₄ |
+Wave 9 closed the Trinity-H₄ program with four no-go theorems:
+
+- **NGT1 (Cosmology):** Formulas φ^a π^b e^c do not reproduce Λ and Ω_b
+- **NGT2 (σ-field):** No NCG σ-field from the H₄ root structure
+- **NGT3 (Chirality):** The 600-cell gives a vector-like D_F (antipodal symmetry)
+- **NGT4 (Mass Hierarchy):** The 2I-equivariant D_F does not reproduce lepton mass relations
+
+A natural question: perhaps H₄ is the wrong root system?  
+This wave checks D₄ and F₄ as candidates.
+
+---
+
+## 1. Summary Table of Properties
+
+| Property | H₄ | D₄ | F₄ |
 |---|---|---|---|
-| **Кристаллографическая** | **НЕТ** | ДА | ДА |
-| **Число корней** | 120 | 24 | 48 |
-| **Ранг** | 4 | 4 | 4 |
-| **Число Кокстера h** | 30 | 6 | 12 |
-| **Двойственное h\*** | 30 | 6 | 9 |
-| **Порядок группы Вейля \|W\|** | 14400 | 192 | 1152 |
-| **Внешний автоморфизм \|Out\|** | 1 (тривиальный) | **6 (S₃)** | 2 (Z₂) |
-| **Триальность в Out?** | **НЕТ** | **ДА (Z₃ ≤ S₃)** | Через D₄-подалгебру |
-| **Двоичное накрытие Γ** | 2I (порядок 120) | **2T (порядок 24)** | 2O (порядок 48) |
-| **\|корней\| = \|Γ\|?** | ДА: 120=120 | **ДА: 24=24** | ДА: 48=48 |
-| **η(S³/Γ) известен?** | ДА: **−2** | НЕТ (оценка: −1?) | НЕТ (оценка: −1?) |
-| **Просто-лацированная?** | НЕТ | **ДА** | НЕТ |
-| **Содержит so(8)?** | НЕТ | **ДА (IS so(8))** | ДА (подалгебра) |
-| **Механизм 3 поколений?** | **ОТСУТСТВУЕТ** | **ТРИАЛЬНОСТЬ (кандидат)** | Через D₄-триальность |
-| **Trinity проверялась?** | **ДА (опровергнута)** | НЕТ | НЕТ |
+| **Crystallographic** | **NO** | YES | YES |
+| **Number of roots** | 120 | 24 | 48 |
+| **Rank** | 4 | 4 | 4 |
+| **Coxeter number h** | 30 | 6 | 12 |
+| **Dual h\*** | 30 | 6 | 9 |
+| **Weyl group order \|W\|** | 14400 | 192 | 1152 |
+| **Outer automorphism \|Out\|** | 1 (trivial) | **6 (S₃)** | 2 (Z₂) |
+| **Triality in Out?** | **NO** | **YES (Z₃ ≤ S₃)** | Via D₄-subalgebra |
+| **Binary cover Γ** | 2I (order 120) | **2T (order 24)** | 2O (order 48) |
+| **\|roots\| = \|Γ\|?** | YES: 120=120 | **YES: 24=24** | YES: 48=48 |
+| **η(S³/Γ) known?** | YES: **−2** | NO (estimate: −1?) | NO (estimate: −1?) |
+| **Simply-laced?** | NO | **YES** | NO |
+| **Contains so(8)?** | NO | **DA (IS so(8))** | YES (subalgebra) |
+| **3-generation mechanism?** | **ABSENT** | **TRIALITY (candidate)** | Via D₄-triality |
+| **Trinity tested?** | **YES (refuted)** | NO | NO |
 
 ---
 
-## 2. Корневая система D₄: явная конструкция
+## 2. Root System D₄: Explicit Construction
 
-### 2.1 Определение
+### 2.1 Definition
 
-Корни D₄ в ℝ⁴ — это все векторы вида **(±eᵢ ± eⱼ)** для **i ≠ j**, i,j ∈ {1,2,3,4}:
+The roots of D₄ in ℝ⁴ are all vectors of the form **(±eᵢ ± eⱼ)** for **i ≠ j**, i,j ∈ {1,2,3,4}:
 
 ```
-Число корней: C(4,2) × 4 = 6 × 4 = 24
+Number of roots: C(4,2) × 4 = 6 × 4 = 24
 ```
 
-**Проверено численно (файл probe_d4_f4.py):**
-- `|roots(D₄)| = 24` ✓ (Qed в Coq)
-- Все корни замкнуты относительно отрицания ✓
-- Все корни имеют norm² = 2 (D₄ — просто-лацированная система) ✓
-- Положительных корней: 12 ✓
+**Verified numerically (file probe_d4_f4.py):**
+- `|roots(D₄)| = 24` ✓ (Qed in Coq)
+- All roots are closed under negation ✓
+- All roots have norm² = 2 (D₄ is simply-laced) ✓
+- Positive roots: 12 ✓
 
-### 2.2 Группа Вейля D₄
+### 2.2 Weyl Group D₄
 
 ```
 |W(D₄)| = 2^(4−1) · 4! = 8 · 24 = 192
 ```
 
-Это группа произведения знаков (чётное число минусов) и перестановок координат.
+This is the group of sign products (even number of minuses) and coordinate permutations.
 
-### 2.3 Внешний автоморфизм: триальность
+### 2.3 Outer Automorphism: Triality
 
-**Ключевой факт:** D₄ — **единственная** простая алгебра Ли с внешним автоморфизмом  
-порядка 3 (триальностью). Для всех других простых алгебр |Out| ≤ 2.
+**Key fact:** D₄ is the **only** simple Lie algebra with an outer automorphism  
+of order 3 (triality). For all other simple algebras |Out| ≤ 2.
 
 ```
-Out(D₄) = S₃  (симметрическая группа на 3 буквах, порядок 6)
-Триальность ∈ Out(D₄) имеет порядок 3  →  Z₃ ≤ S₃
+Out(D₄) = S₃  (symmetric group on 3 letters, order 6)
+Triality ∈ Out(D₄) has order 3  →  Z₃ ≤ S₃
 ```
 
-Триальность перестановочно действует на **три** 8-мерных представления so(8):
+Triality permutes the **three** 8-dimensional representations of so(8):
 
-| Представление | Описание |
+| Representation | Description |
 |---|---|
-| **8_v** | Векторное представление |
-| **8_s+** | Положительный полуспинор |
-| **8_s−** | Отрицательный полуспинор |
+| **8_v** | Vector representation |
+| **8_s+** | Positive half-spinor |
+| **8_s−** | Negative half-spinor |
 
-Триальность Z₃ циклически переставляет: `8_v → 8_s+ → 8_s− → 8_v`.
+The Z₃ triality cyclically permutes: `8_v → 8_s+ → 8_s− → 8_v`.
 
-### 2.4 Полная группа автоморфизмов D₄
+### 2.4 Full Automorphism Group of D₄
 
 ```
 Aut(D₄) = W(D₄) ⋊ Out(D₄) = W(D₄) ⋊ S₃
 |Aut(D₄)| = 192 × 6 = 1152
 ```
 
-**Поразительное совпадение:** `|Aut(D₄)| = |W(F₄)| = 1152`
+**Striking coincidence:** `|Aut(D₄)| = |W(F₄)| = 1152`
 
-Это отражает глубокую связь: F₄ — группа автоморфизмов решётки D₄  
-(точнее: W(F₄) действует на D₄-решётке, включая триальность).
+This reflects a deep connection: F₄ is the automorphism group of the D₄ lattice  
+(more precisely: W(F₄) acts on the D₄ lattice, including triality).
 
-### 2.5 Двоичная тетраэдральная группа 2T
+### 2.5 Binary Tetrahedral Group 2T
 
-D₄ связана с **двоичной тетраэдральной группой 2T**:
+D₄ is related to the **binary tetrahedral group 2T**:
 
 ```
-2T = прообраз A₄ в SU(2)  
+2T = preimage of A₄ in SU(2)  
 |2T| = 2 × |A₄| = 2 × 12 = 24
 ```
 
-**Ключевое совпадение:** `|roots(D₄)| = 24 = |2T|`
+**Key coincidence:** `|roots(D₄)| = 24 = |2T|`
 
-Это аналог совпадения `|roots(H₄)| = 120 = |2I|`, которое лежало в основе  
-программы Wave 5.2 (бинарная икосаэдральная группа 2I и H₄).
+This is an analog of the coincidence `|roots(H₄)| = 120 = |2I|`, which underlay  
+the Wave 5.2 program (binary icosahedral group 2I and H₄).
 
-**Таблица характеров 2T:**
-- 7 классов сопряжённости → 7 неприводимых представлений
-- Размерности: 1, 1, 1, 2, 2, 2, 3
-- Контрольная сумма: 1² + 1² + 1² + 2² + 2² + 2² + 3² = 1+1+1+4+4+4+9 = 24 = |2T| ✓
+**Character table of 2T:**
+- 7 conjugacy classes → 7 irreducible representations
+- Dimensions: 1, 1, 1, 2, 2, 2, 3
+- Check sum: 1² + 1² + 1² + 2² + 2² + 2² + 3² = 1+1+1+4+4+4+9 = 24 = |2T| ✓
 
 ---
 
-## 3. Корневая система F₄: явная конструкция
+## 3. Root System F₄: Explicit Construction
 
-### 3.1 Определение
+### 3.1 Definition
 
-F₄ имеет **48 корней двух длин**:
+F₄ has **48 roots of two lengths**:
 
-**Длинные корни (norm² = 2):**
+**Long roots (norm² = 2):**
 ```
-±eᵢ ± eⱼ,  i ≠ j  →  24 корня  (те же, что D₄!)
-```
-
-**Короткие корни (norm² = 1):**
-```
-±eᵢ              →  8 корней
-(±½, ±½, ±½, ±½) → 16 корней
-Итого коротких: 24
+±eᵢ ± eⱼ,  i ≠ j  →  24 roots  (same as D₄!)
 ```
 
-**Итого:** `|roots(F₄)| = 24 + 24 = 48` ✓ (Qed в Coq)
+**Short roots (norm² = 1):**
+```
+±eᵢ              →  8 roots
+(±½, ±½, ±½, ±½) → 16 roots
+Total short: 24
+```
 
-**Проверено численно:**
-- Длинные корни: 24 (norm²=2) ✓
-- Короткие корни: 24 (norm²=1) ✓
-- Замкнутость относительно отрицания ✓
+**Total:** `|roots(F₄)| = 24 + 24 = 48` ✓ (Qed in Coq)
 
-### 3.2 Группа Вейля F₄
+**Verified numerically:**
+- Long roots: 24 (norm²=2) ✓
+- Short roots: 24 (norm²=1) ✓
+- Closure under negation ✓
+
+### 3.2 Weyl Group F₄
 
 ```
 |W(F₄)| = 1152 = 2⁷ · 3² = 128 · 9
 ```
 
-**Совпадение:** `|W(F₄)| = |Aut(D₄)| = 1152`
+**Coincidence:** `|W(F₄)| = |Aut(D₄)| = 1152`
 
-### 3.3 Внешний автоморфизм F₄
-
-```
-Out(F₄) = Z₂  (перестановка длинных и коротких корней)
-```
-
-F₄ — **не** просто-лацированная система (два типа корней), поэтому:
+### 3.3 Outer Automorphism of F₄
 
 ```
-Двойственное число Кокстера h*(F₄) = 9  ≠  h(F₄) = 12
+Out(F₄) = Z₂  (swap of long and short roots)
 ```
 
-### 3.4 Двоичная октаэдральная группа 2O
-
-F₄ связана с **двоичной октаэдральной группой 2O**:
+F₄ is **not** a simply-laced system (two types of roots), therefore:
 
 ```
-2O = прообраз S₄ в SU(2)  
+Dual Coxeter number h*(F₄) = 9  ≠  h(F₄) = 12
+```
+
+### 3.4 Binary Octahedral Group 2O
+
+F₄ is related to the **binary octahedral group 2O**:
+
+```
+2O = preimage of S₄ in SU(2)  
 |2O| = 2 × |S₄| = 2 × 24 = 48
 ```
 
-**Ключевое совпадение:** `|roots(F₄)| = 48 = |2O|`
+**Key coincidence:** `|roots(F₄)| = 48 = |2O|`
 
-### 3.5 F₄ как реализация D₄-триальности
+### 3.5 F₄ as Realization of D₄-Triality
 
-По Раmonду (2001, 2003):
+According to Ramond (2001, 2003):
 
-> «F₄ — наименьшая группа, явно реализующая D₄-триальность.»
+> "F₄ is the smallest group explicitly realizing D₄-triality."
 
-F₄ содержит so(8) = D₄ как подалгебру. Разложение f₄ по so(8):
+F₄ contains so(8) = D₄ as a subalgebra. The decomposition of f₄ over so(8):
 
 ```
 f₄ = so(8) ⊕ 8_v ⊕ 8_s+ ⊕ 8_s−
 dim: 28    + 8    + 8     + 8   = 52  ✓
 ```
 
-Три восьмимерных дополнительных пространства — это именно те три представления,  
-которые переставляет триальность Z₃.
+The three 8-dimensional supplementary spaces are exactly the three representations  
+that triality Z₃ permutes.
 
 ---
 
-## 4. Числа Кокстера и физическая интерпретация
+## 4. Coxeter Numbers and Physical Interpretation
 
-| Система | h | h* | Комментарий |
+| System | h | h* | Comment |
 |---|---|---|---|
-| H₄ | 30 | 30 | Не кристаллографическая; h=30 использовалась для 600-клетки |
-| D₄ | 6 | 6 | h=6; Coxeter plane — правильный шестиугольник |
-| F₄ | 12 | 9 | h=12, h*=9; не просто-лацированная |
-| G₂ | 6 | 4 | h=6; результат фолдинга D₄ → G₂ |
+| H₄ | 30 | 30 | Non-crystallographic; h=30 was used for the 600-cell |
+| D₄ | 6 | 6 | h=6; Coxeter plane — regular hexagon |
+| F₄ | 12 | 9 | h=12, h*=9; not simply-laced |
+| G₂ | 6 | 4 | h=6; result of folding D₄ → G₂ |
 
-**Отношения:**
+**Relations:**
 ```
 h(H₄) / h(D₄) = 30 / 6 = 5
 h(F₄) / h(D₄) = 12 / 6 = 2
@@ -212,127 +212,127 @@ h(H₄) / h(F₄) = 30 / 12 = 5/2
 
 ---
 
-## 5. Η-инварианты на S³/Γ
+## 5. Η-Invariants on S³/Γ
 
-### 5.1 Известный результат (Волна 8.3)
+### 5.1 Known Result (Wave 8.3)
 
-Для H₄ в Волне 8.3 был вычислен η-инвариант оператора Дирака на пространстве Пуанкаре:
+For H₄ in Wave 8.3, the η-invariant of the Dirac operator on the Poincaré space was computed:
 
 ```
-S³/2I  (сфера Пуанкаре)
+S³/2I  (Poincaré sphere)
 η(S³/2I) = −2
 ```
 
-Это значение согласуется с KO-размерностью спектрального тройства над C*[2I].
+This value agrees with the KO-dimension of the spectral triple over C*[2I].
 
-### 5.2 Аналоги для D₄ и F₄
+### 5.2 Analogs for D₄ and F₄
 
-Для аналогов нужно вычислить:
+For the analogs one needs to compute:
 ```
-η(S³/2T) = ?  (двоичная тетраэдральная, |2T|=24)
-η(S³/2O) = ?  (двоичная октаэдральная, |2O|=48)
+η(S³/2T) = ?  (binary tetrahedral, |2T|=24)
+η(S³/2O) = ?  (binary octahedral, |2O|=48)
 ```
 
-**Оценки (не вычислены точно; ADMITTED в Coq):**
+**Estimates (not computed exactly; ADMITTED in Coq):**
 
-По масштабированию (|Γ| меньше → η меньше по модулю):
-- `η(S³/2T) ≈ −1`  (оценка)
-- `η(S³/2O) ≈ −1`  (оценка)
+By scaling (smaller |Γ| → smaller |η|):
+- `η(S³/2T) ≈ −1`  (estimate)
+- `η(S³/2O) ≈ −1`  (estimate)
 
-**Проблема для физики:** Если η диктует число поколений (аналог Wave 8.3 для H₄),  
-то η = −1 для D₄/2T и F₄/2O даёт **меньше** поколений, чем η = −2 для H₄/2I.  
-Это было бы в противоречии с наблюдаемыми тремя поколениями.
+**Problem for physics:** If η dictates the number of generations (analog of Wave 8.3 for H₄),  
+then η = −1 for D₄/2T and F₄/2O gives **fewer** generations than η = −2 for H₄/2I.  
+This would be in contradiction with the observed three generations.
 
-**ЧЕСТНО:** Это оценочный аргумент. Точное вычисление η(S³/2T) требует:
-1. Явных таблиц характеров 2T
-2. Формулы Атья-Патоди-Зингера для неоднородных пространств
-3. Следующей волны вычислений
+**HONESTLY:** This is an estimate-based argument. Exact computation of η(S³/2T) requires:
+1. Explicit character tables of 2T
+2. The Atiyah-Patodi-Singer formula for non-homogeneous spaces
+3. A next wave of computations
 
 ---
 
-## 6. Триальность как механизм трёх поколений
+## 6. Triality as a Three-Generation Mechanism
 
-### 6.1 Кандидатный механизм
+### 6.1 Candidate Mechanism
 
-Фундаментальное утверждение программы Trinity-D₄:
+The fundamental claim of the Trinity-D₄ program:
 
-> Z₃-триальность D₄ естественно группирует объекты в тройки.  
-> Три представления 8_v, 8_s+, 8_s− под действием so(8)  
-> — кандидаты на три поколения фермионов.
+> Z₃-triality of D₄ naturally groups objects into triples.  
+> The three representations 8_v, 8_s+, 8_s− under so(8)  
+> — candidates for three generations of fermions.
 
-**Схема:**
+**Scheme:**
 ```
-«Одно прото-поколение»  →  применить Z₃-триальность  →  три образа
-8_v (векторное)          →  8_s+ (полуспинор +)        →  8_s− (полуспинор −)
-1-е поколение?          →  2-е поколение?              →  3-е поколение?
+"One proto-generation"  →  apply Z₃-triality  →  three images
+8_v (vector)          →  8_s+ (half-spinor +)        →  8_s− (half-spinor −)
+1st generation?       →  2nd generation?              →  3rd generation?
 ```
 
-### 6.2 Честная критика механизма
+### 6.2 Honest Criticism of the Mechanism
 
-**Проблема 1: Разные, а не одинаковые копии**
+**Problem 1: Different, not identical copies**
 
-Реальные поколения — **три идентичные копии**, отличающиеся только массой.  
-Триальность переставляет три **разных** представления (вектор vs спинор).  
-Это принципиально не то же самое.
+Real generations are **three identical copies**, differing only in mass.  
+Triality permutes three **different** representations (vector vs spinor).  
+This is fundamentally not the same thing.
 
-**Проблема 2: Массовая иерархия не объяснена**
+**Problem 2: Mass hierarchy is not explained**
 
-Даже если три представления трактовать как три поколения,  
-масштаб масс (me : mμ : mτ ≈ 1 : 207 : 3477) остаётся полностью необъяснённым.
+Even if the three representations are interpreted as three generations,  
+the mass scale (m_e : m_μ : m_τ ≈ 1 : 207 : 3477) remains completely unexplained.
 
-**Проблема 3: Киральность**
+**Problem 3: Chirality**
 
-Та же проблема, что и для H₄: стандартная модель требует хиральных фермионов.  
-Не показано, что D₄/2T-структура даёт хиральный, а не векторно-подобный спектр.
+The same problem as for H₄: the Standard Model requires chiral fermions.  
+It has not been shown that the D₄/2T structure gives a chiral, rather than vector-like, spectrum.
 
-### 6.3 Преимущества D₄ над H₄
+### 6.3 Advantages of D₄ over H₄
 
-Несмотря на проблемы, D₄ **качественно лучше** H₄ для данной задачи:
+Despite the problems, D₄ is **qualitatively better** than H₄ for this task:
 
-| Критерий | H₄ | D₄ |
+| Criterion | H₄ | D₄ |
 |---|---|---|
-| Трёхкратная симметрия в Out | **НЕТ** | **ДА** (Z₃ ⊂ Out(D₄)) |
-| Группа-теоретический «зацеп» для 3 | **ОТСУТСТВУЕТ** | **ЕСТЬ** |
-| Кристаллографичность | НЕТ | ДА |
-| Содержит so(8) | НЕТ | **ДА (есть so(8))** |
-| Связь с исключительными группами | Частично | D₄ ⊂ F₄ ⊂ E₈ |
+| Three-fold symmetry in Out | **NO** | **YES** (Z₃ ⊂ Out(D₄)) |
+| Group-theoretic "hook" for 3 | **ABSENT** | **PRESENT** |
+| Crystallographic | NO | YES |
+| Contains so(8) | NO | **YES (has so(8))** |
+| Connection to exceptional groups | Partial | D₄ ⊂ F₄ ⊂ E₈ |
 
 ---
 
-## 7. Свёртывание D₄ → G₂ и цвет QCD
+## 7. Folding D₄ → G₂ and QCD Color
 
-### 7.1 Цепь фолдинга
+### 7.1 Folding Chain
 
-Диаграмма Дынкина D₄ имеет 4 вершины: центральная + 3 листа.  
-Триальность Z₃ действует на 3 листа, оставляя центр неподвижным.  
-Результат фолдинга:
-
-```
-D₄  →[Z₃ фолдинг]→  G₂
-```
-
-Это **единственный** фолдинг просто-лацированной диаграммы в непросто-лацированную  
-через автоморфизм порядка 3 (а не 2).
-
-### 7.2 Связь с цветом QCD
+The Dynkin diagram of D₄ has 4 vertices: central + 3 leaves.  
+Triality Z₃ acts on the 3 leaves, leaving the center fixed.  
+Result of folding:
 
 ```
-SU(3) ⊂ G₂  (G₂ — автоморфизм октонионов)
+D₄  →[Z₃ folding]→  G₂
+```
+
+This is the **only** folding of a simply-laced diagram into a non-simply-laced one  
+via an automorphism of order 3 (rather than 2).
+
+### 7.2 Connection to QCD Color
+
+```
+SU(3) ⊂ G₂  (G₂ is the automorphism group of octonions)
 G₂ ⊂ F₄
-D₄ →[триальность]→ G₂
+D₄ →[triality]→ G₂
 ```
 
-**Спекулятивная идея:** Цветовой калибровочный группой SU(3)_c является подгруппой G₂,  
-которая в свою очередь является «выжившей» симметрией после триальностного фолдинга D₄.
+**Speculative idea:** The color gauge group SU(3)_c is a subgroup of G₂,  
+which in turn is the "surviving" symmetry after D₄-triality folding.
 
-**Честная оценка:** Это спекулятивно. В литературе нет доказательства, что SU(3)_c  
-происходит из D₄-триальности. Это направление для будущих исследований.
+**Honest assessment:** This is speculative. There is no proof in the literature that SU(3)_c  
+arises from D₄-triality. This is a direction for future research.
 
 ---
 
-## 8. Числовые совпадения
+## 8. Numerical Coincidences
 
-| Совпадение | Формула | Числовое значение |
+| Coincidence | Formula | Numerical Value |
 |---|---|---|
 | |Aut(D₄)| = |W(F₄)| | 192×6 = 1152 | **1152 = 1152** ✓ |
 | |roots(D₄)| = |2T| | 24 = 24 | **24 = 24** ✓ |
@@ -341,69 +341,69 @@ D₄ →[триальность]→ G₂
 | h(H₄)/h(D₄) | 30/6 | **= 5** |
 | h(F₄)/h(D₄) | 12/6 | **= 2** |
 
-Все три случая (H₄/2I, D₄/2T, F₄/2O) демонстрируют одинаковое совпадение:  
-**число корней равно порядку двоичной накрывающей группы**.
+All three cases (H₄/2I, D₄/2T, F₄/2O) demonstrate the same coincidence:  
+**the number of roots equals the order of the binary covering group**.
 
 ---
 
-## 9. Что необходимо доказать для Trinity-D₄
+## 9. What Must Be Proven for Trinity-D₄
 
-Для того чтобы программа Trinity-D₄ стала научно состоятельной, необходимо:
+For the Trinity-D₄ program to become scientifically viable, one needs:
 
-### 9.1 Обязательные задачи (следующая волна)
+### 9.1 Mandatory Tasks (next wave)
 
-1. **η(S³/2T):** Точное вычисление η-инварианта оператора Дирака на S³/2T.  
-   Требует явных таблиц характеров 2T и формулы APS.
+1. **η(S³/2T):** Exact computation of the η-invariant of the Dirac operator on S³/2T.  
+   Requires explicit character tables of 2T and the APS formula.
 
-2. **KO-размерность C*[2T]:** Вычисление KO-dimension спектрального тройства над C*[2T].  
-   Должна совпасть с KO-dim SM.
+2. **KO-dimension of C*[2T]:** Computation of KO-dimension of the spectral triple over C*[2T].  
+   Must match KO-dim SM.
 
-3. **Хиральность D₄-спектра:** Показать, что D₄/2T-конструкция не даёт  
-   векторно-подобного спектра (в отличие от H₄/600-клетки).
+3. **Chirality of D₄-spectrum:** Show that the D₄/2T construction does not give  
+   a vector-like spectrum (unlike H₄/600-cell).
 
-4. **Вложение SM в D₄:** Показать, как SU(3)×SU(2)×U(1) вкладывается в D₄/F₄.
+4. **Embedding SM in D₄:** Show how SU(3)×SU(2)×U(1) embeds into D₄/F₄.
 
-### 9.2 Желательные задачи
+### 9.2 Desirable Tasks
 
-5. **Триальные орбиты как поколения:** Формальное доказательство (или опровержение),  
-   что орбиты {8_v, 8_s+, 8_s−} под Z₃ изоморфны как SM-поколения.
+5. **Triality orbits as generations:** Formal proof (or refutation)  
+   that orbits {8_v, 8_s+, 8_s−} under Z₃ are isomorphic as SM-generations.
 
-6. **Масштаб масс:** Объяснение иерархии масс из D₄-структуры.
+6. **Mass scale:** Explanation of the mass hierarchy from D₄ structure.
 
-7. **Аномальное отсутствие:** Четвёртое поколение запрещено — это нужно вывести  
-   из конечности Z₃-орбиты.
-
----
-
-## 10. Вердикт
-
-### 10.1 D₄: рекомендуется к продолжению
-
-**D₄ заслуживает программы Trinity-D₄.** Причины:
-
-1. Единственная простая алгебра Ли с |Out| = 6 и Z₃ ⊂ Out
-2. |roots(D₄)| = 24 = |2T| — аналог H₄/2I-совпадения
-3. Триальность даёт кандидатный механизм трёх поколений, отсутствующий в H₄
-4. Кристаллографична — легче строить решётчатые модели
-5. D₄ ⊂ F₄ ⊂ E₈ — естественная цепь к большим исключительным группам
-6. |Aut(D₄)| = |W(F₄)| = 1152 — структурная связь с F₄
-
-### 10.2 F₄: интересна, но вторична
-
-**F₄ интересна как «ambient»-группа для D₄-триальности.**  
-F₄ — наименьшая группа, явно реализующая D₄-триальность (Раmond 2001).  
-Но собственный |Out(F₄)| = 2 не даёт нового трёхкратного механизма.
-
-### 10.3 Честное предупреждение
-
-> **ВАЖНО:** D₄-триальность НЕ РЕШАЕТ автоматически проблему трёх поколений.  
-> Она предоставляет группа-теоретическую трёхкратную структуру, отсутствующую в H₄.  
-> Является ли эта структура физически реализованной — открытый вопрос.  
-> Мы заявляем не успех, а лучшую стартовую позицию по сравнению с H₄.
+7. **Anomalous absence:** The fourth generation is forbidden — this needs to be derived  
+   from the finiteness of the Z₃-orbit.
 
 ---
 
-## 11. Ссылки
+## 10. Verdict
+
+### 10.1 D₄: Recommended for Continuation
+
+**D₄ deserves a Trinity-D₄ program.** Reasons:
+
+1. The only simple Lie algebra with |Out| = 6 and Z₃ ⊂ Out
+2. |roots(D₄)| = 24 = |2T| — analog of the H₄/2I coincidence
+3. Triality gives a candidate three-generation mechanism, absent in H₄
+4. Crystallographic — easier to build lattice models
+5. D₄ ⊂ F₄ ⊂ E₈ — natural chain to larger exceptional groups
+6. |Aut(D₄)| = |W(F₄)| = 1152 — structural connection to F₄
+
+### 10.2 F₄: Interesting, but Secondary
+
+**F₄ is interesting as an "ambient" group for D₄-triality.**  
+F₄ is the smallest group explicitly realizing D₄-triality (Ramond 2001).  
+But its own |Out(F₄)| = 2 gives no new three-fold mechanism.
+
+### 10.3 Honest Warning
+
+> **IMPORTANT:** D₄-triality does NOT AUTOMATICALLY solve the three-generation problem.  
+> It provides a group-theoretic three-fold structure, absent in H₄.  
+> Whether this structure is physically realized is an open question.  
+> We claim not success, but a better starting position compared to H₄.
+
+---
+
+## 11. References
 
 1. Carter, R.W. *Finite Groups of Lie Type: Conjugacy Classes and Complex Characters*. Wiley, 1985.
 2. Humphreys, J.E. *Introduction to Lie Algebras and Representation Theory*. Springer, 1972.
@@ -419,4 +419,4 @@ F₄ — наименьшая группа, явно реализующая D₄
 
 ---
 
-*Файл создан: Wave 10.4 | Статус: scouting | Все утверждения о D₄/F₄ верифицированы в probe_d4_f4.py*
+*File created: Wave 10.4 | Status: scouting | All claims about D₄/F₄ verified in probe_d4_f4.py*

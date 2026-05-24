@@ -1,70 +1,70 @@
-# Анализ Trinity-D₄ (Волна 11.2)
+# Trinity-D₄ Analysis (Wave 11.2)
 
-**Цель:** проверить, может ли корневая система D₄ в сочетании с бинарной тетраэдральной группой 2T автоматически породить трёхпоколенную структуру, аналогичную той, что исследовалась в рамках проекта Trinity S³AI для H₄/600-ячейки. Ключевое отличие D₄ от H₄ — наличие внешнего автоморфизма порядка 3 (триальность), который циклически переставляет векторное и два спинорных представления. Вопрос: достаточно ли этого для получения трёх копий (поколений) фермионов в спектре дискретного оператора Дирака?
+**Goal:** check whether the D₄ root system in combination with the binary tetrahedral group 2T can automatically generate a three-generation structure, analogous to that investigated in the Trinity S³AI project for H₄/600-cell. The key difference of D₄ from H₄ is the presence of an outer automorphism of order 3 (triality), which cyclically permutes the vector and two spinor representations. Question: is this sufficient to obtain three copies (generations) of fermions in the spectrum of the discrete Dirac operator?
 
-**Метод:** построение явного дискретного оператора Дирака на пространстве ℂ⁹⁶ = ℂ²⁴ ⊗ ℂ⁴ (24 вершины 24-ячейки × 4 спинорных компоненты), вычисление его спектра, реализация триальности σ и проверка её действия на собственных подпространствах, а также вычисление знаков KO-размерности для зарядово-сопряжённой структуры J.
+**Method:** explicit construction of a discrete Dirac operator on the space ℂ⁹⁶ = ℂ²⁴ ⊗ ℂ⁴ (24 vertices of the 24-cell × 4 spinor components), computation of its spectrum, implementation of triality σ and checking its action on eigensubspaces, as well as computation of KO-dimension signs for the charge-conjugation structure J.
 
 ---
 
-## 1. Корневая система D₄ и 24-ячейка
+## 1. D₄ Root System and the 24-Cell
 
-### 1.1. Корни D₄
+### 1.1. D₄ Roots
 
-Корневая система D₄ состоит из 24 векторов в ℝ⁴:
+The D₄ root system consists of 24 vectors in ℝ⁴:
 
 ```
-(±1, ±1, 0, 0)  и все перестановки координат.
+(±1, ±1, 0, 0)  and all permutations of coordinates.
 ```
 
-Иными словами, выбираем любые два из четырёх индексов (их C(4,2)=6 способов), в каждую выбранную позицию ставим ±1, а остальные координаты обнуляем. Всего получается 6 × 4 = 24 корня.
+In other words, we choose any two of the four indices (there are C(4,2)=6 ways), put ±1 in each chosen position, and zero the remaining coordinates. This gives 6 × 4 = 24 roots in total.
 
-Для каждого корня α выполняется:
+For each root α:
 
 $$
 \langle \alpha, \alpha \rangle = (\pm 1)^2 + (\pm 1)^2 = 2.
 $$
 
-Все корни лежат на сфере радиуса √2. Выпуклая оболочка этих 24 точек — правильный 4-мерный многогранник, **24-ячейка** (24-cell), с символом Шлефли {3,4,3}. Она самодвойственна и обладает 24 вершинами, 96 рёбрами, 96 гранями (треугольниками) и 24 ячейками (октаэдрами).
+All roots lie on a sphere of radius √2. The convex hull of these 24 points is a regular 4-dimensional polytope, the **24-cell** (24-cell), with Schläfli symbol {3,4,3}. It is self-dual and has 24 vertices, 96 edges, 96 faces (triangles), and 24 cells (octahedra).
 
-### 1.2. Граф 24-ячейки
+### 1.2. Graph of the 24-Cell
 
-Две вершины (корня) считаются соседними (соединены ребром), если их скалярное произведение равно 1:
+Two vertices (roots) are considered adjacent (connected by an edge) if their scalar product equals 1:
 
 $$
 \langle \alpha_i, \alpha_j \rangle = 1 \quad \Longleftrightarrow \quad \alpha_i \sim \alpha_j.
 $$
 
-Условие $\langle \alpha_i, \alpha_j \rangle = 1$ означает, что корни пересекаются ровно по одной ненулевой координате с совпадающим знаком. Легко проверить, что степень каждой вершины равна **8**, что согласуется с известным фактом о 24-ячейке: каждая вершина инцидентна 8 рёбрам. Ребро между соседними корнями αᵢ и αⱼ имеет вектор:
+The condition $\langle \alpha_i, \alpha_j \rangle = 1$ means that the roots intersect in exactly one nonzero coordinate with matching sign. It is easy to check that the degree of each vertex is **8**, which agrees with the known fact about the 24-cell: each vertex is incident to 8 edges. The edge between adjacent roots αᵢ and αⱼ has vector:
 
 $$
 e_{ij} = \alpha_j - \alpha_i,
 $$
 
-который сам является корнем D₄ (также длины √2).
+which is itself a D₄ root (also of length √2).
 
-### 1.3. Группа симметрий и триальность
+### 1.3. Symmetry Group and Triality
 
-Полная группа автоморфизмов корневой системы D₄ — это группа Коксетера F₄ порядка 1152. Группа Вейля W(D₄) имеет порядок 192 и является нормальной подгруппой индекса 3 в F₄. Факторгруппу:
+The full automorphism group of the D₄ root system is the Coxeter group F₄ of order 1152. The Weyl group W(D₄) has order 192 and is a normal subgroup of index 3 in F₄. The quotient group:
 
 $$
 \operatorname{Aut}(D_4) / W(D_4) \cong S_3
 $$
 
-порождают **диаграммные автоморфизмы** D₄, включая триальность порядка 3. В отличие от H₄, где группа внешних автоморфизмов тривиальна, D₄ обладает нетривиальной триальностью — это главная причина, по которой D₄ рассматривается как кандидат для «трёхпоколенной» структуры.
+is generated by **diagram automorphisms** of D₄, including triality of order 3. Unlike H₄, where the outer automorphism group is trivial, D₄ possesses nontrivial triality — this is the main reason why D₄ is considered as a candidate for a "three-generation" structure.
 
-Триальность можно реализовать как ортогональное преобразование ℝ⁴, индуцированное сопряжением на кватернионах единицей:
+Triality can be realized as an orthogonal transformation of ℝ⁴ induced by conjugation on quaternions by the unit:
 
 $$
 q = \frac{1 + i + j + k}{2} \in 2T.
 $$
 
-Сопрядение $x \mapsto q x q^{-1}$ циклически переставляет мнимые оси:
+The conjugation $x \mapsto q x q^{-1}$ cyclically permutes the imaginary axes:
 
 $$
 i \mapsto j \mapsto k \mapsto i,
 $$
 
-оставляя действительную ось неподвижной. В координатах $(x_0, x_1, x_2, x_3)$, соответствующих $(1, i, j, k)$, это преобразование задаётся ортогональной матрицей:
+leaving the real axis fixed. In coordinates $(x_0, x_1, x_2, x_3)$ corresponding to $(1, i, j, k)$, this transformation is given by the orthogonal matrix:
 
 $$
 O = \begin{pmatrix}
@@ -76,66 +76,66 @@ O = \begin{pmatrix}
 \qquad O^3 = I.
 $$
 
-Оно переставляет 24 корня и порождает автоморфизм порядка 3 корневой системы, не лежащий в группе Вейля.
+It permutes the 24 roots and generates an automorphism of order 3 of the root system, not lying in the Weyl group.
 
 ---
 
-## 2. Бинарная тетраэдральная группа 2T
+## 2. Binary Tetrahedral Group 2T
 
-### 2.1. Определение
+### 2.1. Definition
 
-Бинарная тетраэдральная группа 2T — это подгруппа порядка 24 в группе единичных кватернионов S³. Она состоит из 24 элементов нормы 1 в кольце целых кватернионов Гурвица (Hurwitz integers). Явно:
+The binary tetrahedral group 2T is a subgroup of order 24 in the group of unit quaternions S³. It consists of 24 elements of norm 1 in the ring of Hurwitz integers. Explicitly:
 
-- **8 целых единиц:** $\pm 1, \pm i, \pm j, \pm k$;
-- **16 полуединиц:** $\frac{\pm 1 \pm i \pm j \pm k}{2}$.
+- **8 integer units:** $\pm 1, \pm i, \pm j, \pm k$;
+- **16 half-units:** $\frac{\pm 1 \pm i \pm j \pm k}{2}$.
 
-Всего: 8 + 16 = 24 элемента.
+Total: 8 + 16 = 24 elements.
 
-### 2.2. Проверка нормы
+### 2.2. Norm Check
 
-Для любого элемента $q = w + x i + y j + z k \in 2T$ норма равна:
+For any element $q = w + x i + y j + z k \in 2T$ the norm equals:
 
 $$
 |q|^2 = w^2 + x^2 + y^2 + z^2 = 1.
 $$
 
-Для целых единиц это очевидно (одна координата ±1, остальные 0). Для полуединиц:
+For integer units this is obvious (one coordinate ±1, the rest 0). For half-units:
 
 $$
 \left(\frac{\pm 1}{2}\right)^2 + \left(\frac{\pm 1}{2}\right)^2 + \left(\frac{\pm 1}{2}\right)^2 + \left(\frac{\pm 1}{2}\right)^2 = \frac{4}{4} = 1.
 $$
 
-Таким образом, все 24 элемента 2T лежат на 3-сфере S³ и образуют конечную подгруппу.
+Thus, all 24 elements of 2T lie on the 3-sphere S³ and form a finite subgroup.
 
-### 2.3. Связь с D₄
+### 2.3. Connection with D₄
 
-Корневая решётка D₄ тождественна множеству кватернионов Гурвица чётной нормы, а 24 корня — это векторы нормы 2. Группа 2T — это группа единиц этой решётки. Триальность D₄ реализуется внутренним автоморфизмом алгебры кватернионов (сопряжением элементом порядка 3 из 2T), что создаёт глубокую связь между геометрией 24-ячейки и спинорной структурой.
+The D₄ root lattice is identical to the set of Hurwitz quaternions of even norm, and the 24 roots are the vectors of norm 2. The group 2T is the unit group of this lattice. D₄ triality is realized as an inner automorphism of the quaternion algebra (conjugation by an element of order 3 from 2T), creating a deep connection between the geometry of the 24-cell and spinor structure.
 
 ---
 
-## 3. Дискретный оператор Дирака $D_F^{D_4}$
+## 3. Discrete Dirac Operator $D_F^{D_4}$
 
-### 3.1. Пространство состояний
+### 3.1. State Space
 
-Гильбертово пространство модели:
+The Hilbert space of the model:
 
 $$
 \mathcal{H} = \mathbb{C}^{24} \otimes \mathbb{C}^{4},
 \qquad \dim \mathcal{H} = 96.
 $$
 
-- Фактор $\mathbb{C}^{24}$ соответствует 24 вершинам 24-ячейки (дискретное «пространство-время» или «внутреннее пространство»);
-- Фактор $\mathbb{C}^{4}$ — четырёхкомпонентный спинор Дирака в евклидовой сигнатуре 4D.
+- The factor $\mathbb{C}^{24}$ corresponds to the 24 vertices of the 24-cell (discrete "spacetime" or "internal space");
+- The factor $\mathbb{C}^{4}$ is the four-component Dirac spinor in 4D Euclidean signature.
 
-### 3.2. Представление алгебры Клиффорда
+### 3.2. Clifford Algebra Representation
 
-Выберем эрмитовы матрицы $\gamma^a \in M_4(\mathbb{C})$, $a=1,\dots,4$, удовлетворяющие:
+We choose Hermitian matrices $\gamma^a \in M_4(\mathbb{C})$, $a=1,\dots,4$, satisfying:
 
 $$
 \{\gamma^a, \gamma^b\} = 2\delta^{ab} I_4.
 $$
 
-Конкретное представление через матрицы Паули:
+A concrete representation via Pauli matrices:
 
 $$
 \gamma^1 = \sigma_1 \otimes I_2,
@@ -147,115 +147,115 @@ $$
 \gamma^4 = \sigma_3 \otimes \sigma_2.
 $$
 
-Клиффордовское умножение на вектор $v = (v_1, v_2, v_3, v_4)$:
+Clifford multiplication by a vector $v = (v_1, v_2, v_3, v_4)$:
 
 $$
 c(v) = \sum_{a=1}^{4} v_a \gamma^a.
 $$
 
-Оператор $c(v)$ эрмитов для действительных $v$.
+The operator $c(v)$ is Hermitian for real $v$.
 
-### 3.3. Конструкция оператора
+### 3.3. Operator Construction
 
-Для каждого неупорядоченного ребра $\{i,j\}$ 24-ячейки ($i<j$, $\langle\alpha_i,\alpha_j\rangle=1$) определим вектор ребра:
+For each unordered edge $\{i,j\}$ of the 24-cell ($i<j$, $\langle\alpha_i,\alpha_j\rangle=1$) define the edge vector:
 
 $$
 e_{ij} = \alpha_j - \alpha_i \in \mathbb{R}^4.
 $$
 
-Вклад ребра в дискретный оператор Дирака:
+The contribution of the edge to the discrete Dirac operator:
 
 $$
 D_{(i,\alpha),(j,\beta)} = i\, c(e_{ij})_{\alpha\beta},\qquad
 D_{(j,\beta),(i,\alpha)} = -i\, c(e_{ij})_{\alpha\beta},
 $$
 
-или в матричной форме:
+or in matrix form:
 
 $$
 D = i \sum_{i<j,\; \alpha_i\sim\alpha_j} c(\alpha_j - \alpha_i) \otimes (E_{ij} - E_{ji}).
 $$
 
-Матрица $D$ эрмитова ($D^\dagger = D$), так как $c(e_{ij})$ эрмитово, а $E_{ij}-E_{ji}$ антиэрмитово.
+The matrix $D$ is Hermitian ($D^\dagger = D$), since $c(e_{ij})$ is Hermitian and $E_{ij}-E_{ji}$ is anti-Hermitian.
 
-### 3.4. Спектр и кратности
+### 3.4. Spectrum and Multiplicities
 
-Численное диагонализация даёт следующий спектр (с точностью до машинной погрешности):
+Numerical diagonalization gives the following spectrum (up to machine precision):
 
-| Собственное значение λ | Кратность |
-|------------------------|-----------|
-| $-4\sqrt{2}$           | 16        |
-| $-2\sqrt{2}$           | 32        |
-| $+2\sqrt{2}$           | 32        |
-| $+4\sqrt{2}$           | 16        |
+| Eigenvalue λ | Multiplicity |
+|------------------------|------------|
+| $-4\sqrt{2}$           | 16         |
+| $-2\sqrt{2}$           | 32         |
+| $+2\sqrt{2}$           | 32         |
+| $+4\sqrt{2}$           | 16         |
 
-Точные значения подтверждены вычислением $D^2$: собственные значения $D^2$ равны $8$ (кратность 64) и $32$ (кратность 32), откуда:
+The exact values are confirmed by computing $D^2$: eigenvalues of $D^2$ are $8$ (multiplicity 64) and $32$ (multiplicity 32), whence:
 
 $$
 \operatorname{Spec}(D) = \{\pm 2\sqrt{2}\}^{(32)} \cup \{\pm 4\sqrt{2}\}^{(16)}.
 $$
 
-**Важное наблюдение:** спектр **векторный** (симметричен относительно нуля: $\pm\lambda$). Это означает, что каждому положительному собственному значению соответствует отрицательное с той же кратностью. Такая ситуация характерна для евклидового оператора Дирака на многообразии без хиральной аномалии, но для феноменологии стандартной модели необходима **хиральная асимметрия** (различие между левыми и правыми спинорами), которой здесь нет.
+**Important observation:** the spectrum is **vector-like** (symmetric about zero: $\pm\lambda$). This means that each positive eigenvalue corresponds to a negative one with the same multiplicity. Such a situation is characteristic of the Euclidean Dirac operator on a manifold without chiral anomaly, but for Standard Model phenomenology **chiral asymmetry** (difference between left and right spinors) is necessary, which is absent here.
 
 ---
 
-## 4. Тест триальности
+## 4. Triality Test
 
-### 4.1. Реализация оператора σ
+### 4.1. Implementation of Operator σ
 
-Внешний автоморфизм триальности порядка 3 действует на полное пространство $\mathcal{H} = \mathbb{C}^{24} \otimes \mathbb{C}^4$ как:
+The outer automorphism of triality of order 3 acts on the full space $\mathcal{H} = \mathbb{C}^{24} \otimes \mathbb{C}^4$ as:
 
 $$
 \sigma = P \otimes S,
 $$
 
-где:
+where:
 
-- $P$ — перестановка 24 вершин, индуцированная ортогональным преобразованием $O$ (сопряжение кватернионом $q = (1+i+j+k)/2$);
-- $S$ — спинорное поднятие (spin lift) того же преобразования $O$, удовлетворяющее:
+- $P$ is the permutation of 24 vertices induced by the orthogonal transformation $O$ (quaternion conjugation by $q = (1+i+j+k)/2$);
+- $S$ is the spinor lift of the same transformation $O$, satisfying:
 
 $$
 S \, \gamma^a \, S^{-1} = \gamma^{O(a)}, \qquad S^3 = I_4.
 $$
 
-Матрица $S$ найдена численно как решение системы линейных уравнений, следующих из условий сопряжения для $\gamma^1,\dots,\gamma^4$, с последующей нормировкой фазы, обеспечивающей $S^3 = I$.
+The matrix $S$ was found numerically as a solution of the system of linear equations following from the conjugation conditions for $\gamma^1,\dots,\gamma^4$, with subsequent phase normalization ensuring $S^3 = I$.
 
-### 4.2. Коммутация с Дираком
+### 4.2. Commutation with Dirac
 
-По построению $\sigma$ коммутирует с $D$:
+By construction σ commutes with $D$:
 
 $$
 [\sigma, D] = 0.
 $$
 
-Это означает, что каждое собственное подпространство $D$ инвариантно относительно $\sigma$, и триальность действует *внутри* спектральных секторов.
+This means that each eigensubspace of $D$ is invariant under σ, and triality acts *inside* spectral sectors.
 
-### 4.3. Разложение собственных подпространств
+### 4.3. Decomposition of Eigensubspaces
 
-Поскольку $\sigma^3 = I$ и $\sigma$ унитарна, её собственные значения на инвариантном подпространстве могут быть только $1$, $\omega = e^{2\pi i/3}$ и $\omega^2$. Если собственное подпространство $D$ распадалось бы на орбиты размера 3, то размерности подпространств с этими тремя собственными значениями должны быть **равны**, а полная размерность — кратна 3.
+Since $\sigma^3 = I$ and σ is unitary, its eigenvalues on an invariant subspace can only be $1$, $\omega = e^{2\pi i/3}$ and $\omega^2$. If an eigensubspace of $D$ were to decompose into orbits of size 3, then the dimensions of the subspaces with these three eigenvalues must be **equal**, and the total dimension must be divisible by 3.
 
-Результаты численного анализа:
+Results of numerical analysis:
 
-- Для $\lambda = \pm 4\sqrt{2}$ (размерность 16): распределение собственных значений $\sigma$ — $6$, $6$, $4$. **Не кратно 3.**
-- Для $\lambda = \pm 2\sqrt{2}$ (размерность 32): распределение — $10$, $10$, $12$. **Не равномерно.**
+- For $\lambda = \pm 4\sqrt{2}$ (dimension 16): distribution of σ eigenvalues — $6$, $6$, $4$. **Not divisible by 3.**
+- For $\lambda = \pm 2\sqrt{2}$ (dimension 32): distribution — $10$, $10$, $12$. **Not uniform.**
 
-Ни одно собственное подпространство $D$ не распадается на орбиты размера 3. Более того, размерности 16 и 32 вообще не делятся на 3, что делает такое разложение **алгебраически невозможным**.
+No eigensubspace of $D$ decomposes into orbits of size 3. Moreover, dimensions 16 and 32 are not divisible by 3 at all, making such a decomposition **algebraically impossible**.
 
-**Вывод:** триальность $\sigma$ существует как симметрия оператора $D$, но она **не порождает трёхкратную вырожденность** в спектре. Автоматического разделения на три изоморфные копии (поколения) не происходит.
+**Conclusion:** triality σ exists as a symmetry of operator $D$, but it **does not generate threefold degeneracy** in the spectrum. Automatic separation into three isomorphic copies (generations) does not occur.
 
 ---
 
-## 5. Анализ KO-размерности
+## 5. KO-Dimension Analysis
 
-### 5.1. Реальная структура J
+### 5.1. Real Structure J
 
-В некоммутативной геометрии Коннеса реальная структура $J$ — это антиунитарный оператор на гильбертовом пространстве спиноров. В дискретной модели естественным выбором является:
+In Connes's noncommutative geometry the real structure $J$ is an antiunitary operator on the Hilbert space of spinors. In the discrete model a natural choice is:
 
 $$
 J = (I_{24} \otimes C) \circ K,
 $$
 
-где $K$ — операция комплексного сопряжения (покоординатная), а $C$ — матрица зарядового сопряжения для выбранного представления $\gamma$-матриц. Для нашего представления:
+where $K$ is complex conjugation (coordinate-wise), and $C$ is the charge conjugation matrix for the chosen representation of γ-matrices. For our representation:
 
 $$
 C = \begin{pmatrix}
@@ -267,25 +267,25 @@ C = \begin{pmatrix}
 \qquad C^T = -C, \; C^2 = -I_4.
 $$
 
-### 5.2. Вычисление знаков
+### 5.2. Sign Computation
 
-Для спектральной тройки с реальной структурой вводятся три знака $(\varepsilon, \varepsilon', \varepsilon'')$, определяющие KO-размерность $n \mod 8$:
+For a spectral triple with real structure three signs $(\varepsilon, \varepsilon', \varepsilon'')$ are introduced, determining the KO-dimension $n \mod 8$:
 
 $$
 J^2 = \varepsilon \, I, \qquad JD = \varepsilon' \, D J, \qquad J\Gamma = \varepsilon'' \, \Gamma J,
 $$
 
-где $\Gamma = \gamma^1\gamma^2\gamma^3\gamma^4$ — оператор хиральности.
+where $\Gamma = \gamma^1\gamma^2\gamma^3\gamma^4$ is the chirality operator.
 
-Результаты прямого вычисления на пространстве $\mathcal{H}$:
+Results of direct computation on the space $\mathcal{H}$:
 
 - **$J^2 = -I$**  $\Rightarrow$  $\varepsilon = -1$.
 - **$JD = DJ$**  $\Rightarrow$  $\varepsilon' = +1$.
 - **$J\Gamma = \Gamma J$**  $\Rightarrow$  $\varepsilon'' = +1$.
 
-### 5.3. Определение KO-размерности
+### 5.3. KO-Dimension Determination
 
-Стандартная таблица Коннеса–Марколли для вещественных спектральных троек:
+Standard Connes–Marcolli table for real spectral triples:
 
 | KO-dim | $\varepsilon$ | $\varepsilon'$ | $\varepsilon''$ |
 |--------|---------------|----------------|-----------------|
@@ -298,83 +298,83 @@ $$
 | 6      | $+$           | $+$            | $-$             |
 | 7      | $+$           | $-$            | $+$             |
 
-Наш набор знаков $(-, +, +)$ однозначно соответствует **KO-размерности 5 по модулю 8**.
+Our sign set $(-, +, +)$ uniquely corresponds to **KO-dimension 5 modulo 8**.
 
-### 5.4. Сравнение со стандартной моделью
+### 5.4. Comparison with the Standard Model
 
-В феноменологической спектральной тройке Коннеса–Чамседдина (Standard Model) требуется KO-размерность **6 mod 8**, для которой:
+In the phenomenological Connes–Chamseddine spectral triple (Standard Model) KO-dimension **6 mod 8** is required, for which:
 
 $$
 J^2 = +1, \qquad JD = DJ, \qquad J\Gamma = -\Gamma J.
 $$
 
-Наша модель даёт $J^2 = -1$ и $J\Gamma = +\Gamma J$, что отличается от SM-кейса в двух из трёх знаков. Следовательно, **данная дискретная конструкция на D₄ не является SM-подобной** с точки зрения KO-размерности.
+Our model gives $J^2 = -1$ and $J\Gamma = +\Gamma J$, which differs from the SM case in two of the three signs. Therefore, **this discrete construction on D₄ is not SM-like** from the point of view of KO-dimension.
 
 ---
 
-## 6. Честный вердикт
+## 6. Honest Verdict
 
-### 6.1. Что дала проверка
+### 6.1. What the Check Showed
 
-1. **Корневая система D₄ и 24-ячейка** построены корректно. Все 24 корня имеют норму 2, граф 24-ячейки 8-регулярен.
+1. **D₄ root system and 24-cell** constructed correctly. All 24 roots have norm 2, the 24-cell graph is 8-regular.
 
-2. **Бинарная тетраэдральная группа 2T** содержит ровно 24 элемента единичной нормы, как и должно.
+2. **Binary tetrahedral group 2T** contains exactly 24 elements of unit norm, as it should.
 
-3. **Дискретный оператор Дирака** $D_F^{D_4}$ на $\mathbb{C}^{96}$ эрмитов и имеет точный спектр:
+3. **Discrete Dirac operator** $D_F^{D_4}$ on $\mathbb{C}^{96}$ is Hermitian and has exact spectrum:
    $$
    \pm 2\sqrt{2}\;(32), \qquad \pm 4\sqrt{2}\;(16).
    $$
-   Спектр строго векторный (симметричен относительно нуля).
+   The spectrum is strictly vector-like (symmetric about zero).
 
-4. **Триальность** реализована как точная симметрия порядка 3, коммутирующая с $D$. Однако собственные подпространства $D$ **не распадаются** на орбиты размера 3. Размерности 16 и 32 не кратны 3, а распределение собственных значений $\sigma$ внутри них неравномерно ($6\!:\!6\!:\!4$ и $10\!:\!10\!:\!12$).
+4. **Triality** is realized as an exact symmetry of order 3, commuting with $D$. However, the eigensubspaces of $D$ **do not decompose** into orbits of size 3. Dimensions 16 and 32 are not divisible by 3, and the distribution of σ eigenvalues within them is non-uniform ($6\!:\!6\!:\!4$ and $10\!:\!10\!:\!12$).
 
-5. **KO-размерность** равна 5 mod 8, тогда как стандартная модель требует 6 mod 8.
+5. **KO-dimension** equals 5 mod 8, whereas the Standard Model requires 6 mod 8.
 
-### 6.2. Почему D₄ не решает проблему трёх поколений
+### 6.2. Why D₄ Does Not Solve the Three-Generation Problem
 
-Наличие внешнего автоморфизма порядка 3 у D₄ — необходимое, но **далеко не достаточное** условие для появления трёх поколений фермионов. В модели Trinity S³AI поколения должны проявляться как **трёхкратная вырожденность** собственных значений дискретного оператора Дирака (или, в непрерывном пределе, как три копии спектра стандартной модели). Для этого необходимо, чтобы:
+The presence of an outer automorphism of order 3 for D₄ is a necessary but **far from sufficient** condition for the appearance of three fermion generations. In the Trinity S³AI model generations must manifest themselves as **threefold degeneracy** of eigenvalues of the discrete Dirac operator (or, in the continuous limit, as three copies of the Standard Model spectrum). For this it is necessary that:
 
-- Собственные подпространства $D$ имели размерности, кратные 3;
-- Триальность действовала на них регулярным образом (равные кратности $1$, $\omega$, $\omega^2$);
-- Спектр был хиральным (асимметричным относительно знака), а не векторным.
+- Eigensubspaces of $D$ have dimensions divisible by 3;
+- Triality acts on them regularly (equal multiplicities $1$, $\omega$, $\omega^2$);
+- The spectrum be chiral (asymmetric with respect to sign), not vector-like.
 
-Ни одно из этих условий в построенной модели на D₄/24-ячейке **не выполняется**.
+None of these conditions in the constructed model on D₄/24-cell **is satisfied**.
 
-Триальность D₄ — это прежде всего свойство **алгебры Ли** so(8) и её представлений. Дискретный оператор Дирака на графе 24-ячейки, построенный из ближайших соседей и клиффордовского умножения, «не чувствует» эту триальность на уровне спектральной статистики: его собственные подпространства определяются представлением группы симметрий 24-ячейки (F₄), а не диаграммным автоморфизмом D₄. Группа F₄ порядка 1152 содержит триальность как элемент, но спектр $D$ разлагается по представлениям F₄, и разложение не даёт естественного выделения трёх равноправных копий.
+D₄ triality is primarily a property of the **Lie algebra** so(8) and its representations. The discrete Dirac operator on the graph of the 24-cell, constructed from nearest neighbors and Clifford multiplication, "does not feel" this triality at the level of spectral statistics: its eigensubspaces are determined by the representation of the symmetry group of the 24-cell (F₄), not by the diagram automorphism of D₄. The group F₄ of order 1152 contains triality as an element, but the spectrum of $D$ decomposes according to F₄ representations, and the decomposition does not give a natural selection of three equal copies.
 
-### 6.3. Сравнение с H₄
+### 6.3. Comparison with H₄
 
-В случае H₄/600-ячейки внешний автоморфизм отсутствует (группа Вейля H₄ совпадает с полной группой автоморфизмов), и три поколения также не возникают автоматически. Переход к D₄ даёт триальность, но **не меняет спектральной ситуации** в нужном направлении: вместо желаемой трёхкратной вырожденности мы получаем векторный спектр с кратностями 16 и 32, не имеющими отношения к числу 3.
+In the case of H₄/600-cell the outer automorphism is absent (the Weyl group of H₄ coincides with the full automorphism group), and three generations also do not arise automatically. The transition to D₄ gives triality, but **does not change the spectral situation** in the needed direction: instead of the desired threefold degeneracy we obtain a vector-like spectrum with multiplicities 16 and 32, unrelated to the number 3.
 
-### 6.4. Заключение
+### 6.4. Conclusion
 
-**D₄ не решает проблему трёх поколений в рамках данной дискретной конструкции.**
+**D₄ does not solve the three-generation problem in the framework of this discrete construction.**
 
-Математические результаты однозначны:
+The mathematical results are unambiguous:
 
-- Спектр векторный, $\pm\lambda$ симметричен;
-- Триальность не порождает 3-кратных орбит в собственных подпространствах;
-- KO-размерность равна 5 mod 8, а не SM-совместимой 6 mod 8.
+- Spectrum is vector-like, $\pm\lambda$ symmetric;
+- Triality does not generate 3-fold orbits in eigensubspaces;
+- KO-dimension equals 5 mod 8, not SM-compatible 6 mod 8.
 
-Таким образом, несмотря на наличие интересной алгебраической структуры (триальность D₄), данная модель **не проявляет феноменологически необходимых признаков** трёхпоколенной стандартной модели. Для получения поколений требуется дополнительная структура — либо более тонкая дискретизация (например, с учётом матрицы Юкавы), либо совсем иная геометрия внутреннего пространства.
+Thus, despite the presence of an interesting algebraic structure (D₄ triality), this model **does not exhibit the phenomenologically necessary features** of a three-generation Standard Model. To obtain generations, additional structure is required — either a finer discretization (e.g. with account of the Yukawa matrix), or a completely different geometry of internal space.
 
 ---
 
-## Литература
+## Literature
 
 1. **J. H. Conway, D. A. Smith.** *On Quaternions and Octonions: Their Geometry, Arithmetic, and Symmetry.* A K Peters, 2003.
-   — Главы о бинарных полиэдральных группах, кватернионах Гурвица и 24-ячейке.
+   — Chapters on binary polyhedral groups, Hurwitz quaternions and the 24-cell.
 
 2. **R. W. Carter.** *Simple Groups of Lie Type.* Wiley, 1972.
-   — Разделы о корневых системах $D_n$, группах Вейля и диаграммных автоморфизмах (триальность D₄).
+   — Sections on root systems $D_n$, Weyl groups and diagram automorphisms (D₄ triality).
 
-3. **A. Connes, A. H. Chamseddine.** «The Spectral Action Principle». *Comm. Math. Phys.* 186 (1997), 731–750.
-   — Определение KO-размерности и её роль в спектральной тройке стандартной модели.
+3. **A. Connes, A. H. Chamseddine.** "The Spectral Action Principle". *Comm. Math. Phys.* 186 (1997), 731–750.
+   — Definition of KO-dimension and its role in the Standard Model spectral triple.
 
 4. **A. Connes, M. Marcolli.** *Noncommutative Geometry, Quantum Fields and Motives.* AMS, 2008.
-   — Таблица знаков KO-размерности (Глава 1, §1.3).
+   — Table of KO-dimension signs (Chapter 1, §1.3).
 
 ---
 
-*Файл сгенерирован автоматически в рамках проекта Trinity S³AI, Wave 11.2.*
-*Все численные результаты получены точным вычислением в Python/NumPy без подгонки параметров.*
+*File generated automatically within the Trinity S³AI project, Wave 11.2.*  
+*All numerical results obtained by exact computation in Python/NumPy without parameter fitting.*

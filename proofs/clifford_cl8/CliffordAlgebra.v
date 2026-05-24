@@ -181,7 +181,14 @@ Record RAlgebra : Type := {
   alg_smul_mul  :
     forall r s a, alg_smul (r * s) a = alg_smul r (alg_smul s a);
   alg_smul_add_distr :
-    forall r s a, alg_smul (r + s) a = alg_add (alg_smul r a) (alg_smul s a)
+    forall r s a, alg_smul (r + s) a = alg_add (alg_smul r a) (alg_smul s a);
+  alg_smul_add_l :
+    forall r a b, alg_smul r (alg_add a b) = alg_add (alg_smul r a) (alg_smul r b);
+  (* Compatibility of scalar multiplication with algebra multiplication *)
+  alg_smul_mul_l :
+    forall r x y, alg_mul (alg_smul r x) y = alg_smul r (alg_mul x y);
+  alg_smul_mul_r :
+    forall r x y, alg_mul x (alg_smul r y) = alg_smul r (alg_mul x y)
 }.
 
 (* The R-algebra homomorphism between two RAlgebras. *)
@@ -197,7 +204,12 @@ Record AlgHom (A B : RAlgebra) : Type := {
                  hom_fn (alg_smul A r x) = alg_smul B r (hom_fn x)
 }.
 
-Arguments hom_fn {A B} _.
+Arguments hom_fn   {A B} _.
+Arguments hom_zero {A B} _.
+Arguments hom_one  {A B} _.
+Arguments hom_add  {A B} _.
+Arguments hom_mul  {A B} _.
+Arguments hom_smul {A B} _.
 
 (* The universal property of the Clifford algebra over a signature-(p,q)
    quadratic form. *)
@@ -225,6 +237,8 @@ Record CliffordSpec (p q : nat) : Type := {
      relation factors uniquely through cl_alg. *)
   cl_univ :
     forall (B : RAlgebra) (j : Vec (p + q) -> carrier B),
+      (forall v w, j (vec_add v w) = alg_add B (j v) (j w)) ->
+      (forall r v, j (vec_smul r v) = alg_smul B r (j v)) ->
       (forall v, alg_mul B (j v) (j v) =
                  alg_smul B (Q_pq p q v) (alg_one B)) ->
       (* Existence of a factoring algebra map. *)

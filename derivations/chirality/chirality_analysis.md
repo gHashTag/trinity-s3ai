@@ -1,219 +1,219 @@
-# Анализ хиральности: теорема Дистлера–Гарибальди и подход Trinity-s3ai на основе H4
+# Chirality Analysis: The Distler–Garibaldi Theorem and the Trinity-s3ai H4-Based Approach
 
-**Версия:** Wave 6  
-**Дата:** Июнь 2026  
-**Статус:** Честный анализ открытого вопроса
+**Version:** Wave 6  
+**Date:** June 2026  
+**Status:** Honest analysis of an open question
 
 ---
 
-## 1. Точная формулировка теоремы Дистлера–Гарибальди для E8
+## 1. Exact Formulation of the Distler–Garibaldi Theorem for E8
 
-### 1.1 Источник
+### 1.1 Source
 
-J. Distler, S. Garibaldi, «There is no 'Theory of Everything' inside E8»,
+J. Distler, S. Garibaldi, «There is no 'Theory of Everything' inside E8»,  
 *Commun. Math. Phys.* **298**, 419–436 (2010); arXiv:[0905.2658](https://arxiv.org/abs/0905.2658).
 
-### 1.2 Гипотезы «теории всего» (ToE)
+### 1.2 "Theory of Everything" (ToE) Hypotheses
 
-Авторы формализуют требования к теории всего через три гипотезы о подгруппах вещественной (или комплексной) формы группы Ли E8:
+The authors formalize the requirements for a theory of everything through three hypotheses about subgroups of the real (or complex) form of the Lie group E8:
 
-**(ToE1):** Группа G связна, компактна и **централизует SL(2,ℂ)** — то есть гравитация описывается подгруппой SL(2,ℂ) ⊂ E8, а G — это калибровочная группа Стандартной модели, коммутирующая с ней.
+**(ToE1):** The group G is connected, compact, and **centralizes SL(2,ℂ)** — that is, gravity is described by the subgroup SL(2,ℂ) ⊂ E8, and G is the Standard Model gauge group commuting with it.
 
-**(ToE2):** В разложении присоединённого представления E8 по SL(2,ℂ) × G:
+**(ToE2):** In the decomposition of the adjoint representation of E8 under SL(2,ℂ) × G:
 $$\text{Ad}(E_8)\big|_{SL(2,\mathbb{C}) \times G} = \bigoplus_{m,n} V_{m,n} \otimes W_{m,n}$$
-выполняется $V_{m,n} = 0$ при $m + n > 4$ — ограничение на высший спин (обеспечивает, что нет частиц со спином выше 2).
+the condition $V_{m,n} = 0$ for $m + n > 4$ holds — a restriction on higher spin (ensures there are no particles with spin higher than 2).
 
-**(ToE3):** Представление $V_{2,1}$ является **комплексным** (не самосопряжённым) как представление G — физически это означает **хиральность**: левые и правые фермионы преобразуются по разным представлениям G.
+**(ToE3):** The representation $V_{2,1}$ is **complex** (not self-conjugate) as a representation of G — physically this means **chirality**: left and right fermions transform under different representations of G.
 
-### 1.3 Точные теоремы
+### 1.3 Exact Theorems
 
-**Теорема 1.2 (Distler–Garibaldi):** *В (переносе) комплексного E8 и ни в какой вещественной форме E8 не существует подгрупп SL(2,ℂ)·G, удовлетворяющих одновременно (ToE1), (ToE2) и (ToE3).*
+**Theorem 1.2 (Distler–Garibaldi):** *In (the transfer of) complex E8 and in no real form of E8 does there exist a subgroup SL(2,ℂ)·G satisfying simultaneously (ToE1), (ToE2), and (ToE3).*
 
-**Теорема 10.1 (усиленная версия):** *Результат сохраняется даже при ослаблении (ToE2) до условия $V_{m,n} = 0$ при $m \geq 4$ или $n \geq 4$ (обозначается (ToE2')).*
+**Theorem 10.1 (strengthened version):** *The result holds even when weakening (ToE2) to the condition $V_{m,n} = 0$ for $m \geq 4$ or $n \geq 4$ (denoted (ToE2')).*
 
-**Физический смысл.** В любом допустимом вложении SM+гравитации в E8 представление $V_{2,1}$ (левые вейлевы фермионы) неизбежно обладает **самосопряжённой структурой**: существует антилинейное $J: V_{2,1} \to V_{2,1}$ с $J^4 = 1$. Это означает, что каждому фермиону соответствует зеркальный партнёр с теми же квантовыми числами — спектр становится **векторно-подобным**. Зеркальные фермионы получают массу порядка $M_{\text{GUT}}$ и ненаблюдаемы при низких энергиях, но их присутствие означает, что SM-хиральность из E8 не возникает.
-
----
-
-## 2. Почему теорема Дистлера–Гарибальди НЕ применима к H4 напрямую
-
-H4 — конечная группа Кокстера в $\mathbb{R}^4$ порядка 14400. Она **не является группой Ли**. Вот три технических причины, по которым теорема E8 не переносится на H4:
-
-### Причина 1: H4 не является алгеброй Ли — нет понятия «представления в смысле Dynkin»
-
-Теорема Дистлера–Гарибальди явно сформулирована для алгебр Ли типа E8 (и их вещественных форм). Доказательство использует:
-- теорию представлений полупростых алгебр Ли;
-- присоединённое представление E8 и его разложение по SL(2,ℂ) × G;
-- результаты Дынкина о подалгебрах и индексах вложений;
-- классификацию $\mathfrak{sl}_2$-тройки в $\mathfrak{e}_8$.
-
-H4 как **конечная группа отражений** не имеет:
-- соответствующей простой алгебры Ли (H4 не входит в классификацию Дынкина A–D–E–B–C–F–G);
-- «присоединённого представления» в стандартном смысле;
-- структуры $\mathfrak{sl}_2$-троек.
-
-Применить доказательство теоремы к H4 невозможно технически — аппарат просто не существует.
-
-### Причина 2: SL(2,ℂ) не вложена в H4
-
-Условие (ToE1) требует, чтобы SL(2,ℂ) — группа Лоренца, описывающая гравитацию — вкладывалась в E8. Это возможно, потому что E8 — некомпактная группа Ли с богатой структурой подгрупп.
-
-H4 — **компактная конечная группа** порядка 14400. Непрерывная группа SL(2,ℂ) не может вложиться в H4: конечная группа не содержит некомпактных подгрупп Ли. Trinity-s3ai **не утверждает**, что H4 является калибровочной группой или что гравитация вложена в H4. H4 играет роль **симметрии дискретного спектра** (600-ячейник), а не непрерывной калибровочной симметрии. Поэтому вся конструкция (ToE1)–(ToE3) формально неприменима.
-
-### Причина 3: Trinity-s3ai не использует «присоединённое представление» как источник фермионов
-
-В подходе Лизи фермионы **вложены в присоединённое представление** E8 — именно это является точкой приложения теоремы Дистлера–Гарибальди. Trinity-s3ai использует иной механизм: **вершины 600-ячейника** (120 вершин на $S^3$) как дискретный спектр оператора Дирака. Это:
-- не представление группы Ли;
-- не вложение в присоединённое;
-- дискретная собственная система оператора.
-
-Запрет Дистлера–Гарибальди работает в рамке теории Ли и не охватывает дискретные спектральные конструкции.
-
-### Итог раздела 2
-
-| Условие теоремы Д–Г | Статус для E8 (Лизи) | Статус для H4 (Trinity) |
-|---|---|---|
-| G — группа Ли с подгруппой SL(2,ℂ) | ✓ выполнено | ✗ H4 конечна, SL(2,ℂ) не вложена |
-| Вложение фермионов в adj(E8) | ✓ выполнено | ✗ вершины 600-ячейника ≠ adj |
-| Проверка самосопряжённости $V_{2,1}$ | → запрет доказан | Неприменимо: нет SL(2,ℂ)×G |
-
-**Вывод:** Теорема Дистлера–Гарибальди формально к подходу Trinity-s3ai не применима. **Это не значит, что хиральность решена — это значит, что запрет не установлен, но и механизм не построен.**
+**Physical meaning.** In any admissible embedding of SM+gravity into E8 the representation $V_{2,1}$ (left Weyl fermions) inevitably possesses a **self-conjugate structure**: there exists an antilinear $J: V_{2,1} \to V_{2,1}$ with $J^4 = 1$. This means that to every fermion there corresponds a mirror partner with the same quantum numbers — the spectrum becomes **vector-like**. Mirror fermions acquire mass of order $M_{\text{GUT}}$ and are unobservable at low energies, but their presence means that SM chirality does not emerge from E8.
 
 ---
 
-## 3. Открытый вопрос хиральности для H4
+## 2. Why the Distler–Garibaldi Theorem Does NOT Apply Directly to H4
 
-Стандартная модель **хиральна**: левые вейлевы фермионы и правые вейлевы фермионы принадлежат **разным** представлениям группы SU(3)×SU(2)×U(1):
+H4 is a finite Coxeter group in $\mathbb{R}^4$ of order 14400. It is **not a Lie group**. Here are three technical reasons why the E8 theorem does not carry over to H4:
 
-| Частица | Представление SU(3)×SU(2)×U(1) | Хиральность |
+### Reason 1: H4 is not a Lie Algebra — No Notion of "Representation in the Dynkin Sense"
+
+The Distler–Garibaldi theorem is explicitly formulated for Lie algebras of type E8 (and their real forms). The proof uses:
+- representation theory of semisimple Lie algebras;
+- the adjoint representation of E8 and its decomposition under SL(2,ℂ) × G;
+- Dynkin's results on subalgebras and embedding indices;
+- classification of $\mathfrak{sl}_2$-triples in $\mathfrak{e}_8$.
+
+H4 as a **finite reflection group** lacks:
+- a corresponding simple Lie algebra (H4 does not enter the Dynkin classification A–D–E–B–C–F–G);
+- an "adjoint representation" in the standard sense;
+- a structure of $\mathfrak{sl}_2$-triples.
+
+Applying the theorem's proof to H4 is technically impossible — the apparatus simply does not exist.
+
+### Reason 2: SL(2,ℂ) is Not Embedded in H4
+
+Condition (ToE1) requires that SL(2,ℂ) — the Lorentz group describing gravity — embeds into E8. This is possible because E8 is a noncompact Lie group with a rich subgroup structure.
+
+H4 is a **compact finite group** of order 14400. The continuous group SL(2,ℂ) cannot embed into H4: a finite group cannot contain noncompact Lie subgroups. Trinity-s3ai **does not claim** that H4 is the gauge group or that gravity is embedded in H4. H4 plays the role of a **symmetry of the discrete spectrum** (600-cell), not a continuous gauge symmetry. Therefore the entire construction (ToE1)–(ToE3) is formally inapplicable.
+
+### Reason 3: Trinity-s3ai Does Not Use the "Adjoint Representation" as the Source of Fermions
+
+In Lisi's approach fermions are **embedded in the adjoint representation** of E8 — this is exactly the point of application of the Distler–Garibaldi theorem. Trinity-s3ai uses a different mechanism: the **vertices of the 600-cell** (120 vertices on $S^3$) as a discrete spectrum of the Dirac operator. This is:
+- not a representation of a Lie group;
+- not an embedding in the adjoint;
+- a discrete eigensystem of an operator.
+
+The Distler–Garibaldi no-go theorem works within the Lie-theoretic framework and does not cover discrete spectral constructions.
+
+### Summary of Section 2
+
+| Distler–Garibaldi Condition | Status for E8 (Lisi) | Status for H4 (Trinity) |
 |---|---|---|
-| $q_L = (u_L, d_L)$ | **(3, 2, 1/6)** | левая |
-| $u_R$ | **(3, 1, 2/3)** | правая |
-| $d_R$ | **(3, 1, -1/3)** | правая |
-| $l_L = (ν_L, e_L)$ | **(1, 2, -1/2)** | левая |
-| $e_R$ | **(1, 1, -1)** | правая |
+| G is a Lie group with SL(2,ℂ) subgroup | ✓ satisfied | ✗ H4 is finite, SL(2,ℂ) not embedded |
+| Embedding of fermions in adj(E8) | ✓ satisfied | ✗ vertices of 600-cell ≠ adj |
+| Check of self-conjugacy of $V_{2,1}$ | → no-go proved | Inapplicable: no SL(2,ℂ)×G |
 
-Для одного поколения: 15 независимых вейлевых фермионов. Спектр **не является самосопряжённым** как представление SM.
+**Conclusion:** The Distler–Garibaldi theorem is formally inapplicable to the Trinity-s3ai approach. **This does not mean that chirality is solved — it means that the no-go theorem is not established, but the mechanism is not built either.**
 
-### 3.1 Как вейлевы фермионы возникают из 600-ячейника?
+---
 
-Trinity-s3ai строит спектр из **120 вершин 600-ячейника**. Вершины образуют бинарную икосаэдральную группу 2I ⊂ SU(2) — группу порядка 120. Это конкретная конечная группа, действующая на $\mathbb{C}^2$.
+## 3. The Open Question of Chirality for H4
 
-Дискретный спектр оператора Дирака на $S^3/2I$ (линзовом пространстве орбифолда) классифицируется **представлениями 2I**. Представления 2I:
+The Standard Model is **chiral**: left Weyl fermions and right Weyl fermions belong to **different** representations of the group SU(3)×SU(2)×U(1):
 
-| Представление 2I | Размерность |
+| Particle | Representation SU(3)×SU(2)×U(1) | Chirality |
+|---|---|---|
+| $q_L = (u_L, d_L)$ | **(3, 2, 1/6)** | left |
+| $u_R$ | **(3, 1, 2/3)** | right |
+| $d_R$ | **(3, 1, -1/3)** | right |
+| $l_L = (\nu_L, e_L)$ | **(1, 2, -1/2)** | left |
+| $e_R$ | **(1, 1, -1)** | right |
+
+For one generation: 15 independent Weyl fermions. The spectrum **is not self-conjugate** as a representation of the SM.
+
+### 3.1 How Do Weyl Fermions Emerge from the 600-Cell?
+
+Trinity-s3ai builds the spectrum from the **120 vertices of the 600-cell**. The vertices form the binary icosahedral group 2I ⊂ SU(2) — a group of order 120. This is a specific finite group acting on $\mathbb{C}^2$.
+
+The discrete spectrum of the Dirac operator on $S^3/2I$ (the lens space of the orbifold) is classified by the **representations of 2I**. The representations of 2I:
+
+| Representation of 2I | Dimension |
 |---|---|
-| $\rho_1$ (тривиальное) | 1 |
+| $\rho_1$ (trivial) | 1 |
 | $\rho_2$ | 2 |
 | $\rho_3$ | 3 |
 | $\rho_4$ | 4 |
 | $\rho_5$ | 5 |
-| $\rho_6$ | 6 (двойное) |
-| $\rho_7$ | 4 (двойное, нестандартное) |
-| $\rho_8$ | 2 (спинорное) |
-| $\rho_9$ | 2 (сопряжённое спинорное) |
+| $\rho_6$ | 6 (double) |
+| $\rho_7$ | 4 (double, nonstandard) |
+| $\rho_8$ | 2 (spinor) |
+| $\rho_9$ | 2 (conjugate spinor) |
 
-Суммарно: $1+2+3+4+5+6+4+2+2 = 29$ измерений (всего 9 неприводимых). Группа 2I изоморфна $\text{SL}(2,\mathbb{F}_5)/\{\pm 1\}$ — бинарная икосаэдральная группа.
+In total: $1+2+3+4+5+6+4+2+2 = 29$ dimensions (9 irreducibles total). The group 2I is isomorphic to $\text{SL}(2,\mathbb{F}_5)/\{\pm 1\}$ — the binary icosahedral group.
 
-**Ключевой вопрос:** Какие из этих 120 степеней свободы (вершины 600-ячейника) становятся левыми вейлевыми фермионами, и почему левых не столько же, сколько правых?
-
----
-
-## 4. Три возможных ответа на вопрос хиральности
-
-### Вариант (a): Удвоение при компактификации — хиральность возникает через внешний механизм
-
-**Идея:** H4-спектр сам по себе является **полным** (120 = 60 левых + 60 правых в наивном подсчёте). Хиральность возникает не из H4, а из **геометрии компактификации** дополнительных измерений — например, через G-потоки или топологию фонового многообразия в духе F-теории (BHV 2008–2010).
-
-**Аналогия:** В F-теории точка E8-усиления не является хиральной сама по себе — хиральность порождается потоком $G_4$ через 4-цикл во внутренней геометрии.
-
-**Оценка честности:**
-- Механизм **принципиально возможен** — такой подход работает в строковой теории.
-- Для Trinity-s3ai он **не реализован**: нет модели компактификации, нет G-потоков, нет конкретной геометрии.
-- Это откладывает проблему хиральности, а не решает её в рамках самого H4-подхода.
-
-**Вердикт:** Возможен, но не построен.
-
-### Вариант (b): H4-индуцированная асимметрия — хиральность из несамосопряжённости спектра 2I
-
-**Идея:** Бинарная икосаэдральная группа 2I имеет **несамосопряжённые** комплексные представления $\rho_8$ и $\rho_9$ (оба 2-мерных спинорных, взаимно сопряжённых). Если можно показать, что:
-1. физически реализованы только $\rho_8$-типные состояния (левые), но не $\rho_9$-типные (правые);
-2. разница закреплена каким-то топологическим инвариантом (напр., $\eta$-инвариантом Атьи или спектральной асимметрией Дирака);
-
-то спектр оказывается хиральным автоматически.
-
-Формально: спектральная асимметрия $\eta(0) = \frac{1}{2}\dim\ker D - \sum_{\lambda < 0} 1 + \sum_{\lambda > 0} 1$ оператора Дирака на $S^3/2I$ могла бы давать **ненулевую η-инвариант**, сигнализирующую о хиральном дисбалансе.
-
-**Оценка честности:**
-- Для орбифолдов $S^3/\Gamma$ с $\Gamma = 2I$ существуют вычисления η-инварианта. Известно, что для линзовых пространств η ≠ 0.
-- Конкретный расчёт для $S^3/2I$ в рамках Trinity-s3ai **не произведён**.
-- Даже если η ≠ 0, нужно отождествить конкретные «левые» состояния с фермионами SM с правильными квантовыми числами.
-- Это наиболее перспективный теоретический путь, но он **требует нетривиальной математической работы**.
-
-**Вердикт:** Наиболее перспективен теоретически, но не доказан.
-
-### Вариант (c): Trinity-s3ai является векторно-подобной — хиральности нет, проект в кризисе
-
-**Идея:** Спектр 120 вершин 600-ячейника симметричен: бинарная икосаэдральная группа 2I является **группой** под квотерионным умножением, причём для каждого элемента $q \in 2I$ присутствует $-q \in 2I$ (группа 2I замкнута под взятием обратного). Каждому «левому» состоянию (вершина $v$) соответствует «правое» (вершина $-v$). Это **точная симметрия** 600-ячейника — вся конструкция инвариантна относительно $v \mapsto -v$ (центральная симметрия).
-
-**Следствие:** Без дополнительного механизма, нарушающего симметрию $v \mapsto -v$, **каждое левое состояние парится с правым**. Спектр векторно-подобен. Хиральные конденсаты и хиральные аномалии отсутствуют.
-
-Это прямой аналог того, что происходит в моделях с E8 (по Дистлеру–Гарибальди): группа E8 самосопряжена в adj, и хиральность невозможна. Для 600-ячейника: инволюция $v \mapsto -v$ — это **точная дискретная симметрия**, не нарушенная никаким механизмом в рамках текущей формулировки Trinity-s3ai.
-
-**Оценка честности:**
-- Этот аргумент **технически корректен** в рамках текущего подхода.
-- Нарушение симметрии $v \mapsto -v$ не постулировано.
-- Квантовые числа SM-фермионов (заряд, изоспин, цвет) **не получены** из структуры 2I — они остаются внешними параметрами.
-
-**Вердикт:** Наиболее честная оценка текущего состояния проекта: спектр на уровне 600-ячейника векторно-подобен.
+**Key question:** Which of these 120 degrees of freedom (vertices of the 600-cell) become left Weyl fermions, and why are there not as many right-handed ones?
 
 ---
 
-## 5. Честный вердикт
+## 4. Three Possible Answers to the Chirality Question
 
-**Коротко:** Из трёх вариантов наиболее вероятен вариант (c) как характеристика **текущего** состояния Trinity-s3ai.
+### Variant (a): Doubling upon Compactification — Chirality Arises via an External Mechanism
 
-**Развёрнуто:**
+**Idea:** The H4-spectrum by itself is **full** (120 = 60 left + 60 right in a naive count). Chirality does not arise from H4, but from the **geometry of compactification** of extra dimensions — for example, via G-fluxes or topology of the background manifold in the spirit of F-theory (BHV 2008–2010).
 
-1. **Теорема Дистлера–Гарибальди к H4 не применима** — это правда. Но из этого не следует, что хиральность есть.
+**Analogy:** In F-theory an E8-enhancement point is not chiral by itself — chirality is generated by $G_4$ flux through a 4-cycle in the internal geometry.
 
-2. **Инволюция $v \mapsto -v$ на 600-ячейнике — это реальная проблема.** Симметрия 2I замкнута: если $v$ — вершина, то $-v$ тоже вершина. Без явного механизма, нарушающего эту симметрию на физическом уровне (через граничные условия, потоки, орбифолдное действие, или аномальное H4-нечётное состояние), спектр векторно-подобен.
+**Honesty assessment:**
+- The mechanism is **principally possible** — such an approach works in string theory.
+- For Trinity-s3ai it is **not implemented**: there is no compactification model, no G-fluxes, no concrete geometry.
+- This defers the chirality problem, rather than solving it within the H4 approach itself.
 
-3. **Вариант (b) остаётся открытым и интересным.** η-инвариант Дирака на $S^3/2I$ ненулевой (так как $2I$ нетривиальна). Теоретически это могло бы давать хиральный дисбаланс. Но для этого нужно:
-   - вычислить $\eta(0)$ явно для оператора Дирака на $S^3/2I$;
-   - соотнести состояния с квантовыми числами SM;
-   - ответить, почему $\rho_8 \neq \rho_9$ физически.
+**Verdict:** Possible, but not built.
 
-4. **Вариант (a) — честная альтернатива для расширения рамки**, но не ответ в текущей версии.
+### Variant (b): H4-Induced Asymmetry — Chirality from Non-Self-Conjugacy of the 2I Spectrum
 
-### Итоговая таблица
+**Idea:** The binary icosahedral group 2I has **non-self-conjugate** complex representations $\rho_8$ and $\rho_9$ (both 2-dimensional spinor, mutually conjugate). If one can show that:
+1. only $\rho_8$-type states (left) are physically realized, not $\rho_9$-type (right);
+2. the difference is fixed by some topological invariant (e.g., Atiyah's $\eta$-invariant or Dirac spectral asymmetry);
 
-| Вариант | Принципиальная возможность | Реализован в Trinity-s3ai | Честная оценка |
+then the spectrum turns out to be chiral automatically.
+
+Formally: the spectral asymmetry $\eta(0) = \frac{1}{2}\dim\ker D - \sum_{\lambda < 0} 1 + \sum_{\lambda > 0} 1$ of the Dirac operator on $S^3/2I$ could give a **nonzero η-invariant**, signaling a chiral imbalance.
+
+**Honesty assessment:**
+- For orbifolds $S^3/\Gamma$ with $\Gamma = 2I$ there exist computations of the η-invariant. It is known that for lens spaces η ≠ 0.
+- A concrete calculation for $S^3/2I$ within Trinity-s3ai has **not been performed**.
+- Even if η ≠ 0, one needs to identify the concrete "left" states with SM fermions with the correct quantum numbers.
+- This is the most promising theoretical path, but it **requires nontrivial mathematical work**.
+
+**Verdict:** Most promising theoretically, but not proven.
+
+### Variant (c): Trinity-s3ai is Vector-Like — There Is No Chirality, Project in Crisis
+
+**Idea:** The spectrum of 120 vertices of the 600-cell is symmetric: the binary icosahedral group 2I is a **group** under quaternion multiplication, and for every element $q \in 2I$ there is $-q \in 2I$ (the group 2I is closed under taking the inverse). Every "left" state (vertex $v$) corresponds to a "right" one (vertex $-v$). This is an **exact symmetry** of the 600-cell — the whole construction is invariant under $v \mapsto -v$ (central symmetry).
+
+**Consequence:** Without an additional mechanism breaking the $v \mapsto -v$ symmetry, **every left state is paired with a right one**. The spectrum is vector-like. Chiral condensates and chiral anomalies are absent.
+
+This is a direct analog of what happens in E8 models (per Distler–Garibaldi): the group E8 is self-conjugate in adj, and chirality is impossible. For the 600-cell: the involution $v \mapsto -v$ is an **exact discrete symmetry**, not broken by any mechanism in the current formulation of Trinity-s3ai.
+
+**Honesty assessment:**
+- This argument is **technically correct** within the current approach.
+- Breaking of the $v \mapsto -v$ symmetry is not postulated.
+- The SM quantum numbers (charge, isospin, color) of SM fermions **are not obtained** from the structure of 2I — they remain external parameters.
+
+**Verdict:** The most honest assessment of the current state of the project: the spectrum at the level of the 600-cell is vector-like.
+
+---
+
+## 5. Honest Verdict
+
+**In short:** Of the three variants, variant (c) is most likely as a characterization of the **current** state of Trinity-s3ai.
+
+**In detail:**
+
+1. **The Distler–Garibaldi theorem is inapplicable to H4** — this is true. But from this it does not follow that chirality exists.
+
+2. **The involution $v \mapsto -v$ on the 600-cell is a real problem.** The symmetry of 2I is closed: if $v$ is a vertex, then $-v$ is also a vertex. Without an explicit mechanism breaking this symmetry at the physical level (via boundary conditions, fluxes, orbifold action, or an anomalous H4-odd state), the spectrum is vector-like.
+
+3. **Variant (b) remains open and interesting.** The Dirac η-invariant on $S^3/2I$ is nonzero (since $2I$ is nontrivial). Theoretically this could give a chiral imbalance. But for this one needs:
+   - to compute $\eta(0)$ explicitly for the Dirac operator on $S^3/2I$;
+   - to relate the states to SM quantum numbers;
+   - to answer why $\rho_8 \neq \rho_9$ physically.
+
+4. **Variant (a) is an honest alternative for expanding the framework**, but not an answer in the current version.
+
+### Summary Table
+
+| Variant | Principal Possibility | Realized in Trinity-s3ai | Honest Assessment |
 |---|---|---|---|
-| (a) Компактификация | Да (аналог F-теории) | Нет | Честное «не знаем» |
-| (b) η-асимметрия 2I | Теоретически да | Нет, не вычислено | Перспективно, нужна работа |
-| (c) Векторно-подобный спектр | Да (текущая ситуация) | Да (отсутствие нарушения) | **Текущее состояние** |
+| (a) Compactification | Yes (F-theory analog) | No | Honest "we don't know" |
+| (b) η-asymmetry of 2I | Theoretically yes | No, not computed | Promising, work needed |
+| (c) Vector-like spectrum | Yes (current situation) | Yes (absence of breaking) | **Current state** |
 
-> **Честный вывод:** *Trinity-s3ai в текущей формулировке, по-видимому, даёт векторно-подобный спектр (вариант c). Это критическая нерешённая проблема. Теорема Дистлера–Гарибальди неприменима к H4 по формальным причинам, но структурная проблема — инволюция $v \mapsto -v$ на 600-ячейнике — существует и требует явного механизма её нарушения. Путь через η-инвариант (вариант b) — наиболее физически обоснованная перспектива для будущей работы.*
-
----
-
-## 6. Что нужно для решения проблемы
-
-1. **Вычислить η-инвариант** оператора Дирака на $S^3/2I$ (или аналогичном орбифолде с группой 2I).
-
-2. **Проверить**, нарушает ли какой-либо элемент структуры Trinity-s3ai (проекция Е8 → H4, κ-параметры, спектральное действие) инволюцию $v \mapsto -v$.
-
-3. **Если нет нарушения** — признать, что для хиральности нужен внешний механизм (компактификация, G-потоки, орбифолдное скручивание), и формулировать Trinity-s3ai как часть более широкой рамки.
-
-4. **Не утверждать**, что H4 «автоматически хиральна» только потому, что теорема Дистлера–Гарибальди неприменима.
+> **Honest conclusion:** *Trinity-s3ai in its current formulation apparently gives a vector-like spectrum (variant c). This is a critical unsolved problem. The Distler–Garibaldi theorem is inapplicable to H4 for formal reasons, but the structural problem — the involution $v \mapsto -v$ on the 600-cell — exists and requires an explicit mechanism for its breaking. The path via the η-invariant (variant b) is the most physically justified perspective for future work.*
 
 ---
 
-## Ссылки
+## 6. What Is Needed to Solve the Problem
+
+1. **Compute the η-invariant** of the Dirac operator on $S^3/2I$ (or a similar orbifold with group 2I).
+
+2. **Check** whether any element of the Trinity-s3ai structure (projection E8 → H4, κ-parameters, spectral action) breaks the involution $v \mapsto -v$.
+
+3. **If there is no breaking** — admit that an external mechanism is needed for chirality (compactification, G-fluxes, orbifold twist), and formulate Trinity-s3ai as part of a broader framework.
+
+4. **Do not claim** that H4 is "automatically chiral" just because the Distler–Garibaldi theorem is inapplicable.
+
+---
+
+## References
 
 - J. Distler, S. Garibaldi, «There is no 'Theory of Everything' inside E8», *Commun. Math. Phys.* **298**, 419 (2010); [arXiv:0905.2658](https://arxiv.org/abs/0905.2658)
 - A. G. Lisi, «An Exceptionally Simple Theory of Everything», [arXiv:0711.0770](https://arxiv.org/abs/0711.0770) (2007)
 - J. H. Conway, D. A. Smith, *On Quaternions and Octonions*, A K Peters (2003)
 - C. Beasley, J. J. Heckman, C. Vafa, «GUTs and Exceptional Branes in F-theory I», [arXiv:0802.3391](https://arxiv.org/abs/0802.3391)
-- Derivations/literature/e8_h4_in_physics.md, уроки 1, 2, 11, 15
+- Derivations/literature/e8_h4_in_physics.md, lessons 1, 2, 11, 15

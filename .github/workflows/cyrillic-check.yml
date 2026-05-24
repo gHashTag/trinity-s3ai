@@ -1,0 +1,27 @@
+name: Cyrillic Documentation Check
+
+on:
+  push:
+    paths:
+      - '**.md'
+      - '**.txt'
+      - '**.yaml'
+      - '**.yml'
+  pull_request:
+    paths:
+      - '**.md'
+      - '**.txt'
+      - '**.yaml'
+      - '**.yml'
+
+jobs:
+  check-cyrillic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check for undocumented Cyrillic
+        run: python3 scripts/check_cyrillic.py

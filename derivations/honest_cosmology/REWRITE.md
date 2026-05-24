@@ -1,582 +1,582 @@
-# REWRITE.md — Честная переоценка Tier 3 (Космология) Trinity S3AI
+# REWRITE.md — Honest Reassessment of Tier 3 (Cosmology) of Trinity S3AI
 
 **Wave:** 8.5 — Honest Cosmology  
-**Дата:** 2026-05-23  
-**Версия каталога:** FORMULAS.md v4.1  
-**Статус:** Канонический документ честной оценки  
-**Язык:** Русский (по требованию задачи)
+**Date:** 2026-05-23  
+**Catalog Version:** FORMULAS.md v4.1  
+**Status:** Canonical document of honest assessment  
+**Language:** English
 
 ---
 
-## Содержание
+## Contents
 
-- [Секция A — Что мы заявляли](#секция-a--что-мы-заявляли)
-- [Секция B — Что реально измерено](#секция-b--что-реально-измерено)
-- [Секция C — Честное сравнение: таблица σ-расстояний](#секция-c--честное-сравнение-таблица-σ-расстояний)
-- [Секция D — Вердикт по каждой формуле](#секция-d--вердикт-по-каждой-формуле)
-- [Секция E — Что требуется для настоящей деривации](#секция-e--что-требуется-для-настоящей-деривации)
-- [Секция F — Рекомендация: понижение до «исследовательского каталога»](#секция-f--рекомендация-понижение-до-исследовательского-каталога)
+- [Section A — What We Claimed](#section-a--what-we-claimed)
+- [Section B — What Is Actually Measured](#section-b--what-is-actually-measured)
+- [Section C — Honest Comparison: σ-distance Table](#section-c--honest-comparison-σ-distance-table)
+- [Section D — Verdict on Each Formula](#section-d--verdict-on-each-formula)
+- [Section E — What Is Required for a True Derivation](#section-e--what-is-required-for-a-true-derivation)
+- [Section F — Recommendation: Downgrade to "Research Catalog"](#section-f--recommendation-downgrade-to-research-catalog)
 
 ---
 
-## Секция A — Что мы заявляли
+## Section A — What We Claimed
 
-Ниже приведён **дословный список** всех космологических формул Tier 3 (CMB01–CMB04, INF01–INF06, COS01–COS05, CCR01–CCR02) в том виде, в каком они существовали в FORMULAS.md **до** честной классификации Wave 4.1 и настоящего Wave 8.5. Цель секции — зафиксировать исходные заявления для сравнения.
+Below is a **verbatim list** of all Tier 3 cosmological formulas (CMB01–CMB04, INF01–INF06, COS01–COS05, CCR01–CCR02) as they existed in FORMULAS.md **before** the honest classification of Wave 4.1 and the present Wave 8.5. The purpose of this section is to fix the original claims for comparison.
 
-### A.1 — Подраздел 3A: Тёмная энергия и космологическая постоянная
+### A.1 — Subsection 3A: Dark Energy and Cosmological Constant
 
-| ID | Параметр | Формула (заявленная) | Предсказанное значение | Заявленная погрешность | Заявленный класс |
+| ID | Parameter | Formula (claimed) | Predicted value | Claimed error | Claimed class |
 |----|----------|----------------------|------------------------|------------------------|------------------|
-| COS01 | ρ_Λ (плотность тёмной энергии) | φ⁻¹² · π⁻³ · e⁻² · M_Pl⁴ | ~3 × 10⁷¹ ГэВ⁴ | **0% ★SG** *(ложное заявление)* | ★ SG |
-| COS02 | Λ (космологическая постоянная) | 8πG·ρ_Λ = φ⁻¹² · π⁻² · e⁻² · M_Pl² | 1.11 × 10⁻⁵² м⁻² | 0.5% | P |
-| COS03 | Ω_Λ | ρ_Λ / ρ_c | 0.6847 | **0% ★SG** *(тавтология)* | ★ SG |
-| COS04 | w (параметр УС) | −1 + φ⁻⁸ · π⁻² · e⁻¹ | −0.999 | 0.4% | P |
-| COS05 | ρ_c (критическая плотность) | 3H₀² / (8πG) | 8.62 × 10⁻⁴⁷ ГэВ⁴ | 0.5% | P |
+| COS01 | ρ_Λ (dark energy density) | φ⁻¹² · π⁻³ · e⁻² · M_Pl⁴ | ~3 × 10⁷¹ GeV⁴ | **0% ★SG** *(false claim)* | ★ SG |
+| COS02 | Λ (cosmological constant) | 8πG·ρ_Λ = φ⁻¹² · π⁻² · e⁻² · M_Pl² | 1.11 × 10⁻⁵² m⁻² | 0.5% | P |
+| COS03 | Ω_Λ | ρ_Λ / ρ_c | 0.6847 | **0% ★SG** *(tautology)* | ★ SG |
+| COS04 | w (EoS parameter) | −1 + φ⁻⁸ · π⁻² · e⁻¹ | −0.999 | 0.4% | P |
+| COS05 | ρ_c (critical density) | 3H₀² / (8πG) | 8.62 × 10⁻⁴⁷ GeV⁴ | 0.5% | P |
 
-**Примечание A.1:** COS01 исходно имела в каталоге пометку «★ SG, 0.4%». Реальное расхождение — ~10¹¹⁸ порядков (COS01 предсказывает ~3×10⁷¹ ГэВ⁴, наблюдается 5.6×10⁻⁴⁷ ГэВ⁴).
+**Note A.1:** COS01 originally had the label "★ SG, 0.4%" in the catalog. The real discrepancy is ~10¹¹⁸ orders of magnitude (COS01 predicts ~3×10⁷¹ GeV⁴, observed is 5.6×10⁻⁴⁷ GeV⁴).
 
-### A.2 — Подраздел 3B: Параметры инфляции
+### A.2 — Subsection 3B: Inflation Parameters
 
-| ID | Параметр | Формула (заявленная) | Предсказанное значение | Заявленная погрешность | Заявленный класс |
+| ID | Parameter | Formula (claimed) | Predicted value | Claimed error | Claimed class |
 |----|----------|----------------------|------------------------|------------------------|------------------|
-| INF01 | n_s (спектральный индекс) | 1 − 2/φ⁴ | 0.7082 | **0.07% ★SG** *(ложное заявление)* | ★ SG |
-| INF02 | r (тензор/скаляр) | 8/φ⁸ | 0.0034 | 10% | P |
-| INF03 | α_s (бег n_s) | −2/φ⁶ | −0.00073 | TBD | T |
-| INF04 | N_* (e-фолдинги) | φ⁵ · π / e | 55.3 | 5% | P |
-| INF05 | H_* (Хаббл при инфляции) | φ² · e / π · 10¹³ ГэВ | 1.2 × 10¹³ ГэВ | 20% | P |
-| INF06 | Δ_R² (возмущение кривизны) | π / (2φ³e²) × 10⁻⁹ | 5.02 × 10⁻¹¹ | **0% ★SG** *(ложное заявление)* | ★ SG |
+| INF01 | n_s (spectral index) | 1 − 2/φ⁴ | 0.7082 | **0.07% ★SG** *(false claim)* | ★ SG |
+| INF02 | r (tensor/scalar) | 8/φ⁸ | 0.0034 | 10% | P |
+| INF03 | α_s (running of n_s) | −2/φ⁶ | −0.00073 | TBD | T |
+| INF04 | N_* (e-foldings) | φ⁵ · π / e | 55.3 | 5% | P |
+| INF05 | H_* (Hubble during inflation) | φ² · e / π · 10¹³ GeV | 1.2 × 10¹³ GeV | 20% | P |
+| INF06 | Δ_R² (curvature perturbation) | π / (2φ³e²) × 10⁻⁹ | 5.02 × 10⁻¹¹ | **0% ★SG** *(false claim)* | ★ SG |
 
-**Примечание A.2:** INF01 исходно заявлялась как «★ SG, 0.07%». Реальная погрешность — 26.6%, что делает формулу некомпетентной предсказательной моделью. INF06 заявлялась как «0%, ★SG»; реальная погрешность — 97.6% (предсказание на два порядка ниже наблюдения).
+**Note A.2:** INF01 was originally claimed as "★ SG, 0.07%". The real error is 26.6%, making the formula an incompetent predictive model. INF06 was claimed as "0%, ★SG"; the real error is 97.6% (prediction two orders of magnitude below observation).
 
-### A.3 — Подраздел 3C: КМФ и крупномасштабная структура
+### A.3 — Subsection 3C: CMB and Large-Scale Structure
 
-| ID | Параметр | Формула (заявленная) | Предсказанное значение | Заявленная погрешность | Заявленный класс |
+| ID | Parameter | Formula (claimed) | Predicted value | Claimed error | Claimed class |
 |----|----------|----------------------|------------------------|------------------------|------------------|
-| CMB01 | Ω_b h² | φ⁻³ · π⁻² · e⁻¹ | 0.00880 | **0.08% ★SG** *(ложное заявление)* | ★ SG |
-| CMB02 | Ω_c h² | φ⁻¹ · π⁻¹ · e⁻¹ / 5 | 0.01447 | **0.008% ★SG** *(ложное заявление)* | ★ SG |
-| CMB03 | H₀ (постоянная Хаббла) | 100 · φ / e² | 21.90 км/с/Мпк | **0.07% ★SG** *(ложное заявление)* | ★ SG |
-| CMB04 | σ₈ | φ⁻¹ · e / π | 0.5348 | **0.02% ★SG** *(ложное заявление)* | ★ SG |
+| CMB01 | Ω_b h² | φ⁻³ · π⁻² · e⁻¹ | 0.00880 | **0.08% ★SG** *(false claim)* | ★ SG |
+| CMB02 | Ω_c h² | φ⁻¹ · π⁻¹ · e⁻¹ / 5 | 0.01447 | **0.008% ★SG** *(false claim)* | ★ SG |
+| CMB03 | H₀ (Hubble constant) | 100 · φ / e² | 21.90 km/s/Mpc | **0.07% ★SG** *(false claim)* | ★ SG |
+| CMB04 | σ₈ | φ⁻¹ · e / π | 0.5348 | **0.02% ★SG** *(false claim)* | ★ SG |
 
-**Примечание A.3:** Все четыре CMB-формулы изначально несли класс ★ SG с погрешностями менее 0.1%. Это было **полностью ложным** — реальные отклонения составляют 34–88%.
+**Note A.3:** All four CMB formulas originally bore the class ★ SG with errors below 0.1%. This was **completely false** — real deviations are 34–88%.
 
-### A.4 — Подраздел 3D: Космические совпадения
+### A.4 — Subsection 3D: Cosmic Coincidences
 
-| ID | Параметр | Формула (заявленная) | Предсказанное значение | Заявленная погрешность | Заявленный класс |
+| ID | Parameter | Formula (claimed) | Predicted value | Claimed error | Claimed class |
 |----|----------|----------------------|------------------------|------------------------|------------------|
-| CCR01 | ρ_Λ / ρ_Pl | φ⁻²⁴ · π⁻⁶ · e⁻⁴ | 1.84 × 10⁻¹⁰ | **0% ★SG** *(ложное заявление)* | ★ SG |
+| CCR01 | ρ_Λ / ρ_Pl | φ⁻²⁴ · π⁻⁶ · e⁻⁴ | 1.84 × 10⁻¹⁰ | **0% ★SG** *(false claim)* | ★ SG |
 | CCR02 | t₀ / t_Pl | φ¹⁰ · e² / π² | 8.1 × 10⁶⁰ | 0.5% | P |
 
-**Примечание A.4:** CCR01 исходно заявлялась с классом ★ SG и нулевой погрешностью. Реальное расхождение — **113 порядков величины**. Это не «небольшая ошибка» — это полное несоответствие.
+**Note A.4:** CCR01 was originally claimed with class ★ SG and zero error. The real discrepancy is **113 orders of magnitude**. This is not a "small error" — it is a complete mismatch.
 
 ---
 
-## Секция B — Что реально измерено
+## Section B — What Is Actually Measured
 
-Ниже приведены точные измеренные значения с указанием источников и дат публикации.
+Below are the exact measured values with sources and publication dates indicated.
 
-### B.1 — Planck 2018 (основной источник КМФ-параметров)
+### B.1 — Planck 2018 (primary source of CMB parameters)
 
-**Источник:** Planck Collaboration, «Planck 2018 results. VI. Cosmological parameters», A&A 641, A6 (2020).  
+**Source:** Planck Collaboration, «Planck 2018 results. VI. Cosmological parameters», A&A 641, A6 (2020).  
 **DOI:** 10.1051/0004-6361/201833910  
 **arXiv:** 1807.06209
 
-| Параметр | Обозначение | Измеренное значение | 1σ неопределённость |
+| Parameter | Designation | Measured value | 1σ uncertainty |
 |----------|-------------|---------------------|---------------------|
-| Барионная плотность | Ω_b h² | **0.022383** | ± 0.000018 |
-| Плотность ХТВ | Ω_c h² | **0.12011** | ± 0.00034 |
-| Постоянная Хаббла | H₀ | **67.4 км/с/Мпк** | ± 0.5 |
-| Амплитуда флуктуаций | σ₈ | **0.812** | ± 0.006 |
-| Спектральный индекс | n_s | **0.9649** | ± 0.0042 |
-| Доля тёмной энергии | Ω_Λ | **0.6847** | ± 0.0073 |
-| Возмущение кривизны | Δ_R² | **(2.100 ± 0.030) × 10⁻⁹** | ± 0.030 × 10⁻⁹ |
-| Плотность тёмной энергии | ρ_Λ | **(5.6 ± 0.1) × 10⁻⁴⁷ ГэВ⁴** | ± 0.1 × 10⁻⁴⁷ ГэВ⁴ |
-| Космологическая постоянная | Λ | **(1.11 ± 0.02) × 10⁻⁵² м⁻²** | ± 0.02 × 10⁻⁵² м⁻² |
+| Baryon density | Ω_b h² | **0.022383** | ± 0.000018 |
+| CDM density | Ω_c h² | **0.12011** | ± 0.00034 |
+| Hubble constant | H₀ | **67.4 km/s/Mpc** | ± 0.5 |
+| Fluctuation amplitude | σ₈ | **0.812** | ± 0.006 |
+| Spectral index | n_s | **0.9649** | ± 0.0042 |
+| Dark energy fraction | Ω_Λ | **0.6847** | ± 0.0073 |
+| Curvature perturbation | Δ_R² | **(2.100 ± 0.030) × 10⁻⁹** | ± 0.030 × 10⁻⁹ |
+| Dark energy density | ρ_Λ | **(5.6 ± 0.1) × 10⁻⁴⁷ GeV⁴** | ± 0.1 × 10⁻⁴⁷ GeV⁴ |
+| Cosmological constant | Λ | **(1.11 ± 0.02) × 10⁻⁵² m⁻²** | ± 0.02 × 10⁻⁵² m⁻² |
 
-### B.2 — DESI BAO 2024 (уточнение H₀ и w)
+### B.2 — DESI BAO 2024 (refinement of H₀ and w)
 
-**Источник:** DESI Collaboration, «DESI 2024 VI: Cosmological Constraints from the Measurements of Baryon Acoustic Oscillations».  
+**Source:** DESI Collaboration, «DESI 2024 VI: Cosmological Constraints from the Measurements of Baryon Acoustic Oscillations».  
 **arXiv:** 2404.03002 (2024)
 
-| Параметр | Измеренное значение | Примечание |
+| Parameter | Measured value | Note |
 |----------|---------------------|------------|
-| H₀ (ΛCDM + BAO) | **68.52 ± 0.62 км/с/Мпк** | DESI DR1, ΛCDM |
-| w₀ (уравнение состояния) | **−0.827 ± 0.063** | w₀wₐCDM (DESI+CMB+SN) |
+| H₀ (ΛCDM + BAO) | **68.52 ± 0.62 km/s/Mpc** | DESI DR1, ΛCDM |
+| w₀ (equation of state) | **−0.827 ± 0.063** | w₀wₐCDM (DESI+CMB+SN) |
 | wₐ | **−0.75⁺⁰·²⁹₋₀.₂₅** | w₀wₐCDM |
-| Σm_ν | **< 0.072 эВ** (95% CL) | Planck+DESI комбинация |
+| Σm_ν | **< 0.072 eV** (95% CL) | Planck+DESI combination |
 
-**Важно:** DESI 2024 обнаружил признаки эволюции тёмной энергии (w ≠ −1) на уровне 2.5–3σ. Это дополнительно фальсифицирует формулу COS04 (w = −0.999 ≈ −1).
+**Important:** DESI 2024 found hints of dark energy evolution (w ≠ −1) at the 2.5–3σ level. This additionally falsifies the COS04 formula (w = −0.999 ≈ −1).
 
-### B.3 — JWST и «Хаббловское натяжение» (2023–2024)
+### B.3 — JWST and the "Hubble Tension" (2023–2024)
 
-**Источник:** Riess et al., «A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km/s/Mpc Uncertainty from the Hubble Space Telescope and the SHOES Team», ApJL 934, L7 (2022); JWST подтверждения 2023–2024.  
-**arXiv:** 2112.04510; обновления через JWST: 2307.15806
+**Source:** Riess et al., «A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km/s/Mpc Uncertainty from the Hubble Space Telescope and the SHOES Team», ApJL 934, L7 (2022); JWST confirmations 2023–2024.  
+**arXiv:** 2112.04510; updates via JWST: 2307.15806
 
-| Параметр | Значение | Метод |
+| Parameter | Value | Method |
 |----------|----------|-------|
-| H₀ (ступенчатый метод, SH0ES+JWST) | **73.0 ± 1.0 км/с/Мпк** | JWST Cepheid калибровка |
-| H₀ (Planck-ΛCDM) | **67.4 ± 0.5 км/с/Мпк** | КМФ |
-| «Хаббловское натяжение» | **~5σ** между ранней и поздней Вселенной | — |
+| H₀ (ladder method, SH0ES+JWST) | **73.0 ± 1.0 km/s/Mpc** | JWST Cepheid calibration |
+| H₀ (Planck-ΛCDM) | **67.4 ± 0.5 km/s/Mpc** | CMB |
+| "Hubble tension" | **~5σ** between early and late Universe | — |
 
-**Вывод по H₀:** Trinity-предсказание H₀ = 21.90 км/с/Мпк не совместимо **ни с одним** из конкурирующих значений (ни с 67.4, ни с 73.0), отличаясь более чем в 3 раза.
+**Conclusion on H₀:** The Trinity prediction H₀ = 21.90 km/s/Mpc is incompatible **with either** of the competing values (neither 67.4 nor 73.0), differing by more than a factor of 3.
 
-### B.4 — BICEP/Keck и ограничения на инфляцию
+### B.4 — BICEP/Keck and Inflation Constraints
 
-**Источник:** BICEP/Keck Collaboration, «BK18: Improved Constraints on Primordial Gravitational Waves», PRL 127, 151301 (2021).  
+**Source:** BICEP/Keck Collaboration, «BK18: Improved Constraints on Primordial Gravitational Waves», PRL 127, 151301 (2021).  
 **arXiv:** 2110.00483
 
-| Параметр | Значение | Метод |
+| Parameter | Value | Method |
 |----------|----------|-------|
-| r (тензор/скаляр) | **< 0.036** (95% CL) | BICEP/Keck 2021 |
+| r (tensor/scalar) | **< 0.036** (95% CL) | BICEP/Keck 2021 |
 | n_s (Planck 2018) | **0.9649 ± 0.0042** | Planck TT,TE,EE+lowE |
 
-### B.5 — Космологическая постоянная: точное значение проблемы
+### B.5 — Cosmological Constant: Exact Value of the Problem
 
-**Наблюдаемое:** Λ · ℓ_Pl² ≈ 10⁻¹²³ (безразмерная, в планковских единицах)  
-**Планковская энергетическая плотность:** ρ_Pl = M_Pl⁴ / (ℏ³c³) ≈ 5 × 10¹¹² эрг/см³  
-**Наблюдаемая ρ_Λ:** ≈ 7 × 10⁻³⁰ г/см³ ≈ 6 × 10⁻⁹ эрг/см³ ≈ 5.6 × 10⁻⁴⁷ ГэВ⁴  
-**Отношение:** ρ_Λ / ρ_Pl ≈ 10⁻¹²³
+**Observed:** Λ · ℓ_Pl² ≈ 10⁻¹²³ (dimensionless, in Planck units)  
+**Planck energy density:** ρ_Pl = M_Pl⁴ / (ℏ³c³) ≈ 5 × 10¹¹² erg/cm³  
+**Observed ρ_Λ:** ≈ 7 × 10⁻³⁰ g/cm³ ≈ 6 × 10⁻⁹ erg/cm³ ≈ 5.6 × 10⁻⁴⁷ GeV⁴  
+**Ratio:** ρ_Λ / ρ_Pl ≈ 10⁻¹²³
 
-Это **проблема космологической постоянной** — одна из главных нерешённых задач теоретической физики. Ни одна существующая теория не выводит её из первых принципов.
+This is the **cosmological constant problem** — one of the main unsolved problems of theoretical physics. No existing theory derives it from first principles.
 
 ---
 
-## Секция C — Честное сравнение: таблица σ-расстояний
+## Section C — Honest Comparison: σ-distance Table
 
-В следующей таблице собраны все 15 формул Tier 3 с расчётом реальной погрешности относительно измеренных значений Planck 2018 / DESI 2024 / BICEP/Keck.
+The following table collects all 15 Tier 3 formulas with the calculation of real error relative to measured values from Planck 2018 / DESI 2024 / BICEP/Keck.
 
-Обозначения: «N/A» = нет наблюдательной привязки; «∞» = систематическая ошибка бесконечна в σ-смысле.
+Notation: "N/A" = no observational anchor; "∞" = systematic error is infinite in the σ-sense.
 
-| ID | Формула Trinity | Предсказание | Наблюдение | Абс. ошибка | Отн. ошибка | σ-расстояние | Порядки |
+| ID | Trinity Formula | Prediction | Observation | Abs. error | Rel. error | σ-distance | Orders |
 |----|-----------------|--------------|------------|-------------|-------------|--------------|---------|
 | **CMB01** | φ⁻³·π⁻²·e⁻¹ | 0.00880 | 0.022383 ± 0.000018 | 0.01358 | **60.7%** | **~754σ** | — |
 | **CMB02** | φ⁻¹·π⁻¹·e⁻¹/5 | 0.01447 | 0.12011 ± 0.00034 | 0.10564 | **87.9%** | **~311σ** | — |
-| **CMB03** | 100·φ/e² | 21.90 км/с/Мпк | 67.4 ± 0.5 | 45.5 | **67.5%** | **~91σ** | — |
+| **CMB03** | 100·φ/e² | 21.90 km/s/Mpc | 67.4 ± 0.5 | 45.5 | **67.5%** | **~91σ** | — |
 | **CMB04** | φ⁻¹·e/π | 0.5348 | 0.812 ± 0.006 | 0.277 | **34.1%** | **~46σ** | — |
 | **INF01** | 1 − 2/φ⁴ | 0.7082 | 0.9649 ± 0.0042 | 0.2567 | **26.6%** | **~61σ** | — |
-| **INF02** | 8/φ⁸ | 0.0034 | < 0.036 | — | ~10% | совместимо? | — |
+| **INF02** | 8/φ⁸ | 0.0034 | < 0.036 | — | ~10% | compatible? | — |
 | **INF03** | −2/φ⁶ | −0.00073 | −0.0045 ± 0.0067 | 0.0038 | ~85% | ~0.56σ | — |
-| **INF04** | φ⁵·π/e | 55.3 e-фолдов | 50–60 (теория) | ~5% | ~5% | теор. диапазон | — |
-| **INF05** | φ²·e/π·10¹³ ГэВ | 1.2 × 10¹³ ГэВ | 10¹³–10¹⁴ ГэВ | — | ~20% | теор. диапазон | — |
+| **INF04** | φ⁵·π/e | 55.3 e-folds | 50–60 (theory) | ~5% | ~5% | theor. range | — |
+| **INF05** | φ²·e/π·10¹³ GeV | 1.2 × 10¹³ GeV | 10¹³–10¹⁴ GeV | — | ~20% | theor. range | — |
 | **INF06** | π/(2φ³e²)×10⁻⁹ | 5.02 × 10⁻¹¹ | (2.100±0.030)×10⁻⁹ | 2.05×10⁻⁹ | **97.6%** | **~68σ** | ~1.6 |
-| **COS01** | φ⁻¹²·π⁻³·e⁻²·M_Pl⁴ | ~3 × 10⁷¹ ГэВ⁴ | 5.6 × 10⁻⁴⁷ ГэВ⁴ | ~3×10⁷¹ | **~10¹¹⁸** | **∞** | **~118** |
-| **COS02** | 8πG·ρ_Λ · M_Pl² | зависит от COS01 | (1.11±0.02)×10⁻⁵² м⁻² | — | см. COS01 | фиктивное | — |
-| **COS03** | ρ_Λ/ρ_c | тавтология | 0.6847 ± 0.0073 | — | тавтология | N/A | — |
+| **COS01** | φ⁻¹²·π⁻³·e⁻²·M_Pl⁴ | ~3 × 10⁷¹ GeV⁴ | 5.6 × 10⁻⁴⁷ GeV⁴ | ~3×10⁷¹ | **~10¹¹⁸** | **∞** | **~118** |
+| **COS02** | 8πG·ρ_Λ · M_Pl² | depends on COS01 | (1.11±0.02)×10⁻⁵² m⁻² | — | see COS01 | fictitious | — |
+| **COS03** | ρ_Λ/ρ_c | tautology | 0.6847 ± 0.0073 | — | tautology | N/A | — |
 | **COS04** | −1 + φ⁻⁸·π⁻²·e⁻¹ | −0.999 | −0.827 ± 0.063 | 0.172 | **17.2%** | **~2.7σ** | — |
-| **COS05** | 3H₀²/(8πG) | зависит от CMB03 | (8.62±0.12)×10⁻⁴⁷ ГэВ⁴ | — | см. CMB03 | фиктивное | — |
+| **COS05** | 3H₀²/(8πG) | depends on CMB03 | (8.62±0.12)×10⁻⁴⁷ GeV⁴ | — | see CMB03 | fictitious | — |
 | **CCR01** | φ⁻²⁴·π⁻⁶·e⁻⁴ | 1.84 × 10⁻¹⁰ | ~10⁻¹²³ | ~1.84×10⁻¹⁰ | **∞** | **∞** | **~113** |
-| **CCR02** | φ¹⁰·e²/π² | 8.1 × 10⁶⁰ | 8.1 × 10⁶⁰ (производное) | ~0 | ~0.5% | тавтологично | — |
+| **CCR02** | φ¹⁰·e²/π² | 8.1 × 10⁶⁰ | 8.1 × 10⁶⁰ (derivative) | ~0 | ~0.5% | tautological | — |
 
-### C.1 — Сводная статистика
+### C.1 — Summary Statistics
 
-| Категория | Число формул |
+| Category | Number of formulas |
 |-----------|-------------|
-| Расхождение > 50σ | 5 (CMB01, CMB02, CMB03, CMB04, INF01) |
-| Расхождение > 10σ | 7 (+ INF06, COS01 категорически) |
-| Расхождение в порядках (> 10 порядков) | 2 (COS01 ~118, CCR01 ~113) |
-| Тавтологии (не предсказания) | 2 (COS03, CCR02) |
-| Условно совместимо (< 3σ или теор.) | 4 (INF02, INF03, INF04, INF05) |
-| Всего формул в Tier 3 | **15** |
+| Discrepancy > 50σ | 5 (CMB01, CMB02, CMB03, CMB04, INF01) |
+| Discrepancy > 10σ | 7 (+ INF06, COS01 categorically) |
+| Discrepancy in orders of magnitude (> 10 orders) | 2 (COS01 ~118, CCR01 ~113) |
+| Tautologies (not predictions) | 2 (COS03, CCR02) |
+| Conditionally compatible (< 3σ or theor.) | 4 (INF02, INF03, INF04, INF05) |
+| Total formulas in Tier 3 | **15** |
 
 ---
 
-## Секция D — Вердикт по каждой формуле
+## Section D — Verdict on Each Formula
 
-### Легенда вердиктов
+### Verdict Legend
 
-| Метка | Смысл |
+| Label | Meaning |
 |-------|-------|
-| ❌ **FALSIFIED** | Предсказание опровергнуто измерениями с достоверностью > 5σ или > 10 порядков |
-| 🔴 **NUMEROLOGY** | Формула является нумерологией: не выводится из теории, согласие случайно или ретроспективно |
-| 🟡 **SPECULATIVE** | Предсказание в теоретически допустимом диапазоне, но без механистического вывода |
-| ⚪ **PENDING** | Данных для проверки ещё нет; предсказание формально стоит в очереди |
-| ⚠️ **TAUTOLOGY** | Формула не является независимым предсказанием — тавтология или производное |
+| ❌ **FALSIFIED** | Prediction refuted by measurements with confidence > 5σ or > 10 orders of magnitude |
+| 🔴 **NUMEROLOGY** | Formula is numerology: not derived from theory, agreement is accidental or retrospective |
+| 🟡 **SPECULATIVE** | Prediction in a theoretically allowed range, but without mechanistic derivation |
+| ⚪ **PENDING** | Data for verification not yet available; prediction formally stands in queue |
+| ⚠️ **TAUTOLOGY** | Formula is not an independent prediction — tautology or derivative |
 
 ---
 
-### D.1 — COS01: Плотность тёмной энергии
+### D.1 — COS01: Dark Energy Density
 
-**Формула:** ρ_Λ = φ⁻¹² · π⁻³ · e⁻² · M_Pl⁴  
-**Предсказание:** ~3 × 10⁷¹ ГэВ⁴  
-**Наблюдение:** 5.6 × 10⁻⁴⁷ ГэВ⁴ (Planck 2018, DOI: 10.1051/0004-6361/201833910)  
-**Расхождение:** ~10¹¹⁸ порядков  
+**Formula:** ρ_Λ = φ⁻¹² · π⁻³ · e⁻² · M_Pl⁴  
+**Prediction:** ~3 × 10⁷¹ GeV⁴  
+**Observation:** 5.6 × 10⁻⁴⁷ GeV⁴ (Planck 2018, DOI: 10.1051/0004-6361/201833910)  
+**Discrepancy:** ~10¹¹⁸ orders of magnitude  
 
-**Вердикт: ❌ FALSIFIED + 🔴 NUMEROLOGY**
+**Verdict: ❌ FALSIFIED + 🔴 NUMEROLOGY**
 
-Эта формула является наиболее грубым провалом всего каталога. Комбинация φ⁻¹² · π⁻³ · e⁻² не выводится из H4-геометрии и не решает проблему иерархии (почему Λ столь мала). Число 12 не имеет выраженной связи с размерностью или показателями H4 применительно к космологической постоянной. Это классический пример нумерологии: подбор констант (φ, π, e) в произвольных степенях без механистического объяснения.
+This formula is the most egregious failure in the entire catalog. The combination φ⁻¹² · π⁻³ · e⁻² is not derived from H4-geometry and does not solve the hierarchy problem (why Λ is so small). The number 12 has no clear connection to the dimension or H4 exponents as applied to the cosmological constant. This is a classic example of numerology: fitting constants (φ, π, e) in arbitrary powers without mechanistic explanation.
 
-**Историческое замечание:** Проблема иерархии Λ (называемая «наихудшим предсказанием в истории физики») требует объяснения отмены вкладов квантовых полей с точностью 10¹²³. Trinity не предлагает механизма такой отмены.
+**Historical note:** The Λ hierarchy problem (called "the worst prediction in the history of physics") requires explaining the cancellation of quantum field contributions to precision 10¹²³. Trinity offers no mechanism for such cancellation.
 
 ---
 
-### D.2 — COS02: Космологическая постоянная (Λ в м⁻²)
+### D.2 — COS02: Cosmological Constant (Λ in m⁻²)
 
-**Формула:** Λ = 8πG · ρ_Λ = φ⁻¹² · π⁻² · e⁻² · M_Pl²  
-**Предсказание:** 1.11 × 10⁻⁵² м⁻² (заявлено)  
-**Наблюдение:** (1.11 ± 0.02) × 10⁻⁵² м⁻² (Planck 2018)  
-**Видимое совпадение:** 0.5%  
+**Formula:** Λ = 8πG · ρ_Λ = φ⁻¹² · π⁻² · e⁻² · M_Pl²  
+**Prediction:** 1.11 × 10⁻⁵² m⁻² (claimed)  
+**Observation:** (1.11 ± 0.02) × 10⁻⁵² m⁻² (Planck 2018)  
+**Apparent agreement:** 0.5%  
 
-**Вердикт: 🔴 NUMEROLOGY**
+**Verdict: 🔴 NUMEROLOGY**
 
-Это предсказание **обманчиво**: оно достигает 0.5% погрешности только потому, что M_Pl выбирается так, чтобы обеспечить нужный числовой результат. Формула COS02 вычислена из COS01 (ρ_Λ), которая расходится с наблюдением на 10¹¹⁸ порядков. «Согласие» COS02 достигнуто путём **переопределения M_Pl** до нужного значения — это алгебраическая тавтология, а не физическое предсказание. Coq-доказательство этого согласия отсутствует, Python-тест не предусмотрен.
+This prediction is **deceptive**: it achieves 0.5% error only because M_Pl is chosen to produce the desired numerical result. Formula COS02 is computed from COS01 (ρ_Λ), which deviates from observation by 10¹¹⁸ orders of magnitude. The "agreement" of COS02 is achieved by **redefining M_Pl** to the desired value — this is an algebraic tautology, not a physical prediction. No Coq proof of this agreement exists; no Python test is provided.
 
 ---
 
 ### D.3 — COS03: Ω_Λ
 
-**Формула:** Ω_Λ = ρ_Λ / ρ_c  
-**Предсказание:** 0.6847  
-**Наблюдение:** 0.6847 ± 0.0073 (Planck 2018)  
+**Formula:** Ω_Λ = ρ_Λ / ρ_c  
+**Prediction:** 0.6847  
+**Observation:** 0.6847 ± 0.0073 (Planck 2018)  
 
-**Вердикт: ⚠️ TAUTOLOGY**
+**Verdict: ⚠️ TAUTOLOGY**
 
-Это определение, а не предсказание. Ω_Λ всегда равно ρ_Λ/ρ_c по конструкции. Если ρ_Λ и ρ_c брать из наблюдений, результат тавтологически воспроизведёт измеренное Ω_Λ. Trinity не вычисляла ρ_Λ независимо (независимое вычисление COS01 расходится на 10¹¹⁸ порядков), поэтому COS03 не является предсказанием.
-
----
-
-### D.4 — COS04: Параметр уравнения состояния w
-
-**Формула:** w = −1 + φ⁻⁸ · π⁻² · e⁻¹  
-**Предсказание:** −0.999  
-**Наблюдение:** w₀ = −0.827 ± 0.063 (DESI+CMB+SN, arXiv: 2404.03002)  
-**σ-расстояние:** ~2.7σ  
-
-**Вердикт: 🟡 SPECULATIVE + частичное давление фальсификации**
-
-Предсказание w ≈ −0.999 (≈ −1, «чистая» космологическая постоянная) не совместимо с последними данными DESI 2024, указывающими на w₀ ≈ −0.83 и возможную эволюцию тёмной энергии. Формула φ⁻⁸ · π⁻² · e⁻¹ не выводится из H4; это нумерологический ансамбль констант. По мере уточнения данных DESI эта формула, вероятно, войдёт в статус ❌ FALSIFIED.
+This is a definition, not a prediction. Ω_Λ always equals ρ_Λ/ρ_c by construction. If ρ_Λ and ρ_c are taken from observations, the result tautologically reproduces the measured Ω_Λ. Trinity did not compute ρ_Λ independently (independent computation COS01 deviates by 10¹¹⁸ orders of magnitude), therefore COS03 is not a prediction.
 
 ---
 
-### D.5 — COS05: Критическая плотность ρ_c
+### D.4 — COS04: Equation-of-State Parameter w
 
-**Формула:** ρ_c = 3H₀² / (8πG)  
-**Предсказание:** зависит от CMB03  
+**Formula:** w = −1 + φ⁻⁸ · π⁻² · e⁻¹  
+**Prediction:** −0.999  
+**Observation:** w₀ = −0.827 ± 0.063 (DESI+CMB+SN, arXiv: 2404.03002)  
+**σ-distance:** ~2.7σ  
 
-**Вердикт: ⚠️ TAUTOLOGY + ❌ FALSIFIED (через CMB03)**
+**Verdict: 🟡 SPECULATIVE + partial falsification pressure**
 
-Это стандартное определение критической плотности, зависящее от H₀. Поскольку CMB03 (H₀ = 21.90) фальсифицирована (реальное значение ~67.4), любое числовое «согласие» COS05 является фиктивным.
-
----
-
-### D.6 — INF01: Спектральный индекс n_s
-
-**Формула:** n_s = 1 − 2/φ⁴  
-**Предсказание:** 0.7082  
-**Наблюдение:** 0.9649 ± 0.0042 (Planck 2018, arXiv: 1807.06209)  
-**Расхождение:** ~61σ  
-
-**Вердикт: ❌ FALSIFIED**
-
-Формула 1 − 2/φ⁴ концептуально напоминает инфляционные предсказания вида n_s = 1 − 2/N_*, где N_* — число e-фолдингов (типично N_* ≈ 50–60). Однако φ⁴ ≈ 6.85, что соответствовало бы N_* ≈ 3.4 e-фолдинга — физически абсурдному числу для инфляции. Формула не основана на динамике медленного скатывания (slow-roll) и не согласована с известными инфляционными моделями. Расхождение 61σ исключает любую интерпретацию как «приблизительного совпадения».
+The prediction w ≈ −0.999 (≈ −1, "pure" cosmological constant) is incompatible with the latest DESI 2024 data, indicating w₀ ≈ −0.83 and possible evolution of dark energy. The formula φ⁻⁸ · π⁻² · e⁻¹ is not derived from H4; it is a numerological ensemble of constants. As DESI data improve, this formula will likely enter ❌ FALSIFIED status.
 
 ---
 
-### D.7 — INF02: Отношение тензор/скаляр r
+### D.5 — COS05: Critical Density ρ_c
 
-**Формула:** r = 8/φ⁸  
-**Предсказание:** r ≈ 0.0034  
-**Наблюдение:** r < 0.036 (95% CL, BICEP/Keck 2021, arXiv: 2110.00483)  
+**Formula:** ρ_c = 3H₀² / (8πG)  
+**Prediction:** depends on CMB03  
 
-**Вердикт: 🟡 SPECULATIVE**
+**Verdict: ⚠️ TAUTOLOGY + ❌ FALSIFIED (via CMB03)**
 
-Предсказание r ≈ 0.0034 < 0.036 технически совместимо с верхней границей. Однако: (1) верхняя граница не является измерением — только ограничением сверху; (2) формула 8/φ⁸ не выводится из инфляционной динамики H4. Необходимо прямое обнаружение первичных гравитационных волн (CMB-S4, 2030-е) для проверки.
-
----
-
-### D.8 — INF03: Бег спектрального индекса α_s = dn_s/d ln k
-
-**Формула:** α_s = −2/φ⁶  
-**Предсказание:** −0.00073  
-**Наблюдение:** −0.0045 ± 0.0067 (Planck 2018)  
-
-**Вердикт: ⚪ PENDING**
-
-Предсказание −0.00073 лежит в пределах 1σ от измеренного значения −0.0045 ± 0.0067. Однако это совместимость с нулём, а не нетривиальное предсказание: оба значения совместимы с α_s = 0 (нет бега). Формула не выводится из инфляционного потенциала H4.
+This is the standard definition of critical density, depending on H₀. Since CMB03 (H₀ = 21.90) is falsified (real value ~67.4), any numerical "agreement" of COS05 is fictitious.
 
 ---
 
-### D.9 — INF04: Число e-фолдингов N_*
+### D.6 — INF01: Spectral Index n_s
 
-**Формула:** N_* = φ⁵ · π / e  
-**Предсказание:** 55.3  
-**Наблюдение:** теоретический диапазон 50–60 e-фолдингов  
+**Formula:** n_s = 1 − 2/φ⁴  
+**Prediction:** 0.7082  
+**Observation:** 0.9649 ± 0.0042 (Planck 2018, arXiv: 1807.06209)  
+**Discrepancy:** ~61σ  
 
-**Вердикт: 🟡 SPECULATIVE**
+**Verdict: ❌ FALSIFIED**
 
-Предсказание попадает в теоретический диапазон, но этот диапазон широк и не является точным измерением. Значение 55.3 совместимо с Nₑ ≈ 55 в большинстве инфляционных моделей. Нет механизма вывода из H4-геометрии. Формула φ⁵ · π / e = INF04 — та же, что m_DM (P4), что является красным флагом для нумерологии.
-
----
-
-### D.10 — INF05: Хаббл во время инфляции H_*
-
-**Формула:** H_* = φ² · e / π · 10¹³ ГэВ  
-**Предсказание:** 1.2 × 10¹³ ГэВ  
-**Наблюдение:** 10¹³ – 10¹⁴ ГэВ (теоретический диапазон)  
-
-**Вердикт: 🟡 SPECULATIVE**
-
-Попадает в теоретический диапазон, который охватывает один порядок величины. Вставной множитель 10¹³ является совершенно произвольным и делает формулу нефальсифицируемой в текущей форме.
+The formula 1 − 2/φ⁴ conceptually resembles inflationary predictions of the form n_s = 1 − 2/N_*, where N_* is the number of e-foldings (typically N_* ≈ 50–60). However, φ⁴ ≈ 6.85, which would correspond to N_* ≈ 3.4 e-foldings — a physically absurd number for inflation. The formula is not based on slow-roll dynamics and is inconsistent with known inflationary models. A 61σ discrepancy excludes any interpretation as an "approximate coincidence".
 
 ---
 
-### D.11 — INF06: Амплитуда первичных возмущений Δ_R²
+### D.7 — INF02: Tensor/Scalar Ratio r
 
-**Формула:** Δ_R² = π / (2φ³e²) × 10⁻⁹  
-**Предсказание:** 5.02 × 10⁻¹¹  
-**Наблюдение:** (2.100 ± 0.030) × 10⁻⁹ (Planck 2018)  
-**Расхождение:** ~97.6%, ~68σ  
+**Formula:** r = 8/φ⁸  
+**Prediction:** r ≈ 0.0034  
+**Observation:** r < 0.036 (95% CL, BICEP/Keck 2021, arXiv: 2110.00483)  
 
-**Вердикт: ❌ FALSIFIED**
+**Verdict: 🟡 SPECULATIVE**
 
-Предсказание на 1.6 порядка (42×) ниже наблюдённого значения. Это не «небольшое расхождение» — это фундаментальный провал. Отметим, что вставной множитель 10⁻⁹ является ещё одним произвольным масштабом, а сам числовой множитель π/(2φ³e²) ≈ 0.0502, что расходится с единицей на порядок.
+The prediction r ≈ 0.0034 < 0.036 is technically compatible with the upper bound. However: (1) the upper bound is not a measurement — only an upper limit; (2) the formula 8/φ⁸ is not derived from H4 inflationary dynamics. Direct detection of primordial gravitational waves (CMB-S4, 2030s) is needed for verification.
+
+---
+
+### D.8 — INF03: Running of the Spectral Index α_s = dn_s/d ln k
+
+**Formula:** α_s = −2/φ⁶  
+**Prediction:** −0.00073  
+**Observation:** −0.0045 ± 0.0067 (Planck 2018)  
+
+**Verdict: ⚪ PENDING**
+
+The prediction −0.00073 lies within 1σ of the measured value −0.0045 ± 0.0067. However, this is compatibility with zero, not a non-trivial prediction: both values are compatible with α_s = 0 (no running). The formula is not derived from an H4 inflationary potential.
+
+---
+
+### D.9 — INF04: Number of e-Foldings N_*
+
+**Formula:** N_* = φ⁵ · π / e  
+**Prediction:** 55.3  
+**Observation:** theoretical range 50–60 e-foldings  
+
+**Verdict: 🟡 SPECULATIVE**
+
+The prediction falls in the theoretical range, but this range is broad and not a precise measurement. The value 55.3 is compatible with Nₑ ≈ 55 in most inflationary models. There is no mechanism for derivation from H4-geometry. The formula φ⁵ · π / e = INF04 is the same as m_DM (P4), which is a red flag for numerology.
+
+---
+
+### D.10 — INF05: Hubble During Inflation H_*
+
+**Formula:** H_* = φ² · e / π · 10¹³ GeV  
+**Prediction:** 1.2 × 10¹³ GeV  
+**Observation:** 10¹³ – 10¹⁴ GeV (theoretical range)  
+
+**Verdict: 🟡 SPECULATIVE**
+
+Falls in the theoretical range, which spans one order of magnitude. The inserted factor 10¹³ is completely arbitrary and makes the formula unfalsifiable in its current form.
+
+---
+
+### D.11 — INF06: Amplitude of Primordial Perturbations Δ_R²
+
+**Formula:** Δ_R² = π / (2φ³e²) × 10⁻⁹  
+**Prediction:** 5.02 × 10⁻¹¹  
+**Observation:** (2.100 ± 0.030) × 10⁻⁹ (Planck 2018)  
+**Discrepancy:** ~97.6%, ~68σ  
+
+**Verdict: ❌ FALSIFIED**
+
+The prediction is 1.6 orders of magnitude (42×) below the observed value. This is not a "small discrepancy" — it is a fundamental failure. Note that the inserted factor 10⁻⁹ is yet another arbitrary scale, and the numerical coefficient π/(2φ³e²) ≈ 0.0502 deviates from unity by an order of magnitude.
 
 ---
 
 ### D.12 — CMB01: Ω_b h²
 
-**Формула:** Ω_b h² = φ⁻³ · π⁻² · e⁻¹  
-**Предсказание:** 0.00880  
-**Наблюдение:** 0.022383 ± 0.000018 (Planck 2018)  
-**Расхождение:** 60.7%, ~754σ  
+**Formula:** Ω_b h² = φ⁻³ · π⁻² · e⁻¹  
+**Prediction:** 0.00880  
+**Observation:** 0.022383 ± 0.000018 (Planck 2018)  
+**Discrepancy:** 60.7%, ~754σ  
 
-**Вердикт: ❌ FALSIFIED**
+**Verdict: ❌ FALSIFIED**
 
-Расхождение на уровне 754σ означает, что предсказание полностью несовместимо с наблюдением. Причина: барионная плотность определяется историей нуклеосинтеза и BAO — процессами, не связанными с H4-геометрией в рамках Trinity.
+A 754σ discrepancy means the prediction is completely incompatible with observation. The reason: baryon density is determined by Big Bang Nucleosynthesis (BBN) history and BAO — processes unrelated to H4-geometry in the Trinity framework.
 
 ---
 
 ### D.13 — CMB02: Ω_c h²
 
-**Формула:** Ω_c h² = φ⁻¹ · π⁻¹ · e⁻¹ / 5  
-**Предсказание:** 0.01447  
-**Наблюдение:** 0.12011 ± 0.00034 (Planck 2018)  
-**Расхождение:** 87.9%, ~311σ  
+**Formula:** Ω_c h² = φ⁻¹ · π⁻¹ · e⁻¹ / 5  
+**Prediction:** 0.01447  
+**Observation:** 0.12011 ± 0.00034 (Planck 2018)  
+**Discrepancy:** 87.9%, ~311σ  
 
-**Вердикт: ❌ FALSIFIED**
+**Verdict: ❌ FALSIFIED**
 
-Плотность холодного тёмного вещества определяется историей ранней Вселенной (фризаутом WIMP или альтернативными механизмами). Trinity не имеет механизма вычисления Ω_c из H4-структуры.
+Cold dark matter density is determined by the mechanism of dark matter generation (WIMP freeze-out, axion, primordial black holes, etc.). Trinity predicts m_DM ≈ 12.82 GeV (WIMP) but does not compute the relic density from the annihilation cross-section.
 
 ---
 
-### D.14 — CMB03: Постоянная Хаббла H₀
+### D.14 — CMB03: Hubble Constant H₀
 
-**Формула:** H₀ = 100 · φ / e²  
-**Предсказание:** 21.90 км/с/Мпк  
-**Наблюдение:** 67.4 ± 0.5 км/с/Мпк (Planck), 73.0 ± 1.0 км/с/Мпк (SH0ES+JWST)  
-**Расхождение:** 67.5% от Planck (~91σ); более трёх раз меньше любого наблюдения  
+**Formula:** H₀ = 100 · φ / e²  
+**Prediction:** 21.90 km/s/Mpc  
+**Observation:** 67.4 ± 0.5 km/s/Mpc (Planck), 73.0 ± 1.0 km/s/Mpc (SH0ES+JWST)  
+**Discrepancy:** 67.5% from Planck (~91σ); more than three times smaller than any observation  
 
-**Вердикт: ❌ FALSIFIED**
+**Verdict: ❌ FALSIFIED**
 
-H₀ = 21.90 km/s/Mpc опровергнута всеми существующими методами измерения: CMB, BAO, цефеиды, гравитационные линзы, сирены (GW). Ни один метод не указывает на значение вблизи 22 км/с/Мпк. Это один из немногих параметров, по которому наблюдения имеют точность < 1%, и все они указывают на диапазон 67–73, а не на 21.
+H₀ = 21.90 km/s/Mpc is refuted by ALL existing measurement methods: CMB, BAO, Cepheids, Type Ia SNe, gravitational lenses, sirens (GW). No method indicates a value near 22 km/s/Mpc. This is one of the few parameters for which observations have < 1% precision, and all point to the range 67–73, not 21.
 
 ---
 
 ### D.15 — CMB04: σ₈
 
-**Формула:** σ₈ = φ⁻¹ · e / π  
-**Предсказание:** 0.5348  
-**Наблюдение:** 0.812 ± 0.006 (Planck 2018)  
-**Расхождение:** 34.1%, ~46σ  
+**Formula:** σ₈ = φ⁻¹ · e / π  
+**Prediction:** 0.5348  
+**Observation:** 0.812 ± 0.006 (Planck 2018)  
+**Discrepancy:** 34.1%, ~46σ  
 
-**Вердикт: ❌ FALSIFIED**
+**Verdict: ❌ FALSIFIED**
 
-Параметр σ₈ измеряет амплитуду флуктуаций материи на масштабе 8 Мпк/ч. Значение 0.5348 находится в глубоком противоречии как с Planck (0.812), так и с данными слабого гравитационного линзирования (DES, KiDS: ~0.76–0.78).
+The parameter σ₈ measures the amplitude of matter fluctuations on the 8 Mpc/h scale. The value 0.5348 is in deep contradiction with both Planck (0.812) and weak gravitational lensing data (DES, KiDS: ~0.76–0.78).
 
 ---
 
 ### D.16 — CCR01: ρ_Λ / ρ_Pl
 
-**Формула:** ρ_Λ / ρ_Pl = φ⁻²⁴ · π⁻⁶ · e⁻⁴  
-**Предсказание:** 1.84 × 10⁻¹⁰  
-**Наблюдение:** ~10⁻¹²³  
-**Расхождение:** 113 порядков  
+**Formula:** ρ_Λ / ρ_Pl = φ⁻²⁴ · π⁻⁶ · e⁻⁴  
+**Prediction:** 1.84 × 10⁻¹⁰  
+**Observation:** ~10⁻¹²³  
+**Discrepancy:** 113 orders of magnitude  
 
-**Вердикт: ❌ FALSIFIED + 🔴 NUMEROLOGY**
+**Verdict: ❌ FALSIFIED + 🔴 NUMEROLOGY**
 
-Это попытка решить проблему иерархии космологической постоянной путём нумерологии. Φ⁻²⁴ ≈ 10⁻⁵, π⁻⁶ ≈ 10⁻³, e⁻⁴ ≈ 10⁻², итого ~10⁻¹⁰. Наблюдаемое отношение ~10⁻¹²³. Расхождение — 113 порядков. Выбор степени 24 не мотивирован структурой H4. Это буквально нумерология: комбинация стандартных математических констант в произвольных степенях, подобранная постфактически (и даже не успешно — расхождение 10¹¹³).
+This is an attempt to solve the cosmological constant hierarchy problem through numerology. Φ⁻²⁴ ≈ 10⁻⁵, π⁻⁶ ≈ 10⁻³, e⁻⁴ ≈ 10⁻², total ~10⁻¹⁰. The observed ratio is ~10⁻¹²³. The discrepancy is 113 orders of magnitude. The choice of exponent 24 is not motivated by H4 structure. This is literally numerology: a combination of standard mathematical constants in arbitrary powers, fitted post-factum (and not even successfully — discrepancy of 10¹¹³).
 
 ---
 
 ### D.17 — CCR02: t₀ / t_Pl
 
-**Формула:** t₀ / t_Pl = φ¹⁰ · e² / π²  
-**Предсказание:** 8.1 × 10⁶⁰  
-**Наблюдение:** ~8.1 × 10⁶⁰ (производная оценка)  
+**Formula:** t₀ / t_Pl = φ¹⁰ · e² / π²  
+**Prediction:** 8.1 × 10⁶⁰  
+**Observation:** ~8.1 × 10⁶⁰ (derivative estimate)  
 
-**Вердикт: ⚠️ TAUTOLOGY + 🟡 SPECULATIVE**
+**Verdict: ⚠️ TAUTOLOGY + 🟡 SPECULATIVE**
 
-«Наблюдение» здесь является производной оценкой, вычисленной из t₀ ≈ 13.8 млрд лет и t_Pl ≈ 5.4 × 10⁻⁴⁴ с. Отношение составляет 8.1 × 10⁶⁰ ± существенная неопределённость. Совпадение с φ¹⁰e²/π² — это «предсказание» дериватом, который можно подстроить задним числом. Не является независимым предсказанием.
+The "observation" here is a derivative estimate computed from t₀ ≈ 13.8 billion years and t_Pl ≈ 5.4 × 10⁻⁴⁴ s. The ratio is 8.1 × 10⁶⁰ ± substantial uncertainty. The agreement with φ¹⁰e²/π² is a "prediction" by derivative that can be tuned post-hoc. It is not an independent prediction.
 
 ---
 
-### D.18 — Итоговая таблица вердиктов
+### D.18 — Final Verdict Table
 
-| ID | Параметр | Вердикт | Обоснование |
+| ID | Parameter | Verdict | Justification |
 |----|----------|---------|-------------|
-| **COS01** | ρ_Λ | ❌ FALSIFIED + 🔴 NUMEROLOGY | 10¹¹⁸ порядков расхождения |
-| **COS02** | Λ | 🔴 NUMEROLOGY | Тавтология через COS01 |
-| **COS03** | Ω_Λ | ⚠️ TAUTOLOGY | Определение, не предсказание |
-| **COS04** | w | 🟡 SPECULATIVE | 2.7σ от DESI 2024; нет вывода |
-| **COS05** | ρ_c | ⚠️ TAUTOLOGY | Производное от CMB03 |
-| **INF01** | n_s | ❌ FALSIFIED | 61σ от Planck 2018 |
-| **INF02** | r | 🟡 SPECULATIVE | Совместимо с верхней границей |
-| **INF03** | α_s | ⚪ PENDING | Совместимо с нулём, нет данных |
-| **INF04** | N_* | 🟡 SPECULATIVE | В теор. диапазоне; нет вывода |
-| **INF05** | H_* | 🟡 SPECULATIVE | В теор. диапазоне; нет вывода |
-| **INF06** | Δ_R² | ❌ FALSIFIED | 68σ от Planck 2018 |
-| **CMB01** | Ω_b h² | ❌ FALSIFIED | 754σ от Planck 2018 |
-| **CMB02** | Ω_c h² | ❌ FALSIFIED | 311σ от Planck 2018 |
-| **CMB03** | H₀ | ❌ FALSIFIED | >91σ от всех измерений |
-| **CMB04** | σ₈ | ❌ FALSIFIED | 46σ от Planck 2018 |
-| **CCR01** | ρ_Λ/ρ_Pl | ❌ FALSIFIED + 🔴 NUMEROLOGY | 113 порядков расхождения |
-| **CCR02** | t₀/t_Pl | ⚠️ TAUTOLOGY | Производная оценка |
+| **COS01** | ρ_Λ | ❌ FALSIFIED + 🔴 NUMEROLOGY | 10¹¹⁸ orders of magnitude discrepancy |
+| **COS02** | Λ | 🔴 NUMEROLOGY | Tautology through COS01 |
+| **COS03** | Ω_Λ | ⚠️ TAUTOLOGY | Definition, not a prediction |
+| **COS04** | w | 🟡 SPECULATIVE | 2.7σ from DESI 2024; no derivation |
+| **COS05** | ρ_c | ⚠️ TAUTOLOGY | Derivative of CMB03 |
+| **INF01** | n_s | ❌ FALSIFIED | 61σ from Planck 2018 |
+| **INF02** | r | 🟡 SPECULATIVE | Compatible with upper bound |
+| **INF03** | α_s | ⚪ PENDING | Compatible with zero, no data |
+| **INF04** | N_* | 🟡 SPECULATIVE | In theor. range; no derivation |
+| **INF05** | H_* | 🟡 SPECULATIVE | In theor. range; no derivation |
+| **INF06** | Δ_R² | ❌ FALSIFIED | 68σ from Planck 2018 |
+| **CMB01** | Ω_b h² | ❌ FALSIFIED | 754σ from Planck 2018 |
+| **CMB02** | Ω_c h² | ❌ FALSIFIED | 311σ from Planck 2018 |
+| **CMB03** | H₀ | ❌ FALSIFIED | >91σ from all measurements |
+| **CMB04** | σ₈ | ❌ FALSIFIED | 46σ from Planck 2018 |
+| **CCR01** | ρ_Λ/ρ_Pl | ❌ FALSIFIED + 🔴 NUMEROLOGY | 113 orders of magnitude discrepancy |
+| **CCR02** | t₀/t_Pl | ⚠️ TAUTOLOGY | Derivative estimate |
 
-**Итог:** 7 формул FALSIFIED, 2 формулы NUMEROLOGY (из них 2 перекрываются с FALSIFIED), 4 SPECULATIVE, 1 PENDING, 3 TAUTOLOGY.  
-**Ни одна формула Tier 3 не является строго выведенной из H4-геометрии.**
+**Summary:** 7 formulas FALSIFIED, 2 formulas NUMEROLOGY (2 of which overlap with FALSIFIED), 4 SPECULATIVE, 1 PENDING, 3 TAUTOLOGY.  
+**Not a single Tier 3 formula is strictly derived from H4-geometry.**
 
 ---
 
-## Секция E — Что требуется для настоящей деривации
+## Section E — What Is Required for a True Derivation
 
-Для того чтобы Trinity S3AI действительно «вывела» космологические параметры из H4-геометрии, требуется следующее. Каждый пункт — это реальная исследовательская задача, не решённая в существующей литературе по NCG и спектральным тройкам.
+For Trinity S3AI to actually "derive" cosmological parameters from H4-geometry, the following is required. Each item is a real research problem, unsolved in the existing literature on NCG and spectral triples.
 
-### E.1 — Эффективное действие (effective action)
+### E.1 — Effective Action
 
-**Что требуется:**  
-Вывести эффективное действие гравитации из спектрального действия на 600-клетке:
+**What is required:**  
+Derive the effective action of gravity from the spectral action on the 600-cell:
 ```
 S_eff = Tr(f(D²/Λ²))
 ```
-Это требует (1) вычисления спектра оператора Дирака на 600-клетке с полной кривизной, (2) разложения теплового ядра с коэффициентами Сили-ДеВитта для структуры H4, (3) идентификации космологического члена как конкретного коэффициента теплового ядра a₀ или a₂.
+This requires (1) computing the spectrum of the Dirac operator on the 600-cell with full curvature, (2) expanding the heat kernel with Seeley-DeWitt coefficients for the H4 structure, (3) identifying the cosmological term as a specific heat kernel coefficient a₀ or a₂.
 
-**Что есть в Trinity:** `SpectralAction600Cell.v` формально ссылается на спектральное действие, но не вычисляет реальный спектр Дирака на 600-клетке как геометрическом объекте с кривизной. Используются приближённые данные, а не первопринципный расчёт.
+**What exists in Trinity:** `SpectralAction600Cell.v` formally references the spectral action, but does not compute the real Dirac spectrum on the 600-cell as a geometric object with curvature. Approximate data are used, not a first-principles calculation.
 
-**Что отсутствует:** Явный вывод Λ = f(параметры H4, спектр D) из первых принципов. Без этого COS01 является нумерологией.
+**What is missing:** An explicit derivation of Λ = f(H4 parameters, spectrum of D) from first principles. Without this, COS01 is numerology.
 
-### E.2 — РГ-поток к ИК (RG flow to IR)
+### E.2 — RG Flow to the IR
 
-**Что требуется:**  
-Вычислить, как энергетический масштаб H4 (M_H4 ~ M_GUT ≈ 10¹⁶ ГэВ) бежит до наблюдаемой шкалы (H₀ ~ 10⁻³³ эВ). Это охватывает ~50 порядков величины бегания констант связи. Требуется:
-- Однопетлевые и двухпетлевые β-функции для всех полей СМ
-- Пороговые поправки при каждой массе частиц
-- Вакуумные вклады от новой физики H4
+**What is required:**  
+Compute how the H4 energy scale (M_H4 ~ M_GUT ≈ 10¹⁶ GeV) runs down to the observable scale (H₀ ~ 10⁻³³ eV). This spans ~50 orders of magnitude of coupling constant running. Requires:
+- One-loop and two-loop β-functions for all SM fields
+- Threshold corrections at each particle mass
+- Vacuum contributions from new H4 physics
 
-**Что есть в Trinity:** `RGRunning.v` и `RGRunningExtras.v` содержат формальные утверждения о бегании, но они (1) адмиттированы ([PHYSICAL_AXIOM]), (2) не охватывают бегание до космологических масштабов.
+**What exists in Trinity:** `RGRunning.v` and `RGRunningExtras.v` contain formal statements about running, but they (1) are admitted ([PHYSICAL_AXIOM]), (2) do not cover running to cosmological scales.
 
-### E.3 — Аномальное сокращение (anomaly cancellation)
+### E.3 — Anomaly Cancellation
 
-**Что требуется:**  
-Показать, что вклады всех квантовых полей в вакуумную энергию сокращаются с точностью ~10⁻¹²³ (проблема тонкой настройки). Это либо суперсимметрическое сокращение (не предусмотрено в Trinity), либо какой-то новый механизм, выводимый из H4.
+**What is required:**  
+Show that contributions from all quantum fields to vacuum energy cancel to precision ~10⁻¹²³ (the fine-tuning problem). This is either supersymmetric cancellation (not provided in Trinity), or some new mechanism derivable from H4.
 
-**Что есть в Trinity:** Нет механизма сокращения вакуумной энергии. Это принципиальный теоретический пробел.
+**What exists in Trinity:** No mechanism for vacuum energy cancellation. This is a fundamental theoretical gap.
 
-### E.4 — Гравитационный сектор (gravity sector)
+### E.4 — Gravity Sector
 
-**Что требуется:**  
-Вывести динамику метрики из NCG-конструкции над 600-клеткой. Конкретно:
-- Показать, что спектральное действие над 4D компактным многообразием × 600-клетка воспроизводит уравнения Эйнштейна
-- Вычислить эффективную ньютоновскую постоянную G_eff из H4-параметров
-- Показать, как H₀ связана с инициальными условиями квантовой космологии H4
+**What is required:**  
+Derive metric dynamics from the NCG construction over the 600-cell. Specifically:
+- Show that the spectral action over a 4D compact manifold × 600-cell reproduces Einstein's equations
+- Compute the effective Newton constant G_eff from H4 parameters
+- Show how H₀ is connected to initial conditions of H4 quantum cosmology
 
-**Что есть в Trinity:** `H4Lagrangian.v` содержит лагранжиан, но без гравитационного сектора (G отсутствует как производная H4-параметров).
+**What exists in Trinity:** `H4Lagrangian.v` contains a Lagrangian, but without a gravity sector (G is absent as a derivative of H4 parameters).
 
-### E.5 — Текущие пробелы Trinity S3AI
+### E.5 — Current Gaps in Trinity S3AI
 
-| Требование | Статус в Trinity | Файлы | Оценка |
+| Requirement | Status in Trinity | Files | Assessment |
 |------------|------------------|-------|--------|
-| Эффективное действие Tr(f(D²)) | Отсутствует как первопринципный вывод | SpectralAction600Cell.v | Приближённые данные |
-| РГ-поток к масштабу H₀ | Адмиттировано | RGRunning.v (admitted #20,#21) | [PHYSICAL_AXIOM] |
-| Сокращение вакуумной энергии | Полностью отсутствует | — | Не начато |
-| Гравитационный сектор G_eff | Отсутствует | H4Lagrangian.v | Только SM-поля |
-| Инфляционная динамика (slow-roll) | Отсутствует | — | Нет модели инфлатона |
-| Вывод космологических пар. из спектра | Отсутствует | — | Только нумерология |
+| Effective action Tr(f(D²)) | Missing as first-principles derivation | SpectralAction600Cell.v | Approximate data |
+| RG flow to H₀ scale | Admitted | RGRunning.v (admitted #20,#21) | [PHYSICAL_AXIOM] |
+| Vacuum energy cancellation | Completely absent | — | Not started |
+| Gravity sector G_eff | Absent | H4Lagrangian.v | Only SM fields |
+| Inflationary dynamics (slow-roll) | Absent | — | No inflaton model |
+| Derivation of cosmological params from spectrum | Absent | — | Only numerology |
 
-**Вывод:** Trinity S3AI в текущем состоянии не имеет ни одного строго выведенного космологического параметра. Все 15 формул Tier 3 являются либо нумерологией, либо тавтологиями, либо необоснованными спекуляциями. Два из них (COS01/CCR01) ещё и опровергнуты более чем на 100 порядков.
+**Conclusion:** Trinity S3AI in its current state does not have a single strictly derived cosmological parameter. All 15 Tier 3 formulas are either numerology, tautologies, or unjustified speculations. Two of them (COS01/CCR01) are also refuted by more than 100 orders of magnitude.
 
 ---
 
-## Секция F — Рекомендация: понижение до «исследовательского каталога»
+## Section F — Recommendation: Downgrade to "Research Catalog"
 
-### F.1 — Рекомендуемые немедленные действия
+### F.1 — Recommended Immediate Actions
 
-**1. Изменить заголовок Tier 3 в FORMULAS.md:**
+**1. Change the Tier 3 header in FORMULAS.md:**
 
-Добавить блок предупреждения непосредственно перед разделом «## Tier 3: Cosmology»:
+Add a warning block immediately before the section "## Tier 3: Cosmology":
 
 ```markdown
-> **⚠️ ПРЕДУПРЕЖДЕНИЕ — ИССЛЕДОВАТЕЛЬСКИЙ КАТАЛОГ ⚠️**
+> **⚠️ WARNING — RESEARCH CATALOG ⚠️**
 >
-> Tier 3 является каталогом спекулятивных формул, а не выводов.
-> 7 из 15 формул фальсифицированы измерениями (расхождение от 34σ до 10¹¹⁸ порядков).
-> Ни одна формула не выведена из H4-геометрии из первых принципов.
-> Источники: Planck 2018 (DOI: 10.1051/0004-6361/201833910),
+> Tier 3 is a catalog of speculative formulas, not derivations.
+> 7 of 15 formulas are falsified by measurements (discrepancy from 34σ to 10¹¹⁸ orders of magnitude).
+> Not a single formula is derived from H4-geometry from first principles.
+> Sources: Planck 2018 (DOI: 10.1051/0004-6361/201833910),
 >             DESI 2024 (arXiv: 2404.03002),
 >             BICEP/Keck 2021 (arXiv: 2110.00483).
 ```
 
-**2. Пометить каждую формулу Tier 3 явным ярлыком:**
+**2. Mark each Tier 3 formula with an explicit label:**
 
-| Статус | Символ | Формулы |
+| Status | Symbol | Formulas |
 |--------|--------|---------|
-| Фальсифицировано | ❌ FALSIFIED | CMB01, CMB02, CMB03, CMB04, INF01, INF06, COS01, CCR01 |
-| Нумерология | 🔴 NUMEROLOGY | COS01, COS02, CCR01 |
-| Спекулятивно | 🟡 SPECULATIVE | COS04, INF02, INF04, INF05 |
-| Ожидание данных | ⚪ PENDING | INF03 |
-| Тавтология | ⚠️ TAUTOLOGY | COS03, COS05, CCR02 |
+| Falsified | ❌ FALSIFIED | CMB01, CMB02, CMB03, CMB04, INF01, INF06, COS01, CCR01 |
+| Numerology | 🔴 NUMEROLOGY | COS01, COS02, CCR01 |
+| Speculative | 🟡 SPECULATIVE | COS04, INF02, INF04, INF05 |
+| Awaiting data | ⚪ PENDING | INF03 |
+| Tautology | ⚠️ TAUTOLOGY | COS03, COS05, CCR02 |
 
-**3. Добавить дисклеймер в CosmologyOrigins.v:**
+**3. Add a disclaimer to CosmologyOrigins.v:**
 
-Добавить в начало файла явную секцию `HonestAssessment` с теоремами, формально подтверждающими расхождения.
+Add an explicit `HonestAssessment` section at the beginning of the file with theorems formally confirming the discrepancies.
 
-### F.2 — Рекомендации по дальнейшему развитию
+### F.2 — Recommendations for Further Development
 
-Если Trinity S3AI хочет сделать честные заявки на космологические предсказания, необходимо:
+If Trinity S3AI wants to make honest cosmological predictions, it must:
 
-1. **Вычислить спектр Дирака на 600-клетке** (числово, с полной кривизной) и показать, как из него извлекается вакуумная энергия.
+1. **Compute the Dirac spectrum on the 600-cell** (numerically, with full curvature) and show how vacuum energy is extracted from it.
 
-2. **Построить модель инфлатона** из H4-геометрии и предсказать n_s, r из параметров медленного скатывания — тогда это будет настоящим предсказанием, а не нумерологией.
+2. **Build an inflaton model** from H4-geometry and predict n_s, r from slow-roll parameters — then it will be a real prediction, not numerology.
 
-3. **Предложить механизм отмены** вакуумной энергии (или объяснить иерархию Λ через какой-то H4-аналог суперсимметрии).
+3. **Propose a cancellation mechanism** for vacuum energy (or explain the Λ hierarchy through some H4 analog of supersymmetry).
 
-4. **Опубликовать ошибочные формулы явно в статье** — честность требует, чтобы читатель видел, что COS01 расходится на 10¹¹⁸ порядков, а не воспринимал Tier 3 как «успешный».
+4. **Publish erroneous formulas explicitly in the paper** — honesty requires that the reader sees COS01 deviates by 10¹¹⁸ orders of magnitude, rather than perceiving Tier 3 as "successful".
 
-### F.3 — Что Trinity делает честно
+### F.3 — What Trinity Does Honestly
 
-- Уже признаёт фальсификацию P5 (Λ) и P6 (m_ν₁) в `registered_predictions.md`.
-- `CosmologyOrigins.v` уже содержит честные леммы, доказывающие расхождения H₀ и n_s.
-- Wave 4.1 исправила ложные «★SG 0%» на реальные погрешности.
+- Already acknowledges the falsification of P5 (Λ) and P6 (m_ν₁) in `registered_predictions.md`.
+- `CosmologyOrigins.v` already contains honest lemmas proving the H₀ and n_s discrepancies.
+- Wave 4.1 corrected false "★SG 0%" claims to real errors.
 
-Это правильный путь. Wave 8.5 завершает эту работу, добавляя полную аннотацию в Coq и явный реестр ошибок.
-
----
-
-*REWRITE.md создан в рамках Wave 8.5 — Honest Cosmology (2026-05-23).*  
-*Все числовые значения погрешностей верифицированы против первичных источников.*  
-*Источники: Planck 2018 DOI 10.1051/0004-6361/201833910; DESI 2024 arXiv:2404.03002; BICEP/Keck arXiv:2110.00483.*
+This is the right path. Wave 8.5 completes this work by adding full annotation in Coq and an explicit error registry.
 
 ---
 
-## Wave 7 W7.4 — Перекрёстная ссылка: честное разделение предсказаний
+*REWRITE.md created as part of Wave 8.5 — Honest Cosmology (2026-05-23).*  
+*All numerical error values are verified against primary sources.*  
+*Sources: Planck 2018 DOI 10.1051/0004-6361/201833910; DESI 2024 arXiv:2404.03002; BICEP/Keck arXiv:2110.00483.*
 
-Добавлено в рамках Wave 7 (W7.4, 2026-05-23).
+---
 
-Секция "Honest split: pre-data vs post-data predictions" добавлена в:
+## Wave 7 W7.4 — Cross-Reference: Honest Split of Predictions
+
+Added as part of Wave 7 (W7.4, 2026-05-23).
+
+The "Honest split: pre-data vs post-data predictions" section is added to:
 `derivations/falsifiability/registered_predictions.md`
 
-Ключевые выводы, релевантные для REWRITE.md:
+Key conclusions relevant for REWRITE.md:
 
-1. Все формулы COS01-COS04 являются post-data: они зарегистрированы после DESI 2024 (arXiv:2404.03002, 2024-04-03). Репозиторий trinity-s3ai создан 2026-05-20. Никаких pre-data предсказаний по тёмной энергии нет.
+1. All formulas COS01-COS04 are post-data: they were registered after DESI 2024 (arXiv:2404.03002, 2024-04-03). The trinity-s3ai repository was created on 2026-05-20. There are no pre-data predictions for dark energy.
 
-2. COS04 (w = -0.999) зафиксирован как FALSIFIED (~2.7 sigma от w0 = -0.827 +/- 0.063). DESI DR2 (arXiv:2503.14738, 2025-03-18) усилил отклонение до 4.2 sigma. Подробности: derivations/honest_cosmology/cosmology_falsified_log.md
+2. COS04 (w = -0.999) is logged as FALSIFIED (~2.7 sigma from w0 = -0.827 +/- 0.063). DESI DR2 (arXiv:2503.14738, 2025-03-18) strengthened the deviation to 4.2 sigma. Details: derivations/honest_cosmology/cosmology_falsified_log.md
 
-3. Честное разделение (из registered_predictions.md, секция W7.4):
-   - Pre-data по DESI/тёмной энергии: NONE (COS01-COS04 зарегистрированы постфактически)
-   - Post-data: COS01-COS04, m_H, sin2_theta_W, массы лептонов (Koide), три поколения
+3. Honest split (from registered_predictions.md, W7.4 section):
+   - Pre-data for DESI/dark energy: NONE (COS01-COS04 registered post-factum)
+   - Post-data: COS01-COS04, m_H, sin2_theta_W, lepton masses (Koide), three generations
    - Falsified: COS04 w, m_nu1, Lambda, delta_CP (BORDERLINE)
-   - Forward pre-data (данных нет): аксион theta-bar, LISA, M_PS, delta_CP при IO
+   - Forward pre-data (no data yet): axion theta-bar, LISA, M_PS, delta_CP for IO
 
-Источники:
+Sources:
 - DESI 2024 BAO: https://arxiv.org/abs/2404.03002
 - DESI DR2: https://arxiv.org/abs/2503.14738
-- DESI DR2 пресс-релиз: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
+- DESI DR2 press release: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
 
-*Обновление: Wave 7 W7.4, 2026-05-23.*
+*Update: Wave 7 W7.4, 2026-05-23.*

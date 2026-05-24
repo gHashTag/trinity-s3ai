@@ -53,11 +53,24 @@ python3 scripts/anti_numerology_gate.py
 - Do not replace a correct proof with `Admitted` and claim it is proven elsewhere.
 - Do not add a theorem whose statement is vacuously true or trivially unprovable.
 
-#### 4. PR requirements
+#### 4. Language policy — ENGLISH ONLY
+
+**All public documentation must be written in English.** This includes:
+- Markdown files (`*.md`) in `docs/`, `derivations/`, `paper/`, `reports/`, `talks/`
+- Issue and PR descriptions
+- Comments in Coq/Lean proof files that explain physical claims
+- YAML configs, READMEs, and audit reports
+
+Russian-language documents created before this policy are grandfathered with a `LEGACY: Russian-language document` header. **No new Cyrillic text** may be added to public-facing docs without explicit project-lead approval.
+
+The CI gate `cyrillic-check` enforces this. If you have a legitimate reason to include Cyrillic (e.g., quoting a Russian paper title), add the `LEGACY:` header or request exemption in the PR.
+
+#### 5. PR requirements
 
 Every PR must:
 1. Fill in the PR template (`.github/PULL_REQUEST_TEMPLATE.md`)
 2. Pass `anti_numerology_check` CI job (or include `[skip-numerology-check]` with explanation)
+3. Pass `cyrillic-check` CI job (or include `[skip-cyrillic-check]` with justification)
 3. Pass `scripts/validators/validate_v4.py` (formula error bounds)
 4. Have a "What is verified / What is open" section
 

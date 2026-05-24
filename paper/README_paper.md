@@ -1,64 +1,64 @@
-# README: Статья Trinity-s3ai для arXiv (Wave 10.1)
+# README: Trinity-s3ai Paper for arXiv (Wave 10.1)
 
-**Файл статьи:** `wave10_paper.tex`  
-**Библиография:** `wave10_paper.bib`  
-**Статус:** Черновик, готов к компиляции и проверке  
-**Дата подготовки:** Июнь 2026  
-**Принцип:** «Не врать!! Честным будь!»
+**Paper file:** `wave10_paper.tex`  
+**Bibliography:** `wave10_paper.bib`  
+**Status:** Draft, ready for compilation and checking  
+**Preparation date:** June 2026  
+**Principle:** "Do not lie!! Be honest!"
 
 ---
 
-## 1. Описание статьи
+## 1. Paper Description
 
-**Заголовок:**  
+**Title:**  
 *Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification*  
-*(Подзаголовок: Four No-Go Theorems for NCG Approaches Founded on the 600-Cell)*
+*(Subtitle: Four No-Go Theorems for NCG Approaches Founded on the 600-Cell)*
 
-**Авторы:** `[Anonymous, gHashTag]` — заполнить перед отправкой.
+**Authors:** `[Anonymous, gHashTag]` — fill in before submission.
 
-**Аннотация (250 слов):** Представлен в секции `abstract` файла `wave10_paper.tex`.  
-Ключевой тезис: H4/600-клетка в текущей формулировке **не может** вывести параметры  
-Стандартной модели — четыре теоремы о невозможности (NGT-1–4) доказывают это.  
-Шесть позитивных структурных результатов выживают.
+**Abstract (250 words):** Presented in the `abstract` section of `wave10_paper.tex`.  
+Key thesis: H4/600-cell in the current formulation **cannot** derive the parameters  
+of the Standard Model — four no-go theorems (NGT-1–4) prove this.  
+Six positive structural results survive.
 
 ---
 
-## 2. Как скомпилировать
+## 2. How to Compile
 
-### 2.1 Требования
+### 2.1 Requirements
 
-- **TeX-дистрибутив:** TeX Live 2023 или MiKTeX 24 (полная установка)
-- **Компилятор:** `pdflatex` или `lualatex` (рекомендуется `pdflatex`)
-- **Обработчик библиографии:** `biber` (НЕ `bibtex` — используется `biblatex`)
-- **Основные пакеты:** amsmath, amssymb, hyperref, biblatex, listings, booktabs,
+- **TeX distribution:** TeX Live 2023 or MiKTeX 24 (full installation)
+- **Compiler:** `pdflatex` or `lualatex` (`pdflatex` recommended)
+- **Bibliography processor:** `biber` (NOT `bibtex` — uses `biblatex`)
+- **Main packages:** amsmath, amssymb, hyperref, biblatex, listings, booktabs,
   longtable, lmodern, microtype, geometry, xcolor, caption
 
-### 2.2 Команды компиляции
+### 2.2 Compilation Commands
 
-Выполнять строго в указанном порядке:
+Execute strictly in the indicated order:
 
 ```bash
 cd /home/user/workspace/trinity-s3ai/paper
 
-# Шаг 1: первый проход pdflatex (создаёт .aux)
+# Step 1: first pdflatex pass (creates .aux)
 pdflatex wave10_paper.tex
 
-# Шаг 2: biber обрабатывает библиографию
+# Step 2: biber processes bibliography
 biber wave10_paper
 
-# Шаг 3: второй проход pdflatex (вставляет ссылки)
+# Step 3: second pdflatex pass (inserts references)
 pdflatex wave10_paper.tex
 
-# Шаг 4: третий проход pdflatex (окончательное оглавление)
+# Step 4: third pdflatex pass (final table of contents)
 pdflatex wave10_paper.tex
 ```
 
-### 2.3 Один скрипт (bash)
+### 2.3 Single script (bash)
 
 ```bash
 #!/bin/bash
 set -e
-cd "$(dirname "$0")"  # перейти в директорию paper/
+cd "$(dirname "$0")"  # change to paper/ directory
 NAME="wave10_paper"
 pdflatex "$NAME.tex"
 biber "$NAME"
@@ -67,7 +67,7 @@ pdflatex "$NAME.tex"
 echo "Done: $NAME.pdf"
 ```
 
-### 2.4 Makefile (опционально)
+### 2.4 Makefile (optional)
 
 ```makefile
 NAME = wave10_paper
@@ -85,10 +85,10 @@ clean:
 	rm -f *.aux *.bbl *.blg *.bcf *.log *.out *.run.xml *.toc *.lof *.lot
 ```
 
-### 2.5 Проверка синтаксиса без LaTeX
+### 2.5 Syntax Check Without LaTeX
 
 ```bash
-# Проверка несбалансированных фигурных скобок
+# Check for unbalanced curly braces
 python3 -c "
 content = open('wave10_paper.tex').read()
 d = 0
@@ -101,37 +101,37 @@ print(f'Final depth: {d}')
 "
 ```
 
-Ожидаемый результат: `Final depth: 0`
+Expected result: `Final depth: 0`
 
 ---
 
-## 3. Статус отправки на arXiv
+## 3. arXiv Submission Status
 
-**Текущий статус:** ❌ Ещё НЕ отправлено.
+**Current status:** ❌ NOT yet submitted.
 
-Необходимые шаги до отправки:
+Necessary steps before submission:
 
-- [ ] Заполнить поле автора (заменить `[Anonymous, gHashTag]`)
-- [ ] Добавить ORCID, если есть
-- [ ] Скомпилировать PDF и проверить форматирование
-- [ ] Проверить все ссылки в библиографии (DOI активны)
-- [ ] Запросить эндорсмент (см. раздел 5)
-- [ ] Написать письмо с объяснением содержания (для рецензента arXiv)
+- [ ] Fill in author field (replace `[Anonymous, gHashTag]`)
+- [ ] Add ORCID, if available
+- [ ] Compile PDF and check formatting
+- [ ] Check all bibliography links (DOIs active)
+- [ ] Request endorsement (see Section 5)
+- [ ] Write an explanation letter (for arXiv reviewer)
 
 ---
 
-## 4. Категории arXiv
+## 4. arXiv Categories
 
-**Первичная категория:** `hep-th`  
-Обоснование: статья о теориях физики высоких энергий, некоммутативной геометрии,  
-операторе Дирака, попытке унификации Стандартной модели.
+**Primary category:** `hep-th`  
+Justification: paper on high-energy physics theories, noncommutative geometry,  
+Dirac operator, attempt at Standard Model unification.
 
-**Вторичные категории:**
-- `math-ph` — математическая физика: теоремы о KO-размерности, η-инвариант, группы Кокстера
-- `cs.LO` — логика в информатике: формализация Coq, ~730 Qed, Lean 4 скаффолд
+**Secondary categories:**
+- `math-ph` — mathematical physics: KO-dimension theorems, η-invariant, Coxeter groups
+- `cs.LO` — logic in computer science: Coq formalization, ~730 Qed, Lean 4 scaffold
 
-**Как указать при отправке:**  
-На шаге "Subject Class" в arXiv submission interface:
+**How to specify at submission:**  
+At the "Subject Class" step in the arXiv submission interface:
 ```
 Primary:   hep-th
 Secondary: math-ph cs.LO
@@ -139,21 +139,21 @@ Secondary: math-ph cs.LO
 
 ---
 
-## 5. Требования к эндорсменту
+## 5. Endorsement Requirements
 
-arXiv требует **эндорсмент** для первой отправки в категорию `hep-th`.
+arXiv requires **endorsement** for the first submission to category `hep-th`.
 
-### 5.1 Кто может эндорсировать
+### 5.1 Who Can Endorse
 
-Любой действующий arXiv-автор с ≥ 3 публикациями в `hep-th` за последние 5 лет.
+Any active arXiv author with ≥ 3 publications in `hep-th` in the last 5 years.
 
-### 5.2 Как запросить
+### 5.2 How to Request
 
-1. Зарегистрироваться на https://arxiv.org
-2. Попытаться отправить статью — система попросит указать эндорсера
-3. Написать эндорсеру письмо (образец ниже)
+1. Register at https://arxiv.org
+2. Attempt to submit the paper — the system will ask for an endorser
+3. Write a letter to the endorser (template below)
 
-### 5.3 Образец письма эндорсеру (английский)
+### 5.3 Endorser Letter Template (English)
 
 ```
 Subject: arXiv endorsement request for hep-th submission
@@ -183,17 +183,17 @@ Thank you for your consideration.
 [Name]
 ```
 
-### 5.4 Альтернативная категория без эндорсмента
+### 5.4 Alternative Category Without Endorsement
 
-Если в `hep-th` эндорсмент не получен, можно попробовать `math-ph` (требования мягче).  
-Перекрёстная ссылка (cross-list) на `hep-th` и `cs.LO` делается автоматически.
+If endorsement for `hep-th` is not obtained, one can try `math-ph` (requirements are softer).  
+Cross-listing to `hep-th` and `cs.LO` is done automatically.
 
 ---
 
-## 6. Структура статьи
+## 6. Paper Structure
 
-| Раздел | Название | Страниц (оценка) |
-|--------|----------|-----------------|
+| Section | Title | Pages (estimate) |
+|--------|-------|-----------------|
 | 1 | Introduction | ~3 |
 | 2 | H4 and the 600-Cell | ~3 |
 | 3 | Catalog: 25 formulas | ~4 |
@@ -206,71 +206,71 @@ Thank you for your consideration.
 | 10 | Conclusion | ~1 |
 | App A | Coq theorem table | ~2 |
 | App B | Reproducibility | ~1 |
-| **Итого** | | **~34 страницы** |
+| **Total** | | **~34 pages** |
 
 ---
 
-## 7. Библиография
+## 7. Bibliography
 
-Файл `wave10_paper.bib` содержит 34 записи (превышает требуемые 30).  
-Формат: biblatex (стиль `numeric-comp`).
+File `wave10_paper.bib` contains 34 entries (exceeds the required 30).  
+Format: biblatex (style `numeric-comp`).
 
-**Ключевые ссылки:**
-- Chamseddine-Connes 1996–2012 (NCG SM) — 6 записей
-- Connes NCG book + статья 2006 — 3 записи
-- Lisi 2007 + Distler-Garibaldi 2010 — 2 записи
-- Coxeter, Conway-Smith (H4, кватернионы) — 2 записи
-- APS η-инвариант (Atiyah-Patodi-Singer, Gilkey) — 2 записи
-- Planck 2018, DESI 2024, NuFit 6.0, PDG 2022 — 4 записи
-- DUNE 2020 — 1 запись
-- Coq, Lean 4, Hales (формализация) — 3 записи
-- Coleman-Mandula, Haag-Lopuszanski-Sohnius — 2 записи
-- Weinberg cosmological constant — 1 запись
-- Koide 1983, Shechtman 1984 — 2 записи
-- F-theory (Beasley-Heckman-Vafa) — 1 запись
-- Krajewski, Barrett, Devastato (NCG classification) — 3 записи
-- Boyle-Farnsworth, Furey — 2 записи
-- Serre (representations), Loday (Hochschild) — 2 записи
-
----
-
-## 8. Честность и ключевые предупреждения
-
-Статья следует принципу проекта «Не врать». Основные честные заявления:
-
-1. **Аннотация явно говорит "negative result" и "no-go"** — не смягчать.
-2. **0 из 25 формул имеют класс R (строгий вывод)** — это указано в тексте.
-3. **754σ** фальсификация барионной плотности — число присутствует в аннотации и тексте.
-4. **\(\sigdist = 5.62\)** для NGT-4 — machine-verified, не уменьшать.
-5. **7 Admitted** — все перечислены с объяснениями в приложении.
-6. **\(\delta_{CP} = 65.66°\)** — явно помечено как NF (Numerical Fit), не "prediction".
+**Key references:**
+- Chamseddine-Connes 1996–2012 (NCG SM) — 6 entries
+- Connes NCG book + 2006 article — 3 entries
+- Lisi 2007 + Distler-Garibaldi 2010 — 2 entries
+- Coxeter, Conway-Smith (H4, quaternions) — 2 entries
+- APS η-invariant (Atiyah-Patodi-Singer, Gilkey) — 2 entries
+- Planck 2018, DESI 2024, NuFit 6.0, PDG 2022 — 4 entries
+- DUNE 2020 — 1 entry
+- Coq, Lean 4, Hales (formalization) — 3 entries
+- Coleman-Mandula, Haag-Lopuszanski-Sohnius — 2 entries
+- Weinberg cosmological constant — 1 entry
+- Koide 1983, Shechtman 1984 — 2 entries
+- F-theory (Beasley-Heckman-Vafa) — 1 entry
+- Krajewski, Barrett, Devastato (NCG classification) — 3 entries
+- Boyle-Farnsworth, Furey — 2 entries
+- Serre (representations), Loday (Hochschild) — 2 entries
 
 ---
 
-## 9. Информация об авторе
+## 8. Honesty and Key Caveats
 
-**Поле автора в статье:** `[Anonymous, gHashTag]`  
-**Замените на:** `[Настоящее имя], [Аффилиация]`
+The paper follows the project principle "Do not lie." Main honest statements:
 
-Если публикуется анонимно (допускается на arXiv):  
-- Репозиторий: `https://github.com/[gHashTag]/trinity-s3ai`
-- Контакт: через GitHub Issues
+1. **The abstract explicitly says "negative result" and "no-go"** — do not soften.
+2. **0 out of 25 formulas have class R (strict derivation)** — this is stated in the text.
+3. **754σ** falsification of baryon density — the number is present in the abstract and text.
+4. **\(\sigdist = 5.62\)** for NGT-4 — machine-verified, do not reduce.
+5. **7 Admitted** — all listed with explanations in the appendix.
+6. **\(\delta_{CP} = 65.66°\)** — explicitly marked as NF (Numerical Fit), not "prediction".
 
 ---
 
-## 10. Checklist перед отправкой
+## 9. Author Information
 
-- [ ] PDF скомпилирован без ошибок LaTeX
-- [ ] Все ссылки \cite{...} резолвируются
-- [ ] Таблицы не выходят за поля (проверить longtable)
-- [ ] Аннотация ≤ 250 слов (подсчитать: `wc -w abstract.txt`)
-- [ ] Файл `wave10_paper.bib` находится в той же директории
-- [ ] Автор и дата заполнены
-- [ ] Git tag `wave10-submission` создан:
+**Author field in paper:** `[Anonymous, gHashTag]`  
+**Replace with:** `[Real name], [Affiliation]`
+
+If publishing anonymously (allowed on arXiv):  
+- Repository: `https://github.com/[gHashTag]/trinity-s3ai`
+- Contact: via GitHub Issues
+
+---
+
+## 10. Pre-Submission Checklist
+
+- [ ] PDF compiled without LaTeX errors
+- [ ] All \cite{...} references resolve
+- [ ] Tables do not overflow margins (check longtable)
+- [ ] Abstract ≤ 250 words (count: `wc -w abstract.txt`)
+- [ ] File `wave10_paper.bib` is in the same directory
+- [ ] Author and date filled in
+- [ ] Git tag `wave10-submission` created:
       `git tag -a wave10-submission -m "arXiv submission Wave 10.1"`
-- [ ] SHA-256 хеш .vo файлов записан в `checksums.txt`
-- [ ] DUNE pre-registration `registered_predictions.md` уже в репозитории ✓
+- [ ] SHA-256 hash of .vo files recorded in `checksums.txt`
+- [ ] DUNE pre-registration `registered_predictions.md` already in repository ✓
 
 ---
 
-*Документ подготовлен в рамках Wave 10.1 проекта Trinity S3AI. Июнь 2026.*
+*Document prepared as part of Wave 10.1 of the Trinity S3AI project. June 2026.*

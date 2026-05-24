@@ -374,23 +374,23 @@ where $\sigma_i$ is the experimental uncertainty for each quantity. For predicti
 
 ---
 
-## Резюме (Russian Summary)
+## Summary (Russian Summary)
 
-В данной работе представлен систематический анализ соответствия между инвариантами коксетеровской группы $H_4$ и параметрами Стандартной модели физики элементарных частиц. Группа $H_4$ — это некристаллографическая группа Коксетера порядка 14400, описывающая симметрии 600-ячейника в четырёхмерном пространстве.
+This paper presents a systematic analysis of the correspondence between the invariants of the Coxeter group $H_4$ and the parameters of the Standard Model of particle physics. The group $H_4$ is a non-crystallographic Coxeter group of order 14400, describing the symmetries of the 600-cell in four-dimensional space.
 
-Основные результаты:
+Main results:
 
-1. **Формула Коида** $K = 2/3$ для масс заряженных лептонов воспроизводится как инвариант $H_4$. Это проверка согласованности, а не вывод из первых принципов.
+1. **The Koide formula** $K = 2/3$ for charged lepton masses is reproduced as an $H_4$ invariant. This is a consistency check, not a derivation from first principles.
 
-2. **Пятнадцать уникальных формул** (после дедупликации из семнадцати) выражают параметры Стандартной модели через золотое сечение $\varphi = (1+\sqrt{5})/2$, число $\pi$ и малые целые числа. Наиболее точная формула — $\alpha_{\text{EW}}^{-1} = 239\varphi^4/\pi^4$ — совпадает с экспериментом с точностью $0.000103\%$.
+2. **Fifteen unique formulas** (after deduplication from seventeen) express Standard Model parameters through the golden ratio $\varphi = (1+\sqrt{5})/2$, the number $\pi$, and small integers. The most precise formula — $\alpha_{\text{EW}}^{-1} = 239\varphi^4/\pi^4$ — matches experiment with precision $0.000103\%$.
 
-3. **Три предсказания** поддаются экспериментальной проверке: фаза CP-нарушения $\delta_{CP} \approx -107.5^\circ$, масса электронного нейтрино $m_{\nu_e} \approx 1.17$ мэВ, и сумма нейтринных масс $\Sigma m_\nu \approx 0.0591$ эВ.
+3. **Three predictions** are experimentally testable: the CP-violating phase $\delta_{CP} \approx -107.5^\circ$, the electron neutrino mass $m_{\nu_e} \approx 1.17$ meV, and the sum of neutrino masses $\Sigma m_\nu \approx 0.0591$ eV.
 
-4. **Космологическая плотность тёмной материи** $\Omega_c h^2 = 7/(240\pi^2\varphi^3)$ согласуется с данными Planck 2018 с точностью $2.3\%$.
+4. **The cosmological dark matter density** $\Omega_c h^2 = 7/(240\pi^2\varphi^3)$ agrees with Planck 2018 data at $2.3\%$.
 
-Комбинированная статистическая оценка даёт $p \sim 10^{-9}$, но мы подчёркиваем, что это предполагает статистическую независимость формул — предположение, которое нельзя строго обосновать.
+The combined statistical assessment yields $p \sim 10^{-9}$, but we emphasize that this assumes statistical independence of the formulas — an assumption that cannot be rigorously justified.
 
-**Динамический механизм перехода от симметрии $H_4$ к Стандартной модели неизвестен.** Ни одна лагранжиановая теория не построена, уравнения ренормализационной группы не выведены, сектор Хиггса и гравитационные связности отсутствуют. Эта работа устанавливает математическую структурную закономерность, а не фундаментальную теорию.
+**The dynamical mechanism for the transition from $H_4$ symmetry to the Standard Model is unknown.** No Lagrangian theory has been constructed, renormalization group equations have not been derived, and the Higgs sector and gravitational couplings are absent. This work establishes a mathematical structural pattern, not a fundamental theory.
 
 ---
 

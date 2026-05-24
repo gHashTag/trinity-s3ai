@@ -1,455 +1,375 @@
-# Волна 9.5: Три поколения фермионов из геометрии H4/600-клетки + 2I
+# Wave 9.5: Three Fermion Generations from H4/600-Cell Geometry + 2I
 
-**Статус:** Отрицательный результат задокументирован.  
-**Дата:** июнь 2025  
-**Автор:** Trinity S3AI, Wave 9.5  
-
----
-
-## Аннотация
-
-Проблема трёх поколений фермионов — одна из глубочайших нерешённых задач физики элементарных
-частиц. Стандартная модель постулирует три поколения кварков и лептонов без объяснения этого
-числа. Данный документ исследует пять кандидатных механизмов, способных вывести ровно три
-поколения из геометрии 600-клетки (H4) и двоичной икосаэдральной группы (2I) в рамках
-проекта Trinity S3AI. **Результат честный и отрицательный:** ни один из пяти механизмов не
-даёт числа 3 из первых принципов.
+**Status:** Negative result documented.  
+**Date:** June 2025  
+**Author:** Trinity S3AI, Wave 9.5  
 
 ---
 
-## 1. История проблемы трёх поколений
+## Abstract
 
-### 1.1 Постановка задачи
+The problem of three fermion generations is one of the deepest unsolved problems in elementary particle physics. The Standard Model postulates three generations of quarks and leptons without explaining this number. This document investigates five candidate mechanisms capable of deriving exactly three generations from the geometry of the 600-cell (H4) and the binary icosahedral group (2I) within the Trinity S3AI project. **The result is honest and negative:** none of the five mechanisms yields the number 3 from first principles.
 
-Стандартная модель (СМ) электрослабого и сильного взаимодействий описывает три «поколения»
-(или «семейства») фермионов:
+---
 
-| Поколение | Лептоны           | Кварки         |
+## 1. History of the Three-Generation Problem
+
+### 1.1 Problem Statement
+
+The Standard Model (SM) of electroweak and strong interactions describes three "generations" (or "families") of fermions:
+
+| Generation | Leptons           | Quarks         |
 |-----------|-------------------|----------------|
-| I         | e, nu_e           | u, d           |
-| II        | mu, nu_mu         | c, s           |
-| III       | tau, nu_tau       | t, b           |
+| I         | e, ν_e            | u, d           |
+| II        | μ, ν_μ            | c, s           |
+| III       | τ, ν_τ            | t, b           |
 
-Каждое поколение представляет собой точную копию предыдущего, отличающуюся только массами.
-Квантовые числа (гиперзаряд, изоспин, цвет) одинаковы во всех трёх поколениях. Число три не
-следует из каких-либо симметрий СМ — оно постулируется.
+Each generation is an exact copy of the previous one, differing only in masses.
+Quantum numbers (hypercharge, isospin, color) are the same in all three generations. The number three does not follow from any symmetries of the SM — it is postulated.
 
-Экспериментально (данные LEP, 1989–2000) подтверждено, что число «лёгких» (m < m_Z/2) нейтрино
-равно ровно трём. Коллайдер LHC исключил четвёртое поколение с массами, доступными для
-прямого поиска.
+Experimentally (LEP data, 1989–2000) it is confirmed that the number of "light" (m < m_Z/2) neutrinos is exactly three. The LHC collider has excluded a fourth generation with masses accessible to direct search.
 
-### 1.2 Стандартная модель: полная тишина
+### 1.2 Standard Model: Complete Silence
 
-В рамках СМ нет принципа, ограничивающего число поколений. Условия аномальной компенсации
-(см. Механизм E ниже) выполнены для *любого целого* числа поколений, поскольку аномалии
-обнуляются внутри каждого поколения независимо. Следовательно, объяснение числа 3 требует
-новой физики или нового математического принципа.
+Within the SM there is no principle limiting the number of generations. Anomaly cancellation conditions (see Mechanism E below) are satisfied for *any integer* number of generations, since anomalies cancel within each generation independently. Therefore, explaining the number 3 requires new physics or a new mathematical principle.
 
-### 1.3 Подход Лизи (E8, 2007)
+### 1.3 Lisi's Approach (E8, 2007)
 
-Гарретт Лизи в работе «An Exceptionally Simple Theory of Everything» (arXiv:0711.0770, 2007)
-предложил вложить всё вещество и все калибровочные поля СМ в присоединённое представление
-алгебры Ли E8 (248-мерное). В этой схеме фермионы должны укладываться в спинорные
-представления размерности 248.
+Garrett Lisi in the paper "An Exceptionally Simple Theory of Everything" (arXiv:0711.0770, 2007) proposed to embed all matter and all gauge fields of the SM into the adjoint representation of the Lie algebra E8 (248-dimensional). In this scheme fermions should fit into spinor representations of dimension 248.
 
-**Проблема Листлера–Гарибальди (2009):** Джексон Дистлер и Жак Гарибальди строго доказали
-(arXiv:0905.2658), что ни одна реалистичная хиральная теория поля не может быть вложена в E8:
-из-за самосопряжённости присоединённого представления E8 любое вложение даёт
-векторно-подобный спектр (правые и левые фермионы попарно отождествляются), что противоречит
-экспериментально наблюдаемой хиральности СМ.
+**Distler–Garibaldi Problem (2009):** Jackson Distler and Jacques Garibaldi strictly proved (arXiv:0905.2658) that no realistic chiral gauge theory can be embedded in E8: due to the self-conjugacy of the adjoint representation of E8 any embedding gives a vector-like spectrum (right and left fermions are pairwise identified), which contradicts the experimentally observed chirality of the SM.
 
-### 1.4 Подход Шамседдина–Коннеса (NCG)
+### 1.4 Chamseddine–Connes Approach (NCG)
 
-В спектральной тройке Шамседдина–Коннеса (Ali Chamseddine, Alain Connes, 1996–2012)
-конечный оператор Дирака D_F действует в пространстве Гильберта
+In the Chamseddine–Connes spectral triple (Ali Chamseddine, Alain Connes, 1996–2012) the finite Dirac operator D_F acts in the Hilbert space
 
-    H_F = C^96 ⊗ C^3  (одно поколение × 3 поколения)
+    H_F = C^96 ⊗ C^3  (one generation × 3 generations)
 
-Число 3 здесь *заложено вручную*: пространство C^3 поколений постулируется, а не выводится из
-геометрии внутренного пространства. Конн и Шамседдин открыто признают это в своих работах
-(например, Connes 2006, arXiv:hep-th/0608226).
+The number 3 is here *put in by hand*: the C^3 generation space is postulated, not derived from the geometry of the internal space. Connes and Chamseddine openly acknowledge this in their works (e.g. Connes 2006, arXiv:hep-th/0608226).
 
-### 1.5 Проект Trinity S3AI: подход через H4
+### 1.5 Trinity S3AI Project: Approach via H4
 
-В проекте Trinity S3AI используется конструкция, основанная на:
-- 600-клетке {3,3,5} — правильном 4-мерном многограннике с 120 вершинами;
-- двоичной икосаэдральной группе 2I ≅ SL(2, F_5) порядка 120;
-- неоднородной группе Коксетера H4 порядка 14400 = 120^2.
+The Trinity S3AI project uses a construction based on:
+- the 600-cell {3,3,5} — a regular 4-dimensional polytope with 120 vertices;
+- the binary icosahedral group 2I ≅ SL(2, F_5) of order 120;
+- the non-homogeneous Coxeter group H4 of order 14400 = 120^2.
 
-Волна 6 (ChiralityAnalysis.v) установила, что 600-клетка имеет антиподальную инволюцию
-v -> -v, которая делает спектр оператора Дирака векторно-подобным в отсутствие механизма
-хиральности. Волна 8 (DFSpectrum.v, df_analysis.md) показала, что построенный числовой
-оператор D_F имеет 25 уникальных собственных значений, симметричных относительно нуля, — что
-подтверждает этот вывод.
+Wave 6 (ChiralityAnalysis.v) established that the 600-cell has an antipodal involution v -> -v, which makes the spectrum of the Dirac operator vector-like in the absence of a chirality mechanism. Wave 8 (DFSpectrum.v, df_analysis.md) showed that the constructed numerical operator D_F has 25 unique eigenvalues, symmetric about zero — confirming this conclusion.
 
-Волна 9.5 (настоящий документ) отвечает на вопрос: **может ли H4/2I геометрия само-
-стоятельно породить ровно три поколения фермионов?**
+Wave 9.5 (the present document) answers the question: **can H4/2I geometry independently generate exactly three fermion generations?**
 
 ---
 
-## 2. Пять кандидатных механизмов
+## 2. Five Candidate Mechanisms
 
-Для ответа на этот вопрос исследованы пять независимых механизмов (обозначаемых A–E).
-Полный численный анализ выполнен в файле `search_mechanisms.py`.
+To answer this question, five independent mechanisms (labeled A–E) were investigated.
+A full numerical analysis was performed in the file `search_mechanisms.py`.
 
 ---
 
-## 3. Механизм A: Кратности неприводимых представлений 2I
+## 3. Mechanism A: Multiplicities of Irreducible Representations of 2I
 
-### 3.1 Группа 2I и её представления
+### 3.1 The Group 2I and Its Representations
 
-Двоичная икосаэдральная группа 2I ≅ SL(2, F_5) имеет порядок 120 и является центральным
-расширением икосаэдральной группы A5 группой Z_2.
+The binary icosahedral group 2I ≅ SL(2, F_5) has order 120 and is a central extension of the icosahedral group A5 by the group Z_2.
 
-Группа 2I обладает ровно **9 неприводимыми комплексными представлениями** с размерностями:
+The group 2I has exactly **9 irreducible complex representations** with dimensions:
 
     1, 2, 2, 3, 3, 4, 4, 5, 6
 
-Проверка: сумма квадратов = 1+4+4+9+9+16+16+25+36 = **120** = |2I| ✓  
-Сумма размерностей = 1+2+2+3+3+4+4+5+6 = **30** = число Коксетера h(H4) ✓
+Check: sum of squares = 1+4+4+9+9+16+16+25+36 = **120** = |2I| ✓  
+Sum of dimensions = 1+2+2+3+3+4+4+5+6 = **30** = Coxeter number h(H4) ✓
 
-Это замечательное совпадение: сумма размерностей неприводимых представлений 2I равна числу
-Коксетера группы H4. Оно отражает глубокую структурную связь 2I ↔ H4, но не является
-доказательством чего-либо о числе поколений.
+This is a remarkable coincidence: the sum of dimensions of irreducible representations of 2I equals the Coxeter number of the H4 group. It reflects a deep structural connection 2I ↔ H4, but is not proof of anything about the number of generations.
 
-### 3.2 Регулярное представление
+### 3.2 Regular Representation
 
-В регулярном представлении reg(2I) каждое неприводимое представление rho_i входит ровно
-dim(rho_i) раз. Кратности:
+In the regular representation reg(2I) each irreducible representation ρ_i appears exactly dim(ρ_i) times. Multiplicities:
 
-| Представление | dim | Кратность в reg(2I) | Тип |
-|---------------|-----|---------------------|-----|
-| rho_1 | 1 | 1 | тривиальное |
-| rho_2 | 2 | 2 | спинор (левый) |
-| rho_3 | 2 | 2 | спинор (правый, сопряжён к rho_2) |
-| rho_4 | 3 | 3 | трёхмерное, вещественное |
-| rho_5 | 3 | 3 | трёхмерное, комплексное |
-| rho_6 | 4 | 4 | четырёхмерное |
-| rho_7 | 4 | 4 | четырёхмерное, сопряжён |
-| rho_8 | 5 | 5 | пятимерное |
-| rho_9 | 6 | 6 | шестимерное |
+| Representation | dim | Multiplicity in reg(2I) | Type |
+|---------------|-----|------------------------|------|
+| ρ_1 | 1 | 1 | trivial |
+| ρ_2 | 2 | 2 | spinor (left) |
+| ρ_3 | 2 | 2 | spinor (right, conjugate to ρ_2) |
+| ρ_4 | 3 | 3 | three-dimensional, real |
+| ρ_5 | 3 | 3 | three-dimensional, complex |
+| ρ_6 | 4 | 4 | four-dimensional |
+| ρ_7 | 4 | 4 | four-dimensional, conjugate |
+| ρ_8 | 5 | 5 | five-dimensional |
+| ρ_9 | 6 | 6 | six-dimensional |
 
-**Наблюдение:** Трёхмерные представления rho_4 и rho_5 входят в reg(2I) ровно **три раза** каждое.
-Это подлинный факт: в регулярном представлении есть «тройная» структура.
+**Observation:** The three-dimensional representations ρ_4 and ρ_5 appear in reg(2I) exactly **three times** each.
+This is a genuine fact: in the regular representation there is a "triple" structure.
 
-**Проблема:** rho_4 и rho_5 — это *3-мерные* представления, а не спинорные (2-мерные) представления
-Вейля. Физические лево-правые хиральные фермионы должны трансформироваться по *2-мерным* спинорным
-представлениям rho_2 и rho_3 — а они входят в reg(2I) лишь **дважды** (кратность 2).
+**Problem:** ρ_4 and ρ_5 are *3-dimensional* representations, not spinor (2-dimensional) Weyl representations. Physical left-right chiral fermions must transform under *2-dimensional* spinor representations ρ_2 and ρ_3 — and they appear in reg(2I) only **twice** (multiplicity 2).
 
-### 3.3 Вывод по Механизму A
+### 3.3 Conclusion on Mechanism A
 
-Механизм A **не работает** для спинорного сектора:
-- Спинорные неприводимые представления (dim 2) имеют кратность **2** в reg(2I), а не 3.
-- Трёхмерные представления имеют кратность 3, но не являются хиральными спинорами.
-- Получить третью копию спинора из данной группы невозможно без изменения конструкции.
+Mechanism A **does not work** for the spinor sector:
+- Spinor irreducible representations (dim 2) have multiplicity **2** in reg(2I), not 3.
+- Three-dimensional representations have multiplicity 3, but are not chiral spinors.
+- Obtaining a third copy of the spinor from this group is impossible without changing the construction.
 
-**Вердикт:** ОТРИЦАТЕЛЬНЫЙ.
+**Verdict:** NEGATIVE.
 
 ---
 
-## 4. Механизм B: Разложение 600-клетки на 24-клетки
+## 4. Mechanism B: Decomposition of the 600-Cell into 24-Cells
 
-### 4.1 Арифметика 600-клетки
+### 4.1 Arithmetic of the 600-Cell
 
-600-клетка {3,3,5} содержит **120 вершин**, которые совпадают с элементами группы 2I,
-вложенной в единичную сферу S^3 ⊂ H (кватернионы). Её структура:
+The 600-cell {3,3,5} contains **120 vertices**, which coincide with the elements of the group 2I, embedded in the unit sphere S^3 ⊂ H (quaternions). Its structure:
 
-| Объект | Количество |
-|--------|-----------|
-| Вершины | 120 |
-| Рёбра | 720 |
-| Треугольные грани | 1200 |
-| Тетраэдральные клетки | 600 |
+| Object | Count |
+|--------|-------|
+| Vertices | 120 |
+| Edges | 720 |
+| Triangular faces | 1200 |
+| Tetrahedral cells | 600 |
 
-Степень каждой вершины (число соседних вершин) = **12**.
+The degree of each vertex (number of neighboring vertices) = **12**.
 
-### 4.2 Вложенные 24-клетки
+### 4.2 Embedded 24-Cells
 
-24-клетка {3,4,3} — правильный 4-мерный многогранник с 24 вершинами, симметрийной группой
-W(F4) порядка 1152. Она является исключительным объектом в 4 измерениях (без аналогов в
-других размерностях).
+The 24-cell {3,4,3} is a regular 4-dimensional polytope with 24 vertices, symmetry group W(F4) of order 1152. It is an exceptional object in 4 dimensions (without analogues in other dimensions).
 
-**Теорема (Схоут, 1905):** 600-клетка содержит ровно **25 вписанных** 24-клеток. 120 вершин
-600-клетки можно разбить на **5 непересекающихся** 24-клеток ровно **10 способами**.
+**Theorem (Schoute, 1905):** The 600-cell contains exactly **25 inscribed** 24-cells. The 120 vertices of the 600-cell can be partitioned into **5 disjoint** 24-cells in exactly **10 ways**.
 
-Арифметика: 120 = **5 × 24**.
+Arithmetic: 120 = **5 × 24**.
 
-Численный эксперимент (search_mechanisms.py) подтвердил:
-- Построено 120 вершин 600-клетки ✓
-- Двоичная тетраэдральная группа 2T ≅ SL(2, F_3) порядка 24 даёт одну 24-клетку ✓
-- Смежные смежные классы 2I/2T дают ровно 5 непересекающихся 24-клеток,  
-  покрывающих все 120 вершин ✓
+Numerical experiment (search_mechanisms.py) confirmed:
+- 120 vertices of the 600-cell constructed ✓
+- Binary tetrahedral group 2T ≅ SL(2, F_3) of order 24 gives one 24-cell ✓
+- Adjacent cosets 2I/2T give exactly 5 disjoint 24-cells, covering all 120 vertices ✓
 
-### 4.3 Может ли 3 из 5 24-клеток = 3 поколения?
+### 4.3 Can 3 out of 5 24-Cells = 3 Generations?
 
-Задача ставит вопрос: могут ли три из пяти 24-клеток соответствовать трём поколениям СМ,
-а оставшиеся две — тяжёлому скрытому сектору?
+The question is asked: could three of the five 24-cells correspond to three SM generations, and the remaining two to a heavy hidden sector?
 
-**Анализ:** Все пять смежных классов 2T в 2I симметричны: группа Z_5 ⊂ 2I/Z(2I) = A5
-циклически переставляет пять смежных классов. Нет ни одного канонического принципа,
-выделяющего три из пяти.
+**Analysis:** All five cosets of 2T in 2I are symmetric: the group Z_5 ⊂ 2I/Z(2I) = A5 cyclically permutes the five cosets. There is no canonical principle selecting three out of five.
 
-Разбиение 3+2 возможно арифметически, но **не мотивировано геометрически или физически**
-без привлечения дополнительного принципа (например, аномальной компенсации — см. Механизм E,
-или внешней компактификации).
+The partition 3+2 is arithmetically possible, but **not motivated geometrically or physically**
+without invoking an additional principle (e.g. anomaly cancellation — see Mechanism E, or external compactification).
 
-**Заключение:** Механизм B даёт **5 секторов, а не 3**. Натуральное число здесь — 5 (или 10
-— число разбиений), а не 3.
+**Conclusion:** Mechanism B gives **5 sectors, not 3**. The natural number here is 5 (or 10 — the number of partitions), not 3.
 
-**Вердикт:** ОТРИЦАТЕЛЬНЫЙ (дает 5, не 3).
+**Verdict:** NEGATIVE (gives 5, not 3).
 
 ---
 
-## 5. Механизм C: Факторизация 120 = 2^3 · 3 · 5
+## 5. Mechanism C: Factorization 120 = 2³ · 3 · 5
 
-### 5.1 Факт
+### 5.1 Fact
 
-Порядок 2I равен 120 = 2^3 · 3 · 5. Множитель 3 присутствует.
+The order of 2I is 120 = 2³ · 3 · 5. The factor 3 is present.
 
-Предложение: 120 вершин = 3 поколения × 40 состояний на поколение. Это корректная
-арифметика: 120 = 3 × 40.
+Proposal: 120 vertices = 3 generations × 40 states per generation. This is correct arithmetic: 120 = 3 × 40.
 
-### 5.2 Проблема: нет Z_3-структуры в группе 2I
+### 5.2 Problem: No Z₃ Structure in the Group 2I
 
-Для того чтобы разбиение 120 = 3 × 40 имело группово-теоретическое обоснование, необходимо,
-чтобы группа 2I имела нормальную подгруппу N порядка 40, и тогда 2I/N была бы группой
-порядка 3 (циклической Z_3).
+For the decomposition 120 = 3 × 40 to have a group-theoretic justification, the group 2I would need to have a normal subgroup N of order 40, and then 2I/N would be a group of order 3 (cyclic Z_3).
 
-**Нормальные подгруппы 2I = SL(2, F_5):**
-- {I} (порядок 1, индекс 120)
-- Z_2 = {±I} (порядок 2, индекс 60) — центр группы
-- Вся 2I (порядок 120, индекс 1)
+**Normal subgroups of 2I = SL(2, F_5):**
+- {I} (order 1, index 120)
+- Z_2 = {±I} (order 2, index 60) — center of the group
+- The whole 2I (order 120, index 1)
 
-Никакой нормальной подгруппы порядка 40 **не существует**. Группа 2I/Z_2 ≅ A5 — простая
-группа, не имеющая собственных нормальных подгрупп. Следовательно, **2I не имеет фактор-группы
-порядка 3**.
+No normal subgroup of order 40 **exists**. The group 2I/Z_2 ≅ A5 is a simple group, having no proper normal subgroups. Therefore, **2I has no quotient group of order 3**.
 
-### 5.3 Вывод по Механизму C
+### 5.3 Conclusion on Mechanism C
 
-Наличие множителя 3 в разложении 120 = 2^3 · 3 · 5 — это арифметический факт, но он не
-соответствует никакой группово-теоретической Z_3-структуре внутри 2I. Механизм C является
-чистой нумерологией.
+The presence of the factor 3 in the factorization 120 = 2³ · 3 · 5 is an arithmetic fact, but it does not correspond to any group-theoretic Z₃ structure inside 2I. Mechanism C is pure numerology.
 
-**Вердикт:** ОТРИЦАТЕЛЬНЫЙ (нумерология, нет Z_3 подгруппы).
+**Verdict:** NEGATIVE (numerology, no Z₃ subgroup).
 
 ---
 
-## 6. Механизм D: Арифметика числа Коксетера H4
+## 6. Mechanism D: Arithmetic of the H4 Coxeter Number
 
-### 6.1 Данные H4
+### 6.1 H4 Data
 
-Группа Коксетера H4 имеет следующие параметры:
+The Coxeter group H4 has the following parameters:
 
-| Параметр | Значение |
-|----------|---------|
-| Ранг r | 4 |
-| Число Коксетера h | 30 = 2·3·5 |
-| Показатели | {1, 11, 19, 29} |
-| |W(H4)| | 14400 = 120^2 |
-| Число положительных корней | h·r/2 = 60 |
-| Число корней | h·r = 120 |
+| Parameter | Value |
+|-----------|-------|
+| Rank r | 4 |
+| Coxeter number h | 30 = 2·3·5 |
+| Exponents | {1, 11, 19, 29} |
+| |W(H4)| | 14400 = 120² |
+| Number of positive roots | h·r/2 = 60 |
+| Number of roots | h·r = 120 |
 
-Проверка: ∏(m_i + 1) = 2 · 12 · 20 · 30 = 14400 = |W(H4)| ✓
+Check: ∏(m_i + 1) = 2 · 12 · 20 · 30 = 14400 = |W(H4)| ✓
 
-### 6.2 Откуда берётся число 3
+### 6.2 Where Does the Number 3 Come From?
 
-Из четырёх показателей {1, 11, 19, 29} показатель 1 является «тривиальным» (он присутствует
-во всех группах Коксетера). Оставшиеся **три** нетривиальных показателя: {11, 19, 29}.
+Of the four exponents {1, 11, 19, 29}, the exponent 1 is "trivial" (it is present in all Coxeter groups). The remaining **three** nontrivial exponents: {11, 19, 29}.
 
-Это даёт: rank(H4) - 1 = 4 - 1 = **3** нетривиальных показателя.
+This gives: rank(H4) - 1 = 4 - 1 = **3** nontrivial exponents.
 
-**Проблема:** Это чисто ранговая арифметика. Любая группа ранга 4 имеет 4 показателя, из
-которых один тривиален (= 1), оставляя 3 нетривиальных. Это не является специфической
-особенностью H4 и не имеет прямой связи с числом поколений фермионов.
+**Problem:** This is purely rank arithmetic. Any group of rank 4 has 4 exponents, of which one is trivial (= 1), leaving 3 nontrivial ones. This is not a specific feature of H4 and has no direct connection to the number of fermion generations.
 
-### 6.3 Ошибка в существующем документе
+### 6.3 Error in the Existing Document
 
-Существующий файл `three-generations-proof.md` использует «Сектор B» показателей E8:
-{11, 17, 23, 29} — арифметическую прогрессию с шагом 6. Однако:
-- Это показатели **E8**, а не H4.
-- Показатели H4: {1, 11, 19, 29} — это НЕ прогрессия с постоянным шагом (шаги: 10, 8, 10).
-- Набор {11, 17, 23} является подмножеством E8, но не является подмножеством H4.
+The existing file `three-generations-proof.md` uses "Sector B" exponents of E8:
+{11, 17, 23, 29} — an arithmetic progression with step 6. However:
+- These are exponents of **E8**, not H4.
+- The exponents of H4: {1, 11, 19, 29} — this is NOT a progression with constant step (steps: 10, 8, 10).
+- The set {11, 17, 23} is a subset of E8, but not a subset of H4.
 
-Таким образом, аргумент «Сектора B» основан на смешении данных E8 и H4.
+Thus, the "Sector B" argument is based on mixing E8 and H4 data.
 
-### 6.4 Вывод по Механизму D
+### 6.4 Conclusion on Mechanism D
 
-Арифметический факт rank(H4) - 1 = 3 подлинен, но не является физическим механизмом.
-Динамическая связь между нетривиальными показателями Коксетера {11, 19, 29} и тремя
-поколениями СМ не установлена.
+The arithmetic fact rank(H4) - 1 = 3 is genuine, but is not a physical mechanism.
+A dynamical connection between the nontrivial Coxeter exponents {11, 19, 29} and the three SM generations is not established.
 
-**Вердикт:** СЛАБЫЙ (арифметическая случайность, не физический механизм).
+**Verdict:** WEAK (arithmetic coincidence, not a physical mechanism).
 
 ---
 
-## 7. Механизм E: Аномальная компенсация
+## 7. Mechanism E: Anomaly Cancellation
 
-### 7.1 Аномальная компенсация в СМ
+### 7.1 Anomaly Cancellation in the SM
 
-В СМ условия отсутствия калибровочных аномалий:
+In the SM the conditions for absence of gauge anomalies:
 
-- [U(1)]^3: сумма Y^3 обнуляется в каждом поколении
-- [SU(3)]^2 [U(1)]: сумма Y по цветным дублетам = 0
-- [SU(2)]^2 [U(1)]: сумма Y по изоспиновым дублетам = 0
-- [Grav]^2 [U(1)]: сумма Y по всем фермионам = 0
+- [U(1)]³: sum of Y³ cancels in each generation
+- [SU(3)]² [U(1)]: sum of Y over color doublets = 0
+- [SU(2)]² [U(1)]: sum of Y over isospin doublets = 0
+- [Grav]² [U(1)]: sum of Y over all fermions = 0
 
-Все эти условия **автоматически выполнены в каждом поколении в отдельности**. Поэтому N_ген
-поколений удовлетворяют аномальным условиям для любого натурального N_ген. Аномальная
-компенсация **не фиксирует** число поколений.
+All these conditions are **automatically satisfied in each generation separately**. Therefore N_gen generations satisfy the anomaly conditions for any natural N_gen. Anomaly cancellation **does not fix** the number of generations.
 
-### 7.2 2I как группа флейвор-симметрии
+### 7.2 2I as a Flavor Symmetry Group
 
-Тем не менее, если 2I играет роль не калибровочной, а **флейворной** симметрии (действующей
-на «поколенческое» пространство), то структура её представлений накладывает ограничения.
+Nevertheless, if 2I plays the role not of a gauge, but of a **flavor** symmetry (acting on "generation" space), then the structure of its representations imposes constraints.
 
-Трёхмерное вещественное представление rho_4 группы 2I (dim = 3) может служить
-«пространством поколений»: поля материи трансформируются как (SМ-мультиплет) ⊗ rho_4, что
-автоматически даёт **три копии** каждого поля.
+The three-dimensional real representation ρ_4 of the group 2I (dim = 3) can serve as a "generation space": matter fields transform as (SM-multiplet) ⊗ ρ_4, which automatically gives **three copies** of each field.
 
-Это является когерентным модельно-строительным выбором, но:
-1. Он **не вынужден** аномальной компенсацией;
-2. Он **не вынужден** никаким другим принципом внутри H4-конструкции;
-3. Выбор rho_4 (а не rho_8 размерности 5 или rho_9 размерности 6) требует обоснования;
-4. Использование 2I как группы флейвор-симметрии является *нестандартным* (обычно используют
-   более малые группы: A4, S3, T', которые лучше согласуются с данными по смешиванию).
+This is a coherent model-building choice, but:
+1. It is **not forced** by anomaly cancellation;
+2. It is **not forced** by any other principle within the H4 construction;
+3. The choice of ρ_4 (rather than ρ_8 of dimension 5 or ρ_9 of dimension 6) requires justification;
+4. Using 2I as a flavor symmetry group is *nonstandard* (usually smaller groups are used: A4, S3, T', which better agree with mixing data).
 
-### 7.3 Вывод по Механизму E
+### 7.3 Conclusion on Mechanism E
 
-Как аргумент аномальной компенсации — **НЕУДАЧА**: аномалии обнуляются при любом N_ген.  
-Как флейвор-механизм через dim-3 представление rho_4 — **ЧАСТИЧНО РАБОТАЕТ**, но является
-произвольным модельным выбором.
+As an anomaly cancellation argument — **FAILURE**: anomalies cancel for any N_gen.  
+As a flavor mechanism via the dim-3 representation ρ_4 — **PARTIALLY WORKS**, but is an arbitrary model choice.
 
-**Вердикт:** ОТРИЦАТЕЛЬНЫЙ как аргумент аномалий; ЧАСТИЧНЫЙ как флейворная симметрия.
+**Verdict:** NEGATIVE as an anomaly argument; PARTIAL as a flavor symmetry.
 
 ---
 
-## 8. Матрица вердиктов
+## 8. Verdict Matrix
 
-| Механизм | Описание | Даёт 3? | Степень обоснованности |
+| Mechanism | Description | Gives 3? | Degree of Justification |
 |---------|----------|---------|----------------------|
-| A | Кратности неприв. представлений 2I | НЕТ | Спинорные представления имеют кратность 2 |
-| B | Разложение 600-клетки на 24-клетки | НЕТ | Даёт 5 секторов, не 3 |
-| C | Факторизация 120 = 2^3·3·5 | НЕТ | Нумерология; нет Z_3 подгруппы в 2I |
-| D | Арифметика числа Коксетера H4 | НЕТ (слабо) | rank(H4)-1=3, но это ранговая тривиальность |
-| E | Аномальная компенсация + 2I-флейвор | ЧАСТИЧНО | Флейвор-выбор, не вывод |
+| A | Multiplicities of irred. representations of 2I | NO | Spinor representations have multiplicity 2 |
+| B | Decomposition of 600-cell into 24-cells | NO | Gives 5 sectors, not 3 |
+| C | Factorization 120 = 2³·3·5 | NO | Numerology; no Z₃ subgroup in 2I |
+| D | Arithmetic of H4 Coxeter number | NO (weakly) | rank(H4)-1=3, but this is rank triviality |
+| E | Anomaly cancellation + 2I-flavor | PARTIAL | Flavor choice, not derivation |
 
-**Лучший частичный кандидат:** Механизм E через 3-мерное представление rho_4.  
-**Наиболее математически содержательный факт:** Механизм A (dim-3 неприводимые представления
-входят в reg(2I) ровно 3 раза, но это не спинорные представления).
-
----
-
-## 9. Почему 5, а не 3?
-
-Важное наблюдение: геометрия H4/600-клетки глубоко **пятиугольна**:
-- 600-клетка = {3,3,**5**} (Шлефли-символ)
-- Вершинная фигура = икосаэдр (группа симметрии H3, связана с пятью)
-- Разложение на 24-клетки: 120 = **5** × 24
-- Икосаэдральная группа A5 имеет порядок 60 = **5** × 12
-- Число Коксетера h(H4) = **30** = 2·3·**5** — кратно пяти
-- Показатели H4: {1, 11, 19, 29} — все ≡ 1 (mod **5** или 10)
-
-Число **5** структурно преобладает в H4-геометрии. Число **3** в факторизации 120 = 2^3·3·5
-присутствует, но не реализуется в натуральных группово-геометрических объектах (как это
-делает 5 через 5 двадцатичетырёхклеток).
+**Best partial candidate:** Mechanism E via 3-dimensional representation ρ_4.  
+**Most mathematically substantive fact:** Mechanism A (dim-3 irreducible representations appear in reg(2I) exactly 3 times, but these are not spinor representations).
 
 ---
 
-## 10. Дополнительные соображения
+## 9. Why 5, Not 3?
 
-### 10.1 Связь с D4-триальностью
+Important observation: the geometry of H4/600-cell is deeply **pentagonal**:
+- 600-cell = {3,3,**5**} (Schläfli symbol)
+- Vertex figure = icosahedron (symmetry group H3, related to five)
+- Decomposition into 24-cells: 120 = **5** × 24
+- Icosahedral group A5 has order 60 = **5** × 12
+- Coxeter number h(H4) = **30** = 2·3·**5** — divisible by five
+- H4 exponents: {1, 11, 19, 29} — all ≡ 1 (mod **5** or 10)
 
-В существующем документе `three-generations-proof.md` утверждается, что число 3 порождается
-**D4-триальностью**: Out(D4) ≅ S3. Это математически корректный факт — 24-клетка имеет
-симметрию D4, и внешняя автоморфная группа D4 есть S3 (симметрическая группа на 3 элементах).
-
-Однако: это не **вывод** числа 3 для поколений, а лишь наблюдение, что группа S3 математически
-присутствует в D4-структуре. Для превращения этого в механизм поколений необходимо:
-1. Показать, что S3 действует на пространство поколений (а не на представления D4);
-2. Объяснить, почему именно эта S3, а не другие S3 в задаче (например, S3 ≅ W(A2) = группа
-   Вейля A2, которая также присутствует);
-3. Вывести конкретные квантовые числа трёх поколений из S3-орбит.
-
-Ни один из этих шагов не выполнен в существующих материалах.
-
-### 10.2 Отношение к теореме Дистлера–Гарибальди
-
-Теорема Дистлера–Гарибальди (2009) — формально о вложениях в E8 — не применима к H4
-(что доказано в Wave 6). Однако независимо от теоремы ДГ, H4-конструкция имеет собственную
-проблему хиральности: антиподальная инволюция 600-клетки v → -v делает спектр
-векторно-подобным. Проблема поколений (число 3) является отдельной от проблемы хиральности
-(число 0 vs. 1 vs. ...).
-
-### 10.3 Сравнение с NCG-подходом
-
-В спектральной тройке Коннеса–Шамседдина:
-- Число поколений закладывается постулятивно: H_F = C^96 ⊗ C^3;
-- Структура D_F определяется матрицами Юкавы, которые являются свободными параметрами;
-- «Получение» числа 3 в NCG — это выбор, а не вывод.
-
-Trinity S3AI ставит более амбициозную задачу — вывести 3 из первых принципов, — но в
-настоящем анализе эта задача не решена.
+The number **5** structurally predominates in H4 geometry. The number **3** in the factorization 120 = 2³·3·5 is present, but is not realized in natural group-geometric objects (as 5 is via 5 twenty-four-cells).
 
 ---
 
-## 11. Честный итог и рекомендации
+## 10. Additional Considerations
 
-### 11.1 Итог
+### 10.1 Connection with D4 Triality
 
-**НИ ОДИН из пяти исследованных механизмов не даёт числа 3 фермионных поколений из первых
-принципов геометрии H4/600-клетки + 2I.**
+The existing document `three-generations-proof.md` claims that the number 3 is generated by **D4 triality**: Out(D4) ≅ S3. This is a mathematically correct fact — the 24-cell has D4 symmetry, and the outer automorphism group of D4 is S3 (the symmetric group on 3 elements).
 
-Этот вывод является значимым отрицательным результатом. Он означает:
+However: this is not a **derivation** of the number 3 for generations, but merely an observation that the group S3 is mathematically present in the D4 structure. To turn this into a generation mechanism one needs to:
+1. Show that S3 acts on generation space (rather than on D4 representations);
+2. Explain why exactly this S3, and not other S3's in the problem (e.g. S3 ≅ W(A2) = Weyl group of A2, which is also present);
+3. Derive the specific quantum numbers of the three generations from S3 orbits.
 
-1. H4-базированное объединение *не может автоматически* объяснить три поколения — нужен
-   дополнительный принцип.
-2. Существующий документ `three-generations-proof.md` содержит некорректные утверждения:
-   смешение показателей H4 и E8, необоснованный «критерий устойчивости», постулирование
-   вместо вывода.
-3. Честная оценка текущего состояния: Trinity S3AI не решает проблему трёх поколений.
+None of these steps is performed in existing materials.
 
-### 11.2 Наиболее перспективный путь
+### 10.2 Relation to the Distler–Garibaldi Theorem
 
-Если искать механизм в рамках 2I/H4:
+The Distler–Garibaldi theorem (2009) — formally about embeddings in E8 — does not apply to H4 (proven in Wave 6). However, independently of the DG theorem, the H4 construction has its own chirality problem: the antipodal involution of the 600-cell v → -v makes the spectrum vector-like. The generation problem (the number 3) is separate from the chirality problem (number 0 vs. 1 vs. ...).
 
-**Кандидат:** Группа 2I как *флейворная* симметрия с трёхмерным вещественным представлением
-rho_4 в качестве пространства поколений. Это даёт 3 копии автоматически, но требует:
-- Выбора rho_4 на основе принципа (например, минимальной ненулевой размерности вещественного
-  представления, содержащего симметрию SM-флейворного пространства);
-- Анализа нарушения 2I-флейворной симметрии (механизм флейворного VEV);
-- Согласования с данными по матрицам смешивания CKM и PMNS.
+### 10.3 Comparison with the NCG Approach
 
-Такой анализ остаётся открытой задачей.
+In the Connes–Chamseddine spectral triple:
+- The number of generations is put in postulatively: H_F = C^96 ⊗ C^3;
+- The structure of D_F is determined by Yukawa matrices, which are free parameters;
+- "Obtaining" the number 3 in NCG is a choice, not a derivation.
 
-### 11.3 Альтернативный путь
-
-Более фундаментальный подход может потребовать:
-- Выхода за рамки H4 в сторону E8 (при этом нужно обойти теорему Дистлера–Гарибальди);
-- Или встраивания H4-конструкции в большее пространство (10D или 11D), где компактификация
-  даёт число 3 топологически (как в F-теории с потоком G4);
-- Или нового математического принципа, пока не установленного.
+Trinity S3AI sets a more ambitious task — to derive 3 from first principles — but in the present analysis this task is not solved.
 
 ---
 
-## Приложение: Численные данные
+## 11. Honest Summary and Recommendations
 
-| Объект | Значение | Источник |
-|--------|---------|--------|
-| |2I| | 120 | Определение |
-| n(неприв. пред.) | 9 | Теорема символов |
-| dims(неприв. пред.) | 1,2,2,3,3,4,4,5,6 | ATLAS |
-| sum(dim^2) | 120 | = |2I| |
+### 11.1 Summary
+
+**NONE of the five investigated mechanisms gives the number 3 of fermion generations from first principles of H4/600-cell + 2I geometry.**
+
+This conclusion is a significant negative result. It means:
+
+1. H4-based unification *cannot automatically* explain three generations — an additional principle is needed.
+2. The existing document `three-generations-proof.md` contains incorrect statements: mixing of H4 and E8 exponents, unjustified "stability criterion", postulation instead of derivation.
+3. Honest assessment of the current state: Trinity S3AI does not solve the three-generation problem.
+
+### 11.2 Most Promising Path
+
+If one looks for a mechanism within 2I/H4:
+
+**Candidate:** The group 2I as a *flavor* symmetry with the three-dimensional real representation ρ_4 as generation space. This gives 3 copies automatically, but requires:
+- Choosing ρ_4 on the basis of a principle (e.g. minimal nonzero dimension of a real representation containing SM flavor space symmetry);
+- Analysis of 2I-flavor symmetry breaking (flavor VEV mechanism);
+- Agreement with CKM and PMNS mixing matrix data.
+
+Such analysis remains an open problem.
+
+### 11.3 Alternative Path
+
+A more fundamental approach may require:
+- Going beyond H4 toward E8 (while needing to circumvent the Distler–Garibaldi theorem);
+- Or embedding the H4 construction into a larger space (10D or 11D), where compactification gives the number 3 topologically (as in F-theory with G4 flux);
+- Or a new mathematical principle, not yet established.
+
+---
+
+## Appendix: Numerical Data
+
+| Object | Value | Source |
+|--------|-------|--------|
+| |2I| | 120 | Definition |
+| n(irred. rep.) | 9 | Character theorem |
+| dims(irred. rep.) | 1,2,2,3,3,4,4,5,6 | ATLAS |
+| sum(dim²) | 120 | = |2I| |
 | sum(dim) | 30 | = h(H4) |
-| Кратность спиноров в reg | 2 | Теорема о регулярном представлении |
-| n(24-клеток в разложении) | 5 | Схоут 1905 |
-| Вершин в 24-клетке | 24 | Определение |
-| Нормальные подгруппы 2I | {1}, Z_2, 2I | 2I перфектна |
-| rank(H4) | 4 | Определение |
-| h(H4) | 30 | Таблицы Коксетера |
-| Показатели H4 | {1,11,19,29} | Таблицы Коксетера |
-| n(нетривиальных показателей) | 3 | = rank - 1 |
+| Spinor multiplicity in reg | 2 | Regular representation theorem |
+| n(24-cells in decomposition) | 5 | Schoute 1905 |
+| Vertices in 24-cell | 24 | Definition |
+| Normal subgroups of 2I | {1}, Z_2, 2I | 2I is perfect |
+| rank(H4) | 4 | Definition |
+| h(H4) | 30 | Coxeter tables |
+| H4 exponents | {1,11,19,29} | Coxeter tables |
+| n(nontrivial exponents) | 3 | = rank - 1 |
 
 ---
 
-*Wave 9.5 | Trinity S3AI | Анализ пяти механизмов завершён | Отрицательный результат задокументирован*  
-*Дата: июнь 2025*
+*Wave 9.5 | Trinity S3AI | Analysis of five mechanisms completed | Negative result documented*  
+*Date: June 2025*

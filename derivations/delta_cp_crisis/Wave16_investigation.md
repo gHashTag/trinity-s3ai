@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-23  
 **Mandate:** Search for alternative δ_CP formulas from the H4/Coxeter/φ formalism that agree with modern experimental data (NuFit 6.0–6.1, T2K 2025, JUNO 2025).  
-**Principle:** «Не врать» — do not invent derivations.
+**Principle:** «Do not lie» — do not invent derivations.
 
 ---
 
@@ -232,7 +232,7 @@ The δ_CP = 3/φ² = 65.66° formula is:
 
 | Option | Action | Scientific Integrity |
 |--------|--------|---------------------|
-| A | **Retract the δ_CP prediction** and state clearly that the PMNS sector is falsified by current data | ✅ High — follows «не врать» |
+| A | **Retract the δ_CP prediction** and state clearly that the PMNS sector is falsified by current data | ✅ High — follows «do not lie» |
 | B | Wait for DUNE 2028 and maintain the pre-registered 65.66° as a falsifiable claim | ✅ Acceptable — if honestly framed as "already disfavored" |
 | C | Invent a new post-hoc formula (e.g., `e²/2`) and claim it was "hidden in H4" | ❌ Unacceptable — would be the 4th retro-fit |
 

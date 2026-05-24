@@ -1,115 +1,114 @@
-# Волна 8.4: Спектр конечного оператора Дирака D_F на пространстве Гильберта фермионов
+# Wave 8.4: Spectrum of the Finite Dirac Operator D_F on the Fermion Hilbert Space
 
-**Статус:** Численный расчёт завершён. Спектр вычислен. Совпадения со стандартной моделью нет.  
-**Дата:** май 2025  
-**Автор:** Trinity S3AI, Wave 8.4  
+**Status:** Numerical computation completed. Spectrum computed. No match with the Standard Model.  
+**Date:** May 2025  
+**Author:** Trinity S3AI, Wave 8.4  
 
 ---
 
-## 1. Постановка задачи и конструкция D_F
+## 1. Problem Statement and Construction of D_F
 
-### 1.1 Целевое пространство
+### 1.1 Target Space
 
-Конечная фермионная алгебра Чамседдина–Коннеса для Стандартной модели задаётся тройкой
-\((A_F, H_F, D_F)\), где пространство Гильберта имеет размерность
+The finite fermion algebra of Chamseddine–Connes for the Standard Model is given by the triple  
+$(A_F, H_F, D_F)$, where the Hilbert space has dimension
 
-$$\dim H_F = 96 \quad (\text{одно поколение: кварки} + \text{лептоны} + \text{правые нейтрино})$$
+$$\dim H_F = 96 \quad (\text{one generation: quarks} + \text{leptons} + \text{right neutrinos})$$
 
-умноженное на 3 поколения даёт реальное 96×3 = 288-мерное пространство (с учётом правых
-нейтрино). Однако в задаче поставлена цель: рассмотреть
+multiplied by 3 generations gives the real 96×3 = 288-dimensional space (accounting for right  
+neutrinos). However, the problem posed is to consider
 
 $$H_F = \mathbb{C}^{120} \otimes \mathbb{C}^4 = \mathbb{C}^{480}$$
 
-как естественное «геометрическое» пространство: 120 вершин 600-клетки × 4 спинорных компонента.
-Это не то же самое, что пространство Чамседдина–Коннеса, но это отправная точка для
-геометрически мотивированного D_F.
+as a natural "geometric" space: 120 vertices of the 600-cell × 4 spinor components.
+This is not the same as the Chamseddine–Connes space, but it is the starting point for a  
+geometrically motivated D_F.
 
-### 1.2 Конкретная конструкция («2I-скрученный граф-Дирак»)
+### 1.2 Concrete Construction ("2I-Twisted Graph-Dirac")
 
-**Выбор:** граф-Дирак с действием генераторов 2I через правое умножение на кватернионные
-единицы i, j, k, скрученное гамма-матрицами Вейля.
+**Choice:** graph-Dirac with action of 2I generators via right multiplication on quaternionic  
+units i, j, k, twisted by Weyl gamma matrices.
 
-**Формула:**
+**Formula:**
 $$D_F = A \otimes \gamma^0 + \frac{1}{2}(R_i + R_i^T) \otimes \gamma^1 + \frac{1}{2}(R_j + R_j^T) \otimes \gamma^2 + \frac{1}{2}(R_k + R_k^T) \otimes \gamma^3$$
 
-где:
-- $A$ — матрица смежности 600-клетки размера $120 \times 120$;
-- $R_i, R_j, R_k$ — матрицы размера $120 \times 120$ правого умножения на мнимые кватернионы $i, j, k$ на множестве вершин 600-клетки (группа 2I действует на себе правым умножением);
-- $\gamma^0, \gamma^1, \gamma^2, \gamma^3$ — гамма-матрицы Вейля размера $4 \times 4$;
-- симметризованные комбинации $\frac{1}{2}(R_\alpha + R_\alpha^T)$ обеспечивают эрмитовость.
+where:
+- $A$ — adjacency matrix of the 600-cell of size $120 \times 120$;
+- $R_i, R_j, R_k$ — matrices of size $120 \times 120$ of right multiplication by imaginary quaternions $i, j, k$ on the set of vertices of the 600-cell (the group 2I acts on itself by right multiplication);
+- $\gamma^0, \gamma^1, \gamma^2, \gamma^3$ — Weyl gamma matrices of size $4 \times 4$;
+- symmetrized combinations $\frac{1}{2}(R_\alpha + R_\alpha^T)$ ensure hermiticity.
 
-**Обоснование выбора:**
+**Justification of the choice:**
 
-Вершины 600-клетки образуют двоичную икосаэдральную группу $2I \cong SL(2, \mathbb{F}_5)$
-порядка 120. Правое умножение на $i, j, k \in \mathbb{H}$ является тремя унитарными
-операторами на $\ell^2(2I)$, инвариантными относительно левого 2I-действия. Это
-непосредственный аналог генераторов Клиффорд-алгебры спинорного расслоения для
-дискретного многообразия с группой симметрий 2I.
+The vertices of the 600-cell form the binary icosahedral group $2I \cong SL(2, \mathbb{F}_5)$  
+of order 120. Right multiplication by $i, j, k \in \mathbb{H}$ are three unitary  
+operators on $\ell^2(2I)$, invariant under the left 2I-action. This is  
+a direct analog of the generators of the Clifford algebra of the spinor bundle for  
+a discrete manifold with symmetry group 2I.
 
-### 1.3 Вершины 600-клетки
+### 1.3 Vertices of the 600-Cell
 
-120 вершин 600-клетки, вложенной в $S^3 \subset \mathbb{R}^4$:
+120 vertices of the 600-cell, embedded in $S^3 \subset \mathbb{R}^4$:
 
-**Тип I (16 вершин):** все
+**Type I (16 vertices):** all
 $$(\pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2})$$
 
-**Тип II (8 вершин):** все перестановки
+**Type II (8 vertices):** all permutations
 $$(\pm 1, 0, 0, 0)$$
 
-**Тип III (96 вершин):** все чётные перестановки
+**Type III (96 vertices):** all even permutations
 $$(0, \pm\tfrac{1}{2}, \pm\tfrac{\varphi}{2}, \pm\tfrac{1}{2\varphi})$$
 
-где $\varphi = (1+\sqrt{5})/2$ — золотое сечение, $1/\varphi = \varphi - 1$.
+where $\varphi = (1+\sqrt{5})/2$ is the golden ratio, $1/\varphi = \varphi - 1$.
 
-**Проверка:** Все 120 вершин имеют единичную норму. Смежность: два вершины смежны тогда и
-только тогда, когда
+**Check:** All 120 vertices have unit norm. Adjacency: two vertices are adjacent if and only if
 
 $$|v - w|^2 = 2 - 2\cos(\pi/5) = 2 - \tfrac{1+\sqrt{5}}{2} \approx 0.38197$$
 
-Каждая вершина имеет ровно 12 соседей, всего рёбер 720 (проверено).
+Each vertex has exactly 12 neighbors, total edges 720 (verified).
 
-### 1.4 Гамма-матрицы Вейля
+### 1.4 Weyl Gamma Matrices
 
-В базисе Вейля:
+In the Weyl basis:
 $$\gamma^0 = \begin{pmatrix} 0 & I_2 \\ I_2 & 0 \end{pmatrix}, \quad \gamma^k = \begin{pmatrix} 0 & \sigma^k \\ -\sigma^k & 0 \end{pmatrix}$$
 
-где $\sigma^1, \sigma^2, \sigma^3$ — матрицы Паули. Выполняется:
-- $(\gamma^0)^\dagger = \gamma^0$ (эрмитова)
-- $(\gamma^k)^\dagger = -\gamma^k$ (антиэрмитова, $k=1,2,3$)
+where $\sigma^1, \sigma^2, \sigma^3$ are the Pauli matrices. They satisfy:
+- $(\gamma^0)^\dagger = \gamma^0$ (hermitian)
+- $(\gamma^k)^\dagger = -\gamma^k$ (antihermitian, $k=1,2,3$)
 
-Симметризация $\frac{1}{2}(M + M^\dagger)$ для каждого слагаемого гарантирует эрмитовость $D_F$.
+Symmetrization $\frac{1}{2}(M + M^\dagger)$ for each term guarantees hermiticity of $D_F$.
 
-### 1.5 Свойства построенного D_F
+### 1.5 Properties of the Constructed D_F
 
-| Свойство | Значение |
+| Property | Value |
 |---------|---------|
-| Размер | $480 \times 480$ |
-| Тип | Эрмитова комплексная матрица |
-| Ошибка эрмитовости | $< 10^{-15}$ (машинная точность) |
+| Size | $480 \times 480$ |
+| Type | Hermitian complex matrix |
+| Hermiticity error | $< 10^{-15}$ (machine precision) |
 | $\|D_F\|_\infty$ | 1.0000 |
 | $\mathrm{Tr}(D_F)$ | 0.000000 |
-| 2I-эквивариантность | По построению |
+| 2I-equivariance | By construction |
 
 ---
 
-## 2. Численные результаты: спектр
+## 2. Numerical Results: Spectrum
 
-### 2.1 Вычисление
+### 2.1 Computation
 
-Диагонализация выполнена функцией `numpy.linalg.eigvalsh` (двойная точность, алгоритм LAPACK
-divide-and-conquer). Время вычисления: < 1 с. Матрица $480 \times 480$ вещественно-определённая
-эрмитова.
+Diagonalization was performed by the function `numpy.linalg.eigvalsh` (double precision, LAPACK  
+divide-and-conquer algorithm). Computation time: < 1 s. Matrix $480 \times 480$ real-definite  
+hermitian.
 
-### 2.2 Полный список уникальных собственных значений
+### 2.2 Full List of Unique Eigenvalues
 
-Спектр симметричен: $\lambda \in \mathrm{Spec}(D_F) \Leftrightarrow -\lambda \in \mathrm{Spec}(D_F)$.
-Это следует из хиральной симметрии $\{D_F, \gamma^5\} = 0$ (которая выполняется для
-блочно-внедиагональных Дираков в базисе Вейля при определённых условиях). Нулевое
-собственное значение имеет кратность 100.
+The spectrum is symmetric: $\lambda \in \mathrm{Spec}(D_F) \Leftrightarrow -\lambda \in \mathrm{Spec}(D_F)$.
+This follows from chiral symmetry $\{D_F, \gamma^5\} = 0$ (which holds for  
+block-off-diagonal Diracs in the Weyl basis under certain conditions). Zero  
+eigenvalue has multiplicity 100.
 
-Полный список 25 уникальных собственных значений:
+Full list of 25 unique eigenvalues:
 
-| № | Собственное значение | Кратность | Алгебраическое выражение |
+| № | Eigenvalue | Multiplicity | Algebraic Expression |
 |---|---------------------|-----------|--------------------------|
 | 1 | −12.00000 | 2 | $-12$ |
 | 2 | −10.16116 | 2 | $\approx -(6\sqrt{5} - \varphi)$ |
@@ -137,198 +136,198 @@ divide-and-conquer). Время вычисления: < 1 с. Матрица $48
 | 24 | +10.16116 | 2 | — |
 | 25 | +12.00000 | 2 | $+12$ |
 
-**Проверка:** $\sum_i \mathrm{mult}_i = 480$ ✓
+**Check:** $\sum_i \mathrm{mult}_i = 480$ ✓
 
-### 2.3 Алгебраические закономерности
+### 2.3 Algebraic Patterns
 
-Несколько собственных значений выражаются через $\varphi$ или $\sqrt{n}$:
+Several eigenvalues are expressible through $\varphi$ or $\sqrt{n}$:
 
-- $\pm\sqrt{5} \approx \pm 2.23607$: золотое число, $\sqrt{5} = 2\varphi - 1$
+- $\pm\sqrt{5} \approx \pm 2.23607$: golden number, $\sqrt{5} = 2\varphi - 1$
 - $\pm 4/\varphi \approx \pm 2.47214$: $4/\varphi = 4(\varphi-1) \approx 2.4721$
-- $\pm 3$: целое
+- $\pm 3$: integer
 - $\pm\sqrt{10} \approx \pm 3.1623$
 - $\pm\sqrt{13} \approx \pm 3.6056$
 - $\pm 3\sqrt{2} \approx \pm 4.2426$
 - $\pm 4\varphi \approx \pm 6.4721$: $4\varphi \approx 6.4721$
-- $\pm 12$: максимальная степень графа (12 соседей)
+- $\pm 12$: maximum degree of the graph (12 neighbors)
 
-Значения $\pm 3.8407$ и $\pm 4.7698$ не имеют очевидного простого выражения через $\varphi$.
-Квадраты: $3.8407^2 \approx 14.751$, $4.7698^2 \approx 22.751$ — близки к $14\tfrac{3}{4}$ и
-$22\tfrac{3}{4}$, но точная алгебраическая форма остаётся открытой.
+The values $\pm 3.8407$ and $\pm 4.7698$ have no obvious simple expression through $\varphi$.
+Squares: $3.8407^2 \approx 14.751$, $4.7698^2 \approx 22.751$ — close to $14\tfrac{3}{4}$ and  
+$22\tfrac{3}{4}$, but the exact algebraic form remains open.
 
-### 2.4 Структура кратностей
+### 2.4 Multiplicity Structure
 
-Кратности кратны 2: это следствие минимальной инволюции $J$ (вещественная структура, KO-dim 6).
-Кратность нулевого пространства — 100. Подчеркнём:
+Multiplicities are multiples of 2: this is a consequence of the minimal involution $J$ (real structure, KO-dim 6).
+Multiplicity of the zero space is 100. Let us emphasize:
 
-$$\mathrm{dim\,Ker}(D_F) = 100 \quad \Longrightarrow \quad \text{колоссальное нулевое пространство}$$
+$$\mathrm{dim\,Ker}(D_F) = 100 \quad \Longrightarrow \quad \text{colossal null space}$$
 
-Это означает, что 100 из 480 состояний являются «нулевыми модами». В NCG такие моды
-соответствуют генерациям без масс (если не добавлен член Юкавы). Число 100 близко к
-$\dim \mathbb{C}^{10} \otimes \mathbb{C}^{10}$, но конкретная комбинаторная интерпретация
-остаётся неясной.
+This means that 100 out of 480 states are "zero modes". In NCG such modes  
+correspond to massless generations (if no Yukawa term is added). The number 100 is close to  
+$\dim \mathbb{C}^{10} \otimes \mathbb{C}^{10}$, but the concrete combinatorial interpretation  
+remains unclear.
 
-### 2.5 Щель в спектре
+### 2.5 Gap in the Spectrum
 
-Минимальный ненулевой промежуток между уникальными собственными значениями:
-$$\Delta_{\min} = 2 \times 2.23607 - 0 = 4.472 \quad (\text{«масс-щель» симметрична})$$
+Minimum nonzero gap between unique eigenvalues:
+$$\Delta_{\min} = 2 \times 2.23607 - 0 = 4.472 \quad (\text{symmetric "mass gap"})$$
 
-Реальная щель (от 0 до ближайшего ненулевого): $\approx 2.236 = \sqrt{5}$.
+Real gap (from 0 to nearest nonzero): $\approx 2.236 = \sqrt{5}$.
 
 ---
 
-## 3. Сравнение со Стандартной моделью
+## 3. Comparison with the Standard Model
 
-### 3.1 Масштаб масс заряженных лептонов (МэВ)
+### 3.1 Charged Lepton Mass Scale (MeV)
 
-| Частица | Масса | Отношение к $m_e$ |
+| Particle | Mass | Ratio to $m_e$ |
 |---------|-------|-------------------|
-| $e$ | 0.511 МэВ | 1 |
-| $\mu$ | 105.66 МэВ | 206.77 |
-| $\tau$ | 1776.86 МэВ | 3477.23 |
+| $e$ | 0.511 MeV | 1 |
+| $\mu$ | 105.66 MeV | 206.77 |
+| $\tau$ | 1776.86 MeV | 3477.23 |
 
-Формула Кои̇де: $Q = \dfrac{m_e + m_\mu + m_\tau}{(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2} \cdot 3 = 0.66661 \approx 2/3$.
+Koide formula: $Q = \dfrac{m_e + m_\mu + m_\tau}{(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2} \cdot 3 = 0.66661 \approx 2/3$.
 
-Вычисленное значение Кои̇де для первых трёх положительных собственных значений спектра
-$D_F$: все три равны $\sqrt{5}$ с кратностью 54, поэтому $Q_{\mathrm{spec}} = 1 \neq 2/3$.
+The computed Koide value for the first three positive eigenvalues of the spectrum of  
+$D_F$: all three equal $\sqrt{5}$ with multiplicity 54, therefore $Q_{\mathrm{spec}} = 1 \neq 2/3$.
 
-### 3.2 Сигма-расстояние между спектром и СМ
+### 3.2 Sigma-Distance Between Spectrum and SM
 
-Определим логарифмическое расстояние:
+Define the logarithmic distance:
 $$\sigma = \sqrt{\frac{1}{3}\sum_{k=1}^3 (\ln r_k^{\mathrm{spec}} - \ln r_k^{\mathrm{SM}})^2}$$
 
-где $r_k = \lambda_k / \lambda_1$ — нормированные отношения трёх наименьших положительных значений.
+where $r_k = \lambda_k / \lambda_1$ — normalized ratios of the three smallest positive values.
 
-Поскольку все три первых положительных значения совпадают ($r_1 = r_2 = r_3 = 1$), а в СМ
+Since all three first positive values coincide ($r_1 = r_2 = r_3 = 1$), while in the SM  
 $r^{\mathrm{SM}} = (1, 206.77, 3477.23)$:
 
 $$\sigma = \sqrt{\frac{1}{3}[(0-0)^2 + (0 - \ln 206.77)^2 + (0 - \ln 3477.23)^2]} = 5.62$$
 
-**Вывод: спектр НЕ СОВПАДАЕТ со стандартной моделью.** $\sigma = 5.62$ — грандиозное
-расхождение. Это не «почти совпало».
+**Conclusion: spectrum DOES NOT MATCH the Standard Model.** $\sigma = 5.62$ — a grandiose  
+discrepancy. This is not "almost matched".
 
-### 3.3 Кватерки кварков
+### 3.3 Quark Masses
 
-Аналогично: первые три уникальных положительных значения — это $\sqrt{5}, 4/\varphi, 3$
-с отношениями $1 : 1.106 : 1.342$. Отношения масс кварков $u:c:t \approx 1:588:79981$.
-Расхождение — на 5 порядков.
+Similarly: the first three unique positive values are $\sqrt{5}, 4/\varphi, 3$  
+with ratios $1 : 1.106 : 1.342$. Quark mass ratios $u:c:t \approx 1:588:79981$.  
+Discrepancy — 5 orders of magnitude.
 
-### 3.4 Koide Q-значение
+### 3.4 Koide Q-Value
 
-| Набор | $Q$ | Отличие от $2/3$ |
+| Set | $Q$ | Deviation from $2/3$ |
 |-------|-----|-----------------|
-| СМ лептоны | 0.6666 | $< 10^{-4}$ |
-| Первые 3 поз. собств. | 1.0000 | $0.3333$ |
-| $(\sqrt{5}, \sqrt{10}, \sqrt{13})$ | ? | см. ниже |
+| SM leptons | 0.6666 | $< 10^{-4}$ |
+| First 3 pos. eigenvalues | 1.0000 | $0.3333$ |
+| $(\sqrt{5}, \sqrt{10}, \sqrt{13})$ | ? | see below |
 
-Для тройки $(\sqrt{5}, \sqrt{10}, \sqrt{13})$ (значения с разными кратностями):
+For the triple $(\sqrt{5}, \sqrt{10}, \sqrt{13})$ (values with different multiplicities):
 $$Q = \frac{3(\sqrt{5}+\sqrt{10}+\sqrt{13})}{(\sqrt[4]{5}+\sqrt[4]{10}+\sqrt[4]{13})^2 \cdot ?}$$
 
-Это не формула Кои̇де в стандартном смысле. Формула Кои̇де применяется к массам, а не к
-собственным значениям оператора с размерностью импульса.
+This is not the Koide formula in the standard sense. The Koide formula applies to masses, not to  
+eigenvalues of an operator with momentum dimension.
 
 ---
 
-## 4. Честная оценка: почему первый подход не работает
+## 4. Honest Assessment: Why the First Approach Does Not Work
 
-### 4.1 Причина 1: Слишком высокая симметрия
+### 4.1 Reason 1: Too High Symmetry
 
-Оператор $D_F$, построенный выше, **коммутирует с левым действием $2I$ на себе**. Группа $2I$
-имеет порядок 120. По теореме о разложении регулярного представления:
+The operator $D_F$, constructed above, **commutes with the left action of $2I$ on itself**. The group $2I$  
+has order 120. By the theorem on decomposition of the regular representation:
 
 $$\ell^2(2I) \cong \bigoplus_{\rho \in \widehat{2I}} (\dim \rho) \cdot \rho$$
 
-где $\widehat{2I}$ — все неприводимые унитарные представления группы $2I$. Для $2I \cong SL(2,\mathbb{F}_5)$:
-неприводимых представлений 9, размерностей $1, 2, 2, 3, 3, 4, 4, 5, 6$ (с суммой квадратов 120).
-Каждый изотипический компонент — собственное подпространство $D_F$. Это объясняет
-наблюдаемые большие кратности.
+where $\widehat{2I}$ is all irreducible unitary representations of the group $2I$. For $2I \cong SL(2,\mathbb{F}_5)$:  
+irreducible representations 9, of dimensions $1, 2, 2, 3, 3, 4, 4, 5, 6$ (with sum of squares 120).
+Each isotypic component is an eigensubspace of $D_F$. This explains  
+the observed large multiplicities.
 
-### 4.2 Причина 2: Нет генерационной структуры
+### 4.2 Reason 2: No Generational Structure
 
-В модели Чамседдина–Коннеса $D_F$ действует в пространстве с явной «поколенческой»
-структурой. Размерность фермионного пространства:
+In the Chamseddine–Connes model $D_F$ acts in a space with explicit "generational"  
+structure. Dimension of the fermion space:
 
-$$H_F^{\mathrm{CC}} = \mathbb{C}^{96} \text{ (одно поколение)} \times 3 = 288\text{-мерное}$$
+$$H_F^{\mathrm{CC}} = \mathbb{C}^{96} \text{ (one generation)} \times 3 = 288\text{-dimensional}$$
 
-В нашей конструкции используется 480-мерное пространство без явного различия поколений.
+In our construction a 480-dimensional space is used without explicit distinction of generations.
 
-### 4.3 Причина 3: Нет слагаемого Юкавы
+### 4.3 Reason 3: No Yukawa Term
 
-Настоящий $D_F$ из Стандартной модели имеет вид:
+The true $D_F$ of the Standard Model has the form:
 $$D_F = \begin{pmatrix} S & T^\dagger \\ T & \bar{S} \end{pmatrix}$$
 
-где $S$ — матрица Дирака (связывающая L- и R-частицы), $T$ — матрица Майорана (для нейтрино).
-Без этих матриц, кодирующих матрицы Юкавы $y_e, y_\mu, y_\tau$, никаких иерархий масс
-ожидать не приходится.
+where $S$ is the Dirac matrix (linking L- and R-particles), $T$ is the Majorana matrix (for neutrinos).
+Without these matrices, encoding the Yukawa matrices $y_e, y_\mu, y_\tau$, no mass hierarchies  
+are to be expected.
 
-### 4.4 Что показывает спектр
+### 4.4 What the Spectrum Shows
 
-Спектр **D_F** обладает следующей структурой, которая заслуживает внимания:
+The spectrum of **D_F** possesses the following structure, which deserves attention:
 
-1. **Точная симметрия** $\lambda \mapsto -\lambda$: указывает на хиральную симметрию.
-2. **Значения выражаются через $\varphi$, $\sqrt{n}$**: отражают икосаэдральную/600-cell геометрию.
-3. **Нулевое ядро размерности 100**: 20% состояний нулевые — массивный нулевой сектор.
-4. **Максимальное собственное значение = 12**: равно степени графа 600-клетки. Это строгий результат: $\|D_F\|_\infty = \deg_{\max}(G) = 12$.
-5. **Иерархии НЕТ**: все отношения соседних уникальных значений малы ($\leq 3$), в то время как СМ требует $m_\tau/m_e \approx 3477$.
+1. **Exact symmetry** $\lambda \mapsto -\lambda$: indicates chiral symmetry.
+2. **Values expressible through $\varphi$, $\sqrt{n}$:** reflect icosahedral/600-cell geometry.
+3. **Null kernel of dimension 100**: 20% of states are zero — a massive null sector.
+4. **Maximum eigenvalue = 12**: equals the degree of the 600-cell graph. This is a strict result: $\|D_F\|_\infty = \deg_{\max}(G) = 12$.
+5. **NO hierarchy**: all ratios of neighboring unique values are small ($\leq 3$), while the SM requires $m_\tau/m_e \approx 3477$.
 
-### 4.5 Что нужно для воспроизведения иерархий
+### 4.5 What Is Needed to Reproduce Hierarchies
 
-| Что добавить | Эффект |
+| What to add | Effect |
 |-------------|--------|
-| Явные матрицы Юкавы $y_e, y_\mu, y_\tau$ как параметры D_F | Снятие вырождения по поколениям |
-| Поколенческая структура: $H_F = \mathbb{C}^{120} \otimes \mathbb{C}^3$ (3 поколения) | Правильная размерность |
-| Симметрийное нарушение: VEV хиггса, взаимодействие со скалярным полем σ | Расщепление масс |
-| Диагонализация CKM/PMNS вращениями в H_F | Смешивание поколений |
-| Теория возмущений по константам Юкавы | Аналитические оценки |
+| Explicit Yukawa matrices $y_e, y_\mu, y_\tau$ as parameters of D_F | Lifting of generational degeneracy |
+| Generational structure: $H_F = \mathbb{C}^{120} \otimes \mathbb{C}^3$ (3 generations) | Correct dimension |
+| Symmetry breaking: Higgs VEV, interaction with scalar σ-field | Mass splitting |
+| Diagonalization of CKM/PMNS by rotations in H_F | Generational mixing |
+| Perturbation theory in Yukawa constants | Analytical estimates |
 
 ---
 
-## 5. Связь с формулой Кои̇де
+## 5. Connection with the Koide Formula
 
-### 5.1 Оригинальная формула
+### 5.1 Original Formula
 
-Кои̇де (1983) предложил эмпирическое соотношение:
+Koide (1983) proposed an empirical relation:
 $$\frac{m_e + m_\mu + m_\tau}{(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau})^2} = \frac{2}{3}$$
 
-Это эквивалентно тому, что вектор $(\sqrt{m_e}, \sqrt{m_\mu}, \sqrt{m_\tau})$ находится
-под углом $\pi/4$ к равномерному вектору $(1,1,1)/\sqrt{3}$.
+This is equivalent to the vector $(\sqrt{m_e}, \sqrt{m_\mu}, \sqrt{m_\tau})$ being  
+at angle $\pi/4$ to the uniform vector $(1,1,1)/\sqrt{3}$.
 
-### 5.2 NCG-интерпретация (Конн–Лотт)
+### 5.2 NCG Interpretation (Connes–Lott)
 
-В рамках NCG предполагается, что $D_F$ при подстановке лептонных масс Юкавы воспроизводит
-формулу Кои̇де как **геометрический факт** — отражение инвариантности слагаемого спектрального
-действия $\mathrm{Tr}(f(D_F^2/\Lambda^2))$ при определённой симметрии. Конкретно, формула
-Кои̇де может следовать из $U(1)$-симметрии в пространстве Юкавы (Rivero–Gsponer 2008,
+In the NCG framework it is assumed that $D_F$, upon substitution of lepton Yukawa masses, reproduces  
+the Koide formula as a **geometric fact** — a reflection of invariance of the spectral action term  
+$\mathrm{Tr}(f(D_F^2/\Lambda^2))$ under a certain symmetry. Specifically, the Koide  
+formula may follow from a $U(1)$-symmetry in Yukawa space (Rivero–Gsponer 2008,  
 arXiv:hep-ph/0507171).
 
-### 5.3 Что видно в нашем спектре
+### 5.3 What Is Seen in Our Spectrum
 
-Наш $D_F$ не воспроизводит $Q = 2/3$. Однако структура $\{\sqrt{5}, \sqrt{10}, \sqrt{13}\}$
-в спектре интересна:
+Our $D_F$ does not reproduce $Q = 2/3$. However the structure $\{\sqrt{5}, \sqrt{10}, \sqrt{13}\}$  
+in the spectrum is interesting:
 
 $$\frac{\sqrt{5} + \sqrt{10} + \sqrt{13}}{(\sqrt[4]{5} + \sqrt[4]{10} + \sqrt[4]{13})^2}$$
 
-Это не формула Кои̇де. Если бы мы интерпретировали $\lambda_k^2$ как массы, то:
+This is not the Koide formula. If we interpreted $\lambda_k^2$ as masses, then:
 
 $$Q' = \frac{5 + 10 + 13}{(\sqrt{5}+\sqrt{10}+\sqrt{13})^2} = \frac{28}{(2.236+3.162+3.606)^2} = \frac{28}{(9.004)^2} \approx \frac{28}{81.07} \approx 0.345$$
 
-Не 2/3.
+Not 2/3.
 
-### 5.4 Что требуется
+### 5.4 What Is Required
 
-Для воспроизведения $Q = 2/3$ необходим нелинейный механизм — например, ограничение на
-матрицы Юкавы в расслоении над 600-клеткой. Это остаётся открытой задачей.
+To reproduce $Q = 2/3$ a nonlinear mechanism is needed — for example, a constraint on  
+Yukawa matrices in a bundle over the 600-cell. This remains an open problem.
 
 ---
 
-## 6. Связь с теорией H4
+## 6. Connection with H4 Theory
 
-### 6.1 Картина полного спектра
+### 6.1 Picture of the Full Spectrum
 
-Положительная часть спектра выглядит так:
+The positive part of the spectrum looks like this:
 
 ```
-Уникальные собственные значения (положительные, с кратностями):
+Unique eigenvalues (positive, with multiplicities):
   √5    (54) ██████████████████████████████████████████████████████
   4/φ   (18) ██████████████████
   3     (32) ████████████████████████████████
@@ -343,99 +342,99 @@ $$Q' = \frac{5 + 10 + 13}{(\sqrt{5}+\sqrt{10}+\sqrt{13})^2} = \frac{28}{(2.236+3
   12     (2) ██
 ```
 
-### 6.2 Связь с H4-весами
+### 6.2 Connection with H4 Weights
 
-Числа 2, 6, 8, 18, 24, 32, 54, 100 — кратности собственных значений. Сравним с размерностями
-представлений группы H4 (группы Вейля икосаэдра в 4 измерениях):
+The numbers 2, 6, 8, 18, 24, 32, 54, 100 — multiplicities of eigenvalues. Let us compare with dimensions of  
+representations of the group H4 (icosahedral Weyl group in 4 dimensions):
 
-Группа H4 имеет порядок 14400. Её неприводимые представления имеют размерности, кратные
-малым числам ($1, 4, 6, 9, 16, 24, 25, 36, ...$). Кратности $\{2, 6, 18, 24\}$ в спектре
-$D_F$ согласуются с такой структурой, но детальное соответствие требует отдельного анализа
-разложения регулярного представления $\ell^2(2I) \otimes \mathbb{C}^4$ на H4-компоненты.
+The group H4 has order 14400. Its irreducible representations have dimensions that are multiples of  
+small numbers ($1, 4, 6, 9, 16, 24, 25, 36, ...$). The multiplicities $\{2, 6, 18, 24\}$ in the spectrum of  
+$D_F$ agree with such a structure, but detailed correspondence requires separate analysis of  
+decomposition of the regular representation $\ell^2(2I) \otimes \mathbb{C}^4$ into H4-components.
 
-### 6.3 Вывод
+### 6.3 Conclusion
 
-Спектр D_F отражает геометрию 600-клетки и симметрию 2I, но не воспроизводит Стандартную модель.
-Это ожидаемо: конструкция является *нулевым приближением*, и следующим шагом должно стать
-добавление матриц Юкавы как параметров обогащения D_F.
+The spectrum of D_F reflects the geometry of the 600-cell and the symmetry of 2I, but does not reproduce the Standard Model.
+This is expected: the construction is a *zeroth approximation*, and the next step should be  
+adding Yukawa matrices as enrichment parameters of D_F.
 
 ---
 
-## 7. Итоги и план дальнейшей работы
+## 7. Results and Plan for Further Work
 
-### 7.1 Что сделано
+### 7.1 What Was Done
 
-- [x] Построены 120 вершин 600-клетки (120 = 16+8+96 = icosian ring) ✓
-- [x] Матрица смежности 120×120 с 720 рёбрами, степень 12 ✓
-- [x] Матрицы правого умножения $R_i, R_j, R_k$ ✓
-- [x] $D_F = 480 \times 480$ эрмитова матрица с ошибкой $< 10^{-15}$ ✓
-- [x] Диагонализация: 25 уникальных собственных значений ✓
-- [x] Сравнение с СМ: явное несовпадение задокументировано ✓
+- [x] Constructed 120 vertices of the 600-cell (120 = 16+8+96 = icosian ring) ✓
+- [x] Adjacency matrix 120×120 with 720 edges, degree 12 ✓
+- [x] Right multiplication matrices $R_i, R_j, R_k$ ✓
+- [x] $D_F = 480 \times 480$ hermitian matrix with error $< 10^{-15}$ ✓
+- [x] Diagonalization: 25 unique eigenvalues ✓
+- [x] Comparison with SM: explicit mismatch documented ✓
 
-### 7.2 Честный вердикт
+### 7.2 Honest Verdict
 
-**СПЕКТР НЕ ВОСПРОИЗВОДИТ МАССЫ СТАНДАРТНОЙ МОДЕЛИ.**
+**SPECTRUM DOES NOT REPRODUCE STANDARD MODEL MASSES.**
 
-Лог-$\sigma$ расстояние от лептонных масс: $\sigma = 5.62$ (допустимое < 0.5).
+Log-$\sigma$ distance from lepton masses: $\sigma = 5.62$ (acceptable < 0.5).
 
-Это не провал, а ожидаемый результат первого приближения. Построенный D_F является
-«кинетическим» оператором (только Coxeter/граф-член), без масс Юкавы.
+This is not a failure, but an expected result of the first approximation. The constructed D_F is  
+a "kinetic" operator (only Coxeter/graph term), without Yukawa masses.
 
-### 7.3 Следующие шаги (Волна 9+)
+### 7.3 Next Steps (Wave 9+)
 
-1. **Добавить матрицы Юкавы:** $D_F \to D_F + \sum_{gen} y_{gen} \cdot P_{gen} \otimes M_{gen}$
-2. **Сменить структуру:** $H_F = \mathbb{C}^{40} \otimes \mathbb{C}^{12}$ (40 = 600-cell faces, 12 = SM particles)
-3. **Минимизация:** минимизировать $|Q - 2/3|$ по параметрам Юкавы через спектральное действие
-4. **Аналитические оценки:** теория возмущений по малым $y_{gen}$
+1. **Add Yukawa matrices:** $D_F \to D_F + \sum_{gen} y_{gen} \cdot P_{gen} \otimes M_{gen}$
+2. **Change structure:** $H_F = \mathbb{C}^{40} \otimes \mathbb{C}^{12}$ (40 = 600-cell faces, 12 = SM particles)
+3. **Minimization:** minimize $|Q - 2/3|$ over Yukawa parameters via spectral action
+4. **Analytical estimates:** perturbation theory in small $y_{gen}$
 
-### 7.4 Файлы
+### 7.4 Files
 
-| Файл | Описание |
+| File | Description |
 |------|---------|
-| `compute_df_spectrum.py` | Python-код вычисления (564 строки) |
-| `spectrum.json` | JSON с полным спектром |
-| `df_analysis.md` | Этот анализ |
-| `DFSpectrum.v` | Coq-леммы о структуре D_F |
+| `compute_df_spectrum.py` | Python computation code (564 lines) |
+| `spectrum.json` | JSON with full spectrum |
+| `df_analysis.md` | This analysis |
+| `DFSpectrum.v` | Coq lemmas on structure of D_F |
 
 ---
 
-## Приложение A: Числовые данные
+## Appendix A: Numerical Data
 
-### A.1 Первые 10 положительных собственных значений (точные)
-
-```
-λ_1  = +2.23607  (кратность 54) = √5
-λ_2  = +2.47214  (кратность 18) = 4/φ
-λ_3  = +3.00000  (кратность 32) = 3
-λ_4  = +3.16228  (кратность 24) = √10
-λ_5  = +3.60555  (кратность 18) = √13
-λ_6  = +3.84067  (кратность  6) ≈ √14.75
-λ_7  = +4.24264  (кратность  8) = 3√2
-λ_8  = +4.76978  (кратность  2) ≈ ?
-λ_9  = +6.47214  (кратность 18) = 4φ
-λ_10 = +9.75957  (кратность  6) ≈ ?
-```
-
-### A.2 Кратности по секторам
+### A.1 First 10 Positive Eigenvalues (Exact)
 
 ```
-Ядро (λ=0):   100 состояний (20.8%)
-Малые λ:       54+18+32 = 104 (±√5, ±4/φ, ±3) — 21.7%
-Средние λ:     24+18+6+8 = 56 (±√10..±3√2) — 11.7%
-Большие λ:     2+18+6+2 = 28 (±4.77..±10.16) — 5.8%
-Максимум λ=±12: 4 состояния (0.8%)
+λ_1  = +2.23607  (multiplicity 54) = √5
+λ_2  = +2.47214  (multiplicity 18) = 4/φ
+λ_3  = +3.00000  (multiplicity 32) = 3
+λ_4  = +3.16228  (multiplicity 24) = √10
+λ_5  = +3.60555  (multiplicity 18) = √13
+λ_6  = +3.84067  (multiplicity  6) ≈ √14.75
+λ_7  = +4.24264  (multiplicity  8) = 3√2
+λ_8  = +4.76978  (multiplicity  2) ≈ ?
+λ_9  = +6.47214  (multiplicity 18) = 4φ
+λ_10 = +9.75957  (multiplicity  6) ≈ ?
 ```
 
-### A.3 Параметры сравнения с СМ
+### A.2 Multiplicities by Sectors
+
+```
+Kernel (λ=0):   100 states (20.8%)
+Small λ:       54+18+32 = 104 (±√5, ±4/φ, ±3) — 21.7%
+Medium λ:     24+18+6+8 = 56 (±√10..±3√2) — 11.7%
+Large λ:      2+18+6+2 = 28 (±4.77..±10.16) — 5.8%
+Maximum λ=±12: 4 states (0.8%)
+```
+
+### A.3 Comparison Parameters with SM
 
 ```
 m_e  : m_μ  : m_τ  = 1 : 206.77 : 3477.23  (SM)
-λ_1  : λ_2  : λ_3  = 1 : 1.107  : 1.342    (наш D_F)
-log-σ расстояние = 5.62  (>5σ — огромное расхождение)
+λ_1  : λ_2  : λ_3  = 1 : 1.107  : 1.342    (our D_F)
+log-σ distance = 5.62  (>5σ — huge discrepancy)
 Koide Q (SM) = 0.6666
-Koide Q (spec) = 1.0000 (первые 3 равны, тривиальный случай)
+Koide Q (spec) = 1.0000 (first 3 equal, trivial case)
 ```
 
 ---
 
-*Wave 8.4 | Trinity S3AI | Вычисление завершено | Спектр не совпадает с СМ — честно задокументировано*
+*Wave 8.4 | Trinity S3AI | Computation completed | Spectrum does not match SM — honestly documented*

@@ -1,135 +1,135 @@
-# Волна 10.2: Объёмная конструкция E₈ и граница 600-ячейника — Примирение η = −2
+# Wave 10.2: Bulk Construction of E₈ and the Boundary of the 600-Cell — Reconciling η = −2
 
-**Статус:** Математическая конструкция завершена. Числовая верификация завершена.  
-**Дата:** Июнь 2026  
-**Зависимости:** Wave 8.3 (EtaInvariant.v, η = −2), Wave 9.1 (EtaDFBridge.v, η_DF = 0)
+**Status:** Mathematical construction completed. Numerical verification completed.  
+**Date:** June 2026  
+**Dependencies:** Wave 8.3 (EtaInvariant.v, η = −2), Wave 9.1 (EtaDFBridge.v, η_DF = 0)
 
 ---
 
-## 0. Постановка задачи
+## 0. Problem Statement
 
-### 0.1 Разрыв из Волны 9.1
+### 0.1 Gap from Wave 9.1
 
-Волна 9.1 установила фундаментальный **разрыв**:
-$$\eta_{\text{непрер}}(S^3/2I) = -2 \quad \neq \quad \eta_{D_F} = 0$$
+Wave 9.1 established a fundamental **gap**:
+$$\eta_{\text{cont}}(S^3/2I) = -2 \quad \neq \quad \eta_{D_F} = 0$$
 
-**Вердикт (C) Волны 9.1:** Разрыв фундаментален. η_непрер — инвариант АПС непрерывной геометрии; η_{D_F} — спектральная асимметрия конечномерного дискретного оператора.
+**Verdict (C) of Wave 9.1:** The gap is fundamental. η_cont is an APS invariant of continuous geometry; η_{D_F} is the spectral asymmetry of a finite-dimensional discrete operator.
 
-### 0.2 Ключевое озарение Волны 10.2
+### 0.2 Key Insight of Wave 10.2
 
-Сфера Пуанкаре $\Sigma(2,3,5) = S^3/2I$ является **границей** плёнкингового многообразия $E_8$:
+The Poincaré sphere $\Sigma(2,3,5) = S^3/2I$ is the **boundary** of the E₈ plumbing manifold:
 $$\Sigma(2,3,5) = \partial W_{E_8}$$
 
-η = −2 — это **граничный АПС-инвариант 4D тела**, а не свойство одной 3D границы. Чтобы дискретно воспроизвести η = −2, нужно:
-1. **4D объёмная решётка** с матрицей пересечений $E_8$
-2. **Граница** = 600-ячейник (120 вершин = корни H₄)
-3. **АПС-граничные условия** на дискретном операторе Дирака $D_P$
+η = −2 is a **boundary APS invariant of the 4D bulk**, not a property of the 3D boundary alone. To discretely reproduce η = −2, one needs:
+1. A **4D bulk lattice** with intersection matrix $E_8$
+2. A **boundary** = 600-cell (120 vertices = roots of H₄)
+3. **APS boundary conditions** on the discrete Dirac operator $D_P$
 
-### 0.3 Ключевой факт: E₈ → H₄ сворачивание
+### 0.3 Key Fact: E₈ → H₄ Folding
 
-Системы корней $E_8$ (240 корней) и $H_4$ (120 корней = вершины 600-ячейника) связаны:
-- **Число Кокстера**: $h(E_8) = h(H_4) = 30$
-- **Экспоненты H₄ ⊂ E₈**: $\{1, 11, 19, 29\} \subset \{1, 7, 11, 13, 17, 19, 23, 29\}$
-- **Проекция**: 240 корней $E_8$ → 120 (H₄) + 120 (φ·H₄) — два экземпляра 600-ячейника
+The root systems $E_8$ (240 roots) and $H_4$ (120 roots = vertices of the 600-cell) are related:
+- **Coxeter number**: $h(E_8) = h(H_4) = 30$
+- **Exponents H₄ ⊂ E₈**: $\{1, 11, 19, 29\} \subset \{1, 7, 11, 13, 17, 19, 23, 29\}$
+- **Projection**: 240 roots of $E_8$ → 120 (H₄) + 120 (φ·H₄) — two copies of the 600-cell
 
 ---
 
-## 1. Система корней E₈
+## 1. Root System E₈
 
-### 1.1 Стандартная реализация
+### 1.1 Standard Realization
 
-Система корней $E_8$ реализуется в $\mathbb{R}^8$ следующим образом:
+The root system $E_8$ is realized in $\mathbb{R}^8$ as follows:
 
-**Тип I** (112 корней): все $({\pm}1, {\pm}1, 0, 0, 0, 0, 0, 0)$ и перестановки координат.
-$$\text{Выбрать 2 позиции из 8, присвоить } {\pm}1: \binom{8}{2} \cdot 4 = 112$$
+**Type I** (112 roots): all $({\pm}1, {\pm}1, 0, 0, 0, 0, 0, 0)$ and permutations of coordinates.
+$$\text{Choose 2 positions out of 8, assign } {\pm}1: \binom{8}{2} \cdot 4 = 112$$
 
-**Тип II** (128 корней): $(\pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2})$ с **чётным** числом знаков минус.
+**Type II** (128 roots): $(\pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2}, \pm\tfrac{1}{2})$ with an **even** number of minus signs.
 $$2^8 / 2 = 128$$
 
-**Итого**: $|{\Phi}_{E_8}| = 112 + 128 = 240$.
+**Total**: $|{\Phi}_{E_8}| = 112 + 128 = 240$.
 
-### 1.2 Верификация нормы
+### 1.2 Norm Verification
 
-Для всех корней $\alpha \in \Phi_{E_8}$:
+For all roots $\alpha \in \Phi_{E_8}$:
 $$\langle \alpha, \alpha \rangle = 2$$
 
-- Тип I: $(\pm 1)^2 + (\pm 1)^2 = 2$ ✓
-- Тип II: $8 \cdot (1/2)^2 = 2$ ✓
+- Type I: $(\pm 1)^2 + (\pm 1)^2 = 2$ ✓
+- Type II: $8 \cdot (1/2)^2 = 2$ ✓
 
-**Числовая верификация** (e8_h4_folding.py): норма² = 2 для всех 240 корней с погрешностью < 10⁻¹⁵.
+**Numerical verification** (e8_h4_folding.py): norm² = 2 for all 240 roots with error < 10⁻¹⁵.
 
-### 1.3 Простые корни (соглашение Бурбаки)
+### 1.3 Simple Roots (Bourbaki Convention)
 
 $$\alpha_1 = \tfrac{1}{2}(e_1 - e_2 - e_3 - e_4 - e_5 - e_6 - e_7 + e_8)$$
 $$\alpha_2 = e_1 + e_2, \quad \alpha_3 = e_2 - e_1, \quad \alpha_4 = e_3 - e_2$$
 $$\alpha_5 = e_4 - e_3, \quad \alpha_6 = e_5 - e_4, \quad \alpha_7 = e_6 - e_5, \quad \alpha_8 = e_7 - e_6$$
 
-Все 8 простых корней найдены в системе корней E₈ (проверено числово). Собственные значения элемента Кокстера $c = s_1 \cdots s_8$ имеют углы $\{1, 7, 11, 13, 17, 19, 23, 29\} \cdot \frac{2\pi}{30}$ ✓.
+All 8 simple roots are found in the E₈ root system (verified numerically). The eigenvalues of the Coxeter element $c = s_1 \cdots s_8$ have angles $\{1, 7, 11, 13, 17, 19, 23, 29\} \cdot \frac{2\pi}{30}$ ✓.
 
 ---
 
-## 2. Решётка икосиан и связь с E₈
+## 2. Icosian Lattice and Connection to E₈
 
-### 2.1 Кольцо икосиан
+### 2.1 Icosian Ring
 
-**Теорема** (Conway–Smith, 2003, гл. 4): Бинарная икосаэдральная группа $2I \subset \mathbb{H}^{\times}$ порождает **кольцо икосиан** $\mathcal{I} \subset \mathbb{H}$:
+**Theorem** (Conway–Smith, 2003, Ch. 4): The binary icosahedral group $2I \subset \mathbb{H}^{\times}$ generates the **icosian ring** $\mathcal{I} \subset \mathbb{H}$:
 $$\mathcal{I} = \mathbb{Z}[\varphi] \cdot 1 \oplus \mathbb{Z}[\varphi] \cdot i \oplus \mathbb{Z}[\varphi] \cdot j \oplus \mathbb{Z}[\varphi] \cdot k$$
-где $\varphi = (1+\sqrt{5})/2$ — золотое сечение, $\mathbb{Z}[\varphi] = \{a_0 + a_1\varphi : a_0, a_1 \in \mathbb{Z}\}$.
+where $\varphi = (1+\sqrt{5})/2$ is the golden ratio, $\mathbb{Z}[\varphi] = \{a_0 + a_1\varphi : a_0, a_1 \in \mathbb{Z}\}$.
 
-### 2.2 Изоморфизм икосиан–E₈
+### 2.2 Icosian–E₈ Isomorphism
 
-**Отображение:** икосиан $q = (a_0 + a_1\varphi) + (b_0 + b_1\varphi)i + (c_0 + c_1\varphi)j + (d_0 + d_1\varphi)k$ отображается в вектор:
+**Map:** An icosian $q = (a_0 + a_1\varphi) + (b_0 + b_1\varphi)i + (c_0 + c_1\varphi)j + (d_0 + d_1\varphi)k$ maps to the vector:
 $$\iota(q) = (a_0, b_0, c_0, d_0, a_1, b_1, c_1, d_1) \in \mathbb{R}^8$$
 
-**Теорема** (Conway–Smith): Отображение $\iota$ реализует решётку E₈:
+**Theorem** (Conway–Smith): The map $\iota$ realizes the E₈ lattice:
 $$\iota(\mathcal{I}) \cong \Lambda_{E_8}$$
-при соответствующей норме. 120 единичных икосиан (элементы $2I \subset S^3$) отображаются в **240/2 = 120 корней** $E_8$ (первая орбита).
+under the corresponding norm. The 120 unit icosians (elements $2I \subset S^3$) map to **240/2 = 120 roots** of $E_8$ (the first orbit).
 
-### 2.3 Геометрическая связь H₄ ↔ E₈
+### 2.3 Geometric Connection H₄ ↔ E₈
 
-120 единичных икосиан — это **вершины 600-ячейника** (H₄ в $\mathbb{R}^4 \cong \mathbb{H}$). Поэтому:
+The 120 unit icosians are the **vertices of the 600-cell** (H₄ in $\mathbb{R}^4 \cong \mathbb{H}$). Therefore:
 
-$$\text{600-ячейник (вершины)} = 2I = \text{единичные икосиане} \subset \Lambda_{E_8}$$
+$$\text{600-cell (vertices)} = 2I = \text{unit icosians} \subset \Lambda_{E_8}$$
 
-Это обеспечивает **вложение** H₄ → E₈ на уровне систем корней.
+This provides an **embedding** H₄ → E₈ at the level of root systems.
 
 ---
 
-## 3. Сворачивание E₈ → H₄: явная конструкция
+## 3. E₈ → H₄ Folding: Explicit Construction
 
-### 3.1 Структура Кокстера
+### 3.1 Coxeter Structure
 
-**Ключевой факт** (Adams 1996; Humphreys 1990):
-- Число Кокстера $E_8$: $h = 30$
-- Число Кокстера $H_4$: $h = 30$ (совпадение!)
-- Экспоненты $E_8$: $\{1, 7, 11, 13, 17, 19, 23, 29\}$
-- Экспоненты $H_4$: $\{1, 11, 19, 29\} \subset \{1, 7, 11, 13, 17, 19, 23, 29\}$
+**Key fact** (Adams 1996; Humphreys 1990):
+- Coxeter number of $E_8$: $h = 30$
+- Coxeter number of $H_4$: $h = 30$ (coincidence!)
+- Exponents of $E_8$: $\{1, 7, 11, 13, 17, 19, 23, 29\}$
+- Exponents of $H_4$: $\{1, 11, 19, 29\} \subset \{1, 7, 11, 13, 17, 19, 23, 29\}$
 
-**Следствие:** $H_4$-инвариантное подпространство $E_{\text{par}} \subset \mathbb{R}^8$ — 4-мерное вещественное подпространство, натянутое на собственные векторы элемента Кокстера с показателями $\{1, 11, 19, 29\}$.
+**Corollary:** The $H_4$-invariant subspace $E_{\text{par}} \subset \mathbb{R}^8$ is a 4-dimensional real subspace spanned by the eigenvectors of the Coxeter element with exponents $\{1, 11, 19, 29\}$.
 
-### 3.2 Проекция и разложение
+### 3.2 Projection and Decomposition
 
-**Теорема сворачивания** (Elser–Sloane 1987; Koca et al. 2016):
+**Folding theorem** (Elser–Sloane 1987; Koca et al. 2016):
 
-Проекция $\pi: \mathbb{R}^8 \to E_{\text{par}} \cong \mathbb{R}^4$ разбивает 240 корней $E_8$ на два класса:
+The projection $\pi: \mathbb{R}^8 \to E_{\text{par}} \cong \mathbb{R}^4$ splits the 240 roots of $E_8$ into two classes:
 $$\Phi_{E_8} = \Phi_1 \sqcup \Phi_2, \quad |\Phi_1| = |\Phi_2| = 120$$
 
-где:
-- $\pi(\Phi_1)$ = 120 вершин 600-ячейника при масштабе 1 (норма² ≈ 0.5528)
-- $\pi(\Phi_2)$ = 120 вершин 600-ячейника при масштабе $\varphi$ (норма² ≈ 1.4472)
+where:
+- $\pi(\Phi_1)$ = 120 vertices of the 600-cell at scale 1 (norm² ≈ 0.5528)
+- $\pi(\Phi_2)$ = 120 vertices of the 600-cell at scale $\varphi$ (norm² ≈ 1.4472)
 
-Отношение норм: $1.4472 / 0.5528 \approx 2.618 = \varphi^2$ ✓
+Ratio of norms: $1.4472 / 0.5528 \approx 2.618 = \varphi^2$ ✓
 
-**Числовая верификация** (e8_h4_folding.py):
+**Numerical verification** (e8_h4_folding.py):
 ```
   Group 1 (scale 1):   120 roots  ✓
   Group 2 (scale phi): 120 roots  ✓
   Ratio = 2.617945 ≈ phi² = 2.618034  ✓
 ```
 
-### 3.3 Диаграмма Дынкина: сворачивание E₈ → H₄
+### 3.3 Dynkin Diagram: E₈ → H₄ Folding
 
-Диаграмма $E_8$ (нумерация Бурбаки):
+Dynkin diagram of $E_8$ (Bourbaki numbering):
 ```
   o—o—o—o—o—o—o
   1  3  4  5  6  7  8
@@ -138,185 +138,185 @@ $$\Phi_{E_8} = \Phi_1 \sqcup \Phi_2, \quad |\Phi_1| = |\Phi_2| = 120$$
            2
 ```
 
-Диаграмма $H_4$:
+Dynkin diagram of $H_4$:
 ```
   o—5—o—o—o
   σ₁  σ₂ σ₃ σ₄
 ```
 
-Включение $H_4 \hookrightarrow E_8$ задаётся на уровне элементов Кокстера: орбита порядка 30 Коксетеровского элемента $E_8$ на множестве корней $E_8$ проецируется в орбиту Коксетеровского элемента $H_4$.
+The inclusion $H_4 \hookrightarrow E_8$ is specified at the level of Coxeter elements: the orbit of order 30 of the Coxeter element of $E_8$ on the set of $E_8$ roots projects to the orbit of the Coxeter element of $H_4$.
 
 ---
 
-## 4. Плёнкинговое многообразие E₈ и теорема АПС
+## 4. E₈ Plumbing Manifold and the APS Theorem
 
-### 4.1 4-многообразие $W_{E_8}$
+### 4.1 4-Manifold $W_{E_8}$
 
-Плёнкинговое многообразие $W_{E_8}$ строится следующим образом:
-- Возьмём 8 экземпляров $D^2 \times D^2$ (4-дисков), один для каждого узла диаграммы $E_8$
-- Склеим их по узловым рёбрам согласно $E_8$-плёнкингу
-- Результат: компактное 4-многообразие $W_{E_8}$ с $\partial W_{E_8} = \Sigma(2,3,5) = S^3/2I$
+The plumbing manifold $W_{E_8}$ is constructed as follows:
+- Take 8 copies of $D^2 \times D^2$ (4-disks), one for each node of the $E_8$ diagram
+- Glue them along node edges according to the $E_8$ plumbing
+- Result: compact 4-manifold $W_{E_8}$ with $\partial W_{E_8} = \Sigma(2,3,5) = S^3/2I$
 
-**Свойства $W_{E_8}$:**
-- $\sigma(W_{E_8}) = -8$ (сигнатура = минус ранг $E_8$)
-- $\pi_1(W_{E_8}) = 1$ (односвязно)
-- $W_{E_8}$ допускает спинорную структуру (форма $E_8$ чётна)
-- Положительная скалярная кривизна вблизи края (по Громов–Лоусону)
+**Properties of $W_{E_8}$:**
+- $\sigma(W_{E_8}) = -8$ (signature = minus rank of $E_8$)
+- $\pi_1(W_{E_8}) = 1$ (simply connected)
+- $W_{E_8}$ admits a spin structure ($E_8$ form is even)
+- Positive scalar curvature near the boundary (by Gromov–Lawson)
 
-### 4.2 Оператор Дирака на $W_{E_8}$
+### 4.2 Dirac Operator on $W_{E_8}$
 
-На плёнкинговом многообразии $W_{E_8}$ со спинорной структурой действует оператор Дирака $D^+_W$ с **АПС-граничными условиями** (Atiyah–Patodi–Singer 1975):
+On the plumbing manifold $W_{E_8}$ with spin structure acts the Dirac operator $D^+_W$ with **APS boundary conditions** (Atiyah–Patodi–Singer 1975):
 
 $$D^+_W : L^2(W_{E_8}, S^+) \to L^2(W_{E_8}, S^-)$$
 
-АПС-граничное условие: ограничение на $\partial W_{E_8}$ лежит в подпространстве отрицательных мод граничного оператора Дирака $D_{\partial W}$.
+APS boundary condition: the restriction to $\partial W_{E_8}$ lies in the subspace of negative modes of the boundary Dirac operator $D_{\partial W}$.
 
-### 4.3 Вычисление $\hat{A}(W_{E_8})$
+### 4.3 Computing $\hat{A}(W_{E_8})$
 
-Для ориентированного 4-многообразия $W$ со спинорной структурой:
+For an oriented 4-manifold $W$ with spin structure:
 $$\int_W \hat{A}(TW) = \frac{\sigma(W)}{8}$$
 
-Для $W = W_{E_8}$:
+For $W = W_{E_8}$:
 $$\int_{W_{E_8}} \hat{A}(TW_{E_8}) = \frac{\sigma(W_{E_8})}{8} = \frac{-8}{8} = -1$$
 
-### 4.4 Индекс оператора Дирака
+### 4.4 Index of the Dirac Operator
 
-На компактном 4-многообразии с положительной скалярной кривизной нет гармонических спиноров (теорема Личнеровича). Внутренность $W_{E_8}$ допускает метрику с положительной скалярной кривизной (конформная наполненность по Гровер–Лоусону):
+On a compact 4-manifold with positive scalar curvature there are no harmonic spinors (Lichnerowicz theorem). The interior of $W_{E_8}$ admits a metric with positive scalar curvature (conformal filling by Gromov–Lawson):
 $$\mathrm{ind}(D^+_{W_{E_8}, \mathrm{APS}}) = 0$$
 
-Также: $h = \dim \ker D_{\partial W_{E_8}} = 0$ (положительная скалярная кривизна на $S^3/2I$ как сферическом пространстве-форме → ядро $= 0$).
+Also: $h = \dim \ker D_{\partial W_{E_8}} = 0$ (positive scalar curvature on $S^3/2I$ as a spherical space form → kernel $= 0$).
 
-### 4.5 АПС-теорема → η = −2
+### 4.5 APS Theorem → η = −2
 
-**Теорема АПС** (Atiyah–Patodi–Singer 1975):
+**APS Theorem** (Atiyah–Patodi–Singer 1975):
 $$\mathrm{ind}(D^+_{W, \mathrm{APS}}) = \int_W \hat{A}(TW) - \frac{\eta(D_{\partial W}) + h}{2}$$
 
-Подстановка:
+Substitution:
 $$0 = -1 - \frac{\eta(D_{S^3/2I}) + 0}{2}$$
 $$\implies \eta(D_{S^3/2I}) = -2$$
 
-**Это и есть вывод η = −2 из 4D объёма!**
+**This is the derivation of η = −2 from the 4D bulk!**
 
 ---
 
-## 5. Решётка $D_{E_8}$ на $P$ с граничным $D_F$ на $\Sigma$
+## 5. Lattice $D_{E_8}$ on $P$ with Boundary $D_F$ on $\Sigma$
 
-### 5.1 Концептуальная схема
+### 5.1 Conceptual Scheme
 
-Для дискретного воспроизведения η = −2 нужна следующая конструкция:
+For a discrete reproduction of η = −2, the following construction is needed:
 
 ```
-4D булк:  E₈ решётка в R^8  (240 корней, 4D проекция P)
-    ↕  H₄ сворачивание (числовая верификация: 120+120)
-3D граница: 600-ячейник в R^4 (120 вершин = корни H₄)
-    ↕  граничный оператор
-Дискретный Дирак D_F (Wave 8.4, 480×480)
+4D bulk:  E₈ lattice in R^8  (240 roots, 4D projection P)
+    ↕  H₄ folding (numerical verification: 120+120)
+3D boundary: 600-cell in R^4 (120 vertices = H₄ roots)
+    ↕  boundary operator
+Discrete Dirac D_F (Wave 8.4, 480×480)
 ```
 
-### 5.2 Дискретный оператор $D_P$
+### 5.2 Discrete Operator $D_P$
 
-**Определение (концептуальное):** Построить дискретный оператор $D_P$ на E₈ решётке с граничными условиями АПС:
+**Definition (conceptual):** Construct a discrete operator $D_P$ on the E₈ lattice with APS boundary conditions:
 
-$$D_P : \ell^2(\Lambda_{E_8} \cap W_{\text{дискр}}) \to \ell^2(\Lambda_{E_8} \cap W_{\text{дискр}})$$
+$$D_P : \ell^2(\Lambda_{E_8} \cap W_{\text{discr}}) \to \ell^2(\Lambda_{E_8} \cap W_{\text{discr}})$$
 
-с граничным условием: волновая функция на $\partial W_{\text{дискр}} = \text{600-ячейник}$ ограничена подпространством отрицательных мод $D_F$.
+with boundary condition: the wave function on $\partial W_{\text{discr}} = \text{600-cell}$ is restricted to the negative-mode subspace of $D_F$.
 
-**Ожидание:** При правильном построении:
-$$\mathrm{ind}_{\text{дискр}}(D^+_P) = 0, \quad \hat{A}_{\text{дискр}} = -1 \implies \eta_{\text{дискр}} = -2$$
+**Expectation:** With proper construction:
+$$\mathrm{ind}_{\text{discr}}(D^+_P) = 0, \quad \hat{A}_{\text{discr}} = -1 \implies \eta_{\text{discr}} = -2$$
 
-### 5.3 Честный статус
+### 5.3 Honest Status
 
-**ОТКРЫТАЯ ЗАДАЧА:** Явная конструкция $D_P$ не выполнена. Требует:
-1. Дискретизации плёнкингового многообразия $W_{E_8}$ как 4D граф/решётка
-2. Определения АПС-граничных условий в конечномерном контексте
-3. Вычисления дискретного индекса и сравнения с η = −2
+**OPEN PROBLEM:** Explicit construction of $D_P$ is not completed. Requires:
+1. Discretization of the plumbing manifold $W_{E_8}$ as a 4D graph/lattice
+2. Definition of APS boundary conditions in a finite-dimensional context
+3. Computation of the discrete index and comparison with η = −2
 
-Это **8-мерная** задача (E₈ ⊂ R^8), а не 4-мерная. Редукция 8D → 4D через сворачивание H₄ технически нетривиальна.
+This is an **8-dimensional** problem (E₈ ⊂ R^8), not 4-dimensional. The reduction 8D → 4D via H₄ folding is technically nontrivial.
 
 ---
 
-## 6. Структура reconciliation: два уровня η
+## 6. Reconciliation Structure: Two Levels of η
 
-### 6.1 Таблица уровней
+### 6.1 Level Table
 
-| Уровень | Объект | Оператор | η | Метод |
+| Level | Object | Operator | η | Method |
 |---------|--------|----------|---|-------|
-| Непрерывный 4D | Многообразие $W_{E_8}$ + $\partial W = S^3/2I$ | $D^+_{W,\text{APS}}$ | **−2** | Теорема АПС |
-| Дискретный 3D | 600-ячейник (H₄) | $D_F$ (480×480) | **0** | Хиральная симметрия |
-| Дискретный 4D | E₈ решётка + H₄ граница | $D_P$ (будущее) | **−2** (ожидается) | Дискретный АПС |
+| Continuous 4D | Manifold $W_{E_8}$ + $\partial W = S^3/2I$ | $D^+_{W,\text{APS}}$ | **−2** | APS Theorem |
+| Discrete 3D | 600-cell (H₄) | $D_F$ (480×480) | **0** | Chiral symmetry |
+| Discrete 4D | E₈ lattice + H₄ boundary | $D_P$ (future) | **−2** (expected) | Discrete APS |
 
-### 6.2 Почему η_DF = 0 ≠ η_cont = −2 ожидаемо
+### 6.2 Why η_DF = 0 ≠ η_cont = −2 Is Expected
 
-**Аналогия:** Индекс Дирака на торе $T^4$ может быть ненулевым (с нетривиальным расслоением), но дискретный лапласиан на кубической решётке $\mathbb{Z}^4$ всегда имеет нулевой «индекс» — нет АПС-граничных условий.
+**Analogy:** The Dirac index on the torus $T^4$ may be nonzero (with nontrivial bundle), but the discrete Laplacian on the cubic lattice $\mathbb{Z}^4$ always has zero "index" — there are no APS boundary conditions.
 
-**Для η = −2 в дискретном контексте:** Нужен 4D дираковый оператор с **АПС-граничными условиями**, а не 3D дискретный $D_F$.
+**For η = −2 in the discrete context:** A 4D Dirac operator with **APS boundary conditions** is needed, not the 3D discrete $D_F$.
 
-### 6.3 Направление будущей работы
+### 6.3 Future Work Direction
 
-Сворачивание $E_8 \to H_4$ (240 → 120 корней) даёт **правильную дискретную геометрию**, но не полную АПС-конструкцию. Следующий шаг:
+The folding $E_8 \to H_4$ (240 → 120 roots) gives the **correct discrete geometry**, but not the full APS construction. Next steps:
 
-1. Построить **клеточный комплекс** $P_{\text{дискр}}$ из E₈ корней как вершин 4D клеточного разложения
-2. Наложить **дискретные АПС-граничные условия** на $\partial P_{\text{дискр}} = \text{600-ячейник}$
-3. Вычислить $\mathrm{ind}_{\text{дискр}}$ и верифицировать η = −2
+1. Construct a **cell complex** $P_{\text{discr}}$ from E₈ roots as vertices of a 4D cell decomposition
+2. Impose **discrete APS boundary conditions** on $\partial P_{\text{discr}} = \text{600-cell}$
+3. Compute $\mathrm{ind}_{\text{discr}}$ and verify η = −2
 
 ---
 
-## 7. Вердикт
+## 7. Verdict
 
 ### VERIFIED
 
-**VERIFIED: E₈ → H₄ сворачивание существует (теория Кокстера)**
-- 240 корней E₈, все с нормой² = 2 ✓
-- Число Кокстера: $h(E_8) = h(H_4) = 30$ ✓
-- Экспоненты H₄ ⊂ экспоненты E₈ ✓
-- Числовая проекция: 120 + 120 при отношении норм = φ² ✓
-- Кольцо икосиан реализует связь (Conway–Smith 2003) ✓
+**VERIFIED: E₈ → H₄ folding exists (Coxeter theory)**
+- 240 E₈ roots, all with norm² = 2 ✓
+- Coxeter number: $h(E_8) = h(H_4) = 30$ ✓
+- Exponents H₄ ⊂ exponents E₈ ✓
+- Numerical projection: 120 + 120 with norm ratio = φ² ✓
+- Icosian ring realizes the connection (Conway–Smith 2003) ✓
 
-**VERIFIED: APS топология порождает η = −2 из объёма**
+**VERIFIED: APS topology yields η = −2 from the bulk**
 - $\sigma(W_{E_8}) = -8$ → $\hat{A} = -1$ ✓
-- $\mathrm{ind}(D^+_{W_{E_8}}) = 0$ (положительная скалярная кривизна) ✓
-- АПС-формула: $0 = -1 - \eta/2$ → $\eta = -2$ ✓
-- η = −2 возникает из 4D **объёма** (E₈ плёнкинг), а не из 3D границы (600-ячейник) ✓
+- $\mathrm{ind}(D^+_{W_{E_8}}) = 0$ (positive scalar curvature) ✓
+- APS formula: $0 = -1 - \eta/2$ → $\eta = -2$ ✓
+- η = −2 arises from the 4D **bulk** (E₈ plumbing), not from the 3D boundary (600-cell) ✓
 
 ### OPEN
 
-**OPEN: Явный дискретный $D_P$ на E₈ решётке с H₄ границей**
-- Нужна дискретизация $W_{E_8}$ как граф/клеточный комплекс
-- Нужны дискретные АПС-граничные условия
-- Нужно вычислить дискретный индекс = 0 → η_дискр = −2
-- Это **8D** задача (E₈ ⊂ R^8), не 4D
+**OPEN: Explicit discrete $D_P$ on E₈ lattice with H₄ boundary**
+- Discretization of $W_{E_8}$ as a graph/cell complex is needed
+- Discrete APS boundary conditions are needed
+- Discrete index = 0 → η_discr = −2 needs to be computed
+- This is an **8D** problem (E₈ ⊂ R^8), not 4D
 
 ---
 
-## 8. ЧЕСТНАЯ ОЦЕНКА
+## 8. HONEST ASSESSMENT
 
-Это **структурное примирение**, а не вывод Стандартной модели из первых принципов.
+This is a **structural reconciliation**, not a derivation of the Standard Model from first principles.
 
-**Что доказано:**
-- η = −2 объясняется 4D объёмом (E₈ плёнкинг), а не 3D геометрией 600-ячейника
-- Разрыв с Волной 9.1 (η_DF = 0) является ожидаемым и фундаментальным
-- Сворачивание E₈ → H₄ обеспечивает математическую связь между 8D и 4D
-- Формальное ограничение η = −2 ≠ инд(D_F) = 0 — это **не ошибка**, а корректная математика
+**What is proven:**
+- η = −2 is explained by the 4D bulk (E₈ plumbing), not by the 3D geometry of the 600-cell
+- The gap with Wave 9.1 (η_DF = 0) is expected and fundamental
+- The E₈ → H₄ folding provides the mathematical link between 8D and 4D
+- The formal constraint η = −2 ≠ ind(D_F) = 0 is **not an error**, but correct mathematics
 
-**Что не доказано:**
-- «Trinity выводит Стандартную модель»
-- Явный дискретный $D_P$ на E₈ решётке
-- Связь η = −2 с тремя поколениями (для этого нужен инд = 3, а не 0)
+**What is not proven:**
+- "Trinity derives the Standard Model"
+- Explicit discrete $D_P$ on the E₈ lattice
+- Connection of η = −2 with three generations (this would require ind = 3, not 0)
 
 ---
 
-## Ссылки
+## References
 
-1. M.F. Atiyah, V.K. Patodi, I.M. Singer: «Spectral asymmetry and Riemannian geometry I», *Math. Proc. Camb. Phil. Soc.* **77** (1975), 43–69.
+1. M.F. Atiyah, V.K. Patodi, I.M. Singer: "Spectral asymmetry and Riemannian geometry I", *Math. Proc. Camb. Phil. Soc.* **77** (1975), 43–69.
 2. J.H. Conway, D.A. Smith: *On Quaternions and Octonions*, A K Peters/CRC Press (2003). ISBN: 978-1568811345.
-3. V. Elser, N.J.A. Sloane: «A highly symmetric four-dimensional quasicrystal», *J. Phys. A* **20** (1987), 6161–6168.
-4. M. Koca, M. Al-Ajmi, R. Koc: «Branching of the W(H4) polytopes and their dual polytopes under the subgroup W(A4)», *J. Phys. A* (2009); также arXiv:1611.01018 (Coxeter-Weyl groups and GUT).
+3. V. Elser, N.J.A. Sloane: "A highly symmetric four-dimensional quasicrystal", *J. Phys. A* **20** (1987), 6161–6168.
+4. M. Koca, M. Al-Ajmi, R. Koc: "Branching of the W(H4) polytopes and their dual polytopes under the subgroup W(A4)", *J. Phys. A* (2009); also arXiv:1611.01018 (Coxeter-Weyl groups and GUT).
 5. J.C. Adams: *Lectures on Exceptional Lie Groups*, University of Chicago Press (1996).
 6. P.B. Gilkey: *Invariance Theory, the Heat Equation and the Atiyah-Singer Index Theorem*, CRC Press (1995).
-7. J. McKay: «Graphs, singularities, and finite groups», *Proc. Symp. Pure Math.* **37** (1980), 183–186.
-8. R. Coldea et al.: «Quantum Criticality in an Ising Chain: Experimental Evidence for Emergent E8 Symmetry», *Science* **327** (2010), 177–180.
+7. J. McKay: "Graphs, singularities, and finite groups", *Proc. Symp. Pure Math.* **37** (1980), 183–186.
+8. R. Coldea et al.: "Quantum Criticality in an Ising Chain: Experimental Evidence for Emergent E8 Symmetry", *Science* **327** (2010), 177–180.
 
 ---
 
-*Wave 10.2 | Trinity S3AI | Структурное примирение завершено*  
-*Файлы: derivations/e8_bulk/ | proofs/trinity/E8Bulk.v*
+*Wave 10.2 | Trinity S3AI | Structural reconciliation completed*  
+*Files: derivations/e8_bulk/ | proofs/trinity/E8Bulk.v*

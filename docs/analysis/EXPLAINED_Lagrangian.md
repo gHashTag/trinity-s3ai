@@ -1,186 +1,186 @@
-# Lagrangian: Простое объяснение от школьника до физика
+# Lagrangian: A Simple Explanation from High School to Physicist
 
 > *"Nature operates by the most economical means — the Lagrangian is the receipt."*
 
 ---
 
-## Содержание
+## Contents
 
-1. [Уровень 1: Объяснение для школьника](#1-уровень-1-объяснение-для-школьника)
-2. [Уровень 2: Объяснение для студента](#2-уровень-2-объяснение-для-студента)
-3. [Уровень 3: Объяснение для физика](#3-уровень-3-объяснение-для-физика)
-4. [Краткая история](#4-краткая-история)
-5. [Почему это важно](#5-почему-это-важно)
+1. [Level 1: Explanation for a High School Student](#1-level-1-explanation-for-a-high-school-student)
+2. [Level 2: Explanation for an Undergraduate](#2-level-2-explanation-for-an-undergraduate)
+3. [Level 3: Explanation for a Physicist](#3-level-3-explanation-for-a-physicist)
+4. [Brief History](#4-brief-history)
+5. [Why This Matters](#5-why-this-matters)
 
 ---
 
-## 1. Уровень 1: Объяснение для школьника
+## 1. Level 1: Explanation for a High School Student
 
-### Простая аналогия
+### Simple Analogy
 
-Представь, что ты бросаешь мяч. Он летит по параболе. Но **почему именно по параболе**? Почему не по прямой? Почему не по спирали? Почему не "змейкой"?
+Imagine you throw a ball. It flies in a parabola. But **why exactly a parabola**? Why not a straight line? Why not a spiral? Why not a "zigzag"?
 
-Оказывается, природа "ленивая" — она **всегда выбирает путь, который требует минимальных усилий**.
+It turns out, nature is "lazy" — it **always chooses the path that requires the least effort**.
 
-### Что такое Lagrangian
+### What is the Lagrangian
 
-Lagrangian — это математическая функция, которая описывает эту "леность" природы.
+The Lagrangian is a mathematical function that describes this "laziness" of nature.
 
-Для простого мяча:
+For a simple ball:
 
 $$
 L = T - V = \frac{1}{2}mv^2 - mgh
 $$
 
-Где:
-- **T** = кинетическая энергия (энергия движения) = 1/2 * mass * velocity^2
-- **V** = потенциальная энергия (энергия положения) = mass * gravity * height
+Where:
+- **T** = kinetic energy (energy of motion) = 1/2 * mass * velocity^2
+- **V** = potential energy (energy of position) = mass * gravity * height
 
-Природа говорит: *"Я выберу такой путь, чтобы интеграл от L был минимальным"*. И этот принцип **автоматически даёт параболу**!
+Nature says: *"I will choose a path such that the integral of L is minimized."* And this principle **automatically gives a parabola**!
 
-### Аналогия: свет в воде
+### Analogy: Light in Water
 
-Когда свет переходит из воздуха в воду, он **преломляется**. Почему? Потому что свет тоже "ленивый" — он выбирает **самый быстрый путь**. В воде свет движется медленнее, поэтому он больше времени проводит в воздухе, немного "заныривая" в воду. Это называется **принцип наименьшего времени Ферма** — и это тот же самый Lagrangian-подход.
+When light passes from air into water, it **refracts**. Why? Because light is also "lazy" — it chooses the **fastest path**. In water, light moves slower, so it spends more time in air, slightly "diving" into water. This is called **Fermat's principle of least time** — and it is the same Lagrangian approach.
 
-### Суперсила
+### Superpower
 
-Один Lagrangian заменяет **все уравнения движения Ньютона**. Вместо того чтобы писать F=ma для каждого объекта, ты пишешь **одну функцию L** — и из неё автоматически вытекают все уравнения.
+One Lagrangian replaces **all of Newton's equations of motion**. Instead of writing F=ma for each object, you write **one function L** — and from it, all equations automatically follow.
 
 ---
 
-## 2. Уровень 2: Объяснение для студента
+## 2. Level 2: Explanation for an Undergraduate
 
-### Принцип наименьшего действия
+### Principle of Least Action
 
-Lagrangian — это ядро **принципа наименьшего действия** (он же принцип Гамильтона, он же принцип стационарного действия).
+The Lagrangian is the core of the **principle of least action** (also known as Hamilton's principle, or the principle of stationary action).
 
-Действие **S** определяется как:
+The action **S** is defined as:
 
 $$
 S = \int_{t_1}^{t_2} L(q, \dot{q}, t) \, dt
 $$
 
-где $q$ — обобщенные координаты, $\dot{q}$ — обобщенные скорости.
+where $q$ are generalized coordinates, $\dot{q}$ are generalized velocities.
 
-Настоящая траектория системы — та, для которой $\delta S = 0$ (вариация действия равна нулю).
+The true trajectory of the system is the one for which $\delta S = 0$ (the variation of the action equals zero).
 
-### Уравнения Эйлера-Лагранжа
+### Euler-Lagrange Equations
 
-Из вариационного принципа следуют **уравнения Эйлера-Лагранжа**:
+From the variational principle follow the **Euler-Lagrange equations**:
 
 $$
 \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0
 $$
 
-Эти уравнения **эквивалентны уравнениям Ньютона**, но:
-- Работают в **любых координатах** (не только декартовых)
-- Автоматически учитывают **связи** и ограничения
-- Естественно ведут к **законам сохранения** через теорему Нётер
+These equations are **equivalent to Newton's equations**, but:
+- Work in **any coordinates** (not only Cartesian)
+- Automatically account for **constraints** and restrictions
+- Naturally lead to **conservation laws** through Noether's theorem
 
-### Теорема Нётер (1918)
+### Noether's Theorem (1918)
 
-> *Каждой непрерывной симметрии Lagrangian соответствует закон сохранения.*
+> *To every continuous symmetry of the Lagrangian corresponds a conservation law.*
 
-| Симметрия | Закон сохранения |
+| Symmetry | Conservation Law |
 |-----------|------------------|
-| Перенос во времени ($t \to t + \varepsilon$) | Сохранение энергии |
-| Перенос в пространстве ($\mathbf{r} \to \mathbf{r} + \mathbf{\varepsilon}$) | Сохранение импульса |
-| Вращение ($\mathbf{r} \to R\mathbf{r}$) | Сохранение момента импульса |
-| Калибровочная симметрия U(1) | Сохранение электрического заряда |
+| Time translation ($t \to t + \varepsilon$) | Energy conservation |
+| Space translation ($\mathbf{r} \to \mathbf{r} + \mathbf{\varepsilon}$) | Momentum conservation |
+| Rotation ($\mathbf{r} \to R\mathbf{r}$) | Angular momentum conservation |
+| Gauge symmetry U(1) | Electric charge conservation |
 
-Это — **одна из самых глубоких теорем в физике**. Она показывает, что законы сохранения — не просто эмпирические факты, а **следствия симметрий природы**.
+This is **one of the deepest theorems in physics**. It shows that conservation laws are not merely empirical facts, but **consequences of the symmetries of nature**.
 
-### Полевой Lagrangian
+### Field Lagrangian
 
-Для непрерывных систем (полей) Lagrangian обобщается:
+For continuous systems (fields), the Lagrangian is generalized:
 
 $$
 S = \int \mathcal{L} \, d^4x = \int \mathcal{L} \, d^3x \, dt
 $$
 
-где $\mathcal{L}$ — **плотность Lagrangian**.
+where $\mathcal{L}$ is the **Lagrangian density**.
 
-Уравнения Эйлера-Лагранжа для полей:
+The Euler-Lagrange equations for fields:
 
 $$
 \partial_\mu \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} - \frac{\partial \mathcal{L}}{\partial \phi} = 0
 $$
 
-### Почему это мощнее Ньютона
+### Why It Is More Powerful Than Newton
 
-| | Ньютон | Lagrangian |
+| | Newton | Lagrangian |
 |---|--------|-----------|
-| Координаты | Только декартовы | Любые обобщенные |
-| Связи | Сложно учитывать | Естественно встроены |
-| Симметрии | Не видны явно | Явно видны, ведут к законам сохранения |
-| Полевые теории | Не применим | Естественно обобщается |
-| Квантовая механика | Не обобщается | Естественно обобщается |
-| ОТО | Не применим | Естественный формализм |
+| Coordinates | Only Cartesian | Any generalized |
+| Constraints | Hard to account for | Naturally built in |
+| Symmetries | Not explicitly visible | Explicitly visible, lead to conservation laws |
+| Field theories | Not applicable | Naturally generalizes |
+| Quantum mechanics | Does not generalize | Naturally generalizes |
+| GR | Not applicable | Natural formalism |
 
 ---
 
-## 3. Уровень 3: Объяснение для физика
+## 3. Level 3: Explanation for a Physicist
 
-### Lagrangian как генератор динамики
+### Lagrangian as a Generator of Dynamics
 
-Физическая теория полностью определяется своей плотностью Lagrangian $\mathcal{L}$. Все уравнения движения, законы сохранения, коммутационные соотношения и переходные амплитуды следуют из $\mathcal{L}$ через:
+A physical theory is fully determined by its Lagrangian density $\mathcal{L}$. All equations of motion, conservation laws, commutation relations, and transition amplitudes follow from $\mathcal{L}$ through:
 
-1. **Классика**: Уравнения Эйлера-Лагранжа
-2. **Каноническое квантование**: Конjugate momenta $\pi = \partial \mathcal{L} / \partial \dot{\phi}$, коммутационные соотношения $[\phi, \pi] = i\hbar$
-3. **Путь-интегральное квантование**: $\langle out | in \rangle = \int \mathcal{D}\phi \, e^{iS/\hbar}$
+1. **Classical**: Euler-Lagrange equations
+2. **Canonical quantization**: Conjugate momenta $\pi = \partial \mathcal{L} / \partial \dot{\phi}$, commutation relations $[\phi, \pi] = i\hbar$
+3. **Path-integral quantization**: $\langle out | in \rangle = \int \mathcal{D}\phi \, e^{iS/\hbar}$
 
 ### Standard Model Lagrangian
 
-SM Lagrangian — это, вероятно, **самая точная теория в истории науки**. Она описывает все известные фундаментальные взаимодействия (кроме гравитации):
+The SM Lagrangian is arguably **the most accurate theory in the history of science**. It describes all known fundamental interactions (except gravity):
 
 $$
 \mathcal{L}_{SM} = \mathcal{L}_{gauge} + \mathcal{L}_{fermion} + \mathcal{L}_{Higgs} + \mathcal{L}_{Yukawa} + \mathcal{L}_{ghost}
 $$
 
-#### Компоненты:
+#### Components:
 
-**Калибровочный сектор ($\mathcal{L}_{gauge}$):**
+**Gauge sector ($\mathcal{L}_{gauge}$):**
 $$
 \mathcal{L}_{gauge} = -\frac{1}{4} G^{a}_{\mu\nu} G^{a\mu\nu} - \frac{1}{4} W^{i}_{\mu\nu} W^{i\mu\nu} - \frac{1}{4} B_{\mu\nu} B^{\mu\nu}
 $$
 
-Где $G$ — gluon field strength (SU(3)), $W$ — weak bosons (SU(2)), $B$ — hypercharge (U(1)).
+Where $G$ is the gluon field strength (SU(3)), $W$ is the weak bosons (SU(2)), $B$ is the hypercharge (U(1)).
 
-**Фермионный сектор ($\mathcal{L}_{fermion}$):**
+**Fermion sector ($\mathcal{L}_{fermion}$):**
 $$
 \mathcal{L}_{fermion} = \sum_{f} \bar{\psi}_f i \gamma^\mu D_\mu \psi_f
 $$
 
-Три поколения: $(\nu_e, e), (\nu_\mu, \mu), (\nu_\tau, \tau)$ и $(u, d), (c, s), (t, b)$.
+Three generations: $(\nu_e, e), (\nu_\mu, \mu), (\nu_\tau, \tau)$ and $(u, d), (c, s), (t, b)$.
 
-**Сектор Хиггса ($\mathcal{L}_{Higgs}$):**
+**Higgs sector ($\mathcal{L}_{Higgs}$):**
 $$
 \mathcal{L}_{Higgs} = (D_\mu \Phi)^\dagger (D^\mu \Phi) - V(\Phi^\dagger \Phi)
 $$
 
-Где $V(\Phi^\dagger \Phi) = -\mu^2 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2$ — механизм спонтанного нарушения симметрии.
+Where $V(\Phi^\dagger \Phi) = -\mu^2 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2$ is the spontaneous symmetry breaking mechanism.
 
-**Сектор Юкавы ($\mathcal{L}_{Yukawa}$):**
+**Yukawa sector ($\mathcal{L}_{Yukawa}$):**
 $$
 \mathcal{L}_{Yukawa} = -\sum_{f,f'} Y_{ff'} \bar{\psi}_f \Phi \psi_{f'} + \text{h.c.}
 $$
 
-Генерирует массы фермионов после SSB.
+Generates fermion masses after SSB.
 
-### Примеры выведенных из first principles Lagrangian
+### Examples of First-Principles Derived Lagrangians
 
-#### Einstein-Hilbert (Общая Теория Относительности, 1915)
+#### Einstein-Hilbert (General Relativity, 1915)
 
 $$
 \mathcal{L}_{EH} = \frac{1}{16\pi G}(R - 2\Lambda) + \mathcal{L}_{matter}
 $$
 
-$R$ — скалярная кривизна пространства-времени. Выводится из требования:
-- Ковариантности (инвариантности под диффеоморфизмами)
-- Второго порядка по производным
-- Минимального числа производных
+$R$ is the scalar curvature of spacetime. Derived from the requirements of:
+- Covariance (invariance under diffeomorphisms)
+- Second order in derivatives
+- Minimal number of derivatives
 
-**Это единственный Lagrangian второго порядка, инвариантный под общими координатными преобразованиями.**
+**This is the only second-order Lagrangian invariant under general coordinate transformations.**
 
 #### Yang-Mills (1954)
 
@@ -188,7 +188,7 @@ $$
 \mathcal{L}_{YM} = -\frac{1}{4} F^{a}_{\mu\nu} F^{a\mu\nu}
 $$
 
-Выводится из требования локальной калибровочной инвариантности под SU(N). Обобщает электродинамику на неабелевы группы — основа QCD и электрослабой теории.
+Derived from the requirement of local gauge invariance under SU(N). Generalizes electrodynamics to non-Abelian groups — the basis of QCD and electroweak theory.
 
 #### Dirac (1928)
 
@@ -196,100 +196,100 @@ $$
 \mathcal{L}_{Dirac} = \bar{\psi}(i\gamma^\mu \partial_\mu - m)\psi
 $$
 
-Выводится из требования:
-- Ковариантности под Лоренц-преобразованиями
-- Правильного спинорного поведения (1/2 spin)
-- Локальности
+Derived from the requirements of:
+- Covariance under Lorentz transformations
+- Correct spinor behavior (1/2 spin)
+- Locality
 
-**Предсказал существование антиматерии** (позитрон — 1932, Андерсон).
+**Predicted the existence of antimatter** (positron — 1932, Anderson).
 
 ### Effective Field Theories (EFT)
 
-При энергиях ниже масштаба новой физики можно писать effective Lagrangian:
+At energies below the scale of new physics, one can write an effective Lagrangian:
 
 $$
 \mathcal{L}_{eff} = \mathcal{L}_{ren} + \sum_i \frac{c_i}{\Lambda^{d_i-4}} \mathcal{O}_i
 $$
 
-Примеры: Fermi theory of weak interactions, chiral perturbation theory, non-relativistic QED, GR as low-energy limit of string theory.
+Examples: Fermi theory of weak interactions, chiral perturbation theory, non-relativistic QED, GR as low-energy limit of string theory.
 
-### Почему Lagrangian = "священный Грааль" физики
+### Why the Lagrangian = the "Holy Grail" of Physics
 
-Если ты **вывел Lagrangian из математики** (а не подобрал под данные), это означает:
+If you **derived the Lagrangian from mathematics** (rather than fitting it to data), this means:
 
-1. **Ты понял принцип, управляющий Вселенной** — симметрии и структуру пространства-времени
-2. **Твоя теория предсказывает**, а не объясняет постфактум
-3. Это **first-principles derivation** — высшая форма физики
-4. Все известные фундаментальные теории следуют из Lagrangian, построенных на **симметриях**
+1. **You understood the principle governing the Universe** — symmetries and the structure of spacetime
+2. **Your theory predicts**, rather than explains post-factum
+3. This is a **first-principles derivation** — the highest form of physics
+4. All known fundamental theories follow from Lagrangians built on **symmetries**
 
 ---
 
-## 4. Краткая история
+## 4. Brief History
 
-| Год | Учёный | Вклад |
+| Year | Scientist | Contribution |
 |-----|--------|-------|
-| ~1750 | **Maupertuis** | Формулировка принципа наименьшего действия (метафизическая) |
-| ~1760 | **Euler, Lagrange** | Математическая формализация, уравнения Эйлера-Лагранжа |
-| 1834-35 | **Hamilton** | Гамильтонова формулировка, связь с оптикой |
-| 1915 | **Einstein, Hilbert** | Einstein-Hilbert action для Общей Теории Относительности |
-| 1918 | **Noether** | Теорема Нётер — связь симметрий и законов сохранения |
-| 1926 | **Schrödinger, Dirac** | Применение к квантовой механике |
-| 1928 | **Dirac** | Dirac equation — предсказание антиматерии |
+| ~1750 | **Maupertuis** | Formulation of the principle of least action (metaphysical) |
+| ~1760 | **Euler, Lagrange** | Mathematical formalization, Euler-Lagrange equations |
+| 1834-35 | **Hamilton** | Hamiltonian formulation, connection to optics |
+| 1915 | **Einstein, Hilbert** | Einstein-Hilbert action for General Relativity |
+| 1918 | **Noether** | Noether's theorem — connection between symmetries and conservation laws |
+| 1926 | **Schrödinger, Dirac** | Application to quantum mechanics |
+| 1928 | **Dirac** | Dirac equation — prediction of antimatter |
 | 1948 | **Feynman** | Path integral formulation — $e^{iS/\hbar}$ |
-| 1954 | **Yang, Mills** | Yang-Mills theory — неабелевы калибровочные теории |
+| 1954 | **Yang, Mills** | Yang-Mills theory — non-Abelian gauge theories |
 | 1961-67 | **Glashow, Weinberg, Salam** | Electroweak unification — SU(2) x U(1) |
 | 1973-74 | **Gross, Wilczek, Politzer** | Asymptotic freedom of QCD — SU(3) |
-| 2012 | **LHC (ATLAS, CMS)** | Обнаружение бозона Хиггса — подтверждение SM |
+| 2012 | **LHC (ATLAS, CMS)** | Discovery of the Higgs boson — confirmation of SM |
 
 ---
 
-## 5. Почему это важно
+## 5. Why This Matters
 
-### Единство физики
+### Unity of Physics
 
-Один Lagrangian описывает **все известные фундаментальные взаимодействия**:
+One Lagrangian describes **all known fundamental interactions**:
 
-| Теория | Lagrangian | Что описывает |
+| Theory | Lagrangian | What It Describes |
 |--------|-----------|---------------|
-| Механика Ньютона | $L = T - V$ | Движение тел |
-| Электродинамика | $-\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + j_\mu A^\mu$ | Электромагнетизм |
-| Общая Теория Относительности | $\frac{R - 2\Lambda}{16\pi G}$ | Гравитация, космология |
-| Standard Model | $\mathcal{L}_{SM}$ | Все фундаментальные частицы и силы |
-| Квантовая хромодинамика | $-\frac{1}{4}G^a_{\mu\nu}G^{a\mu\nu}$ | Сильное взаимодействие |
+| Newtonian mechanics | $L = T - V$ | Motion of bodies |
+| Electrodynamics | $-\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + j_\mu A^\mu$ | Electromagnetism |
+| General Relativity | $\frac{R - 2\Lambda}{16\pi G}$ | Gravity, cosmology |
+| Standard Model | $\mathcal{L}_{SM}$ | All fundamental particles and forces |
+| Quantum chromodynamics | $-\frac{1}{4}G^a_{\mu\nu}G^{a\mu\nu}$ | Strong interaction |
 
-### Философский уровень
+### Philosophical Level
 
-Lagrangian — это не просто удобный математический трюк. Он показывает, что:
+The Lagrangian is not just a convenient mathematical trick. It shows that:
 
-1. **Природа оптимальна** — она выбирает "наилучший" путь из всех возможных
-2. **Симметрия управляет всем** — законы сохранения следуют из симметрий (теорема Нётер)
-3. **Математика предшествует эксперименту** — Dirac предсказал позитрон из уравнения, а не из наблюдений
-4. **Единство** — все фундаментальные теории имеют одну и ту же структуру: $\mathcal{L}$ + симметрии + вариационный принцип
+1. **Nature is optimal** — it chooses the "best" path among all possible ones
+2. **Symmetry governs everything** — conservation laws follow from symmetries (Noether's theorem)
+3. **Mathematics precedes experiment** — Dirac predicted the positron from the equation, not from observations
+4. **Unity** — all fundamental theories have the same structure: $\mathcal{L}$ + symmetries + variational principle
 
-### Почему физики "обожают" Lagrangian
+### Why Physicists "Love" the Lagrangian
 
-> *"Если у тебя есть правильный Lagrangian — у тебя есть ВСЁ."
-> — неофициальное правило теоретической физики*
+> *"If you have the right Lagrangian — you have EVERYTHING."
+> — unofficial rule of theoretical physics*
 
-Из одного Lagrangian ты получаешь:
-- **Все уравнения движения**
-- **Все законы сохранения** (через Нётер)
-- **Квантовую динамику** (через path integral)
-- **Правила Фейнмана** для вычисления амплитуд
-- **Предсказания новых частиц** (как позитрон из уравнения Дирака)
+From one Lagrangian you get:
+- **All equations of motion**
+- **All conservation laws** (through Noether)
+- **Quantum dynamics** (through path integral)
+- **Feynman rules** for computing amplitudes
+- **Predictions of new particles** (like the positron from Dirac's equation)
 
 ---
 
-## Итоговая аналогия
+## Final Analogy
 
-| Аналогия | Что означает |
+| Analogy | What It Means |
 |----------|-------------|
-| Lagrangian = рецепт блюда | Задаёт все "ингредиенты" теории |
-| Принцип наименьшего действия = GPS | Природа "прокладывает оптимальный маршрут" |
-| Симметрии = правила дорожного движения | Ограничивают возможные пути |
-| Теорема Нётер = консервативные законы | Из правил следуют сохранения |
-| Standard Model Lagrangian = DNA Вселенной | Всё фундаментальное закодировано в одной формуле |
+| Lagrangian = recipe of a dish | Sets all the "ingredients" of the theory |
+| Principle of least action = GPS | Nature "plots the optimal route" |
+| Symmetries = traffic rules | Restrict the possible paths |
+| Noether's theorem = conservative laws | From rules follow conservations |
+| Standard Model Lagrangian = DNA of the Universe | Everything fundamental is encoded in one formula |
 
 ---
 
-> *"Весь хаос и сложность мира сводятся к одной функции L и одному принципу: nature takes the path of least action."*
+> *"All the chaos and complexity of the world reduce to one function L and one principle: nature takes the path of least action."*

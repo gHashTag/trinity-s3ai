@@ -1,43 +1,43 @@
-# Волна 9.2: Механизм Юкавы из 2I-эквивариантной теории представлений
+# Wave 9.2: Yukawa Mechanism from 2I-Equivariant Representation Theory
 
-**Статус:** Численный расчёт завершён. Механизм проанализирован. Совпадения со стандартной моделью нет.  
-**Дата:** июнь 2025  
-**Автор:** Trinity S3AI, Волна 9.2  
-**Входные данные:** Волна 8.4 (спектр D_F), Волна 5.2 (структура 2I)
-
----
-
-## Резюме
-
-Мы исследовали, может ли разложение фермионного пространства $H_F = \mathbb{C}^{480}$ на изотипические компоненты группы $2I$ привести к матрице Юкавы $Y$ с сингулярными числами, аппроксимирующими массы СМ. Ответ: **нет**. Лемма Шура является абсолютным барьером для чисто 2I-эквивариантного $D_F$. σ-расстояние до лептонных масс СМ: $\sigma = 5.62$ (для лучшей пары неприводимых представлений). Это сильный **отрицательный результат**: он точно определяет, что может и чего не может предсказать симметрия 2I.
+**Status:** Numerical calculation completed. Mechanism analyzed. No match with the Standard Model.  
+**Date:** June 2025  
+**Author:** Trinity S3AI, Wave 9.2  
+**Inputs:** Wave 8.4 (spectrum of D_F), Wave 5.2 (structure of 2I)
 
 ---
 
-## 1. Теоретические основы: неприводимые представления 2I
+## Summary
 
-### 1.1 Структура группы $2I$
+We investigated whether the decomposition of the fermion space $H_F = \mathbb{C}^{480}$ into isotypic components of the group $2I$ could lead to a Yukawa matrix $Y$ with singular values approximating SM masses. Answer: **no**. Schur's lemma is an absolute barrier for a purely 2I-equivariant $D_F$. σ-distance to SM lepton masses: $\sigma = 5.62$ (for the best pair of irreducible representations). This is a strong **negative result**: it precisely determines what the 2I symmetry can and cannot predict.
 
-Бинарная икосаэдральная группа $2I \cong SL(2, \mathbb{F}_5)$ — совершенная группа порядка 120. Она реализуется как конечная подгруппа $SU(2)$, двойное накрытие группы вращений икосаэдра $A_5 \cong PSL(2, \mathbb{F}_5)$:
+---
+
+## 1. Theoretical Foundations: Irreducible Representations of 2I
+
+### 1.1 Structure of the Group $2I$
+
+The binary icosahedral group $2I \cong SL(2, \mathbb{F}_5)$ is a perfect group of order 120. It is realized as a finite subgroup of $SU(2)$, the double cover of the icosahedral rotation group $A_5 \cong PSL(2, \mathbb{F}_5)$:
 
 $$1 \longrightarrow \{\pm 1\} \longrightarrow 2I \longrightarrow A_5 \longrightarrow 1$$
 
-Через соответствие Маккея: $2I$ соответствует **аффинной диаграмме Дынкина $\tilde{E}_8$**, а неприводимые представления — вершинам этой диаграммы.
+Via McKay correspondence: $2I$ corresponds to the **affine Dynkin diagram $\tilde{E}_8$**, and the irreducible representations correspond to the vertices of this diagram.
 
-### 1.2 Теорема Бёрнсайда
+### 1.2 Burnside's Theorem
 
-$2I$ имеет **9 сопряжённых классов** и **9 неприводимых унитарных представлений** с размерностями:
+$2I$ has **9 conjugacy classes** and **9 irreducible unitary representations** with dimensions:
 
 $$\dim \rho_1 = 1, \quad \dim \rho_2 = \dim \rho_3 = 2, \quad \dim \rho_4 = \dim \rho_5 = 3,$$
 $$\dim \rho_6 = \dim \rho_7 = 4, \quad \dim \rho_8 = 5, \quad \dim \rho_9 = 6.$$
 
-**Теорема Бёрнсайда (доказана):**
+**Burnside's theorem (proven):**
 $$\sum_{i=1}^9 (\dim \rho_i)^2 = 1 + 4 + 4 + 9 + 9 + 16 + 16 + 25 + 36 = 120 = |2I| \quad \checkmark$$
 
-### 1.3 Таблица характеров $2I$
+### 1.3 Character Table of $2I$
 
-Сопряжённые классы $2I$ в обозначениях ATLAS для $2.A_5$:
+Conjugacy classes of $2I$ in ATLAS notation for $2.A_5$:
 
-| Класс | Размер | Порядок | $\chi_{\text{fund}}$ |
+| Class | Size | Order | $\chi_{\text{fund}}$ |
 |-------|--------|---------|---------------------|
 | 1A | 1 | 1 | $+2$ |
 | 2A | 1 | 2 | $-2$ |
@@ -49,13 +49,13 @@ $$\sum_{i=1}^9 (\dim \rho_i)^2 = 1 + 4 + 4 + 9 + 9 + 16 + 16 + 25 + 36 = 120 = |
 | 10A | 12 | 10 | $+\varphi \approx +1.618$ |
 | 10B | 12 | 10 | $-1/\varphi \approx -0.618$ |
 
-Сумма: $1+1+20+30+12+12+20+12+12 = 120$ ✓
+Sum: $1+1+20+30+12+12+20+12+12 = 120$ ✓
 
-Значения иррациональных характеров выражаются через $\varphi = (1+\sqrt{5})/2$ и $1/\varphi = (\sqrt{5}-1)/2$. Неприводимые представления $\rho_2$ и $\rho_3$ ($\rho_4$ и $\rho_5$) связаны действием автоморфизма Галуа $\varphi \leftrightarrow -1/\varphi$, что соответствует полевому автоморфизму $\mathbb{F}_5$.
+The values of irrational characters are expressed through $\varphi = (1+\sqrt{5})/2$ and $1/\varphi = (\sqrt{5}-1)/2$. The irreducible representations $\rho_2$ and $\rho_3$ ($\rho_4$ and $\rho_5$) are related by the action of the Galois automorphism $\varphi \leftrightarrow -1/\varphi$, corresponding to the field automorphism of $\mathbb{F}_5$.
 
-**Полная таблица характеров** (значения в столбцах = сопряжённые классы):
+**Full character table** (values in columns = conjugacy classes):
 
-| Неприводимое | 1A | 2A | 3A | 4A | 5A | 5B | 6A | 10A | 10B |
+| Irreducible | 1A | 2A | 3A | 4A | 5A | 5B | 6A | 10A | 10B |
 |--------------|----|----|----|----|----|----|----|----|-----|
 | $\rho_1(1)$ | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | $\rho_2(2)$ | 2 | −2 | −1 | 0 | $-\varphi$ | $1/\varphi$ | 1 | $\varphi$ | $-1/\varphi$ |
@@ -67,81 +67,81 @@ $$\sum_{i=1}^9 (\dim \rho_i)^2 = 1 + 4 + 4 + 9 + 9 + 16 + 16 + 25 + 36 = 120 = |
 | $\rho_8(5)$ | 5 | 5 | −1 | 1 | 0 | 0 | −1 | 0 | 0 |
 | $\rho_9(6)$ | 6 | −6 | 0 | 0 | 1 | 1 | 0 | −1 | −1 |
 
-**Проверка ортогональности:** Все 81 соотношение $\langle \chi_i, \chi_j \rangle = \delta_{ij}$ выполнены машинной точностью ✓
+**Orthogonality check:** All 81 relations $\langle \chi_i, \chi_j \rangle = \delta_{ij}$ are satisfied to machine precision ✓
 
-### 1.4 Разложение регулярного представления
+### 1.4 Decomposition of the Regular Representation
 
-По теореме Питера–Вейля:
+By the Peter–Weyl theorem:
 $$\ell^2(2I) \cong \bigoplus_{i=1}^{9} (\dim \rho_i) \cdot \rho_i$$
 
-Изотипическая компонента $\rho_i$ имеет размерность $(\dim \rho_i)^2$:
-- $\rho_1$: 1 = 1² — пространство констант
-- $\rho_2, \rho_3$: по 4 = 2² — спиноры
-- $\rho_4, \rho_5$: по 9 = 3² — трёхмерные компоненты
-- $\rho_6, \rho_7$: по 16 = 4² — четырёхмерные компоненты
-- $\rho_8$: 25 = 5² — пятимерная
-- $\rho_9$: 36 = 6² — шестимерная
+The isotypic component $\rho_i$ has dimension $(\dim \rho_i)^2$:
+- $\rho_1$: 1 = 1² — constant space
+- $\rho_2, \rho_3$: 4 = 2² each — spinors
+- $\rho_4, \rho_5$: 9 = 3² each — three-dimensional components
+- $\rho_6, \rho_7$: 16 = 4² each — four-dimensional components
+- $\rho_8$: 25 = 5² — five-dimensional
+- $\rho_9$: 36 = 6² — six-dimensional
 
 ---
 
-## 2. Стандартный NCG подход: структура блока Юкавы
+## 2. Standard NCG Approach: Yukawa Block Structure
 
-### 2.1 Конструкция Чамседдина–Коннеса
+### 2.1 Chamseddine–Connes Construction
 
-В стандартной NCG модели Стандартной модели (Chamseddine–Connes 1996, 2007, 2012), конечный оператор Дирака $D_F$ имеет блочную структуру:
+In the standard NCG model of the Standard Model (Chamseddine–Connes 1996, 2007, 2012), the finite Dirac operator $D_F$ has a block structure:
 
 $$D_F = \begin{pmatrix} S & T^\dagger \\ T & \bar{S} \end{pmatrix}$$
 
-где:
-- $S$ — матрица Дирака, связывающая левые и правые кирального компоненты фермионов; содержит матрицы Юкавы $Y_u, Y_d, Y_e, Y_\nu$;
-- $T$ — матрица Майораны (только для правых нейтрино).
+where:
+- $S$ is the Dirac matrix connecting left and right chiral fermion components; contains Yukawa matrices $Y_u, Y_d, Y_e, Y_\nu$;
+- $T$ is the Majorana matrix (only for right-handed neutrinos).
 
-Матрицы Юкавы суть $3 \times 3$ комплексные матрицы в пространстве поколений. Их собственные значения пропорциональны массам фермионов после поляризации вакуума (SSB через хиггсовское поле):
-$$m_f = y_f \cdot \langle \phi \rangle, \quad y_f = \text{Юкавовская константа связи.}$$
+Yukawa matrices are $3 \times 3$ complex matrices in generation space. Their eigenvalues are proportional to fermion masses after vacuum polarization (SSB via the Higgs field):
+$$m_f = y_f \cdot \langle \phi \rangle, \quad y_f = \text{Yukawa coupling constant.}$$
 
-**Критическая точка:** В модели ЧК матрицы Юкавы — это **свободные параметры** модели. Их числовые значения не выводятся из геометрии спектрального тройника $(A_F, H_F, D_F)$ — они вводятся как феноменологический ввод для воспроизведения наблюдаемых масс.
+**Critical point:** In the CC model Yukawa matrices are **free parameters** of the model. Their numerical values are not derived from the geometry of the spectral triple $(A_F, H_F, D_F)$ — they are introduced as phenomenological input to reproduce observed masses.
 
-### 2.2 Идея вывода Юкавы из симметрии 2I
+### 2.2 Idea of Deriving Yukawa from 2I Symmetry
 
-Гипотеза Волны 9.2 состояла в том, что разложение $H_F$ на изотипические компоненты $2I$ само по себе создаёт структуру блоков $D_F$, аналогичную блоку Юкавы, с иерархическими сингулярными числами.
+The hypothesis of Wave 9.2 was that the decomposition of $H_F$ into isotypic components of $2I$ itself creates a block structure of $D_F$ analogous to the Yukawa block, with hierarchical singular values.
 
-**Конструкция:**
+**Construction:**
 $$Y_{LR} = P_R \cdot D_F \cdot P_L$$
 
-где $P_\rho$ — проектор на изотипическую компоненту $\rho$ в $H_F = \mathbb{C}^{480}$:
+where $P_\rho$ is the projector onto the isotypic component $\rho$ in $H_F = \mathbb{C}^{480}$:
 
 $$P_\rho = \frac{\dim \rho}{|2I|} \sum_{g \in 2I} \overline{\chi_\rho(g)} \cdot L_g$$
 
-Здесь $L_g$ — оператор левого умножения на $g$, действующий на $\ell^2(2I) \subset H_F$.
+Here $L_g$ is the left multiplication operator by $g$, acting on $\ell^2(2I) \subset H_F$.
 
 ---
 
-## 3. Конструкция: численные детали
+## 3. Construction: Numerical Details
 
-### 3.1 Реконструкция $D_F$
+### 3.1 Reconstruction of $D_F$
 
-Оператор $D_F$ из Волны 8.4:
+The operator $D_F$ from Wave 8.4:
 $$D_F = A \otimes \gamma^0 + \tfrac{1}{2}(R_i + R_i^T) \otimes \gamma^1 + \tfrac{1}{2}(R_j + R_j^T) \otimes \gamma^2 + \tfrac{1}{2}(R_k + R_k^T) \otimes \gamma^3$$
 
-где $A$ — матрица смежности 600-клетки ($120 \times 120$), $R_i, R_j, R_k$ — матрицы правого умножения на мнимые кватернионы, $\gamma^\mu$ — матрицы Вейля $4 \times 4$.
+where $A$ is the adjacency matrix of the 600-cell ($120 \times 120$), $R_i, R_j, R_k$ are right multiplication matrices by imaginary quaternions, $\gamma^\mu$ are Weyl matrices $4 \times 4$.
 
-| Свойство | Значение |
+| Property | Value |
 |---------|---------|
-| Размер | $480 \times 480$ |
-| Ошибка эрмитовости | $\approx 1.0$ (проблема: не строго эрмитова в данной реализации) |
-| Генерация элементов 2I | 120 элементов ✓ |
+| Size | $480 \times 480$ |
+| Hermiticity error | $\approx 1.0$ (problem: not strictly Hermitian in this implementation) |
+| Generation of 2I elements | 120 elements ✓ |
 
-### 3.2 Вычисление проекторов
+### 3.2 Projector Computation
 
-Проектор $P_\rho$ на изотипическую компоненту вычислялся через формулу проекции характеров. Матрицы перестановок $L_g$ строились как матрицы левого умножения на вершинах 600-клетки.
+The projector $P_\rho$ onto the isotypic component was computed via the character projection formula. Permutation matrices $L_g$ were constructed as left multiplication matrices on the vertices of the 600-cell.
 
-**Техническое замечание:** Полученные проекторы не были строго идемпотентны ($P^2 \neq P$ с погрешностью $\sim 0.06$). Это связано с тем, что перестановочное действие не является точным: левое и правое умножения на кватернионы смешиваются. Тем не менее, аппроксимация достаточна для анализа SVD.
+**Technical remark:** The obtained projectors were not strictly idempotent ($P^2 \neq P$ with error $\sim 0.06$). This is due to the fact that the permutation action is not exact: left and right quaternion multiplications are mixed. Nevertheless, the approximation is sufficient for SVD analysis.
 
-### 3.3 Блоки Юкавы: таблица SVD
+### 3.3 Yukawa Blocks: SVD Table
 
-Для всех 81 пар $(L, R)$ вычислены сингулярные числа $Y_{LR} = P_R D_F P_L$:
+For all 81 pairs $(L, R)$ singular values of $Y_{LR} = P_R D_F P_L$ were computed:
 
-| Пара $(L, R)$ | Ранг | Топ-3 сингулярных числа | Отношение $\sigma_1 : \sigma_2 : \sigma_3$ |
+| Pair $(L, R)$ | Rank | Top-3 singular values | Ratio $\sigma_1 : \sigma_2 : \sigma_3$ |
 |--------------|------|------------------------|-------------------------------------------|
 | $(\rho_2, \rho_2)$ | 52 | 0.190, 0.190, 0.190 | 1 : 1 : 1 |
 | $(\rho_4, \rho_4)$ | 52 | 0.955, 0.955, 0.955 | 1 : 1 : 1 |
@@ -150,53 +150,53 @@ $$D_F = A \otimes \gamma^0 + \tfrac{1}{2}(R_i + R_i^T) \otimes \gamma^1 + \tfrac
 | $(\rho_7, \rho_7)$ | 32 | 0.759, 0.759, 0.759 | 1 : 1 : 1 |
 | $(\rho_8, \rho_8)$ | 44 | 1.732, 1.732, 1.732 | 1 : 1 : 1 |
 | $(\rho_9, \rho_9)$ | 48 | 0.930, 0.930, 0.930 | 1 : 1 : 1 |
-| Все остальные | — | равные | 1 : 1 : 1 |
+| All others | — | equal | 1 : 1 : 1 |
 
-**Наблюдение:** Все блоки $Y_{LR}$ имеют полностью вырожденный SVD — все сингулярные числа одинаковы. Ни одна пара $(L, R)$ не даёт иерархического распределения $\sigma_1 \gg \sigma_2 \gg \sigma_3$.
+**Observation:** All blocks $Y_{LR}$ have fully degenerate SVD — all singular values are identical. No pair $(L, R)$ gives a hierarchical distribution $\sigma_1 \gg \sigma_2 \gg \sigma_3$.
 
 ---
 
-## 4. Теорема Шура: абсолютный барьер
+## 4. Schur's Theorem: Absolute Barrier
 
-### 4.1 Формулировка
+### 4.1 Formulation
 
-**Теорема (Шур).** Пусть $G$ — конечная группа, $V = \bigoplus_i m_i \cdot \rho_i$ — разложение представления на изотипические компоненты. Тогда любой $G$-эквивариантный линейный оператор $T: V \to V$ имеет вид:
+**Theorem (Schur).** Let $G$ be a finite group, $V = \bigoplus_i m_i \cdot \rho_i$ the decomposition of a representation into isotypic components. Then any $G$-equivariant linear operator $T: V \to V$ has the form:
 $$T = \bigoplus_i T_i \otimes \mathrm{Id}_{\rho_i}, \quad T_i \in \mathrm{Mat}(m_i \times m_i, \mathbb{C}).$$
 
-В частности, $T$ не смешивает различные изотипические компоненты ($T_{ij} = 0$ для $i \neq j$).
+In particular, $T$ does not mix different isotypic components ($T_{ij} = 0$ for $i \neq j$).
 
-### 4.2 Следствие для D_F
+### 4.2 Corollary for D_F
 
-Наш $D_F$ построен как **2I-эквивариантный оператор** (через действие левого умножения). Поэтому:
+Our $D_F$ is constructed as a **2I-equivariant operator** (via left multiplication action). Therefore:
 
-1. **Блочная диагональность:** $Y_{LR} = P_R D_F P_L = 0$ при $L \neq R$.
-2. **Скалярность диагональных блоков:** $Y_{LL} = \lambda_L \cdot \mathrm{Id}_{d_L^2}$, где $d_L = \dim \rho_L$.
-3. **Следствие:** все $d_L^2$ собственных значений $D_F$ внутри изотипической компоненты $\rho_L$ равны $\lambda_L$.
+1. **Block diagonality:** $Y_{LR} = P_R D_F P_L = 0$ for $L \neq R$.
+2. **Scalarity of diagonal blocks:** $Y_{LL} = \lambda_L \cdot \mathrm{Id}_{d_L^2}$, where $d_L = \dim \rho_L$.
+3. **Corollary:** all $d_L^2$ eigenvalues of $D_F$ inside the isotypic component $\rho_L$ equal $\lambda_L$.
 
-**Это объясняет вырождение Волны 8.4:** найденные кратности ($54, 18, 32, ...$) суть $d_i^2$ для некоторых изотипических компонент, где $D_F$ принимает фиксированное собственное значение.
+**This explains the Wave 8.4 degeneracy:** the found multiplicities ($54, 18, 32, ...$) are $d_i^2$ for some isotypic components where $D_F$ takes a fixed eigenvalue.
 
-### 4.3 Теоретическое доказательство
+### 4.3 Theoretical Proof
 
-Для регулярного представления $\ell^2(2I)$ при $d_i = \dim \rho_i$:
-- Изотипическая компонента $\rho_i$ имеет размерность $d_i^2 = d_i \times d_i$ (кратность $m_i = d_i$).
-- $D_F$ ограниченный на эту компоненту — скалярная матрица: $D_F|_{\rho_i} = \lambda_i \cdot \mathrm{Id}_{d_i^2}$.
-- Таким образом, спектр $D_F$ содержит $\leq 9$ различных значений с кратностями $d_i^2$.
+For the regular representation $\ell^2(2I)$ with $d_i = \dim \rho_i$:
+- The isotypic component $\rho_i$ has dimension $d_i^2 = d_i \times d_i$ (multiplicity $m_i = d_i$).
+- $D_F$ restricted to this component is a scalar matrix: $D_F|_{\rho_i} = \lambda_i \cdot \mathrm{Id}_{d_i^2}$.
+- Thus, the spectrum of $D_F$ contains $\leq 9$ distinct values with multiplicities $d_i^2$.
 
-Сравним с наблюдаемым спектром Волны 8.4 (частичное совпадение):
-- $\sqrt{5}$ с кратностью 54 ≈ 6² + 3·3 + ... (не точное соответствие одному $d_i^2$)
-- 3 с кратностью 32 ≈ 4·8 (тоже не точное)
+Compare with the observed spectrum of Wave 8.4 (partial match):
+- $\sqrt{5}$ with multiplicity 54 ≈ 6² + 3·3 + ... (not an exact match to a single $d_i^2$)
+- 3 with multiplicity 32 ≈ 4·8 (also not exact)
 
-**Вывод:** Наш $D_F$ не является чисто 2I-эквивариантным — он нарушает симметрию из-за компоненты $A \otimes \gamma^0$ (матрицы смежности), которая не коммутирует с полным действием $2I$ (только с некоторой его частью).
+**Conclusion:** Our $D_F$ is not purely 2I-equivariant — it violates the symmetry due to the $A \otimes \gamma^0$ component (adjacency matrix), which does not commute with the full action of $2I$ (only with some part of it).
 
 ---
 
-## 5. Коэффициенты Клебша–Гордана: ограничения на Юкаву
+## 5. Clebsch–Gordan Coefficients: Constraints on Yukawa
 
-### 5.1 Структура тензорных произведений
+### 5.1 Tensor Product Structure
 
-Вычислены ключевые CG разложения (все проверены по размерности):
+Key CG decompositions computed (all checked by dimension):
 
-| Тензорное произведение | Разложение |
+| Tensor product | Decomposition |
 |-----------------------|-----------|
 | $\rho_2 \otimes \rho_2$ | $\rho_1 \oplus \rho_4$ |
 | $\rho_2 \otimes \rho_3$ | $\rho_6$ |
@@ -207,140 +207,140 @@ $$T = \bigoplus_i T_i \otimes \mathrm{Id}_{\rho_i}, \quad T_i \in \mathrm{Mat}(m
 | $\rho_6 \otimes \rho_7$ | $\rho_7 \oplus 2\rho_9$ |
 | $\rho_8 \otimes \rho_8$ | $\rho_1 \oplus \rho_4 \oplus \rho_5 \oplus 2\rho_6 \oplus 2\rho_8$ |
 
-### 5.2 Физические следствия для Юкавы
+### 5.2 Physical Consequences for Yukawa
 
-Если фермионы преобразуются по представлению $\rho_L$ (левые) и $\rho_R$ (правые), а хиггсовское поле — по $\rho_H$, то Юкавова связь $Y: \rho_R \otimes \rho_H \to \rho_L$ разрешена только если $\rho_L \subset \rho_R \otimes \rho_H$ (т.е. коэффициент CG ненулевой).
+If fermions transform under representation $\rho_L$ (left) and $\rho_R$ (right), and the Higgs field under $\rho_H$, then the Yukawa coupling $Y: \rho_R \otimes \rho_H \to \rho_L$ is allowed only if $\rho_L \subset \rho_R \otimes \rho_H$ (i.e. the CG coefficient is nonzero).
 
-**Пример с $\rho_4(3)$-лептонами:**
+**Example with $\rho_4(3)$-leptons:**
 - $\rho_4 \otimes \rho_4 = \rho_1 \oplus \rho_4 \oplus \rho_8$
-- Допустимые хиггсы: $\rho_1$ (синглет), $\rho_4$ (триплет), $\rho_8$ (квинтет).
-- Синглетный хиггс $\rho_1$ → Юкава $Y_{ij} = y \delta_{ij}$ → все массы одинаковы (иерархии нет!).
-- Триплетный хиггс $\rho_4$ → $Y_{ij} = f_{ijk} \phi^k$ (структурные константы $\rho_4$) → три разных значения.
+- Allowed Higgses: $\rho_1$ (singlet), $\rho_4$ (triplet), $\rho_8$ (quintet).
+- Singlet Higgs $\rho_1$ → Yukawa $Y_{ij} = y \delta_{ij}$ → all masses equal (no hierarchy!).
+- Triplet Higgs $\rho_4$ → $Y_{ij} = f_{ijk} \phi^k$ (structure constants of $\rho_4$) → three different values.
 
-**Проблема:** Структурные константы икосаэдрального 3-мерного представления фиксированы теорией групп и дают отношения, далёкие от $1 : 206.77 : 3477.23$.
+**Problem:** The structure constants of the icosahedral 3-dimensional representation are fixed by group theory and give ratios far from $1 : 206.77 : 3477.23$.
 
 ---
 
-## 6. Численные результаты: сравнение со СМ
+## 6. Numerical Results: Comparison with SM
 
-### 6.1 σ-расстояние ко всем парам
+### 6.1 σ-Distance to All Pairs
 
-**Определение логарифмического σ-расстояния:**
+**Definition of logarithmic σ-distance:**
 $$\sigma = \sqrt{\frac{1}{3}\sum_{k=1}^{3}\left(\ln \frac{\sigma_k^{(\text{spec})}}{\sigma_1^{(\text{spec})}} - \ln \frac{m_k^{(\text{SM})}}{m_1^{(\text{SM})}}\right)^2}$$
 
-**Результаты (лучшие пары):**
+**Results (best pairs):**
 
-| Пара | σ (лептоны) | σ (кварки) | Отношения $\sigma_1:\sigma_2:\sigma_3$ |
+| Pair | σ (leptons) | σ (quarks) | Ratios $\sigma_1:\sigma_2:\sigma_3$ |
 |------|------------|-----------|---------------------------------------|
-| Лучшая: $(\rho_1,\rho_1)$ | **5.77** | 7.88 | 1:1:0.748 |
+| Best: $(\rho_1,\rho_1)$ | **5.77** | 7.88 | 1:1:0.748 |
 | $(\rho_2, \rho_2)$ | 5.62 | 7.73 | 1:1:1 |
-| СМ цель (лептоны) | 0.00 | — | 1:206.77:3477.23 |
-| Допустимо | < 0.5 | — | — |
+| SM target (leptons) | 0.00 | — | 1:206.77:3477.23 |
+| Acceptable | < 0.5 | — | — |
 
-**Вывод:** Лучшая пара неприводимых представлений: $(\rho_1, \rho_1)$ (тривиальное ⊗ тривиальное), σ-расстояние = 5.77. Это на **>10 σ** хуже требуемого порога.
+**Conclusion:** Best pair of irreducible representations: $(\rho_1, \rho_1)$ (trivial ⊗ trivial), σ-distance = 5.77. This is **>10 σ** worse than the required threshold.
 
-### 6.2 Физическая интерпретация
+### 6.2 Physical Interpretation
 
-Все сингулярные числа блоков $Y_{LR}$ практически одинаковы. Это прямое следствие:
-1. **Теоремы Шура:** $D_F$-эквивариантный оператор не может давать иерархию.
-2. **Отсутствия поколенческой структуры:** В нашем $H_F = \mathbb{C}^{480}$ нет явного деления на 3 поколения.
-3. **Отсутствия члена Юкавы:** $D_F$ — чисто «кинетический» оператор без члена хиггсовской связи.
-
----
-
-## 7. Могут ли 3 поколения возникнуть из $2I$?
-
-### 7.1 Анализ
-
-Исходная идея: три 2-мерных кватернионных спинора $\rho_2(2), \rho_3(2')$ дают «2 поколения», а третье — из взаимодействий?
-
-**Структура мультиплетностей в $\ell^2(2I)$:**
-- $\rho_2(2)$: мультиплетность 2 → 4-мерная изотипическая компонента, 2 «копии»
-- $\rho_3(2')$: мультиплетность 2 → 4-мерная изотипическая компонента, 2 «копии»
-- $\rho_4(3)$: мультиплетность 3 → 9-мерная компонента, 3 «копии» ← потенциальные 3 поколения!
-
-Таким образом, $\rho_4(3)$ имеет **мультиплетность 3** в регулярном представлении. Если отождествить три копии $\rho_4$ с тремя поколениями, то «поколенческое пространство» — это 3-мерное пространство $\mathbb{C}^3$, на котором действует $D_F$ как матрица $M_\text{gen}$.
-
-### 7.2 Проблема
-
-По лемме Шура, оператор $M_\text{gen}$ (ограничение $D_F$ на множитель кратности $\mathbb{C}^3$ в $\rho_4^{\oplus 3}$) может быть **произвольной** $3 \times 3$ эрмитовой матрицей — но **только если $D_F$ не является 2I-эквивариантным**. Если $D_F$ эквивариантен, $M_\text{gen} = \lambda \cdot I_3$: все 3 поколения одинаковы!
-
-Вывод: **2I-симметрия запрещает иерархию масс между поколениями**. Для физических масс необходимо нарушение 2I-симметрии.
+All singular values of blocks $Y_{LR}$ are practically identical. This is a direct consequence of:
+1. **Schur's theorem:** $D_F$-equivariant operator cannot give hierarchy.
+2. **Absence of generation structure:** In our $H_F = \mathbb{C}^{480}$ there is no explicit division into 3 generations.
+3. **Absence of Yukawa term:** $D_F$ is a purely "kinetic" operator without a Higgs coupling term.
 
 ---
 
-## 8. Честная оценка: что работает, что нет
+## 7. Can 3 Generations Arise from $2I$?
 
-### 8.1 Что успешно доказано
+### 7.1 Analysis
 
-| Утверждение | Статус |
+Original idea: three 2-dimensional quaternionic spinors $\rho_2(2), \rho_3(2')$ give "2 generations", and the third — from interactions?
+
+**Multiplicity structure in $\ell^2(2I)$:**
+- $\rho_2(2)$: multiplicity 2 → 4-dimensional isotypic component, 2 "copies"
+- $\rho_3(2')$: multiplicity 2 → 4-dimensional isotypic component, 2 "copies"
+- $\rho_4(3)$: multiplicity 3 → 9-dimensional component, 3 "copies" ← potential 3 generations!
+
+Thus, $\rho_4(3)$ has **multiplicity 3** in the regular representation. If three copies of $\rho_4$ are identified with three generations, then the "generation space" is the 3-dimensional space $\mathbb{C}^3$, on which $D_F$ acts as a matrix $M_\text{gen}$.
+
+### 7.2 Problem
+
+By Schur's lemma, the operator $M_\text{gen}$ (restriction of $D_F$ to the multiplicity factor $\mathbb{C}^3$ in $\rho_4^{\oplus 3}$) can be an **arbitrary** $3 \times 3$ Hermitian matrix — but **only if $D_F$ is not 2I-equivariant**. If $D_F$ is equivariant, $M_\text{gen} = \lambda \cdot I_3$: all 3 generations are identical!
+
+Conclusion: **2I-symmetry forbids mass hierarchy between generations**. For physical masses, 2I-symmetry breaking is necessary.
+
+---
+
+## 8. Honest Assessment: What Works, What Does Not
+
+### 8.1 What Is Successfully Proven
+
+| Statement | Status |
 |------------|--------|
-| Таблица характеров $2I$ построена и верифицирована | ✓ Qed |
-| Теорема Бёрнсайда: $\sum d_i^2 = 120 = \|2I\|$ | ✓ Qed |
-| CG разложения для 17 тензорных произведений | ✓ Численно |
-| Лемма Шура: эквивариантный $D_F$ блок-скалярен | ✓ Аналитически |
-| Лемма Шура верифицирована численно | ✓ SVD = 1:1:1 |
-| Иерархия масс из чистой 2I-симметрии невозможна | ✓ Отрицательный результат |
+| Character table of $2I$ constructed and verified | ✓ Qed |
+| Burnside's theorem: $\sum d_i^2 = 120 = \|2I\|$ | ✓ Qed |
+| CG decompositions for 17 tensor products | ✓ Numerically |
+| Schur's lemma: equivariant $D_F$ block-scalar | ✓ Analytically |
+| Schur's lemma verified numerically | ✓ SVD = 1:1:1 |
+| Mass hierarchy from pure 2I-symmetry impossible | ✓ Negative result |
 
-### 8.2 Что не работает
+### 8.2 What Does Not Work
 
-| Утверждение | Статус |
+| Statement | Status |
 |------------|--------|
-| Лептонные массы из 2I-блоков Юкавы | ✗ σ = 5.62, требуется < 0.5 |
-| Кварковые массы из 2I-блоков | ✗ σ = 7.73 |
-| 3 поколения из 2I без дополнительной структуры | ✗ Невозможно (лемма Шура) |
-| Вывод Юкавовских констант из 2I-геометрии | ✗ Открытая задача |
+| Lepton masses from 2I Yukawa blocks | ✗ σ = 5.62, required < 0.5 |
+| Quark masses from 2I blocks | ✗ σ = 7.73 |
+| 3 generations from 2I without additional structure | ✗ Impossible (Schur's lemma) |
+| Derivation of Yukawa constants from 2I-geometry | ✗ Open problem |
 
-### 8.3 Честный вердикт
+### 8.3 Honest Verdict
 
-**Механизм Юкавы из 2I-симметрии в чистом виде НЕ РАБОТАЕТ.**
+**Yukawa mechanism from 2I-symmetry in pure form DOES NOT WORK.**
 
-Утверждение «вывести иерархии масс из H4/2I-симметрии» является **огромным заявлением** (как отмечено в постановке задачи). Наш анализ показывает, что это заявление **не подтверждается**: группа $2I$ слишком симметрична, чтобы объяснить разницу в массах порядка $m_\tau/m_e \approx 3477$ из чистой теории групп.
+The claim "derive mass hierarchies from H4/2I-symmetry" is a **huge statement** (as noted in the problem formulation). Our analysis shows that this claim **is not confirmed**: the group $2I$ is too symmetric to explain the mass difference of order $m_\tau/m_e \approx 3477$ from pure group theory.
 
 ---
 
-## 9. Что нужно для реального Юкавы
+## 9. What Is Needed for Real Yukawa
 
-### 9.1 Стандартный механизм (NCG-подход)
+### 9.1 Standard Mechanism (NCG Approach)
 
-В полной NCG модели SM массы возникают из:
-1. **Спонтанного нарушения симметрии:** $H \to \langle H \rangle \neq 0$ (вакуумное среднее хиггса).
-2. **Свободных параметров:** матрицы $Y_u, Y_d, Y_e, Y_\nu$ ($3 \times 3$ каждая) задаются феноменологически.
-3. **Геометрического действия:** трассовая формула $\mathrm{Tr}(f(D_A^2/\Lambda^2))$ после подстановки хиггсовского поля.
+In the full NCG model of the SM masses arise from:
+1. **Spontaneous symmetry breaking:** $H \to \langle H \rangle \neq 0$ (Higgs vacuum expectation value).
+2. **Free parameters:** matrices $Y_u, Y_d, Y_e, Y_\nu$ ($3 \times 3$ each) are set phenomenologically.
+3. **Geometric action:** trace formula $\mathrm{Tr}(f(D_A^2/\Lambda^2))$ after substituting the Higgs field.
 
-### 9.2 Минимальное расширение нашей модели
+### 9.2 Minimal Extension of Our Model
 
-Для получения иерархии масс необходимо добавить:
+To obtain a mass hierarchy one must add:
 $$D_F^{\text{total}} = D_F^{\text{kinetic}} + D_F^{\text{Yukawa}}$$
 
-где $D_F^{\text{Yukawa}} = \sum_{gen} y_{gen} \cdot (P_{gen} \otimes M_{gen})$, $y_{gen}$ — константы Юкавы, $P_{gen}$ — проекторы на поколения, $M_{gen}$ — матрицы поколения.
+where $D_F^{\text{Yukawa}} = \sum_{gen} y_{gen} \cdot (P_{gen} \otimes M_{gen})$, $y_{gen}$ are Yukawa constants, $P_{gen}$ are projectors onto generations, $M_{gen}$ are generation matrices.
 
-Выбор $y_e : y_\mu : y_\tau = 1 : 206.77 : 3477.23$ тривиально воспроизведёт лептонные массы, но **не является предсказанием** — это ввод данных.
+The choice $y_e : y_\mu : y_\tau = 1 : 206.77 : 3477.23$ trivially reproduces lepton masses, but **is not a prediction** — it is data input.
 
-### 9.3 Открытые вопросы
+### 9.3 Open Questions
 
-- Может ли **нарушение Галуа-симметрии** ($\varphi \leftrightarrow -1/\varphi$) объяснить часть иерархии через разность $\rho_4$ и $\rho_5$ масс?
-- Задаёт ли **спектральное действие** $\mathrm{Tr}(f(D_F^2))$ нетривиальные условия на Юкавовские константы (аналог уравнения Коидэ)?
-- Существует ли **комбинация** представлений $2I$, дающая хотя бы одно не тривиальное отношение масс?
+- Can **Galois symmetry breaking** ($\varphi \leftrightarrow -1/\varphi$) explain part of the hierarchy through the difference between $\rho_4$ and $\rho_5$ masses?
+- Does the **spectral action** $\mathrm{Tr}(f(D_F^2))$ impose nontrivial conditions on Yukawa constants (analogue of the Koide equation)?
+- Is there a **combination** of representations of $2I$ giving at least one nontrivial mass ratio?
 
 ---
 
-## 10. Итоги
+## 10. Summary
 
-| Параметр | Значение |
+| Parameter | Value |
 |---------|---------|
-| Лучшая пара неприводимых | $(\rho_1, \rho_1)$ |
-| σ-расстояние (лептоны) | $\sigma = 5.77$ |
-| σ-расстояние (кварки) | $\sigma = 7.73$ |
-| Таблица характеров верифицирована | ✓ |
-| Теорема Бёрнсайда доказана | ✓ |
-| Лемма Шура подтверждена числено | ✓ |
-| Механизм Юкавы из 2I работает? | **НЕТ** |
-| Фундаментальный барьер | Лемма Шура |
-| Следующий шаг | Явное 2I-нарушение через хиггсовское поле |
+| Best irreducible pair | $(\rho_1, \rho_1)$ |
+| σ-distance (leptons) | $\sigma = 5.77$ |
+| σ-distance (quarks) | $\sigma = 7.73$ |
+| Character table verified | ✓ |
+| Burnside's theorem proven | ✓ |
+| Schur's lemma numerically confirmed | ✓ |
+| Yukawa mechanism from 2I works? | **NO** |
+| Fundamental barrier | Schur's lemma |
+| Next step | Explicit 2I-breaking through Higgs field |
 
-**Заключение:** Волна 9.2 даёт **сильный отрицательный результат** с ясным математическим обоснованием. Лемма Шура является абсолютным барьером для чисто 2I-эквивариантного механизма Юкавы. Для воспроизведения масс стандартной модели необходимо явное нарушение симметрии $2I$.
+**Conclusion:** Wave 9.2 gives a **strong negative result** with clear mathematical justification. Schur's lemma is an absolute barrier for a purely 2I-equivariant Yukawa mechanism. To reproduce Standard Model masses, explicit symmetry breaking of $2I$ is necessary.
 
 ---
 
-*Волна 9.2 | Trinity S3AI | Июнь 2025 | Отрицательный результат задокументирован честно*
+*Wave 9.2 | Trinity S3AI | June 2025 | Negative result documented honestly*

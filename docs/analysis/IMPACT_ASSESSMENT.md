@@ -1,5 +1,5 @@
 # Trinity S3AI — Honest Impact Assessment
-## Сравнение с историческими прецедентами + Roadmap усиления
+## Comparison with Historical Precedents + Strengthening Roadmap
 
 ---
 
@@ -34,203 +34,203 @@ Either outcome is scientifically valuable.
 
 ---
 
-## 1. Где Trinity сейчас (v4.0)
+## 1. Where Trinity Is Now (v4.0)
 
-| Метрика | Значение |
+| Metric | Value |
 |---------|----------|
-| Формул | 130 (25 core SM) |
+| Formulas | 130 (25 core SM) |
 | SG-class (<0.01%) | 12 |
-| Coq файлов компилирует | 6/16 |
-| Peer-reviewed публикаций | **0** |
-| Цитирований | **0** |
-| p-value (honest) | ~10^-6 (не 10^-30) |
-| Lagrangian derivation | **НЕТ** |
+| Coq files compiling | 6/16 |
+| Peer-reviewed publications | **0** |
+| Citations | **0** |
+| p-value (honest) | ~10^-6 (not 10^-30) |
+| Lagrangian derivation | **NO** |
 
 ---
 
-## 2. Историческое сравнение
+## 2. Historical Comparison
 
 ### Trinity vs Koide (1982)
 
 | | Koide | Trinity |
 |--|-------|---------|
-| Формул | 1 | 25 |
-| Точность | 10^-9 | 10^-4 (средняя) |
-| Derivation | НЕТ (43 года) | **НЕТ** |
-| Peer review | Нет (empirical) | **Нет** |
+| Formulas | 1 | 25 |
+| Accuracy | 10^-9 | 10^-4 (average) |
+| Derivation | NO (43 years) | **NO** |
+| Peer review | No (empirical) | **No** |
 | Citations | ~200 | 0 |
-| Статус 2025 | Эмпирическая закономерность | Активная разработка |
+| Status 2025 | Empirical regularity | Active development |
 
-**Вывод:** Trinity амбицезнее Koide (25 формул vs 1), но имеет ту же фундаментальную проблему — **нет вывода из Лагранжиана**. Если не решить за 5 лет, рискует стать еще одним "Koide" — интересной куриозностью.
+**Conclusion:** Trinity is more ambitious than Koide (25 formulas vs 1), but has the same fundamental problem — **no derivation from the Lagrangian**. If not solved within 5 years, risks becoming another "Koide" — an interesting curiosity.
 
 ### Trinity vs Eddington 137 (1929)
 
 | | Eddington | Trinity |
 |--|-----------|---------|
-| Утверждение | 1/alpha = 137 (integer) | m_H = 4phi^3e^2 |
-| Результат | Полностью опровергнут | m_H подтверждено |
-| Почему провал | alpha бежит, не константа | — |
-| Урок | Численное совпадение != физический закон | **Риск: та же ловушка** |
+| Claim | 1/alpha = 137 (integer) | m_H = 4phi^3e^2 |
+| Result | Fully refuted | m_H confirmed |
+| Why it failed | alpha runs, not constant | — |
+| Lesson | Numerical coincidence != physical law | **Risk: same trap** |
 
 ### Trinity vs Lisi E8 (2007)
 
 | | Lisi E8 | Trinity |
 |--|---------|---------|
-| Математика | E8 Lie algebra | H4 Coxeter group |
-| Результат | Distler-Garibaldi: mathematically impossible | Не доказана невозможность |
-| Медиа | Огромный hype | Нет |
-| Научный импакт | ~600 cit, но refuted | 0 cit |
-| Статус | "largely ignored" | Ранний этап |
+| Mathematics | E8 Lie algebra | H4 Coxeter group |
+| Result | Distler-Garibaldi: mathematically impossible | Impossibility not proven |
+| Media | Huge hype | None |
+| Scientific impact | ~600 cit, but refuted | 0 cit |
+| Status | "largely ignored" | Early stage |
 
-**Ключевой урок Lisi:** Даже если математика красивая, **аномалии должны сходиться**. Lisi не смог получить chirality. Trinity: ** gauge anomaly еще не проверен**.
+**Key lesson from Lisi:** Even if the mathematics is beautiful, **anomalies must cancel**. Lisi could not obtain chirality. Trinity: ** gauge anomaly not yet checked**.
 
 ### Trinity vs Connes NCG
 
 | | Connes NCG | Trinity |
 |--|------------|---------|
-| Lagrangian | **ДА** — выведен из spectral action | **НЕТ** |
-| m_H prediction | 170 GeV (WRONG) -> 125 GeV (post-hoc) | 125.2 GeV (совпадает) |
-| Алгебра | M3(C) + H + C (phenomenological) | H4 Coxeter (motivated) |
-| Peer review | **ДА** (CMP, JNCG) | **НЕТ** |
+| Lagrangian | **YES** — derived from spectral action | **NO** |
+| m_H prediction | 170 GeV (WRONG) -> 125 GeV (post-hoc) | 125.2 GeV (matches) |
+| Algebra | M3(C) + H + C (phenomenological) | H4 Coxeter (motivated) |
+| Peer review | **YES** (CMP, JNCG) | **NO** |
 | Citations | ~2000 | 0 |
-| Статус | Уважаемый mathematical physics | Начальный этап |
+| Status | Respected mathematical physics | Initial stage |
 
-**Вывод:** Connes сделал то, что не удалось Trinity — **вывел SM Lagrangian из геометрии**. Но предсказание m_H было сначала неверным (170 GeV), потом исправлено. Trinity предсказывает m_H правильно сразу, но **без derivation это curve-fitting, не prediction**.
+**Conclusion:** Connes did what Trinity failed to do — **derived the SM Lagrangian from geometry**. But the m_H prediction was initially wrong (170 GeV), then corrected. Trinity predicts m_H correctly from the start, but **without derivation this is curve-fitting, not prediction**.
 
 ---
 
-## 3. Peer Review Simulation: REJECT (5 фатальных проблем)
+## 3. Peer Review Simulation: REJECT (5 Fatal Problems)
 
-### Фатальная проблема 1: Нет Physical Theory
-Формулы — кривые фиттинга, не вывод из Лагранжиана. H4Lagrangian.v помечен "CONCEPTUAL FRAMEWORK — SPECULATIVE".
+### Fatal Problem 1: No Physical Theory
+The formulas are curve-fitting, not a derivation from the Lagrangian. H4Lagrangian.v is labeled "CONCEPTUAL FRAMEWORK — SPECULATIVE".
 
-### Фатальная проблема 2: p-value бессмыслен
-Пространство поиска {C * phi^a * pi^b * e^c * 3^d} — БЕСКОНЕЧНО. При бесконечном пространстве ЛЮБОЙ p-value достижим. HonestPValue.v доказывает только p < 10^-6.
+### Fatal Problem 2: p-value is Meaningless
+The search space {C * phi^a * pi^b * e^c * 3^d} is INFINITE. With an infinite space, ANY p-value is achievable. HonestPValue.v proves only p < 10^-6.
 
-### Фатальная проблема 3: Предсказания эволюционируют
-- delta_CP: 90.2 -> 77.9 -> 65.66 (колебание 25 между версиями)
-- m_nue: 0.496 -> 0.103 eV (фактор 5)
-- Это post-hoc корректировки, не genuine predictions.
+### Fatal Problem 3: Predictions Evolve
+- delta_CP: 90.2 -> 77.9 -> 65.66 (swing of 25 between versions)
+- m_nue: 0.496 -> 0.103 eV (factor of 5)
+- These are post-hoc adjustments, not genuine predictions.
 
-### Фатальная проблема 4: Mixed mass scheme = post-hoc
+### Fatal Problem 4: Mixed Mass Scheme = Post-hoc
 - u,d,s @ 2 GeV; c @ m_c; b @ m_b; t @ pole
-- При единой схеме Q07 = 24phi^2/pi ~ 20 дает m_t/m_b ~ 20 (реально ~39-41)
-- Схема подобрана под формулы, а не обоснована физически.
+- Under a unified scheme Q07 = 24phi^2/pi ~ 20 gives m_t/m_b ~ 20 (actual ~39-41)
+- The scheme was chosen to fit the formulas, not physically motivated.
 
-### Фатальная проблема 5: Koide "решение" = 4% ошибка
-Q_H4 = 0.6399 vs 2/3 = 0.6667. На 4000 хуже сырых данных.
+### Fatal Problem 5: Koide "Solution" = 4% Error
+Q_H4 = 0.6399 vs 2/3 = 0.6667. 4000 times worse than raw data.
 
 ---
 
 ## 4. delta_CP — Achilles' Heel
 
-| | Trinity | Эксперимент |
+| | Trinity | Experiment |
 |--|---------|-------------|
-| Значение | 65.66 | ~177 +/- 20 (NuFit 6.0, 2024) |
-| Отклонение | | **5.6 sigma** |
+| Value | 65.66 | ~177 +/- 20 (NuFit 6.0, 2024) |
+| Deviation | | **5.6 sigma** |
 
-**65.66 < 96 (3-sigma нижняя граница)** — уже исключено текущими данными!
+**65.66 < 96 (3-sigma lower bound)** — already excluded by current data!
 
-DUNE (2028-2032) измерит delta_CP с точностью +/- 10.
-- Если DUNE: 180 +/- 10 -> Trinity на 11.4 -> **ПОЛНОСТЬЮ ОПРОВЕРГНУТ**
-- Если DUNE: 70 +/- 10 -> Trinity на 4.3 -> ПОДТВЕРЖДЕН
+DUNE (2028-2032) will measure delta_CP with precision +/- 10.
+- If DUNE: 180 +/- 10 -> Trinity at 11.4 -> **FULLY REFUTED**
+- If DUNE: 70 +/- 10 -> Trinity at 4.3 -> CONFIRMED
 
-**Это самое важное предсказание.** Все остальные формулы — post-hoc, а delta_CP = 3/phi^2 — единственное genuinely pre-registered.
+**This is the most important prediction.** All other formulas are post-hoc; delta_CP = 3/phi^2 is the only genuinely pre-registered one.
 
 ---
 
-## 5. Что усилить: Конкретный Roadmap
+## 5. What to Strengthen: Concrete Roadmap
 
-### Phase A: Критические исправления (0-3 месяца)
+### Phase A: Critical Fixes (0-3 months)
 
-1. **Исправить delta_CP формулу или признать провал**
-   - 3/phi^2 = 65.66 уже в 5.6sigma tension с данными
-   - Найти альтернативу или честно задокументировать discrepancy
-   - DUNE 2028 решит окончательно
+1. **Fix the delta_CP formula or acknowledge failure**
+   - 3/phi^2 = 65.66 is already in 5.6sigma tension with data
+   - Find an alternative or honestly document the discrepancy
+   - DUNE 2028 will decide definitively
 
-2. **Исправить sin^2(theta_13) формулу**
-   - 7*phi^-5*pi^-1*e = 0.546, а не 0.0216
-   - Формула математически сломана
+2. **Fix the sin^2(theta_13) formula**
+   - 7*phi^-5*pi^-1*e = 0.546, not 0.0216
+   - The formula is mathematically broken
 
-3. **Завершить Coq компиляцию**
-   - Цель: 16/16 файлов, 0 Admitted
+3. **Complete Coq compilation**
+   - Goal: 16/16 files, 0 Admitted
    - Koide.v: psatz R approach
-   - Остальные 10: разблокировать после Koide
+   - Remaining 10: unblock after Koide
 
 4. **Submit peer-reviewed paper**
-   - Журнал: Physical Review D или JHEP
-   - Нужен endorser в hep-th для arXiv
-   - Без peer review — это не наука, это блог
+   - Journal: Physical Review D or JHEP
+   - Need an endorser in hep-th for arXiv
+   - Without peer review — this is not science, it is a blog
 
-### Phase B: Теоретическое усиление (3-12 месяцев)
+### Phase B: Theoretical Strengthening (3-12 months)
 
-5. **Lagrangian derivation — #1 приоритет**
-   - Вывести ХОТЯ БЫ ОДНУ формулу из Лагранжиана
-   - Начать с m_H = 4*phi^3*e^2
-   - Connes это сделал — можно учиться
-   - Без этого — всегда будет "numerology"
+5. **Lagrangian derivation — #1 priority**
+   - Derive AT LEAST ONE formula from the Lagrangian
+   - Start with m_H = 4*phi^3*e^2
+   - Connes did it — we can learn
+   - Without this — it will always be "numerology"
 
 6. **Gauge anomaly cancellation**
-   - Проверить, что H4 -> SM embedding не создает anomaly
-   - Lisi провалился здесь — не повторить
-   - Нужен computation с использованием index theorem
+   - Check that the H4 -> SM embedding does not create an anomaly
+   - Lisi failed here — do not repeat
+   - Need a computation using the index theorem
 
 7. **Unique coefficients derivation**
-   - Почему 239, а не 238 или 240?
-   - Почему 15, а не 14 или 16?
-   - 92 и 549 не уникальны — заменить или обосновать
-   - Цель: >= 80% коэффициентов уникальны
+   - Why 239, and not 238 or 240?
+   - Why 15, and not 14 or 16?
+   - 92 and 549 are not unique — replace or justify
+   - Goal: >= 80% of coefficients are unique
 
-### Phase C: Экспериментальная валидация (2028-2035)
+### Phase C: Experimental Validation (2028-2035)
 
 8. **Pre-register predictions**
-   - Зарегистрировать ВСЕ предсказания ДО экспериментов
-   - Использовать OSF.io или аналог
-   - Без pre-registration — confirmation bias
+   - Register ALL predictions BEFORE experiments
+   - Use OSF.io or equivalent
+   - Without pre-registration — confirmation bias
 
 9. **DUNE delta_CP test (2028-2032)**
-   - Если подтверждено: Trinity взлетает
-   - Если опровергнуто: нужна новая версия framework
+   - If confirmed: Trinity takes off
+   - If refuted: a new framework version is needed
 
 10. **KATRIN m_nue test (2025-2030)**
-    - Предсказание 0.103 eV
-    - Если KATRIN измерит < 0.05 eV: проблема для Trinity
+    - Prediction 0.103 eV
+    - If KATRIN measures < 0.05 eV: problem for Trinity
 
 ---
 
-## 6. Реалистичная оценка импакта
+## 6. Realistic Impact Assessment
 
-### Сейчас (v4.0)
-**"Интересная нумерология с формальной верификацией"**
+### Now (v4.0)
+**"Interesting numerology with formal verification"**
 - Impulse factor: 2/10
-- Научный статус: pre-print level
-- Главное отличие от Koide: Coq формализация (6/16)
+- Scientific status: pre-print level
+- Main difference from Koide: Coq formalization (6/16)
 
-### Если Phase A выполнена
-**"Серьезный научный проект, требующий теоретического обоснования"**
+### If Phase A is Completed
+**"Serious scientific project requiring theoretical foundation"**
 - Impulse factor: 4/10
-- Научный статус: arXiv + workshop talks
-- Требуется: peer review, Lagrangian derivation
+- Scientific status: arXiv + workshop talks
+- Requires: peer review, Lagrangian derivation
 
-### Если Phase B выполнена
-**"Потенциальный прорыв в математической физике"**
+### If Phase B is Completed
+**"Potential breakthrough in mathematical physics"**
 - Impulse factor: 7/10
-- Научный статус: JHEP/CMP publication
-- Сравнимо с: Connes NCG (но с H4 мотивацией)
+- Scientific status: JHEP/CMP publication
+- Comparable to: Connes NCG (but with H4 motivation)
 
-### Если Phase C подтверждена
-**"Парадигмальный сдвиг — стандартная модель из геометрии"**
+### If Phase C is Confirmed
+**"Paradigm shift — the Standard Model from geometry"**
 - Impulse factor: 10/10
-- Научный статус: Nobel-level
-- Сравнимо с: Standard Model itself
+- Scientific status: Nobel-level
+- Comparable to: Standard Model itself
 
 ---
 
-## 7. Главный риск
+## 7. Main Risk
 
-> **Через 5 лет без Lagrangian derivation Trinity станет "Koide 2.0"** — интересной куриозностью, которую цитируют как "еще одну численную закономерность без объяснения".
+> **In 5 years without a Lagrangian derivation, Trinity will become "Koide 2.0"** — an interesting curiosity cited as "yet another numerical regularity without explanation".
 
-**Решение: Приоритет #1 — Lagrangian derivation. Всё остальное secondary.**
+**Solution: Priority #1 — Lagrangian derivation. Everything else is secondary.**
 
 ---
 

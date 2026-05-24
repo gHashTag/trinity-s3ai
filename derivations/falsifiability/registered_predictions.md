@@ -1,9 +1,9 @@
 # Registered Predictions: Trinity S3AI — Falsifiability Record
 
-**Проект:** Trinity S3AI v3.5  
-**Дата регистрации:** 2026-05-22 (подписано в эту сессию)  
-**Статус:** Pre-experimental lock — предсказания зафиксированы до получения результатов DUNE/LZ/KATRIN  
-**Формат:** arXiv-ready (английский абстракт + русское тело)
+**Project:** Trinity S3AI v3.5  
+**Registration Date:** 2026-05-22 (signed in this session)  
+**Status:** Pre-experimental lock — predictions fixed before receiving DUNE/LZ/KATRIN results  
+**Format:** arXiv-ready
 
 ---
 
@@ -17,342 +17,341 @@ We register falsifiable numerical predictions of the Trinity S3AI framework — 
 
 ## Honest split: pre-data vs post-data predictions
 
-Данная секция добавлена в рамках Wave 7 (W7.4, 2026-05-23) для явного разделения предсказаний Trinity S3AI на три категории согласно принципу Поппера: зарегистрировано ли предсказание до публикации экспериментального результата.
+This section was added as part of Wave 7 (W7.4, 2026-05-23) to explicitly divide Trinity S3AI predictions into three categories according to Popper's principle: whether the prediction was registered before the experimental result was published.
 
-Ключевые даты публикации данных:
+Key dates of data publication:
 - DESI 2024 BAO: 2024-04-03 (arXiv:2404.03002)
 - DESI DR2 4.2sigma: 2025-03-18 (arXiv:2503.14738)
-- Репозиторий trinity (Zig, PREDICTIONS_LOG): 2026-03-08
-- Репозиторий trinity-s3ai первый коммит: 2026-05-20
+- trinity repository (Zig, PREDICTIONS_LOG): 2026-03-08
+- trinity-s3ai repository first commit: 2026-05-20
 
-Вывод по временной шкале: все космологические формулы COS01-COS04 зарегистрированы в trinity-s3ai ПОСЛЕ публикации DESI 2024. Честное признание этого факта является обязательным условием научной добросовестности.
+Conclusion on the timeline: all cosmological formulas COS01-COS04 were registered in trinity-s3ai AFTER the publication of DESI 2024. Honest acknowledgment of this fact is a mandatory condition of scientific integrity.
 
 ---
 
 ### Pre-data predictions (registered BEFORE experimental result publication)
 
-Предсказания, зафиксированные до публикации соответствующих экспериментальных данных. Только эти предсказания имеют полный эпистемический вес в смысле Поппера.
+Predictions fixed before the publication of the corresponding experimental data. Only these predictions have full epistemic weight in Popper's sense.
 
-Относительно DESI (тёмная энергия, параметр w, BAO): NONE.
+Relative to DESI (dark energy, parameter w, BAO): NONE.
 
-Ни одна формула COS01-COS04 не была зарегистрирована до DESI 2024 (arXiv:2404.03002, опубликовано 2024-04-03). Репозиторий trinity-s3ai создан 2026-05-20. Это честное признание: предсказаний по тёмной энергии в категории "pre-data" нет.
+No formula COS01-COS04 was registered before DESI 2024 (arXiv:2404.03002, published 2024-04-03). The trinity-s3ai repository was created on 2026-05-20. This is an honest admission: there are no "pre-data" predictions for dark energy.
 
-Форвардные предсказания (данных пока нет, эксперименты будущего):
+Forward predictions (data not yet available, future experiments):
 
-| Предсказание | Формула | Числовое значение | Эксперимент | Ожидаемая дата |
+| Prediction | Formula | Numerical value | Experiment | Expected date |
 |-------------|---------|-------------------|-------------|----------------|
-| P-QCD аксион theta-bar | theta_bar < 1e-10 (структурное) | < 1e-10 | ADMX / IAXO / CASPEr | 2027-2035 |
-| LISA фазовые предсказания | из H4-спектра | TBD | LISA | 2035+ |
-| M_PS масса (псевдоскаляр) | M_PS approx 2.983e6 GeV | 2.983e6 GeV | Mu2e / COMET / LISA (стохастический фон) | 2028-2035 |
-| delta_CP при IO | delta_CP approx 294.34 deg (IO) | 294.34 deg | JUNO / Hyper-K / DUNE (IO подтверждение) | 2027-2032 |
+| P-QCD axion theta-bar | theta_bar < 1e-10 (structural) | < 1e-10 | ADMX / IAXO / CASPEr | 2027-2035 |
+| LISA phase predictions | from H4-spectrum | TBD | LISA | 2035+ |
+| M_PS mass (pseudoscalar) | M_PS approx 2.983e6 GeV | 2.983e6 GeV | Mu2e / COMET / LISA (stochastic background) | 2028-2035 |
+| delta_CP for IO | delta_CP approx 294.34 deg (IO) | 294.34 deg | JUNO / Hyper-K / DUNE (IO confirmation) | 2027-2032 |
 
-Примечание: delta_CP = 65.655 deg (P1, нормальная иерархия NO) также является форвардным предсказанием для DUNE, поскольку DUNE ещё не опубликовал финальные данные. Однако это предсказание находится в 2.7-3.8 sigma от текущего NuFit 6.0 best-fit (см. раздел 3, P1).
+Note: delta_CP = 65.655 deg (P1, normal ordering NO) is also a forward prediction for DUNE, since DUNE has not yet published final data. However, this prediction is at 2.7-3.8 sigma from the current NuFit 6.0 best-fit (see Section 3, P1).
 
 ---
 
 ### Post-data predictions (registered AFTER data became public)
 
-Предсказания, зарегистрированные после того, как соответствующие экспериментальные данные стали публично доступны. Эти "предсказания" являются ретродикциями (retrodictions) — численными совпадениями, найденными постфактически. Они могут свидетельствовать о структурной согласованности формализма, но не имеют предсказательной силы в строгом смысле.
+Predictions registered after the corresponding experimental data became publicly available. These "predictions" are retrodictions — numerical coincidences found post-factum. They may indicate structural consistency of the formalism, but do not have predictive power in the strict sense.
 
-| Предсказание | Формула | Значение Trinity | Измеренное значение | Источник данных | Дата данных | sigma |
+| Prediction | Formula | Trinity Value | Measured Value | Data Source | Data Date | sigma |
 |-------------|---------|-----------------|---------------------|-----------------|-------------|-------|
-| sin2_theta_W (слабый угол) | из H4 | 0.23122 | 0.23122 +/- 0.00003 (PDG 2024) | PDG | известно с 1990-х | 0.0 |
-| m_e (масса электрона, Koide) | Koide formula | 0.51100 MeV | 0.51100 MeV (PDG) | PDG | известно десятилетиями | ~0 |
-| m_mu (масса мюона, Koide) | Koide formula | 105.658 MeV | 105.658 MeV (PDG) | PDG | известно десятилетиями | ~0 |
-| m_tau (масса тау, Koide) | Koide 1982 | 1776.86 MeV | 1776.86 MeV (PDG) | PDG | измерено 1975+ | ~0 |
-| Три поколения фермионов | N=3 из H4 | 3 | 3 (установлено LEP ~1989) | LEP/PDG | 1989 | тавтология |
-| COS01-COS04 (космология) | phi/pi/e комбинации | см. REWRITE.md | DESI 2024 / Planck 2018 | DESI, Planck | 2024-04-03 | 2.7sigma-бесконечность |
-| m_H = 4*phi^3*e^2 (Хиггс) | H01 | 125.20 GeV | 125.20 +/- 0.11 GeV | LHC / PDG | 2012+ | 0.02 |
-| sin2_theta_13 (реакторный угол) | pi^2/(25*phi^6) | 0.02200 | 0.02224 +/- 0.00065 | PDG/NuFit | 2012+ | 0.37 |
+| sin2_theta_W (weak angle) | from H4 | 0.23122 | 0.23122 +/- 0.00003 (PDG 2024) | PDG | known since 1990s | 0.0 |
+| m_e (electron mass, Koide) | Koide formula | 0.51100 MeV | 0.51100 MeV (PDG) | PDG | known for decades | ~0 |
+| m_mu (muon mass, Koide) | Koide formula | 105.658 MeV | 105.658 MeV (PDG) | PDG | known for decades | ~0 |
+| m_tau (tau mass, Koide) | Koide 1982 | 1776.86 MeV | 1776.86 MeV (PDG) | PDG | measured 1975+ | ~0 |
+| Three fermion generations | N=3 from H4 | 3 | 3 (established by LEP ~1989) | LEP/PDG | 1989 | tautology |
+| COS01-COS04 (cosmology) | phi/pi/e combinations | see REWRITE.md | DESI 2024 / Planck 2018 | DESI, Planck | 2024-04-03 | 2.7sigma-infinity |
+| m_H = 4*phi^3*e^2 (Higgs) | H01 | 125.20 GeV | 125.20 +/- 0.11 GeV | LHC / PDG | 2012+ | 0.02 |
+| sin2_theta_13 (reactor angle) | pi^2/(25*phi^6) | 0.02200 | 0.02224 +/- 0.00065 | PDG/NuFit | 2012+ | 0.37 |
 | Delta_m21^2 / Delta_m31^2 | pi/(40*phi^2) | 0.030 | 0.02948 +/- 0.0005 | NuFit 6.0 | 2024 | 0.1 |
 
-Примечание по Koide: формула Коийде (1982) для масс лептонов была предложена ДО точных измерений массы тау-лептона и является исторически предсказательной. Все остальные формулы в этой таблице являются ретроспективными.
+Note on Koide: the Koide formula (1982) for lepton masses was proposed BEFORE precise measurements of the tau-lepton mass and is historically predictive. All other formulas in this table are retrospective.
 
-Ссылки:
+Links:
 - DESI 2024 BAO: https://arxiv.org/abs/2404.03002
 - DESI DR2: https://arxiv.org/abs/2503.14738
-- DESI DR2 пресс-релиз: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
+- DESI DR2 press release: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
 
 ---
 
 ### Falsified
 
-Предсказания, опровергнутые опубликованными данными с достаточной статистической значимостью.
+Predictions refuted by published data with sufficient statistical significance.
 
-| Предсказание | Формула | Значение Trinity | Измеренное значение | sigma | Источник | Зафиксировано |
+| Prediction | Formula | Trinity Value | Measured Value | sigma | Source | Logged |
 |-------------|---------|-----------------|---------------------|-------|----------|---------------|
 | COS04 w = -0.999 | w = -1 + phi^(-8)*pi^(-2)*e^(-1) | -0.999 | w0 = -0.827 +/- 0.063 (DESI+CMB+SN) | ~2.7 sigma | arXiv:2404.03002 | derivations/honest_cosmology/cosmology_falsified_log.md |
-| delta_CP = 65.655 deg (NO) | 3/phi^2 radian | 65.655 deg | 197 deg best-fit (NO, NuFit 6.0); T2K+NOvA ~3 sigma | ~2.7-3.8 sigma | NuFit 6.0, T2K 2023, NOvA 2023 | Раздел P1 данного документа (BORDERLINE) |
-| m_nu1 = 1/(6*phi) eV | m_nu1 | 0.103 eV | Sigma_m_nu < 0.072 eV (Planck+DESI 2024, 95% CL) | ~5 sigma | arXiv:2404.03002 + Planck 2018 | Раздел P6 данного документа |
-| Lambda = phi^(-144)/2 | Lambda | ~4e-31 (плановские ед.) | ~1e-123 (планковские ед.) | >> 100 sigma | Planck 2018, PDG | Раздел P5 данного документа |
+| delta_CP = 65.655 deg (NO) | 3/phi^2 radian | 65.655 deg | 197 deg best-fit (NO, NuFit 6.0); T2K+NOvA ~3 sigma | ~2.7-3.8 sigma | NuFit 6.0, T2K 2023, NOvA 2023 | Section P1 of this document (BORDERLINE) |
+| m_nu1 = 1/(6*phi) eV | m_nu1 | 0.103 eV | Sigma_m_nu < 0.072 eV (Planck+DESI 2024, 95% CL) | ~5 sigma | arXiv:2404.03002 + Planck 2018 | Section P6 of this document |
+| Lambda = phi^(-144)/2 | Lambda | ~4e-31 (Planck units) | ~1e-123 (Planck units) | >> 100 sigma | Planck 2018, PDG | Section P5 of this document |
 
-Пояснение по COS04 и DESI DR2: публикация DESI DR2 (arXiv:2503.14738, 2025-03-18) усилила отклонение w от -1 до уровня 4.2 sigma в рамках модели w0waCDM. Это дополнительно подтверждает фальсификацию COS04 (w = -0.999 approx -1). Подробности: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
+Note on COS04 and DESI DR2: the DESI DR2 publication (arXiv:2503.14738, 2025-03-18) strengthened the deviation of w from -1 to the 4.2 sigma level in the w0waCDM model. This additionally confirms the falsification of COS04 (w = -0.999 approx -1). Details: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
 
-Пояснение по delta_CP: статус P1 официально обозначен как BORDERLINE (не FALSIFIED), поскольку DUNE (2028-2032) ещё не опубликовал финальные данные. Однако существующие данные T2K+NOvA создают натяжение ~3 sigma с предсказанием 65.655 deg. Включён в эту таблицу для прозрачности.
-
----
-
-
-## Русское тело документа
-
-### 1. Мотивация и цель
-
-Настоящий документ является **реестром предсказаний** проекта Trinity S3AI, подписанным и датированным **до** получения экспериментальных результатов. Цель — обеспечить фальсифицируемость в смысле Поппера: каждое числовое предсказание должно быть зафиксировано до того, как соответствующий эксперимент опубликует свои данные.
-
-Проект Trinity строит спектральный триплет над 600-клеткой (правильный 4-мерный политоп с 120 вершинами, группа симметрий H4 порядка 14400) и пытается вывести массы и углы смешивания фермионов Стандартной модели из геометрических структур H4. Честная оценка показывает: большинство формул являются **структурно мотивированными числовыми совпадениями**, а не строгими выводами из первых принципов.
+Note on delta_CP: the status of P1 is officially marked as BORDERLINE (not FALSIFIED), since DUNE (2028-2032) has not yet published final data. However, existing T2K+NOvA data create ~3 sigma tension with the 65.655 deg prediction. Included in this table for transparency.
 
 ---
 
-### 2. Главная таблица предсказаний
+## Main Body of the Document
 
-| # | Формула | Физический смысл | Предсказание Trinity | Эксперимент (PDG/NuFit) | σ-расстояние | Код в каталоге | Статус R/S/NF | **Вердикт** |
+### 1. Motivation and Goal
+
+This document is a **registry of predictions** of the Trinity S3AI project, signed and dated **before** receiving experimental results. The goal is to ensure falsifiability in Popper's sense: every numerical prediction must be fixed before the corresponding experiment publishes its data.
+
+The Trinity project builds a spectral triple over the 600-cell (regular 4-dimensional polytope with 120 vertices, symmetry group H4 of order 14400) and attempts to derive Standard Model fermion masses and mixing angles from H4 geometric structures. An honest assessment shows: most formulas are **structurally motivated numerical coincidences**, not strict first-principles derivations.
+
+---
+
+### 2. Main Predictions Table
+
+| # | Formula | Physical Meaning | Trinity Prediction | Experiment (PDG/NuFit) | σ-distance | Code in catalog | R/S/NF Status | **Verdict** |
 |---|---------|-----------------|---------------------|-------------------------|-------------|----------------|---------------|-------------|
-| **P1** | \(\delta_{CP} = \frac{3}{\varphi^2} \times \frac{180°}{\pi}\) | CP-фаза PMNS | **65.66°** | 197° (NO, NuFit 6.0) | **~2.7σ** | N04 | NF | **BORDERLINE** |
-| **P2** | \(m_H = 4\varphi^3 e^2\) [ГэВ] | Масса бозона Хиггса | **125.202 ГэВ** | 125.20 ± 0.11 ГэВ | 0.02σ | H01 | NF | **СОВМЕСТИМО** |
-| **P3** | \(f_0 = E_0/h,\; E_0 = (\varphi e/\pi)^6 \times 10^{-5}\) [эВ → ТГц] | Вакуумная частота / ТГц-линия | **12.8 ТГц** | Не измерено | — | v21+Urок 14 | NF | **ОЖИДАНИЕ** |
-| **P4** | \(m_{DM} = \varphi^5 \pi / e\) | Масса WIMP тёмного вещества | **12.82 ГэВ** | Нет сигнала (LZ/XENONnT) | — | Predictions.v | NF | **ОЖИДАНИЕ** |
-| **P5** | \(\Lambda = \varphi^{-144}/2\) [план. ед.] | Космологическая постоянная | \(\sim 4 \times 10^{-31}\) | \(\sim 10^{-123}\) | \(\gg 100\sigma\) | Lambda\_pred | — | **ФАЛЬСИФИЦИРОВАНО ✗** |
-| **P6** | \(m_{\nu_1} = 1/(6\varphi)\) [эВ] | Масса лёгчайшего нейтрино | **0.103 эВ** | \(\Sigma m_\nu < 0.12\) эВ | **~5σ** | Predictions.v | — | **ФАЛЬСИФИЦИРОВАНО ✗** |
-| **P7** | \(\sin^2\theta_{13} = \pi^2/(25\varphi^6)\) | Реакторный угол PMNS | **0.02200** | 0.02224 ± 0.00065 | 0.37σ | Sin13 | NF | **СОВМЕСТИМО** |
-| **P8** | \(\Delta m^2_{21}/\Delta m^2_{31} = \pi/(40\varphi^2)\) | Отношение Δm² нейтрино | **0.029999** | 0.03000 ± 0.0005 | 0.002σ | N21 | S | **СОВМЕСТИМО** |
+| **P1** | \(\delta_{CP} = \frac{3}{\varphi^2} \times \frac{180°}{\pi}\) | CP-phase of PMNS | **65.66°** | 197° (NO, NuFit 6.0) | **~2.7σ** | N04 | NF | **BORDERLINE** |
+| **P2** | \(m_H = 4\varphi^3 e^2\) [GeV] | Higgs boson mass | **125.202 GeV** | 125.20 ± 0.11 GeV | 0.02σ | H01 | NF | **COMPATIBLE** |
+| **P3** | \(f_0 = E_0/h,\; E_0 = (\varphi e/\pi)^6 \times 10^{-5}\) [eV → THz] | Vacuum frequency / THz line | **12.8 THz** | Not measured | — | v21+Lesson 14 | NF | **PENDING** |
+| **P4** | \(m_{DM} = \varphi^5 \pi / e\) | WIMP dark matter mass | **12.82 GeV** | No WIMP signal (LZ/XENONnT) | — | Predictions.v | NF | **PENDING** |
+| **P5** | \(\Lambda = \varphi^{-144}/2\) [Planck units] | Cosmological constant | \(\sim 4 \times 10^{-31}\) | \(\sim 10^{-123}\) | \(\gg 100\sigma\) | Lambda\_pred | — | **FALSIFIED ✗** |
+| **P6** | \(m_{\nu_1} = 1/(6\varphi)\) [eV] | Lightest neutrino mass | **0.103 eV** | \(\Sigma m_\nu < 0.12\) eV | **~5σ** | Predictions.v | — | **FALSIFIED ✗** |
+| **P7** | \(\sin^2\theta_{13} = \pi^2/(25\varphi^6)\) | PMNS reactor angle | **0.02200** | 0.02224 ± 0.00065 | 0.37σ | Sin13 | NF | **COMPATIBLE** |
+| **P8** | \(\Delta m^2_{21}/\Delta m^2_{31} = \pi/(40\varphi^2)\) | Neutrino Δm² ratio | **0.029999** | 0.03000 ± 0.0005 | 0.002σ | N21 | S | **COMPATIBLE** |
 
 ---
 
-### 3. Подробный разбор каждого предсказания
+### 3. Detailed Breakdown of Each Prediction
 
 ---
 
-#### P1 — δ_CP: Самое важное ожидаемое решение (DUNE 2028–2032)
+#### P1 — δ_CP: The Most Important Awaited Resolution (DUNE 2028–2032)
 
-**Формула:**
+**Formula:**
 \[
-\delta_{CP} = \frac{3}{\varphi^2} \;\text{рад} = \frac{3}{\varphi^2} \cdot \frac{180°}{\pi} = \frac{3}{2+\varphi} \cdot \frac{180°}{\pi} \approx 65.655°
+\delta_{CP} = \frac{3}{\varphi^2} \;\text{rad} = \frac{3}{\varphi^2} \cdot \frac{180°}{\pi} = \frac{3}{2+\varphi} \cdot \frac{180°}{\pi} \approx 65.655°
 \]
 
-Здесь \(\varphi^2 = \varphi + 1 = (3+\sqrt{5})/2\), 3 — число поколений фермионов.
+Here \(\varphi^2 = \varphi + 1 = (3+\sqrt{5})/2\), 3 is the number of fermion generations.
 
-**Точное числовое значение:** \(\delta_{CP}^{\text{Trinity}} = 65.6551°\)
+**Exact numerical value:** \(\delta_{CP}^{\text{Trinity}} = 65.6551°\)
 
-**Источник числа 3:** В каталоге Catalog42.v коэффициент 3 трактуется как «число поколений», зафиксированное как `N_generations_exact = 3`. Это **постфактическая идентификация**, а не строгий вывод.
+**Source of the number 3:** In the Catalog42.v catalog, the coefficient 3 is interpreted as the "number of generations", fixed as `N_generations_exact = 3`. This is a **post-factum identification**, not a strict derivation.
 
-**Экспериментальная ситуация:**
+**Experimental situation:**
 
-| Эксперимент | Лучшее значение δ_CP | 1σ интервал |
+| Experiment | Best-fit δ_CP | 1σ interval |
 |-------------|---------------------|-------------|
-| NuFit 6.0 (2024), нормальная иерархия (NO) | 197° | [148°, 260°] |
-| NuFit 6.0 (2024), обратная иерархия (IO) | 286° | [256°, 315°] |
-| T2K 2023 | ~270° (−90°) | широкий |
-| NOvA 2023 | ~195° | широкий |
+| NuFit 6.0 (2024), normal ordering (NO) | 197° | [148°, 260°] |
+| NuFit 6.0 (2024), inverted ordering (IO) | 286° | [256°, 315°] |
+| T2K 2023 | ~270° (−90°) | wide |
+| NOvA 2023 | ~195° | wide |
 
-**Вычисление σ-расстояния:**
-- Нижняя 1σ граница NO: 197° − 148° = 49°
-- Trinity предсказывает 65.66°, что на (197° − 65.66°) = **131.3°** ниже центрального значения
-- \(\sigma\text{-расстояние} = 131.3°/49° \approx \mathbf{2.7\sigma}\) (используя нижнее 1σ)
-- С использованием симметричного 1σ ≈ 35°: **3.8σ**
+**σ-distance calculation:**
+- Lower 1σ bound of NO: 197° − 148° = 49°
+- Trinity predicts 65.66°, which is (197° − 65.66°) = **131.3°** below the central value
+- \(\sigma\text{-distance} = 131.3°/49° \approx \mathbf{2.7\sigma}\) (using lower 1σ)
+- Using symmetric 1σ ≈ 35°: **3.8σ**
 
-**Вывод:** Trinity δ_CP находится в диапазоне **2.7–3.8σ** от текущего лучшего значения NuFit 6.0 (NO). Это **BORDERLINE** — ни подтверждено, ни опровергнуто. Статистическая значимость существующих данных недостаточна для окончательного вердикта.
+**Conclusion:** Trinity δ_CP is in the range **2.7–3.8σ** from the current NuFit 6.0 (NO) best-fit value. This is **BORDERLINE** — neither confirmed nor refuted. The statistical significance of existing data is insufficient for a final verdict.
 
-**Критерий фальсификации:**
-> *Если DUNE (2028–2032) измерит δ_CP > 130° при 3σ значимости, формула \(3/\varphi^2\) считается фальсифицированной.*
+**Falsification criterion:**
+> *If DUNE (2028–2032) measures δ_CP > 130° at 3σ significance, the formula \(3/\varphi^2\) is considered falsified.*
 
-**Критерий подтверждения:**
-> *Если DUNE измерит δ_CP ∈ [30°, 100°] при 3σ значимости, это будет нетривиальным подтверждением.*
+**Confirmation criterion:**
+> *If DUNE measures δ_CP ∈ [30°, 100°] at 3σ significance, this will be a non-trivial confirmation.*
 
-**Честная оговорка:** Коэффициент 3 в формуле выбран *ad hoc* как «число поколений». Отсутствует строгий механистический вывод из H4-геометрии. Код N04 в full_audit.csv классифицирован как **NF** (Not Falsifiable in current form — числовой подбор).
-
----
-
-#### P2 — Масса бозона Хиггса
-
-**Формула:**
-\[
-m_H = 4\varphi^3 e^2 = 4 \cdot (2\varphi+1) \cdot e^2 \approx 125.202 \;\text{ГэВ}
-\]
-
-**Предсказание Trinity:** 125.202 ГэВ  
-**PDG 2024:** \(m_H = 125.20 \pm 0.11\) ГэВ  
-**σ-расстояние:** \(|125.202 - 125.20|/0.11 = 0.02\sigma\) — исключительное совпадение.
-
-**ЧЕСТНАЯ оговорка:** Формула H01 = 4φ³e² была найдена **после** измерения массы Хиггса коллайдером LHC (2012). В отличие от формулы Койде (1982), которая предсказала массу τ-лептона **до** точных измерений, формула H01 является **ретроспективным совпадением**. Критическое тождество Tr(D_F⁻²)·480/Tr(D_F⁻⁴) = 4φ³ остаётся недоказанной гипотезой.
-
-**Замечание о «117 ГэВ» из формулировки задачи:** Текущая формула H01 в Catalog42.v даёт **125.20 ГэВ**, а не 117 ГэВ. Значение ~117 ГэВ относится к первоначальному предсказанию Коннеса–Шамседдина (2007 г.), которое было опровергнуто открытием LHC. Trinity S3AI использует версию, скорректированную после измерений.
-
-**Статус:** СОВМЕСТИМО (0.02σ), но ретроспективное — **не предсказание**.
+**Honest caveat:** The coefficient 3 in the formula is chosen *ad hoc* as the "number of generations". A strict mechanistic derivation from H4-geometry is absent. Code N04 in full_audit.csv is classified as **NF** (Not Falsifiable in current form — numerical fit).
 
 ---
 
-#### P3 — Вакуумная частота f₀ = 12.8 ТГц
+#### P2 — Higgs Boson Mass
 
-**Происхождение:** \(E_0 = (\varphi e / \pi)^6 \times 10^{-5}\) эВ — масштаб нейтринных масс Δm²₂₁.  
-Переводя в частоту через \(f_0 = E_0 / h\):
+**Formula:**
 \[
-E_0 \approx 0.0529 \;\text{эВ}, \quad f_0 = \frac{0.0529 \;\text{эВ}}{4.136 \times 10^{-15} \;\text{эВ·с}} \approx 12.8 \;\text{ТГц}
+m_H = 4\varphi^3 e^2 = 4 \cdot (2\varphi+1) \cdot e^2 \approx 125.202 \;\text{GeV}
 \]
 
-**Физический смысл (по Уроку 14):** Trinity интерпретирует f₀ как характеристическую частоту квазикристаллической фононной моды. Предсказывается спектроскопическая линия квазикристаллов (типа Al-Mn-Pd) вблизи 12.8 ТГц.
+**Trinity Prediction:** 125.202 GeV  
+**PDG 2024:** \(m_H = 125.20 \pm 0.11\) GeV  
+**σ-distance:** \(|125.202 - 125.20|/0.11 = 0.02\sigma\) — exceptional coincidence.
 
-**Экспериментальная ситуация:** Соответствующих высокоточных ТГц-спектроскопических данных квазикристаллов в указанной полосе в общедоступной литературе не опубликовано.
+**HONEST caveat:** Formula H01 = 4φ³e² was found **after** the LHC measured the Higgs mass (2012). Unlike the Koide formula (1982), which predicted the tau-lepton mass **before** precise measurements, formula H01 is a **retrospective coincidence**. The critical identity Tr(D_F⁻²)·480/Tr(D_F⁻⁴) = 4φ³ remains an unproven hypothesis.
 
-**Критерий фальсификации:**
-> *Если высокоточное ТГц-спектроскопическое измерение икосаэдрического квазикристалла (Al-Mn-Pd, i-YbMgZn) в диапазоне 10–20 ТГц не обнаружит линии в интервале 12.8 ± 0.5 ТГц, предсказание опровергнуто.*
+**Note on "117 GeV" from the problem statement:** The current formula H01 in Catalog42.v gives **125.20 GeV**, not 117 GeV. The value ~117 GeV refers to the original Connes–Chamseddine prediction (2007), which was falsified by the LHC discovery. Trinity S3AI uses the version corrected after LHC measurements.
 
-**Статус:** ОЖИДАНИЕ. Масштаб 10⁻⁵ эВ² в формуле Δm²₂₁ вставлен вручную, что серьёзно подрывает структурную мотивацию.
+**Status:** COMPATIBLE (0.02σ), but retrospective — **not a prediction**.
 
 ---
 
-#### P4 — Масса тёмного вещества ≈ 12.82 ГэВ
+#### P3 — Vacuum Frequency f₀ = 12.8 THz
 
-**Формула (Predictions.v):**
+**Origin:** \(E_0 = (\varphi e / \pi)^6 \times 10^{-5}\) eV — the neutrino mass scale Δm²₂₁.  
+Converting to frequency via \(f_0 = E_0 / h\):
 \[
-m_{DM} = \varphi^5 \cdot \pi / e \approx 12.817 \;\text{ГэВ}
+E_0 \approx 0.0529 \;\text{eV}, \quad f_0 = \frac{0.0529 \;\text{eV}}{4.136 \times 10^{-15} \;\text{eV·s}} \approx 12.8 \;\text{THz}
 \]
 
-**ЧЕСТНАЯ оговорка:** В проекте существуют **две несогласованные формулы**:
-- `Predictions.v`: \(\varphi^5 \cdot \pi / e \approx 12.82\) ГэВ
-- `Catalog42.v`: \(\varphi^5 \cdot \pi \cdot (31/30) \approx 36.0\) ГэВ
+**Physical meaning (per Lesson 14):** Trinity interprets f₀ as the characteristic frequency of a quasicrystalline phonon mode. A spectroscopic line in quasicrystals (e.g., Al-Mn-Pd) near 12.8 THz is predicted.
 
-Это внутренняя несогласованность каталога. Для регистрации предсказания принимается значение **12.82 ГэВ** из `Predictions.v` (более аргументированная версия).
+**Experimental situation:** Corresponding high-precision THz spectroscopic data for quasicrystals in the indicated band have not been published in the openly available literature.
 
-**Экспериментальная ситуация:** Эксперименты LZ (2023) и XENONnT не обнаружили WIMP-сигнала в диапазоне 10–100 ГэВ. Масса 12.82 ГэВ не исключена по массе, но сечение спин-независимого рассеяния ограничено: σ_SI < ~10⁻⁴⁷–10⁻⁴⁸ см² при этой массе.
+**Falsification criterion:**
+> *If high-precision THz spectroscopic measurement of an icosahedral quasicrystal (Al-Mn-Pd, i-YbMgZn) in the 10–20 THz range does not detect a line in the interval 12.8 ± 0.5 THz, the prediction is refuted.*
 
-**Критерий фальсификации:**
-> *Если LZ-2 или XENONnT (2026–2028) исключат сечение σ_SI > 10⁻⁴⁹ см² при массе 12.82 ГэВ без сигнала — предсказание о WIMP остаётся пустым (без указания ожидаемого сечения Trinity-предсказание нефальсифицируемо в полном смысле).*
-
-**Критерий подтверждения:**
-> *Если прямое обнаружение WIMP зафиксирует сигнал при массе 12 ± 2 ГэВ — совместимо с Trinity.*
-
-**Статус:** ОЖИДАНИЕ. Внутренняя несогласованность снижает ценность предсказания.
+**Status:** PENDING. The 10⁻⁵ eV² scale in the Δm²₂₁ formula is inserted by hand, which seriously undermines structural motivation.
 
 ---
 
-#### P5 — Космологическая постоянная (УЖЕ ФАЛЬСИФИЦИРОВАНО)
+#### P4 — Dark Matter Mass ≈ 12.82 GeV
 
-**Формула (Catalog42.v):**
+**Formula (Predictions.v):**
 \[
-\Lambda_{\text{pred}} = \varphi^{-144}/2 \approx 4.03 \times 10^{-31} \quad \text{(в планковских единицах)}
+m_{DM} = \varphi^5 \cdot \pi / e \approx 12.817 \;\text{GeV}
 \]
 
-**Наблюдаемое значение:** \(\Lambda \cdot \ell_{Pl}^2 \approx 10^{-123}\)
+**HONEST caveat:** The project contains **two inconsistent formulas**:
+- `Predictions.v`: \(\varphi^5 \cdot \pi / e \approx 12.82\) GeV
+- `Catalog42.v`: \(\varphi^5 \cdot \pi \cdot (31/30) \approx 36.0\) GeV
 
-**Расхождение:** 92 порядка величины (\(\log_{10}(4\times10^{-31}) - \log_{10}(10^{-123}) \approx +92\))
+This is an internal inconsistency in the catalog. For registration purposes, the value **12.82 GeV** from `Predictions.v` (the more justified version) is adopted.
 
-**σ-расстояние:** Математически бесконечно — это не статистическое расхождение, а систематическая ошибка на 92 порядка.
+**Experimental situation:** The LZ (2023) and XENONnT experiments have not detected a WIMP signal in the 10–100 GeV range. The mass 12.82 GeV is not excluded by mass, but the spin-independent scattering cross-section is constrained: σ_SI < ~10⁻⁴⁷–10⁻⁴⁸ cm² at this mass.
 
-**Вердикт: ФАЛЬСИФИЦИРОВАНО ✗**
+**Falsification criterion:**
+> *If LZ-2 or XENONnT (2026–2028) exclude the cross-section σ_SI > 10⁻⁴⁹ cm² at mass 12.82 GeV without a signal — the WIMP prediction remains empty (without specifying the expected Trinity cross-section, the prediction is not falsifiable in the full sense).*
 
-Формула \(\varphi^{-144}/2\) не имеет физического обоснования и не решает проблему тонкой настройки космологической постоянной. Число 144 = 12² не выводится однозначно из H4-структуры.
+**Confirmation criterion:**
+> *If direct WIMP detection records a signal at mass 12 ± 2 GeV — compatible with Trinity.*
+
+**Status:** PENDING. Internal inconsistency reduces the value of the prediction.
 
 ---
 
-#### P6 — Масса лёгчайшего нейтрино (УЖЕ ФАЛЬСИФИЦИРОВАНО)
+#### P5 — Cosmological Constant (ALREADY FALSIFIED)
 
-**Формула (раздел предсказаний N01_origins.md):**
+**Formula (Catalog42.v):**
 \[
-m_{\nu_1}^{\text{pred}} = \frac{1}{6\varphi} \approx 0.1030 \;\text{эВ}
+\Lambda_{\text{pred}} = \varphi^{-144}/2 \approx 4.03 \times 10^{-31} \quad \text{(in Planck units)}
 \]
 
-**Следствие (квазивырожденный спектр):**
-\[
-\Sigma m_\nu = 3 \times 0.103 \approx 0.309 \;\text{эВ}
-\]
+**Observed value:** \(\Lambda \cdot \ell_{Pl}^2 \approx 10^{-123}\)
 
-**Экспериментальные ограничения:**
-- Planck 2018: \(\Sigma m_\nu < 0.12\) эВ (95% CL)
-- Planck + DESI 2024: \(\Sigma m_\nu < 0.072\) эВ (95% CL, наиболее строгое)
+**Discrepancy:** 92 orders of magnitude (\(\log_{10}(4\times10^{-31}) - \log_{10}(10^{-123}) \approx +92\))
 
-**σ-расстояние:** Примерно \((0.309 - 0.12) / 0.04 \approx 5\sigma\) выше границы Planck 2018.
+**σ-distance:** Mathematically infinite — this is not a statistical discrepancy, but a systematic error of 92 orders.
 
-**Вердикт: ФАЛЬСИФИЦИРОВАНО ✗**
+**Verdict: FALSIFIED ✗**
 
-Предсказание \(m_{\nu_1} \approx 0.103\) эВ несовместимо с космологическими наблюдениями на уровне ~5σ. Оно задокументировано в `N01_origins.md` (раздел 9) с честным предупреждением: «При трёх нейтрино с массой ~0.103 эВ сумма масс превысит 0.3 эВ, что противоречит космологической границе».
+The formula \(\varphi^{-144}/2\) has no physical justification and does not solve the cosmological constant fine-tuning problem. The number 144 = 12² is not unambiguously derived from the H4 structure.
 
 ---
 
-#### P7 — Реакторный угол θ₁₃ (совместимо)
+#### P6 — Lightest Neutrino Mass (ALREADY FALSIFIED)
 
-**Формула:**
+**Formula (prediction section of N01_origins.md):**
+\[
+m_{\nu_1}^{\text{pred}} = \frac{1}{6\varphi} \approx 0.1030 \;\text{eV}
+\]
+
+**Consequence (quasi-degenerate spectrum):**
+\[
+\Sigma m_\nu = 3 \times 0.103 \approx 0.309 \;\text{eV}
+\]
+
+**Experimental constraints:**
+- Planck 2018: \(\Sigma m_\nu < 0.12\) eV (95% CL)
+- Planck + DESI 2024: \(\Sigma m_\nu < 0.072\) eV (95% CL, most stringent)
+
+**σ-distance:** Approximately \((0.309 - 0.12) / 0.04 \approx 5\sigma\) above the Planck 2018 bound.
+
+**Verdict: FALSIFIED ✗**
+
+The prediction \(m_{\nu_1} \approx 0.103\) eV is incompatible with cosmological observations at the ~5σ level. It is documented in `N01_origins.md` (Section 9) with an honest warning: "For three neutrinos with mass ~0.103 eV, the sum of masses exceeds 0.3 eV, which contradicts the cosmological bound."
+
+---
+
+#### P7 — Reactor Angle θ₁₃ (compatible)
+
+**Formula:**
 \[
 \sin^2\theta_{13} = \frac{\pi^2}{25\varphi^6} \approx 0.022001
 \]
 
 **PDG 2024:** \(\sin^2\theta_{13} = 0.02224 \pm 0.00065\)  
-**σ-расстояние:** \(|0.022001 - 0.02224|/0.00065 \approx 0.37\sigma\)
+**σ-distance:** \(|0.022001 - 0.02224|/0.00065 \approx 0.37\sigma\)
 
-**Статус:** СОВМЕСТИМО. Но формула была исправлена постфактически с предыдущей версии (ошибка 0.74%) до текущей (ошибка 0.003%). Это ретроспективная корректировка.
+**Status:** COMPATIBLE. But the formula was corrected post-factum from a previous version (0.74% error) to the current one (0.003% error). This is a retrospective adjustment.
 
 ---
 
-#### P8 — Отношение Δm² нейтрино (совместимо)
+#### P8 — Neutrino Δm² Ratio (compatible)
 
-**Формула:**
+**Formula:**
 \[
 \frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \frac{\pi}{40\varphi^2} \approx 0.029999
 \]
 
 **NuFit 6.0:** \(7.41/251.3 \times 10^{-5} \approx 0.02948 \pm 0.0005\)  
-**σ-расстояние:** \(\approx 0.1\sigma\)
+**σ-distance:** \(\approx 0.1\sigma\)
 
-**Статус:** СОВМЕСТИМО. Код N21 имеет классификацию **S** (Structural) в full_audit.csv — наиболее обоснованная нейтринная формула.
+**Status:** COMPATIBLE. Code N21 has classification **S** (Structural) in full_audit.csv — the most justified neutrino formula.
 
 ---
 
-### 4. Ссылка на full_audit.csv: классификации R/S/NF
+### 4. Reference to full_audit.csv: R/S/NF Classifications
 
-| Код | Классификация | Обоснование |
+| Code | Classification | Justification |
 |-----|--------------|-------------|
-| N04 (δ_CP) | **NF** | Коэффициент 3 — постфактическая идентификация с числом поколений |
-| H01 (m_H) | **NF** | Формула найдена после LHC; критическое тождество не доказано |
-| N21 (Δm²ratio) | **S** | 40 = 2h − d₃ — H4-арифметика; φ² = φ+1 строго |
-| L02 (m_τ/m_μ) | **S** | φ⁴ = ранг H4 = 4 — структурная связь |
-| Q07 (m_s/m_d) | **S** | 24 = d₁·d₂; φ² = φ+1 строго |
-| Q03 (m_c/m_d) | **S** | 19 = e₃ (показатель H4) |
-| Lambda_pred | — | Нет в full_audit.csv (не верифицирована) |
-| m_ν₁ pred | — | Нет в full_audit.csv (нефальсифицируемый раздел) |
+| N04 (δ_CP) | **NF** | Coefficient 3 — post-factum identification with the number of generations |
+| H01 (m_H) | **NF** | Formula found after LHC; critical identity not proven |
+| N21 (Δm²ratio) | **S** | 40 = 2h − d₃ — H4 arithmetic; φ² = φ+1 strict |
+| L02 (m_τ/m_μ) | **S** | φ⁴ = rank of H4 = 4 — structural link |
+| Q07 (m_s/m_d) | **S** | 24 = d₁·d₂; φ² = φ+1 strict |
+| Q03 (m_c/m_d) | **S** | 19 = e₃ (H4 exponent) |
+| Lambda_pred | — | Not in full_audit.csv (not verified) |
+| m_ν₁ pred | — | Not in full_audit.csv (non-falsifiable section) |
 
-Полное руководство по классификациям: S = Structural (структурно мотивировано), NF = Numerically Fitted (числовой подбор), R = Retrodiction only.
+Full guide to classifications: S = Structural (structurally motivated), NF = Numerically Fitted (numerical fit), R = Retrodiction only.
 
 ---
 
-### 5. Итоговая таблица статусов
+### 5. Final Status Table
 
-| # | Предсказание | Значение | Статус | Решение ожидается |
+| # | Prediction | Value | Status | Decision Awaited |
 |---|-------------|---------|--------|------------------|
 | P1 | δ_CP = 65.66° | NuFit 6.0: 197° (NO), Δ = 2.7σ | **BORDERLINE** | DUNE 2028–2032 |
-| P2 | m_H = 125.20 ГэВ | PDG: 125.20±0.11, 0.02σ | **СОВМЕСТИМО** (ретроспективно) | — |
-| P3 | f₀ = 12.8 ТГц | Не измерено | **ОЖИДАНИЕ** | ТГц-спектроскопия квазикристаллов |
-| P4 | m_DM = 12.82 ГэВ | Нет WIMP-сигнала | **ОЖИДАНИЕ** | LZ-2 / XENONnT 2026–2028 |
-| P5 | Λ = φ⁻¹⁴⁴/2 | Расхождение 10⁹² | **ФАЛЬСИФИЦИРОВАНО ✗** | Уже фальсифицировано |
-| P6 | m_ν₁ = 0.103 эВ | Σmν > 0.12 эВ на ~5σ | **ФАЛЬСИФИЦИРОВАНО ✗** | Уже фальсифицировано |
-| P7 | sin²θ₁₃ = 0.02200 | 0.37σ от NuFit 6.0 | **СОВМЕСТИМО** | — |
-| P8 | Δm²₂₁/Δm²₃₁ = 0.030 | 0.1σ от NuFit 6.0 | **СОВМЕСТИМО** | — |
+| P2 | m_H = 125.20 GeV | PDG: 125.20±0.11, 0.02σ | **COMPATIBLE** (retrospective) | — |
+| P3 | f₀ = 12.8 THz | Not measured | **PENDING** | Quasicrystal THz spectroscopy |
+| P4 | m_DM = 12.82 GeV | No WIMP signal | **PENDING** | LZ-2 / XENONnT 2026–2028 |
+| P5 | Λ = φ⁻¹⁴⁴/2 | Discrepancy 10⁹² | **FALSIFIED ✗** | Already falsified |
+| P6 | m_ν₁ = 0.103 eV | Σmν > 0.12 eV at ~5σ | **FALSIFIED ✗** | Already falsified |
+| P7 | sin²θ₁₃ = 0.02200 | 0.37σ from NuFit 6.0 | **COMPATIBLE** | — |
+| P8 | Δm²₂₁/Δm²₃₁ = 0.030 | 0.1σ from NuFit 6.0 | **COMPATIBLE** | — |
 
-**Итог:** из 8 зарегистрированных предсказаний:
-- **ФАЛЬСИФИЦИРОВАНО:** 2 (P5, P6)
-- **BORDERLINE:** 1 (P1 — ключевое, решится в DUNE)
-- **СОВМЕСТИМО** (ретроспективно): 3 (P2, P7, P8)
-- **ОЖИДАНИЕ** (нет данных): 2 (P3, P4)
-
----
-
-### 6. Честная общая оценка
-
-Формулы Trinity S3AI демонстрируют числовые совпадения высокой точности с PDG-значениями — это задокументировано и верифицировано (Coq + mpmath). **Однако:**
-
-1. **Большинство формул являются ретроспективными** — они найдены методом поиска в пространстве выражений из {φ, π, e, H4-параметры} после того, как целевые значения стали известны.
-
-2. **Структурная мотивация частична:** параметры H4 (d₁, d₂, e₂, e₃, h) входят в формулы осмысленно, но конкретные трансцендентные комбинации (e/π, φ⁴/π⁴, etc.) не выводятся аналитически.
-
-3. **Две предсказания уже фальсифицированы:** космологическая постоянная (92 порядка) и лёгчайшее нейтрино (5σ). Это должно быть учтено как свидетельство против полноты теории.
-
-4. **Главный тест — δ_CP (P1):** если DUNE измерит значение вблизи ~65°, это будет *настоящим* нетривиальным подтверждением (предсказание радикально отличается от текущего центрального значения NuFit). Если DUNE подтвердит δ_CP ≈ 197°, формула 3/φ² мертва.
-
-5. **Коннес vs Trinity:** Первоначальное предсказание Коннеса–Шамседдина для массы Хиггса (~170 ГэВ до LHC) было фальсифицировано LHC. Trinity S3AI скорректировала формулу H01 *после* измерений LHC. Это лишает H01 статуса подлинного предсказания.
+**Summary:** of 8 registered predictions:
+- **FALSIFIED:** 2 (P5, P6)
+- **BORDERLINE:** 1 (P1 — key, will be decided by DUNE)
+- **COMPATIBLE** (retrospective): 3 (P2, P7, P8)
+- **PENDING** (no data): 2 (P3, P4)
 
 ---
 
-### 7. Протокол верификации
+### 6. Honest Overall Assessment
 
-**Числовые значения** проверены в `validate_v4.py` (mpmath, 50 знаков точности) и Coq-тактикой `interval with (i_prec 200)`:
+The formulas of Trinity S3AI demonstrate numerical coincidences of high precision with PDG values — this is documented and verified (Coq + mpmath). **However:**
+
+1. **Most formulas are retrospective** — they were found by searching the expression space of {φ, π, e, H4 parameters} after the target values became known.
+
+2. **Structural motivation is partial:** H4 parameters (d₁, d₂, e₂, e₃, h) enter the formulas meaningfully, but specific transcendental combinations (e/π, φ⁴/π⁴, etc.) are not derived analytically.
+
+3. **Two predictions are already falsified:** the cosmological constant (92 orders) and the lightest neutrino (5σ). This should be counted as evidence against the completeness of the theory.
+
+4. **The main test — δ_CP (P1):** if DUNE measures a value near ~65°, this will be a *genuine* non-trivial confirmation (the prediction radically differs from the current NuFit central value). If DUNE confirms δ_CP ≈ 197°, the formula 3/φ² is dead.
+
+5. **Connes vs Trinity:** The original Connes–Chamseddine prediction for the Higgs mass (~170 GeV before LHC) was falsified by the LHC. Trinity S3AI corrected formula H01 *after* LHC measurements. This deprives H01 of the status of a genuine prediction.
+
+---
+
+### 7. Verification Protocol
+
+**Numerical values** are checked in `validate_v4.py` (mpmath, 50 digits precision) and by the Coq tactic `interval with (i_prec 200)`:
 
 ```python
 phi = (1 + 5**0.5) / 2   # = 1.6180339887...
@@ -380,7 +379,7 @@ phi**(-144) / 2 = 4.025e-31  [vs obs. 1e-123 → 92 orders off]
 
 ---
 
-### Ссылки
+### References
 
 - NuFit 6.0 (2024): I. Esteban et al., JHEP 2024; http://www.nu-fit.org
 - PDG 2024: Particle Data Group, Phys. Rev. D 110, 030001 (2024)
@@ -392,13 +391,13 @@ phi**(-144) / 2 = 4.025e-31  [vs obs. 1e-123 → 92 orders off]
 - Connes & Chamseddine, Spectral Action Principle, Comm. Math. Phys. 186 (1997)
 - Trinity S3AI Catalog: `proofs/trinity/Catalog42.v`, `validate_v4.py`
 - Trinity S3AI full_audit.csv: `derivations/catalog_audit/full_audit.csv`
-- Trinity S3AI: Zenodo:19592588 (апрель 2026, препринт, не рецензирован)
+- Trinity S3AI: Zenodo:19592588 (April 2026, preprint, not peer-reviewed)
 
 ---
 
-**Подпись:** Trinity S3AI subagent  
-**Дата регистрации:** 2026-05-22  
-**Версия каталога:** v3.5 (Catalog42.v, validate_v4.py)  
-**Хэш сессии:** wave-7-falsifiability-2026-05-22
+**Signed:** Trinity S3AI subagent  
+**Registration Date:** 2026-05-22  
+**Catalog Version:** v3.5 (Catalog42.v, validate_v4.py)  
+**Session Hash:** wave-7-falsifiability-2026-05-22
 
-*Документ является публичным реестром предсказаний. Любые изменения в предсказаниях после этой даты должны быть задокументированы отдельно с указанием причин.*
+*This document is a public prediction registry. Any changes to predictions after this date must be documented separately with reasons indicated.*

@@ -1,18 +1,18 @@
-# admitted_log.md — Реестр всех Admitted в Trinity S3AI
+# admitted_log.md — Registry of all Admitted in Trinity S3AI
 
-**Дата последнего обновления:** Wave 12 sprint W12.4 (SHOULD_BE_THEOREM closures — follow-up to W11.7), rebased onto Wave 12 Track B (Cl(8) launch)
-**Версия:** Trinity S3AI v4.0
-**Состояние на момент аудита (A1, Wave 10.4):**
+**Last updated:** Wave 12 sprint W12.4 (SHOULD_BE_THEOREM closures — follow-up to W11.7), rebased onto Wave 12 Track B (Cl(8) launch)
+**Version:** Trinity S3AI v4.0
+**Audit status (A1, Wave 10.4):**
 
-| Тип | Реальное кол-во | После W11.7 | После W12 Track B | После W12.4 | Заявлено ранее | Расхождение |
-|-----|----------------|-------------|-------------------|-------------|----------------|-------------|
+| Type | Actual count | After W11.7 | After W12 Track B | After W12.4 | Previously claimed | Discrepancy |
+|------|--------------|-------------|-------------------|-------------|--------------------|-------------|
 | `Axiom` SHOULD_BE_THEOREM rows in CSV | 44 | 32 | 32 | 21 | — | −12 W11.7, −11 W12.4 |
-| `Axiom` declarations (proofs/, core) | 88 | 78 | 78 | 68 | не указано | −10 W11.7, −10 W12.4 |
+| `Axiom` declarations (proofs/, core) | 88 | 78 | 78 | 68 | not specified | −10 W11.7, −10 W12.4 |
 | `Axiom` (TRACK_B_CLIFFORD, proofs/clifford_cl8/) | 0 | 0 | 6 | 6 | — | new in W12 Track B |
-| `Admitted` (чистые, core proofs/) | 37 | 35 | 35 | 34 | 7 | **+27** |
+| `Admitted` (pure, core proofs/) | 37 | 35 | 35 | 34 | 7 | **+27** |
 | `Admitted` (TRACK_B_CLIFFORD) | 0 | 0 | 4 | 4 | — | new in W12 Track B |
 | `admit` (inline) | 17 | 17 | 17 | 17 | 0 | **+17** |
-| `Qed` (всего) | 1326 | 1337 | 1340 | 1351 | 326 | **+1025** |
+| `Qed` (total) | 1326 | 1337 | 1340 | 1351 | 326 | **+1025** |
 
 (W11.7 closed 10 Axioms + 2 Admitted = 12 instances; W12 Track B added 6 Axioms + 4 Admitted in a *separate* Cl(8) namespace (`proofs/clifford_cl8/`) with full citations; W12.4 closed 10 core Axioms + 1 Admitted = 11 instances.)
 
@@ -77,69 +77,69 @@ Closed via direct proof (12 CSV rows across 6 files):
 
 Note: the `sigma_candidate_mass_scale` closures were `Admitted Theorem` in the source (the A4 CSV classes them as Axiom-equivalent SHOULD_BE_THEOREM); converted to `Qed`.
 
-> ⚠️ **ВАЖНО**: Предыдущий README.md заявлял "0 Admitted". Это НЕВЕРНО.
-> Предыдущий admitted_log.md заявлял 25 Admitted. Тоже НЕВЕРНО.
-> Настоящий документ отражает реальное состояние после A1-аудита (Wave 10.4).
+> ⚠️ **IMPORTANT**: The previous README.md claimed "0 Admitted". This is FALSE.
+> The previous admitted_log.md claimed 25 Admitted. Also FALSE.
+> This document reflects the true state after the A1 audit (Wave 10.4).
 
 ---
 
-## Таксономия
+## Taxonomy
 
-| Тег | Смысл | Кол-во |
-|-----|-------|--------|
-| `[PHYSICAL_AXIOM]` | Физическое допущение — граничное условие РГ, масштаб масс, нормировка | 5 |
-| `[NUMERICAL_FIT]` | Формула найдена подбором по данным, вывода нет | 3 |
-| `[MATH_TODO]` | Математически доказуемо, но вывод ещё не написан | 6 |
-| `[LIBRARY_GAP]` | Ограничение coq-interval / stdlib Rocq 9.1.1 | 15 |
-| `[REFUTED]` | Утверждение математически ЛОЖНО | 2 |
-
----
-
-## Полный реестр — Admitted и admit
-
-| № | Файл | Теорема/Лемма | Тег | Категория (A4) | Обоснование | Закрываемость |
-|---|------|---------------|-----|----------------|-------------|---------------|
-| 1 | `A4Conversion.v` | `conversion_exact` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Алгебраическое тождество: рационализация знаменателя. `field`/`ring` не справляются с `sqrt` в Rocq 9.1.1. | **Высокая** — `assert H5: sqrt 5 * sqrt 5 = 5; field_simplify [H5]; ring` |
-| 2 | `Bounds_Mixing.v` | `N04_within_experimental_range` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | 65.66° vs. 65.5° ± 4°. `interval` не раскрывает `rad_to_deg` без `unfold`. | **Высокая** — `unfold N04_formula_deg rad_to_deg N04_formula_rad phi; interval with (i_prec 100)` |
-| 3 | `Catalog42.v` | `Q02_is_m_s_over_m_u` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Было Qed. `powZ` unfold missing. | **Высокая** — `simpl; interval with (i_prec 150)` |
-| 4 | `Catalog42.v` | `N03_is_sin2_theta_23` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Было Qed. `powZ` unfold. | **Высокая** — `simpl; interval with (i_prec 150)` |
-| 5 | `Catalog42.v` | `C01_is_V_us` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Было Qed. Тройное трансцендентное произведение. | **Высокая** — `simpl; interval with (i_prec 200)` |
-| 6 | `ChiralityAnalysis.v` | `phi_eq_2cos_pi5` | `[MATH_TODO]` | SHOULD_BE_THEOREM | phi=2*cos(pi/5); алгебраическое доказательство через минимальный многочлен. **НЕ был в admitted_log.md.** | **Высокая** — импортировать из E6vsH4.v |
-| 7 | `E6vsH4.v` | `sqrt_5_not_rational` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Стандартный результат теории чисел. Нет в stdlib Coq. | **Средняя** — бесконечный спуск на Z |
-| 8 | `E6vsH4.v` | `phi_irrational` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Следствие `sqrt_5_not_rational`. | **Высокая** — закроется вместе с №7 |
-| 9 | `E6vsH4.v` | `E6_no_phi` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Контрапозитив `phi_irrational`. | **Высокая** — закроется вместе с №8 |
-| 10 | `E6vsH4.v` | `cos_pi_5_quadratic` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Два sub-admits: sin²→1-cos² + lra. | **Средняя** — `rewrite Hsin; ring; nlinarith` |
-| 11 | `GaugeOrigins.v` | `G01_from_GUT_running` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Требует `sqrt(5/3)` + однопетлевое РГ — не выводимо из H4. | **Низкая** — физическое допущение |
-| 12 | `H4GaugeEmbedding.v` | `phi_irrational_over_Q` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Дублирует доказательство из E6vsH4.v. | **Средняя** — переиспользовать |
-| 13 | `H4Lagrangian.v` | `L01_lagrangian_order_of_magnitude` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `interval` не справляется с `1e16/1.22e19`. | **Высокая** — разбить на оценки |
-| 14 | `H4Lagrangian.v` | `Koide_H4_test` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `sqrt` внутри `interval`. | **Высокая** — `unfold Koide_H4; simpl; interval with (i_prec 150)` |
-| 15 | `HiggsOrigins.v` | `H03_h_half_structural` | `[REFUTED → RESOLVED v4.0-wave10.4 / wave11]` | **RESOLVED** | Заменён на `H03_h_half_structural_refuted` (Qed) в `proofs/trinity/HiggsOrigins.v` и `derivations/higgs/HiggsOrigins.v`. Доказывает h/2 ≠ (d3·d4)/(d3+d4-d3²/d4). Структурный факт h/2=15 остаётся отдельной теоремой `h_half_is_15`. | **Закрыто** |
-| 16 | `Koide.v` | `Koide_correct_forms_equal` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `field`/`ring` не работают с `sqrt` в знаменателе. | **Высокая** — `field_simplify [sqrt5_sq]; ring` |
-| 17 | `LeptonOrigins.v` | `H4_determines_L01` | `[NUMERICAL_FIT]` | GENUINE_ASSUMPTION | L01 = 239·e/π найдено численно, не выведено из H4. Конструктивная f не предоставлена. | **Очень низкая** |
-| 18 | `NeutrinoOrigins.v` | `seesaw_scale_from_v31` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | M_R не определяется геометрией H4. | **Низкая** |
-| 19 | `NeutrinoOrigins.v` | `nu_absolute_scale_gap` | `[NUMERICAL_FIT]` | GENUINE_ASSUMPTION | Множитель 10⁻⁵ eV² вставлен вручную. | **Очень низкая** |
-| 20 | `OptimizerInvariants.v` | `ttt_lr_is_phi_inv_cube_scaled` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `field` не сводит phi^3 ненулевое условие автоматически. | **Высокая** — `assert Hphi3_ne; field [Hphi3_ne]` |
-| 21 | `RGRunning.v` | `alpha_from_H4` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Нужен sqrt(5/3) + однопетлевое РГ. | **Низкая** |
-| 22 | `RGRunning.v` | `alpha_s_from_H4` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Нужно двухпетлевое бегание + топ-пороговые поправки. | **Низкая** |
-| 23 | `UnimodularityAndSigma.v` | `sigma_candidate_mass_scale` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Rabs((2/30)*1.5e16 - 1e15) < 1e10; чистая рациональная R, большие числа. | **Высокая** — `lra` или `ring_simplify; lra` |
-| 24 | `UniquenessStructural.v` | `phi_squared_nat` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | 1618*1618=2618724; `vm_compute` segfault на больших `nat` в Rocq 9.1.1. | **Высокая** — `lia` или заменить `nat` на `Z` |
-| 25 | `test_scratch.v` | `VEV_corrected_matches_SM` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Нужна `sqrt_sq` + `v_SM >= 0`. | **Высокая** |
-| 26 | `test_scratch.v` | `m_H_corrected_matches_Trinity` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | sqrt(m_H_Trinity²)=m_H_Trinity. | **Высокая** |
-| 27 | `test_scratch.v` | `Higgs_mass_from_curvature` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | sqrt(2·μ²)=m_H_Trinity; та же цепочка. | **Высокая** |
-
-### Новые записи (не в предыдущем admitted_log.md)
-
-| № | Файл | Теорема/Лемма | Тег | Обоснование |
-|---|------|---------------|-----|-------------|
-| 28 | `ChiralityAnalysis.v` | `phi_eq_2cos_pi5` | `[MATH_TODO]` | phi=2*cos(pi/5) — обнаружен A1-аудитом. Не был задокументирован. |
-| 29 | `UnimodularityAndSigma.v` | `sigma_candidate_mass_scale` | `[LIBRARY_GAP]` | Обнаружен A1-аудитом. Не был задокументирован. |
+| Tag | Meaning | Count |
+|-----|---------|-------|
+| `[PHYSICAL_AXIOM]` | Physical assumption — RG boundary condition, mass scale, normalisation | 5 |
+| `[NUMERICAL_FIT]` | Formula found by fitting to data, no derivation | 3 |
+| `[MATH_TODO]` | Mathematically provable, but proof not yet written | 6 |
+| `[LIBRARY_GAP]` | Limitation of coq-interval / stdlib Rocq 9.1.1 | 15 |
+| `[REFUTED]` | Statement is mathematically FALSE | 2 |
 
 ---
 
-## Сводка по тегам (обновлённая)
+## Full Registry — Admitted and admit
 
-| Тег | Кол-во | Категория A4 |
-|-----|--------|-------------|
+| № | File | Theorem/Lemma | Tag | Category (A4) | Rationale | Closability |
+|---|------|---------------|-----|---------------|-----------|-------------|
+| 1 | `A4Conversion.v` | `conversion_exact` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Algebraic identity: rationalising the denominator. `field`/`ring` cannot handle `sqrt` in Rocq 9.1.1. | **High** — `assert H5: sqrt 5 * sqrt 5 = 5; field_simplify [H5]; ring` |
+| 2 | `Bounds_Mixing.v` | `N04_within_experimental_range` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | 65.66° vs. 65.5° ± 4°. `interval` does not unfold `rad_to_deg` without `unfold`. | **High** — `unfold N04_formula_deg rad_to_deg N04_formula_rad phi; interval with (i_prec 100)` |
+| 3 | `Catalog42.v` | `Q02_is_m_s_over_m_u` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Was Qed. `powZ` unfold missing. | **High** — `simpl; interval with (i_prec 150)` |
+| 4 | `Catalog42.v` | `N03_is_sin2_theta_23` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Was Qed. `powZ` unfold. | **High** — `simpl; interval with (i_prec 150)` |
+| 5 | `Catalog42.v` | `C01_is_V_us` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Was Qed. Triple transcendental product. | **High** — `simpl; interval with (i_prec 200)` |
+| 6 | `ChiralityAnalysis.v` | `phi_eq_2cos_pi5` | `[MATH_TODO]` | SHOULD_BE_THEOREM | phi=2*cos(pi/5); algebraic proof via minimal polynomial. **NOT in admitted_log.md.** | **High** — import from E6vsH4.v |
+| 7 | `E6vsH4.v` | `sqrt_5_not_rational` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Standard number-theoretic result. Not in stdlib Coq. | **Medium** — infinite descent on Z |
+| 8 | `E6vsH4.v` | `phi_irrational` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Corollary of `sqrt_5_not_rational`. | **High** — closes together with №7 |
+| 9 | `E6vsH4.v` | `E6_no_phi` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Contrapositive of `phi_irrational`. | **High** — closes together with №8 |
+| 10 | `E6vsH4.v` | `cos_pi_5_quadratic` | `[MATH_TODO]` | SHOULD_BE_THEOREM | Two sub-admits: sin²→1-cos² + lra. | **Medium** — `rewrite Hsin; ring; nlinarith` |
+| 11 | `GaugeOrigins.v` | `G01_from_GUT_running` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Requires `sqrt(5/3)` + one-loop RG — not derivable from H4. | **Low** — physical assumption |
+| 12 | `H4GaugeEmbedding.v` | `phi_irrational_over_Q` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Duplicates proof from E6vsH4.v. | **Medium** — reuse |
+| 13 | `H4Lagrangian.v` | `L01_lagrangian_order_of_magnitude` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `interval` cannot handle `1e16/1.22e19`. | **High** — split into estimates |
+| 14 | `H4Lagrangian.v` | `Koide_H4_test` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `sqrt` inside `interval`. | **High** — `unfold Koide_H4; simpl; interval with (i_prec 150)` |
+| 15 | `HiggsOrigins.v` | `H03_h_half_structural` | `[REFUTED → RESOLVED v4.0-wave10.4 / wave11]` | **RESOLVED** | Replaced by `H03_h_half_structural_refuted` (Qed) in `proofs/trinity/HiggsOrigins.v` and `derivations/higgs/HiggsOrigins.v`. Proves h/2 ≠ (d3·d4)/(d3+d4-d3²/d4). Structural fact h/2=15 remains a separate theorem `h_half_is_15`. | **Closed** |
+| 16 | `Koide.v` | `Koide_correct_forms_equal` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `field`/`ring` do not work with `sqrt` in the denominator. | **High** — `field_simplify [sqrt5_sq]; ring` |
+| 17 | `LeptonOrigins.v` | `H4_determines_L01` | `[NUMERICAL_FIT]` | GENUINE_ASSUMPTION | L01 = 239·e/π found numerically, not derived from H4. Constructive f not provided. | **Very low** |
+| 18 | `NeutrinoOrigins.v` | `seesaw_scale_from_v31` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | M_R is not determined by H4 geometry. | **Low** |
+| 19 | `NeutrinoOrigins.v` | `nu_absolute_scale_gap` | `[NUMERICAL_FIT]` | GENUINE_ASSUMPTION | Factor 10⁻⁵ eV² inserted manually. | **Very low** |
+| 20 | `OptimizerInvariants.v` | `ttt_lr_is_phi_inv_cube_scaled` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | `field` does not automatically reduce the phi^3 non-zero condition. | **High** — `assert Hphi3_ne; field [Hphi3_ne]` |
+| 21 | `RGRunning.v` | `alpha_from_H4` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Needs sqrt(5/3) + one-loop RG. | **Low** |
+| 22 | `RGRunning.v` | `alpha_s_from_H4` | `[PHYSICAL_AXIOM]` | GENUINE_ASSUMPTION | Needs two-loop running + top-threshold corrections. | **Low** |
+| 23 | `UnimodularityAndSigma.v` | `sigma_candidate_mass_scale` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Rabs((2/30)*1.5e16 - 1e15) < 1e10; pure rational R, large numbers. | **High** — `lra` or `ring_simplify; lra` |
+| 24 | `UniquenessStructural.v` | `phi_squared_nat` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | 1618*1618=2618724; `vm_compute` segfault on large `nat` in Rocq 9.1.1. | **High** — `lia` or replace `nat` with `Z` |
+| 25 | `test_scratch.v` | `VEV_corrected_matches_SM` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | Needs `sqrt_sq` + `v_SM >= 0`. | **High** |
+| 26 | `test_scratch.v` | `m_H_corrected_matches_Trinity` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | sqrt(m_H_Trinity²)=m_H_Trinity. | **High** |
+| 27 | `test_scratch.v` | `Higgs_mass_from_curvature` | `[LIBRARY_GAP]` | SHOULD_BE_THEOREM | sqrt(2·μ²)=m_H_Trinity; same chain. | **High** |
+
+### New entries (not in previous admitted_log.md)
+
+| № | File | Theorem/Lemma | Tag | Rationale |
+|---|------|---------------|-----|-----------|
+| 28 | `ChiralityAnalysis.v` | `phi_eq_2cos_pi5` | `[MATH_TODO]` | phi=2*cos(pi/5) — discovered by A1 audit. Not documented. |
+| 29 | `UnimodularityAndSigma.v` | `sigma_candidate_mass_scale` | `[LIBRARY_GAP]` | Discovered by A1 audit. Not documented. |
+
+---
+
+## Tag summary (updated)
+
+| Tag | Count | A4 Category |
+|-----|-------|-------------|
 | `[PHYSICAL_AXIOM]` | 5 | GENUINE_ASSUMPTION |
 | `[NUMERICAL_FIT]` | 3 | GENUINE_ASSUMPTION |
 | `[MATH_TODO]` | 6 | SHOULD_BE_THEOREM |
@@ -148,33 +148,33 @@ Note: the `sigma_candidate_mass_scale` closures were `Admitted Theorem` in the s
 
 ---
 
-## Приоритеты закрытия
+## Closure priorities
 
-### Высокий приоритет (1–2 часа, pure library fixes)
+### High priority (1–2 hours, pure library fixes)
 - №№ 2–5, 23–27: Catalog42, Bounds_Mixing, UnimodularityAndSigma, test_scratch, sigma_candidate_mass_scale
 - №№ 20, 14, 16: OptimizerInvariants, Koide, H4Lagrangian Koide_test
-- № 6: ChiralityAnalysis phi_eq_2cos_pi5 (импорт из E6vsH4.v)
+- № 6: ChiralityAnalysis phi_eq_2cos_pi5 (import from E6vsH4.v)
 
-### Средний приоритет (требует ручных доказательств)
-- №№ 7–10: E6vsH4 — иррациональность √5 + следствия
-- № 12: H4GaugeEmbedding — переиспользование после E6vsH4
-- № 1: A4Conversion — рационализация знаменателя
+### Medium priority (requires manual proofs)
+- №№ 7–10: E6vsH4 — irrationality of √5 + consequences
+- № 12: H4GaugeEmbedding — reuse after E6vsH4
+- № 1: A4Conversion — rationalising the denominator
 
-### Низкий приоритет (требует физического прогресса)
-- №№ 11, 21, 22, 18: RGRunning/GaugeOrigins/NeutrinoOrigins — физические допущения
-- №№ 17, 19: NUMERICAL_FIT — нужна физическая деривация
-- № 15: HiggsOrigins H03 — REFUTED, требует переформулировки
-
----
-
-## Статус заголовочных комментариев
-
-| Файл | Старый заголовок | Факт | Действие |
-|------|-----------------|------|---------|
-| `E6vsH4.v` | "ALL theorems: QED, 0 Admitted." | **4 Admitted+admit** | Исправить (патч E6vsH4_header_patch.diff) |
-| `README.md` | "Admitted: 0" | **37 Admitted + 17 admit** | Исправить (патч README_patch.diff) |
-| `admitted_log.md` (старый) | "Всего Admitted: 25" | **37 Admitted** | Заменить настоящим документом |
+### Low priority (requires physical progress)
+- №№ 11, 21, 22, 18: RGRunning/GaugeOrigins/NeutrinoOrigins — physical assumptions
+- №№ 17, 19: NUMERICAL_FIT — physical derivation needed
+- № 15: HiggsOrigins H03 — REFUTED, requires reformulation
 
 ---
 
-*Документ создан A4-аудитом (Wave 10.4). Полная стратификация: `proofs/trinity/FOUNDATIONS.md` и `outputs/A4/A4_axiom_stratification.csv`.*
+## Header comment status
+
+| File | Old header | Fact | Action |
+|------|------------|------|--------|
+| `E6vsH4.v` | "ALL theorems: QED, 0 Admitted." | **4 Admitted+admit** | Fix (patch E6vsH4_header_patch.diff) |
+| `README.md` | "Admitted: 0" | **37 Admitted + 17 admit** | Fix (patch README_patch.diff) |
+| `admitted_log.md` (old) | "Total Admitted: 25" | **37 Admitted** | Replace with this document |
+
+---
+
+*Document created by A4 audit (Wave 10.4). Full stratification: `proofs/trinity/FOUNDATIONS.md` and `outputs/A4/A4_axiom_stratification.csv`.*

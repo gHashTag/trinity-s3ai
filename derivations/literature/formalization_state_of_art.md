@@ -1,469 +1,468 @@
-# Состояние формализации физики в доказательных ассистентах (2026)
-## Обзор для проекта trinity-s3ai (Coq/Rocq 9.1 + coq-interval)
+# State of Physics Formalization in Proof Assistants (2026)
+## Review for the trinity-s3ai project (Coq/Rocq 9.1 + coq-interval)
 
-*Составлено: июль 2026*
-
----
-
-## Введение
-
-Данный обзор охватывает текущее состояние формализации математики и физики в
-доказательных ассистентах — прежде всего Coq/Rocq и Lean 4, — применительно к
-задачам проекта trinity-s3ai: численная подгонка физических констант, доказательства
-с помощью coq-interval, честное разделение математических теорем и физических гипотез.
+*Compiled: July 2026*
 
 ---
 
-## 1. Вещественный анализ в Coq/Rocq: текущее состояние (2025–2026)
+## Introduction
 
-### 1.1 Стандартная библиотека Coq
-
-Стандартная библиотека Coq содержит аксиоматическую формализацию вещественных
-чисел (не конструктивную). Предоставляет основы: предел последовательности, производная
-через `derivable`, интеграл Римана. Серьёзный недостаток — использование зависимых
-типов для пределов и производных, что делает рассуждения громоздкими.
-
-**Ссылка:** [Coquelicot: A User-Friendly Library of Real Analysis for Coq](https://guillaume.melquiond.fr/doc/14-mcs.pdf)
-
-### 1.2 Coquelicot (версия 3.x)
-
-Консервативное расширение стандартной библиотеки. Ключевые улучшения:
-- Тотальные функции вместо зависимых типов для пределов, производных, интегралов.
-- Расширенные пределы: `R_bar = R ∪ {-∞, +∞}`.
-- Частные производные и параметрические интегралы.
-- Автоматизация доказательств дифференцируемости.
-- Поддержка многомерных функций.
-
-Совместима с Coq 8.5–9.x. Используется в coq-interval как зависимость.
-
-**Пример:** В Coquelicot формализованы функции Бесселя, одномерное волновое уравнение.
-
-**Ограничения:** Нет дифференциальных форм, многообразий, групп Ли.
-
-**Ссылка:** [http://coquelicot.saclay.inria.fr](http://coquelicot.saclay.inria.fr)
-
-### 1.3 MathComp Analysis (версия 1.9.0, февраль 2025)
-
-Библиотека реального анализа на основе Mathematical Components (MathComp 2.5.0, октябрь 2025).
-Отличается:
-- Классической математикой (LEM, аксиома выбора).
-- Фильтрами вместо ε-δ для пределов (вслед за Isabelle/HOL).
-- Тесной интеграцией с иерархией алгебраических структур MathComp.
-- Активной разработкой (44 релиза к 2025 г.).
-
-Содержит: меры, интегралы Лебега, топологию, нормированные пространства,
-основы теории вероятностей. Поддерживает Rocq 9.1+.
-
-**Ссылка:** [https://github.com/math-comp/analysis](https://github.com/math-comp/analysis)
-
-### 1.4 Дифференциальные формы в Coq/Rocq
-
-**Статус (2026): отсутствуют в экосистеме Coq/Rocq.**
-
-Нет библиотеки для дифференциальных форм на многообразиях в Coq. Внешние алгебры
-над кольцами есть в MathComp (`Algebra/`), но exterior calculus на многообразиях —
-открытая задача.
-
-### 1.5 Многообразия и группы Ли в Coq
-
-В Coq/Rocq отсутствует полноценная библиотека гладких многообразий, отображений
-де Рама, групп Ли. Это существенный пробел по сравнению с Lean 4.
+This review covers the current state of formalization of mathematics and physics in
+proof assistants — primarily Coq/Rocq and Lean 4 — as applied to the tasks of the
+trinity-s3ai project: numerical fitting of physical constants, proofs using
+coq-interval, and honest separation of mathematical theorems from physical hypotheses.
 
 ---
 
-## 2. Lean 4 / Mathlib: дифференциальная геометрия, теория Ли, теория представлений
+## 1. Real Analysis in Coq/Rocq: Current State (2025–2026)
 
-### 2.1 Гладкие многообразия (Mathlib)
+### 1.1 Coq Standard Library
 
-Lean 4 Mathlib содержит наиболее продвинутую на сегодня формализацию
-дифференциальной геометрии среди доказательных ассистентов:
+The Coq standard library contains an axiomatic formalization of real
+numbers (not constructive). It provides the basics: limit of a sequence, derivative
+via `derivable`, Riemann integral. A serious drawback is the use of dependent
+types for limits and derivatives, which makes reasoning cumbersome.
 
-- **Smooth manifolds with corners** — многообразия с углами включены в определение,
-  что не требует дублирования кода для многообразий с границей.
-- **`MDifferentiableAt I I' f x`** — дифференцируемость отображений между многообразиями.
-- **`mfderiv I I' f x`** — производная Фреше на многообразии (как непрерывное линейное
-  отображение касательных пространств).
-- **`tangentMap I I' f`** — производная как отображение касательных расслоений.
-- Интеграция с `fderiv` (производная Фреше в векторных пространствах).
+**Reference:** [Coquelicot: A User-Friendly Library of Real Analysis for Coq](https://guillaume.melquiond.fr/doc/14-mcs.pdf)
 
-**Ссылка:** [Mathlib.Geometry.Manifold.MFDeriv.Defs](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html)
+### 1.2 Coquelicot (version 3.x)
 
-### 2.2 Дифференциальные формы в Lean 4 (Mathlib)
+A conservative extension of the standard library. Key improvements:
+- Total functions instead of dependent types for limits, derivatives, integrals.
+- Extended limits: `R_bar = R ∪ {-∞, +∞}`.
+- Partial derivatives and parametric integrals.
+- Automation of differentiability proofs.
+- Support for multidimensional functions.
 
-Начиная с 2024 года в Mathlib появилась формализация внешней производной:
+Compatible with Coq 8.5–9.x. Used by coq-interval as a dependency.
+
+**Example:** In Coquelicot, Bessel functions and the one-dimensional wave equation are formalized.
+
+**Limitations:** No differential forms, manifolds, or Lie groups.
+
+**Reference:** [http://coquelicot.saclay.inria.fr](http://coquelicot.saclay.inria.fr)
+
+### 1.3 MathComp Analysis (version 1.9.0, February 2025)
+
+A real analysis library based on Mathematical Components (MathComp 2.5.0, October 2025).
+Distinguished by:
+- Classical mathematics (LEM, axiom of choice).
+- Filters instead of ε-δ for limits (following Isabelle/HOL).
+- Tight integration with the MathComp algebraic structure hierarchy.
+- Active development (44 releases by 2025).
+
+Contains: measures, Lebesgue integrals, topology, normed spaces,
+foundations of probability theory. Supports Rocq 9.1+.
+
+**Reference:** [https://github.com/math-comp/analysis](https://github.com/math-comp/analysis)
+
+### 1.4 Differential Forms in Coq/Rocq
+
+**Status (2026): absent in the Coq/Rocq ecosystem.**
+
+There is no library for differential forms on manifolds in Coq. Exterior algebras
+over rings exist in MathComp (`Algebra/`), but exterior calculus on manifolds is
+an open problem.
+
+### 1.5 Manifolds and Lie Groups in Coq
+
+Coq/Rocq lacks a full-fledged library of smooth manifolds, de Rham maps,
+or Lie groups. This is a significant gap compared to Lean 4.
+
+---
+
+## 2. Lean 4 / Mathlib: Differential Geometry, Lie Theory, Representation Theory
+
+### 2.1 Smooth Manifolds (Mathlib)
+
+Lean 4 Mathlib contains the most advanced formalization of
+differential geometry among proof assistants today:
+
+- **Smooth manifolds with corners** — manifolds with corners are included in the definition,
+  which avoids duplicating code for manifolds with boundary.
+- **`MDifferentiableAt I I' f x`** — differentiability of maps between manifolds.
+- **`mfderiv I I' f x`** — Fréchet derivative on a manifold (as a continuous linear
+  map between tangent spaces).
+- **`tangentMap I I' f`** — derivative as a map between tangent bundles.
+- Integration with `fderiv` (Fréchet derivative in vector spaces).
+
+**Reference:** [Mathlib.Geometry.Manifold.MFDeriv.Defs](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html)
+
+### 2.2 Differential Forms in Lean 4 (Mathlib)
+
+Starting from 2024, Mathlib acquired a formalization of the exterior derivative:
 
 ```
 Mathlib.Analysis.Calculus.DifferentialForm.Basic
 ```
 
-Определена внешняя производная `extDeriv` для дифференциальных n-форм на нормированных
-пространствах. Доказано `d ∘ d = 0`. Поддерживается согласование с pullback.
+The exterior derivative `extDeriv` is defined for differential n-forms on normed
+spaces. `d ∘ d = 0` is proven. Compatibility with pullback is supported.
 
-**Ссылка:** [Exterior derivative of a differential form](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/Calculus/DifferentialForm/Basic.html)
+**Reference:** [Exterior derivative of a differential form](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/Calculus/DifferentialForm/Basic.html)
 
-**Ограничение:** Формы на нормированных пространствах, не на произвольных многообразиях
-(работа продолжается, 2025–2026).
+**Limitation:** Forms on normed spaces, not on arbitrary manifolds
+(work in progress, 2025–2026).
 
-### 2.3 Алгебры Ли и модули (Mathlib)
+### 2.3 Lie Algebras and Modules (Mathlib)
 
-Lean 4 Mathlib содержит обширную теорию алгебр Ли:
+Lean 4 Mathlib contains an extensive theory of Lie algebras:
 
-- `Mathlib.Algebra.Lie.Basic` — кольца Ли, алгебры Ли над коммутативными кольцами,
-  модули Ли, морфизмы, скобка Ли, тождество Якоби.
-- Johan Commelin (май 2024) доказал ряд важных структурных свойств алгебр Ли.
-- Работы по `solvable` и `nilpotent` алгебрам Ли, классификация малоразмерных
-  разрешимых алгебр Ли (май 2025, [arXiv:2505.19975](https://arxiv.org/html/2505.19975v1)).
-- Вершинные алгебры (`Mathlib.Algebra.Vertex`): Scott Carnahan, январь 2025
-  ([доклад Lean Together 2025](https://www.youtube.com/watch?v=bmqEmc1nkkU)) — работа
-  по аффинным алгебрам Ли в пути к Mathlib.
+- `Mathlib.Algebra.Lie.Basic` — Lie rings, Lie algebras over commutative rings,
+  Lie modules, morphisms, Lie bracket, Jacobi identity.
+- Johan Commelin (May 2024) proved a number of important structural properties of Lie algebras.
+- Work on `solvable` and `nilpotent` Lie algebras, classification of low-dimensional
+  solvable Lie algebras (May 2025, [arXiv:2505.19975](https://arxiv.org/html/2505.19975v1)).
+- Vertex algebras (`Mathlib.Algebra.Vertex`): Scott Carnahan, January 2025
+  ([Lean Together 2025 talk](https://www.youtube.com/watch?v=bmqEmc1nkkU)) — work
+  toward affine Lie algebras in Mathlib.
 
-### 2.4 Теория представлений (Mathlib)
+### 2.4 Representation Theory (Mathlib)
 
-Модуль `Mathlib.RepresentationTheory`:
+Module `Mathlib.RepresentationTheory`:
 - `Basic`, `Action`, `Character`, `FDRep`, `Irreducible`, `Maschke`, `Semisimple`,
-  `Tannaka`, `Induced`, `Coinduced` и др.
-- Теорема Машке, характеры, полупростые представления, теорема Таннаки.
+  `Tannaka`, `Induced`, `Coinduced`, etc.
+- Maschke's theorem, characters, semisimple representations, Tannaka's theorem.
 
-**Ссылка:** [Mathlib module list](https://leanprover-community.github.io/mathlib4_docs/Mathlib)
+**Reference:** [Mathlib module list](https://leanprover-community.github.io/mathlib4_docs/Mathlib)
 
-### 2.5 Стоит ли trinity-s3ai переходить на Lean 4?
+### 2.5 Should trinity-s3ai Migrate to Lean 4?
 
-**Аргументы за переход:**
-- Mathlib содержит дифференциальные формы, многообразия, группы Ли — этого нет в Coq.
-- Экосистема AI-инструментов (Lean Copilot, DeepSeek-Prover-V2, Goedel-Prover-V2,
-  AlphaProof) нацелена прежде всего на Lean 4.
-- Активное комьюнити, >210 000 теорем к 2025 году.
-- PhysLib/HepLean для физики — активно разрабатываются именно в Lean 4.
+**Arguments in favor of migration:**
+- Mathlib contains differential forms, manifolds, Lie groups — none of which exist in Coq.
+- The AI tools ecosystem (Lean Copilot, DeepSeek-Prover-V2, Goedel-Prover-V2,
+  AlphaProof) is primarily aimed at Lean 4.
+- Active community, >210,000 theorems by 2025.
+- PhysLib/HepLean for physics — actively developed in Lean 4.
 
-**Аргументы против (для trinity-s3ai):**
-- coq-interval — уникальный инструмент Coq без прямого аналога в Lean 4 с сопоставимой
-  зрелостью (LeanCert существует, но менее зрелый).
-- Существующий код Rocq 9.1 требует значительных усилий для миграции.
-- Gappa и Flocq — зрелые инструменты для численных доказательств в Coq.
-- Если основная задача — численные сертификаты (coq-interval), оставаться в Rocq разумно.
+**Arguments against (for trinity-s3ai):**
+- coq-interval is a unique Coq tool without a direct analogue in Lean 4 of comparable
+  maturity (LeanCert exists but is less mature).
+- Existing Rocq 9.1 code requires significant effort to migrate.
+- Gappa and Flocq are mature tools for numerical proofs in Coq.
+- If the main task is numerical certificates (coq-interval), staying in Rocq is reasonable.
 
-**Рекомендация:** Использовать Rocq для числовых доказательств (coq-interval), но
-внимательно следить за Lean 4 / Mathlib для будущего переноса геометрических частей.
+**Recommendation:** Use Rocq for numerical proofs (coq-interval), but
+closely monitor Lean 4 / Mathlib for future migration of geometric parts.
 
 ---
 
-## 3. Существующие проекты формализации физики
+## 3. Existing Projects for Formalizing Physics
 
-### 3.1 Специальная теория относительности (Coq)
+### 3.1 Special Relativity (Coq)
 
-Формализация специальной теории относительности на базе аксиоматической системы
-SpecRel (Andréka–Madarász–Németi–Székely) выполнена в Coq
+A formalization of special relativity based on the axiomatic system
+SpecRel (Andréka–Madarász–Németi–Székely) was carried out in Coq
 ([arXiv, Harvard](https://dash.harvard.edu/bitstreams/4160f812-a67d-42c4-9261-c159ade7cd86/download)).
-Аксиомы: тела, фотоны, предикат наблюдения `W`. Показана достаточность для
-вывода основных результатов СТО.
+Axioms: bodies, photons, observation predicate `W`. Sufficiency for
+deriving the main results of special relativity is shown.
 
-**Общая теория относительности:** Нет полной формализации ОТО в Coq/Rocq. Berghofer
-(из Граца) работает над принципами калибровочной теории поля, но не над формализацией
-уравнений Эйнштейна в доказательном ассистенте.
+**General Relativity:** No complete formalization of GR in Coq/Rocq. Berghofer
+(from Graz) works on principles of gauge field theory, but not on formalization
+of Einstein's equations in a proof assistant.
 
-### 3.2 Квантовая механика и квантовые вычисления
+### 3.2 Quantum Mechanics and Quantum Computing
 
-- **Lean 4 (Physlib/HepLean, Tooby-Smith):** Теорема Вика формально верифицирована
-  ([physlib.io](https://physlib.io)). Обнаружена ошибка в работе по 2HDM (2006 г.),
-  подтверждённая авторами — первый крупный нетривиальный случай обнаружения ошибки
-  в физической статье через формализацию
-  ([arXiv:2603.08139](https://arxiv.org/abs/2603.08139), март 2026).
-- **Lean 4 (QFT):** Формализована свободная скалярная КТП в 4D евклидовом пространстве
-  (аксиомы Глимма–Яффе / Остервальдера–Шрадера). Проект mrdouglasny/OSforGFF
-  ([arXiv:2603.15770](https://arxiv.org/html/2603.15770v1), 2026). Изначально три
-  аксиомы (`sorry`), впоследствии все доказаны или устранены.
-- **Lean 4 (LeanForPhysics / Lean4PHYS):** Первый бенчмарк для физических задач
-  в Lean 4 (200 задач из учебников). PhysLib содержит основы механики, квантовой
-  физики ([ICLR 2026](https://openreview.net/forum?id=wQ2jyFz18H)).
-- **Lean 4 (химия):** [Formalizing chemical physics using the Lean theorem prover](https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00077j)
-  — формализация химической физики, RSC 2024.
-- **MerLean:** Автоформализация квантовых цепей в Lean 4
+- **Lean 4 (Physlib/HepLean, Tooby-Smith):** Wick's theorem is formally verified
+  ([physlib.io](https://physlib.io)). An error was found in a paper on 2HDM (2006),
+  confirmed by the authors — the first major non-trivial case of error detection
+  in a physics paper through formalization
+  ([arXiv:2603.08139](https://arxiv.org/abs/2603.08139), March 2026).
+- **Lean 4 (QFT):** Free scalar QFT in 4D Euclidean space is formalized
+  (Glimm–Jaffe / Osterwalder–Schrader axioms). Project mrdouglasny/OSforGFF
+  ([arXiv:2603.15770](https://arxiv.org/html/2603.15770v1), 2026). Initially three
+  axioms were `sorry`, later all were proven or removed.
+- **Lean 4 (LeanForPhysics / Lean4PHYS):** The first benchmark for physics problems
+  in Lean 4 (200 problems from textbooks). PhysLib contains foundations of mechanics, quantum
+  physics ([ICLR 2026](https://openreview.net/forum?id=wQ2jyFz18H)).
+- **Lean 4 (chemistry):** [Formalizing chemical physics using the Lean theorem prover](https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00077j)
+  — formalization of chemical physics, RSC 2024.
+- **MerLean:** Auto-formalization of quantum circuits in Lean 4
   ([arXiv:2602.16554](https://arxiv.org/html/2602.16554v1), 2026).
 
-### 3.3 Лагранжиан Стандартной модели: формализован?
+### 3.3 Standard Model Lagrangian: Formalized?
 
-**Нет полной формализации.** Нет проекта, который формализует полный лагранжиан
-СМ (с куперами, хиральными фермионами, механизмом Хиггса) в доказательном ассистенте.
+**No complete formalization exists.** No project formalizes the full SM Lagrangian
+(with couplings, chiral fermions, Higgs mechanism) in a proof assistant.
 
-HepLean/Physlib (Lean 4) — наиболее близкий проект. Содержит секторы:
-квантовой хромодинамики, механизма Хиггса, электрослабого взаимодействия — частично.
-Работа над 2HDM выявила ошибку в литературе, что подтверждает ценность формализации.
+HepLean/Physlib (Lean 4) is the closest project. It contains sectors:
+quantum chromodynamics, Higgs mechanism, electroweak interaction — partially.
+The work on 2HDM revealed an error in the literature, confirming the value of formalization.
 
-### 3.4 Спектральное действие / НКГ Конна
+### 3.4 Spectral Action / Connes's NCG
 
-**Статус: ранняя стадия.**
+**Status: early stage.**
 
-- Christoph Stephan (Потсдам), доклад февраль 2026
+- Christoph Stephan (Potsdam), talk February 2026
   ([agenda.infn.it/event/49101](https://agenda.infn.it/event/49101/)):
-  проект формализации НКГ в Lean 4, долгосрочная цель — теорема реконструкции Конна.
-  Проект на **ранней стадии**.
-- Lean-комьюнити уже заложило основы (группы Ли, алгебры операторов).
-- Никаких завершённых формализаций спектрального действия или лагранжиана
-  Конна–Лотта не существует.
+  project to formalize NCG in Lean 4, long-term goal — Connes's reconstruction theorem.
+  Project is at an **early stage**.
+- The Lean community has already laid foundations (Lie groups, operator algebras).
+- No completed formalizations of the spectral action or the Connes–Lott Lagrangian exist.
 
 ---
 
-## 4. CoqInterval / coq-interval: возможности и ограничения
+## 4. CoqInterval / coq-interval: Capabilities and Limitations
 
-### 4.1 Что умеет coq-interval
+### 4.1 What coq-interval Can Do
 
-Тактика `interval` доказывает цели вида `c1 ≤ e ≤ c2` для выражений, содержащих:
+The `interval` tactic proves goals of the form `c1 ≤ e ≤ c2` for expressions containing:
 
-| Константы | `PI`, числовые литералы |
+| Constants | `PI`, numeric literals |
 |-----------|------------------------|
-| Арифметика | `+`, `-`, `*`, `/`, `pow` |
-| Элементарные функции | `sqrt`, `exp`, `ln`, `cos`, `sin`, `tan`, `atan` |
-| Плавающая арифметика | `Flocq`-операторы `Zfloor`, `Zceil`, `ZnearestE`, `round` |
+| Arithmetic | `+`, `-`, `*`, `/`, `pow` |
+| Elementary functions | `sqrt`, `exp`, `ln`, `cos`, `sin`, `tan`, `atan` |
+| Floating-point arithmetic | `Flocq` operators `Zfloor`, `Zceil`, `ZnearestE`, `round` |
 
-**Для числа π:** coq-interval знает `PI` как константу и может доказывать строгие
-границы, например:
+**For π:** coq-interval knows `PI` as a constant and can prove strict
+bounds, for example:
 ```coq
 Goal 3141592 / 1000000 < PI < 3141593 / 1000000.
 Proof. interval. Qed.
 ```
 
-**Для числа e:** через `exp 1`. Аналогично доказываются произвольно точные границы.
+**For e:** via `exp 1`. Similarly, arbitrarily tight bounds can be proven.
 
-**Интегралы:** тактика `integral` для `RInt` с константными пределами и
-хорошо ведущим себя подынтегральным выражением. Несобственные интегралы через `RInt_gen`.
+**Integrals:** the `integral` tactic for `RInt` with constant bounds and
+well-behaved integrand. Improper integrals via `RInt_gen`.
 
-**Производительность (2024):** Интегрирована быстрая реализация exp в binary64,
-ускорение ×20 по сравнению с предыдущей версией
+**Performance (2024):** A fast binary64 implementation of exp was integrated,
+providing ×20 speedup compared to the previous version
 ([ITP 2024, LIPIcs.ITP.2024.14](https://drops.dagstuhl.de/storage/00lipics/lipics-vol309-itp2024/LIPIcs.ITP.2024.14/LIPIcs.ITP.2024.14.pdf)).
 
-**Ссылка:** [coqinterval.gitlabpages.inria.fr](https://coqinterval.gitlabpages.inria.fr)
+**Reference:** [coqinterval.gitlabpages.inria.fr](https://coqinterval.gitlabpages.inria.fr)
 
-### 4.2 Ограничения coq-interval
+### 4.2 Limitations of coq-interval
 
-| Ограничение | Описание |
-|-------------|----------|
-| Область синуса/косинуса | Аргумент должен быть в `[-2π, 2π]`; вне этой области — тривиальные границы `[-1,1]` |
-| Аргумент тангенса | Только `(-π/2, π/2)` |
-| Степени | `pow` и `powerRZ` требуют числового показателя |
-| Переменные | Переменные допустимы только через гипотезы вида `c1 ≤ t ≤ c2` |
-| Составные выражения | При большой вложенности вычисления могут быть медленными |
-| Максимальная глубина | По умолчанию 15 для `interval`, 5 для `interval_intro` |
-| Интегралы | До 100 подразделений по умолчанию (`i_fuel`) |
-| Нет символьных вычислений | Не может рассуждать о **структуре** выражений, только оценивать числово |
-| Нет многомерной интерполяции | Не поддерживает интегралы по двум и более переменным |
+| Limitation | Description |
+|------------|-------------|
+| Sine/cosine domain | Argument must be in `[-2π, 2π]`; outside this domain — trivial bounds `[-1,1]` |
+| Tangent argument | Only `(-π/2, π/2)` |
+| Powers | `pow` and `powerRZ` require a numeric exponent |
+| Variables | Variables are only allowed through hypotheses of the form `c1 ≤ t ≤ c2` |
+| Compound expressions | For large nesting depth, computations may be slow |
+| Maximum depth | Default 15 for `interval`, 5 for `interval_intro` |
+| Integrals | Up to 100 subdivisions by default (`i_fuel`) |
+| No symbolic computation | Cannot reason about the **structure** of expressions, only numerical evaluation |
+| No multidimensional interpolation | Does not support integrals over two or more variables |
 
-### 4.3 Трансцендентные числа: что можно и что нельзя
+### 4.3 Transcendental Numbers: What Is and Is Not Possible
 
-**Можно:** доказать `|π - 3.14159265358979| < 10⁻¹⁵` и аналогичные неравенства.
-**Нельзя:** доказать трансцендентность π или e (это требует теории Линдемана–Вейерштрасса,
-которой нет ни в Coq, ни в MathComp Analysis).
-**Можно:** использовать π как константу в выражениях и получать строгие численные границы.
+**Possible:** prove `|π - 3.14159265358979| < 10⁻¹⁵` and similar inequalities.
+**Not possible:** prove the transcendence of π or e (this requires the Lindemann–Weierstrass theory,
+which exists neither in Coq nor in MathComp Analysis).
+**Possible:** use π as a constant in expressions and obtain strict numerical bounds.
 
 ---
 
-## 5. Лучшие практики формализации физических утверждений
+## 5. Best Practices for Formalizing Physical Statements
 
-### 5.1 Разделение математики и физики
+### 5.1 Separation of Mathematics and Physics
 
-Ключевой принцип — явно различать три уровня:
+The key principle is to explicitly distinguish three levels:
 
 ```
-Уровень 1: Математическая теорема (доказана)
-Уровень 2: Физическая гипотеза (заявлена, не доказана)
-Уровень 3: Численное соответствие (сертифицировано coq-interval)
+Level 1: Mathematical theorem (proven)
+Level 2: Physical hypothesis (stated, not proven)
+Level 3: Numerical agreement (certified by coq-interval)
 ```
 
-**Рекомендуемая схема в Rocq:**
+**Recommended schema in Rocq:**
 
 ```coq
-(** ФИЗИЧЕСКАЯ ГИПОТЕЗА: m_e/m_p отношение масс принято из эксперимента.
-    Источник: CODATA 2022. Значение подтверждено экспериментально с точностью
-    ~3×10⁻¹¹. Статус: [PHYSICAL_INPUT]. *)
+(** PHYSICAL HYPOTHESIS: m_e/m_p mass ratio is taken from experiment.
+    Source: CODATA 2022. Value confirmed experimentally to precision
+    ~3×10⁻¹¹. Status: [PHYSICAL_INPUT]. *)
 Hypothesis mass_ratio_experimental :
   1836183 / 1000000 <= m_e_over_m_p <= 1836184 / 1000000.
 
-(** МАТЕМАТИЧЕСКАЯ ТЕОРЕМА: из гипотезы mass_ratio_experimental следует... *)
+(** MATHEMATICAL THEOREM: from hypothesis mass_ratio_experimental follows... *)
 Theorem bound_on_alpha :
   mass_ratio_experimental ->
   0 <= alpha - alpha_predicted <= 1/1000.
 Proof. interval. Qed.
 ```
 
-### 5.2 Таксономия `Admitted`
+### 5.2 Taxonomy of `Admitted`
 
-Рекомендуется метить `Admitted` одним из следующих тегов в docstring:
+It is recommended to tag each `Admitted` with one of the following tags in the docstring:
 
-| Тег | Смысл |
-|-----|-------|
-| `[PHYSICAL_AXIOM]` | Физическая гипотеза о природе, не математическая теорема |
-| `[NUMERICAL_FIT]` | Результат численной подгонки, coq-interval может проверить bounds |
-| `[MATH_TODO]` | Математически верно, но не доказано формально |
-| `[OPEN_PROBLEM]` | Открытая математическая проблема |
-| `[LIBRARY_GAP]` | Истина, но нужная лемма отсутствует в библиотеке |
+| Tag | Meaning |
+|-----|---------|
+| `[PHYSICAL_AXIOM]` | Physical hypothesis about nature, not a mathematical theorem |
+| `[NUMERICAL_FIT]` | Result of numerical fitting; coq-interval can check bounds |
+| `[MATH_TODO]` | Mathematically true, but not formally proven |
+| `[OPEN_PROBLEM]` | Open mathematical problem |
+| `[LIBRARY_GAP]` | True, but the needed lemma is missing from the library |
 
-**Пример:**
+**Example:**
 
 ```coq
-(** Спектральное действие минимально в точке конкурса при данных параметрах.
-    СТАТУС: [NUMERICAL_FIT] Верификация методом interval доступна,
-    но формальное доказательство минимальности требует [LIBRARY_GAP]
-    — отсутствует формализация вариационного исчисления в Rocq. *)
+(** The spectral action is minimal at the concurrence point for the given parameters.
+    STATUS: [NUMERICAL_FIT] Verification by the interval method is available,
+    but a formal proof of minimality requires [LIBRARY_GAP]
+    — variational calculus is not formalized in Rocq. *)
 Admitted.
 ```
 
-### 5.3 Честная формулировка численного соответствия
+### 5.3 Honest Formulation of Numerical Agreement
 
-Вместо `"предсказание совпадает с экспериментом"` использовать:
+Instead of `"prediction matches experiment"`, use:
 
 ```coq
-(** Численное соответствие: |M_predicted - M_observed| / M_observed ≤ ε.
-    [NUMERICAL_FIT] ε = 1.2×10⁻⁵, источник: PDG 2024 таблица масс.
-    Математическая теорема: Theorem numerical_agreement ниже.
-    Физическая интерпретация: НЕ является следствием теоремы;
-    зависит от физических допущений, отмеченных как [PHYSICAL_AXIOM]. *)
+(** Numerical agreement: |M_predicted - M_observed| / M_observed ≤ ε.
+    [NUMERICAL_FIT] ε = 1.2×10⁻⁵, source: PDG 2024 mass table.
+    Mathematical theorem: Theorem numerical_agreement below.
+    Physical interpretation: NOT a consequence of the theorem;
+    depends on physical assumptions marked as [PHYSICAL_AXIOM]. *)
 Theorem numerical_agreement :
   Rabs (M_predicted - M_observed) / M_observed <= 12 / 1000000.
 Proof. interval. Qed.
 ```
 
-### 5.4 Уроки из проекта OSforGFF (QFT в Lean 4, 2026)
+### 5.4 Lessons from the OSforGFF Project (QFT in Lean 4, 2026)
 
-Из статьи [arXiv:2603.15770](https://arxiv.org/html/2603.15770v1):
+From the paper [arXiv:2603.15770](https://arxiv.org/html/2603.15770v1):
 
-1. Начинайте с `sorry`-заглушек, заменяйте постепенно.
-2. Ключевые определения должны быть правильными с самого начала — ошибка в определении
-   переписывает весь проект.
-3. Ведите `axioms.md` — живой список всех `Admitted`/`sorry` с объяснением.
-4. Разбивайте длинные доказательства на лемм-ы, а не на монолиты.
-5. Кросс-проверяйте вспомогательные леммы несколькими инструментами.
+1. Start with `sorry` stubs, replace gradually.
+2. Key definitions must be correct from the beginning — an error in a definition
+   rewrites the entire project.
+3. Maintain `axioms.md` — a living list of all `Admitted`/`sorry` with explanations.
+4. Break long proofs into lemmas, not monoliths.
+5. Cross-check auxiliary lemmas with multiple tools.
 
 ---
 
-## 6. AI-ассистированное доказательство теорем (2024–2026)
+## 6. AI-Assisted Theorem Proving (2024–2026)
 
-### 6.1 Обзор ключевых систем
+### 6.1 Overview of Key Systems
 
-| Система | Платформа | Результат (2025–2026) |
-|---------|-----------|----------------------|
-| **AlphaProof** (Google DeepMind) | Lean 4 | Серебряная медаль IMO 2024; [Nature 2025](https://www.nature.com/articles/s41586-025-09833-y) |
-| **DeepSeek-Prover-V2-671B** | Lean 4 | 88.9% на MiniF2F; 49/658 Putnam; [arXiv:2504.21801](https://arxiv.org/abs/2504.21801) |
-| **Goedel-Prover-V2-32B** | Lean 4 | 90.4% на MiniF2F; 86/644 Putnam; [OpenReview 2026](https://openreview.net/forum?id=j4C0nALrgK) |
-| **Lean Copilot** | Lean 4 | Сокращает ручной ввод до 2.08 шагов; [arXiv:2404.12534](https://arxiv.org/abs/2404.12534) |
-| **Claude Opus 4.6 + rocq-mcp** | **Rocq** | 10/12 задач Putnam 2025 в Rocq; [arXiv:2603.20405](https://arxiv.org/html/2603.20405v1) |
+| System | Platform | Result (2025–2026) |
+|--------|----------|----------------------|
+| **AlphaProof** (Google DeepMind) | Lean 4 | Silver medal IMO 2024; [Nature 2025](https://www.nature.com/articles/s41586-025-09833-y) |
+| **DeepSeek-Prover-V2-671B** | Lean 4 | 88.9% on MiniF2F; 49/658 Putnam; [arXiv:2504.21801](https://arxiv.org/abs/2504.21801) |
+| **Goedel-Prover-V2-32B** | Lean 4 | 90.4% on MiniF2F; 86/644 Putnam; [OpenReview 2026](https://openreview.net/forum?id=j4C0nALrgK) |
+| **Lean Copilot** | Lean 4 | Reduces manual input to 2.08 steps; [arXiv:2404.12534](https://arxiv.org/abs/2404.12534) |
+| **Claude Opus 4.6 + rocq-mcp** | **Rocq** | 10/12 Putnam 2025 problems in Rocq; [arXiv:2603.20405](https://arxiv.org/html/2603.20405v1) |
 
-### 6.2 Специфика для Coq/Rocq
+### 6.2 Specifics for Coq/Rocq
 
-Важный результат: Claude Opus 4.6 с инструментами `rocq-mcp` решил 10/12 задач
-Путнэма 2025 в **Rocq** (не Lean), что демонстрирует: AI-ассистирование работает
-и для Rocq, несмотря на меньшее внимание по сравнению с Lean 4.
+Important result: Claude Opus 4.6 with `rocq-mcp` tools solved 10/12
+Putnam 2025 problems in **Rocq** (not Lean), demonstrating that AI assistance works
+for Rocq too, despite less attention compared to Lean 4.
 
-Ключевые инструменты:
-- `rocq-mcp` — набор MCP-инструментов для Claude в Rocq.
-- AI используется для генерации тактик, поиска лемм, заполнения `sorry`.
+Key tools:
+- `rocq-mcp` — a set of MCP tools for Claude in Rocq.
+- AI is used for tactic generation, lemma search, filling `sorry`.
 
-### 6.3 Применимость к trinity-s3ai
+### 6.3 Applicability to trinity-s3ai
 
-**Как AI может закрыть `Admitted` в trinity-s3ai:**
+**How AI can close `Admitted` in trinity-s3ai:**
 
-1. **Тривиальные алгебраические леммы** — Claude/GPT-5/Gemini заполняют через
+1. **Trivial algebraic lemmas** — Claude/GPT-5/Gemini fill them via
    `ring`, `lra`, `field_simplify`.
-2. **Числовые неравенства** — coq-interval часто достаточно, AI может формулировать
-   правильный вызов `interval with (i_prec 200)`.
-3. **Библиотечные пробелы** — AI находит аналоги в MathComp/Coquelicot.
-4. **Сложные `Admitted`** — AI предлагает набросок доказательства, человек
-   верифицирует план.
+2. **Numerical inequalities** — coq-interval is often sufficient; AI can formulate
+   the correct call `interval with (i_prec 200)`.
+3. **Library gaps** — AI finds analogues in MathComp/Coquelicot.
+4. **Complex `Admitted`** — AI proposes a proof sketch, human
+   verifies the plan.
 
-**Не подходит:** AI не может "доказать" физические аксиомы — только математические
-следствия из них.
+**Not suitable:** AI cannot "prove" physical axioms — only mathematical
+consequences from them.
 
-### 6.4 ProofNet и формализация физики
+### 6.4 ProofNet and Formalization of Physics
 
-ProofNet — бенчмарк на основе учебников (Spivak, Rudin и др.) для формализации.
-Goedel-Prover достигает 15% на ProofNet (Pass@32). Это значит: ~15% стандартных
-лемм из учебников физики/математики уже автоматически доказываемы.
+ProofNet is a benchmark based on textbooks (Spivak, Rudin, etc.) for formalization.
+Goedel-Prover achieves 15% on ProofNet (Pass@32). This means: ~15% of standard
+lemmas from physics/mathematics textbooks are already automatically provable.
 
 ---
 
-## 7. Аналогичные проекты: вычислительная физика + Coq
+## 7. Similar Projects: Computational Physics + Coq
 
-### 7.1 Волновое уравнение (Болдо, Лелэ, Мельнионд)
+### 7.1 Wave Equation (Boldo, Lelay, Melquiond)
 
-**Проект:** Формальное доказательство корректности C-программы, решающей акустическое
-волновое уравнение ([HAL:hal-00649240](https://inria.hal.science/hal-00649240/document)).
+**Project:** Formal proof of correctness of a C program solving the acoustic
+wave equation ([HAL:hal-00649240](https://inria.hal.science/hal-00649240/document)).
 
-**Метод:** Coq + Gappa + SMT-решатели. Цепочка:
-- Непрерывное решение PDE → схема дискретизации → С-программа.
-- На каждом уровне формальные границы погрешностей.
+**Method:** Coq + Gappa + SMT solvers. Chain:
+- Continuous PDE solution → discretization scheme → C program.
+- At each level, formal error bounds.
 
-**Урок для trinity-s3ai:** Разделение "математической теоремы сходимости" и
-"численной оценки погрешности" — образцовый пример.
+**Lesson for trinity-s3ai:** Separation of "mathematical convergence theorem" and
+"numerical error estimate" — an exemplary case.
 
-**Ссылка:** [Formal Proof of a Wave Equation Resolution Scheme](https://guillaume.melquiond.fr/doc/10-itp.pdf)
+**Reference:** [Formal Proof of a Wave Equation Resolution Scheme](https://guillaume.melquiond.fr/doc/10-itp.pdf)
 
-### 7.2 Формально верифицированные определённые интегралы
+### 7.2 Formally Verified Definite Integrals
 
-**Статья:** [Formally Verified Approximations of Definite Integrals](https://inria.hal.science/hal-01630143v2/document)
-(Болдо, Мартин-Дотерт, Мельнионд).
+**Paper:** [Formally Verified Approximations of Definite Integrals](https://inria.hal.science/hal-01630143v2/document)
+(Boldo, Martin-Dorel, Melquiond).
 
-Метод: антипроизводные от RPA (строгих полиномиальных приближений) + адаптивное
-дробление. Пример:
+Method: antiderivatives from RPA (strict polynomial approximations) + adaptive
+subdivision. Example:
 ```coq
 Goal Rabs (RInt (fun x => atan (sqrt (x*x + 2)) / ...) 0 1 - 5/96*PI*PI) <= 1/1000.
 Proof. integral. Qed.
 ```
 
-**Урок:** coq-interval `integral` может сертифицировать сложные интегралы физически
-значимых функций.
+**Lesson:** coq-interval `integral` can certify complex integrals of physically
+significant functions.
 
-### 7.3 Taylor Models и ОДУ в Coq (ITP 2024)
+### 7.3 Taylor Models and ODEs in Coq (ITP 2024)
 
-**Статья:** [A Coq Formalization of Taylor Models for ODE Solving](https://drops.dagstuhl.de/storage/00lipics/lipics-vol309-itp2024/LIPIcs.ITP.2024.30/LIPIcs.ITP.2024.30.pdf)
-(Park, Thies, Киото 2024).
+**Paper:** [A Coq Formalization of Taylor Models for ODE Solving](https://drops.dagstuhl.de/storage/00lipics/lipics-vol309-itp2024/LIPIcs.ITP.2024.30/LIPIcs.ITP.2024.30.pdf)
+(Park, Thies, Kyoto 2024).
 
-Метод: точные вещественные вычисления (библиотека cAERN), формальная верификация
-решателя ОДУ. Строгая гарантия: решение можно аппроксимировать с произвольной точностью.
+Method: exact real arithmetic (cAERN library), formal verification of
+ODE solver. Strict guarantee: the solution can be approximated to arbitrary precision.
 
-### 7.4 LeanBET: площадь поверхности в физике (2026)
+### 7.4 LeanBET: Surface Area in Physics (2026)
 
-**Статья:** [LeanBET: Formally-verified surface area calculations in Lean](https://arxiv.org/html/2605.16169v1)
-(2026) — формальная верификация вычислений площади поверхности в физике адсорбции.
+**Paper:** [LeanBET: Formally-verified surface area calculations in Lean](https://arxiv.org/html/2605.16169v1)
+(2026) — formal verification of surface area calculations in adsorption physics.
 
-**Ключевой паттерн:** Разделение `computation` (плавающая арифметика) и
-`specification` (над вещественными числами) + доказательство soundness.
+**Key pattern:** Separation of `computation` (floating-point arithmetic) and
+`specification` (over real numbers) + soundness proof.
 
 ### 7.5 Trusting Computations (PDE, Coq)
 
-**Статья:** [Trusting computations: a mechanized proof from PDE](https://www.sciencedirect.com/science/article/pii/S0898122114002636)
-— механизированное доказательство сходимости численной схемы для PDE.
+**Paper:** [Trusting computations: a mechanized proof from PDE](https://www.sciencedirect.com/science/article/pii/S0898122114002636)
+— mechanized proof of convergence of a numerical scheme for PDE.
 
 ---
 
-## 8. Десять–пятнадцать практических уроков для trinity-s3ai
+## 8. Ten to Fifteen Practical Lessons for trinity-s3ai
 
-### Урок 1: Строго разделяйте три уровня в каждом файле `.v`
+### Lesson 1: Strictly separate the three levels in every `.v` file
 
 ```
-/* МАТЕМАТИЧЕСКАЯ ТЕОРЕМА */ — доказана формально
-/* ФИЗИЧЕСКАЯ ГИПОТЕЗА */    — [PHYSICAL_AXIOM], явно задокументирована
-/* ЧИСЛЕННЫЙ СЕРТИФИКАТ */   — [NUMERICAL_FIT], проверен coq-interval
+/* MATHEMATICAL THEOREM */ — formally proven
+/* PHYSICAL HYPOTHESIS */    — [PHYSICAL_AXIOM], explicitly documented
+/* NUMERICAL CERTIFICATE */   — [NUMERICAL_FIT], checked by coq-interval
 ```
 
-**Инструмент:** Специальный комментарий-заголовок в каждом `Section`.
+**Tool:** A special comment header in every `Section`.
 
 ---
 
-### Урок 2: Ведите живой `admitted_log.md`
+### Lesson 2: Maintain a living `admitted_log.md`
 
-Файл должен содержать для каждого `Admitted`:
-- Имя теоремы.
-- Тег статуса (см. таксономию выше).
-- Предполагаемая сложность доказательства.
-- Необходимые библиотечные зависимости.
-- Дата добавления.
+The file must contain for each `Admitted`:
+- Theorem name.
+- Status tag (see taxonomy above).
+- Estimated proof difficulty.
+- Required library dependencies.
+- Date added.
 
-Аналог `axioms.md` из проекта OSforGFF.
+Analogous to `axioms.md` from the OSforGFF project.
 
 ---
 
-### Урок 3: Используйте `Hypothesis` вместо `Axiom` для физических входных данных
+### Lesson 3: Use `Hypothesis` instead of `Axiom` for physical inputs
 
 ```coq
-(* ПРАВИЛЬНО: физическая гипотеза как параметр раздела *)
+(* CORRECT: physical hypothesis as a section parameter *)
 Section S3AIBounds.
   Hypothesis alpha_exp_bound :
     7297352 / 1000000000 <= alpha <= 7297353 / 1000000000.
@@ -474,208 +473,208 @@ Section S3AIBounds.
   Proof. ... Qed.
 End S3AIBounds.
 
-(* НЕПРАВИЛЬНО: физические данные как глобальный Axiom *)
+(* INCORRECT: physical data as a global Axiom *)
 Axiom alpha_is_exactly : alpha = 7297352569 / 1000000000000.
 ```
 
-`Hypothesis` (в секции) — честнее: видно, что теорема условна.
+`Hypothesis` (in a section) is more honest: it is clear that the theorem is conditional.
 
 ---
 
-### Урок 4: Применяйте coq-interval для строгих числовых сертификатов
+### Lesson 4: Apply coq-interval for strict numerical certificates
 
-coq-interval умеет доказывать:
-- Значения π, e, sqrt(2) с произвольной точностью.
-- Составные выражения из элементарных функций.
-- Собственные и несобственные интегралы.
+coq-interval can prove:
+- Values of π, e, sqrt(2) to arbitrary precision.
+- Compound expressions of elementary functions.
+- Proper and improper integrals.
 
-**Для trinity-s3ai:** Вместо `Admitted (* число близко к наблюдению *)` пишите:
+**For trinity-s3ai:** Instead of `Admitted (* number is close to observation *)`, write:
 
 ```coq
 Lemma spectral_action_bound :
   Rabs (spectral_action_approx - 91.19) <= 0.01.
 Proof.
   unfold spectral_action_approx.
-  (* после раскрытия определения: *)
+  (* after unfolding definition: *)
   interval with (i_prec 200).
 Qed.
 ```
 
 ---
 
-### Урок 5: Задокументируйте, что именно сертифицирует coq-interval
+### Lesson 5: Document what exactly coq-interval certifies
 
-coq-interval доказывает **математическое неравенство**, но не:
-- Что модель правильно описывает природу.
-- Что входные параметры верны.
-- Что численное совпадение не случайно.
+coq-interval proves a **mathematical inequality**, but not:
+- That the model correctly describes nature.
+- That the input parameters are correct.
+- That the numerical match is not coincidental.
 
-Добавляйте в `(** ... *)` явную фразу:
+Add an explicit phrase in `(** ... *)`:
 ```
-Этот сертификат подтверждает: при данных значениях параметров
-|вычисленное - ожидаемое| ≤ ε. Физическая интерпретация зависит
-от гипотез [PHYSICAL_AXIOM] выше.
+This certificate confirms: for the given parameter values
+|computed - expected| ≤ ε. Physical interpretation depends
+on the hypotheses [PHYSICAL_AXIOM] above.
 ```
 
 ---
 
-### Урок 6: Для геометрических частей рассмотрите параллельный Lean 4 файл
+### Lesson 6: For geometric parts, consider a parallel Lean 4 file
 
-Если trinity-s3ai включает дифференциальные формы, многообразия, группы Ли:
-- В Rocq таких библиотек нет → весь геометрический слой остаётся `Admitted`.
-- Рассмотрите: параллельно вести Lean 4 файл с геометрией (Mathlib),
-  Rocq — для числовых сертификатов (coq-interval).
-- Связь: человекочитаемые утверждения как "мост" между двумя системами.
-
----
-
-### Урок 7: Используйте Claude Opus + rocq-mcp для закрытия `Admitted`
-
-Результат ([arXiv:2603.20405](https://arxiv.org/html/2603.20405v1)):
-Claude Opus 4.6 + rocq-mcp закрыл 10/12 олимпиадных задач в Rocq.
-
-**Протокол для trinity-s3ai:**
-1. Для каждого `[MATH_TODO]` или `[LIBRARY_GAP]` — запустить Claude Opus + rocq-mcp.
-2. Sandboxing: проверять, что доказательство не переопределяет условие задачи.
-3. Whitelist стандартных аксиом: не допускать нестандартных `Axiom`.
+If trinity-s3ai includes differential forms, manifolds, Lie groups:
+- No such libraries exist in Rocq → the entire geometric layer remains `Admitted`.
+- Consider: maintaining a parallel Lean 4 file with geometry (Mathlib),
+  Rocq — for numerical certificates (coq-interval).
+- Connection: human-readable statements as a "bridge" between the two systems.
 
 ---
 
-### Урок 8: PhysLib (Lean 4) как ориентир для структуры проекта
+### Lesson 7: Use Claude Opus + rocq-mcp to close `Admitted`
 
-PhysLib / HepLean ([physlib.io](https://physlib.io)) — образцовый пример:
-- Явное разделение `Definitions`, `Theorems`, `Calculations`.
-- Физические единицы формализованы отдельно.
-- Каждый результат привязан к источнику.
-- Открытый код, комьюнити-управляемый.
+Result ([arXiv:2603.20405](https://arxiv.org/html/2603.20405v1)):
+Claude Opus 4.6 + rocq-mcp closed 10/12 olympiad problems in Rocq.
 
-Для trinity-s3ai: перенять структуру (файл `units.v`, файл `physical_axioms.v`,
-файл `mathematical_results.v`, файл `numerical_certificates.v`).
-
----
-
-### Урок 9: Обнаружение ошибок — ценнейший результат формализации
-
-Тooby-Smith (2026) обнаружил ошибку в цитированной статье по 2HDM через формализацию.
-Это первый нетривиальный случай в физике.
-
-**Для trinity-s3ai:** Формализация сама по себе ценна как инструмент проверки:
-даже если все `Admitted` не закрыты, явная запись условий выявляет скрытые предположения.
+**Protocol for trinity-s3ai:**
+1. For each `[MATH_TODO]` or `[LIBRARY_GAP]` — run Claude Opus + rocq-mcp.
+2. Sandboxing: verify that the proof does not redefine the problem statement.
+3. Whitelist of standard axioms: do not allow nonstandard `Axiom`.
 
 ---
 
-### Урок 10: НКГ и спектральное действие — открытое поле
+### Lesson 8: PhysLib (Lean 4) as a benchmark for project structure
 
-Проект Stephan (Lean 4, 2026) находится на ранней стадии. Лагранжиан Конна–Лотта
-нигде не формализован. Для trinity-s3ai:
-- Можно **пионировать** формализацию в Rocq (с `Admitted` для геометрических частей).
-- Альтернатива: дождаться результатов Stephan (Lean 4).
+PhysLib / HepLean ([physlib.io](https://physlib.io)) — an exemplary case:
+- Explicit separation of `Definitions`, `Theorems`, `Calculations`.
+- Physical units formalized separately.
+- Every result is tied to a source.
+- Open source, community-managed.
+
+For trinity-s3ai: adopt the structure (file `units.v`, file `physical_axioms.v`,
+file `mathematical_results.v`, file `numerical_certificates.v`).
 
 ---
 
-### Урок 11: Flocq + Gappa для верификации плавающей арифметики
+### Lesson 9: Error detection is the most valuable result of formalization
 
-Если в trinity-s3ai есть вычисления в плавающей арифметике:
+Tooby-Smith (2026) found an error in a cited paper on 2HDM through formalization.
+This is the first non-trivial case in physics.
+
+**For trinity-s3ai:** Formalization is valuable in itself as a checking tool:
+even if not all `Admitted` are closed, explicit recording of conditions reveals hidden assumptions.
+
+---
+
+### Lesson 10: NCG and spectral action — an open field
+
+The Stephan project (Lean 4, 2026) is at an early stage. The Connes–Lott
+Lagrangian is nowhere formalized. For trinity-s3ai:
+- One can **pioneer** formalization in Rocq (with `Admitted` for geometric parts).
+- Alternative: wait for results from Stephan (Lean 4).
+
+---
+
+### Lesson 11: Flocq + Gappa for floating-point arithmetic verification
+
+If trinity-s3ai involves floating-point computations:
 - **Flocq** ([flocq.gitlabpages.inria.fr](https://flocq.gitlabpages.inria.fr)) —
-  формальная библиотека IEEE 754 в Rocq.
-- **Gappa** — автоматизированная проверка погрешностей округления.
-- Совместное использование Flocq + Gappa + coq-interval покрывает весь стек:
-  от алгоритма до формального доказательства.
+  formal IEEE 754 library in Rocq.
+- **Gappa** — automated rounding error checking.
+- Combined use of Flocq + Gappa + coq-interval covers the entire stack:
+  from algorithm to formal proof.
 
 ---
 
-### Урок 12: Раскладывайте сложные `Admitted` по методу "backward chaining"
+### Lesson 12: Decompose complex `Admitted` by "backward chaining"
 
-Паттерн из OSforGFF:
+Pattern from OSforGFF:
 ```
-Основная теорема T
-├── Вспомогательная лемма L1 [первоначально: Admitted]
-│   ├── L1.1 [доказана coq-interval]
-│   └── L1.2 [LIBRARY_GAP — нужен Stokes в Rocq]
-└── Вспомогательная лемма L2 [доказана ring/lra]
+Main theorem T
+├── Auxiliary lemma L1 [initially: Admitted]
+│   ├── L1.1 [proven by coq-interval]
+│   └── L1.2 [LIBRARY_GAP — needs Stokes in Rocq]
+└── Auxiliary lemma L2 [proven by ring/lra]
 ```
-Сначала доказывайте T, считая L1 истиной. Затем работайте над L1.
+First prove T, assuming L1 is true. Then work on L1.
 
 ---
 
-### Урок 13: Указывайте минимальный набор аксиом в каждом `.v` файле
+### Lesson 13: Specify the minimal set of axioms in every `.v` file
 
 ```coq
-(** Этот файл использует следующие нестандартные допущения:
-    - classical (исключённое третье) из Coq.Logic.Classical
+(** This file uses the following nonstandard assumptions:
+    - classical (excluded middle) from Coq.Logic.Classical
     - functional_extensionality
-    - Физические аксиомы: см. Section PhysicalInputs
-    Математические теоремы не требуют [PHYSICAL_AXIOM] для корректности;
-    они утверждают: "ЕСЛИ аксиомы верны, ТО..." *)
+    - Physical axioms: see Section PhysicalInputs
+    Mathematical theorems do not require [PHYSICAL_AXIOM] for correctness;
+    they state: "IF the axioms are true, THEN..." *)
 ```
 
-Команда `Print Assumptions theorem_name` в Rocq выводит полный список.
+The command `Print Assumptions theorem_name` in Rocq prints the full list.
 
 ---
 
-### Урок 14: Следите за MathComp Analysis для будущей интеграции
+### Lesson 14: Monitor MathComp Analysis for future integration
 
-MathComp Analysis 1.9.0 (февраль 2025) активно развивается. Ожидаются:
-- Интегралы Лебега, пространства L^p.
-- Теория вероятностей (Афельдт et al., ITP 2025).
-- Возможно, в 2026–2027: дифференциальные формы в Rocq через MathComp.
-
----
-
-### Урок 15: Автоформализация — инструмент для ускорения написания кода
-
-DeepSeek-Prover-V2 и Goedel-Prover-V2 уже автоматически формализуют условия
-задач из естественного языка в Lean 4. Для Rocq: Claude + rocq-mcp.
-
-**Практика для trinity-s3ai:**
-- Пишите физическое утверждение в естественном языке (LaTeX).
-- Используйте AI-автоформализатор для первого черновика `.v`.
-- Человек проверяет: что именно утверждается, все ли зависимости корректны.
+MathComp Analysis 1.9.0 (February 2025) is actively developed. Expected:
+- Lebesgue integrals, L^p spaces.
+- Probability theory (Affeldt et al., ITP 2025).
+- Possibly, in 2026–2027: differential forms in Rocq via MathComp.
 
 ---
 
-## 9. Рекомендации по инструментам
+### Lesson 15: Auto-formalization is a tool to accelerate coding
 
-| Задача | Инструмент |
-|--------|-----------|
-| Числовые неравенства с π, exp, sqrt | `coq-interval` (тактика `interval`) |
-| Интегралы | `coq-interval` (тактика `integral`) |
-| Плавающая арифметика | `Flocq` + `Gappa` |
-| Вещественный анализ | `Coquelicot` + `MathComp Analysis` |
-| Алгебраические тождества | `ring`, `field`, `lra` |
-| Дифференциальная геометрия | Lean 4 Mathlib (пока недоступно в Rocq) |
-| AI-ассистирование (Rocq) | `Claude Opus 4.6` + `rocq-mcp` |
-| AI-ассистирование (Lean 4) | `Lean Copilot`, `DeepSeek-Prover-V2`, `Goedel-Prover-V2` |
-| Теория Ли / Представления | Lean 4 Mathlib (недоступно в Rocq) |
-| Квантовые системы | PhysLib / HepLean (Lean 4) |
-| НКГ / Спектральное действие | Раняя стадия (Stephan, Lean 4, 2026) |
+DeepSeek-Prover-V2 and Goedel-Prover-V2 already automatically formalize problem
+statements from natural language into Lean 4. For Rocq: Claude + rocq-mcp.
+
+**Practice for trinity-s3ai:**
+- Write the physical statement in natural language (LaTeX).
+- Use an AI auto-formalizer for the first draft `.v`.
+- Human checks: what exactly is stated, whether all dependencies are correct.
 
 ---
 
-## 10. Заключение
+## 9. Tool Recommendations
 
-**Состояние поля (2026):**
-
-1. **Rocq/Coq** — зрелый для численных сертификатов (coq-interval), анализа
-   (Coquelicot + MathComp Analysis), плавающей арифметики (Flocq/Gappa). Пробел:
-   дифференциальные формы, многообразия, группы Ли.
-
-2. **Lean 4 / Mathlib** — лидер по математической глубине (многообразия, формы,
-   группы Ли, теория представлений, >210 000 теорем). Лидер по AI-инструментам.
-   PhysLib/HepLean — первые серьёзные физические библиотеки.
-
-3. **Формализация физики** — стремительно развивается. КТП (осевальдер-шрадер) —
-   2026. Ошибка в 2HDM найдена через Lean — 2026. НКГ — ранняя стадия.
-
-4. **AI-ассистирование** — достигло уровня, позволяющего закрывать десятки `sorry`
-   автоматически. Для Rocq: Claude + rocq-mcp. Для Lean 4: полный стек инструментов.
-
-5. **Лагранжиан СМ и спектральное действие** — нигде не формализованы полностью.
-   trinity-s3ai может быть первопроходцем.
+| Task | Tool |
+|------|------|
+| Numerical inequalities with π, exp, sqrt | `coq-interval` (tactic `interval`) |
+| Integrals | `coq-interval` (tactic `integral`) |
+| Floating-point arithmetic | `Flocq` + `Gappa` |
+| Real analysis | `Coquelicot` + `MathComp Analysis` |
+| Algebraic identities | `ring`, `field`, `lra` |
+| Differential geometry | Lean 4 Mathlib (not yet available in Rocq) |
+| AI assistance (Rocq) | `Claude Opus 4.6` + `rocq-mcp` |
+| AI assistance (Lean 4) | `Lean Copilot`, `DeepSeek-Prover-V2`, `Goedel-Prover-V2` |
+| Lie theory / Representations | Lean 4 Mathlib (not available in Rocq) |
+| Quantum systems | PhysLib / HepLean (Lean 4) |
+| NCG / Spectral action | Early stage (Stephan, Lean 4, 2026) |
 
 ---
 
-## Ссылки (ключевые)
+## 10. Conclusion
+
+**State of the field (2026):**
+
+1. **Rocq/Coq** — mature for numerical certificates (coq-interval), analysis
+   (Coquelicot + MathComp Analysis), floating-point arithmetic (Flocq/Gappa). Gap:
+   differential forms, manifolds, Lie groups.
+
+2. **Lean 4 / Mathlib** — leader in mathematical depth (manifolds, forms,
+   Lie groups, representation theory, >210,000 theorems). Leader in AI tools.
+   PhysLib/HepLean — the first serious physics libraries.
+
+3. **Formalization of physics** — developing rapidly. QFT (Osterwalder–Schrader) —
+   2026. Error in 2HDM found via Lean — 2026. NCG — early stage.
+
+4. **AI assistance** — has reached a level allowing tens of `sorry`
+   to be closed automatically. For Rocq: Claude + rocq-mcp. For Lean 4: full stack of tools.
+
+5. **SM Lagrangian and spectral action** — nowhere fully formalized.
+   trinity-s3ai can be a pioneer.
+
+---
+
+## References (Key)
 
 1. [Coquelicot: A User-Friendly Library of Real Analysis for Coq](https://guillaume.melquiond.fr/doc/14-mcs.pdf) — Boldo, Lelay, Melquiond
 2. [MathComp Analysis GitHub (v1.9.0, 2025)](https://github.com/math-comp/analysis)

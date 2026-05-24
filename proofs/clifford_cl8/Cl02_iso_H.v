@@ -19,6 +19,8 @@ From Stdlib Require Import Reals.
 From Stdlib Require Import Lra.
 From Stdlib Require Import Lia.
 From Stdlib Require Import Ring.
+From Stdlib Require Import ProofIrrelevance.
+From Stdlib Require Import FunctionalExtensionality.
 From CliffordCl8 Require Import CliffordAlgebra.
 
 Open Scope R_scope.
@@ -29,6 +31,12 @@ Proof. lia. Qed.
 
 Local Lemma one_lt_two : (1 < 2)%nat.
 Proof. lia. Qed.
+
+Lemma fin_val_eq : forall n (x y : Fin n), fin_val x = fin_val y -> x = y.
+Proof.
+  intros n [x Hx] [y Hy]. simpl. intros H. subst y.
+  f_equal. apply proof_irrelevance.
+Qed.
 
 (******************************************************************************)
 (* Section 1: The quaternions ℍ as an ℝ-algebra                               *)
@@ -130,8 +138,27 @@ Proof.
   apply H_eq; simpl; ring.
 Qed.
 
+Lemma vec_pad_0_2_0 : forall v : Vec 2, vec_pad v 0%nat = v (mkFin 0%nat zero_lt_two).
+Proof.
+  intro v. unfold vec_pad.
+  destruct (lt_dec 0%nat 2) as [H | H].
+  - f_equal. apply fin_val_eq. reflexivity.
+  - lia.
+Qed.
+
+Lemma vec_pad_0_2_1 : forall v : Vec 2, vec_pad v 1%nat = v (mkFin 1%nat one_lt_two).
+Proof.
+  intro v. unfold vec_pad.
+  destruct (lt_dec 1%nat 2) as [H | H].
+  - f_equal. apply fin_val_eq. reflexivity.
+  - lia.
+Qed.
+
 Lemma Q_pq_0_2 : forall v : Vec 2, Q_pq 0 2 v = Q_02 v.
-Proof. admit. Admitted.
+Proof.
+  intro v. unfold Q_pq, Q_02, sum_sq_signed. simpl.
+  rewrite vec_pad_0_2_0, vec_pad_0_2_1. ring.
+Qed.
 
 Lemma i_02_linear : forall v w : Vec 2,
   i_02 (vec_add v w) = alg_add H_RAlgebra (i_02 v) (i_02 w).

@@ -1,121 +1,121 @@
-# SALVAGE.md — Что сохранить, что отправить в архив
+# SALVAGE.md — What to Keep, What to Archive
 
-**Проект:** Trinity S3AI  
-**Волна:** 9.6 — Честный мета-анализ  
-**Дата:** Июнь 2026  
-**Принцип:** «Не врать!! Честным будь!»
-
----
-
-## Краткое резюме
-
-После восьми волн формализации, 340 машинно-верифицированных теорем и 4 теорем о невозможности (NGT-1–4), проект находится в точке честного подведения итогов. Этот документ определяет:
-
-- **СОХРАНИТЬ**: математические и методологические достижения, имеющие независимую ценность
-- **ОТПРАВИТЬ В АРХИВ**: физические заявления, опровергнутые или фальсифицированные
-- **ПЕРЕИМЕНОВАТЬ**: как должен называться проект, чтобы отражать реальный вклад
+**Project:** Trinity S3AI  
+**Wave:** 9.6 — Honest Meta-Analysis  
+**Date:** June 2026  
+**Principle:** "Do not lie!! Be honest!"
 
 ---
 
-## Часть 1: ЧТО СОХРАНИТЬ
+## Brief summary
 
-### 1.1 Coq-формализация (340 Qed)
+After eight waves of formalisation, 340 machine-verified theorems and 4 no-go theorems (NGT-1–4), the project is at a point of honest reckoning. This document defines:
 
-| Файл | Ценность | Причина |
-|------|---------|---------|
-| `CorePhi.v` | Высокая | Первоклассная формализация золотого сечения с арифметикой и неравенствами |
-| `SpectralExtras.v` | Высокая | Спектральные константы 600-ячейника (Qed, 0 Admitted) |
-| `DiracOperator.v` | Высокая | D = R_i удовлетворяет условию первого порядка (Qed); методологически новый подход |
-| `EtaInvariant.v` | Высокая | η = -2 на S³/2I — необходимое условие хиральности |
-| `KODimension.v` | Высокая | KO-размерность = 6 mod 8 — позитивный структурный результат |
-| `QuaternionicLinearity.v` | Высокая | 2I-структура и кватернионная мотивация ℍ ⊂ A_F |
-| `UnimodularityAndSigma.v` | Средняя | U1–U7: Qed, sigma_no_go: NGT-2 подкреплена |
-| `RGRunningExtras.v` | Высокая | alpha_from_H4_refuted (Qed) — образцовый отрицательный результат |
-| `ChiralityAnalysis.v` | Высокая | Честный анализ; NGT-3 основан на этом файле |
-| **`NoGoTheorems.v`** | **Высокая** | **32 Qed, 0 Admitted — главный вклад Wave 9.6** |
-| `SpectralTripleAxioms.v` | Средняя | Структура аксиом NCG |
-| `DFSpectrum.v` | Высокая | σ = 5.62 — ключевое число NGT-4 |
-| `EtaInvariant.v` | Высокая | η-инвариант Пуанкаре |
-
-**Итого: ~340 Qed машинно-верифицированных лемм и теорем.**
-
-### 1.2 Методологические инструменты
-
-| Файл/подход | Ценность | Описание |
-|------------|---------|---------|
-| `admitted_log.md` | Высокая | Образцовый реестр честных пробелов с тегами HONEST |
-| `cosmology_falsified_log.md` | Высокая | Реестр 9 фальсифицированных формул с σ-расстояниями |
-| `catalog_audit/audit_report.md` | Высокая | Классификация 25 формул по строгости (R/S/NF) |
-| `registered_predictions.md` | Средняя | Реестр фальсифицируемых предсказаний |
-| `full_audit.csv` | Средняя | Машиночитаемый аудит |
-
-**Методология:** Coq-верификация численных неравенств как способ честной документации точности формул — это новый подход, достойный отдельной методологической публикации.
-
-### 1.3 Физические результаты, выжившие после NGT-1–4
-
-| Результат | Статус | Значение |
-|-----------|--------|---------|
-| KO-dim = 6 mod 8 | ✅ ВЫЖИВАЕТ | Структурное соответствие с NCG SM |
-| 2I мотивирует ℍ ⊂ A_F | ✅ ВЫЖИВАЕТ | Алгебраический факт |
-| η = -2 на S³/2I | ✅ ВЫЖИВАЕТ | Необходимое условие хиральности |
-| D = R_i: условие первого порядка | ✅ ВЫЖИВАЕТ | Точный результат |
-| Унимодулярность через H4 → A4 → SU(5) | ✅ ВЫЖИВАЕТ | Цепочка вложений |
-| 25 формул с тегами NF/S/R | ✅ ВЫЖИВАЕТ (как каталог) | Честная нумерология |
-| δ_CP = 65.66° | ⏳ ОЖИДАЕТ | DUNE 2028 даст ответ |
-
-### 1.4 Lean-порт (scaffold)
-
-`derivations/lean_port/` — начало Lean 4 формализации. Сохранить как основу будущей работы. Lean 4 более доступен для физического сообщества, чем Coq.
+- **KEEP**: mathematical and methodological achievements of independent value
+- **ARCHIVE**: physical claims that have been refuted or falsified
+- **RENAME**: what the project should be called to reflect its real contribution
 
 ---
 
-## Часть 2: ЧТО ОТПРАВИТЬ В АРХИВ
+## Part 1: WHAT TO KEEP
 
-### 2.1 Физические заявления, опровергнутые или фальсифицированные
+### 1.1 Coq formalisation (340 Qed)
 
-| Заявление | Волна опровержения | Причина |
-|-----------|------------------|---------|
-| «Trinity выводит Стандартную модель» | Wave 9.6 (NGT-1–4) | Совокупность четырёх теорем о невозможности |
-| «α вычисляется из H4» | Wave 3 | alpha_from_H4_refuted (Qed) |
-| «σ-поле из H4-структуры» | Wave 5.3 | sigma_no_go (NGT-2) |
-| «600-ячейник хирален» | Wave 6 | Антиподальная симметрия (NGT-3) |
-| «D_F воспроизводит SM-спектр» | Wave 8.4 | σ = 5.62 >> 5 (NGT-4) |
-| Λ = φ^(-144)/2 | Wave 7/8.5 | ~118 порядков отклонения |
-| Все Tier-3 CMB-формулы | Wave 8.5 | 9 фальсификаций (до 754σ) |
-| «Формулы каталога — строгие выводы» | Wave 3 | 0/25 класса R |
+| File | Value | Reason |
+|------|-------|--------|
+| `CorePhi.v` | High | First-class formalisation of the golden ratio with arithmetic and inequalities |
+| `SpectralExtras.v` | High | Spectral constants of the 600-cell (Qed, 0 Admitted) |
+| `DiracOperator.v` | High | D = R_i satisfies the first-order condition (Qed); methodologically novel approach |
+| `EtaInvariant.v` | High | η = -2 on S³/2I — necessary condition for chirality |
+| `KODimension.v` | High | KO-dimension = 6 mod 8 — positive structural result |
+| `QuaternionicLinearity.v` | High | 2I structure and quaternionic motivation ℍ ⊂ A_F |
+| `UnimodularityAndSigma.v` | Medium | U1–U7: Qed, sigma_no_go: NGT-2 reinforced |
+| `RGRunningExtras.v` | High | alpha_from_H4_refuted (Qed) — exemplary negative result |
+| `ChiralityAnalysis.v` | High | Honest analysis; NGT-3 is based on this file |
+| **`NoGoTheorems.v`** | **High** | **32 Qed, 0 Admitted — main contribution of Wave 9.6** |
+| `SpectralTripleAxioms.v` | Medium | Structure of NCG axioms |
+| `DFSpectrum.v` | High | σ = 5.62 — key number of NGT-4 |
+| `EtaInvariant.v` | High | Poincaré η-invariant |
 
-### 2.2 Что с ними делать
+**Total: ~340 machine-verified lemmas and theorems.**
 
-**НЕ** удалять — это научная история проекта. **Переметить** соответствующими тегами:
+### 1.2 Methodological tools
+
+| File/approach | Value | Description |
+|--------------|-------|-------------|
+| `admitted_log.md` | High | Exemplary registry of honest gaps with HONEST tags |
+| `cosmology_falsified_log.md` | High | Registry of 9 falsified formulas with σ-distances |
+| `catalog_audit/audit_report.md` | High | Classification of 25 formulas by rigour (R/S/NF) |
+| `registered_predictions.md` | Medium | Registry of falsifiable predictions |
+| `full_audit.csv` | Medium | Machine-readable audit |
+
+**Methodology:** Coq verification of numerical inequalities as a means of honest documentation of formula accuracy — this is a novel approach worthy of a separate methodological publication.
+
+### 1.3 Physical results surviving after NGT-1–4
+
+| Result | Status | Value |
+|--------|--------|-------|
+| KO-dim = 6 mod 8 | ✅ SURVIVES | Structural match with NCG SM |
+| 2I motivates ℍ ⊂ A_F | ✅ SURVIVES | Algebraic fact |
+| η = -2 on S³/2I | ✅ SURVIVES | Necessary condition for chirality |
+| D = R_i: first-order condition | ✅ SURVIVES | Exact result |
+| Unimodularity via H4 → A4 → SU(5) | ✅ SURVIVES | Embedding chain |
+| 25 formulas with NF/S/R tags | ✅ SURVIVES (as catalogue) | Honest numerology |
+| δ_CP = 65.66° | ⏳ PENDING | DUNE 2028 will give the answer |
+
+### 1.4 Lean port (scaffold)
+
+`derivations/lean_port/` — beginning of Lean 4 formalisation. Keep as a basis for future work. Lean 4 is more accessible to the physics community than Coq.
+
+---
+
+## Part 2: WHAT TO ARCHIVE
+
+### 2.1 Physical claims refuted or falsified
+
+| Claim | Wave of refutation | Reason |
+|-------|-------------------|--------|
+| "Trinity derives the Standard Model" | Wave 9.6 (NGT-1–4) | The combined force of four no-go theorems |
+| "α is computed from H4" | Wave 3 | alpha_from_H4_refuted (Qed) |
+| "σ-field from H4-structure" | Wave 5.3 | sigma_no_go (NGT-2) |
+| "600-cell is chiral" | Wave 6 | Antipodal symmetry (NGT-3) |
+| "D_F reproduces the SM spectrum" | Wave 8.4 | σ = 5.62 >> 5 (NGT-4) |
+| Λ = φ^(-144)/2 | Wave 7/8.5 | ~118 orders of magnitude deviation |
+| All Tier-3 CMB formulas | Wave 8.5 | 9 falsifications (up to 754σ) |
+| "Catalogue formulas are rigorous derivations" | Wave 3 | 0/25 class R |
+
+### 2.2 What to do with them
+
+**DO NOT** delete — this is the scientific history of the project. **Move** them with appropriate tags:
 
 ```
 Status: ARCHIVED — superseded by NGT-[1-4] (Wave 9.6)
 ```
 
-Сохранить в репозитории как документальное свидетельство того, **как именно** были получены отрицательные результаты.
+Keep them in the repository as documentary evidence of **exactly how** the negative results were obtained.
 
 ---
 
-## Часть 3: ПЕРЕИМЕНОВАНИЕ И РЕБРЕНДИНГ
+## Part 3: RENAMING AND REBRANDING
 
-### 3.1 Текущее название (неточное)
+### 3.1 Current name (inaccurate)
 
-> «Trinity-s3ai: Framework for H4/600-cell Standard Model Unification»
+> "Trinity-s3ai: Framework for H4/600-cell Standard Model Unification"
 
-Это название неточно: формализация **не достигла** унификации SM. Заявление вводит в заблуждение.
+This name is inaccurate: the formalisation **did not achieve** SM unification. The claim is misleading.
 
-### 3.2 Предлагаемое новое название
+### 3.2 Proposed new name
 
-> **«Trinity-s3ai: A formal exploration of H4/600-cell symmetry in the context of Noncommutative Geometry, with constructive negative results»**
+> **"Trinity-s3ai: A formal exploration of H4/600-cell symmetry in the context of Noncommutative Geometry, with constructive negative results"**
 
-**Почему это лучше:**
+**Why this is better:**
 
-1. **Честно:** слово «exploration» точно описывает то, что было сделано.
-2. **Ценно:** «constructive negative results» — это формат, принятый в серьёзных журналах.
-3. **Точно:** «H4/600-cell symmetry» — это реальный объект изучения.
-4. **Не разочаровывает:** читатель знает, что ожидать.
+1. **Honest:** the word "exploration" accurately describes what was done.
+2. **Valuable:** "constructive negative results" — a format accepted in serious journals.
+3. **Accurate:** "H4/600-cell symmetry" — the real object of study.
+4. **Not disappointing:** the reader knows what to expect.
 
-### 3.3 Альтернативные названия для статьи
+### 3.3 Alternative titles for the paper
 
 - *«H4 and the 600-cell: Four No-Go Theorems for NCG-based Standard Model Unification»*
 - *«Machine-Verified No-Go Theorems in Speculative Unified Physics: The Trinity-s3ai Framework»*
@@ -123,13 +123,13 @@ Status: ARCHIVED — superseded by NGT-[1-4] (Wave 9.6)
 
 ---
 
-## Часть 4: ЦЕННОСТЬ КАК МЕТОДОЛОГИЧЕСКИЙ ВКЛАД
+## Part 4: VALUE AS A METHODOLOGICAL CONTRIBUTION
 
-Независимо от физического содержания, Trinity-s3ai демонстрирует:
+Regardless of physical content, Trinity-s3ai demonstrates:
 
-### 4.1 Машинная верификация отрицательных результатов
+### 4.1 Machine verification of negative results
 
-Это **новый методологический подход**: использовать Coq для документации не только позитивных, но и негативных результатов в спекулятивной физике. Пример из `NoGoTheorems.v`:
+This is a **novel methodological approach**: using Coq to document not only positive but also negative results in speculative physics. Example from `NoGoTheorems.v`:
 
 ```coq
 Theorem alpha_from_H4_refuted :
@@ -137,11 +137,11 @@ Theorem alpha_from_H4_refuted :
 Proof. ... Qed.
 ```
 
-Это **строгое опровержение** — сильнее, чем «это не работает по численным причинам».
+This is a **rigorous refutation** — stronger than "this does not work for numerical reasons".
 
-### 4.2 Честный реестр пробелов
+### 4.2 Honest registry of gaps
 
-`admitted_log.md` — образец того, как нужно документировать `Admitted`:
+`admitted_log.md` is an example of how `Admitted` should be documented:
 
 ```
 (* HONEST Admitted SM3: The H4 spectral decomposition does not produce
@@ -149,67 +149,67 @@ Proof. ... Qed.
 Admitted.
 ```
 
-Это контрастирует с практикой прятать `Admitted` или использовать их без объяснений.
+This contrasts with the practice of hiding `Admitted` or using them without explanation.
 
-### 4.3 Систематическая фальсификация
+### 4.3 Systematic falsification
 
-`cosmology_falsified_log.md` с таблицей σ-расстояний — методологический образец для будущих работ в области *phenomenological numerology* с честным аудитом.
-
----
-
-## Часть 5: КОНКРЕТНЫЙ ПЛАН ДЕЙСТВИЙ
-
-### Шаг 1: Немедленно (Week 1)
-
-- [x] Создать `no_go_theorems.md` — формулировка NGT-1–4 (сделано)
-- [x] Создать `NoGoTheorems.v` — 32 Qed, 0 Admitted (сделано)
-- [x] Обновить README.md: добавить предупреждение о том, что проект пришёл к конструктивным отрицательным результатам
-- [ ] Добавить тег `Status: ARCHIVED` к фальсифицированным заявлениям
-
-### Шаг 2: Краткосрочно (Month 1)
-
-- [ ] Написать arXiv preprint (~20 страниц) с NGT-1–4 и их доказательствами
-- [ ] Отправить на arXiv hep-th или math-ph
-- [ ] Обновить CITATION.bib с корректным описанием проекта
-
-### Шаг 3: Среднесрочно (Quarter)
-
-- [ ] Отправить в Foundations of Physics или SHPMP (с акцентом на методологию)
-- [ ] Продолжить разработку Lean 4 порта (более доступная аудитория)
-- [ ] Если DUNE 2028 фальсифицирует δ_CP: документировать как предсказанную фальсификацию
-
-### Шаг 4: Долгосрочно (возможные открытые вопросы)
-
-Если проект продолжается — только через честные **новые** гипотезы:
-
-1. **Механизм нарушения антиподальной симметрии**: какое расширение конструкции могло бы нарушить симметрию v ↦ -v? (F-теория поверх 600-ячейника?)
-2. **η-инвариант как физическая хиральность**: APS-граничные условия для Dirac оператора на S³/2I с зоной компактификации — теоретически возможный путь.
-3. **Более богатая алгебра**: что если A_F не ℂ ⊕ ℍ ⊕ M₃(ℂ), а более богатая структура, мотивированная H4?
-
-Все три — открытые вопросы, не заявления.
+`cosmology_falsified_log.md` with its table of σ-distances — a methodological model for future work in *phenomenological numerology* with honest auditing.
 
 ---
 
-## Итоговая сводка
+## Part 5: CONCRETE ACTION PLAN
 
-| Категория | Количество | Действие |
-|-----------|-----------|---------|
-| Qed (машинно верифицированных) | **340** | СОХРАНИТЬ |
-| Admitted (честных пробелов) | **7** | СОХРАНИТЬ с тегами |
-| Теоремы о невозможности | **4** (NGT-1–4) | ПУБЛИКОВАТЬ |
-| Фальсифицированных CMB формул | **9** | АРХИВИРОВАТЬ с тегами |
-| Выживших физических результатов | **6** | СОХРАНИТЬ |
-| Опровергнутых заявлений | **8** | АРХИВИРОВАТЬ |
-| Формул в честном каталоге | **25 (0R+8S+17NF)** | СОХРАНИТЬ |
+### Step 1: Immediate (Week 1)
+
+- [x] Create `no_go_theorems.md` — formulation of NGT-1–4 (done)
+- [x] Create `NoGoTheorems.v` — 32 Qed, 0 Admitted (done)
+- [x] Update README.md: add a warning that the project has reached constructive negative results
+- [ ] Add `Status: ARCHIVED` tag to falsified claims
+
+### Step 2: Short-term (Month 1)
+
+- [ ] Write arXiv preprint (~20 pages) with NGT-1–4 and their proofs
+- [ ] Submit to arXiv hep-th or math-ph
+- [ ] Update CITATION.bib with an accurate project description
+
+### Step 3: Medium-term (Quarter)
+
+- [ ] Submit to Foundations of Physics or SHPMP (with emphasis on methodology)
+- [ ] Continue developing the Lean 4 port (broader audience)
+- [ ] If DUNE 2028 falsifies δ_CP: document as a predicted falsification
+
+### Step 4: Long-term (possible open questions)
+
+If the project continues — only through honest **new** hypotheses:
+
+1. **Mechanism for breaking antipodal symmetry**: what extension of the construction could break the symmetry v ↦ -v? (F-theory over the 600-cell?)
+2. **η-invariant as physical chirality**: APS boundary conditions for the Dirac operator on S³/2I with a compactification zone — a theoretically possible path.
+3. **Richer algebra**: what if A_F is not ℂ ⊕ ℍ ⊕ M₃(ℂ), but a richer structure motivated by H4?
+
+All three — open questions, not claims.
 
 ---
 
-**Заключение:**
+## Final summary
 
-Проект Trinity-s3ai провёл восемь волн честной формализации. Результат — не «теория всего», а **конструктивный негативный результат**: H4/600-ячейник в текущей формулировке недостаточен для вывода SM. Это — научный вклад. Его надо публиковать именно так.
-
-*«Честный отрицательный результат стоит больше, чем провалившееся позитивное заявление.»*
+| Category | Count | Action |
+|----------|-------|--------|
+| Qed (machine-verified) | **340** | KEEP |
+| Admitted (honest gaps) | **7** | KEEP with tags |
+| No-go theorems | **4** (NGT-1–4) | PUBLISH |
+| Falsified CMB formulas | **9** | ARCHIVE with tags |
+| Surviving physical results | **6** | KEEP |
+| Refuted claims | **8** | ARCHIVE |
+| Formulas in honest catalogue | **25 (0R+8S+17NF)** | KEEP |
 
 ---
 
-*Wave 9.6 — Июнь 2026. Trinity-s3ai: честный итог.*
+**Conclusion:**
+
+The Trinity-s3ai project conducted eight waves of honest formalisation. The result is not a "theory of everything", but a **constructive negative result**: H4/600-cell in its current formulation is insufficient to derive the SM. This is a scientific contribution. It should be published as such.
+
+*"An honest negative result is worth more than a failed positive claim."*
+
+---
+
+*Wave 9.6 — June 2026. Trinity-s3ai: an honest reckoning.*

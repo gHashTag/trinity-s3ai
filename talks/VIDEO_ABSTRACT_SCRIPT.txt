@@ -97,14 +97,14 @@ PRODUCTION NOTES
 
 ---
 
-[RU] КЛЮЧЕВЫЕ ФРАЗЫ ДЛЯ РУССКОЙ ОЗВУЧКИ
-----------------------------------------
+[RU] KEY PHRASES FOR RUSSIAN DUBBING
+------------------------------------
 
-- "конструктивный отрицательный результат"
-- "рефутация с сертификатом"
-- "55 сигма — это не 'достаточно близко'"
-- "гипотеза умерла, но умерла с сертификатом"
-- "нулевых фальшивых доказательств"
+- "constructive negative result"
+- "refutation with a certificate"
+- "55 sigma is not 'close enough'"
+- "the hypothesis died, but it died with a certificate"
+- "zero fake proofs"
 
 ---
 

@@ -1,163 +1,163 @@
-# Η-инвариант оператора Дирака на S³/2I (сфера Пуанкаре)
+# η-Invariant of the Dirac Operator on S³/2I (Poincaré Sphere)
 
 **Wave 8.3 — Trinity S3AI**  
-**Дата:** Июнь 2026  
-**Статус:** Честное вычисление с указанием неопределённостей в знаковых соглашениях
+**Date:** June 2026  
+**Status:** Honest computation with indication of uncertainties in sign conventions
 
 ---
 
-## 1. Введение и постановка задачи
+## 1. Introduction and Problem Statement
 
-В Wave 6 (ChiralityAnalysis.v) было установлено, что подход Trinity-s3ai на основе 600-ячейника
-и бинарной икосаэдрической группы 2I в текущей формулировке даёт **векторно-подобный спектр**:
-инволюция $v \mapsto -v$ на вершинах 600-ячейника попарно связывает состояния с противоположными
-«хиральностями». Был идентифицирован наиболее перспективный путь к хиральности:
+In Wave 6 (ChiralityAnalysis.v) it was established that the Trinity-s3ai approach based on the 600-cell
+and the binary icosahedral group 2I in its current formulation yields a **vector-like spectrum**:
+the involution $v \mapsto -v$ on the vertices of the 600-cell pairwise links states with opposite
+"chiralities". The most promising path to chirality was identified:
 
-> **Вариант (b):** η-инвариант оператора Дирака на $S^3/2I$ может быть ненулевым
-> и давать интринсическую хиральную асимметрию спектра.
+> **Variant (b):** The η-invariant of the Dirac operator on $S^3/2I$ may be nonzero
+> and provide intrinsic chiral asymmetry of the spectrum.
 
-Wave 8.3 производит явное вычисление этого η-инварианта.
+Wave 8.3 performs an explicit computation of this η-invariant.
 
 ---
 
-## 2. Математический фон: теория APS и η-инвариант
+## 2. Mathematical Background: APS Theory and the η-Invariant
 
-### 2.1 Определение η-инварианта
+### 2.1 Definition of the η-Invariant
 
-Пусть $M$ — замкнутое ориентированное риманово многообразие нечётной размерности,
-$D: \Gamma(S) \to \Gamma(S)$ — самосопряжённый эллиптический оператор (например, оператор
-Дирака). Спектр $D$ дискретен: $\{\lambda_j\}_{j \in \mathbb{Z}} \subset \mathbb{R}$.
+Let $M$ be a closed oriented Riemannian manifold of odd dimension,
+$D: \Gamma(S) \to \Gamma(S)$ a self-adjoint elliptic operator (e.g., the Dirac
+operator). The spectrum of $D$ is discrete: $\{\lambda_j\}_{j \in \mathbb{Z}} \subset \mathbb{R}$.
 
-**Η-функция** определяется для $\mathrm{Re}(s) \gg 0$ как:
+The **η-function** is defined for $\mathrm{Re}(s) \gg 0$ as:
 $$\eta(D, s) = \sum_{\lambda_j \neq 0} \mathrm{sign}(\lambda_j) \cdot |\lambda_j|^{-s}$$
 
-Эта функция допускает мероморфное продолжение на всю комплексную плоскость
-(Атья–Патоди–Зингер, 1975; Гилки, 1984) и является **голоморфной в нуле**.
+This function admits a meromorphic continuation to the entire complex plane
+(Atiyah–Patodi–Singer, 1975; Gilkey, 1984) and is **holomorphic at zero**.
 
-**Η-инвариант** (или η-инвариант Атья–Патоди–Зингера):
+**η-Invariant** (or Atiyah–Patodi–Singer η-invariant):
 $$\eta(D) \coloneqq \eta(D, 0) \in \mathbb{R}$$
 
-Физически: η-инвариант измеряет **спектральную асимметрию** — избыток положительных
-собственных значений над отрицательными (в регуляризованном смысле):
+Physically: the η-invariant measures **spectral asymmetry** — the excess of positive
+eigenvalues over negative ones (in a regularized sense):
 $$\eta(D, 0) = \lim_{s \to 0} \eta(D, s) = \#\{\lambda_j > 0\}_{\mathrm{reg}} - \#\{\lambda_j < 0\}_{\mathrm{reg}}$$
 
-### 2.2 Теорема Атья–Патоди–Зингера (APS)
+### 2.2 Atiyah–Patodi–Singer (APS) Theorem
 
-Для ориентированного риманова многообразия $W$ с краем $\partial W = M$,
-оснащённого спинорной структурой, оператор Дирака $D^+_W$ (с APS граничными условиями):
+For an oriented Riemannian manifold $W$ with boundary $\partial W = M$,
+equipped with a spin structure, the Dirac operator $D^+_W$ (with APS boundary conditions):
 
 $$\mathrm{ind}(D^+_{W,\mathrm{APS}}) = \int_W \hat{A}(TW) - \frac{\eta(D_M) + h}{2}$$
 
-где:
-- $\hat{A}(TW)$ — характеристический класс Хирцебруха-Рочлина,
-- $h = \dim \ker D_M$ — размерность ядра оператора Дирака на крае,
-- $\eta(D_M)$ — η-инвариант оператора Дирака на $M = \partial W$.
+where:
+- $\hat{A}(TW)$ is the Hirzebruch-Rochlin characteristic class,
+- $h = \dim \ker D_M$ is the dimension of the kernel of the Dirac operator on the boundary,
+- $\eta(D_M)$ is the η-invariant of the Dirac operator on $M = \partial W$.
 
-Для 4-многообразия $W$ со спинорной структурой:
+For a 4-manifold $W$ with spin structure:
 $$\int_W \hat{A}(TW) = \frac{\sigma(W)}{8}$$
-где $\sigma(W)$ — сигнатура.
+where $\sigma(W)$ is the signature.
 
-### 2.3 Рациональность η-инварианта для сферических пространств-форм
+### 2.3 Rationality of the η-Invariant for Spherical Space Forms
 
-**Теорема** (Гилки 1984, Дóннелли 1977): Для любого сферического пространства-формы
-$M = S^n/\Gamma$ ($\Gamma \subset SO(n+1)$ — конечная группа, действующая свободно),
-η-инвариант оператора Дирака $\eta(D_M) \in \mathbb{Q}$.
+**Theorem** (Gilkey 1984, Donnelly 1977): For any spherical space form
+$M = S^n/\Gamma$ ($\Gamma \subset SO(n+1)$ a finite group acting freely),
+the η-invariant of the Dirac operator $\eta(D_M) \in \mathbb{Q}$.
 
-Доказательство: η-инвариант выражается через Дедекиндовы суммы (для нечётных $n$)
-или их обобщения, которые суть рациональные числа. Более точно:
+Proof: The η-invariant is expressed through Dedekind sums (for odd $n$)
+or their generalizations, which are rational numbers. More precisely:
 $$\eta(D_{S^n/\Gamma}) = \frac{1}{|\Gamma|} \sum_{g \in \Gamma \setminus \{e\}} \eta_g(D_{S^n})$$
-где каждый $\eta_g$ — конечная сумма значений тригонометрических функций при рациональных
-аргументах, что даёт рациональный результат (теорема Нивена о рациональных значениях
-тригонометрических функций).
+where each $\eta_g$ is a finite sum of values of trigonometric functions at rational
+arguments, yielding a rational result (Niven's theorem on rational values of
+trigonometric functions).
 
 ---
 
-## 3. Сфера Пуанкаре: $S^3/2I$
+## 3. Poincaré Sphere: $S^3/2I$
 
-### 3.1 Бинарная икосаэдрическая группа 2I
+### 3.1 Binary Icosahedral Group 2I
 
-Бинарная икосаэдрическая группа $2I$ — это двойное накрытие икосаэдрической группы $I$:
+The binary icosahedral group $2I$ is the double cover of the icosahedral group $I$:
 $$1 \to \{\pm 1\} \to 2I \to I \cong A_5 \to 1$$
-Порядок: $|2I| = 120$. Явная реализация: $2I \cong SL_2(\mathbb{F}_5)$.
+Order: $|2I| = 120$. Explicit realization: $2I \cong SL_2(\mathbb{F}_5)$.
 
-**Ключевые свойства 2I:**
-- Совершенная группа: $[2I, 2I] = 2I$ (абелизация тривиальна)
-- $H_1(2I; \mathbb{Z}) = 0$ (т.к. совершенная)
-- $H^1(2I; \mathbb{Z}/2\mathbb{Z}) = \mathrm{Hom}(2I, \mathbb{Z}/2\mathbb{Z}) = 0$ (критично!)
-- Соответствует узлу Дынкина $E_8$ в классификации МакКея
+**Key properties of 2I:**
+- Perfect group: $[2I, 2I] = 2I$ (abelianization is trivial)
+- $H_1(2I; \mathbb{Z}) = 0$ (since perfect)
+- $H^1(2I; \mathbb{Z}/2\mathbb{Z}) = \mathrm{Hom}(2I, \mathbb{Z}/2\mathbb{Z}) = 0$ (critical!)
+- Corresponds to the $E_8$ Dynkin node in McKay's classification
 
-**Вложение в $SU(2)$:** $2I \hookrightarrow SU(2) \subset \mathbb{H}^{\times}$, единичные кватернионы.
-Вершины 600-ячейника в $\mathbb{R}^4$ суть именно элементы $2I \subset S^3$.
+**Embedding in $SU(2)$:** $2I \hookrightarrow SU(2) \subset \mathbb{H}^{\times}$, unit quaternions.
+The vertices of the 600-cell in $\mathbb{R}^4$ are precisely the elements $2I \subset S^3$.
 
-### 3.2 Сфера Пуанкаре $\Sigma(2,3,5) = S^3/2I$
+### 3.2 Poincaré Sphere $\Sigma(2,3,5) = S^3/2I$
 
-$S^3/2I$ — гомологическая сфера Пуанкаре (единственная в размерности 3 с конечной фундаментальной
-группой, кроме $S^3$). Как волокнистое пространство Зейферта: $\Sigma(2,3,5)$ с
-зейфертовскими инвариантами $(a_1, b_1; a_2, b_2; a_3, b_3) = (2,1; 3,1; 5,1)$.
+$S^3/2I$ is the Poincaré homology sphere (the only one in dimension 3 with finite fundamental
+group, besides $S^3$). As a Seifert fibered space: $\Sigma(2,3,5)$ with
+Seifert invariants $(a_1, b_1; a_2, b_2; a_3, b_3) = (2,1; 3,1; 5,1)$.
 
-**Гомология:** $H_*(S^3/2I; \mathbb{Z}) \cong H_*(S^3; \mathbb{Z})$ — как у 3-сферы.
+**Homology:** $H_*(S^3/2I; \mathbb{Z}) \cong H_*(S^3; \mathbb{Z})$ — same as the 3-sphere.
 
-### 3.3 Спинорная структура на $S^3/2I$
+### 3.3 Spin Structure on $S^3/2I$
 
-**Теорема:** $S^3/2I$ имеет **единственную** спинорную структуру.
+**Theorem:** $S^3/2I$ has a **unique** spin structure.
 
-**Доказательство:**
-Спинорные структуры на $M$ классифицируются $H^1(M; \mathbb{Z}/2\mathbb{Z})$.
-Для $M = S^3/2I$:
+**Proof:**
+Spin structures on $M$ are classified by $H^1(M; \mathbb{Z}/2\mathbb{Z})$.
+For $M = S^3/2I$:
 $$H^1(S^3/2I; \mathbb{Z}/2\mathbb{Z}) = \mathrm{Hom}(\pi_1(S^3/2I), \mathbb{Z}/2\mathbb{Z}) = \mathrm{Hom}(2I, \mathbb{Z}/2\mathbb{Z}) = 0$$
-последнее т.к. $2I$ совершенна.
+the last equality since $2I$ is perfect.
 
-Таким образом, нет неоднозначности в выборе спинорной структуры. ∎
+Thus, there is no ambiguity in the choice of spin structure. ∎
 
 ---
 
-## 4. Спектр оператора Дирака на $S^3/2I$
+## 4. Spectrum of the Dirac Operator on $S^3/2I$
 
-### 4.1 Спектр на $S^3$
+### 4.1 Spectrum on $S^3$
 
-Для круглой 3-сферы $S^3$ (радиус 1) спиновый оператор Дирака имеет спектр (Бар 1996,
-Кáмпорези–Игути 1996):
+For the round 3-sphere $S^3$ (radius 1) the spin Dirac operator has spectrum (Bär 1996,
+Camporesi–Higuchi 1996):
 $$\lambda_n^{\pm} = \pm\left(n + \frac{3}{2}\right), \quad n = 0, 1, 2, \ldots$$
-с кратностями $m(n) = (n+1)(n+2)$ для каждого знака.
+with multiplicities $m(n) = (n+1)(n+2)$ for each sign.
 
-Так как кратности положительных и отрицательных собственных значений одинаковы,
-$\eta(D_{S^3}) = 0$ (по симметрии).
+Since the multiplicities of positive and negative eigenvalues are equal,
+$\eta(D_{S^3}) = 0$ (by symmetry).
 
-### 4.2 Формула Цисне́рос-Молины для $S^3/\Gamma$
+### 4.2 Cisneros-Molina Formula for $S^3/\Gamma$
 
-**Теорема** (Cisneros-Molina, Geometriae Dedicata 84 (2001)):
-Пусть $\Gamma \subset SU(2)$, $D^\Gamma_\alpha$ — оператор Дирака на $S^3/\Gamma$,
-скрученный представлением $\alpha: \Gamma \to GL_N(\mathbb{C})$.
+**Theorem** (Cisneros-Molina, Geometriae Dedicata 84 (2001)):
+Let $\Gamma \subset SU(2)$, $D^\Gamma_\alpha$ be the Dirac operator on $S^3/\Gamma$,
+twisted by the representation $\alpha: \Gamma \to GL_N(\mathbb{C})$.
 
-Собственные значения:
-$$\lambda_k^- = -\frac{1}{2} - (k+1), \quad k = 0, 1, 2, \ldots \qquad (\text{отрицательные})$$
-$$\lambda_k^+ = -\frac{1}{2} + (k+1) = k + \frac{1}{2}, \quad k = 1, 2, \ldots \qquad (\text{положительные})$$
+Eigenvalues:
+$$\lambda_k^- = -\frac{1}{2} - (k+1), \quad k = 0, 1, 2, \ldots \qquad (\text{negative})$$
+$$\lambda_k^+ = -\frac{1}{2} + (k+1) = k + \frac{1}{2}, \quad k = 1, 2, \ldots \qquad (\text{positive})$$
 
-Кратности:
+Multiplicities:
 $$m^-_k = \langle \chi_{E_{k+1}}, \chi_\alpha \rangle_\Gamma \cdot (k+1), \quad
 m^+_k = \langle \chi_{E_{k-1}}, \chi_\alpha \rangle_\Gamma \cdot k$$
 
-где $E_k$ — неприводимое $(k+1)$-мерное представление $SU(2)$ (спин-$k/2$),
-$\langle \cdot, \cdot \rangle_\Gamma$ — скалярное произведение характеров:
+where $E_k$ is the irreducible $(k+1)$-dimensional representation of $SU(2)$ (spin-$k/2$),
+$\langle \cdot, \cdot \rangle_\Gamma$ is the character scalar product:
 $$\langle \chi_V, \chi_W \rangle_\Gamma = \frac{1}{|\Gamma|} \sum_{g \in \Gamma} \chi_V(g)^* \chi_W(g)$$
 
-Для **нескрученного** оператора Дирака (стандартная спинорная структура от $\Gamma \hookrightarrow SU(2)$):
-$\alpha = \rho_1$ (тривиальное 1-мерное представление).
+For the **untwisted** Dirac operator (standard spin structure from $\Gamma \hookrightarrow SU(2)$):
+$\alpha = \rho_1$ (trivial 1-dimensional representation).
 
-### 4.3 Таблица характеров 2I
+### 4.3 Character Table of 2I
 
-Классы сопряжённости $2I$: $C_1$ (е), $C_2$ ($-e$), $C_3$ (порядок 3),
-$C_4$ (порядок 4), $C_{5A}$, $C_{5B}$ (порядок 5), $C_6$ (порядок 6),
-$C_{10A}$, $C_{10B}$ (порядок 10).
+Conjugacy classes of $2I$: $C_1$ (e), $C_2$ ($-e$), $C_3$ (order 3),
+$C_4$ (order 4), $C_{5A}$, $C_{5B}$ (order 5), $C_6$ (order 6),
+$C_{10A}$, $C_{10B}$ (order 10).
 
-Мощности: $1, 1, 20, 30, 12, 12, 20, 12, 12$. Сумма: 120 ✓.
+Orders: $1, 1, 20, 30, 12, 12, 20, 12, 12$. Sum: 120 ✓.
 
-Углы элементов (из $\chi_{\rho_2} = 2\cos\theta$, где $\rho_2$ — стандартное 2-мерное
-представление $SU(2)|_{2I}$):
+Angles of elements (from $\chi_{\rho_2} = 2\cos\theta$, where $\rho_2$ is the standard 2-dimensional
+representation of $SU(2)|_{2I}$):
 
-| Класс | Мощность | Угол $\theta$ |
+| Class | Order | Angle $\theta$ |
 |-------|----------|---------------|
-| $C_1$ (е) | 1 | $0$ |
+| $C_1$ (e) | 1 | $0$ |
 | $C_2$ ($-e$) | 1 | $\pi$ |
 | $C_3$ | 20 | $2\pi/3$ |
 | $C_4$ | 30 | $\pi/2$ |
@@ -169,69 +169,69 @@ $C_{10A}$, $C_{10B}$ (порядок 10).
 
 ---
 
-## 5. Вычисление η(0)
+## 5. Computation of η(0)
 
-### 5.1 Метод I: Теорема APS + многообразие $E_8$
+### 5.1 Method I: APS Theorem + E₈ Manifold
 
-Это наиболее надёжный метод, дающий точный ответ.
+This is the most reliable method, giving the exact answer.
 
-**Конструкция:** $\Sigma(2,3,5) = \partial W_{E_8}$, где $W_{E_8}$ — пленкинговое многообразие
-с матрицей пересечений $E_8$:
-- $\sigma(W_{E_8}) = -8$ (сигнатура),
-- $\pi_1(W_{E_8}) = 1$ (односвязно),
-- $W_{E_8}$ допускает спинорную структуру (форма $E_8$ — чётная),
-- Положительная скалярная кривизна вблизи края (Громов–Лоусон).
+**Construction:** $\Sigma(2,3,5) = \partial W_{E_8}$, where $W_{E_8}$ is the plumbing manifold
+with intersection matrix $E_8$:
+- $\sigma(W_{E_8}) = -8$ (signature),
+- $\pi_1(W_{E_8}) = 1$ (simply connected),
+- $W_{E_8}$ admits a spin structure ($E_8$ form is even),
+- Positive scalar curvature near the boundary (Gromov–Lawson).
 
-**APS формула:**
+**APS formula:**
 $$\mathrm{ind}(D^+_{W_{E_8}}) = \int_{W_{E_8}} \hat{A}(TW) - \frac{\eta(D_{\partial W}) + h}{2}$$
 
-Вычисление:
+Computation:
 - $\int_{W_{E_8}} \hat{A}(TW) = \sigma(W_{E_8})/8 = -8/8 = -1$,
-- $h = \dim \ker D_{\partial W} = 0$ (положительная скалярная кривизна на $\Sigma(2,3,5)$ как
-  сферическое пространство-форма $\Rightarrow$ нет ядра у оператора Дирака),
-- $\mathrm{ind}(D^+_{W_{E_8}}) = 0$ (контрактируемость внутренности $W_{E_8}$).
+- $h = \dim \ker D_{\partial W} = 0$ (positive scalar curvature on $\Sigma(2,3,5)$ as a
+  spherical space form $\Rightarrow$ no kernel for the Dirac operator),
+- $\mathrm{ind}(D^+_{W_{E_8}}) = 0$ (contractibility of the interior of $W_{E_8}$).
 
-Подстановка:
+Substitution:
 $$0 = -1 - \frac{\eta + 0}{2} \implies \eta = -2$$
 
-**Соглашение о знаке:** Результат $\eta = -2$ для стандартной ориентации
+**Sign convention:** The result $\eta = -2$ is for the standard orientation
 $\partial W_{E_8} = +\Sigma(2,3,5)$.
-При перемене ориентации: $\eta(-\Sigma(2,3,5)) = +2$.
+Under orientation reversal: $\eta(-\Sigma(2,3,5)) = +2$.
 
 $$\boxed{\eta(D_{S^3/2I}) = -2}$$
 
-### 5.2 Метод II: Формула Рубин–Савчук
+### 5.2 Method II: Rubin–Savchuk Formula
 
-Для гомологических сфер Зейферта $Y = \Sigma(a_1, \ldots, a_n)$ (Roubing–Savchuk, 2010):
+For Seifert fibered homology spheres $Y = \Sigma(a_1, \ldots, a_n)$ (Roubing–Savchuk, 2010):
 $$\frac{1}{2}\eta_{\mathrm{Dir}}(Y) + \frac{1}{8}\eta_{\mathrm{Sign}}(Y) = -\bar{\mu}(Y)$$
 
-Компоненты для $\Sigma(2,3,5)$:
-- $\bar{\mu}(\Sigma(2,3,5)) = -1$ (инвариант Нёйманна),
-- Суммы Дедекинда: $s(1,2) = 0$, $s(1,3) = \frac{1}{18}$, $s(1,5) = \frac{1}{5}$,
+Components for $\Sigma(2,3,5)$:
+- $\bar{\mu}(\Sigma(2,3,5)) = -1$ (Neumann invariant),
+- Dedekind sums: $s(1,2) = 0$, $s(1,3) = \frac{1}{18}$, $s(1,5) = \frac{1}{5}$,
 - $\eta_{\mathrm{Sign}} = -3 + 4\left(0 + \frac{1}{18} + \frac{1}{5}\right) = -3 + \frac{4 \cdot 23}{90} = -\frac{89}{45} \approx -1.978$.
 
-Из формулы Рубин–Савчук:
+From the Rubin–Savchuk formula:
 $$\frac{1}{2}\eta_{\mathrm{Dir}} = 1 - \frac{1}{8}\cdot\left(-\frac{89}{45}\right) = 1 + \frac{89}{360} = \frac{449}{360}$$
 $$\eta_{\mathrm{Dir}} = \frac{449}{180} \approx 2.494$$
 
-**Замечание о расхождении:** Расхождение между Методом I ($-2$) и Методом II ($\approx 2.49$)
-связано с соглашением о знаке $\bar{\mu}$ и нормировке $\eta_{\mathrm{Sign}}$. В разных
-работах $\bar{\mu}(\Sigma(2,3,5))$ принимает значения $-1$ или $+1$ в зависимости от
-ориентации. При $\bar{\mu} = +1$ (обратная ориентация):
+**Note on discrepancy:** The discrepancy between Method I ($-2$) and Method II ($\approx 2.49$)
+is related to the sign convention for $\bar{\mu}$ and the normalization of $\eta_{\mathrm{Sign}}$. In different
+works $\bar{\mu}(\Sigma(2,3,5))$ takes values $-1$ or $+1$ depending on
+orientation. With $\bar{\mu} = +1$ (reverse orientation):
 $$\eta_{\mathrm{Dir}} = 2\cdot(-1 - \eta_{\mathrm{Sign}}/8) = 2\cdot(-1 + 89/360) = -\frac{271}{180} \approx -1.506$$
-Это ближе к $-2$, но не совпадает — различие в нормировке $\eta_{\mathrm{Sign}}$.
+This is closer to $-2$, but does not coincide — the difference lies in the normalization of $\eta_{\mathrm{Sign}}$.
 
-### 5.3 Метод III: Эквивариантная формула
+### 5.3 Method III: Equivariant Formula
 
-**Формула Дóннелли-Сида** (Seade 1985, Donnelly 1977):
+**Donnelly-Seade formula** (Seade 1985, Donnelly 1977):
 $$\eta(D_{S^3/\Gamma}) = \frac{1}{|\Gamma|} \sum_{g \in \Gamma \setminus \{e\}} \eta_g^{\mathrm{eq}}$$
 
-где для $g \in SU(2)$ с углом $\theta$ ($0 < \theta \leq \pi$):
+where for $g \in SU(2)$ with angle $\theta$ ($0 < \theta \leq \pi$):
 $$\eta_g^{\mathrm{eq}} = \frac{2\cos\theta}{1 - \cos\theta}$$
 
-Для $\Gamma = 2I$ (применяем к каждому классу сопряжённости):
+For $\Gamma = 2I$ (applied to each conjugacy class):
 
-| Класс | $|C|$ | $\theta/\pi$ | $\cos\theta$ | $\eta_g^{\mathrm{eq}}$ | $|C| \cdot \eta_g^{\mathrm{eq}}$ |
+| Class | $|C|$ | $\theta/\pi$ | $\cos\theta$ | $\eta_g^{\mathrm{eq}}$ | $|C| \cdot \eta_g^{\mathrm{eq}}$ |
 |-------|-------|--------------|--------------|------------------------|----------------------------------|
 | $C_2$ | 1 | 1.000 | $-1$ | $-1$ | $-1$ |
 | $C_3$ | 20 | 0.667 | $-1/2$ | $-2/3$ | $-40/3$ |
@@ -242,179 +242,179 @@ $$\eta_g^{\mathrm{eq}} = \frac{2\cos\theta}{1 - \cos\theta}$$
 | $C_{10A}$ | 12 | 0.200 | $\phi/2$ | $\approx 5.236$ | $\approx 62.83$ |
 | $C_{10B}$ | 12 | 0.600 | $-(\phi-1)/2$ | $\approx -0.382/1.382$ | $\approx -3.32$ |
 
-**Сумма:** $\approx 121.7$, откуда $\eta \approx 121.7/120 \approx 1.01$.
+**Sum:** $\approx 121.7$, whence $\eta \approx 121.7/120 \approx 1.01$.
 
-**Проблема калибровки:** Для линзовых пространств $L(5,1)$ эта формула даёт $\eta = 0$,
-тогда как APS даёт $\eta = -0.8$. Это означает, что формула $\eta_g^{\mathrm{eq}} = 2\cos\theta/(1-\cos\theta)$
-использует неверную нормировку или знаковое соглашение для данного контекста.
+**Calibration problem:** For lens spaces $L(5,1)$ this formula gives $\eta = 0$,
+whereas APS gives $\eta = -0.8$. This means the formula $\eta_g^{\mathrm{eq}} = 2\cos\theta/(1-\cos\theta)$
+uses an incorrect normalization or sign convention for this context.
 
-**Корректная эквивариантная формула** требует точного согласования спинорной структуры
-с действием $\Gamma$ на $S^3$ — детальный вывод выходит за рамки данного вычисления.
+**Correct equivariant formula** requires precise matching of the spin structure
+with the action of $\Gamma$ on $S^3$ — a detailed derivation is beyond the scope of this computation.
 
-### 5.4 Сводка методов и итоговая оценка
+### 5.4 Summary of Methods and Final Assessment
 
-| Метод | Результат | Надёжность |
+| Method | Result | Reliability |
 |-------|-----------|------------|
-| APS + многообразие $E_8$ | $\eta = -2$ | Высокая (топологический аргумент) |
-| Рубин–Савчук + Дедекинд | $\eta \approx +2.49$ | Средняя (зависит от знака $\bar{\mu}$) |
-| Эквивариантная формула Сида | $\eta \approx +1.01$ | Низкая (требует калибровки) |
+| APS + E₈ manifold | $\eta = -2$ | High (topological argument) |
+| Rubin–Savchuk + Dedekind | $\eta \approx +2.49$ | Medium (depends on sign of $\bar{\mu}$) |
+| Seade equivariant formula | $\eta \approx +1.01$ | Low (requires calibration) |
 
-**Общий вывод:** Все три метода согласны в том, что $|\eta| \in [1, 2.5]$ и $\eta \neq 0$.
-Наиболее надёжный метод (APS) даёт:
-$$\eta(D_{S^3/2I}) = -2 \quad \text{(в стандартном соглашении о знаке)}$$
+**Overall conclusion:** All three methods agree that $|\eta| \in [1, 2.5]$ and $\eta \neq 0$.
+The most reliable method (APS) gives:
+$$\eta(D_{S^3/2I}) = -2 \quad \text{(in the standard sign convention)}$$
 
 ---
 
-## 6. Формула η(s) и её регуляризация
+## 6. Formula η(s) and Its Regularization
 
-### 6.1 Η-функция для S³/2I
+### 6.1 η-Function for S³/2I
 
-Используя формулу Цисне́рос-Молины с $\alpha = \rho_1$:
+Using the Cisneros-Molina formula with $\alpha = \rho_1$:
 $$\eta(D_{S^3/2I}, s) = \sum_{k=1}^{\infty} \frac{m_k^+}{(k + 1/2)^s} - \sum_{k=0}^{\infty} \frac{m_k^-}{(k + 3/2)^s}$$
 
-Для большого $k$ (по предложению 2.3 Марколли–ван Сёйлекома):
-$$\langle \chi_{E_k}, \chi_{\rho_1} \rangle_{2I} \to \frac{1}{|2I|} = \frac{1}{120} \quad \text{при } k \to \infty$$
+For large $k$ (by Proposition 2.3 of Marcolli–van Suijlekom):
+$$\langle \chi_{E_k}, \chi_{\rho_1} \rangle_{2I} \to \frac{1}{|2I|} = \frac{1}{120} \quad \text{as } k \to \infty$$
 
-Поэтому:
-$$m_k^+ \approx \frac{k}{120}, \quad m_k^- \approx \frac{k+1}{120} \quad \text{при большом } k$$
+Therefore:
+$$m_k^+ \approx \frac{k}{120}, \quad m_k^- \approx \frac{k+1}{120} \quad \text{for large } k$$
 
-Разность: $m_k^+ - m_k^- \approx -1/120$, и сумма расходится при $s = 0$.
-Значение $\eta(0)$ определяется **аналитическим продолжением**:
+Difference: $m_k^+ - m_k^- \approx -1/120$, and the sum diverges at $s = 0$.
+The value $\eta(0)$ is determined by **analytic continuation**:
 $$\eta(D, 0) = \mathrm{f.p.}_{s=0} \left[\sum_{\lambda_j > 0} \lambda_j^{-s} - \sum_{\lambda_j < 0} |\lambda_j|^{-s}\right]$$
 
-### 6.2 Связь с дзета-функцией Гурвица
+### 6.2 Connection to the Hurwitz Zeta Function
 
-Асимптотическая часть суммируется через функцию Гурвица $\zeta(s, a)$:
+The asymptotic part of the sum is summed via the Hurwitz zeta function $\zeta(s, a)$:
 $$\sum_{k=0}^\infty \frac{k+1}{(k+3/2)^s} = \zeta(s-1, 3/2) + \frac{1}{2}\zeta(s, 3/2)$$
-При $s=0$: $\zeta(0, a) = 1/2 - a$, $\zeta(-1, a) = -1/2(a^2 - a + 1/6)$.
-Конечная часть при $s=0$ даёт вклад в η(0).
+At $s=0$: $\zeta(0, a) = 1/2 - a$, $\zeta(-1, a) = -1/2(a^2 - a + 1/6)$.
+The finite part at $s=0$ contributes to η(0).
 
 ---
 
-## 7. Физическая интерпретация
+## 7. Physical Interpretation
 
-### 7.1 Связь с хиральностью
+### 7.1 Connection to Chirality
 
-Η-инвариант $\eta(D_M) \neq 0$ означает, что оператор Дирака на $M = S^3/2I$ имеет
-**несимметричный спектр**: число (зарегулированное) положительных собственных значений
-не равно числу отрицательных. В физическом контексте:
+The η-invariant $\eta(D_M) \neq 0$ means that the Dirac operator on $M = S^3/2I$ has an
+**asymmetric spectrum**: the (regularized) number of positive eigenvalues
+is not equal to the number of negative ones. In a physical context:
 
-**Связь с аномалиями (APS):**
-Для 4-многообразия $W$ с краем $M$ и фермионными полями:
-$$\text{Глобальная гравитационная аномалия} \propto \eta(D_M) + h \pmod{2}$$
+**Connection to anomalies (APS):**
+For a 4-manifold $W$ with boundary $M$ and fermion fields:
+$$\text{Global gravitational anomaly} \propto \eta(D_M) + h \pmod{2}$$
 
-**Связь с индексом Дирака:**
-Из APS: $\mathrm{ind}(D^+_W) = \hat{A}(W) - (\eta + h)/2$.
-При $\eta \neq 0$ (и $h = 0$): нулевые моды на $W$ несимметричны, что означает
-хиральный дисбаланс между левыми и правыми фермионными модами.
+**Connection to the Dirac index:**
+From APS: $\mathrm{ind}(D^+_W) = \hat{A}(W) - (\eta + h)/2$.
+When $\eta \neq 0$ (and $h = 0$): zero modes on $W$ are asymmetric, meaning
+a chiral imbalance between left and right fermion modes.
 
-### 7.2 Связь с задачей хиральности в Trinity-s3ai
+### 7.2 Connection to the Chirality Problem in Trinity-s3ai
 
-В Wave 6 было установлено, что **текущий спектр 600-ячейника векторно-подобен** из-за
-инволюции $v \mapsto -v$. Вычисленный η-инвариант $\eta(D_{S^3/2I}) = -2$ говорит о следующем:
+In Wave 6 it was established that the **current spectrum of the 600-cell is vector-like** due to
+the involution $v \mapsto -v$. The computed η-invariant $\eta(D_{S^3/2I}) = -2$ indicates the following:
 
-1. **Нетривиальная спектральная асимметрия:** оператор Дирака на $S^3/2I$ (пространстве,
-   связанном со структурой 600-ячейника) действительно имеет $\eta \neq 0$.
+1. **Nontrivial spectral asymmetry:** The Dirac operator on $S^3/2I$ (the space
+   connected with the structure of the 600-cell) indeed has $\eta \neq 0$.
 
-2. **Уровень сложности:** η-инвариант — инвариант самого многообразия $S^3/2I$, не зависящий
-   от конкретной физической модели. Это говорит о том, что геометрия пространства наследует
-   хиральную асимметрию.
+2. **Level of complexity:** The η-invariant is an invariant of the manifold $S^3/2I$ itself, independent
+   of a particular physical model. This indicates that the geometry of the space inherits
+   chiral asymmetry.
 
-3. **Открытый вопрос:** Как эта асимметрия передаётся фермионным модам и как она соотносится
-   с конкретными квантовыми числами частиц СМ ($SU(3) \times SU(2) \times U(1)$)?
-   Это требует дополнительного построения.
+3. **Open question:** How is this asymmetry transmitted to fermion modes and how does it relate
+   to the specific quantum numbers of SM particles ($SU(3) \times SU(2) \times U(1)$)?
+   This requires additional construction.
 
-### 7.3 Связь с формулой Ионса–Вестбери
+### 7.3 Connection to the Jones–Westbury Formula
 
-Ионс–Вестбури (Topology 1995) доказали, что для гомологической сферы Пуанкаре
-$P = \Sigma(2,3,5)$ с естественным представлением $\alpha = \rho_2$ (стандартная 2-мерная
-спинорная запись $\pi_1(P) = 2I$):
+Jones–Westbury (Topology 1995) proved that for the Poincaré homology sphere
+$P = \Sigma(2,3,5)$ with the natural representation $\alpha = \rho_2$ (standard 2-dimensional
+spinor representation of $\pi_1(P) = 2I$):
 $$e([P, \alpha]) = \tilde{\xi}(\alpha, D) = \frac{1}{120} \in \mathbb{C}/\mathbb{Z}$$
 
-Это ненулевой элемент, подтверждающий нетривиальность η-инварианта в скрученном смысле.
+This is a nonzero element, confirming the nontriviality of the η-invariant in the twisted sense.
 
-### 7.4 Связь с McKay-соответствием и $E_8$
+### 7.4 Connection to McKay Correspondence and $E_8$
 
-Группа $2I$ соответствует узлу $E_8$ в классификации МакКея. Тот факт, что η-инвариант
-$= -2$ для $S^3/2I$ и сигнатура ограничивающего $E_8$-многообразия $= -8$, соединены
-формулой $\eta = \sigma/4$, что отражает глубокую связь между спектральной геометрией
-группы $2I$ и алгеброй $E_8$.
+The group $2I$ corresponds to the $E_8$ node in McKay's classification. The fact that the η-invariant
+$= -2$ for $S^3/2I$ and the signature of the bounding $E_8$-manifold $= -8$ are connected
+by the formula $\eta = \sigma/4$ reflects the deep link between the spectral geometry
+of the group $2I$ and the algebra $E_8$.
 
 ---
 
-## 8. Оценка погрешности и честный анализ
+## 8. Error Assessment and Honest Analysis
 
-### 8.1 Источники неопределённости
+### 8.1 Sources of Uncertainty
 
-| Источник | Характер | Влияние |
+| Source | Nature | Impact |
 |----------|----------|---------|
-| Знаковое соглашение для $\bar{\mu}$ | Условный (разные работы) | Знак η |
-| Нормировка $\eta_{\mathrm{Sign}}$ в формуле Рубин–Савчук | Условный | ≈10% |
-| Ориентация $\partial W_{E_8}$ | Условный | Знак η |
-| Идентификация α в формуле Цисне́рос-Молины | Математический | Величина |
+| Sign convention for $\bar{\mu}$ | Conventional (varies by work) | Sign of η |
+| Normalization of $\eta_{\mathrm{Sign}}$ in Rubin–Savchuk formula | Conventional | ≈10% |
+| Orientation of $\partial W_{E_8}$ | Conventional | Sign of η |
+| Identification of α in Cisneros-Molina formula | Mathematical | Magnitude |
 
-### 8.2 Что установлено с уверенностью
+### 8.2 What Is Established with Confidence
 
-1. **$|\eta(D_{S^3/2I})| > 0$** — все методы согласны. Η-инвариант ненулевой.
-2. **Единственная спинорная структура** — $H^1(S^3/2I; \mathbb{Z}/2\mathbb{Z}) = 0$. Нет неоднозначности.
-3. **Рациональность** — $\eta \in \mathbb{Q}$ (теорема Гилки для сферических пространств-форм).
-4. **Порядок величины:** $|\eta| \in [1, 3]$.
+1. **$|\eta(D_{S^3/2I})| > 0$** — all methods agree. The η-invariant is nonzero.
+2. **Unique spin structure** — $H^1(S^3/2I; \mathbb{Z}/2\mathbb{Z}) = 0$. No ambiguity.
+3. **Rationality** — $\eta \in \mathbb{Q}$ (Gilkey's theorem for spherical space forms).
+4. **Order of magnitude:** $|\eta| \in [1, 3]$.
 
-### 8.3 Что требует уточнения
+### 8.3 What Requires Refinement
 
-1. **Точное значение** — между $-2$ (APS) и $\approx 2.49$ (Рубин–Савчук). Расхождение
-   на уровне знакового соглашения и нормировки.
-2. **Физическое отождествление** — как конкретно η-инвариант даёт 3 поколения и правильные
-   квантовые числа СМ. Это остаётся открытым вопросом.
+1. **Exact value** — between $-2$ (APS) and $\approx 2.49$ (Rubin–Savchuk). Discrepancy
+   at the level of sign convention and normalization.
+2. **Physical identification** — how specifically the η-invariant gives 3 generations and correct
+   SM quantum numbers. This remains an open question.
 
 ---
 
-## 9. Вердикт
+## 9. Verdict
 
-### ВЕРДИКТ A: η(0) ≠ 0 для S³/2I — потенциальный механизм хиральности
+### VERDICT A: η(0) ≠ 0 for S³/2I — Potential Mechanism for Chirality
 
-**Доказано:**
+**Proven:**
 $$\eta(D_{S^3/2I}) \neq 0$$
 
-**Наиболее вероятное значение (из APS + E₈-многообразие):**
-$$\eta(D_{S^3/2I}) = -2 \quad \text{(с точностью до знакового соглашения)}$$
+**Most probable value (from APS + E₈ manifold):**
+$$\eta(D_{S^3/2I}) = -2 \quad \text{(up to sign convention)}$$
 
-**Физический смысл:** Спектр оператора Дирака на $S^3/2I$ **несимметричен**. Это
-потенциальный механизм хиральной асимметрии, связанный с топологией бинарной икосаэдрической
-группы. Оператор Дирака на сфере Пуанкаре — пространстве, непосредственно порождённом
-группой симметрии 600-ячейника, — имеет ненулевую спектральную асимметрию.
+**Physical meaning:** The spectrum of the Dirac operator on $S^3/2I$ is **asymmetric**. This is a
+potential mechanism for chiral asymmetry, connected with the topology of the binary icosahedral
+group. The Dirac operator on the Poincaré sphere — a space directly generated by
+the symmetry group of the 600-cell — has nonzero spectral asymmetry.
 
-**Честная оценка:**
-Η-инвариант $\eta \neq 0$ **не доказывает** сам по себе, что Trinity-s3ai предсказывает
-три хиральных поколения СМ. Для этого нужно:
-1. Отождествить спектральные моды на $S^3/2I$ с конкретными фермионами СМ.
-2. Показать, что механизм хиральности от $\eta \neq 0$ выживает при компактификации
-   или геометрической конструкции полной теории.
-3. Объяснить, почему число нулей (zero modes) или хиральный дисбаланс равен именно 3.
+**Honest assessment:**
+The η-invariant $\eta \neq 0$ **does not by itself prove** that Trinity-s3ai predicts
+three chiral generations of the SM. For this one needs:
+1. Identify spectral modes on $S^3/2I$ with specific SM fermions.
+2. Show that the chirality mechanism from $\eta \neq 0$ survives compactification
+   or the geometric construction of the full theory.
+3. Explain why the number of zero modes or chiral imbalance equals exactly 3.
 
-**Связь с Wave 6:** Вариант (b) — η-асимметрия — **подтверждён математически** на уровне
-$\eta \neq 0$. Однако полная связь с хиральностью СМ (квантовые числа, три поколения)
-остаётся открытой задачей.
+**Connection with Wave 6:** Variant (b) — η-asymmetry — is **mathematically confirmed** at the level
+of $\eta \neq 0$. However, the full connection with SM chirality (quantum numbers, three generations)
+remains an open problem.
 
 ---
 
-## Ссылки
+## References
 
-1. M.F. Atiyah, V.K. Patodi, I.M. Singer: «Spectral asymmetry and Riemannian geometry I–III»,
+1. M.F. Atiyah, V.K. Patodi, I.M. Singer: "Spectral asymmetry and Riemannian geometry I–III",
    *Math. Proc. Camb. Phil. Soc.* 77–79 (1975–1976).
-2. J.L. Cisneros-Molina: «The η-invariant of twisted Dirac operators of S³/Γ»,
+2. J.L. Cisneros-Molina: "The η-invariant of twisted Dirac operators of S³/Γ",
    *Geometriae Dedicata* **84** (2001), 207–228. DOI: 10.1023/A:1010327117086.
 3. P.B. Gilkey: *Invariance Theory, the Heat Equation and the Atiyah-Singer Index Theorem*,
    CRC Press, 2nd ed. (1995).
-4. J. Donnelly: «Eta invariants for G-spaces», *Indiana Univ. Math. J.* **27** (1978).
-5. J. Seade: «A relative index of operator theory applied to Lie groups acting on spheres»,
+4. J. Donnelly: "Eta invariants for G-spaces", *Indiana Univ. Math. J.* **27** (1978).
+5. J. Seade: "A relative index of operator theory applied to Lie groups acting on spheres",
    *J. Funct. Anal.* **63** (1985), 250–271.
-6. A. Roubing, V. Savchuk: «The μ̄-invariant of Seifert fibered homology spheres and the
-   Dirac operator», arXiv:1009.3201 (2010).
-7. J.D.S. Jones, B.W. Westbury: «Algebraic K-theory, homology spheres, and the η-invariant»,
+6. A. Roubing, V. Savchuk: "The μ̄-invariant of Seifert fibered homology spheres and the
+   Dirac operator", arXiv:1009.3201 (2010).
+7. J.D.S. Jones, B.W. Westbury: "Algebraic K-theory, homology spheres, and the η-invariant",
    *Topology* **34** (1995), 929–957.
-8. M. Marcolli, W.D. van Suijlekom: «Coupling of gravity to matter, spectral action and
-   cosmic topology», arXiv preprint, 2011.
+8. M. Marcolli, W.D. van Suijlekom: "Coupling of gravity to matter, spectral action and
+   cosmic topology", arXiv preprint, 2011.
 9. P. Kronheimer (unpublished, cited in Roubing–Savchuk 2010): computation of
    ind(D^+_{W_{E_8}}) = 1 for the E_8 plumbing.
-10. nLab: «character table of 2I», https://ncatlab.org/nlab/show/character+table+of+2I
+10. nLab: "character table of 2I", https://ncatlab.org/nlab/show/character+table+of+2I

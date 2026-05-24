@@ -21,9 +21,19 @@ From Stdlib Require Import Reals.
 From Stdlib Require Import Lra.
 From Stdlib Require Import Lia.
 From Stdlib Require Import Ring.
+From Stdlib Require Import Arith.
+From Stdlib Require Import ProofIrrelevance.
+From Stdlib Require Import FunctionalExtensionality.
 From CliffordCl8 Require Import CliffordAlgebra.
 
 Open Scope R_scope.
+
+(* Fin proof irrelevance: two Fin n elements with the same value are equal. *)
+Lemma fin_val_eq : forall n (x y : Fin n), fin_val x = fin_val y -> x = y.
+Proof.
+  intros n [x Hx] [y Hy]. simpl. intros H. subst y.
+  f_equal. apply proof_irrelevance.
+Qed.
 
 (* Helper: 0 < 1 for Fin 1 indexing *)
 Local Lemma zero_lt_one : (0 < 1)%nat.
@@ -106,8 +116,19 @@ Proof.
   apply injective_projections; simpl; ring.
 Qed.
 
+Lemma vec_pad_0_1 : forall v : Vec 1, vec_pad v 0%nat = v (mkFin 0%nat zero_lt_one).
+Proof.
+  intro v. unfold vec_pad.
+  destruct (lt_dec 0%nat 1) as [H | H].
+  - f_equal. apply fin_val_eq. reflexivity.
+  - lia.
+Qed.
+
 Lemma Q_pq_0_1 : forall v : Vec 1, Q_pq 0 1 v = Q_01 v.
-Proof. admit. Admitted.
+Proof.
+  intro v. unfold Q_pq, Q_01, sum_sq_signed. simpl.
+  rewrite vec_pad_0_1. ring.
+Qed.
 
 Lemma i_01_linear : forall v w : Vec 1,
   i_01 (vec_add v w) = alg_add C_RAlgebra (i_01 v) (i_01 w).
@@ -129,12 +150,148 @@ Proof.
   apply injective_projections; simpl; ring.
 Qed.
 
+(* The basis vector of ℝ¹ *)
+Definition e1 : Vec 1 := fun i => 1.
+
+Lemma e1_sq : Q_01 e1 = -1.
+Proof. unfold Q_01, e1. simpl. ring. Qed.
+
+(* Helper lemmas derived from RAlgebra axioms *)
+Lemma alg_add_0_r (A : RAlgebra) : forall a, alg_add A a (alg_zero A) = a.
+Proof. intro a. rewrite alg_add_comm. apply alg_add_0_l. Qed.
+
+Lemma alg_smul_0_l (A : RAlgebra) : forall a, alg_smul A 0 a = alg_zero A.
+Proof.
+  intros a.
+  assert (H : alg_smul A 0 a = alg_add A (alg_smul A 0 a) (alg_smul A 0 a)).
+  { replace 0 with (0 + 0) at 1 by ring. rewrite alg_smul_add_distr. reflexivity. }
+  assert (H0 : alg_add A (alg_opp A (alg_smul A 0 a)) (alg_smul A 0 a) = alg_zero A).
+  { apply alg_add_opp_l. }
+  rewrite H in H0 at 2.
+  rewrite <- alg_add_assoc in H0.
+  rewrite alg_add_opp_l in H0.
+  rewrite alg_add_0_l in H0.
+  exact H0.
+Qed.
+
+(* Helper: rearrange nested additions for homomorphism additivity. *)
+Lemma rearrange_add4 (B : RAlgebra) (x1 x2 y1 y2 : carrier B) :
+  alg_add B (alg_add B x1 x2) (alg_add B y1 y2) =
+  alg_add B (alg_add B x1 y1) (alg_add B x2 y2).
+Proof.
+  rewrite <- (alg_add_assoc B (alg_add B x1 x2) y1 y2).
+  rewrite (alg_add_assoc B x1 x2 y1).
+  rewrite (alg_add_comm B x2 y1).
+  rewrite <- (alg_add_assoc B x1 y1 x2).
+  rewrite (alg_add_assoc B (alg_add B x1 y1) x2 y2).
+  reflexivity.
+Qed.
+
+Definition cl01_hom_fn (B : RAlgebra) (j : Vec 1 -> carrier B) (p : carrier C_RAlgebra) : carrier B :=
+  alg_add B (alg_smul B (fst p) (alg_one B)) (alg_smul B (snd p) (j e1)).
+
+Lemma cl01_hom_zero (B : RAlgebra) (j : Vec 1 -> carrier B) :
+  cl01_hom_fn B j (alg_zero C_RAlgebra) = alg_zero B.
+Proof.
+  unfold cl01_hom_fn, alg_zero, C_zero. cbn.
+  rewrite (alg_smul_0_l B (alg_one B)).
+  rewrite (alg_smul_0_l B (j e1)).
+  rewrite alg_add_0_l. reflexivity.
+Qed.
+
+Lemma cl01_hom_one (B : RAlgebra) (j : Vec 1 -> carrier B) :
+  cl01_hom_fn B j (alg_one C_RAlgebra) = alg_one B.
+Proof.
+  unfold cl01_hom_fn, alg_one, C_one. cbn.
+  rewrite (alg_smul_0_l B (j e1)).
+  rewrite alg_smul_1.
+  rewrite alg_add_0_r. reflexivity.
+Qed.
+
+Lemma cl01_hom_add (B : RAlgebra) (j : Vec 1 -> carrier B) :
+  forall x y, cl01_hom_fn B j (alg_add C_RAlgebra x y) = alg_add B (cl01_hom_fn B j x) (cl01_hom_fn B j y).
+Proof.
+  intros [a1 b1] [a2 b2]. unfold cl01_hom_fn, alg_add, C_add. cbn.
+  repeat rewrite alg_smul_add_distr.
+  apply rearrange_add4.
+Qed.
+
+Lemma cl01_hom_mul (B : RAlgebra) (j : Vec 1 -> carrier B)
+  (Hj_e1 : alg_mul B (j e1) (j e1) = alg_smul B (-1) (alg_one B)) :
+  forall x y, cl01_hom_fn B j (alg_mul C_RAlgebra x y) = alg_mul B (cl01_hom_fn B j x) (cl01_hom_fn B j y).
+Proof.
+  intros [a b] [c d]. unfold cl01_hom_fn, C_mul. simpl.
+  repeat rewrite alg_distr_l. repeat rewrite alg_distr_r.
+  repeat rewrite alg_mul_1_l. repeat rewrite alg_mul_1_r.
+  repeat rewrite alg_smul_mul_l.
+  repeat rewrite alg_smul_mul_r.
+  repeat rewrite alg_mul_1_l. repeat rewrite alg_mul_1_r.
+  repeat rewrite <- alg_smul_mul.
+  rewrite Hj_e1.
+  repeat rewrite <- alg_smul_mul.
+  repeat rewrite alg_smul_add_distr.
+  rewrite (alg_add_comm B (alg_smul B (a * d) (j e1)) (alg_smul B (b * d * -1) (alg_one B))).
+  assert (Hrearr :
+    alg_add B (alg_add B (alg_smul B (a * c) (alg_one B)) (alg_smul B (b * c) (j e1)))
+              (alg_add B (alg_smul B (b * d * -1) (alg_one B)) (alg_smul B (a * d) (j e1))) =
+    alg_add B (alg_add B (alg_smul B (a * c) (alg_one B)) (alg_smul B (b * d * -1) (alg_one B)))
+              (alg_add B (alg_smul B (b * c) (j e1)) (alg_smul B (a * d) (j e1))))
+    by (apply rearrange_add4).
+  rewrite Hrearr.
+  apply f_equal2.
+  - replace (a * c - b * d) with (a * c + b * d * -1) by ring.
+    rewrite alg_smul_add_distr. reflexivity.
+  - apply alg_add_comm.
+Qed.
+
+Lemma cl01_hom_smul (B : RAlgebra) (j : Vec 1 -> carrier B) :
+  forall r x, cl01_hom_fn B j (alg_smul C_RAlgebra r x) = alg_smul B r (cl01_hom_fn B j x).
+Proof.
+  intros r [a b]. unfold cl01_hom_fn, C_smul. simpl.
+  rewrite (alg_smul_add_l B).
+  repeat rewrite (alg_smul_mul B).
+  reflexivity.
+Qed.
+
+Lemma cl01_hom_factor (B : RAlgebra) (j : Vec 1 -> carrier B)
+  (j_add : forall v w, j (vec_add v w) = alg_add B (j v) (j w))
+  (j_smul : forall r v, j (vec_smul r v) = alg_smul B r (j v)) :
+  forall v, cl01_hom_fn B j (i_01 v) = j v.
+Proof.
+  intro v. unfold cl01_hom_fn, i_01. cbn.
+  rewrite Rmult_0_r, Rmult_1_r.
+  rewrite (alg_smul_0_l B (alg_one B)).
+  rewrite alg_add_0_l.
+  assert (Hv : v = vec_smul (v (mkFin 0 zero_lt_one)) e1).
+  { apply functional_extensionality. intro i.
+    unfold vec_smul, e1.
+    destruct (fin_val i) as [| n] eqn:Ei.
+    - rewrite Rmult_1_r.
+      assert (Hi : i = mkFin 0 zero_lt_one) by (apply fin_val_eq; exact Ei).
+      rewrite Hi. reflexivity.
+    - exfalso. destruct i as [fi Hfi]. simpl in *. lia. }
+  rewrite Hv at 2. rewrite j_smul. reflexivity.
+Qed.
+
 Lemma cl01_univ :
   forall (B : RAlgebra) (j : Vec 1 -> carrier B),
+    (forall v w, j (vec_add v w) = alg_add B (j v) (j w)) ->
+    (forall r v, j (vec_smul r v) = alg_smul B r (j v)) ->
     (forall v, alg_mul B (j v) (j v) = alg_smul B (Q_pq 0 1 v) (alg_one B)) ->
     { f : AlgHom C_RAlgebra B
       | forall v, hom_fn f (i_01 v) = j v }.
-Proof. admit. Admitted.
+Proof.
+  intros B j j_add j_smul Hj.
+  assert (Hj_e1 : alg_mul B (j e1) (j e1) = alg_smul B (-1) (alg_one B)).
+  { rewrite <- e1_sq. rewrite <- Q_pq_0_1. apply Hj. }
+  exists (Build_AlgHom C_RAlgebra B (cl01_hom_fn B j)
+    (cl01_hom_zero B j)
+    (cl01_hom_one B j)
+    (cl01_hom_add B j)
+    (cl01_hom_mul B j Hj_e1)
+    (cl01_hom_smul B j)).
+  apply cl01_hom_factor; assumption.
+Qed.
 
 Lemma cl01_univ_unique :
   forall (B : RAlgebra) (j : Vec 1 -> carrier B)
@@ -142,7 +299,17 @@ Lemma cl01_univ_unique :
     (forall v, hom_fn f1 (i_01 v) = j v) ->
     (forall v, hom_fn f2 (i_01 v) = j v) ->
     forall x, hom_fn f1 x = hom_fn f2 x.
-Proof. admit. Admitted.
+Proof.
+  intros B j f1 f2 H1 H2 [a b].
+  assert (Hdecomp : (a, b) = alg_add C_RAlgebra (alg_smul C_RAlgebra a (alg_one C_RAlgebra)) (alg_smul C_RAlgebra b (i_01 e1))).
+  { apply injective_projections; simpl; unfold e1; ring. }
+  rewrite Hdecomp.
+  repeat rewrite (hom_add f1). repeat rewrite (hom_add f2).
+  repeat rewrite (hom_smul f1). repeat rewrite (hom_smul f2).
+  repeat rewrite (hom_one f1). repeat rewrite (hom_one f2).
+  assert (Hi : hom_fn f1 (i_01 e1) = hom_fn f2 (i_01 e1)) by (rewrite H1, H2; reflexivity).
+  rewrite Hi. reflexivity.
+Qed.
 
 Definition Cl01_spec : CliffordSpec 0 1.
 Proof.
@@ -152,22 +319,7 @@ Defined.
 
 (******************************************************************************)
 (* Section 5: Universal property of Cl(0,1)                                   *)
-(*                                                                            *)
-(* Theorem: For any RAlgebra A and any R-linear map f: ℝ¹ → A with          *)
-(* f(v)² = Q(v)·1, there exists a unique R-algebra homomorphism              *)
-(* f̃: Cl(0,1) → A extending f.                                               *)
-(*                                                                            *)
-(* Proof sketch: ℝ¹ is 1-dimensional. Let e = (0,1) be the basis vector.     *)
-(* Then any v ∈ ℝ¹ is v = r·e for some r ∈ ℝ.                                 *)
-(* The condition f(e)² = -1 determines f completely: f(v) = r·f(e).          *)
-(* The algebra homomorphism is uniquely determined by f̃(e) = f(e).           *)
 (******************************************************************************)
-
-(* The basis vector of ℝ¹ *)
-Definition e1 : Vec 1 := fun i => 1.
-
-Lemma e1_sq : Q_01 e1 = -1.
-Proof. unfold Q_01, e1. simpl. ring. Qed.
 
 (* The universal property *)
 Theorem Cl01_universal_property (A : RAlgebra)
@@ -178,34 +330,11 @@ Theorem Cl01_universal_property (A : RAlgebra)
   exists (f_tilde : AlgHom (cl_alg Cl01_spec) A),
     forall v, hom_fn f_tilde (cl_inc Cl01_spec v) = f v.
 Proof.
-  (* Construct f_tilde on the basis element e1 *)
-  (* Any element of Cl(0,1) = ℂ is (a,b) = a·1 + b·i_01(e1) *)
-  (* Define f_tilde(a,b) = a·1_A + b·f(e1) *)
-  
-  (* Since ℝ¹ is 1-dim, f is determined by f(e1) *)
-  (* The Clifford condition gives f(e1)² = -1_A *)
-  
-  (* Build the homomorphism *)
-  assert (He1 : alg_mul A (f e1) (f e1) = alg_smul A (-1) (alg_one A)).
-  { rewrite <- e1_sq. apply f_clifford. }
-  
-  (* f_tilde is defined by linear extension *)
-  (* We admit the explicit construction of the algebra hom here;
-     the key insight is that ℂ is 2-dimensional over ℝ with basis {1,i},
-     and the homomorphism is uniquely determined by where i goes. *)
-  
-  (* For the full formal proof one would:
-     1. Show that {1, i_01(e1)} is an R-basis of C_RAlgebra
-     2. Define f_tilde(a,b) = a·1_A + b·f(e1)
-     3. Prove multiplicativity using f(e1)² = -1_A
-     4. Prove uniqueness by linearity
-     
-     Steps 1-4 are elementary but lengthy in stdlib without ring-tactic
-     support for our custom RAlgebra. We state the theorem and give the
-     constructive outline. *)
-  
-  admit.
-Admitted.
+  assert (Hf : forall v, alg_mul A (f v) (f v) = alg_smul A (Q_pq 0 1 v) (alg_one A)).
+  { intro v. rewrite Q_pq_0_1. apply f_clifford. }
+  destruct (cl01_univ A f f_linear f_smul Hf) as [g Hg].
+  exists g. exact Hg.
+Qed.
 
 (******************************************************************************)
 (* Section 6: Honesty summary                                                 *)

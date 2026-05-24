@@ -1,28 +1,28 @@
-# Некоммутативная геометрия и спектральное действие: современное состояние (2026)
+# Noncommutative Geometry and the Spectral Action: Current State (2026)
 
-**Литературный обзор для проекта Trinity S3AI**
-*Составлено 2026. Источники — реальные arXiv-статьи и рецензируемые публикации.*
-
----
-
-## Содержание
-
-1. [Оригинальные работы Хамседдина–Коннеса (1996–2007)](#1-оригинальные-работы-хамседдина-коннеса-1996-2007)
-2. [Твистованные спектральные тройки и формализм «1+ε» (2012–2021)](#2-твистованные-спектральные-тройки-и-формализм-1ε-2012-2021)
-3. [Алгебра A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) и её выводимость](#3-алгебра-af--ℂ--ℍ--m₃ℂ-и-её-выводимость)
-4. [Работы 2022–2026: дискретная геометрия, группы Коксетера, многогранники](#4-работы-2022-2026-дискретная-геометрия-группы-коксетера-многогранники)
-5. [Формализация НКГ в системах верификации доказательств (Lean/Coq)](#5-формализация-нкг-в-системах-верификации-доказательств-leancoq)
-6. [Критические оценки и текущий статус программы НКГ–СМ](#6-критические-оценки-и-текущий-статус-программы-нкг-см)
-7. [Нерешённые проблемы в программе НКГ–СМ](#7-нерешённые-проблемы-в-программе-нкг-см)
-8. [10–20 actionable уроков для Trinity S3AI](#8-actionable-уроки-для-trinity-s3ai)
+**Literature review for the Trinity S3AI project**
+*Compiled 2026. Sources are real arXiv articles and peer-reviewed publications.*
 
 ---
 
-## 1. Оригинальные работы Хамседдина–Коннеса (1996–2007)
+## Contents
 
-### 1.1 Принцип спектрального действия (1996)
+1. [Original Works of Chamseddine–Connes (1996–2007)](#1-original-works-of-chamseddineconnes-19962007)
+2. [Twisted Spectral Triples and the "1+ε" Formalism (2012–2021)](#2-twisted-spectral-triples-and-the-1ε-formalism-20122021)
+3. [Algebra A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) and Its Derivability](#3-algebra-af--ℂ--ℍ--m₃ℂ-and-its-derivability)
+4. [Works 2022–2026: Discrete Geometry, Coxeter Groups, Polytopes](#4-works-20222026-discrete-geometry-coxeter-groups-polytopes)
+5. [Formalization of NCG in Proof Verification Systems (Lean/Coq)](#5-formalization-of-ncg-in-proof-verification-systems-leancoq)
+6. [Critical Assessments and Current Status of the NCG–SM Program](#6-critical-assessments-and-current-status-of-the-ncgsm-program)
+7. [Unsolved Problems in the NCG–SM Program](#7-unsolved-problems-in-the-ncgsm-program)
+8. [10–20 Actionable Lessons for Trinity S3AI](#8-actionable-lessons-for-trinity-s3ai)
 
-Два ключевых основополагающих текста:
+---
+
+## 1. Original Works of Chamseddine–Connes (1996–2007)
+
+### 1.1 Spectral Action Principle (1996)
+
+Two key foundational texts:
 
 **[A. Chamseddine, A. Connes. "Universal Formula for Noncommutative Geometry Actions: Unification of Gravity and the Standard Model." PRL 77, 4868 (1996)](https://link.aps.org/doi/10.1103/PhysRevLett.77.4868)**
 DOI: 10.1103/PhysRevLett.77.4868
@@ -30,23 +30,23 @@ DOI: 10.1103/PhysRevLett.77.4868
 **[A. Chamseddine, A. Connes. "The Spectral Action Principle." Commun. Math. Phys. 186 (1997)](https://link.springer.com/10.1007/s002200050126)**
 DOI: 10.1007/s002200050126
 
-**Что выводится:** Универсальная формула действия:
+**What is derived:** A universal action formula:
 ```
 S = Tr(f(D/Λ)) + ⟨ψ, Dψ⟩
 ```
-где D — оператор Дирака на почти-коммутативном пространстве M × F, f — срезающая функция, Λ — масштаб обрезания. Применение к некоммутативному пространству СМ воспроизводит действие СМ, связанное с гравитацией Эйнштейна–Вейля. Выводятся отношения калибровочных констант связи, идентичных GUT SU(5).
+where D is the Dirac operator on an almost-commutative space M × F, f is a cutoff function, Λ is the cutoff scale. Application to the noncommutative space of the SM reproduces the SM action coupled to Einstein–Weyl gravity. Gauge coupling relations identical to GUT SU(5) are derived.
 
-**Что предполагается/аксиоматизируется:**
-- Выбор алгебры A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) (конечная некоммутативная геометрия) постулируется *ad hoc*.
-- Число поколений фермионов остаётся входным параметром (не выводится).
-- Предсказывается самосцепление Хиггса при высокой энергии, но масса Хиггса зависит от пороговых условий RGE.
-- «Отношения» калибровочных констант требуют унификации на масштабе Λ — что само по себе является гипотезой.
+**What is assumed/axiomatized:**
+- The choice of algebra A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) (finite noncommutative geometry) is postulated *ad hoc*.
+- The number of fermion generations remains an input parameter (not derived).
+- Higgs self-coupling at high energy is predicted, but the Higgs mass depends on RGE boundary conditions.
+- "Relations" among gauge couplings require unification at scale Λ — which is itself a hypothesis.
 
-**Предсказание 1996–2007:** Масса Хиггса m_H ≈ 170–180 ГэВ (из условий RGE при унификации). **После открытия Хиггса в 2012 при 125 ГэВ это предсказание было опровергнуто.**
+**Prediction 1996–2007:** Higgs mass m_H ≈ 170–180 GeV (from RGE conditions at unification). **After the Higgs discovery in 2012 at 125 GeV, this prediction was falsified.**
 
 ---
 
-### 1.2 «Почему СМ» (2007)
+### 1.2 "Why the Standard Model" (2007)
 
 **[A. Chamseddine, A. Connes. "Why the Standard Model." J. Geom. Phys. 58 (2008)](https://linkinghub.elsevier.com/retrieve/pii/S039304400700112X)**
 DOI: 10.1016/j.geomphys.2007.09.011. arXiv:[0706.3688](https://arxiv.org/abs/0706.3688)
@@ -54,54 +54,54 @@ DOI: 10.1016/j.geomphys.2007.09.011. arXiv:[0706.3688](https://arxiv.org/abs/070
 **[A. Chamseddine, A. Connes. "Conceptual Explanation for the Algebra in the Noncommutative Approach to the Standard Model." PRL 99, 191601 (2007)](https://arxiv.org/abs/0706.3690)**
 DOI: 10.1103/PhysRevLett.99.191601
 
-**Ключевое достижение:** Первая попытка *вывести* A_F из аксиоматических принципов, а не постулировать. Авторы классифицируют неприводимые конечные некоммутативные геометрии с условием, что KO-размерность пространства M × F равна 10 (mod 8). Под дополнительной гипотезой кватернионной линейности выделяется единственная геометрия с k = 4, воспроизводящая СМ с нейтринным смешиванием.
+**Key achievement:** First attempt to *derive* A_F from axiomatic principles, rather than postulate. The authors classify irreducible finite noncommutative geometries with the condition that the KO-dimension of the space M × F equals 10 (mod 8). Under the additional hypothesis of quaternionic linearity, a unique geometry with k = 4 is singled out, reproducing the SM with neutrino mixing.
 
-**Честная оценка:** Гипотеза кватернионной линейности — дополнительное предположение, не выводимое из общих принципов. Это «почти» выводимость, но не полная: отсутствует строгая теорема о том, почему именно это предположение физически необходимо.
+**Honest assessment:** The hypothesis of quaternionic linearity is an additional assumption, not derivable from general principles. This is "almost" derivability, but not complete: there is no strict theorem as to why exactly this assumption is physically necessary.
 
 ---
 
-### 1.3 Рамка 2010: тензорные обозначения
+### 1.3 2010 Framework: Tensor Notation
 
 **[A. Chamseddine, A. Connes. "Noncommutative Geometry as a Framework for Unification of all Fundamental Interactions including Gravity." Fortschr. Phys. (2010)](https://arxiv.org/abs/1004.0464)**
 DOI: 10.1002/prop.201000069
 
-Систематическое изложение, включая вывод спектральных данных СМ и предсказание:
-(i) числа фермионов в каждом поколении;
-(ii) формы тензора метрики;
-(iii) связи калибровочных констант на шкале ГОТ.
+A systematic exposition, including derivation of SM spectral data and prediction of:
+(i) the number of fermions in each generation;
+(ii) the form of the metric tensor;
+(iii) gauge coupling relations at the GUT scale.
 
-Число поколений по-прежнему — входной параметр.
+The number of generations is still an input parameter.
 
 ---
 
-## 2. Твистованные спектральные тройки и формализм «1+ε» (2012–2021)
+## 2. Twisted Spectral Triples and the "1+ε" Formalism (2012–2021)
 
-### 2.1 «Устойчивость спектрального СМ» (2012) — разрешение кризиса Хиггса
+### 2.1 "Resilience of the Spectral SM" (2012) — Resolution of the Higgs Crisis
 
 **[A. Chamseddine, A. Connes. "Resilience of the Spectral Standard Model." JHEP 09 (2012) 104](https://link.springer.com/10.1007/JHEP09(2012)104)**
 arXiv:[1208.1030](https://arxiv.org/abs/1208.1030). DOI: 10.1007/JHEP09(2012)104
 
-**Ключевой результат:** Несоответствие между спектральным СМ и экспериментальной массой Хиггса разрешается наличием *вещественного скалярного поля σ*, сильно связанного с хиггсовским полем. Это поле уже присутствовало в спектральной модели, но ошибочно игнорировалось в предыдущих вычислениях. Нейтральный синглет НКГ существенно изменяет анализ RGE, аннулирует прежнее предсказание масс в диапазоне 160–180 ГэВ и восстанавливает согласие с малой массой Хиггса ~125 ГэВ.
+**Key result:** The discrepancy between the spectral SM and the experimental Higgs mass is resolved by the presence of a *real scalar field σ*, strongly coupled to the Higgs field. This field was already present in the spectral model but was erroneously ignored in previous calculations. The NCG neutral singlet substantially changes the RGE analysis, annulling the previous mass prediction in the 160–180 GeV range and restoring agreement with the low Higgs mass ~125 GeV.
 
-**Честная оценка:** Поле σ *уже было* в модели — авторы исправляют собственную ошибку. Это не новое предсказание; это ретроактивная корректировка. Критики (см. раздел 6) указывают, что модель была «спасена» добавлением поля, которое прежде игнорировалось.
+**Honest assessment:** The field σ *was already* in the model — the authors correct their own error. This is not a new prediction; it is a retroactive adjustment. Critics (see Section 6) point out that the model was "saved" by adding a field that had previously been ignored.
 
 ---
 
-### 2.2 «Выход за рамки спектрального СМ: Пати–Салам» (2013)
+### 2.2 "Beyond the Spectral SM: Pati–Salam" (2013)
 
 **[A. Chamseddine, A. Connes, W.D. van Suijlekom. "Beyond the spectral standard model: emergence of Pati-Salam unification." JHEP 11 (2013) 132](https://link.springer.com/10.1007/JHEP11(2013)132)**
 arXiv:[1304.8050](https://arxiv.org/abs/1304.8050). DOI: 10.1007/JHEP11(2013)132
 
-**Ключевой результат:** Ослабление условия первого порядка (first order condition) для оператора Дирака порождает *квадратичные члены* во внутренних флуктуациях. Классификация произведений некоммутативных пространств без FOC приводит к модели Пати–Салам SU(2)_R × SU(2)_L × SU(4), унифицирующей лептоны и кварки в 4 цвета.
+**Key result:** Relaxing the first order condition (FOC) for the Dirac operator generates *quadratic terms* in internal fluctuations. Classification of products of noncommutative spaces without FOC leads to a Pati–Salam SU(2)_R × SU(2)_L × SU(4) model, unifying leptons and quarks into 4 colors.
 
 **[A. Chamseddine, A. Connes, W.D. van Suijlekom. "Inner fluctuations in noncommutative geometry without the first order condition." J. Geom. Phys. (2013)](https://linkinghub.elsevier.com/retrieve/pii/S0393044013001186)**
 DOI: 10.1016/j.geomphys.2013.06.006. arXiv:[1304.7583](https://arxiv.org/abs/1304.7583)
 
-Математическое обоснование: расширение внутренних флуктуаций до случая без FOC порождает полугруппу внутренних флуктуаций, зависящую только от алгебры A.
+Mathematical justification: extension of internal fluctuations to the case without FOC generates a semigroup of internal fluctuations depending only on the algebra A.
 
 ---
 
-### 2.3 Твистованный спектральный тройки и Лоренцева подпись (2017–2021)
+### 2.3 Twisted Spectral Triples and Lorentzian Signature (2017–2021)
 
 **[A. Devastato, S. Farnsworth, F. Lizzi, P. Martinetti. "Lorentz signature and twisted spectral triples." JHEP (2018)](https://arxiv.org/abs/1710.04965)**
 
@@ -109,34 +109,34 @@ DOI: 10.1016/j.geomphys.2013.06.006. arXiv:[1304.7583](https://arxiv.org/abs/130
 DOI: 10.1103/PhysRevD.104.025011. arXiv:[2008.01629](https://arxiv.org/abs/2008.01629)
 
 **[G. Nieuviarts. "Emergence of Time from a Twisted Spectral Triple in Almost-Commutative Geometry." (2025)](https://arxiv.org/abs/2512.15450)**
-arXiv:2512.15450. Опубликовано 2025.
+arXiv:2512.15450. Published 2025.
 
-**Суть твиста (в смысле Коннеса–Московичи):** В твистованной спектральной тройке *σ*-линейность заменяет обычную линейность. Для СМ выбор твиста ρ = γ⁰ (первая матрица Дирака) придаёт крейновский смысл произведению спиноров — что соответствует лоренцевой сигнатуре. Это предоставляет альтернативу вращению Вика.
+**The essence of the twist (in the sense of Connes–Moscovici):** In a twisted spectral triple, *σ*-linearity replaces ordinary linearity. For the SM, the choice of twist ρ = γ⁰ (the first Dirac matrix) gives a Krein meaning to the spinor product — corresponding to Lorentzian signature. This provides an alternative to Wick rotation.
 
-**Связь с полем σ и массой Хиггса:** Твист автоматически порождает дополнительное скалярное поле (связанное с σ), необходимое для стабилизации вакуума электрослабого взаимодействия и согласования с m_H = 125 ГэВ. Получаются два хиральных компонента σ и дополнительные поля 1-форм.
+**Connection to the σ field and Higgs mass:** The twist automatically generates an additional scalar field (related to σ), necessary for stabilizing the electroweak vacuum and agreeing with m_H = 125 GeV. Two chiral components of σ and additional 1-form fields are obtained.
 
-**Важное ограничение:** Результат [2025] остаётся *локальным* в компактном случае — полная лоренцева пространственно-временная структура с глобальной причинной структурой пока не восстановлена.
+**Important limitation:** The result [2025] remains *local* in the compact case — a full Lorentzian spacetime structure with global causal structure has not yet been recovered.
 
 ---
 
-### 2.4 Обзор спектральных моделей 2019
+### 2.4 Survey of Spectral Models 2019
 
 **[A. Chamseddine, W.D. van Suijlekom. "A survey of spectral models of gravity coupled to matter." (2019)](https://arxiv.org/abs/1904.12392)**
 arXiv:1904.12392. DOI: 10.1007/978-3-030-29597-4_1
 
-Детальный исторический обзор программы: от наблюдения Коннеса 1988 г. о связи Хиггса с конечными некоммутативными пространствами — до Пати–Салам унификации 2013 г. Демонстрирует «двойную уникальность» спектрального СМ при низких энергиях.
+A detailed historical review of the program: from Connes's 1988 observation on the connection of the Higgs to finite noncommutative spaces — to the Pati–Salam unification of 2013. Demonstrates the "double uniqueness" of the spectral SM at low energies.
 
 ---
 
-## 3. Алгебра A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) и её выводимость
+## 3. Algebra A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) and Its Derivability
 
-### 3.1 История и статус алгебры
+### 3.1 History and Status of the Algebra
 
-Алгебра конечного пространства A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) была **постулирована** в работах 1990-х гг., затем мотивирована классификационными теоремами.
+The algebra of the finite space A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) was **postulated** in 1990s works, then motivated by classification theorems.
 
-**Группа инвариантности:** Унитарная группа U(A_F) = U(1) × SU(2) × U(3). После наложения условия унимодулярности (детерминант = 1) и включения в связки получается калибровочная группа U(1) × SU(2) × SU(3).
+**Invariance group:** The unitary group U(A_F) = U(1) × SU(2) × U(3). After imposing the unimodularity condition (determinant = 1) and including it in bundles, the gauge group U(1) × SU(2) × SU(3) is obtained.
 
-**Стандартная спектральная тройка СМ:**
+**Standard spectral triplet of the SM:**
 ```
 A_SM = C∞(M) ⊗ A_F
 H_SM = L²(M, S) ⊗ H_F
@@ -146,31 +146,31 @@ D_SM = ∂̸ ⊗ I_F + γ⁵ ⊗ D_F
 **[J. Bhowmick et al. "Quantum gauge symmetries in Noncommutative Geometry." JNCG (2014)](https://ems.press/doi/10.4171/JNCG/161)**
 DOI: 10.4171/JNCG/161
 
-Строго доказано, что квантовые калибровочные группы для A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) и A^{ev} = ℍ ⊕ ℍ ⊕ M₄(ℂ) воспроизводят структуры, необходимые для СМ.
+It is strictly proven that quantum gauge groups for A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) and A^{ev} = ℍ ⊕ ℍ ⊕ M₄(ℂ) reproduce structures necessary for the SM.
 
 ---
 
-### 3.2 Аксиоматическая мотивация: KO-размерность 6
+### 3.2 Axiomatic Motivation: KO-Dimension 6
 
-**Ключевая теорема (Чамседдин–Коннес 2007):** Под условиями:
-1. Реальность и киральность (KO-размерность = 6 mod 8, чтобы полное пространство M × F имело KO-размерность 10 mod 8 = 2 mod 8 → верный K-теоретический тип)
-2. Устранение удвоения фермионов
-3. Кватернионная линейность
+**Key theorem (Chamseddine–Connes 2007):** Under the conditions:
+1. Reality and chirality (KO-dimension = 6 mod 8, so that the full space M × F has KO-dimension 10 mod 8 = 2 mod 8 → correct K-theoretic type)
+2. Elimination of fermion doubling
+3. Quaternionic linearity
 
-единственная геометрия — F с алгеброй A_F и k = 4 (размерность √k = 4 → dim = 16, т.е. 4 поколения × 4 частицы).
+the unique geometry is F with algebra A_F and k = 4 (dimension √k = 4 → dim = 16, i.e. 4 generations × 4 particles).
 
-**Честная оценка сильных сторон:**
-- KO-размерность = 6 — нетривиальное алгебраическое условие, выводящее ограничения «сверху»
-- Условие устранения удвоения фермионов физически мотивировано
+**Honest assessment of strengths:**
+- KO-dimension = 6 is a non-trivial algebraic condition deriving constraints "from above"
+- The fermion doubling elimination condition is physically motivated
 
-**Честная оценка слабостей:**
-- Гипотеза кватернионной линейности — дополнительное предположение без внутреннего обоснования
-- Число поколений (3 физических, k = 4 = квадрат → 16 фермионов на поколение) всё равно вводится вручную
-- Условие унимодулярности (для получения SU(3) вместо U(3)) добавляется отдельно
+**Honest assessment of weaknesses:**
+- The hypothesis of quaternionic linearity is an additional assumption without internal justification
+- The number of generations (3 physical, k = 4 = square → 16 fermions per generation) is still introduced by hand
+- The unimodularity condition (to get SU(3) instead of U(3)) is added separately
 
 ---
 
-### 3.3 Новый алгебраический формализм Бойла–Фарнсворта
+### 3.3 New Algebraic Formalism of Boyle–Farnsworth
 
 **[L. Boyle, S. Farnsworth. "A new algebraic structure in the standard model of particle physics." JNCG (2018)](https://arxiv.org/abs/1604.00847)**
 arXiv:1604.00847. DOI: 10.48550/arXiv.1604.00847
@@ -178,356 +178,356 @@ arXiv:1604.00847. DOI: 10.48550/arXiv.1604.00847
 **[L. Boyle, S. Farnsworth. "Rethinking Connes' approach to the standard model via NCG." New J. Phys. 17 (2015) 023021](https://arxiv.org/abs/1408.5367)**
 DOI: 10.1088/1367-2630/17/2/023021
 
-Переформулировка через *супералгебру B = A ⊕ H*. Ассоциативность ΩB накладывает новые ограничения, которые:
-- Устраняют 7 лишних слагаемых в действии (прежде удалявшихся *ad hoc*)
-- Предсказывают расширение СМ симметрией U(1)_{B-L} и комплексным скалярным полем σ с B-L = 2
+Reformulation via *superalgebra B = A ⊕ H*. Associativity of ΩB imposes new constraints which:
+- Eliminate 7 extra terms in the action (previously removed *ad hoc*)
+- Predict an extension of the SM by a U(1)_{B-L} symmetry and a complex scalar field σ with B-L = 2
 
-Это поле σ согласуется с разрешением кризиса массы Хиггса (раздел 2.1).
+This field σ agrees with the resolution of the Higgs mass crisis (Section 2.1).
 
 ---
 
-## 4. Работы 2022–2026: дискретная геометрия, группы Коксетера, многогранники
+## 4. Works 2022–2026: Discrete Geometry, Coxeter Groups, Polytopes
 
-### 4.1 Спектральное действие без удвоения фермионов (2022)
+### 4.1 Spectral Action Without Fermion Doubling (2022)
 
 **[A. Bochniak, P. Zalecki, A. Sitarz. "Spectral action and the electroweak θ-terms for the Standard Model without fermion doubling." JHEP 12 (2021) 142](https://arxiv.org/abs/2106.10890)**
 DOI: 10.1007/JHEP12(2021)142
 
-Вычисление ведущих членов спектрального действия для НКГ-модели *без удвоения фермионов*. Кирально допустимый оператор Дирака не факторизованного типа порождает топологические θ-члены для электрослабых калибровочных полей.
+Computation of leading terms of the spectral action for an NCG model *without fermion doubling*. A chirally admissible Dirac operator of non-factorized type generates topological θ-terms for electroweak gauge fields.
 
 **[A. Bochniak, L. Dąbrowski, A. Sitarz, P. Zalecki. "An impediment to torsion from spectral geometry." arXiv:2412.19626 (2025)](https://arxiv.org/abs/2412.19626)**
 DOI: 10.48550/arXiv.2412.19626
 
-Аргумент против торсии в спектральной геометрии: не существует хорошо определённого функционала, расширяющего спектральную формулировку тензора Эйнштейна на случай с торсией.
+An argument against torsion in spectral geometry: there is no well-defined functional extending the spectral formulation of the Einstein tensor to the case with torsion.
 
 ---
 
-### 4.2 Неассоциативная геометрия и октонионы (2015, активно 2022–2025)
+### 4.2 Non-Associative Geometry and Octonions (2015, actively 2022–2025)
 
 **[S. Farnsworth, L. Boyle. "Non-Associative Geometry and the Spectral Action Principle." JHEP 07 (2015) 023](https://arxiv.org/abs/1303.1782)**
 DOI: 10.1007/JHEP07(2015)023
 
-Расширение спектрального действия на *неассоциативные геометрии*. Простейшая модель на октонионах описывает гравитацию Эйнштейна с калибровочной теорией G₂ и 8 дираковскими фермионами. Более реалистичные модели с хиггсовскими полями и спонтанным нарушением симметрии — в разработке.
+Extension of the spectral action to *non-associative geometries*. The simplest model on octonions describes Einstein gravity with a G₂ gauge theory and 8 Dirac fermions. More realistic models with Higgs fields and spontaneous symmetry breaking — in development.
 
 **[C. Furey. "An Algebraic Roadmap of Particle Theories." Ann. Phys. (2024)](https://onlinelibrary.wiley.com/doi/10.1002/andp.202400323)**
 DOI: 10.1002/andp.202400323
 
-Программа «алгебраической карты» физики частиц на основе октонионов и CL(6). Проходит ряд контрольных точек (теорема Коулмана–Мандулы, киральность СМ), но три поколения и B-L ещё не получены полностью.
+The "algebraic roadmap" program of particle physics based on octonions and CL(6). Passes a number of checkpoints (Coleman–Mandula theorem, SM chirality), but three generations and B-L are not yet fully obtained.
 
 ---
 
-### 4.3 Связь с группами Коксетера и многогранниками: честная оценка (2022–2025)
+### 4.3 Connection to Coxeter Groups and Polytopes: Honest Assessment (2022–2025)
 
 **[P.-P. Dechant. "Clifford algebra unveils a surprising geometric significance of quaternionic root systems of Coxeter groups." Adv. Appl. Clifford Algebr. (2013)](https://arxiv.org/abs/1205.1451)**
 DOI: 10.1007/s00006-012-0371-3
 
-Показано, что четверичные представления групп Коксетера рангов 3 и 4 (включая H4 и E8) получают простую интерпретацию в алгебре Клиффорда.
+It is shown that quaternionic representations of Coxeter groups of ranks 3 and 4 (including H4 and E8) admit a simple interpretation in Clifford algebra.
 
 **[P.-P. Dechant. "The birth of E8 out of the spinors of the icosahedron." Proc. R. Soc. A (2016)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4786034/)**
 DOI: 10.1098/rspa.2015.0504
 
-240 корней E8 строятся из икосаэдральной группы (корневая система H3) как двойное накрытие 120 элементов через 8-мерную алгебру Клиффорда.
+240 E8 roots are constructed from the icosahedral group (root system H3) as a double cover of 120 elements through an 8-dimensional Clifford algebra.
 
-**⚠️ КРИТИЧЕСКОЕ ЗАМЕЧАНИЕ о связи H4/E8/600-клетки с NCG:**
+**⚠️ CRITICAL REMARK on the H₄/E₈/600-Cell Connection to NCG:**
 
-В рецензируемой литературе 2022–2026 **не найдено ни одной публикации**, напрямую устанавливающей связь между:
-- Группой Коксетера H4 / 600-клеткой / E8
-- Спектральной тройкой стандартной NCG-программы Коннеса–Хамседдина
+In the peer-reviewed literature of 2022–2026 **not a single publication** was found directly establishing a connection between:
+- The Coxeter group H₄ / 600-cell / E₈
+- The spectral triplet of the standard NCG program of Connes–Chamseddine
 
-Единственная область, где H4/E8 появляется в физике частиц — контекст октонионов (Furey, Dixon) и M-теории/гетеротических суперструн (компактификация на E8 × E8). Последняя совершенно независима от спектрального действия.
+The only area where H₄/E₈ appears in particle physics is the context of octonions (Furey, Dixon) and M-theory/heterotic superstrings (compactification on E₈ × E₈). The latter is completely independent of the spectral action.
 
-Следует чётко разграничить:
-1. **NCG Коннеса**: точный математический формализм, дающий СМ из почти-коммутативного пространства M × A_F
-2. **Подход Trinity S3AI**: попытка заменить A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) спектральными данными 600-клетки
+It should be clearly distinguished:
+1. **Connes's NCG**: an exact mathematical formalism yielding the SM from an almost-commutative space M × A_F
+2. **Trinity S3AI approach**: an attempt to replace A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) with spectral data of the 600-cell
 
-Это второй подход является **оригинальной исследовательской гипотезой**, не имеющей прецедентов в основной литературе.
+The latter approach is an **original research hypothesis** with no precedent in the mainstream literature.
 
 ---
 
-### 4.4 Случайная матричная геометрия и квантовая гравитация (2022–2024)
+### 4.4 Random Matrix Geometry and Quantum Gravity (2022–2024)
 
 **[S. Azarfar, M. Khalkhali. "Random Finite Noncommutative Geometries and Topological Recursion." Ann. Henri Poincaré (2024)](https://arxiv.org/abs/1906.09362)**
 DOI: 10.4171/AIHPD/188
 
-Модели квантовой гравитации на конечных некоммутативных пространствах через теорию *blобальной рекурсии*. Спектральное действие как функция интегрирования по пространству операторов Дирака.
+Models of quantum gravity on finite noncommutative spaces through *topological recursion* theory. The spectral action as a function of integration over the space of Dirac operators.
 
 **[J. Gaunt, H. Nguyen, A. Schenkel. "BV quantization of dynamical fuzzy spectral triples." J. Phys. A (2022)](https://arxiv.org/abs/2203.04817)**
 DOI: 10.1088/1751-8121/aca44f
 
-Квантование BV моделей на размытых (fuzzy) спектральных тройках — связь спектральных тетрад с квантовой гравитацией Барретта.
+BV quantization of models on fuzzy spectral triples — connection of spectral tetrads with Barrett's quantum gravity.
 
 ---
 
-## 5. Формализация НКГ в системах верификации доказательств (Lean/Coq)
+## 5. Formalization of NCG in Proof Verification Systems (Lean/Coq)
 
-### 5.1 Состояние дел: формализация геометрической алгебры в Lean
+### 5.1 State of Affairs: Formalization of Geometric Algebra in Lean
 
 **[E. Wieser, U. Song. "Formalizing Geometric Algebra in Lean." Adv. Appl. Clifford Algebr. (2022)](https://arxiv.org/abs/2110.03551)**
 DOI: 10.1007/s00006-021-01164-1
 
-Формализация алгебры Клиффорда / геометрической алгебры в Lean 3 на основе mathlib. Это **ближайший прецедент** к тому, что нужно Trinity S3AI: строгая формализация алгебраических структур, используемых в НКГ.
+Formalization of Clifford algebra / geometric algebra in Lean 3 based on mathlib. This is the **closest precedent** to what Trinity S3AI needs: strict formalization of algebraic structures used in NCG.
 
-**Ключевой вывод:** Алгебра Клиффорда в Lean уже оформлена в mathlib. Однако **формализации самих спектральных тройных**, операторов Дирака на почти-коммутативных пространствах или спектрального действия в Lean или Coq **в рецензируемой литературе не обнаружено** (по состоянию на 2026).
+**Key conclusion:** Clifford algebra in Lean is already formalized in mathlib. However, **formalizations of spectral triples themselves**, Dirac operators on almost-commutative spaces, or the spectral action in Lean or Coq **were not found in the peer-reviewed literature** (as of 2026).
 
 **[Recognition Geometry (RG). J. Washburn, M. Zlatanović, E. Allahyarov. Axioms 15 (2026)](https://www.mdpi.com/2075-1680/15/2/90)**
 DOI: 10.3390/axioms15020090
 
-Аксиоматическая основа в Lean 4 для геометрии, производной от наблюдений (каузальные множества, алгебры C*). Пересечение с философией НКГ «сначала измерения».
+An axiomatic foundation in Lean 4 for geometry derived from observations (causal sets, C*-algebras). Intersection with the NCG philosophy of "measurements first."
 
-**Практическое состояние формализации НКГ:**
+**Practical state of NCG formalization:**
 
-| Объект | Статус в Lean/Coq |
+| Object | Status in Lean/Coq |
 |--------|------------------|
-| Алгебра Клиффорда | ✅ Lean 3/4 mathlib (Wieser 2022) |
-| C*-алгебры (базовые) | ✅ Lean 4 mathlib (частично) |
-| Спектральные тройки | ❌ Не формализованы |
-| Оператор Дирака на M × F | ❌ Не формализован |
-| Спектральное действие | ❌ Не формализован |
-| Связь A_F с H4 | ❌ Оригинальная гипотеза, не в литературе |
+| Clifford algebra | ✅ Lean 3/4 mathlib (Wieser 2022) |
+| C*-algebras (basic) | ✅ Lean 4 mathlib (partially) |
+| Spectral triples | ❌ Not formalized |
+| Dirac operator on M × F | ❌ Not formalized |
+| Spectral action | ❌ Not formalized |
+| Connection of A_F to H4 | ❌ Original hypothesis, not in literature |
 
 ---
 
-## 6. Критические оценки и текущий статус программы НКГ–СМ
+## 6. Critical Assessments and Current Status of the NCG–SM Program
 
-### 6.1 Основные критики
+### 6.1 Main Critics
 
 **[C.A. Stephan. "Noncommutative Geometry in the LHC-Era." (2013)](https://arxiv.org/abs/1305.3066)**
 
-> «Большинство этих моделей, включая стандартную модель, теперь опровергнуто данными LHC. Но интересные расширения СМ, согласующиеся с наблюдаемой массой скалярного бозона и предсказывающие новые частицы, остаются весьма перспективными.»
+> "Most of these models, including the standard model, are now ruled out by LHC data. But interesting extensions of the SM, consistent with the observed scalar boson mass and predicting new particles, remain very promising."
 
-**Что опровергнуто:** Модели НКГ с m_H ≈ 170–180 ГэВ (до исправления σ-поля). Большинство расширений НКГ «за пределами СМ» предсказывали Хиггс при высокой массе.
+**What was falsified:** NCG models with m_H ≈ 170–180 GeV (before the σ-field correction). Most NCG extensions "beyond the SM" predicted a high-mass Higgs.
 
-**Что остаётся жизнеспособным:** Расширения с B-L-симметрией, Пати–Салам NCG, модели с σ-полем.
+**What remains viable:** Extensions with B-L symmetry, Pati–Salam NCG, models with the σ-field.
 
 ---
 
-### 6.2 Проблема первого порядка и унимодулярности
+### 6.2 First Order Condition and Unimodularity Problem
 
-Условие первого порядка (FOC) для оператора Дирака требовалось для воспроизводства точно калибровочной группы СМ. Без него (как показано в работе 2013 о Пати–Салам) получается бо́льшая группа симметрий. Это означает, что выбор FOC или его отсутствия — принципиальное **теоретическое решение**, влияющее на физику.
+The first order condition (FOC) for the Dirac operator was required to reproduce exactly the SM gauge group. Without it (as shown in the 2013 Pati–Salam work) a larger symmetry group is obtained. This means that the choice of FOC or its absence is a fundamental **theoretical decision** affecting physics.
 
-Условие унимодулярности, заменяющее U(3) на SU(3), — тоже дополнительная гипотеза.
+The unimodularity condition replacing U(3) with SU(3) is also an additional hypothesis.
 
 **[F. Lizzi, N. Huggett, T. Menon. "Missing the point in noncommutative geometry." Synthese (2021)](https://pmc.ncbi.nlm.nih.gov/articles/PMC8604559/)**
 DOI: 10.1007/s11229-020-02998-1
 
-Философская критика: проблема «отсутствия точек» в НКГ ставит под сомнение физическую интерпретацию некоммутативного пространства, особенно в режиме квантовой гравитации.
+Philosophical criticism: the problem of "missing points" in NCG casts doubt on the physical interpretation of noncommutative space, especially in the quantum gravity regime.
 
 ---
 
-### 6.3 Текущий статус: жива ли программа?
+### 6.3 Current Status: Is the Program Alive?
 
-**Честная сводка (2026):**
+**Honest summary (2026):**
 
-| Аспект | Статус |
+| Aspect | Status |
 |--------|--------|
-| Формальная математика НКГ | ✅ Активно развивается (Bochniak, Dabrowski, Khalkhali, Majid) |
-| Спектральная модель СМ | ⚠️ Жива, но с оговорками (σ-поле, FOC, унимодулярность) |
-| Предсказательная сила | ⚠️ Ограничена: предсказания зависят от нескольких свободных параметров |
-| Число поколений | ❌ Всё ещё не выводится |
-| Юкавские константы | ❌ Свободные параметры (вводятся вручную через D_F) |
-| Квантование спектрального действия | ⚠️ Частичные результаты (Gaunt, Perez-Sanchez, Barrett) |
-| Лоренцева сигнатура | ⚠️ Локальный результат (Nieuviarts 2025), не полная глобальная структура |
-| Связь с H4/E8 | ❌ Нет в основной литературе НКГ |
+| Formal mathematics of NCG | ✅ Actively developing (Bochniak, Dabrowski, Khalkhali, Majid) |
+| Spectral model of the SM | ⚠️ Alive, but with caveats (σ-field, FOC, unimodularity) |
+| Predictive power | ⚠️ Limited: predictions depend on several free parameters |
+| Number of generations | ❌ Still not derived |
+| Yukawa constants | ❌ Free parameters (introduced by hand via D_F) |
+| Quantization of spectral action | ⚠️ Partial results (Gaunt, Perez-Sanchez, Barrett) |
+| Lorentzian signature | ⚠️ Local result (Nieuviarts 2025), not full global structure |
+| Connection to H4/E8 | ❌ Not in mainstream NCG literature |
 
-**Вывод:** Программа НКГ–СМ — **нишевое, но активное** исследовательское направление. Она не «мертва», но и не является мейнстримом. Основные исследователи (Ситarz, Дабровски, ван Суйлеком, Лиззи, Девастато) продолжают разработки. Программа перешла от попыток предсказать массу Хиггса к более глубокому математическому пониманию геометрии пространства-времени.
+**Conclusion:** The NCG–SM program is a **niche but active** research direction. It is not "dead," but it is not mainstream either. The main researchers (Sitarz, Dabrowski, van Suijlekom, Lizzi, Devastato) continue development. The program has shifted from attempts to predict the Higgs mass to a deeper mathematical understanding of spacetime geometry.
 
 ---
 
-## 7. Нерешённые проблемы в программе НКГ–СМ
+## 7. Unsolved Problems in the NCG–SM Program
 
-### 7.1 Нейтринный сектор
+### 7.1 Neutrino Sector
 
-**Проблема Майорана:** В NCG с A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) правосторонние нейтрино включаются как бинарный выбор. Коннес (2006) ввёл нейтринное смешивание через модификацию вещественной структуры J спектральной тройки. Однако:
-- Масштаб масс Майорана не предсказывается
-- Механизм морского конька (seesaw) вводится *ad hoc*
-- Матрица PMNS — свободный параметр (как и матрица CKM)
+**Majorana Problem:** In NCG with A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ), right-handed neutrinos are included as a binary choice. Connes (2006) introduced neutrino mixing through modification of the real structure J of the spectral triplet. However:
+- The Majorana mass scale is not predicted
+- The seesaw mechanism is introduced *ad hoc*
+- The PMNS matrix is a free parameter (like the CKM matrix)
 
 **[M. Marcolli, E. Pierpaoli. "Early Universe models from Noncommutative Geometry." ATMP (2010)](https://link.intlpress.com/JDetail/1805561653368397826)**
 DOI: 10.4310/ATMP.2010.V14.N5.A2
 
-Применение RGE-анализа СМ с правыми нейтрино и членами Майорана к спектральному действию НКГ: эффективная гравитационная константа зависит от масштаба, возникают режимы конформной гравитации Хойла–Нарлайкара на масштабах морского конька.
+Application of RGE analysis of the SM with right-handed neutrinos and Majorana terms to the NCG spectral action: the effective gravitational constant depends on scale, and Hoyle–Narlikar conformal gravity modes arise at seesaw scales.
 
-### 7.2 Гравитация
+### 7.2 Gravity
 
-**Проблема граничных слагаемых:** Спектральное действие на многообразии с границей.
+**Boundary term problem:** The spectral action on a manifold with boundary.
 
 **[A. Chamseddine, A. Connes. "Quantum gravity boundary terms from the spectral action of noncommutative space." PRL 99, 071302 (2007)](https://link.aps.org/doi/10.1103/PhysRevLett.99.071302)**
 DOI: 10.1103/PhysRevLett.99.071302
 
-Доказано, что спектральное действие однозначно предсказывает гравитационный граничный член, необходимый для консистентности квантовой гравитации, с правильным знаком и коэффициентом.
+It is proven that the spectral action uniquely predicts the gravitational boundary term necessary for consistency of quantum gravity, with the correct sign and coefficient.
 
-**Нерешённые проблемы гравитации в NCG:**
-1. **Члены Вейля (R²):** Спектральное действие содержит R²μν-члены (гравитация Вейля), которых нет в ОТО. Необходима процедура, позволяющая подавить их при низких энергиях.
-2. **Космологическая постоянная:** Ведущий член a₀ в разложении спектрального действия (Λ⁴-член) соответствует КП — но не объясняет ни иерархию, ни наблюдаемое значение.
-3. **Квантование:** Нет полной квантовой теории спектрального действия.
+**Unsolved gravity problems in NCG:**
+1. **Weyl terms (R²):** The spectral action contains R²μν-terms (Weyl gravity), which are absent in GR. A procedure is needed to suppress them at low energies.
+2. **Cosmological constant:** The leading term a₀ in the spectral action expansion (Λ⁴-term) corresponds to the CC — but explains neither the hierarchy nor the observed value.
+3. **Quantization:** No complete quantum theory of the spectral action exists.
 
 **[G. Lambiase, M. Sakellariadou, A. Stabile. "Constraints on NCG Spectral Action from Gravity Probe B." JCAP 2013(12) 020](https://arxiv.org/abs/1302.2336)**
 DOI: 10.1088/1475-7516/2013/12/020
 
-Ограничения из данных Gravity Probe B: нижняя граница на коэффициент β перед членом Вейля: β ≥ 10⁻⁶ м⁻¹.
+Constraints from Gravity Probe B data: lower bound on the coefficient β in front of the Weyl term: β ≥ 10⁻⁶ m⁻¹.
 
-### 7.3 RGE-пробег спектральных параметров
+### 7.3 RGE Running of Spectral Parameters
 
-**Центральная проблема:** Спектральное действие задаёт «граничные условия» на масштабе унификации Λ. Пробег до электрослабого масштаба управляется стандартными уравнениями РГ-групп СМ. Однако:
+**Central problem:** The spectral action sets "boundary conditions" at the unification scale Λ. Running to the electroweak scale is governed by standard SM RG equations. However:
 
-1. **Три свободных параметра:** f₀, f₂, f₄ (моменты среза) определяют соотношение калибровочных констант, массу Хиггса и значение Λ. Их значения не выводятся из первых принципов — они настраиваются из условий согласования.
+1. **Three free parameters:** f₀, f₂, f₄ (moments of the cutoff) determine the gauge coupling relation, Higgs mass, and value of Λ. Their values are not derived from first principles — they are tuned from matching conditions.
 
-2. **Поле σ:** Введение σ меняет β-функции и сдвигает фиксированную точку УВ для λ_Higgs (Chamseddine–Connes 2012). Это *сохраняет* стабильность СМ до шкалы Λ, но само по себе является подстройкой.
+2. **The σ field:** Introduction of σ changes the β-functions and shifts the UV fixed point for λ_Higgs (Chamseddine–Connes 2012). This *preserves* SM stability up to scale Λ, but is itself an adjustment.
 
-3. **Проблема без FOC:** В режиме Пати–Салам (без FOC) выходим за рамки стандартных β-функций СМ — нужны расчёты для расширенной теории, что затрудняет строгое сравнение с данными.
-
----
-
-## 8. Actionable уроки для Trinity S3AI
-
-На основе анализа литературы формулируются следующие **практически значимые уроки**:
+3. **Problem without FOC:** In Pati–Salam mode (without FOC) one goes beyond standard SM β-functions — calculations for the extended theory are needed, complicating strict comparison with data.
 
 ---
 
-### Урок 1: Разграничить «вычисляется» vs. «выводится» vs. «постулируется»
+## 8. Actionable Lessons for Trinity S3AI
 
-**Что делает NCG сообщество:** Явно указывает, какие шаги являются аксиоматическими (KO-размерность = 10 mod 8), какие — мотивированными допущениями (кватернионная линейность), какие — строгими теоремами.
-
-**Применение к Trinity S3AI:** Тождество H01 (Tr(D_F⁻²)·480/Tr(D_F⁻⁴) = 4φ³) в `H01_H03_origins.md` явно помечено как «гипотеза, подтверждённая численно». Это правильная практика. Необходимо:
-- Завершить *аналитическое* доказательство этого тождества, опираясь на явный спектр D_F
-- Либо честно переклассифицировать H01 в «числовое совпадение»
+On the basis of the literature analysis, the following **practically significant lessons** are formulated:
 
 ---
 
-### Урок 2: Поле σ как прецедент — «скрытые поля важны»
+### Lesson 1: Distinguish "computed" vs "derived" vs "postulated"
 
-Кризис Хиггса в NCG (2012) был разрешён *восстановлением* забытого поля σ. Аналогично в Trinity S3AI: спектральные инварианты 600-клетки могут содержать дополнительные поля (помимо хиггсовских), которые существенно влияют на физические предсказания. **Никогда не игнорировать члены потенциала Хиггса как «малые»** без строгого обоснования.
+**What the NCG community does:** Explicitly indicates which steps are axiomatic (KO-dimension = 10 mod 8), which are motivated assumptions (quaternionic linearity), and which are strict theorems.
 
----
-
-### Урок 3: Условие первого порядка как принципиальный выбор
-
-В NCG наличие/отсутствие FOC принципиально меняет калибровочную группу (СМ vs Пати–Салам). В Trinity S3AI: при определении оператора Дирака D_F для H4 необходимо **явно зафиксировать аналог FOC** и показать, что без него выходит бо́льшая симметрия.
+**Application to Trinity S3AI:** The H01 identity (Tr(D_F⁻²)·480/Tr(D_F⁻⁴) = 4φ³) in `H01_H03_origins.md` is explicitly marked as a "hypothesis confirmed numerically." This is correct practice. It is necessary to:
+- Complete the *analytic* proof of this identity based on the explicit spectrum of D_F
+- Or honestly reclassify H01 as a "numerical coincidence"
 
 ---
 
-### Урок 4: Унимодулярность = отдельная гипотеза
+### Lesson 2: The σ field as a precedent — "hidden fields matter"
 
-NCG не выводит SU(3) из первых принципов — получается U(3), и только наложение унимодулярности сводит к SU(3). В Trinity S3AI: если из спектральных данных H4 возникает «почти правильная» калибровочная группа, проверить, не нужна ли аналогичная дополнительная проекция.
-
----
-
-### Урок 5: Модели NCG, опровергнутые LHC, — методологический пример
-
-Stephan (2013) честно констатировал, что «большинство моделей NCG, включая СМ, опровергнуто LHC». Это не провал программы, а научная честность. Для Trinity S3AI: **регулярно проверять, не входят ли численные предсказания в конфликт с данными PDG**, и открыто указывать на конфликты в документах.
+The Higgs crisis in NCG (2012) was resolved by *restoring* the forgotten σ field. Similarly in Trinity S3AI: spectral invariants of the 600-cell may contain additional fields (besides Higgs) that substantially affect physical predictions. **Never ignore terms of the Higgs potential as "small"** without strict justification.
 
 ---
 
-### Урок 6: Twisted spectral triple + Лоренцева подпись — открытая проблема
+### Lesson 3: First order condition as a fundamental choice
 
-По состоянию на 2025 г. лоренцева формулировка спектрального действия достигнута лишь локально (Nieuviarts 2025). Для Trinity S3AI: **не претендовать на полное объединение с гравитацией**, пока не решена проблема сигнатуры. Следует явно указать: «Мы работаем в евклидовой формулировке».
-
----
-
-### Урок 7: Число поколений — не выводится в NCG
-
-Ни в одной публикации NCG (включая работы Коннеса) число поколений не выведено из принципов — оно вводится вручную. В Trinity S3AI: гипотеза «3 поколения из структуры H4/E8» — потенциально *более сильное* утверждение, чем всё, что есть в NCG. Это требует исключительно строгого доказательства. Если оно справедливо — это важнейший результат.
+In NCG, the presence/absence of FOC fundamentally changes the gauge group (SM vs Pati–Salam). In Trinity S3AI: when defining the Dirac operator D_F for H4, it is necessary to **explicitly fix an analogue of FOC** and show that without it a larger symmetry emerges.
 
 ---
 
-### Урок 8: RGE-пробег спектральных параметров — стандартная процедура NCG
+### Lesson 4: Unimodularity = separate hypothesis
 
-NCG применяет стандартные β-функции СМ для пробега от Λ к электрослабому масштабу. Параметры f₀, f₂, f₄ определяются из условий согласования. Для Trinity S3AI: **аналитически показать, как числа Коксетера H4 определяют аналоги f₀, f₂, f₄**, и провести аналогичный RGE-анализ. Файл `RG_RUNNING_PROVEN.md` в проекте — правильный шаг, но нужно строгое теоретическое обоснование.
-
----
-
-### Урок 9: Проблема Lean/Coq — уровень формализации в NCG очень низок
-
-Формализации спектральных тройных, операторов Дирака или спектрального действия в доказательных системах практически нет. Trinity S3AI с файлами `Catalog42_corrected.v` и `SpectralAction600Cell.v` — **потенциально передовые** в этом отношении. Необходимо продолжать формализацию и при возможности опубликовать как самостоятельный вклад.
+NCG does not derive SU(3) from first principles — it gets U(3), and only imposing unimodularity reduces it to SU(3). In Trinity S3AI: if "almost correct" gauge groups emerge from H4 spectral data, check whether a similar additional projection is needed.
 
 ---
 
-### Урок 10: Ключевое тождество NCG — KO-размерность = 10 mod 8
+### Lesson 5: NCG models falsified by the LHC are a methodological example
 
-Самое глубокое аксиоматическое условие NCG — требование KO-размерности 10 (mod 8). Оно нетривиально связывает топологию, K-теорию и физику. Для Trinity S3AI: **вычислить KO-размерность конечного пространства, определяемого 600-клеткой/H4**. Если она равна 6 (mod 8) — это сильнейший аргумент в пользу связи с NCG СМ. Если нет — необходимо объяснить расхождение.
-
----
-
-### Урок 11: Альтернативные «геометрические объяснения» A_F — уже есть в литературе
-
-Boyle–Farnsworth (2015–2018) показали, что при переходе к неассоциативным геометриям (октонионы) получается G₂, а не SM. NCG = ассоциативный случай. Для Trinity S3AI: **обосновать, почему H4 (а не G₂ или E8-центрическая алгебра) даёт правильный тип ассоциативности**, соответствующий A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ).
+Stephan (2013) honestly stated that "most NCG models, including the SM, are ruled out by the LHC." This is not a failure of the program, but scientific honesty. For Trinity S3AI: **regularly check whether numerical predictions conflict with PDG data**, and openly indicate conflicts in documents.
 
 ---
 
-### Урок 12: Связь физики с математикой — «раздельная» проблема
+### Lesson 6: Twisted spectral triple + Lorentzian signature — an open problem
 
-В NCG само спектральное действие (∼Tr f(D/Λ)) — это *принцип физики*, а A_F — *геометрический вход*. Для Trinity S3AI аналог: **принцип спектрального действия применяется к 600-клетке (геометрический вход)**. Но физика тогда определяется функцией f — и f должна быть мотивирована физически, а не произвольно. Текущее «e²» в формулах требует теоретического обоснования.
-
----
-
-### Урок 13: Нейтринный сектор как потенциальное отличительное предсказание
-
-В NCG нейтринный сектор (матрица PMNS, массы Майорана) — свободные параметры. В Trinity S3AI претендуют на вывод CKM/PMNS из структуры H4. Это **главное потенциальное преимущество** перед стандартной NCG. Следует сосредоточиться на максимально строгом предсказании матрицы PMNS.
+As of 2025, the Lorentzian formulation of the spectral action has been achieved only locally (Nieuviarts 2025). For Trinity S3AI: **do not claim full unification with gravity** until the signature problem is solved. It should be explicitly stated: "We work in the Euclidean formulation."
 
 ---
 
-### Урок 14: Модели NCG за пределами СМ показывают путь
+### Lesson 7: Number of generations — not derived in NCG
 
-Пати–Салам НКГ (2013) предсказывает SU(2)_R × SU(2)_L × SU(4) при высоких энергиях. Если Trinity S3AI работает при шкале H4 (Λ ~ Планковская или ГОТ), то следует явно указать: **какова «ГОТ-симметрия» модели на шкале Λ**, прежде чем переходить к обсуждению СМ. Если Λ связана с 600-клеткой — это нужно обосновать через RGE.
-
----
-
-### Урок 15: θ-члены в электрослабом секторе
-
-Работа Bochniak–Sitarz (2022) показала, что без удвоения фермионов спектральное действие порождает топологические θ-члены в электрослабом секторе. Это CP-нарушение в слабом секторе — физический сигнал модели. Для Trinity S3AI: **проверить, возникают ли аналогичные θ-члены в спектральном действии 600-клетки**, и если да — сравнить с наблюдаемыми ограничениями.
+In no NCG publication (including Connes's works) is the number of generations derived from principles — it is introduced by hand. In Trinity S3AI: the hypothesis "3 generations from H₄/E₈ structure" is potentially a *stronger* statement than anything in NCG. This requires exceptionally strict proof. If true — it is a most important result.
 
 ---
 
-### Урок 16: Проблема Вейля и космологической постоянной — не заметать под ковёр
+### Lesson 8: RGE running of spectral parameters — standard NCG procedure
 
-Члены R²μν в спектральном действии остаются нерешённой проблемой NCG. В Trinity S3AI: если a₄ из 600-клетки содержит высшие кривизны — **это следует обсудить** и предложить механизм их подавления. Иначе теория не согласуется с ОТО на малых энергиях.
-
----
-
-### Урок 17: Метод «спектральных инвариантов»: a₀, a₂, a₄ vs. конкретные собственные значения
-
-NCG использует тепловое ядро (heat kernel expansion) для вычисления спектрального действия. Собственные значения D_F нужны только через моменты a_k. Для Trinity S3AI: вместо работы с конкретными 120 собственными значениями оператора Дирака 600-клетки **сфокусироваться на аналитическом вычислении тепловых инвариантов a₀, a₂, a₄ через φ**. Это более прямой путь к формулам H01–H03.
+NCG applies standard SM β-functions for running from Λ to the electroweak scale. Parameters f₀, f₂, f₄ are determined from matching conditions. For Trinity S3AI: **analytically show how Coxeter numbers of H₄ determine analogues of f₀, f₂, f₄**, and conduct a similar RGE analysis. The `RG_RUNNING_PROVEN.md` file in the project is the right step, but strict theoretical justification is needed.
 
 ---
 
-### Урок 18: «Зеркало Вуд-Саксона» — сравнение программ
+### Lesson 9: Lean/Coq problem — level of formalization in NCG is very low
 
-| Аспект | NCG Коннеса | Trinity S3AI |
+Formalizations of spectral triples, Dirac operators, or the spectral action in proof assistants are practically nonexistent. Trinity S3AI with files `Catalog42_corrected.v` and `SpectralAction600Cell.v` is **potentially ahead** in this respect. It is necessary to continue formalization and, if possible, publish it as an independent contribution.
+
+---
+
+### Lesson 10: Key NCG identity — KO-dimension = 10 mod 8
+
+The deepest axiomatic condition of NCG — the requirement of KO-dimension 10 (mod 8). It non-trivially connects topology, K-theory, and physics. For Trinity S3AI: **compute the KO-dimension of the finite space defined by the 600-cell/H₄**. If it equals 6 (mod 8) — this is the strongest argument in favor of a connection with NCG SM. If not — the discrepancy must be explained.
+
+---
+
+### Lesson 11: Alternative "geometric explanations" of A_F already exist in the literature
+
+Boyle–Farnsworth (2015–2018) showed that in the transition to non-associative geometries (octonions) one gets G₂, not SM. NCG = associative case. For Trinity S3AI: **justify why H₄ (and not G₂ or an E₈-centered algebra) gives the correct type of associativity**, corresponding to A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ).
+
+---
+
+### Lesson 12: Connection of physics to mathematics — a "separate" problem
+
+In NCG, the spectral action itself (∼Tr f(D/Λ)) is a *principle of physics*, while A_F is a *geometric input*. For Trinity S3AI the analogue is: **the spectral action principle is applied to the 600-cell (geometric input)**. But physics is then determined by the function f — and f must be physically motivated, not arbitrary. The current "e²" in the formulas requires theoretical justification.
+
+---
+
+### Lesson 13: Neutrino sector as a potential distinguishing prediction
+
+In NCG the neutrino sector (PMNS matrix, Majorana masses) consists of free parameters. In Trinity S3AI there are claims to derive CKM/PMNS from H₄ structure. This is the **main potential advantage** over standard NCG. Focus should be on the strictest possible prediction of the PMNS matrix.
+
+---
+
+### Lesson 14: NCG models beyond the SM show the way
+
+Pati–Salam NCG (2013) predicts SU(2)_R × SU(2)_L × SU(4) at high energies. If Trinity S3AI works at the H₄ scale (Λ ~ Planck or GUT), then one should explicitly indicate: **what is the "GUT symmetry" of the model at scale Λ**, before proceeding to discuss the SM. If Λ is connected to the 600-cell — this needs to be justified through RGE.
+
+---
+
+### Lesson 15: θ-terms in the electroweak sector
+
+The Bochniak–Sitarz work (2022) showed that without fermion doubling the spectral action generates topological θ-terms in the electroweak sector. This is CP violation in the weak sector — a physical signal of the model. For Trinity S3AI: **check whether analogous θ-terms arise in the spectral action of the 600-cell**, and if so — compare with observed constraints.
+
+---
+
+### Lesson 16: Weyl and cosmological constant problems — do not sweep under the rug
+
+R²μν-terms in the spectral action remain an unsolved problem of NCG. In Trinity S3AI: if a₄ from the 600-cell contains higher curvatures — **this should be discussed** and a mechanism for their suppression proposed. Otherwise the theory is inconsistent with GR at low energies.
+
+---
+
+### Lesson 17: "Spectral invariants" method: a₀, a₂, a₄ vs specific eigenvalues
+
+NCG uses heat kernel expansion to compute the spectral action. Eigenvalues of D_F are needed only through moments a_k. For Trinity S3AI: instead of working with specific 120 eigenvalues of the 600-cell Dirac operator **focus on the analytic computation of heat invariants a₀, a₂, a₄ through φ**. This is a more direct path to the H01–H03 formulas.
+
+---
+
+### Lesson 18: "Woods–Saxon Mirror" — comparison of programs
+
+| Aspect | Connes's NCG | Trinity S3AI |
 |--------|-------------|--------------|
-| Геометрия | M × A_F (почти-коммутативное) | M × H4-геометрия (600-клетка) |
-| Алгебра | ℂ ⊕ ℍ ⊕ M₃(ℂ) — мотивирована классификацией | ℂ ⊕ ℍ ⊕ M₃(ℂ) — утверждается, но не доказывается |
-| Хиггс | σ-поле: восстановлено, корректирует RGE | H01 = 4φ³e² — численное совпадение + гипотеза |
-| Юкавские константы | Свободные параметры D_F | Претендуют на вывод из H4 |
-| Число поколений | Вводится вручную | Претендуют на вывод |
-| Формализация | Нулевая в Lean/Coq | Частичная в Coq — преимущество |
+| Geometry | M × A_F (almost-commutative) | M × H₄-geometry (600-cell) |
+| Algebra | ℂ ⊕ ℍ ⊕ M₃(ℂ) — motivated by classification | ℂ ⊕ ℍ ⊕ M₃(ℂ) — claimed but not proven |
+| Higgs | σ-field: restored, corrects RGE | H01 = 4φ³e² — numerical coincidence + hypothesis |
+| Yukawa constants | Free parameters of D_F | Claimed to be derived from H₄ |
+| Number of generations | Introduced by hand | Claimed to be derived |
+| Formalization | Zero in Lean/Coq | Partial in Coq — advantage |
 
 ---
 
-### Итоговое резюме
+### Final Summary
 
-Программа NCG Коннеса–Хамседдина представляет собой математически строгую, но физически неполную рамку. Её ключевые достижения:
-1. Геометрическое «происхождение» Хиггса как компонента оператора Дирака
-2. Унификация гравитации и СМ в одном функционале действия
-3. Мотивированная (но не полностью выведенная) алгебра A_F
-4. Предсказание σ-поля (теперь важного для физики BSM)
+The Connes–Chamseddine NCG program is a mathematically rigorous but physically incomplete framework. Its key achievements:
+1. Geometric "origin" of the Higgs as a component of the Dirac operator
+2. Unification of gravity and SM in a single action functional
+3. Motivated (but not fully derived) algebra A_F
+4. Prediction of the σ-field (now important for BSM physics)
 
-Её ключевые провалы/ограничения:
-1. Число поколений — свободный параметр
-2. Юкавские константы — свободные параметры
-3. Три параметра f₀, f₂, f₄ — настраиваются, не выводятся
-4. Лоренцева сигнатура — нерешена полностью
-5. Квантование — не построено
+Its key failures/limitations:
+1. Number of generations — free parameter
+2. Yukawa constants — free parameters
+3. Three parameters f₀, f₂, f₄ — tuned, not derived
+4. Lorentzian signature — not fully solved
+5. Quantization — not constructed
 
-Trinity S3AI пытается решить часть этих проблем через H4/600-клетку. Если успешно — это существенный вклад. Но для этого необходимо строгое доказательство центрального тождества H01, явная связь с KO-размерностью и полная демонстрация того, что алгебра A_F выводится, а не постулируется.
+Trinity S3AI attempts to solve some of these problems through H₄/600-cell. If successful — this is a substantial contribution. But for this, strict proof of the central H01 identity, explicit connection with KO-dimension, and full demonstration that algebra A_F is derived, not postulated, are necessary.
 
 ---
 
-*Литература: все ссылки на реальные публикации с DOI/arXiv указаны в тексте выше. Для сводного списка — см. ниже.*
+*Literature: all references to real publications with DOI/arXiv are given in the text above. For a consolidated list — see below.*
 
-## Список ключевых источников
+## List of Key Sources
 
-| # | Авторы | Название | Год | Источник |
-|---|--------|----------|-----|---------|
+| # | Authors | Title | Year | Source |
+|---|--------|-------|-----|---------|
 | 1 | Chamseddine, Connes | The Spectral Action Principle | 1997 | [doi:10.1007/s002200050126](https://link.springer.com/10.1007/s002200050126) |
 | 2 | Chamseddine, Connes | Universal Formula for NCG Actions | 1996 | [doi:10.1103/PhysRevLett.77.4868](https://link.aps.org/doi/10.1103/PhysRevLett.77.4868) |
 | 3 | Chamseddine, Connes | Why the Standard Model | 2007 | [arXiv:0706.3688](https://arxiv.org/abs/0706.3688) |

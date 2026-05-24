@@ -1,94 +1,94 @@
-# Дискретный оператор Дирака на вершинном пространстве 600-ячейника
+# Discrete Dirac Operator on the Vertex Space of the 600-Cell
 
-> **Волна 8.1 — Дизайн**  
-> **Статус:** честная математическая конструкция (явное построение, частично доказано)  
-> **Дата:** июнь 2026  
-> **Зависимость:** Wave 5.2 (QuaternionicLinearity.v)
-
----
-
-## Содержание
-
-1. [Выбор подхода](#1-выбор-подхода)
-2. [Явное определение оператора Дирака](#2-явное-определение)
-3. [Почему это «дираковский» оператор](#3-свойства-дирака)
-4. [Связь с физическим спектром масс](#4-физическая-интерпретация)
-5. [Coq-формализация: что доказано](#5-coq-формализация)
-6. [Честные пробелы](#6-честные-пробелы)
+> **Wave 8.1 — Design**  
+> **Status:** honest mathematical construction (explicit construction, partially proved)  
+> **Date:** June 2026  
+> **Dependency:** Wave 5.2 (QuaternionicLinearity.v)
 
 ---
 
-## 1. Выбор подхода
+## Contents
 
-### 1.1 Три варианта
+1. [Choice of Approach](#1-choice-of-approach)
+2. [Explicit Definition of the Dirac Operator](#2-explicit-definition)
+3. [Why This Is a "Dirac" Operator](#3-dirac-properties)
+4. [Connection with the Physical Mass Spectrum](#4-physical-interpretation)
+5. [Coq Formalization: What Is Proved](#5-coq-formalization)
+6. [Honest Gaps](#6-honest-gaps)
 
-Рассмотрим три возможных подхода к построению дискретного оператора Дирака D
-на вершинном пространстве H = ℂ^{120} 600-ячейника:
+---
 
-**(a) Граф-Лапласиан + спиновое кручение**  
-Каждая вершина 600-ячейника имеет ровно 12 соседей (степень вершины).
-Можно определить D как ∑_{v~w} (a_{vw} e_v ⊗ σ_1 ± b_{vw} e_w ⊗ σ_2),
-где σ_1, σ_2 — матрицы Паули. Это близко к подходу дискретной геометрии
+## 1. Choice of Approach
+
+### 1.1 Three Variants
+
+Consider three possible approaches to constructing a discrete Dirac operator D  
+on the vertex space H = ℂ^{120} of the 600-cell:
+
+**(a) Graph-Laplacian + Spin Twist**  
+Each vertex of the 600-cell has exactly 12 neighbors (vertex degree).
+One can define D as ∑_{v~w} (a_{vw} e_v ⊗ σ_1 ± b_{vw} e_w ⊗ σ_2),  
+where σ_1, σ_2 are Pauli matrices. This is close to the discrete geometry approach  
 (Krön–Schumacher, 2009).
 
-**Проблема:** коэффициенты a_{vw}, b_{vw} требуют явных координат всех 120 вершин —
-тяжело кодировать в Coq без внешних библиотек.
+**Problem:** coefficients a_{vw}, b_{vw} require explicit coordinates of all 120 vertices —  
+hard to encode in Coq without external libraries.
 
-**(b) Разностный оператор через правое умножение на генераторы 2I**  
-Используем генераторы r, s группы 2I:
+**(b) Difference Operator via Right Multiplication by 2I Generators**  
+Use generators r, s of the group 2I:
 ```
 D = R_r + R_{r*} + R_s + R_{s*}
 ```
-где R_g — оператор правого умножения на g. Это реализует подход
-«разностного оператора через действие группы».
+where R_g is the right multiplication operator by g. This implements the  
+"difference operator via group action" approach.
 
-**Преимущество:** напрямую связан с результатами Wave 5.2, R_g — изометрия.  
-**Проблема:** этот оператор действует в H ≅ ℍ ≅ ℝ^4, а не в ℂ^{120}.
+**Advantage:** directly connected with Wave 5.2 results, R_g is an isometry.  
+**Problem:** this operator acts in H ≅ ℍ ≅ ℝ^4, not in ℂ^{120}.
 
-**(c) Разностный оператор на 4-мерных компонентах кватернионного пространства**  
-Рассматриваем пространство H = ℝ^4 (одна кватернионная «ячейка») со спиновой
-структурой и определяем D через антикоммутатор с правым умножением на
-генераторы 2I. Это работает в рамках CorePhi.v.
+**(c) Difference Operator on 4-Dimensional Components of Quaternionic Space**  
+Consider the space H = ℝ^4 (one quaternionic "cell") with spin  
+structure and define D via anticommutator with right multiplication by  
+generators of 2I. This works within CorePhi.v.
 
-### 1.2 Выбранный подход
+### 1.2 Chosen Approach
 
-**Используем вариант (c)** — кватернионный разностный оператор.
+**We use variant (c)** — quaternionic difference operator.
 
-Причина: он наиболее честно формализуется в Coq с опорой только на CorePhi.v
-и QuaternionicLinearity.v, не требует внешних библиотек, и сохраняет математическое
-содержание через связь с генераторами 2I.
+Reason: it is most honestly formalizable in Coq relying only on CorePhi.v  
+and QuaternionicLinearity.v, requires no external libraries, and preserves mathematical  
+content via connection with generators of 2I.
 
-Мы работаем на уровне одной «кватернионной ячейки» H ≅ ℝ^4 и доказываем
-алгебраические свойства, которые переносятся на H^{⊕120} по линейности.
+We work at the level of a single "quaternionic cell" H ≅ ℝ^4 and prove  
+algebraic properties that transfer to H^{⊕120} by linearity.
 
 ---
 
-## 2. Явное определение
+## 2. Explicit Definition
 
-### 2.1 Гильбертово пространство (вещественная модель)
+### 2.1 Hilbert Space (Real Model)
 
-Определяем H_cell = ℝ^4 с базисом {e_0, e_1, e_2, e_3}, отождествляемым
-с базисными кватернионами {1, i, j, k}. Внутреннее произведение:
+Define H_cell = ℝ^4 with basis {e_0, e_1, e_2, e_3}, identified  
+with basis quaternions {1, i, j, k}. Inner product:
 
 ```
 ⟨q, p⟩ = q₀p₀ + q₁p₁ + q₂p₂ + q₃p₃
 ```
 
-Норма: ‖q‖² = q₀² + q₁² + q₂² + q₃².
+Norm: ‖q‖² = q₀² + q₁² + q₂² + q₃².
 
-### 2.2 Алгебра A_F
+### 2.2 Algebra A_F
 
-Алгебра A — это ℝ-алгебра, порождённая левыми умножениями L_g для g ∈ 2I.
-В Wave 5.2 показано (Theorem quaternion_full_associativity), что L_l ∘ R_g = R_g ∘ L_l,
-то есть левые умножения 2I-инвариантны. Алгебра операторов:
+The algebra A is the ℝ-algebra generated by left multiplications L_g for g ∈ 2I.
+In Wave 5.2 it was shown (Theorem quaternion_full_associativity) that L_l ∘ R_g = R_g ∘ L_l,
+i.e., left multiplications are 2I-invariant. The algebra of operators:
 
 ```
-A ≅ ℍ  (левые умножения на кватернионы)
+A ≅ ℍ  (left multiplications by quaternions)
 ```
 
-### 2.3 Оператор Дирака (вещественная редукция)
+### 2.3 Dirac Operator (Real Reduction)
 
-**Определение D:** Оператор D на ℝ^4 задаётся матрицей 4×4 (в базисе {1,i,j,k}):
+**Definition of D:** The operator D on ℝ^4 is given by a 4×4 matrix (in basis {1,i,j,k}):
 
 ```
 D = [[0,  1,  0,  0],
@@ -97,257 +97,257 @@ D = [[0,  1,  0,  0],
      [0,  0, -1,  0]]
 ```
 
-Это эквивалентно действию: D(q₀, q₁, q₂, q₃) = (-q₁, q₀, -q₃, q₂).
+This is equivalent to the action: D(q₀, q₁, q₂, q₃) = (-q₁, q₀, -q₃, q₂).
 
-Геометрически: D — **поворот на π/2 в плоскостях (e_0,e_1) и (e_2,e_3)** одновременно.
+Geometrically: D is a **rotation by π/2 in the planes (e_0,e_1) and (e_2,e_3)** simultaneously.
 
-**Связь с генератором j ∈ ℍ:** Правое умножение на j даёт:
+**Connection with generator j ∈ ℍ:** Right multiplication by j gives:
 ```
 R_j(q₀, q₁, q₂, q₃) = (−q₃, q₂, q₁, −q₀)
 ```
 
-**Альтернативное определение через коммутатор:** D является антисимметрическим
-оператором. Его матрица в кватернионной базисе:
+**Alternative definition via commutator:** D is an antisymmetric  
+operator. Its matrix in the quaternionic basis:
 
 ```
 D_{ij} = ⟨e_i, D(e_j)⟩
 ```
 
-В координатах:
+In coordinates:
 - D(e₀) = −e₁  →  D(1) = −i
 - D(e₁) = e₀   →  D(i) = 1  
 - D(e₂) = −e₃  →  D(j) = −k
 - D(e₃) = e₂   →  D(k) = j
 
-### 2.4 Вещественная структура J
+### 2.4 Real Structure J
 
-Оператор J — комплексное (кватернионное) сопряжение:
+The operator J is complex (quaternionic) conjugation:
 
 ```
 J(q₀, q₁, q₂, q₃) = (q₀, −q₁, −q₂, −q₃)
 ```
 
-Это антилинейная изометрия с J² = +1 (совместимость с KO-размерностью 6
-из Wave 5.1: eps = +1).
+This is an antilinear isometry with J² = +1 (compatible with KO-dimension 6  
+from Wave 5.1: eps = +1).
 
-### 2.5 Грейдинг γ
+### 2.5 Grading γ
 
-Диагональный оператор γ:
+Diagonal operator γ:
 
 ```
 γ(q₀, q₁, q₂, q₃) = (q₀, q₁, −q₂, −q₃)
 ```
 
-Собственные значения: +1 на {e₀, e₁}, −1 на {e₂, e₃}.
+Eigenvalues: +1 on {e₀, e₁}, −1 on {e₂, e₃}.
 
-### 2.6 Числа Кокстера и трейс
+### 2.6 Coxeter Numbers and Trace
 
-Число Кокстера группы H₄: **h = 30**.
+Coxeter number of the group H₄: **h = 30**.
 
-Для оператора D с матрицей, заданной выше:
-- Tr(D²) = −4 (в данной модели)
-- Связь с h: нормировка D² ~ h·(нормировочная константа)
+For operator D with the matrix given above:
+- Tr(D²) = −4 (in this model)
+- Connection with h: normalization D² ~ h·(normalization constant)
 
-Чтобы получить Tr(D²) = −h²/225 × (нормировка), нужна дополнительная
-информация о полном спектре D на всём пространстве ℝ^{4×120}.
+To obtain Tr(D²) = −h²/225 × (normalization), additional  
+information about the full spectrum of D on the whole space ℝ^{4×120} is needed.
 
-**Честно:** в нашей одноячеечной модели мы лишь фиксируем: Tr(D²) = −4
-как аксиому конкретного оператора (NUMERICAL_FIT для связи с h=30).
+**Honestly:** in our single-cell model we only fix: Tr(D²) = −4  
+as an axiom of the concrete operator (NUMERICAL_FIT for connection with h=30).
 
 ---
 
-## 3. Свойства «дираковского» оператора
+## 3. Properties of the "Dirac" Operator
 
-### 3.1 Первый порядок
+### 3.1 First Order
 
-В NCG оператор Дирака — первого порядка, если для всех a, b ∈ A:
+In NCG the Dirac operator is of first order if for all a, b ∈ A:
 ```
 [[D, a], b] = 0
 ```
-где [·,·] — коммутатор, а a, b действуют как операторы умножения.
+where [·,·] is the commutator, and a, b act as multiplication operators.
 
-В нашей модели A ≅ ℍ (левые умножения). Для любых L_a, L_b:
+In our model A ≅ ℍ (left multiplications). For any L_a, L_b:
 
 ```
 [D, L_a] = D∘L_a − L_a∘D
 [[D, L_a], L_b] = [D, L_a]∘L_b − L_b∘[D, L_a]
 ```
 
-**Ключевое наблюдение:** если D антикоммутирует с J (JD + DJ = 0), то
-[D, L_a] является антилинейным оператором для всех a, что ограничивает
-его действие. Полное доказательство первого порядка требует структурной
-лемм о коммутаторах на ℝ^4, которые в Coq-рамках формализованы лишь частично.
+**Key observation:** if D anticommutes with J (JD + DJ = 0), then  
+[D, L_a] is an antilinear operator for all a, which restricts  
+its action. Full proof of first order requires structural  
+lemmas on commutators on ℝ^4, which in the Coq framework are formalized only partially.
 
-**MATH_TODO:** Полное доказательство [[D,a],b] = 0 для всех a,b ∈ ℍ.
+**MATH_TODO:** Full proof of [[D,a],b] = 0 for all a,b ∈ ℍ.
 
-### 3.2 Самосопряжённость
+### 3.2 Self-Adjointness
 
-Оператор D симметричен (в вещественной редукции) тогда и только тогда,
-когда его матрица антисимметрична: D^T = −D.
+The operator D is symmetric (in real reduction) if and only if  
+its matrix is antisymmetric: D^T = −D.
 
-Матрица D (см. 2.3) удовлетворяет D^T = −D, следовательно:
+The matrix D (see 2.3) satisfies D^T = −D, therefore:
 
 ```
-⟨D(p), q⟩ = −⟨p, D(q)⟩  (антисимметрия)
+⟨D(p), q⟩ = −⟨p, D(q)⟩  (antisymmetry)
 ```
 
-**Примечание:** Это **антисамосопряжённость** (antisymmetry), а не
-самосопряжённость. В обычном смысле для оператора Дирака в физике
-требуется самосопряжённость iD (т.е. iD является наблюдаемой).
+**Note:** This is **anti-self-adjointness** (antisymmetry), not  
+self-adjointness. In the usual sense for the Dirac operator in physics  
+self-adjointness of iD is required (i.e., iD is an observable).
 
-В вещественной NCG: D самосопряжён как оператор в L²-смысле: D* = D.
-Наша матрица D антисимметрична, поэтому iD (если работать над ℂ) самосопряжен.
+In real NCG: D is self-adjoint as an operator in L²-sense: D* = D.
+Our matrix D is antisymmetric, so iD (if working over ℂ) is self-adjoint.
 
-**Честно (LIBRARY_GAP):** строгое доказательство в Coq требует теории операторов
-Гильбертового пространства (Riesz lemma, adjoint definition), которой нет в CorePhi.
+**Honestly (LIBRARY_GAP):** strict proof in Coq requires Hilbert space operator theory  
+(Riesz lemma, adjoint definition), which is absent in CorePhi.
 
-### 3.3 Ограниченность коммутатора [D, a]
+### 3.3 Boundedness of Commutator [D, a]
 
-Для a = L_g (левое умножение на g ∈ 2I):
+For a = L_g (left multiplication by g ∈ 2I):
 
 ```
 ‖[D, L_g](q)‖ = ‖D(g·q) − g·D(q)‖
 ```
 
-Поскольку L_g и D — линейные операторы на ℝ^4 (конечномерное пространство),
-[D, L_g] всегда ограничен. Ограниченность эквивалентна существованию константы C:
+Since L_g and D are linear operators on ℝ^4 (finite-dimensional space),  
+[D, L_g] is always bounded. Boundedness is equivalent to existence of a constant C:
 
 ```
-‖[D, L_g](q)‖ ≤ C · ‖q‖  для всех q.
+‖[D, L_g](q)‖ ≤ C · ‖q‖  for all q.
 ```
 
-В конечномерном пространстве это автоматически выполнено. Мы оцениваем:
+In finite-dimensional space this is automatic. We estimate:
 ```
-‖[D, L_r]‖ ≤ 2 · ‖D‖ · ‖r‖ = 2 (поскольку ‖D‖ = 1, ‖r‖ = 1)
+‖[D, L_r]‖ ≤ 2 · ‖D‖ · ‖r‖ = 2 (since ‖D‖ = 1, ‖r‖ = 1)
 ```
 
-### 3.4 Антикоммутатор D с J
+### 3.4 Anticommutator D with J
 
-Из KODimension.v (Wave 5.1): JD = +DJ (eps' = +1).
+From KODimension.v (Wave 5.1): JD = +DJ (eps' = +1).
 
-Для нашего D и J: JD(q) = J(−q₁, q₀, −q₃, q₂) = (−q₁, −q₀, q₃, −q₂).
-А DJ(q) = D(q₀, −q₁, −q₂, −q₃) = (q₁, q₀, q₃, q₂)? Нет, это даёт не то же.
+For our D and J: JD(q) = J(−q₁, q₀, −q₃, q₂) = (−q₁, −q₀, q₃, −q₂).
+And DJ(q) = D(q₀, −q₁, −q₂, −q₃) = (q₁, q₀, q₃, q₂)? No, this gives something different.
 
-**Честная проверка:** Наш конкретный D не удовлетворяет точно JD = DJ.
-Это нарушение нужно задокументировать и скорректировать. Корректный D
-должен быть выбран как антикоммутирующий с J (JD = −DJ, eps' = −1)
-или коммутирующий (eps' = +1), в зависимости от KO-размерности.
+**Honest check:** Our concrete D does not exactly satisfy JD = DJ.
+This violation needs to be documented and corrected. The correct D  
+must be chosen as anticommuting with J (JD = −DJ, eps' = −1)  
+or commuting (eps' = +1), depending on KO-dimension.
 
-Мы принимаем J-коммутационное соотношение как аксиому ([PHYSICAL_AXIOM]).
+We accept the J-commutation relation as an axiom ([PHYSICAL_AXIOM]).
 
 ---
 
-## 4. Физическая интерпретация
+## 4. Physical Interpretation
 
-### 4.1 Связь с числом Кокстера h = 30
+### 4.1 Connection with Coxeter Number h = 30
 
-Число Кокстера группы H₄ равно h = 30. В спектральном тройстве Конна
-масштаб масс определяется как:
+The Coxeter number of the group H₄ equals h = 30. In Connes' spectral triple  
+the mass scale is defined as:
 
 ```
 Λ² ~ Tr(D²) / dim(H)
 ```
 
-Для полного пространства ℂ^{120}:
-- dim(H) = 120 (без спиноров) или 240 (с двухкомпонентными спинорами)
-- Спектр D на 1-скелете 600-ячейника включает собственные значения ±λ_k
+For the full space ℂ^{120}:
+- dim(H) = 120 (without spinors) or 240 (with two-component spinors)
+- Spectrum of D on the 1-skeleton of the 600-cell includes eigenvalues ±λ_k
 
-**Спектральное действие:**
+**Spectral action:**
 ```
-S = Tr(f(D/Λ)) ≈ f(0)·Tr(D²/Λ²) + ... (при малых D/Λ)
+S = Tr(f(D/Λ)) ≈ f(0)·Tr(D²/Λ²) + ... (for small D/Λ)
 ```
 
-Число Кокстера h=30 входит через размер группы симметрии: сумма квадратов
-размерностей неприводимых представлений 2I равна 120 = |2I|. Спектр D
-должен отражать эту структуру.
+The Coxeter number h=30 enters through the symmetry group dimension: sum of squares of  
+irreducible representation dimensions of 2I equals 120 = |2I|. The spectrum of D  
+must reflect this structure.
 
-**[NUMERICAL_FIT]:** Точная связь Tr(D²) = 30 × (нормировка) является
-феноменологическим предположением, а не строгим выводом.
+**[NUMERICAL_FIT]:** The exact connection Tr(D²) = 30 × (normalization) is a  
+phenomenological assumption, not a strict derivation.
 
-### 4.2 Связь с массами частиц
+### 4.2 Connection with Particle Masses
 
-В NCG Стандартной Модели (Chamseddine–Connes 2007): матрица Дирака конечного
-тройства содержит матрицы Юкавы и массы Майораны. В нашей упрощённой модели:
+In the NCG of the Standard Model (Chamseddine–Connes 2007): the Dirac matrix of the finite  
+triple contains Yukawa matrices and Majorana masses. In our simplified model:
 
-- Собственные значения D ~ ±1 (в нормировке) соответствуют «массовым уровням»
-- Вырождение степени 12 (степень вершины в 1-скелете) даёт 12 нулевых мод
+- Eigenvalues of D ~ ±1 (in normalization) correspond to "mass levels"
+- Degeneracy of degree 12 (vertex degree in the 1-skeleton) gives 12 zero modes
 
-**Честная оценка:** Прямого вывода экспериментальных масс из спектра D
-600-ячейника в данной работе **нет**. Это мотивация для будущих исследований.
+**Honest assessment:** There is no direct derivation of experimental masses from the spectrum of D  
+of the 600-cell in this work. This is motivation for future research.
 
-### 4.3 Три поколения
+### 4.3 Three Generations
 
-Если рассматривать H = ℝ^{4×3} (три кватернионные ячейки, соответствующие
-трём поколениям), то D принимает блочно-диагональную структуру, которая
-может кодировать иерархию масс через φ-зависимые коэффициенты.
+If we consider H = ℝ^{4×3} (three quaternionic cells, corresponding to  
+three generations), then D takes a block-diagonal structure, which  
+can encode the mass hierarchy through φ-dependent coefficients.
 
-**[MATH_TODO]:** Полное построение трёхпоколенного D.
+**[MATH_TODO]:** Full construction of three-generation D.
 
 ---
 
-## 5. Coq-формализация: что доказано
+## 5. Coq Formalization: What Is Proved
 
-### 5.1 Цели (≥8 Qed)
+### 5.1 Goals (≥8 Qed)
 
-Файл DiracOperator.v формализует:
+File DiracOperator.v formalizes:
 
-1. **Определение D** — матрица 4×4 в кватернионном базисе
-2. **Антисимметричность D** — D_ij + D_ji = 0 (суррогат самосопряжённости)
-3. **D² = −I** — квадрат оператора (ключевое свойство Дирака)
-4. **Антикоммутатор с J** — JD + DJ = 0 или JD = DJ (в зависимости от выбора)
-5. **Условие первого порядка** — [[D,a],b] = 0 для конкретных a,b
-6. **Ограниченность [D, L_r]** — для генератора r ∈ 2I
-7. **Связь с Tr(D²) и h=30** — арифметическое тождество
-8. **Изометричность D** — D сохраняет скалярное произведение (при нормировке)
+1. **Definition of D** — 4×4 matrix in quaternionic basis
+2. **Antisymmetry of D** — D_ij + D_ji = 0 (surrogate of self-adjointness)
+3. **D² = −I** — square of the operator (key Dirac property)
+4. **Anticommutator with J** — JD + DJ = 0 or JD = DJ (depending on choice)
+5. **First order condition** — [[D,a],b] = 0 for concrete a,b
+6. **Boundedness of [D, L_r]** — for generator r ∈ 2I
+7. **Connection of Tr(D²) and h=30** — arithmetic identity
+8. **Isometricity of D** — D preserves scalar product (upon normalization)
 
-### 5.2 Честные пробелы (Admitted)
+### 5.2 Honest Gaps (Admitted)
 
-| Теорема | Тег | Причина |
+| Theorem | Tag | Reason |
 |---|---|---|
-| Полное доказательство [[D,a],b]=0 для всех a,b∈ℍ | [MATH_TODO] | Требует теории операторов в ℝ^4 |
-| Самосопряжённость D в L²-смысле | [LIBRARY_GAP] | Нет теории сопряжённых операторов в CorePhi |
-| Точная связь Tr(D²) = f(h) | [NUMERICAL_FIT] | Феноменологическое |
-| KO-размерность 6 для конкретного D | [PHYSICAL_AXIOM] | Из Wave 5.1 |
+| Full proof of [[D,a],b]=0 for all a,b∈ℍ | [MATH_TODO] | Requires operator theory in ℝ^4 |
+| Self-adjointness of D in L²-sense | [LIBRARY_GAP] | No adjoint operator theory in CorePhi |
+| Exact connection Tr(D²) = f(h) | [NUMERICAL_FIT] | Phenomenological |
+| KO-dimension 6 for concrete D | [PHYSICAL_AXIOM] | From Wave 5.1 |
 
 ---
 
-## 6. Честные пробелы
+## 6. Honest Gaps
 
-### 6.1 Что строго доказано
+### 6.1 What Is Strictly Proved
 
-| Утверждение | Статус |
+| Claim | Status |
 |---|---|
-| Матрица D антисимметрична: D^T = −D | ✅ Строго (ring-арифметика) |
-| D² = −I на ℝ^4 | ✅ Строго (прямые вычисления) |
-| D сохраняет норму в смысле ‖Dq‖ = ‖q‖ | ✅ Строго (из D² = −I) |
-| [D, L_r] явно вычислим в ℝ^4 | ✅ Строго (ring-арифметика) |
-| Ограниченность [D, a] в конечномерном H | ✅ Строго (следует из D линейного) |
+| Matrix D is antisymmetric: D^T = −D | ✅ Strict (ring arithmetic) |
+| D² = −I on ℝ^4 | ✅ Strict (direct computation) |
+| D preserves norm in the sense ‖Dq‖ = ‖q‖ | ✅ Strict (from D² = −I) |
+| [D, L_r] explicitly computable in ℝ^4 | ✅ Strict (ring arithmetic) |
+| Boundedness of [D, a] in finite-dimensional H | ✅ Strict (follows from D linear) |
 
-### 6.2 Что остаётся открытым
+### 6.2 What Remains Open
 
-| Утверждение | Честная оценка |
+| Claim | Honest Assessment |
 |---|---|
-| D является «настоящим» оператором Дирака | ❌ Наша D — разумный кандидат, но не единственный |
-| Спектр D на полном 600-ячейнике | ❌ Требует численных вычислений (120×120 матрица) |
-| Связь спектра D с физическими массами | ❌ Мотивационная, не строгая |
-| Аксиомы Конна выполнены для (ℍ, ℝ^4, D) | ❌ Частично: условия порядка 0 и 1 — MATH_TODO |
+| D is a "true" Dirac operator | ❌ Our D is a reasonable candidate, but not the only one |
+| Spectrum of D on the full 600-cell | ❌ Requires numerical computation (120×120 matrix) |
+| Connection of spectrum of D with physical masses | ❌ Motivational, not strict |
+| Connes' axioms satisfied for (ℍ, ℝ^4, D) | ❌ Partially: order 0 and 1 conditions — MATH_TODO |
 
-### 6.3 Сравнение с альтернативами
+### 6.3 Comparison with Alternatives
 
-Альтернативный дираковский оператор на 600-ячейнике — через **граф-Лапласиан**
-(подход Krön, Teichner 2009): D = √(Δ_graph), где Δ — матрица смежности.
-Этот подход даёт спектр с известными аналитическими свойствами (положительный
-Лапласиан), но менее напрямую связан с кватернионной структурой 2I.
+An alternative Dirac operator on the 600-cell — via **graph-Laplacian**  
+(Krön, Teichner 2009 approach): D = √(Δ_graph), where Δ is the adjacency matrix.
+This approach gives a spectrum with known analytical properties (positive  
+Laplacian), but is less directly connected with the quaternionic structure of 2I.
 
-Наш подход через кватернионное умножение более тесно связан с алгебраической
-структурой группы 2I и Wave 5.2, поэтому его предпочтительность оправдана
-в контексте проекта Trinity.
+Our approach via quaternionic multiplication is more closely tied to the algebraic  
+structure of the group 2I and Wave 5.2, so its preferability is justified  
+in the context of the Trinity project.
 
 ---
 
-## Ссылки
+## References
 
-| # | Источник |
+| # | Source |
 |---|---|
 | [1] | A. Connes, «Gravity coupled with matter...», Commun. Math. Phys. 182 (1996) |
 | [2] | A. Chamseddine, A. Connes, «Why the Standard Model», J. Geom. Phys. (2007) |
