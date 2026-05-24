@@ -27,7 +27,7 @@
 - The **η-invariant mismatch** (discrete η = 0 vs APS target) remains unresolved.
 - The **σ-field is absent** (Obstruction Theorem 6), blocking dynamic Higgs mass generation.
 - The **3-generation structure** has no automatic geometric origin in F₄ (no triality).
-- The **δ_CP = 65.66°** prediction is in 5.6σ tension with current data — DUNE 2028 will test it.
+- The **δ_CP = 65.66°** prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Post-hoc fit; anti-post-hoc rule enforced.
 
 ---
 
@@ -201,7 +201,7 @@ Prepare a revised version of the Trinity paper for journal submission, addressin
 
 ### Issues to Address
 
-1. **δ_CP tension**: Acknowledge 5.6σ tension. Explain why this is a feature, not a bug (pre-registered prediction).
+1. **δ_CP**: Prediction is **WITHDRAWN** (>5σ excluded). It was a post-hoc fit, not a pre-registered first-principles prediction. Document the withdrawal transparently.
 2. **η-invariant mismatch**: Report results from full E₈ plumbing. If mismatch persists, discuss regularization subtleties.
 3. **σ-field absence**: State Obstruction Theorem 6 clearly. Discuss workarounds or declare it an open problem.
 4. **3-generation structure**: If F₄ scan fails, discuss alternative mechanisms (D₄ triality, orbifolds).

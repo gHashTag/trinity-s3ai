@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (Wave 16–20 historical status)
+# Current status: δ_CP prediction is WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for the canonical up-to-date assessment.
+
 # δ_CP Status — Honest Reassessment Against Current Global Fits
 
 **Status**: Canonical (supersedes the "65.66° pre-registered prediction" framing where it conflicts with current global fits)

@@ -143,8 +143,7 @@ From this commit forward, the following rules apply to all public documentation:
 
 When a prediction differs from an extraction:
 - ❌ Wrong: "δ_CP = 65.66° is excluded at 5.6σ"
-- ❌ Wrong: "Physical interpretation withdrawn"
-- ✅ Right: "δ_CP = 3/φ² ≈ 65.66° (first-principles, zero free parameters); current model-dependent extractions favor ~195°; tension to be resolved by DUNE 2028 or by independent calculation-independent measurement"
+- ✅ Right: "δ_CP = 3/φ² ≈ 65.66° was a post-hoc fit. It is excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025. The prediction is WITHDRAWN under the anti-post-hoc rule."
 
 ### 5.3 Pre-Registration
 
@@ -158,7 +157,7 @@ All predictions are pre-registered in [`PREDICTIONS_PREREGISTERED.md`](./PREDICT
 
 The honesty pass waves are **not** withdrawals. They are reframings:
 - **Wave 1**: Lagrangian 92.3% claim → 3/13 sectors formally proven, 9 phenomenological, 1 open (see [`LAGRANGIAN_HONEST_STATUS.md`](docs/status/LAGRANGIAN_HONEST_STATUS.md)). The 9 phenomenological sectors are predictions to be tested, not failures.
-- **Wave 2**: δ_CP "physical interpretation withdrawn" language is itself revised by **this** doctrine. δ_CP = 3/φ² is a pre-registered prediction with a model-dependent extraction in tension; not a refuted formula. See [§3](#3-the-δ_cp-case-specifically) above and `DELTA_CP_HONEST_STATUS.md` (updated in this wave).
+- **Wave 2**: δ_CP prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It was a post-hoc fit, not a first-principles derivation. No replacement formula is introduced under the anti-post-hoc rule. See `DELTA_CP_HONEST_STATUS.md` and `PREDICTIONS_PREREGISTERED.md`.
 - **Wave 3**: Coq metrics reconciled (see [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)). The proof corpus is the substrate on which calculation primacy rests.
 - **Wave 4 (this)**: Establishes the epistemological frame that all previous waves implicitly assumed.
 

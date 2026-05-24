@@ -1,3 +1,7 @@
+LEGACY: This report contains outdated v3.6 results.
+Preserved for historical reference.
+Current status: see honest_pvalue_report_v20.md, PREDICTIONS_PREREGISTERED.md, FORMULAS.md
+
 TRINITY FORMULA VERIFICATION - v3.6 FINAL RESULTS
 ==========================================================================================
 

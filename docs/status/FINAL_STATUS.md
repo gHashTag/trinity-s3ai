@@ -22,7 +22,9 @@ The Trinity framework derives **all Standard Model parameters** as closed-form f
 | Statistical significance | **p < 10⁻³²** |
 | Coq formalization | **4/16** files compiling |
 
-**Critical v3.6 corrections**: All 7 formulas that previously FAILED (>1% error) have been corrected. The two neutrino mass-squared difference formulas (previously 99% error) now achieve **SG-class precision** (0.0003% and 0.0004%). The δ_CP prediction has been updated from e/2 = 77.87° (excluded at 7.7σ) to **3/φ² = 65.66°** (0.1σ agreement with experiment).
+**Critical v3.6 corrections**: All 7 formulas that previously FAILED (>1% error) have been corrected. The two neutrino mass-squared difference formulas (previously 99% error) now achieve **SG-class precision** (0.0003% and 0.0004%).
+
+> **Wave 20 Update (2026):** The δ_CP = 3/φ² ≈ 65.66° prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It was a post-hoc fit, not a first-principles prediction. The anti-post-hoc rule is enforced: no replacement formula introduced after exclusion.
 
 ---
 
@@ -245,7 +247,7 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 
 | Problem | Status | Resolution |
 |---------|--------|------------|
-| δ_CP discrepancy | ✅ **RESOLVED** | Corrected from e/2 to 3/φ² = 65.66° (0.1σ) |
+| δ_CP discrepancy | ❌ **WITHDRAWN** | Post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025. Anti-post-hoc rule enforced. |
 | Spectral action Higgs mass | ✅ **RESOLVED** | Ad-hoc formula replaced with H4 invariant: 4φ³e² = 125.202 GeV |
 | 7 FAILED formulas | ✅ **RESOLVED** | All corrected — see Catalog42_corrected.v for full details |
 | Neutrino formulas (99% error) | ✅ **RESOLVED** | New SG-class: Δm²₂₁=(φe/π)⁶·10⁻⁵, Δm²₃₁=15φ⁻⁵π⁻²e⁻⁴ |
@@ -335,7 +337,7 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 - ✅ GitHub repository with full transparency
 
 ### What's IMPROVED (v3.6)
-- ✅ δ_CP corrected: 7.7σ exclusion → 0.1σ agreement
+- ❌ δ_CP: WITHDRAWN (post-hoc fit, >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025)
 - ✅ Higgs mass resolved: 30% error → 0.002% error
 - ✅ All 7 failed formulas corrected and verified
 - ✅ Neutrino formulas: 99% error → SG-class precision

@@ -1,3 +1,7 @@
+# LEGACY: This script contains outdated formulas (Q06, old G03).
+# It is preserved for historical reference but NOT actively maintained.
+# See FORMULAS.md for current canonical formulas.
+
 #!/usr/bin/env python3
 """
 Trinity Formula Verification Suite - v3.6 Final

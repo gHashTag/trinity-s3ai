@@ -88,7 +88,7 @@ Predictions refuted by published data with sufficient statistical significance.
 
 Note on COS04 and DESI DR2: the DESI DR2 publication (arXiv:2503.14738, 2025-03-18) strengthened the deviation of w from -1 to the 4.2 sigma level in the w0waCDM model. This additionally confirms the falsification of COS04 (w = -0.999 approx -1). Details: https://newscenter.lbl.gov/2025/03/19/new-desi-results-strengthen-hints-that-dark-energy-may-evolve/
 
-Note on delta_CP: the status of P1 is officially marked as BORDERLINE (not FALSIFIED), since DUNE (2028-2032) has not yet published final data. However, existing T2K+NOvA data create ~3 sigma tension with the 65.655 deg prediction. Included in this table for transparency.
+Note on delta_CP: the status of P1 is **WITHDRAWN** (post-hoc fit, >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). The anti-post-hoc rule is enforced: no replacement formula introduced after exclusion. See `PREDICTIONS_PREREGISTERED.md`.
 
 ---
 

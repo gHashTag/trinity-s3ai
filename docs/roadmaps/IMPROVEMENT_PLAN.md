@@ -525,7 +525,7 @@ as a historical scientific record. See DELTA_CP_HONEST_STATUS.md."
 2. Create project "Trinity S^3AI delta_CP Prediction"
 3. Upload the prediction document with SHA-256 hash
 4. Set conditions:
-   - CONFIRMED: DUNE measures delta_CP in [50°, 80°] at >= 3 sigma
+   - **HISTORICAL (superseded):** This pre-registration was framed against outdated PDG-2024 data. The δ_CP prediction is now **WITHDRAWN** (>5σ excluded by current global fits).
    - FALSIFIED: DUNE measures delta_CP > 100° OR < 30° at >= 3 sigma
    - INCONCLUSIVE: [80°, 100°] — wait for 2032 precision data
 5. Generate DOI and embed in paper
@@ -655,5 +655,5 @@ MILESTONE: DUNE 2028 first data
 *Plan updated: 2026-05-23*
 *Framework: Trinity S^3AI v4.9*
 *Impact assessment based on: 130 formulas, 61 SG-class, 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [`COQ_HONEST_STATUS.md`](../status/COQ_HONEST_STATUS.md)), 3/13 Lagrangian sectors formally proven (see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md))*
-*Critical risk: delta_CP = 65.66° (5.6 sigma tension with NuFit 6.0)*
+*δ_CP = 65.66° is WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Anti-post-hoc rule enforced.*
 *Highest-impact action: arXiv submission with DUNE pre-registration*

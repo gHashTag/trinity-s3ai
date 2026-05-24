@@ -351,13 +351,12 @@ several that are consistent with data. However:
 
 BOTTOM LINE: Trinity S³AI has an impressive m_H success and makes several
 quantitative predictions. However, the formula issues for sin^2 theta_13 and
-Delta m^2_31, combined with the strong delta_CP tension, suggest the framework
-is NOT robust. The delta_CP prediction is the Achilles heel - if DUNE
-confirms the current best fit near 180 deg, Trinity is effectively falsified.
+Delta m^2_31, combined with the **WITHDRAWN** delta_CP prediction (>5σ excluded),
+suggest the framework is NOT robust. The delta_CP prediction was a post-hoc fit,
+not a first-principles derivation. No replacement is introduced under the
+anti-post-hoc rule.
 
-The MOST IMMINENT test is delta_CP via DUNE (2028+). If DUNE measures
-delta_CP = 180 +/- 10 deg, Trinity's 65.66 deg is 11+ sigma away, and the
-framework collapses.
+The MOST IMMINENT test is Delta m^2_21 via JUNO (2031). Trinity
 
 The SECOND most imminent test is Delta m^2_21 via JUNO (2031). Trinity
 predicts 7.53 x 10^-5; current data favors 7.50 x 10^-5. JUNO's 0.3%

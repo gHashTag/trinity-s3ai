@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical changelog)
+# Current status: δ_CP prediction is WITHDRAWN (>5σ excluded).
+# See PREDICTIONS_PREREGISTERED.md for canonical assessment.
+
 # CHANGELOG: wave13_paper.tex → wave17_paper_v2.tex
 
 **Date:** 2026-05-23

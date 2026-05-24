@@ -312,7 +312,7 @@ Trinity formulas for the CKM and PMNS mixing matrices are based on the golden ra
 linked to the structure of the Coxeter group H4. The best results:
 - sin²θ₁₃ (0.003% error, ★SG)
 - |V_us| (0.014% error, V-class)
-- δ_CP ≈ 3/φ² = 65.66° (0.1σ from PDG2024, but tension with NuFit 6.0)
+- δ_CP ≈ 3/φ² = 65.66° — **WITHDRAWN** (post-hoc fit, >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Anti-post-hoc rule enforced.
 
 Key limitation: all formulas were obtained by numerical search in the space  
 φᵃeᵇπᶜ, rather than by analytical derivation from H4 group theory. The connection with  

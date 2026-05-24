@@ -90,7 +90,7 @@ remains unchanged from v4.12.
 | 1 | 12 Coq files fail to compile | **Open** — needs tactic fixes |
 | 2 | `normSq_mul` in Lean is `sorry` | **Open** — needs `ring` tactic or manual proof |
 | 3 | No human endorser for arXiv hep-th | **Open** — template ready |
-| 4 | δ_CP risky prediction (5.6σ tension) | **Risky** — DUNE 2028 decides |
+| 4 | δ_CP prediction | **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Historical: was "Risky — DUNE 2028 decides" in wave 11. |
 | 5 | Koide formula 4 % error | **Known limitation** — documented |
 | 6 | NCG Higgs VEV ±6 % uncertainty | **Known limitation** — documented |
 

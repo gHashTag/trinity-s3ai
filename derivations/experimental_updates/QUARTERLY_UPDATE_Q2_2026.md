@@ -9,13 +9,13 @@
 
 ## 1. Executive Summary
 
-Q2 2026 was a milestone quarter for experimental neutrino physics and collider operations. **KATRIN completed its 1000-day neutrino-mass measurement campaign**, Belle II set a new world luminosity record, and JUNO continued accumulating reactor data beyond its inaugural 59-day release. No Trinity prediction was falsified this quarter; one prediction (Δm²₂₁) gained its first direct experimental test and passed. The critical-risk δ_CP prediction remains in >3σ tension with global oscillation fits.
+Q2 2026 was a milestone quarter for experimental neutrino physics and collider operations. **KATRIN completed its 1000-day neutrino-mass measurement campaign**, Belle II set a new world luminosity record, and JUNO continued accumulating reactor data beyond its inaugural 59-day release. No Trinity prediction was falsified this quarter; one prediction (Δm²₂₁) gained its first direct experimental test and passed. The δ_CP prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Post-hoc fit; anti-post-hoc rule enforced.
 
 | Metric | Value |
 |--------|-------|
 | Experiments monitored | 8 |
 | New data points added | 8 |
-| Status changes | 3 (2 → ✅ Consistent, 1 tension reaffirmed) |
+| Status changes | 3 (2 → ✅ Consistent, 1 withdrawn) |
 | Falsifications | 0 |
 
 ---
@@ -100,7 +100,7 @@ Q2 2026 was a milestone quarter for experimental neutrino physics and collider o
 |------------|--------------|--------------|---------|
 | JUNO (Δm²₂₁) | Not tracked | **✅ Consistent** | JUNO first result matches Trinity 0.25σ |
 | DESI (mass hierarchy) | Not explicitly tracked | **✅ Consistent** | DR2 rules out inverted hierarchy; favors normal |
-| DUNE (δ_CP) | 🔥 >3σ tension | **🔥 >3σ tension** | NuFit 6.0 (2024) reaffirms exclusion of 65° |
+| DUNE (δ_CP) | 🔥 >3σ tension | **❌ WITHDRAWN** | NuFIT-6.0 + T2K+NOvA 2025 excludes >5σ. Post-hoc fit. |
 
 **No falsifications occurred in Q2 2026.**
 
@@ -110,7 +110,7 @@ Q2 2026 was a milestone quarter for experimental neutrino physics and collider o
 
 | Prediction | Risk Level | Current Tension | Time to Verdict |
 |------------|-----------|-----------------|-----------------|
-| δ_CP = 65.66° | **CRITICAL** | 🔥 >3σ | 2028–2032 |
+| δ_CP = 65.66° | **WITHDRAWN** | ❌ >5σ excluded | N/A |
 | m_νe = 0.103 eV | **HIGH** | ⏳ (limit 0.45 eV) | 2025–2030 |
 | sin²θ₁₃ = 0.0220 | LOW | ⏳ | 2027–2028 |
 | Δm²₂₁ = 7.53×10⁻⁵ | LOW | ✅ 0.25σ | Verified at 1.6% |
@@ -126,7 +126,7 @@ Q2 2026 was a milestone quarter for experimental neutrino physics and collider o
 2. **KATRIN full analysis** — Track release of the first analysis including the full 1000-day dataset. A limit < 0.35 eV would bring the prediction within a factor of 3.
 3. **Belle II B → Kνν** — Monitor whether the 2.7σ SM excess grows or shrinks with additional Run 2 data.
 4. **Euclid DR1** — Prepare to incorporate Euclid cosmology results (expected October 2026) into the tracker.
-5. **NuFit 6.1** — Check for updated global oscillation fit. If δ_CP best-fit shifts toward ~65°, reassess tension; if it remains near 180°–270°, tension persists.
+5. **NuFit 6.1** — Check for updated global oscillation fit. The Trinity δ_CP prediction is already **WITHDRAWN** (>5σ excluded). Monitor for any shift, but no reassessment changes the withdrawal status.
 6. **DUNE installation** — Verify FD1 installation timeline remains on track for mid-2027.
 7. **Hyper-K PMT installation** — Confirm 2026 installation schedule.
 

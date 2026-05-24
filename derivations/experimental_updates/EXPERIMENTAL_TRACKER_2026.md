@@ -405,7 +405,7 @@ Trinity does **not** make specific predictions for the CKM phase in the quark se
 **Changed falsification status:**
 - **JUNO Δm²₂₁:** Newly added to tracker. Status: **✅ Consistent** with Trinity.
 - **DESI mass hierarchy:** Now explicitly **✅ Consistent** with Trinity normal-hierarchy prediction.
-- **DUNE δ_CP tension:** Updated to reflect NuFit 6.0 (2024) global fit, which excludes δ_CP ≈ 65° at >3σ in all ordering scenarios. Status remains **🔥 Critical tension**.
+- **DUNE δ_CP:** Prediction **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Post-hoc fit; anti-post-hoc rule enforced.
 
 **No change:**
 - KATRIN still ⏳ (limit > prediction).
