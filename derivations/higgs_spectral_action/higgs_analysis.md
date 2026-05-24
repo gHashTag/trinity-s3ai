@@ -525,7 +525,7 @@ the spectrum of the 600-cell **does not reproduce** the observed Higgs boson mas
 >   way to get 125 GeV within NCG, and Wave 5.3 proved its
 >   unavailability in H₄.
 >
-> This is **another no-go** for the purely geometric program in H₄:
+> This is **another boundary result** for the purely geometric program in H₄:
 > even 1-loop corrections do not save the Higgs mass prediction.
 
 ### 9.7 Technical Details

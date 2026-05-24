@@ -75,7 +75,7 @@ The Distler–Garibaldi obstruction theorem works within the Lie-theoretic frame
 |---|---|---|
 | G is a Lie group with SL(2,ℂ) subgroup | ✓ satisfied | ✗ H4 is finite, SL(2,ℂ) not embedded |
 | Embedding of fermions in adj(E8) | ✓ satisfied | ✗ vertices of 600-cell ≠ adj |
-| Check of self-conjugacy of $V_{2,1}$ | → no-go proved | Inapplicable: no SL(2,ℂ)×G |
+| Check of self-conjugacy of $V_{2,1}$ | → boundary finding proved | Inapplicable: no SL(2,ℂ)×G |
 
 **Conclusion:** The Distler–Garibaldi theorem is formally inapplicable to the Trinity-s3ai approach. **This does not mean that chirality is solved — it means that the obstruction theorem is not established, but the mechanism is not built either.**
 

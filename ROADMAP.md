@@ -61,7 +61,7 @@ Parallel subagents:
 3. **Agent C**: Unimodularity of the determinant for projections — a formal Coq proof.
 4. **Agent D**: Find or rule out an analog of the Chamseddine-Connes σ-field (which fixed m_H in 2012).
 
-**Acceptance**: either a new file `H4_to_AF_derivation.v` with theorem `A_F_from_H4_structure: Qed.`, or an honest `NoGo_theorem.v` proving incompatibility.
+**Acceptance**: either a new file `H4_to_AF_derivation.v` with theorem `A_F_from_H4_structure: Qed.`, or an honest `Boundary_theorem.v` proving incompatibility.
 
 ---
 
@@ -120,7 +120,7 @@ Lessons 1, 2, 15 from the E8 review: H4 is not a Lie algebra, so the Distler-Gar
 | Wave | Success criterion |
 |---|---|
 | 4 | 0 false claims; admitted_log.md complete |
-| 5 | Either A_F derivation from H4, or an honest no-go |
+| 5 | Either A_F derivation from H4, or an honest boundary result |
 | 6 | Chirality analysis complete; Distler-Garibaldi pattern resolved |
 | 7 | 1 arXiv preprint, 1 falsifiable prediction, Lean 4 port of one section |
 

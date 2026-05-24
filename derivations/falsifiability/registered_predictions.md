@@ -149,7 +149,7 @@ Here \(\varphi^2 = \varphi + 1 = (3+\sqrt{5})/2\), 3 is the number of fermion ge
 - \(\sigma\text{-distance} = 131.3°/49° \approx \mathbf{2.7\sigma}\) (using lower 1σ)
 - Using symmetric 1σ ≈ 35°: **3.8σ**
 
-**Conclusion:** Trinity δ_CP is in the range **2.7–3.8σ** from the current NuFit 6.0 (NO) best-fit value. This is **BORDERLINE** — neither confirmed nor refuted. The statistical significance of existing data is insufficient for a final verdict.
+**Conclusion:** Trinity δ_CP is in the range **2.7–3.8σ** from the current NuFit 6.0 (NO) best-fit value. This is **BORDERLINE** — neither numerically verified nor refuted (the δ_CP prediction is now WITHDRAWN). The statistical significance of existing data is insufficient for a final verdict.
 
 **Falsification criterion:**
 > *If DUNE (2028–2032) measures δ_CP > 130° at 3σ significance, the formula \(3/\varphi^2\) is considered falsified.*

@@ -119,7 +119,7 @@ Under the calculation-primacy doctrine ([`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md)),
 Wave 5 closes this gap. After this commit:
 
 - The N_gen=3 fact is correctly labeled as **input** (empirical, from PDG), not **output** (derived from H4).
-- The Coq negative result `ThreeGenerations.v` is correctly elevated from buried Coq comment to public-facing acknowledgement.
+- The Coq boundary finding `ThreeGenerations.v` is correctly elevated from buried Coq comment to public-facing acknowledgement.
 - The honesty pass becomes internally consistent: every previously claimed "derivation" now matches what Coq actually proves.
 
 This is the most important wave in epistemic terms. Without it, the doctrine of Wave 4 would be applied selectively (against external "measurements" but not against internal "theorems"), which would be self-refuting.
@@ -128,7 +128,7 @@ This is the most important wave in epistemic terms. Without it, the doctrine of 
 
 ## 6. What This Does NOT Claim
 
-- **It does not invalidate the Coq corpus.** The 1325 Qed theorems remain valid. The negative result `wave9_5_no_h4_mechanism_yields_three_generations` *is* one of them.
+- **It does not invalidate the Coq corpus.** The 1325 Qed theorems remain valid. The boundary finding `wave9_5_no_h4_mechanism_yields_three_generations` *is* one of them.
 - **It does not invalidate H4 as a starting point.** H4 still motivates 61 SG-class formulas, m_H (0.09%), gauge couplings (0.024%), λ (0.4%), PMNS θ₁₂/θ₁₃.
 - **It does not preclude future N_gen derivation.** A future Trinity wave could attempt to formalize the Γ(29) viability argument in Coq — which would be a genuine derivation if successful.
 - **It does not require D4 triality to be wrong.** D4 triality may indeed lead to N_gen=3 in some future extension. But that extension does not yet exist, and D4 ≠ H4.

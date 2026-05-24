@@ -2,7 +2,7 @@ Trinity S^3AI — Ancillary Files
 ================================
 
 This directory contains Python validation scripts accompanying the paper
-"Trinity S^3AI: A Constructive Negative Result in Geometric Unification".
+"Trinity S^3AI: An Active Boundary-Mapping Research Program in Geometric Unification".
 
 Files
 -----
