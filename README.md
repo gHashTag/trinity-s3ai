@@ -1,4 +1,4 @@
-# Trinity S³AI — Geometric Hypothesis Testing for Fundamental Physics
+# Trinity S³AI — H4 Coxeter Group / Standard Model Unification
 
 [![CI](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml/badge.svg)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
 [![Anti-Numerology Gate](https://img.shields.io/badge/anti--numerology-PASS-brightgreen)](https://github.com/gHashTag/trinity-s3ai/actions/workflows/ci.yml)
