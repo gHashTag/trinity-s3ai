@@ -39,7 +39,7 @@
 
 - **M4 (KO-dim 6):** The sign triple (+1,+1,+1) is proved in `KODimension.v` (`cell600_signs_match_ko6`, `Qed`). The distinction between KO-dim 6 and KO-dim 0 relies on the off-diagonal nature of J, which is admitted as `cell600_J_off_diagonal` (`PHYSICAL_AXIOM`). A future proof that J must be diagonal would refute the claim.
 
-- **M5 (KO-dim 5 for D₄):** Explicit numeric computation in `d4_analysis.py` shows J² = −I, JD = DJ, JΓ = ΓJ, giving (−,+,+) → KO-dim 5. The SM requires (+,+,−) for KO-dim 6. This is a **negative result**: D₄/24-cell is ruled out as an SM finite geometry.
+- **M5 (KO-dim 5 for D₄):** Explicit numeric computation in `d4_analysis.py` shows J² = −I, JD = DJ, JΓ = ΓJ, giving (−,+,+) → KO-dim 5. The SM requires (+,+,−) for KO-dim 6. This is a **boundary finding**: D₄/24-cell is ruled out as an SM finite geometry.
 
 - **M6 (m_H tree = 132.88 GeV):** This is the *structural* prediction of the spectral action on the 600-cell **without** the σ-field correction. Wave 11.5 computed it explicitly. It is **refuted** by PDG 2024 at 55.6σ. The failure is honest and documented.
 
@@ -102,7 +102,7 @@ Source: `derivations/catalog_audit/audit_report.md`, `validate_v4.py`.
 | Structural compatibilities (S) | 8 formulas |
 | Numerical fits (NF) | 17 formulas |
 
-**Bottom line:** The project has produced **rigorous negative results** (obstruction theorems) and **structural mathematical matches** (KO-dim 6, η = −2). It has **not** produced any phenomenological prediction that survived independent experimental test as a *genuine prior* prediction. The Higgs fit (125.20 GeV) is impressive numerically but is a retrospective correlation, not a prediction.
+**Bottom line:** The project has produced **rigorous boundary findings** (obstruction theorems) and **structural mathematical matches** (KO-dim 6, η = −2). It has **not** produced any phenomenological prediction that survived independent experimental test as a *genuine prior* prediction. The Higgs fit (125.20 GeV) is impressive numerically but is a retrospective correlation, not a prediction.
 
 ---
 

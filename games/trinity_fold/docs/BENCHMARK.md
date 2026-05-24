@@ -18,7 +18,7 @@ The default held-out ids are listed in `crates/ring3_adapters/src/fixtures.rs` u
 
 | id | name | rationale for holding out |
 |---|---|---|
-| `o_cosmo_lambda` | Λ (cosmological constant) | Covered by NGT1; a strong test of whether a board can avoid known no-go territory. |
+| `o_cosmo_lambda` | Λ (cosmological constant) | Covered by BT-1; a strong test of whether a board can avoid known boundary territory. |
 | `o_mt_over_mb` | m_t / m_b | A clean dimensionless target sensitive to the Yukawa sector. |
 
 ## What this does **not** simulate

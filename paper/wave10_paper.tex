@@ -266,13 +266,13 @@ The \textbf{binary icosahedral group} \(\TwoI\) is the preimage of the icosahedr
 \end{equation}
 Crucially, \(-1 \in Z(\TwoI)\) (the center), so the antipodal map \(q \mapsto -q\) is
 an \emph{exact symmetry} of \(\TwoI\). This observation is central to \BT{3}
-(Section~\ref{sec:ngt3}).
+(Section~\ref{sec:bt3}).
 
 The group \(\TwoI\) has 9 irreducible complex representations with dimensions
 \(\{1, 2, 3, 4, 5, 6, 4, 2, 2\}\) (two representations of each dimension \(2\) and \(4\)).
 By Schur's lemma~\cite{Serre:1977}, any \(\TwoI\)-equivariant operator is block-diagonal in
 the irreducible decomposition, with each block proportional to the identity.
-This is the basis for \BT{4} (Section~\ref{sec:ngt4}).
+This is the basis for \BT{4} (Section~\ref{sec:bt4}).
 
 \subsection{Relation to E8}
 
@@ -533,7 +533,7 @@ The Coq file \texttt{EtaInvariant.v} formalizes this with \(\Qed\) lemmas for st
 \textbf{Physical significance:} A non-zero eta invariant is a \emph{necessary condition}
 for chirality via APS boundary conditions. The value \(\eta = -2\) means the boundary
 Dirac operator contributes an asymmetric spectral correction to the bulk index.
-However, \BT{3} (Section~\ref{sec:ngt3}) shows that the \emph{bulk} operator \(\DF\)
+However, \BT{3} (Section~\ref{sec:bt3}) shows that the \emph{bulk} operator \(\DF\)
 on the 600-cell is vector-like; \(\eta = -2\) is a necessary but not sufficient condition
 for physical chirality in the current formulation.
 
@@ -649,7 +649,7 @@ We now state and prove the four boundary theorems. All proofs are formalized in
 \end{table}
 
 \subsection{\BT{1}: Cosmological impossibility}
-\label{sec:ngt1}
+\label{sec:bt1}
 
 \begin{theorem}[\BT{1}; Cosmological Boundary]
 \label{thm:BT1}
@@ -717,7 +717,7 @@ Table~\ref{tab:cosmo_refuted} lists all 9 refuted Tier-3 cosmological formulas.
 \end{table}
 
 \subsection{\BT{2}: No \(\sigma\)-field from H4}
-\label{sec:ngt2}
+\label{sec:bt2}
 
 The Chamseddine-Connes NCG SM requires a scalar \(\sigma\)-field to correct the Higgs mass
 prediction after the 2012 discovery showed \(m_H = 125\;\mathrm{GeV}\) (vs.\ the original
@@ -760,7 +760,7 @@ is tagged \texttt{SIGMA\_NO\_GO\_STRUCTURAL} in \texttt{UnimodularityAndSigma.v}
 \end{proof}
 
 \subsection{\BT{3}: Vector-like fermion spectrum}
-\label{sec:ngt3}
+\label{sec:bt3}
 
 \begin{theorem}[\BT{3}; Chirality Obstruction]
 \label{thm:BT3}
@@ -824,7 +824,7 @@ of the 600-cell. Potential loopholes include: (a) APS boundary conditions using 
 \end{remark}
 
 \subsection{\BT{4}: Mass hierarchy by Schur's lemma}
-\label{sec:ngt4}
+\label{sec:bt4}
 
 \begin{theorem}[\BT{4}; Mass Hierarchy Obstruction]
 \label{thm:BT4}

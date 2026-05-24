@@ -56,7 +56,7 @@ Wave 19 drafted a **data paper** documenting the Trinity formula catalog as a re
 | Qed | 1772 | 1772 |
 | Admitted | 0 | 0 |
 | Core formulas | 25 | 25 |
-| Papers | 1 (negative result) | +1 (data paper) |
+| Papers | 1 (boundary finding) | +1 (data paper) |
 | MC p-value | < 0.0001 | documented in paper |
 
 ---

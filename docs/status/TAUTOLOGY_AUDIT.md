@@ -85,7 +85,7 @@ The claimed **~1,800 Qed theorems** includes:
 **The genuine mathematical depth** is concentrated in:
 - `CorePhi.v` — algebraic derivation of φ properties
 - `Interval.Tactic` bounds in `Catalog42.v` — rigorous numerical verification
-- `NoGoTheorems.v` — honest (if narrow) negative results
+- `BoundaryTheorems.v` — honest (if narrow) boundary findings
 
 The rest is scaffolding.
 

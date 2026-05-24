@@ -34,7 +34,7 @@ The project maintains a living catalog of 59 numerical coincidences between H4 i
 | [EPISTEMOLOGY.md](EPISTEMOLOGY.md) | Calculation-primacy doctrine: how model-dependent extractions are handled |
 | [PREDICTIONS_PREREGISTERED.md](PREDICTIONS_PREREGISTERED.md) | 9 pre-registered predictions (0 theoretically confirmed, 4 numerically verified, 4 open, 1 withdrawn) |
 | [ROADMAP_WAVE17_PLUS.md](ROADMAP_WAVE17_PLUS.md) | **Active research program**: Tracks A (honest phenomenology), B (Cl(8) / J3(O)), C (boundary-result paper) |
-| [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new obstruction NGT-7, updated counters, E8-plumbing / string-correspondence boundary notes |
+| [paper/CHANGELOG_v1_to_v2.md](paper/CHANGELOG_v1_to_v2.md) | Wave 17 paper v2 changelog — new obstruction BT-7, updated counters, E8-plumbing / string-correspondence boundary notes |
 | [SECURITY.md](SECURITY.md) | Security policy and reporting path |
 | [HONESTY_MANIFEST.md](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
 | [BoundaryTheorems.v](proofs/trinity/BoundaryTheorems.v) | Formal obstruction theorems BT-1–BT-4 (boundary markers, not dead ends) |
@@ -204,7 +204,7 @@ Each layer below states what is currently **Checked**, what is a known
   to close is enumerated.
 - **Blind spots:** gauge structure, Higgs sector, Yukawa couplings, and
   the three-generation structure are not derived; BT-2 (no sigma-field
-  from H4) and NGT-6 (no string / orbifold rescue) bound what can be
+  from H4) and BT-6 (no string / orbifold rescue) bound what can be
   recovered.
 - **Next unlock:** finite-algebra candidate, Dirac-operator construction,
   inner-fluctuations check, side-by-side NCG comparison table, and a

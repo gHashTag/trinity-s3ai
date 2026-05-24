@@ -196,7 +196,7 @@ If DUNE falsifies delta_CP = 65.66°:
 1. **Acknowledge falsification publicly** -- do not move goalposts
 2. **Do not modify the formula** to match DUNE data (unless the modification was pre-registered with independent justification)
 3. **Reassess the entire Trinity framework** -- if one of its four angle predictions fails, the underlying algebraic structure is called into question
-4. **Publish the negative result** -- the pre-registration itself has scientific value regardless of outcome
+4. **Publish the boundary finding** -- the pre-registration itself has scientific value regardless of outcome
 5. **Consider whether other Trinity predictions** (KATRIN m_nue, JUNO sin²theta_13, HL-LHC lambda) are still valid or should be treated as independent tests
 
 ### 6.4 What Would Partial Confirmation Look Like?

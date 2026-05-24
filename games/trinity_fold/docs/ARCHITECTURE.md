@@ -73,7 +73,7 @@ Additional, narrower rules enforced by the boundary tests:
 `NodeKind::tower()` maps each tile to one of two towers:
 
 - **Data Tower** — `Observable`, `Constraint`. Anything sourced from
-  experiment, PDG/CODATA, or a No-Go theorem.
+  experiment, PDG/CODATA, or a Boundary theorem.
 - **Geometry Tower** — `Constant`, `Field`, `Symmetry`, `Geometry`.
   Anything that lives on the math side.
 

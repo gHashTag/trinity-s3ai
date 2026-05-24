@@ -153,7 +153,7 @@ jobs:
 
           ### What this is NOT
           This is not a claimed derivation of the Standard Model from H4 geometry.
-          It is a formal proof of what H4 *cannot* do. See `SALVAGE.md`.
+          It is a formal proof of what H4 *cannot* do. See `RESEARCH_STATUS.md`.
 
           ### Artifacts
           - `coq-proofs-*.tar.gz` — compiled Coq `.vo` files + source

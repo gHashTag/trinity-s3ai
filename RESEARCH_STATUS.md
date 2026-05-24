@@ -91,11 +91,11 @@ The project explores the H4 → SM hypothesis through several interconnected app
 
 | Direction | Status | What we are learning |
 |-----------|--------|---------------------|
-| **Direct NCG construction** (H4 root system → spectral triple) | 🔄 Obstructed at NGT-2, NGT-3, NGT-4 | The obvious construction fails; we map exactly where and why |
+| **Direct NCG construction** (H4 root system → spectral triple) | 🔄 Obstructed at BT-2, BT-3, BT-4 | The obvious construction fails; we map exactly where and why |
 | **600-cell phenomenology** (φ/π/e coincidence catalog) | 🔄 59 matches; statistical audit ongoing | Whether these coincidences are deep or accidental is an open research question |
 | **Cl(8) / triality** (spinor algebra, three generations) | 🔄 Active (T1 ✅, T2–T12 🔄) | Alternative algebraic route that may bypass H4-specific obstructions |
 | **E8 plumbing / string correspondence** | 🔄 Partial (η discrepancy documented) | Testing whether exceptional-group embeddings rescue the construction |
 | **Neutrino sector predictions** | 🔄 Open (δ_CP withdrawn; θ₁₂, θ₁₃ match) | Pre-registered predictions to be adjudicated by DUNE, JUNO, KATRIN |
-| **Cosmology ansatz** | ❌ Obstructed (NGT-1; >300σ) | Honest closure: this sub-ansatz does not work |
+| **Cosmology ansatz** | ❌ Obstructed (BT-1; >300σ) | Honest closure: this sub-ansatz does not work |
 
 > **The research continues.** The H4 → SM hypothesis is alive and under active investigation. Obstructions on specific constructions are data, not defeats. Every boundary theorem tells us where *not* to build — which is as valuable as knowing where to build next.

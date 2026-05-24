@@ -9,8 +9,8 @@
 > Theory of Everything, and a high "bridge strength" is not evidence for
 > one.** The game inherits the honesty policy of the surrounding repository
 > (see [`README.md`](../README.md), [`FOUNDATIONS.md`](../../../docs/analysis/FOUNDATIONS.md),
-> and the four No-Go theorems in
-> [`proofs/trinity/NoGoTheorems.v`](../../../proofs/trinity/NoGoTheorems.v)).
+> and the four Boundary theorems in
+> [`proofs/trinity/BoundaryTheorems.v`](../../../proofs/trinity/BoundaryTheorems.v)).
 
 ## The metaphor
 
@@ -43,7 +43,7 @@ The neuro-symbolic loop is:
 | `Verified` | **Gold** (`#d4af37`) — bridge gold | Backed by a `Qed` Coq proof or equivalent formal derivation. |
 | `EmpiricalFit` | Steel blue | Numerical agreement with experiment within a stated tolerance. **Not** derived from first principles. |
 | `OpenConjecture` | Amber | Stated but not proven; no falsifying evidence yet. |
-| `HighRiskOrFalsified` | Red — **deck breaks here** | Currently contradicted by data or by an existing No-Go theorem. Triggers the honesty floor. |
+| `HighRiskOrFalsified` | Red — **deck breaks here** | Currently contradicted by data or by an existing Boundary theorem. Triggers the honesty floor. |
 | `Unverified` | Grey | Default for fresh user input. Carries no positive contribution. |
 
 Colours are defined in `Theme` (`crates/ring4_canvas/src/render.rs`). The

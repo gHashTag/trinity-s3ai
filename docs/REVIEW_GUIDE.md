@@ -291,7 +291,7 @@ Theory of Everything:
   (`scripts/prepare_zenodo.md`) are prepared; the seminar talk v2 is
   in [`talks/wave17_talk.tex`](../talks/wave17_talk.tex).
 
-Reviewers can therefore judge the present state as: *negative result,
+Reviewers can therefore judge the present state as: *boundary-mapping research program,
 formally backed in the four BT-1–BT-4 theorems, with the further
 Wave 17 negative findings documented but not yet Coq-formalised*. No
 claim is upgraded above its honest status, and no Theory-of-Everything

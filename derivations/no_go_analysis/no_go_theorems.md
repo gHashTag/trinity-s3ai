@@ -318,7 +318,7 @@ Appendix: Coq code, catalog of 25 formulas with honest tags
 
 ---
 
-## Section 6: Comparison with E8/Lisi and Other Negative Results
+## Section 6: Comparison with E8/Lisi and Other Boundary Findings
 
 ### 6.1 Analogy with "An Exceptionally Simple Theory of Everything" (Lisi 2007)
 

@@ -42,7 +42,7 @@
 | **M2** | η(S³/2T) | **−3/2** | **OPEN** | Independent Dedekind-sum computation with natural Seifert metric must be reconciled with plumbing convention |
 | **M3** | η(S³/2O) | **−7/4** | **OPEN** | Same convention issue as M2 |
 | **M4** | KO-dim(H₄/600-cell) | **6 mod 8** | **Confirmed** (with physical axiom) | A proof that J must be diagonal (giving KO-dim 0) would refute |
-| **M5** | KO-dim(D₄/24-cell) | **5 mod 8** | **Confirmed** (negative result) | Already a obstruction theorem: D₄ does not match SM requirement |
+| **M5** | KO-dim(D₄/24-cell) | **5 mod 8** | **Confirmed** (boundary finding) | Already a obstruction theorem: D₄ does not match SM requirement |
 | **M8** | λ_Higgs (bare, spectral action) | **1/φ⁴ ≈ 0.1459** | **OPEN** (theoretical) | Rigorous spectral-action computation on 600-cell giving λ ≠ 1/φ⁴ would refute |
 
 ---
@@ -275,7 +275,7 @@ For Trinity S³AI to establish genuine predictive power, the following must occu
 
 4. **A rigorous derivation of any catalog formula** from the spectral triple axioms, producing a class **R** (rigorous) entry in the audit.
 
-Until any of these occur, the honest assessment remains: **Trinity S³AI has produced rigorous mathematical results (η = −2, KO-dim 6) and honest negative results (obstruction theorems), but no confirmed phenomenological predictions.**
+Until any of these occur, the honest assessment remains: **Trinity S³AI has produced rigorous mathematical results (η = −2, KO-dim 6) and honest boundary findings (obstruction theorems), but no confirmed phenomenological predictions.**
 
 ---
 

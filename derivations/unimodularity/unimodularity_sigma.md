@@ -177,7 +177,7 @@ H01 = 4φ³e² is a direct formula without RGE corrections. Accuracy of 0.09% me
 
 **Verdict B:**  
 The H4/600-cell structure **does not generate** a natural analogue of the σ-field in the Chamseddine–Connes sense. The invariant of degree d₁ = 2 is a geometric singlet, but not a dynamical scalar field with an action. Therefore,
-the 6% error in the m_H prediction (in case it is present in the specific version of H01) **cannot be corrected by methods analogous to Connes's σ** within the current Trinity S3AI construction. This is an honest negative result.
+the 6% error in the m_H prediction (in case it is present in the specific version of H01) **cannot be corrected by methods analogous to Connes's σ** within the current Trinity S3AI construction. This is an honest boundary finding.
 
 ---
 
@@ -215,4 +215,4 @@ the 6% error in the m_H prediction (in case it is present in the specific versio
 ---
 
 *Compiled within Trinity S3AI Framework, Wave 5.3.*  
-*Project policy: "no fictitious results". Negative results are published explicitly.*
+*Project policy: "no fictitious results". Boundary findings are published explicitly.*

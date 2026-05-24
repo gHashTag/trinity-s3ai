@@ -36,7 +36,7 @@ other tiles agree with experiment. Full concept docs are in
 The Trinity S3AI repository is a active boundary-mapping research program on H4/600-cell
 NCG models of the Standard Model (see [`RESEARCH_STATUS.md`](../../README.md) and the
 four Obstruction Theorems in
-[`proofs/trinity/NoGoTheorems.v`](../../proofs/trinity/NoGoTheorems.v)).
+[`proofs/trinity/BoundaryTheorems.v`](../../proofs/trinity/BoundaryTheorems.v)).
 This game inherits that culture:
 
 - It treats **falsification** and **proof debt** as first-class score
@@ -72,7 +72,7 @@ This taxonomy mirrors the honesty tags used in the Coq sources
 | `verified` | Backed by a `Qed` Coq proof or equivalent formal derivation. | 1.00 |
 | `empirical_fit` | Numerical agreement with experiment within a stated tolerance. **Not** derived from first principles. | 0.40 |
 | `open_conjecture` | Stated but not proven; no falsifying evidence yet. | 0.15 |
-| `high_risk_or_falsified` | Currently contradicted by data or by an existing No-Go theorem. | 0 (and triggers the falsification penalty) |
+| `high_risk_or_falsified` | Currently contradicted by data or by an existing Boundary theorem. | 0 (and triggers the falsification penalty) |
 | `unverified` | Default for fresh user input. | 0 |
 
 A board that contains **any** `high_risk_or_falsified` tile has its total

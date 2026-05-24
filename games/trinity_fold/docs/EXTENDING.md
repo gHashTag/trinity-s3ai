@@ -40,7 +40,7 @@ You **must** pick one of:
 | `Verified` | A Qed Coq proof (or equivalent formal derivation) exists. |
 | `EmpiricalFit` | The number matches experiment within a stated tolerance but is not derived. |
 | `OpenConjecture` | The statement is on the table but not proven; no known falsifier. |
-| `HighRiskOrFalsified` | A No-Go theorem or experimental result rules it out. |
+| `HighRiskOrFalsified` | A Boundary theorem or experimental result rules it out. |
 | `Unverified` | Placeholder. Will contribute 0 to positive components. |
 
 This mirrors the Coq honesty tags in
@@ -54,7 +54,7 @@ by the scorer.
 |---|---|
 | `proof_debt` | Adds 0.3 to that node's contribution to `proof_debt_penalty`. |
 | `falsified` | Treated as `HighRiskOrFalsified` for the falsification term. |
-| `no_go` | Same as `falsified`. Use for No-Go theorem statements. |
+| `boundary` | Same as `falsified`. Use for Boundary theorem statements. |
 | `compression` | Currently informational; reserved for a future term that rewards reuse of a small set of primitives. |
 
 Unknown tags are silently ignored.
@@ -63,7 +63,7 @@ Unknown tags are silently ignored.
 
 `Catalog::triangles` is a list of 3-tuples of ids. A triangle contributes
 to `symmetry_coherence` only when all three tiles are on the board. Use
-this for non-obvious co-dependencies (e.g. "if you want NGT3, you must
+this for non-obvious co-dependencies (e.g. "if you want BT-3, you must
 have placed s_h4 and g_600cell").
 
 ## After editing

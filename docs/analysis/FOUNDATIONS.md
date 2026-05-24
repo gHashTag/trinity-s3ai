@@ -232,7 +232,7 @@ They **do depend** on:
 - CITED_PHYSICS axioms: g_SU2_value, g_U1_value, Lambda_obs_planck_units_small
 - CITED_MATH axioms: sigma_boundary (itself proved as BT-2), D4 triality
 
-**Conclusion:** BT-1–BT-4 are sound given the cited physics measurements. The GENUINE_ASSUMPTION set affects only the positive claims (spectral triple completeness, chirality mechanism, neutrino mass prediction) — not the negative results.
+**Conclusion:** BT-1–BT-4 are sound given the cited physics measurements. The GENUINE_ASSUMPTION set affects only the positive claims (spectral triple completeness, chirality mechanism, neutrino mass prediction) — not the boundary findings.
 
 ---
 

@@ -113,8 +113,8 @@ Replacing the thresholds in [`dune_preregistration.md`](docs/experiments/dune_pr
 
 | DUNE measurement (by ~2032) | Implication for Trinity δ_CP = 65.66° |
 |---|---|
-| δ_CP ∈ [60°, 70°] ± 5° | **Confirmed** — would also overturn NuFIT-6.0 NO at >5σ |
-| δ_CP ∈ [50°, 80°] ± 7° | Confirmed at ~2σ |
+| δ_CP ∈ [60°, 70°] ± 5° | **Compatible with Trinity** — would also overturn NuFIT-6.0 NO at >5σ |
+| δ_CP ∈ [50°, 80°] ± 7° | Compatible with Trinity at ~2σ |
 | δ_CP ∈ [80°, 130°] | **Tension persists**; framework requires PMNS sector revision |
 | δ_CP ∈ [130°, 230°] (consistent with NuFIT-6.0 NO) | **Falsified** at >5σ |
 | δ_CP ∈ [230°, 350°] (consistent with IO bf 285°) | **Falsified** at >7σ |

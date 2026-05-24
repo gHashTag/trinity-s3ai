@@ -141,7 +141,7 @@
 - 2I contains −1 in its centre; antipodal map v ↦ −v is an exact symmetry.
 - D_F commutes with this involution.
 - Spectrum is vector-like: every +λ has a partner −λ with same multiplicity.
-- **Theorem (NGT-3):** Without an external mechanism breaking v ↦ −v, the fermion spectrum is non-chiral.
+- **Theorem (BT-3):** Without an external mechanism breaking v ↦ −v, the fermion spectrum is non-chiral.
 - Distler–Garibaldi does not apply (H₄ is not a Lie algebra), but the problem is real.
 
 **Speaker notes:**

@@ -48,7 +48,7 @@
 
 ### Q5: "What's the point of a boundary finding?"
 
-**A:** "It rules out a specific class of models, saving future researchers time. It also provides exact theorems and falsifiable predictions. For example, our delta-CP prediction of sixty-five point six six degrees is registered with a falsification criterion: if DUNE measures it outside the range forty-five to eighty-five degrees, the formula is dead. That is more than most phenomenological papers offer. A boundary theorem with a certificate is a permanent contribution to the field. A vague negative result is just a blog post. We chose the former."
+**A:** "It rules out a specific class of models, saving future researchers time. It also provides exact theorems and falsifiable predictions. For example, our delta-CP prediction of sixty-five point six six degrees is registered with a falsification criterion: if DUNE measures it outside the range forty-five to eighty-five degrees, the formula is dead. That is more than most phenomenological papers offer. A boundary theorem with a certificate is a permanent contribution to the field. A vague boundary finding is just a blog post. We chose the former."
 
 **Tone:** Passionate but measured.  
 **Trap to avoid:** Do not sound bitter or defensive about the project "failing."  
@@ -124,7 +124,7 @@
 | Question type | Target length | Example |
 |---------------|---------------|---------|
 | Factual / technical | 30–45 seconds | Q4 (Coq proofs) |
-| Philosophical / methodological | 45–60 seconds | Q5 (point of negative result) |
+| Philosophical / methodological | 45–60 seconds | Q5 (point of boundary finding) |
 | Hostile / skeptical | 20–30 seconds, then pivot | Q10 (120 not divisible by 48) |
 | Follow-up from your talk | 15–20 seconds | "What about higher loops?" |
 
@@ -138,7 +138,7 @@
 |-------------|------|
 | "You don't understand…" | "That is a common intuition, but the theorem shows…" |
 | "It is obvious that…" | "The arithmetic suggests it, but the theorem proves it." |
-| "We were not wrong, we were…" | "We reported a negative result honestly." |
+| "We were not wrong, we were…" | "We reported a boundary finding honestly." |
 | "Trust me…" | "The Coq file is open; you can check Qed yourself." |
 | "Other people do worse…" | "We hold ourselves to the standard we set." |
 
@@ -148,7 +148,7 @@
 
 1. "Does anyone know of another finite group where a sigma-field analogue has been constructed?"
 2. "Has anyone seen KO-dimension 6 realized in a genuinely finite spectral triple, not just almost-commutative?"
-3. "Would you fund a project whose explicit goal is to produce a negative result?"
+3. "Would you fund a project whose explicit goal is to produce a boundary finding?"
 
 These signal intellectual generosity and invite collaboration.
 

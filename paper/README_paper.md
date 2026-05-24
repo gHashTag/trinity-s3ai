@@ -162,7 +162,7 @@ Dear Professor [Name],
 
 I am writing to request arXiv endorsement for a submission to hep-th.
 
-The paper, "Trinity-s3ai: A Constructive Negative Result on H4-Based
+The paper, "Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based
 Standard Model Unification," presents four machine-verified obstruction theorems
 showing that the H4 Coxeter group (600-cell symmetry group) cannot serve as
 the geometric foundation for deriving Standard Model parameters in the

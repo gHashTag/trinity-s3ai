@@ -1,6 +1,6 @@
 # Wave 20 Status — Cl(8)/Octonion Track
 
-## Python Numerical Exploration (NEGATIVE RESULT)
+## Python Numerical Exploration (BOUNDARY FINDING)
 - **File**: `derivations/cl8_triality/cl8_triality_exploration.py`
 - **Result**: Cl(8) triality does NOT naturally explain 3 generations
 - **Key issue**: M₈(R) ideal dimension is 8, SM needs 16 fermions per generation

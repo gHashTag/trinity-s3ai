@@ -124,4 +124,4 @@ jobs:
           grep -c 'Qed' proofs/trinity/*.v | awk -F: '{sum+=$2} END {print "Total QED theorems: " sum}'
           grep -c 'Admitted' proofs/trinity/*.v | awk -F: '{sum+=$2} END {print "Total Admitted: " sum}'
           echo "=== Trinity S3AI v4.12 ==="
-          echo "Status: constructive negative result — see SALVAGE.md and NoGoTheorems.v"
+          echo "Status: active boundary-mapping research program — see RESEARCH_STATUS.md and BoundaryTheorems.v"
