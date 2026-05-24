@@ -1,3 +1,11 @@
+# LEGACY DOCUMENT (historical Yukawa derivation claim — v3.4)
+# Current status: This document contains claims that have been withdrawn or refuted.
+# BT-4 (Boundary Theorem 4) proves that Yukawa coupling values are NOT determined
+# by H4 geometry (2I-equivariance fixes multiplicities, not values).
+# See derivations/no_go_analysis/no_go_theorems.md §4 for the honest refutation.
+# See PREDICTIONS_PREREGISTERED.md and EPISTEMOLOGY.md for canonical assessment.
+# 0/26 formulas are rigorous derivations from first principles.
+
 # Yukawa Couplings from H4: POSTULATED → PROVEN
 
 ## Executive Summary

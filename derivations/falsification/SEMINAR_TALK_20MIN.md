@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (historical seminar talk outline)
+# Current status: This talk outline contains references to outdated δ_CP status.
+# The δ_CP prediction is now WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical assessment.
+
 # Trinity S³AI: Boundary-Mapping Research Program in Geometric Unification
 
 **20-minute seminar talk outline**  

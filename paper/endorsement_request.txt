@@ -1,3 +1,9 @@
+LEGACY DOCUMENT (historical endorsement request v4.0)
+Current status: This request contains claims that have been withdrawn or refuted.
+See PREDICTIONS_PREREGISTERED.md, EPISTEMOLOGY.md, and TECH_TREE.md for canonical assessment.
+Key withdrawals: δ_CP (>5σ excluded), N_gen=3 (not derived), Strong CP (not solved),
+tree-level Higgs 132.88 GeV (refuted at 55.6σ), 0/26 formulas rigorous derivation.
+
 ═══════════════════════════════════════════════════════════════════════════════
      arXiv hep-th ENDORSEMENT REQUEST TEMPLATE
      Trinity S³AI: H₄ Coxeter Geometry and the Standard Model

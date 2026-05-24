@@ -51,7 +51,7 @@
 
 | # | Quantity | Value | Source | Status | What would falsify |
 |---|----------|-------|--------|--------|-------------------|
-| **P1** | δ_CP (PMNS) | **65.66°** (`3/φ²` rad) | `validate_v4.py` N04, `Catalog42.v` | **Borderline / Open** | DUNE (2028–2032) measuring δ_CP > 130° at 3σ would falsify. Current NuFit 6.0 (NO): 197°. Distance: ~2.7–3.8σ. |
+| **P1** | δ_CP (PMNS) | **65.66°** (`3/φ²` rad) | `validate_v4.py` N04, `Catalog42.v` | **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Post-hoc fit; anti-post-hoc rule enforced. |
 | **P2** | f₀ (quasicrystal THz line) | **12.8 THz** | `validate_v4.py` v21, `derivations/cosmology/` | **Open** (no data) | High-resolution THz spectroscopy of icosahedral quasicrystals (Al-Mn-Pd, i-YbMgZn) in 10–20 THz showing no line at 12.8 ± 0.5 THz. |
 | **P3** | m_DM (WIMP) | **12.82 GeV** | `Predictions.v` | **Open** (no signal) | LZ-2 or XENONnT (2026–2028) excluding σ_SI > 10⁻⁴⁹ cm² at 12.82 GeV without signal. Note: internal inconsistency with `Catalog42.v` (36.0 GeV variant). |
 | **P4** | sin²θ₁₃ | **0.02200** | `validate_v4.py` N01 | **Retrospective fit** | Already known to 0.37σ precision when formula was fixed. Post-hoc correction from earlier 0.74 % error version. |
