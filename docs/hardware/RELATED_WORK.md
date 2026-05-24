@@ -7,6 +7,66 @@ predecessors and exponent-compression research.
 
 ---
 
+## 0. Background Surveys (2023–2025)
+
+These surveys provide the landscape into which GF16 / GoldenFloat fits.
+They are **not competitors** but **context**: they show that custom low-bit
+formats are an active, crowded research frontier.
+
+### 0.1 Number Systems for Deep Neural Network Architectures — A Survey (2023)
+
+**Paper:** "Number Systems for Deep Neural Network Architectures: A Survey"  
+**Authors:** Multiple institutions  
+**Venue:** arXiv:2307.05035 (2023)  
+**Link:** [arXiv:2307.05035](https://arxiv.org/abs/2307.05035)
+
+**Relevance:**
+The most comprehensive survey of **custom/unconventional number systems**
+for DNNs. Covers standard FP/FXP, Block Floating Point (BFP), Dynamic Fixed
+Point (DFXP), Posit, Logarithmic Number System (LNS), and Residue Number
+System (RNS). Discusses hardware trade-offs (area, power, latency) for each.
+
+**Why it matters for Trinity:**
+This survey maps the **design space** that GF16 occupies. It shows that
+φ-structured formats are **not yet represented** in the academic literature
+— the gap Trinity is trying to fill.
+
+### 0.2 Hardware Acceleration for Neural Networks — A Comprehensive Survey (2025)
+
+**Paper:** "Hardware Acceleration for Neural Networks: A Comprehensive Survey"  
+**Venue:** arXiv:2512.23914 (2025)  
+**Link:** [arXiv:2512.23914](https://arxiv.org/abs/2512.23914)
+
+**Relevance:**
+Broad 2025 survey organizing the accelerator landscape around optimization
+levers including **"reduced precision"** and **"quantization-aware datapaths."**
+Reviews GPUs/Tensor Cores, TPUs/NPUs, ASICs, FPGAs, LLM-serving
+accelerators (LPUs), and emerging in-memory/neuromorphic approaches.
+
+**Why it matters for Trinity:**
+Positions custom numeric formats as a **first-class optimization lever**
+alongside architecture and memory hierarchy. Validates the hardware-attestation
+approach (format + silicon) that Trinity uses.
+
+### 0.3 Low-bit Model Quantization for Deep Neural Networks — A Survey (2025)
+
+**Paper:** "Low-bit Model Quantization for Deep Neural Networks: A Survey"  
+**Venue:** arXiv:2505.05530 (2025)  
+**Link:** [arXiv:2505.05530](https://arxiv.org/abs/2505.05530)
+
+**Relevance:**
+Classifies 179 recent papers with a dedicated **Section 3.6 "Advanced Format"**
+covering float-based encodings (TF32, AdaptiveFloat, ANT, DFloat, MSFP, BSFP),
+fixed-point alternatives, and non-uniform formats like NormalFloat/LoftQ.
+
+**Why it matters for Trinity:**
+Shows that **non-uniform quantization** (like φ-spacing) is an active research
+direction, but φ-structured formats are **not yet covered** in the survey.
+Trinity's contribution is to introduce the golden ratio as a quantization
+lattice basis.
+
+---
+
 ## 1. DLFloat16 — IBM Research (ARITH 2019)
 
 **Paper:** "DLFloat: A 16-b Floating Point Format Designed for Deep Learning
@@ -684,6 +744,38 @@ favor of a domain-specific layout. HiF4 uses block-scaling; GF4 uses
   **TinyTapeout open-PDK submission**. The industrial traction gap is large.
 - No head-to-head accuracy or compression benchmark.
 
+### 18.1 HiFloat Evaluation on Ascend NPUs (arXiv 2026)
+
+**Paper:** "Unleashing Low-Bit Inference on Ascend NPUs: A Comprehensive
+Evaluation of HiFloat Formats"  
+**Authors:** Pengxiang Zhao et al. (Huawei Noah's Ark Lab + collaborators)  
+**Venue:** arXiv:2602.12635 (February 2026)  
+**Link:** [arXiv:2602.12635](https://arxiv.org/abs/2602.12635)
+
+**Key claim:**
+- **End-to-end evaluation** of HiF8 and HiF4 on Huawei Ascend NPUs (production
+  silicon).
+- On high-variance LLM activations, HiFloat **outperforms INT8**; on narrow-range
+  weights, INT8 is competitive. This validates the "format should match data
+  distribution" principle that underlies φ-structured quantization.
+- HiF4's **hierarchical scaling** prevents the accuracy collapse that pure
+  4-bit integer formats suffer on dynamic tensors.
+
+**Relevance to GF16:**
+This is the **closest published silicon evaluation** of a 4-bit custom float
+format on real AI hardware. It demonstrates that sub-5-bit floating-point
+inference is not just theoretically possible but **shipping in production**
+(Ascend 910B). GF4/GF16 claims must meet this bar: reproducible accuracy on
+real models, measured on real silicon.
+
+**Honest gap:**
+- HiFloat is **Huawei-proprietary** (tied to Ascend CANN stack); GF16 is
+  **open-format** with no compiler or framework support.
+- The paper evaluates **LLaMA/Qwen-class LLMs**; GF16 has only **MNIST MLP**
+  (BENCH-001). The workload gap is enormous.
+- HiFloat uses **standard IEEE-style exponent + block scaling**, not φ-spacing.
+  No golden-ratio connection.
+
 ---
 
 ## 19. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
@@ -752,6 +844,7 @@ success.
 | **zig-golden-float** | Trinity | 1-6-9 bias 31 (Zig ref) | **Yes** | Software only | Reference impl |
 | **AetherFloat** | Morisaki | Quad-radix base-4 | No | Yes (130nm chip) | Custom FP |
 | **HiFloat4** | Huawei | 4-bit BFP E6M2+micro | No | Yes (Ascend/NVIDIA) | Block FP4 |
+| **HiFloat Eval** | Huawei | HiF4/HiF8 on Ascend NPU | No | Yes (production) | Evaluation |
 | **Harmonia** | Academic | Mixed BFP (8/4-bit) | No | Yes (28nm test chip) | Block FP |
 | **FlexiBit** | UC Irvine | Arbitrary | No | FPGA/ASIC | Flexible FP/INT |
 | **F-BFQ** | Glasgow | BFP | No | FPGA (KV260) | Block FP |
@@ -809,5 +902,6 @@ empirical question** — tracked in `docs/hardware/bpb_benchmark.py` and
 - PNNL MICRO 2024 — Dynamic LNS for LLMs
 - arXiv:2601.19213 — M2XFP (SJTU/Huawei, ASPLOS 2026)
 - arXiv:2602.11287 — HiFloat4 (Huawei)
+- arXiv:2602.12635 — HiFloat evaluation on Ascend NPUs
 - arXiv:2602.04595 — Harmonia (algorithm-hardware co-design)
 - [TinyTapeout IHP26A chip list](https://tinytapeout.com/chips/ttihp26a/) — Open-silicon FP ecosystem
