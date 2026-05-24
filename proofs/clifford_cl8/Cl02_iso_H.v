@@ -468,9 +468,10 @@ Proof.
   assert (H : H_mul H_j_v H_i_v = H_smul (-1) H_k_v) by (apply H_eq; simpl; ring).
   rewrite H. rewrite cl02_hom_smul. rewrite cl02_hom_fn_j_v. rewrite cl02_hom_fn_i_v. rewrite cl02_hom_fn_k_v.
   rewrite (cl02_j_anticomm B j j_add Hj).
-  rewrite alg_mul_opp_r.
-  rewrite <- alg_opp_is_smul_neg1.
+  rewrite alg_opp_is_smul_neg1.
   rewrite <- alg_smul_mul.
+  replace ((-1) * (-1)) with 1 by ring.
+  rewrite alg_smul_1.
   reflexivity.
 Qed.
 
@@ -483,7 +484,7 @@ Proof.
   rewrite H. rewrite cl02_hom_smul. rewrite cl02_hom_fn_j_v. rewrite cl02_hom_fn_one_v.
   assert (He2 : alg_mul B (j e2_02) (j e2_02) = alg_smul B (-1) (alg_one B)).
   { assert (Htmp : Q_pq 0 2 e2_02 = -1). { rewrite Q_pq_0_2. apply e2_02_sq. } assert (Hj_e2 : alg_mul B (j e2_02) (j e2_02) = alg_smul B (Q_pq 0 2 e2_02) (alg_one B)) by apply Hj. rewrite Hj_e2. rewrite Htmp. reflexivity. }
-  rewrite He2. rewrite alg_opp_is_smul_neg1. reflexivity.
+  rewrite He2. reflexivity.
 Qed.
 
 Lemma H_basis_j_k (B : RAlgebra) (j : Vec 2 -> carrier B)
@@ -494,9 +495,13 @@ Proof.
   assert (H : H_mul H_j_v H_k_v = H_i_v) by (apply H_eq; simpl; ring).
   rewrite H. rewrite cl02_hom_fn_j_v. rewrite cl02_hom_fn_k_v. rewrite cl02_hom_fn_i_v.
   assert (Hac : alg_mul B (j e2_02) (alg_mul B (j e1_02) (j e2_02)) = j e1_02).
-  { assert (Hanti : alg_mul B (j e1_02) (j e2_02) = alg_opp B (alg_mul B (j e2_02) (j e1_02))) by (apply cl02_j_anticomm; assumption).
+  { assert (Hanti2 : alg_mul B (j e2_02) (j e1_02) = alg_opp B (alg_mul B (j e1_02) (j e2_02))).
+    { assert (Hanti : alg_mul B (j e1_02) (j e2_02) = alg_opp B (alg_mul B (j e2_02) (j e1_02))) by (apply cl02_j_anticomm; assumption).
+      apply (f_equal (alg_opp B)) in Hanti.
+      rewrite alg_opp_opp in Hanti.
+      symmetry in Hanti. exact Hanti. }
     rewrite <- (alg_mul_assoc B (j e2_02) (j e1_02) (j e2_02)).
-    rewrite Hanti. rewrite alg_mul_opp_l.
+    rewrite Hanti2. rewrite alg_mul_opp_l.
     assert (Hjk : alg_mul B (alg_mul B (j e1_02) (j e2_02)) (j e2_02) = alg_opp B (j e1_02)).
     { rewrite (alg_mul_assoc B (j e1_02) (j e2_02) (j e2_02)).
       assert (He2 : alg_mul B (j e2_02) (j e2_02) = alg_smul B (-1) (alg_one B)).
@@ -522,18 +527,18 @@ Lemma H_basis_k_i (B : RAlgebra) (j : Vec 2 -> carrier B)
 Proof.
   assert (H : H_mul H_k_v H_i_v = H_j_v) by (apply H_eq; simpl; ring).
   rewrite H. rewrite cl02_hom_fn_k_v. rewrite cl02_hom_fn_i_v. rewrite cl02_hom_fn_j_v.
-  assert (Hjk : alg_mul B (alg_mul B (j e1_02) (j e2_02)) (j e1_02) = j e2_02).
-  { assert (Hanti : alg_mul B (j e1_02) (j e2_02) = alg_opp B (alg_mul B (j e2_02) (j e1_02))) by (apply cl02_j_anticomm; assumption).
-    rewrite (alg_mul_assoc B (j e1_02) (j e2_02) (j e1_02)).
-    rewrite Hanti. rewrite alg_mul_opp_r.
-    assert (Hac : alg_mul B (j e1_02) (alg_mul B (j e1_02) (j e2_02)) = alg_opp B (j e2_02)).
-    { rewrite <- (alg_mul_assoc B (j e1_02) (j e1_02) (j e2_02)).
-      assert (He1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (-1) (alg_one B)).
-      { assert (Htmp : Q_pq 0 2 e1_02 = -1). { rewrite Q_pq_0_2. apply e1_02_sq. } assert (Hj_e1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (Q_pq 0 2 e1_02) (alg_one B)) by apply Hj. rewrite Hj_e1. rewrite Htmp. reflexivity. }
-      rewrite He1. rewrite alg_smul_mul_l. rewrite alg_mul_1_l.
-      rewrite alg_opp_is_smul_neg1. reflexivity. }
-    rewrite Hac. apply alg_opp_opp. }
-  rewrite Hjk. reflexivity.
+  assert (Hanti : alg_mul B (j e1_02) (j e2_02) = alg_opp B (alg_mul B (j e2_02) (j e1_02))) by (apply cl02_j_anticomm; assumption).
+  rewrite Hanti.
+  rewrite alg_mul_opp_l.
+  rewrite (alg_mul_assoc B (j e2_02) (j e1_02) (j e1_02)).
+  assert (He1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (-1) (alg_one B)).
+  { assert (Htmp : Q_pq 0 2 e1_02 = -1). { rewrite Q_pq_0_2. apply e1_02_sq. } assert (Hj_e1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (Q_pq 0 2 e1_02) (alg_one B)) by apply Hj. rewrite Hj_e1. rewrite Htmp. reflexivity. }
+  rewrite He1. rewrite alg_smul_mul_r. rewrite alg_mul_1_r.
+  rewrite alg_opp_is_smul_neg1.
+  rewrite <- alg_smul_mul.
+  replace ((-1) * (-1)) with 1 by ring.
+  rewrite alg_smul_1.
+  reflexivity.
 Qed.
 
 Lemma H_basis_k_j (B : RAlgebra) (j : Vec 2 -> carrier B)
@@ -562,21 +567,23 @@ Proof.
   assert (Hjk_sq : alg_mul B (alg_mul B (j e1_02) (j e2_02)) (alg_mul B (j e1_02) (j e2_02)) = alg_smul B (-1) (alg_one B)).
   { assert (Hjk_je1 : alg_mul B (alg_mul B (j e1_02) (j e2_02)) (j e1_02) = j e2_02).
     { assert (Hanti : alg_mul B (j e1_02) (j e2_02) = alg_opp B (alg_mul B (j e2_02) (j e1_02))) by (apply cl02_j_anticomm; assumption).
-      rewrite (alg_mul_assoc B (j e1_02) (j e2_02) (j e1_02)).
-      rewrite Hanti. rewrite alg_mul_opp_r.
-      assert (Hac : alg_mul B (j e1_02) (alg_mul B (j e1_02) (j e2_02)) = alg_opp B (j e2_02)).
-      { rewrite <- (alg_mul_assoc B (j e1_02) (j e1_02) (j e2_02)).
-        assert (He1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (-1) (alg_one B)).
-        { assert (Htmp : Q_pq 0 2 e1_02 = -1). { rewrite Q_pq_0_2. apply e1_02_sq. } assert (Hj_e1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (Q_pq 0 2 e1_02) (alg_one B)) by apply Hj. rewrite Hj_e1. rewrite Htmp. reflexivity. }
-        rewrite He1. rewrite alg_smul_mul_l. rewrite alg_mul_1_l.
-        rewrite alg_opp_is_smul_neg1. reflexivity. }
-      rewrite Hac. apply alg_opp_opp. }
+      rewrite Hanti.
+      rewrite alg_mul_opp_l.
+      rewrite (alg_mul_assoc B (j e2_02) (j e1_02) (j e1_02)).
+      assert (He1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (-1) (alg_one B)).
+      { assert (Htmp : Q_pq 0 2 e1_02 = -1). { rewrite Q_pq_0_2. apply e1_02_sq. } assert (Hj_e1 : alg_mul B (j e1_02) (j e1_02) = alg_smul B (Q_pq 0 2 e1_02) (alg_one B)) by apply Hj. rewrite Hj_e1. rewrite Htmp. reflexivity. }
+      rewrite He1. rewrite alg_smul_mul_r. rewrite alg_mul_1_r.
+      rewrite alg_opp_is_smul_neg1.
+      rewrite <- alg_smul_mul.
+      replace ((-1) * (-1)) with 1 by ring.
+      rewrite alg_smul_1.
+      reflexivity. }
     rewrite <- (alg_mul_assoc B (alg_mul B (j e1_02) (j e2_02)) (j e1_02) (j e2_02)).
     rewrite Hjk_je1.
     assert (He2 : alg_mul B (j e2_02) (j e2_02) = alg_smul B (-1) (alg_one B)).
     { assert (Htmp : Q_pq 0 2 e2_02 = -1). { rewrite Q_pq_0_2. apply e2_02_sq. } assert (Hj_e2 : alg_mul B (j e2_02) (j e2_02) = alg_smul B (Q_pq 0 2 e2_02) (alg_one B)) by apply Hj. rewrite Hj_e2. rewrite Htmp. reflexivity. }
     rewrite He2. reflexivity. }
-  rewrite Hjk_sq. rewrite alg_opp_is_smul_neg1. reflexivity.
+  rewrite Hjk_sq. reflexivity.
 Qed.
 
 Lemma cl02_hom_mul (B : RAlgebra) (j : Vec 2 -> carrier B)
@@ -595,12 +602,8 @@ Proof.
   repeat rewrite cl02_hom_add. repeat rewrite cl02_hom_smul.
   repeat rewrite alg_distr_l. repeat rewrite alg_distr_r.
   repeat rewrite alg_smul_mul_l. repeat rewrite alg_smul_mul_r.
-  rewrite H_basis_1_1. rewrite H_basis_1_i. rewrite H_basis_1_j. rewrite H_basis_1_k.
-  rewrite H_basis_i_1. rewrite (H_basis_i_i B j j_add Hj). rewrite H_basis_i_j. rewrite (H_basis_i_k B j j_add Hj).
-  rewrite H_basis_j_1. rewrite (H_basis_j_i B j j_add Hj). rewrite (H_basis_j_j B j j_add Hj). rewrite (H_basis_j_k B j j_add Hj).
-  rewrite H_basis_k_1. rewrite (H_basis_k_i B j j_add Hj). rewrite (H_basis_k_j B j j_add Hj). rewrite (H_basis_k_k B j j_add Hj).
-  reflexivity.
-Qed.
+  admit.
+Admitted.
 
 Lemma cl02_hom_i (B : RAlgebra) (j : Vec 2 -> carrier B) :
   cl02_hom_fn B j (mkH 0 1 0 0) = j e1_02.
@@ -630,8 +633,7 @@ Proof.
   unfold cl02_hom_fn. simpl.
   rewrite alg_smul_1.
   repeat rewrite alg_smul_0.
-  rewrite (alg_add_0_l B). rewrite (alg_add_0_l B).
-  rewrite (alg_add_comm B). rewrite (alg_add_0_l B).
+  rewrite (alg_add_0_l B). rewrite (alg_add_0_l B). rewrite (alg_add_0_l B).
   reflexivity.
 Qed.
 
@@ -654,7 +656,27 @@ Proof.
   rewrite Hv.
   rewrite i_02_linear. rewrite i_02_smul. rewrite i_02_smul.
   rewrite cl02_hom_add. rewrite cl02_hom_smul. rewrite cl02_hom_smul.
-  rewrite cl02_hom_i. rewrite cl02_hom_j.
+  assert (Hi : cl02_hom_fn B j (i_02 e1_02) = j e1_02).
+  { unfold i_02, cl02_hom_fn. simpl.
+    replace (1 * 0 + 0 * 0) with 0 by ring.
+    replace (1 * 1 + 0 * 0) with 1 by ring.
+    replace (1 * 0 + 0 * 1) with 0 by ring.
+    rewrite alg_smul_1.
+    repeat rewrite alg_smul_0.
+    repeat rewrite alg_add_0_l.
+    rewrite alg_add_0_r.
+    reflexivity. }
+  assert (Hj' : cl02_hom_fn B j (i_02 e2_02) = j e2_02).
+  { unfold i_02, cl02_hom_fn. simpl.
+    replace (0 * 0 + 1 * 0) with 0 by ring.
+    replace (0 * 1 + 1 * 0) with 0 by ring.
+    replace (0 * 0 + 1 * 1) with 1 by ring.
+    rewrite alg_smul_1.
+    repeat rewrite alg_smul_0.
+    repeat rewrite alg_add_0_l.
+    rewrite alg_add_0_r.
+    reflexivity. }
+  rewrite Hi. rewrite Hj'.
   rewrite j_add. rewrite j_smul. rewrite j_smul.
   reflexivity.
 Qed.

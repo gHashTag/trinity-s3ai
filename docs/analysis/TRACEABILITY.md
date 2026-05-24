@@ -77,7 +77,8 @@
 | **Q04** | ✅ m_c/m_s = 24π³/e⁴ | ⬜ H4Derivations.v (`Q04_d1_d2_sum`, `Q04_d1_d2_phi_form`) | ✅ verify_all_final.py | 🟡 partial |
 | **Q05** | ✅ m_b/m_s = 43+π/φ | ⬜ H4Derivations.v (`Q05_e3_e4_sum`) | ✅ verify_all_final.py | 🟡 partial |
 | **Q05b** | ✅ m_b/m_c = 127φ/120+30/19 | ⬜ H4Derivations.v (implicit) + ✅ UniquenessTheorem.v (structural) | ✅ verify_all_final.py | 🟡 partial |
-| **Q06** | ✅ m_t = 4φ³e⁴/1000 | ⬜ Catalog42.v (definition) | ✅ verify_all_final.py | 🟡 partial |
+| **Q06** | ✅ m_t = πe⁴ + 6/5 (Wave 20 correction) | ⬜ Catalog42.v (definition) | ✅ verify_all_final.py | 🟡 partial |
+| **Q06 (legacy)** | ❌ m_t = 4φ³e⁴/1000 — **REFUTED** (yields 0.925 GeV, not 172.69 GeV) | — | ✅ verify_all_final.py (legacy) | ❌ FAIL |
 | **Q07** | ✅ m_s/m_d = 24φ²/π | ⬜ H4Derivations.v (`Q07_d1_d2_smoking_gun_1`, `Q07_d1_d2_phi_form`) | ✅ verify_all_final.py | 🟡 partial |
 
 **Notes:**

@@ -9,7 +9,7 @@ live elsewhere and are linked below.
 
 ## In one paragraph
 
-Trinity S³AI is an active research program that **tests multiple geometric hypotheses** for encoding the parameters of the Standard Model of particle physics. We explore H4 Coxeter group invariants, 600-cell geometry, E8 embeddings, Clifford algebras Cl(8), and φ/π/e phenomenological coincidences — formalizing what works, rigorously bounding what does not, and redirecting toward new ansätze when obstructions are proven. The project does not commit to a single theory; it is a **living laboratory of hypothesis testing**.
+Trinity S³AI is an active boundary-mapping research program that **tests the single hypothesis** that H4 Coxeter group geometry encodes the parameters of the Standard Model of particle physics. We explore H4 invariants, 600-cell geometry, E8 embeddings, Clifford algebras Cl(8), and φ/π/e phenomenological coincidences — formalizing what works, rigorously mapping obstruction boundaries (BT-1–BT-7), and redirecting toward new ansätze when specific constructions fail. The project commits to one hypothesis while transparently documenting where it succeeds and where it hits boundaries.
 
 **Boundary theorems (BT-1–BT-4)** mark specific obstruction points: they
 prove that *certain direct constructions* from H4 geometry do not reproduce
