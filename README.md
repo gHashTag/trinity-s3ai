@@ -256,6 +256,12 @@ _Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_cla
 | `m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass | L5 | `empirical_fit` | proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md | Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the BT2 sigma-field boundary. |
 | GOLDEN CHAIN puzzle is a hardware-verified proof chain, not evidence | L6 | `verified` | games/trinity_fold/README.md; ring0_core::ClaimStatus enum | — |
 | No Theory-of-Everything claim and no prize claim is made | L1 | `verified` | docs/CLAIM_STATUS.md §2; README.md preamble | — |
+| GF16 (DLFloat-6:9, bias 31) phi-anchored float format specified and FPGA-verified | L0 | `verified` | docs/hardware/gf16_spec.md §2; t27/docs/arxiv-trinity-gf16-draft.md §2; t27/specs/02-gf16-format.tri | — |
+| BPB compression benchmark: phi-4Q quantizer raw BPB 0.125 vs 0.500 for fp16/bf16/GF16 | L5 | `empirical_fit` | docs/hardware/bpb_benchmark.py; docs/hardware/bpb_results.json (generated 2026-05-25) | Extend benchmark to real physics datasets (e.g. PDG parameter vectors, MNIST weights) and verify the advantage persists outside synthetic phi-monomial data. |
+| GF16 silicon tapeout on TinyTapeout TTSKY26a shuttle (submitted, pending results) | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §3; t27/docs/arxiv-trinity-gf16-draft.md §1 | Confirm shuttle outcome: GDS-II signoff, MPW receipt, silicon test results. TTSKY26b claim in README needs verification or downgrade to TTSKY26a. |
+| 0x47C0 reset-time silicon anchor validates Lucas chain L2=3 | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §1–2; no RTL testbench found in t27 repo | Document the anchor in RTL (add reset witness to gf16_mul.v or wrapper), add testbench simulation, or downgrade claim to design-intent only. |
+| phi-structured quantization step gives ~0.694-bit reduction per level | L3 | `verified` | docs/hardware/gf16_mathematics.md §3; log2(phi) = 0.6942419136... | — |
+| Three Crowns (Phi/Euler/Gamma) are sequential silicon milestones | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §2; README.md §Why $TRI Is Mined Only on TTSKY26b | Phi and Euler are submitted on TTSKY26a; Gamma RTL freeze pending. Need silicon validation of at least one crown before upgrade. |
 
 <!-- CLAIMS_TABLE:END -->
 

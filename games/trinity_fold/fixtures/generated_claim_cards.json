@@ -118,6 +118,86 @@
       "owner_file": "docs/CLAIM_STATUS.md",
       "blocking_gap": "",
       "tags": []
+    },
+    {
+      "id": "gf16-format-spec",
+      "kind": "infra",
+      "name": "GF16 format spec",
+      "description": "16-bit float with 1/6/9 layout and bias 31. phi-distance 0.049 vs IEEE fp16 0.118. RTL multiplier and adder exist; 35/35 FPGA tests pass at 323 MHz on Artix-7.",
+      "claim": "verified",
+      "layer": "L0",
+      "evidence": "docs/hardware/gf16_spec.md \u00a72; t27/docs/arxiv-trinity-gf16-draft.md \u00a72; t27/specs/02-gf16-format.tri",
+      "owner_file": "docs/hardware/gf16_spec.md",
+      "blocking_gap": "",
+      "tags": []
+    },
+    {
+      "id": "gf16-bpb-benchmark",
+      "kind": "observable",
+      "name": "BPB phi-4Q advantage",
+      "description": "Synthetic phi-structured data shows 4-bit phi-ladder quantizer achieves raw BPB 0.125 (8x compression vs float32) and effective BPB competitive with 16-bit formats. [NUMERICAL_FIT] on synthetic data only.",
+      "claim": "empirical_fit",
+      "layer": "L5",
+      "evidence": "docs/hardware/bpb_benchmark.py; docs/hardware/bpb_results.json (generated 2026-05-25)",
+      "owner_file": "docs/hardware/bpb_benchmark.py",
+      "blocking_gap": "Extend benchmark to real physics datasets (e.g. PDG parameter vectors, MNIST weights) and verify the advantage persists outside synthetic phi-monomial data.",
+      "tags": [
+        "compression"
+      ]
+    },
+    {
+      "id": "gf16-silicon-tapeout",
+      "kind": "infra",
+      "name": "TTSKY26a tapeout",
+      "description": "TinyTapeout submission for GF16 accelerator (Phi and Euler crowns). Status: submitted for TTSKY26a (May 2026), expected silicon return ~Aug 2026. No silicon test data yet.",
+      "claim": "open_conjecture",
+      "layer": "L0",
+      "evidence": "docs/hardware/silicon_anchor.md \u00a73; t27/docs/arxiv-trinity-gf16-draft.md \u00a71",
+      "owner_file": "docs/hardware/silicon_anchor.md",
+      "blocking_gap": "Confirm shuttle outcome: GDS-II signoff, MPW receipt, silicon test results. TTSKY26b claim in README needs verification or downgrade to TTSKY26a.",
+      "tags": [
+        "proof_debt"
+      ]
+    },
+    {
+      "id": "silicon-anchor-47c0",
+      "kind": "infra",
+      "name": "0x47C0 anchor",
+      "description": "Claimed reset-time silicon witness of Lucas chain L2=3 via 0x47 on uo_out and 0xC0 on uio_out. Design is documented; no RTL evidence or post-silicon observation yet.",
+      "claim": "open_conjecture",
+      "layer": "L0",
+      "evidence": "docs/hardware/silicon_anchor.md \u00a71\u20132; no RTL testbench found in t27 repo",
+      "owner_file": "docs/hardware/silicon_anchor.md",
+      "blocking_gap": "Document the anchor in RTL (add reset witness to gf16_mul.v or wrapper), add testbench simulation, or downgrade claim to design-intent only.",
+      "tags": [
+        "proof_debt"
+      ]
+    },
+    {
+      "id": "phi-structured-step",
+      "kind": "geometry",
+      "name": "0.694-bit phi step",
+      "description": "Mathematical identity: log2(phi) \u2248 0.694 bits. For a uniform phi-spaced quantizer, each additional level adds ~0.694 bits of information. Verified by pocket-calculator / Python derivation.",
+      "claim": "verified",
+      "layer": "L3",
+      "evidence": "docs/hardware/gf16_mathematics.md \u00a73; log2(phi) = 0.6942419136...",
+      "owner_file": "docs/hardware/gf16_mathematics.md",
+      "blocking_gap": "",
+      "tags": []
+    },
+    {
+      "id": "three-crowns",
+      "kind": "infra",
+      "name": "Three Crowns",
+      "description": "Sequential gates: Phi (1x1 minimal witness), Euler (8x2 GF16 carrier), Gamma (8x4 full DNA). Two submitted, one pending RTL freeze.",
+      "claim": "open_conjecture",
+      "layer": "L0",
+      "evidence": "docs/hardware/silicon_anchor.md \u00a72; README.md \u00a7Why $TRI Is Mined Only on TTSKY26b",
+      "owner_file": "docs/hardware/silicon_anchor.md",
+      "blocking_gap": "Phi and Euler are submitted on TTSKY26a; Gamma RTL freeze pending. Need silicon validation of at least one crown before upgrade.",
+      "tags": [
+        "proof_debt"
+      ]
     }
   ]
 }

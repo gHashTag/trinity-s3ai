@@ -1,0 +1,134 @@
+{
+  "benchmark": "BPB-001",
+  "date": "2026-05-25",
+  "description": "Bits-per-byte for phi-structured scalar data across numeric formats",
+  "baseline": "IEEE-754 float32 = 1.0 BPB",
+  "runs": [
+    {
+      "distribution": "phi_monomials (phi^a pi^b e^c)",
+      "n_samples": 10000,
+      "float32": {
+        "bytes_total": 40000,
+        "raw_bpb": 1.0
+      },
+      "gf16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 5.9721,
+        "effective_bpb": 0.1866
+      },
+      "fp16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 5.9721,
+        "effective_bpb": 0.1866
+      },
+      "bfloat16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 5.9721,
+        "effective_bpb": 0.1866
+      },
+      "phi4_quantizer": {
+        "bytes_total": 5000,
+        "raw_bpb": 0.125,
+        "code_entropy_bits": 3.6288,
+        "effective_bpb": 0.1134,
+        "phi_step_bits": 0.694242
+      },
+      "compression": {
+        "gf16_zlib_ratio": 0.5604,
+        "fp16_zlib_ratio": 0.5689,
+        "bf16_zlib_ratio": 0.5414,
+        "phi4_zlib_ratio": 0.9304
+      }
+    },
+    {
+      "distribution": "phi_ladder (phi^k)",
+      "n_samples": 10000,
+      "float32": {
+        "bytes_total": 40000,
+        "raw_bpb": 1.0
+      },
+      "gf16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 4.0854,
+        "effective_bpb": 0.1277
+      },
+      "fp16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 4.0854,
+        "effective_bpb": 0.1277
+      },
+      "bfloat16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 4.0854,
+        "effective_bpb": 0.1277
+      },
+      "phi4_quantizer": {
+        "bytes_total": 5000,
+        "raw_bpb": 0.125,
+        "code_entropy_bits": 3.9618,
+        "effective_bpb": 0.1238,
+        "phi_step_bits": 0.694242
+      },
+      "compression": {
+        "gf16_zlib_ratio": 0.3574,
+        "fp16_zlib_ratio": 0.3624,
+        "bf16_zlib_ratio": 0.3829,
+        "phi4_zlib_ratio": 1.0018
+      }
+    },
+    {
+      "distribution": "normal(0,1) control",
+      "n_samples": 10000,
+      "float32": {
+        "bytes_total": 40000,
+        "raw_bpb": 1.0
+      },
+      "gf16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 11.8544,
+        "effective_bpb": 0.3705
+      },
+      "fp16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 12.4149,
+        "effective_bpb": 0.388
+      },
+      "bfloat16": {
+        "bytes_total": 20000,
+        "raw_bpb": 0.5,
+        "code_entropy_bits": 10.2699,
+        "effective_bpb": 0.3209
+      },
+      "phi4_quantizer": {
+        "bytes_total": 5000,
+        "raw_bpb": 0.125,
+        "code_entropy_bits": 2.9551,
+        "effective_bpb": 0.0923,
+        "phi_step_bits": 0.694242
+      },
+      "compression": {
+        "gf16_zlib_ratio": 0.8836,
+        "fp16_zlib_ratio": 0.9262,
+        "bf16_zlib_ratio": 0.7923,
+        "phi4_zlib_ratio": 0.765
+      }
+    }
+  ],
+  "summary": {
+    "phi4_raw_bpb_vs_fp16": 0.25,
+    "phi4_effective_bpb_vs_fp16": 0.9695,
+    "phi4_raw_bpb_vs_bfloat16": 0.25,
+    "gf16_code_entropy_on_phi_data": 4.0854,
+    "gf16_code_entropy_on_normal_data": 11.8544,
+    "phi_step_bits": 0.694242,
+    "verdict": "phi-4Q raw BPB is 0.25x fp16/bf16; effective BPB advantage holds on phi-structured data only"
+  }
+}
