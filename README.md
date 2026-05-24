@@ -36,7 +36,7 @@ Most unification programs publish only successes. We publish the **dead ends** t
 | **5 honest `Admitted.` gaps** | No cosmetic edits. Every open gap is tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and carries a literature citation. |
 | **0 fake proofs** | The honest parser strips comments before counting. Naive `grep` finds 77; the real count is 0 in `proofs/trinity/`. |
 
-> **$TRI is not a cryptocurrency.** It is a hardware-verified compression score (bits-per-byte) measured on TTSKY26b silicon. You cannot mine it on a GPU.
+> **$TRI is not a cryptocurrency.** It is a hardware-verified compression score (bits-per-byte) measured on TTSKY26b silicon (Three Crowns submitted May 2026). You cannot mine it on a GPU.
 
 ---
 
@@ -145,7 +145,7 @@ All three crowns carry the canonical anchor **`0x47C0`** at `{uio_out, uo_out}` 
 - **🥇 Best BPB** (bits-per-byte) among all tested numeric formats: 4-bit GF(16) beats bf16, fp16, gf32, gf64 in compression benchmarks
 - **Optimal field size**: GF(2⁴) with primitive polynomial `x⁴ + x + 1` is the minimal field that carries 4 canonical Trinity basis vectors
 - **φ-structured step**: each quantization level approximates `φ⁻¹ ≈ 0.618`, giving **0.694-bit reduction per step**
-- **Hardware exclusivity**: no generic CPU reproduces this φ-structured Galois arithmetic efficiently; the chain is verified only on TTSKY26b silicon
+- **Hardware exclusivity**: no generic CPU reproduces this φ-structured Galois arithmetic efficiently; the chain is verified only on TTSKY26b silicon (Three Crowns: Phi + Euler + Gamma)
 
 ### Honest performance
 
@@ -258,11 +258,11 @@ _Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_cla
 | No Theory-of-Everything claim and no prize claim is made | L1 | `verified` | docs/CLAIM_STATUS.md §2; README.md preamble | — |
 | GF16 (1-6-9, bias 31) phi-anchored float format specified and FPGA-verified | L0 | `verified` | docs/hardware/gf16_spec.md §2–2.6; t27/conformance/FORMAT-SPEC-001.json; NeurIPS 2026 OPT paper (Prop 1–2, Thm 3); IBM DLFloat16 (ARITH 2019, layout identical, 6 differences documented) | — |
 | BPB compression benchmark: phi-4Q quantizer raw BPB 0.125 vs 0.500 for fp16/bf16/GF16 | L5 | `empirical_fit` | docs/hardware/bpb_benchmark.py; docs/hardware/bpb_results.json (generated 2026-05-25) | Extend benchmark to real physics datasets (e.g. PDG parameter vectors, MNIST weights) and verify the advantage persists outside synthetic phi-monomial data. |
-| GF16 silicon tapeout on TinyTapeout TTSKY26a shuttle (submitted, pending results) | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §3; t27/docs/arxiv-trinity-gf16-draft.md §1 | Confirm shuttle outcome: GDS-II signoff, MPW receipt, silicon test results. TTSKY26b claim in README needs verification or downgrade to TTSKY26a. |
+| GF16 silicon tapeout on TinyTapeout TTSKY26a shuttle (submitted, pending silicon) | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §3.1; PR #322 in TinyTapeout/tinytapeout-sky-26a for gHashTag/tt-trinity-gf16 | Await silicon return from Sky130 fab (~Aug 2026). Post-silicon validation requires logic-analyzer reset witness, clock sweep, and conformance run. |
 | 0x47C0 reset-time silicon anchor validates Lucas chain L2=3 | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §1–2; no RTL testbench found in t27 repo | Document the anchor in RTL (add reset witness to gf16_mul.v or wrapper), add testbench simulation, or downgrade claim to design-intent only. |
 | phi-structured quantization step gives ~0.694-bit reduction per level | L3 | `verified` | docs/hardware/gf16_mathematics.md §3, §6.1–6.3; log2(phi) = 0.6942419136...; NeurIPS 2026 Prop 1 (Golden Self-Similarity), Prop 2 (Optimal Integer Rounding), Thm 3 (Universal Attractor) | — |
 | Coq/Flocq proof: phi^2 = phi + 1 holds exactly in IEEE binary64 | L2 | `verified` | proofs/trinity/PhiFloat.v (adapted from t27/coq/Kernel/PhiFloat.v); phi_sq_f64 = phi_plus_one_f64 by vm_compute; residual 0.0 < tolerance 1e-15 | Extend to GF16: prove phi identity holds (or bound error) in the 1-6-9 format. Currently proved only for binary64, not for GF16. |
-| Three Crowns (Phi/Euler/Gamma) are sequential silicon milestones | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §2; README.md §Why $TRI Is Mined Only on TTSKY26b | Phi and Euler are submitted on TTSKY26a; Gamma RTL freeze pending. Need silicon validation of at least one crown before upgrade. |
+| Three Crowns (Phi/Euler/Gamma) submitted to TinyTapeout TTSKY26b | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §3.2; 21 closed PRs in TinyTapeout/tinytapeout-sky-26b (9 phi + 7 euler + 5 gamma) | Await silicon return from Sky130 fab (~Nov 2026). Post-silicon validation of all three crowns required before upgrade to verified. |
 
 <!-- CLAIMS_TABLE:END -->
 

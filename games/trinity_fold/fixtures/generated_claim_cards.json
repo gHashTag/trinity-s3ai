@@ -149,12 +149,12 @@
       "id": "gf16-silicon-tapeout",
       "kind": "infra",
       "name": "TTSKY26a tapeout",
-      "description": "TinyTapeout submission for GF16 accelerator (Phi and Euler crowns). Status: submitted for TTSKY26a (May 2026), expected silicon return ~Aug 2026. No silicon test data yet.",
+      "description": "Original single-chip GF16 submission (tt-trinity-gf16) on TTSKY26a. Merged in TinyTapeout sky-26a repo as PR #322. Silicon not yet returned.",
       "claim": "open_conjecture",
       "layer": "L0",
-      "evidence": "docs/hardware/silicon_anchor.md \u00a73; t27/docs/arxiv-trinity-gf16-draft.md \u00a71",
+      "evidence": "docs/hardware/silicon_anchor.md \u00a73.1; PR #322 in TinyTapeout/tinytapeout-sky-26a for gHashTag/tt-trinity-gf16",
       "owner_file": "docs/hardware/silicon_anchor.md",
-      "blocking_gap": "Confirm shuttle outcome: GDS-II signoff, MPW receipt, silicon test results. TTSKY26b claim in README needs verification or downgrade to TTSKY26a.",
+      "blocking_gap": "Await silicon return from Sky130 fab (~Aug 2026). Post-silicon validation requires logic-analyzer reset witness, clock sweep, and conformance run.",
       "tags": [
         "proof_debt"
       ]
@@ -201,12 +201,12 @@
       "id": "three-crowns",
       "kind": "infra",
       "name": "Three Crowns",
-      "description": "Sequential gates: Phi (1x1 minimal witness), Euler (8x2 GF16 carrier), Gamma (8x4 full DNA). Two submitted, one pending RTL freeze.",
+      "description": "Three Crowns (Phi, Euler, Gamma) submitted together to TTSKY26b. 21 closed PRs in TinyTapeout sky-26b repo. Sequential validation planned: Phi \u2192 Euler \u2192 Gamma.",
       "claim": "open_conjecture",
       "layer": "L0",
-      "evidence": "docs/hardware/silicon_anchor.md \u00a72; README.md \u00a7Why $TRI Is Mined Only on TTSKY26b",
+      "evidence": "docs/hardware/silicon_anchor.md \u00a73.2; 21 closed PRs in TinyTapeout/tinytapeout-sky-26b (9 phi + 7 euler + 5 gamma)",
       "owner_file": "docs/hardware/silicon_anchor.md",
-      "blocking_gap": "Phi and Euler are submitted on TTSKY26a; Gamma RTL freeze pending. Need silicon validation of at least one crown before upgrade.",
+      "blocking_gap": "Await silicon return from Sky130 fab (~Nov 2026). Post-silicon validation of all three crowns required before upgrade to verified.",
       "tags": [
         "proof_debt"
       ]

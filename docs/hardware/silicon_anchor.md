@@ -120,10 +120,9 @@ The Three Crowns are **silicon milestones**, not mathematical necessities:
    phi-arithmetic stack is silicon-validated.
 
 > [!NOTE]
-> The Three Crowns are **sequential gates** to the project's hardware
-> roadmap. Phi → Euler → Gamma must each be validated before the next is
-> submitted. As of 2026-05, Phi and Euler are submitted; Gamma is in RTL
-> verification.
+> All Three Crowns were submitted together to **TTSKY26b** (May 2026).
+> Evidence: 21 closed PRs in `TinyTapeout/tinytapeout-sky-26b` updating the
+> three repos (9 for phi, 7 for euler, 5 for gamma).
 
 ---
 
@@ -131,31 +130,44 @@ The Three Crowns are **silicon milestones**, not mathematical necessities:
 
 ### 3.1 TTSKY26a Shuttle (May 2026)
 
-| Chip | Status | Shuttle | Expected Return |
-|------|--------|---------|-----------------|
-| `tt_um_trinity_nano` (Phi) | **Submitted** | TTSKY26a | ~Aug 2026 |
-| `tt_um_ghtag_trinity_gf16` (Euler) | **Submitted** | TTSKY26a | ~Aug 2026 |
-| `tt_um_trinity_max_true` (Gamma) | RTL freeze pending | TTSKY26b or 27a | ~Nov 2026 |
+| Chip | Status | Shuttle | Evidence |
+|------|--------|---------|----------|
+| `tt_um_ghtag_trinity_gf16` (original GF16) | **Submitted** | TTSKY26a | PR #322 in [TinyTapeout/tinytapeout-sky-26a](https://github.com/TinyTapeout/tinytapeout-sky-26a/pull/322) |
 
-### 3.2 Post-Silicon Validation Plan
+This was the original single-chip GF16 submission documented in the arxiv
+GF16 draft. It carries the basic `gf16_mul` / `gf16_add` / `gf16_dot4` core.
 
-When chips return from Sky130 fab:
+### 3.2 TTSKY26b Shuttle (May 2026) — Three Crowns
+
+| Crown | Repo | Module | PRs in sky-26b | Status |
+|-------|------|--------|----------------|--------|
+| **Phi** (Nano) | `gHashTag/tt-trinity-phi` | `tt_um_trinity_nano` | 9 closed | **Submitted** |
+| **Euler** (Compact) | `gHashTag/tt-trinity-euler` | `tt_um_ghtag_trinity_gf16` | 7 closed | **Submitted** |
+| **Gamma** (Full) | `gHashTag/tt-trinity-gamma` | `tt_um_trinity_max_true` | 5 closed | **Submitted** |
+
+**Total: 21 closed PRs** in [TinyTapeout/tinytapeout-sky-26b](https://github.com/TinyTapeout/tinytapeout-sky-26b/pulls?q=is%3Apr+is%3Aclosed+gHashTag),
+all opened by TinyTapeoutBot, updating the three Trinity repos.
+
+### 3.3 Post-Silicon Validation Plan
+
+When chips return from Sky130 fab (expected ~Nov 2026 for TTSKY26b):
 
 1. **Logic analyzer check:** Apply reset, verify `uo_out=0x47`, `uio_out=0xC0`
 2. **Clock sweep:** Increase clk from 1 MHz to 100 MHz, measure GF16 dot4
    throughput
 3. **Power measurement:** Monitor VDD current at 50 MHz, project GOPS/W
-4. ** conformance run:** Load [`gf16_vectors.json`](gf16_vectors.json) into
+4. **Conformance run:** Load [`gf16_vectors.json`](gf16_vectors.json) into
    chip's test-mode, compare outputs
 
-### 3.3 TTSKY26b vs TTSKY26a
+### 3.4 TTSKY26b vs TTSKY26a
 
-The README claims "TTSKY26b". The **truth** is:
-- TTSKY26a is the May 2026 shuttle that carries Phi and Euler.
-- TTSKY26b is a **planned** follow-up for Gamma and any respins.
+- **TTSKY26a** carries the original single-chip GF16 design (`tt-trinity-gf16`).
+- **TTSKY26b** carries the **Three Crowns** (`tt-trinity-phi`, `tt-trinity-euler`,
+  `tt-trinity-gamma`) — a multi-chip family with shared phi-arithmetic DNA.
 
-The "26b" claim in README.md is **forward-looking**. It should be read as
-"the 26b generation of the chip", not "already fabricated on 26b".
+Both shuttles were submitted in May 2026. The README "TTSKY26b" claim is
+**correct** for the Three Crowns. The earlier "26a only" wording in this repo
+was stale and has been corrected.
 
 ---
 
@@ -198,8 +210,8 @@ The **key insight:** for φ-structured data, GF16 on custom silicon achieves
 | Claim | README wording | Truth | Status |
 |-------|---------------|-------|--------|
 | 0x47C0 anchor | "direct silicon witness" | Designed, not yet observed | `open_conjecture` |
-| Three Crowns | "carry the canonical anchor" | Two submitted, one pending | `open_conjecture` |
-| TTSKY26b | "verified only on TTSKY26b" | 26a submitted, 26b planned | `open_conjecture` |
+| Three Crowns | "carry the canonical anchor" | All three submitted to TTSKY26b | `open_conjecture` (silicon pending) |
+| TTSKY26b | "verified only on TTSKY26b" | 21 PRs merged in sky-26b | `open_conjecture` (silicon pending) |
 | ~1 GOPS @ 50 MHz | "projected" | RTL simulation only | `open_conjecture` |
 | Hardware exclusivity | "no generic CPU reproduces" | True for exact φ-arithmetic | `verified` |
 
