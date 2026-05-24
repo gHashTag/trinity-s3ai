@@ -265,7 +265,7 @@ Trinity does **not** predict standard BSM particles (no supersymmetry, no extra 
 
 ### Trinity Cross-Check
 
-Hyper-K provides an independent long-baseline measurement of δ_CP. If DUNE is delayed, Hyper-K may provide the first >3σ CP-violation measurement in the lepton sector. Like DUNE, Hyper-K is expected to measure δ_CP in a range incompatible with 65.66° under current global-fit assumptions — making it a **secondary falsification path** for the Trinity PMNS sector.
+Hyper-K provides an independent long-baseline measurement of δ_CP. If DUNE is delayed, Hyper-K may provide the first >3σ CP-violation measurement in the lepton sector. Like DUNE, Hyper-K is expected to measure δ_CP in a range incompatible with 65.66° under current global-fit assumptions. The Trinity δ_CP prediction is already **WITHDRAWN** (>5σ excluded); Hyper-K is a secondary independent probe of the PMNS sector, not a falsification path for a withdrawn prediction.
 
 ---
 

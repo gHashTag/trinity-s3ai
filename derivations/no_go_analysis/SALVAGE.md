@@ -1,3 +1,6 @@
+# LEGACY DOCUMENT (historical salvage analysis)
+# Current status: see RESEARCH_STATUS.md and TECH_TREE.md for canonical framing.
+
 # SALVAGE.md — What to Keep, What to Archive
 
 **Project:** Trinity S3AI  

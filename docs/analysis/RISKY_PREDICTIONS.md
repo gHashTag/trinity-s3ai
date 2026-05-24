@@ -124,7 +124,9 @@ The CP violation *magnitude* is correct even if the *phase* is tensioned.
 
 ## What "Falsified" Means for Each
 
-### If delta_CP is falsified (DUNE > 100 degrees)
+### delta_CP status: WITHDRAWN (>5σ excluded, post-hoc fit)
+
+Historical note: This section originally described falsification scenarios for DUNE. The prediction is now **WITHDRAWN** under the anti-post-hoc rule. The scenarios below are preserved for historical reference only.
 The H4 -> PMNS mapping is incorrect. Possible responses:
 - The H4 geometric structure may be valid but the phase assignment is wrong
 - The PMNS matrix may require a different parametrization

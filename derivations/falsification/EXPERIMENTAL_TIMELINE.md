@@ -183,7 +183,7 @@ START: Mathematical predictions (any time)
 | **2028** | HL-LHC Run 4 start | m_H precision | Tree-level 132.88 GeV further refuted |
 | **2029** | JUNO mass ordering determination | Δm²₃₁ sign | Indirect constraint on oscillation model |
 | **2030** | Hyper-K first data | δ_CP (independent), proton decay | Cross-check of DUNE δ_CP measurement |
-| **2031** | DUNE early physics results | δ_CP ± 15° | Preliminary falsification/confirmation of P1 |
+| **2031** | DUNE early physics results | δ_CP ± 15° | P1 is **WITHDRAWN** (>5σ excluded). DUNE data independent of Trinity status. |
 | **2033** | DARWIN construction decision | m_DM ultimate sensitivity | Go/no-go for ultimate WIMP test |
 | **2035** | JUNO full statistics | sin²θ₁₂ ~0.5%, Δm²₂₁ ~0.6% | Precision test of P5 structural ratio |
 | **2035** | DUNE full 10-kt exposure | δ_CP ± 5–10° | Definitive verdict on P1 (δ_CP = 65.66°) |

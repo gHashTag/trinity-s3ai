@@ -29,7 +29,7 @@ Trinity's delta_CP = 65.66° prediction is different:
 - DUNE will give a **binary verdict** within 3-5 years
 
 **If DUNE were to measure δ_CP at ~65° (currently excluded at >5σ), Trinity would be rehabilitated.**
-**If delta_CP is falsified at ~180°, Trinity's PMNS sector is invalidated.**
+**The delta_CP = 3/φ² prediction is WITHDRAWN** (>5σ excluded, post-hoc fit). Trinity's PMNS sector retains structural claims (θ₁₂, θ₁₃, Jarlskog invariant) but the δ_CP formula is no longer an active prediction.
 Either outcome is scientifically valuable.
 
 ---

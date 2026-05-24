@@ -152,7 +152,7 @@ Here \(\varphi^2 = \varphi + 1 = (3+\sqrt{5})/2\), 3 is the number of fermion ge
 **Conclusion:** Trinity δ_CP is excluded at **>5σ** by NuFIT-6.0 + T2K+NOvA 2025. The prediction is **WITHDRAWN** (post-hoc fit). No replacement formula is introduced under the anti-post-hoc rule.
 
 **Falsification criterion:**
-> *If DUNE (2028–2032) measures δ_CP > 130° at 3σ significance, the formula \(3/\varphi^2\) is considered falsified.*
+> *Historical falsification criterion (superseded): If DUNE measured δ_CP > 130° at 3σ, the formula would have been falsified. The prediction is now **WITHDRAWN** (>5σ excluded, post-hoc fit). Anti-post-hoc rule enforced.*
 
 **Confirmation criterion:**
 > *If DUNE measures δ_CP ∈ [30°, 100°] at 3σ significance, this will be a non-trivial confirmation.*
