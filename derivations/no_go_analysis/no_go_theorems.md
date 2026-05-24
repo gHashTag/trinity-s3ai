@@ -3,7 +3,7 @@
 # The δ_CP prediction is now WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
 # See PREDICTIONS_PREREGISTERED.md for canonical assessment.
 
-# Wave 9.6: Honest Meta-Analysis of Trinity-s3ai — Obstruction Theorems
+# Wave 9.6: Honest Meta-Analysis of Trinity-s3ai — Boundary Theorems
 
 **Project:** Trinity S3AI — formalization of H4/600-cell in the NCG context  
 **Version:** Wave 9.6  
@@ -50,7 +50,7 @@ From the first wave, the Trinity-s3ai project declared the principle: **"Do not 
 - Formulas are classified by rigor: **(R) Rigorous / (S) Structural / (NF) Numerical Fit**.
 - Boundary findings are documented as thoroughly as structural results.
 
-By Wave 9.6, enough boundary findings had accumulated to formulate them **as strict obstruction theorems**. This may be the most valuable scientific contribution of the project.
+By Wave 9.6, enough boundary findings had accumulated to formulate them **as strict boundary theorems**. This may be the most valuable scientific contribution of the project.
 
 ### 1.2 Why Obstruction Theorems Are Valuable
 
@@ -74,7 +74,7 @@ There are two ways to conclude eight waves of formalization:
 
 ---
 
-## Section 2: Four Obstruction Theorems
+## Section 2: Four Boundary Theorems
 
 ---
 
@@ -93,7 +93,7 @@ There are two ways to conclude eight waves of formalization:
 | H₀ [km/s/Mpc] | 21.90 | 67.4 ± 0.5 | **~91σ** |
 | Ω_c h² | φ^(-1)π^(-1)e^(-1)/5 = 0.01447 | 0.12011 ± 0.00034 | **~311σ** |
 
-**Status:** PROVEN (Wave 8.5). All 9 Tier-3 cosmological claims falsified by Planck/DESI data.
+**Status:** NUMERICALLY REFUTED (Wave 8.5). The σ-distances are computed, not formally proven in Coq.
 
 **Physical reason for failure:**
 
@@ -112,7 +112,7 @@ The cosmological constant is determined by the vacuum energy of quantum fields �
 1. The Higgs mass prediction error is 6.2% and cannot be corrected by σ-field methods (Connes–Chamseddine restriction).
 2. The scale m_H/m_W is reproduced by (S)–(NF) class formulas, not from NCG first principles with σ.
 
-**Status:** PROVEN (Wave 5.3). Theorems S3, S4, S5 in UnimodularityAndSigma.v are proven with `Qed.` Theorem S6 is postulated as `Axiom sigma_no_go` with tag `SIGMA_NO_GO_STRUCTURAL`.
+**Status:** PARTIALLY PROVEN (Wave 5.3). Theorems S3–S5 are Qed; S6 relies on `Axiom sigma_no_go`, which is an unproven physical assumption.
 
 **What BT-2 does NOT forbid:**
 
@@ -141,7 +141,7 @@ Theorem BT-2 does not forbid the *existence* of a σ-field in a richer construct
 
 All these paths remain **open questions**, not implemented in the current formulation of Trinity-s3ai.
 
-**Status:** PROVEN within current axioms (Wave 6: ChiralityAnalysis.v, theorem Vector_like_spectrum — `Admitted [OPEN_PROBLEM]` replaced by BT-3 in this wave). D_F from Wave 8.1/8.4 confirms: the spectrum of the 480×480 Hermitian matrix is symmetric: Tr(D_F) = 0 and eigenvalues come in ± pairs.
+**Status:** PARTIALLY PROVEN (Wave 6). The vector-like spectrum is numerically verified; the 'without external mechanism' claim relies on admitted gaps.
 
 ---
 
@@ -164,7 +164,7 @@ All these paths remain **open questions**, not implemented in the current formul
 
 Yukawa coupling matrices in NCG SM arise from the finite Dirac operator D_F, whose elements are real numbers fitted to data. In the standard Chamseddine–Connes approach these are explicit parameters (`Yukawa_e`, `Yukawa_mu`, `Yukawa_tau`). The Trinity claim that these parameters are derived from H4 geometry is refuted by BT-4: the structure of 2I-multiplets fixes the **multiplicities** of eigenvalues, but not their **values**. Without additional (non-H4) input, the mass hierarchy is not reproduced.
 
-**Status:** PROVEN (Wave 8.4, DFSpectrum.v + df_analysis.md). σ = 5.62 — machine-computed.
+**Status:** NUMERICALLY COMPUTED (Wave 8.4). σ = 5.62 is a machine-computed spectral distance, not a formal Coq proof of impossibility.
 
 ---
 

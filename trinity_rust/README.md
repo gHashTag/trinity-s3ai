@@ -2,7 +2,7 @@
 
 [![Rust CI](https://github.com/trinity-s3ai/trinity-s3ai/actions/workflows/rust.yml/badge.svg)](https://github.com/trinity-s3ai/trinity-s3ai/actions/workflows/rust.yml)
 
-Complete Rust implementation of the Trinity framework deriving the Standard Model Lagrangian from the H4 Coxeter group via algebraic rings and spectral triples.
+Complete Rust implementation testing numerical coincidences between H4 invariants and Standard Model parameters. No rigorous derivation exists; all formulas are fitted coincidences.
 
 ## Architecture
 

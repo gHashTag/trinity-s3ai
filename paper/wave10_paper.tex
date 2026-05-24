@@ -179,7 +179,7 @@ investigation of the claim that H4/600-cell geometry can derive SM parameters. T
 adopted from its first wave the honesty principle \emph{``Do not lie. Be honest.''}: every gap
 in a proof is tagged \(\Admitted\) with an explicit \texttt{HONEST:~...} comment, formulas are
 classified by rigor class (Rigorous~\Rclass, Structural~\Sclass, Numerical Fit~\NFclass),
-and obstruction theorems are documented with the same care as positive ones.
+and boundary theorems are documented with the same care as positive ones.
 
 After nine waves of formalization spanning 73 Coq \texttt{.v} files and approximately
 730 \texttt{Qed} statements, the project has reached a point where the \emph{negative}
@@ -193,7 +193,7 @@ input: a chirality mechanism, external Yukawa parameters, and a sigma field.}
 \end{quote}
 
 We emphasize that this is a \emph{constructive} boundary mapping: we do not merely fail to find a
-derivation, but prove structural obstructions to its existence. In the spirit of the
+derivation, but prove structural boundaries to its existence. In the spirit of the
 Distler-Garibaldi theorem~\cite{Distler:2009dm} for E8, which transformed Lisi's
 conjecture~\cite{Lisi:2007rx} into a precisely formulated impossibility,
 Trinity-s3ai provides analogous boundary theorems for the H4 approach.
@@ -768,7 +768,7 @@ is tagged \texttt{SIGMA\_NO\_GO\_STRUCTURAL} in \texttt{UnimodularityAndSigma.v}
 \subsection{\BT{3}: Vector-like fermion spectrum}
 \label{sec:bt3}
 
-\begin{theorem}[\BT{3}; Chirality Obstruction]
+\begin{theorem}[\BT{3}; Chirality Boundary]
 \label{thm:BT3}
 Let \(D_F\) be any \(\TwoI\)-equivariant Hermitian operator on
 \(\ell^2(\TwoI) \otimes \mathbb{C}^4\) of the form~\eqref{eq:DF}.
@@ -832,7 +832,7 @@ of the 600-cell. Potential loopholes include: (a) APS boundary conditions using 
 \subsection{\BT{4}: Mass hierarchy by Schur's lemma}
 \label{sec:bt4}
 
-\begin{theorem}[\BT{4}; Mass Hierarchy Obstruction]
+\begin{theorem}[\BT{4}; Mass Hierarchy Boundary]
 \label{thm:BT4}
 Let \(G = \TwoI\) act on the fermion Hilbert space \(\HF\). By Maschke's theorem,
 \(\HF = \bigoplus_{i=1}^{9} \rho_i^{n_i}\), where \(\rho_i\) are the 9 irreducible
@@ -879,7 +879,7 @@ at \(\sigdist = 5.62\). \(\square\)
 A complementary result from Wave 9.5 (\texttt{ThreeGenerations.v}) addresses the
 number of fermion generations.
 
-\begin{proposition}[Three-generation obstruction]
+\begin{proposition}[Three-generation boundary]
 \label{prop:3gen}
 No \(\TwoI\)-equivariant decomposition of the 120-dimensional regular representation
 \(\ell^2(\TwoI)\) yields exactly three copies of the SM fermion content
@@ -922,7 +922,7 @@ contrasts the two programs.
     \midrule
     Base object & E8 (Lie algebra) & H4 (Coxeter group) \\
     Boundary mechanism & DG: SL(2,C) centralization & BT-3: antipodal symmetry \\
-    Chirality obstruction & adj(E8) self-conjugate & spectrum \(\pm\)-symmetric \\
+    Chirality boundary & adj(E8) self-conjugate & spectrum \(\pm\)-symmetric \\
     Machine formalization & none & \(\sim\)730 \(\Qed\), Coq \\
     Self-assessment & Lisi maintains claim & Project proves own BTs \\
     Key analogy & DG theorem $>$ Lisi claim & BT $>$ Trinity claim \\

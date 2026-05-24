@@ -263,7 +263,7 @@ m_4 ~ 16 GeV (tree level, before QCD corrections)
 
 This exceeds the electroweak symmetry breaking scale (v ~ 246 GeV), making the 4th generation unstable. The topological stability criterion Gamma(n) < M(n) fails for n >= 23.
 
-**This naturally explains why there are exactly three fermion generations.**
+**This is a speculative narrative. ThreeGenerations.v proves NO H4 mechanism yields 3 generations from first principles. The number 3 is empirical input, not derived output.**
 
 ### 5.4 Mass Predictions
 
