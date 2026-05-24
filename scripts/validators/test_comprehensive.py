@@ -2,17 +2,17 @@
 """
 Trinity S3AI v3.3 -- Comprehensive Test Suite
 =============================================
-Tests ALL 25 formulas + 4 predictions + infrastructure + consistency checks.
+Tests 25 fitted formulas + 4 post-hoc speculative matches + infrastructure + consistency checks.
 
 Formula Categories:
   - SG-class (7 formulas): error < 0.01%  -- "Smoking Gun" precision formulas
   - V-class  (15 formulas): error < 0.1%   -- Verified formulas
-  - Exact    (3 formulas):  error = 0%     -- Mathematically exact
+  - Tautology (3 identity statements): error = 0% -- Definitions, not physical formulas
   - Bonus    (2 formulas):  V-class extensions from formula search v3.4
-  - Predictions (4 formulas): Awaiting experimental verification
+  - Speculative fits (4 formulas): Already matched to existing data, not forward predictions
 
 Additional Tests:
-  - H4 derivation consistency (chain relations)
+  - H4 chain relation consistency (algebraic identities)
   - Koide consistency (raw data + H4-derived)
   - Projection defects (239 = 240-1, 549 = 551-2)
   - H4 subgroups (h=30=2×3×5, |H4|=14400, degrees, exponents)

@@ -43,14 +43,14 @@ A new main section inserted between the original Boundary theorems (now §4) and
 ### 2. Updated Sections
 
 #### Abstract
-- Updated Coq stats: 1375 Qed (was 1183), 0 Admitted (was 81)
+- Updated Coq stats: 1375 Qed (was 1183), 0 Admitted (was 81) [SUPERSEDED: Wave 23 canonical is 1325 Qed / 25 Admitted / 123 obligations]
 - Added F₄ Yukawa boundary finding mention
 - Added experimental consistency (JUNO, DESI) and tension (DUNE δ_CP)
 - Expanded boundary theorems from 5 to 7 Boundary theorems
 
 #### §2.4 Formal Proof Infrastructure
-- Qed: 1375 (was 1183)
-- Admitted: 0 (was 81)
+- Qed: 1375 (was 1183) [SUPERSEDED: Wave 23 canonical is 1325 Qed]
+- Admitted: 0 (was 81) [SUPERSEDED: Wave 23 canonical is 25 Admitted]
 - Added Axiom count: 77
 - Added file count: 79 .v files
 - Updated Lean 4 port: 9 modules (was 4)

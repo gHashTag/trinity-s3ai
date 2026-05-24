@@ -3,7 +3,7 @@ name = "trinity-h4-sm"
 version = "0.1.0"
 edition = "2024"
 authors = ["Trinity S3AI Framework"]
-description = "H4 Coxeter Group → Standard Model Derivation in Rust with Algebraic Rings"
+description = "H4 Coxeter Group → Standard Model numerical coincidence catalog in Rust"
 license = "MIT"
 
 [dependencies]

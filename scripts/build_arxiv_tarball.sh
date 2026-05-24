@@ -66,7 +66,7 @@ This directory contains Python validation scripts accompanying the paper
 Files
 -----
 validate_v4.py
-  Comprehensive validation of 25 SM parameter formulas against PDG 2024.
+  Numerical evaluation of 25 fitted SM parameter formulas against PDG 2024.
   Requirements: mpmath, numpy
   Run: python3 validate_v4.py
 
@@ -77,8 +77,8 @@ d4_analysis.py
   Run: python3 d4_analysis.py
 
 spectral_action.py
-  Spectral action on the 600-cell discrete Dirac operator. Computes
-  tree-level Higgs mass ~132.88 GeV (no sigma-field correction).
+  Numerical evaluation of fitted Higgs mass formula using H4 invariants.
+  Returns ~132.88 GeV (not a true spectral action derivation).
   Requirements: numpy, scipy, mpmath
   Run: python3 spectral_action.py
 

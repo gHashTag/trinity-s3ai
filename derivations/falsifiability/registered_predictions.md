@@ -7,7 +7,7 @@
 
 ---
 
-## English Abstract (arXiv-ready, ~150 words)
+## English Abstract (historical draft; project has NOT submitted to arXiv)
 
 We register falsifiable numerical predictions of the Trinity S3AI framework — a spectral triple construction on the 600-cell (H4 Coxeter group) — prior to forthcoming experimental decisions. The most critical prediction is the CP-violation phase in the lepton sector: \(\delta_{CP} = 3/\varphi^2 \approx 65.66°\), derived from the ratio of the number of fermion generations to the square of the golden ratio. This stands in ~2.7σ tension with the current NuFit 6.0 best-fit value for normal ordering (197°), and is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). The anti-post-hoc rule is enforced: no replacement formula introduced after exclusion. Additional predictions include: the vacuum frequency \(f_0 = 12.8\) THz as a quasicrystal spectroscopic signature; the dark-matter WIMP mass \(m_{DM} = \varphi^5\pi/e \approx 12.82\) GeV (testable at LZ/XENONnT); the Higgs boson mass \(m_H = 4\varphi^3 e^2 \approx 125.20\) GeV (retrospectively consistent with PDG 2024 at 0.02σ). Two predictions are already falsified: the cosmological constant formula (92 orders of magnitude off) and the lightest neutrino mass \(m_{\nu_1} = 1/(6\varphi) \approx 0.103\) eV (implies \(\Sigma m_\nu \approx 0.31\) eV, excluded at ~5σ by Planck+DESI 2024). Honest σ-distances and falsification criteria are tabulated for all predictions.
 
@@ -44,7 +44,7 @@ Forward predictions (data not yet available, future experiments):
 | P-QCD axion theta-bar | theta_bar < 1e-10 (structural) | < 1e-10 | ADMX / IAXO / CASPEr | 2027-2035 |
 | LISA phase predictions | from H4-spectrum | TBD | LISA | 2035+ |
 | M_PS mass (pseudoscalar) | M_PS approx 2.983e6 GeV | 2.983e6 GeV | Mu2e / COMET / LISA (stochastic background) | 2028-2035 |
-| delta_CP for IO | delta_CP approx 294.34 deg (IO) | 294.34 deg | JUNO / Hyper-K / DUNE (IO confirmation) | 2027-2032 |
+| delta_CP for IO | **WITHDRAWN** — delta_CP approx 294.34 deg (IO) | 294.34 deg | JUNO / Hyper-K / DUNE (IO confirmation) | 2027-2032 |
 
 Note: delta_CP = 65.655 deg (P1, normal ordering NO) is also a forward prediction for DUNE, since DUNE has not yet published final data. However, this prediction is at 2.7-3.8 sigma from the current NuFit 6.0 best-fit (see Section 3, P1).
 

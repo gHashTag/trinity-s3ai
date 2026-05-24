@@ -5,9 +5,7 @@
 
 ## Risky Predictions Framework
 
-Trinity makes three **genuinely risky predictions** -- predictions that could falsify
-the framework if they disagree with future data. This is a feature, not a bug.
-A theory that only makes safe predictions is not testable science.
+Trinity makes **one genuinely risky prediction** (sin²θ₁₃) and **two withdrawn/post-hoc fits** (δ_CP, m_νe). A framework that only makes safe predictions is not testable science; Trinity's track record is mixed.
 
 | Prediction | Risk Level | Current Tension | Experiment | Year |
 |------------|------------|-----------------|------------|------|
