@@ -14,7 +14,7 @@ This document provides a comprehensive analysis of three critical missing compon
 
 1. **Ghost Terms**: Ghost fields emerge geometrically from the BV (Batalin-Vilkovisky) spectral triple construction of Iseppi and van Suijlekom. They are **formal artifacts of quantization**, not fundamental fields, and their Lagrangian follows the standard BRST form adapted to the H4 gauge group.
 
-2. **Strong CP Problem**: The H4/spectral action framework **naturally predicts theta = 0**, providing a built-in solution to the strong CP problem. The spectral action Tr(f(D_A/Lambda)) is CP-conserving at the classical level, and the theta term (being a total derivative) does not appear. This satisfies the experimental bound theta < 10^-10 by construction.
+2. **Strong CP Problem**: ~~The H4/spectral action framework naturally predicts theta = 0, providing a built-in solution to the strong CP problem.~~ **WITHDRAWN (Wave 6, 2026-05-23).** The claim is not formally proven in `proofs/` and is refuted in `HARSH_REVIEW_v49.md` §9 (smooth spectral cutoff does not see instantons; the same D_F predicts δ_CP ≠ 0 in PMNS). See [STRONG_CP_HONEST_STATUS.md](../../STRONG_CP_HONEST_STATUS.md) for the canonical reconciliation.
 
 3. **RG Running**: Gauge couplings unify at Lambda ~ 10^15 GeV (the Connes prediction), consistent with the spectral action boundary conditions g_1 = g_2 = g_3 at the unification scale. Gravitational corrections shift unification toward the Planck scale ~ 10^19 GeV.
 

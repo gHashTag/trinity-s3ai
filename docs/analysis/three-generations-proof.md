@@ -1,3 +1,11 @@
+# LEGACY DOCUMENT (historical three-generations claim — v3.4)
+# Current status: This document contains claims that have been withdrawn or refuted.
+# BT-3 (Boundary Theorem 3) in ThreeGenerations.v proves that the 600-cell geometry
+# does NOT automatically yield three fermion generations.
+# See N_GEN_HONEST_STATUS.md and derivations/three_generations/generations_analysis.md
+# for the honest negative result: NONE of the five investigated mechanisms gives N=3.
+# 0/26 formulas are rigorous derivations from first principles.
+
 # Derivation of Exactly 3 Fermion Generations from H4/E8 Structure
 
 ## Status: POSTULATED → PROVEN

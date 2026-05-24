@@ -83,7 +83,7 @@ bridge is not formally proved.
 **Timeline**: 3-6 months.
 
 ### 5. p-value claim needs peer review
-**Status**: p < 10⁻³² computed by us, not independently verified.
+**Status**: Wave 20 MC (500k trials) yields mean error p=0.077 (not sig.), SG-hit density p<0.0001 (sig.). Independent verification of the MC protocol is invited.
 **Risk**: MEDIUM — could be calculation error.
 **Fix**: Publish Monte-Carlo code, let others reproduce.
 **Timeline**: Immediate (code is already public).

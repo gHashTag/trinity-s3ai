@@ -8,7 +8,9 @@
 
 ## Executive Summary
 
-The Trinity framework derives **all Standard Model parameters** as closed-form formulas from invariants of the H4 Coxeter group — the unique non-crystallographic Coxeter group in 4 dimensions. As of v3.6:
+> **Historical v3.6 assessment (superseded):** This document reflects the v3.6 internal status report. Several claims below have been withdrawn or corrected in subsequent waves. See `PREDICTIONS_PREREGISTERED.md`, `EPISTEMOLOGY.md`, `TECH_TREE.md`, and `WAVE20_STRENGTHENING_REPORT.md` for canonical current assessment.
+>
+> The Trinity framework **proposes** closed-form formulas for SM parameters from H4 invariants. **0/26 formulas are rigorous derivations from first principles** (Wave 20 audit). Most are fitted coincidences (S) or numerical fits (NF). As of v3.6:
 
 | Metric | Value |
 |--------|-------|
@@ -19,7 +21,7 @@ The Trinity framework derives **all Standard Model parameters** as closed-form f
 | FAIL | **0** (all 7 previously-failed formulas corrected in v3.6) |
 | Exact (0% error) | **3** |
 | Falsifiable predictions | **4** |
-| Statistical significance | **p < 10⁻³²** |
+| Statistical significance | **p < 10⁻³²** (v3.6 claim; **Wave 20 correction**: mean error p=0.077 not sig., SG-hit density p<0.0001 sig.) |
 | Coq formalization | **4/16** files compiling |
 
 **Critical v3.6 corrections**: All 7 formulas that previously FAILED (>1% error) have been corrected. The two neutrino mass-squared difference formulas (previously 99% error) now achieve **SG-class precision** (0.0003% and 0.0004%).
@@ -268,7 +270,7 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 | First-principles derivation from Lagrangian | ⬜ **OPEN** | The deepest theoretical gap — no complete RG trajectory E8→H4→SM |
 | 2-op uniqueness for 92 and 549 | ⬜ **OPEN** | Neither is unique (both have multiple derivations), but 549 is relatively rare |
 | DUNE δ_CP measurement | ⬜ **OPEN** | DUNE will measure δ_CP by 2035; Trinity prediction already **WITHDRAWN** |
-| Independent p-value verification | ⬜ **OPEN** | p < 10⁻³² computed by authors; needs peer review |
+| Independent p-value verification | ⬜ **OPEN** | Wave 20 MC (500k trials) published; peer review of protocol invited |
 | Complete E6 vs H4 proof | ⬜ **OPEN** | E6vsH4.v is hand-wavy; needs formal proof that E6 invariants cannot produce φ |
 
 ---
@@ -331,7 +333,7 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 - ✅ 27/25 formulas exist and are H4-derived
 - ✅ 11 SG-class with verifiable error calculations
 - ✅ 0 FAIL formulas (all corrected in v3.6)
-- ✅ p < 10⁻³² statistical significance
+- ✅ Wave 20 MC: SG-hit density p<0.0001 (sig.); mean error p=0.077 (not sig.)
 - ✅ 4 falsifiable predictions (testable 2028–2035)
 - ✅ Coq formalization (4/16 compiling, fixable)
 - ✅ GitHub repository with full transparency

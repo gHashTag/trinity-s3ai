@@ -249,7 +249,7 @@ The two corrected formulas reduce the failed formula count from 2 to 0. With all
 
 - **Before:** 23/25 passing (2 failures: Q01, Q06)
 - **After:** 25/25 passing (0 failures)
-- The combined p-value improves from ~10^-9 to ~10^-10 (estimated)
+- The combined p-value: Wave 20 MC (500k trials) shows mean error p=0.077 (not sig.), SG-hit density p<0.0001 (sig.)
 
 ### 4.3 Chain Consistency
 

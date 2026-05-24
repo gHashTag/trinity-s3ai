@@ -461,7 +461,7 @@
 
 1. **Koide Formula:** Trinity provides a first-principles derivation of the 2/3 coefficient from the golden ratio and the 600-cell geometry, whereas Koide originally proposed it as an empirical relation.
 
-2. **Barut/Nambu:** Trinity extends the alpha-quantization concept from masses alone to all SM parameters (couplings, mixing angles) through the unified phase equation.
+2. **Barut/Nambu:** Trinity proposes alpha-quantization-inspired formulas for SM parameters (couplings, mixing angles). **Honesty note:** 0/26 formulas are rigorous derivations from first principles (Wave 20 audit). Most are fitted coincidences, not extensions of Barut/Nambu theory.
 
 3. **E8/H4:** While Lisi attempted to use E8 as a gauge group (criticized by Distler-Garibaldi), Trinity uses E8/H4 as a mathematical scaffold for parameter relations, not as gauge group embedding. This avoids the chirality problem entirely.
 

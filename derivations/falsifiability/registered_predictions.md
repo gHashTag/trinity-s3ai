@@ -60,7 +60,7 @@ Predictions registered after the corresponding experimental data became publicly
 | m_e (electron mass, Koide) | Koide formula | 0.51100 MeV | 0.51100 MeV (PDG) | PDG | known for decades | ~0 |
 | m_mu (muon mass, Koide) | Koide formula | 105.658 MeV | 105.658 MeV (PDG) | PDG | known for decades | ~0 |
 | m_tau (tau mass, Koide) | Koide 1982 | 1776.86 MeV | 1776.86 MeV (PDG) | PDG | measured 1975+ | ~0 |
-| Three fermion generations | N=3 from H4 | 3 | 3 (established by LEP ~1989) | LEP/PDG | 1989 | tautology |
+| Three fermion generations | N=3 is **input**, not derived from H4 | 3 | 3 (established by LEP ~1989) | LEP/PDG | 1989 | tautology |
 | COS01-COS04 (cosmology) | phi/pi/e combinations | see REWRITE.md | DESI 2024 / Planck 2018 | DESI, Planck | 2024-04-03 | 2.7sigma-infinity |
 | m_H = 4*phi^3*e^2 (Higgs) | H01 | 125.20 GeV | 125.20 +/- 0.11 GeV | LHC / PDG | 2012+ | 0.02 |
 | sin2_theta_13 (reactor angle) | pi^2/(25*phi^6) | 0.02200 | 0.02224 +/- 0.00065 | PDG/NuFit | 2012+ | 0.37 |

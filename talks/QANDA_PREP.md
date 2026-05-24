@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Q&A preparation — wave13)
+# Current status: This talk prep contains claims that have been withdrawn or refuted.
+# See PREDICTIONS_PREREGISTERED.md, EPISTEMOLOGY.md, and TECH_TREE.md for canonical assessment.
+
 # Trinity S³AI — Q&A Preparation (Wave 13 Talk)
 
 **Goal:** Be honest, not defensive. Every answer should reinforce the core message: *this is a active boundary-mapping research program, reported with transparency.*
