@@ -9,7 +9,7 @@
 (* The thesis of Wave 3 W3.3 is that adding the even Clifford summand          *)
 (* Cl_4^+ to the standard Chamseddine–Connes finite algebra                    *)
 (*     A_F_std  =  C  +  H  +  M3(C)                                          *)
-(* lifts the two main no-go obstructions established in NoGoTheorems.v:        *)
+(* lifts the two main boundary theorems established in BoundaryTheorems.v:     *)
 (*                                                                             *)
 (*   - BT-2 (sigma-field): the dynamical scalar field of the spectral action   *)
 (*     becomes available as the central degree of freedom of Cl_4^+.           *)
@@ -53,7 +53,7 @@ Import ListNotations.
 (* Section 1: Real dimensions of the four summands                             *)
 (*                                                                             *)
 (* We work over R. The complex / quaternionic algebras are encoded by their    *)
-(* real dimensions. This is the same convention used in NoGoTheorems.v and    *)
+(* real dimensions. This is the same convention used in BoundaryTheorems.v and *)
 (* SpectralTripleAxioms.v.                                                     *)
 (*******************************************************************************)
 
@@ -198,7 +198,7 @@ Axiom sigma_field_in_Cl4_plus_axiom :
 
 (* MAIN THEOREM (BT-2 resolution).                                            *)
 (*                                                                             *)
-(* In NoGoTheorems.v we proved                                                *)
+(* In BoundaryTheorems.v we proved                                            *)
 (*     BT2_sigma_boundary : ... /\ a4_sigma_sources_std = 0.                     *)
 (* The statement below is the structural counterpart in the extended algebra: *)
 (* the sigma source count is strictly positive, so the *combinatorial* part  *)

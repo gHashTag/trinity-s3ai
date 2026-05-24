@@ -157,6 +157,8 @@ where M_u and M_d are the up- and down-type quark mass matrices.
 
 ### 2.2 Why H4 Naturally Predicts theta = 0
 
+> **⚠️ WITHDRAWN (Wave 6, 2026-05-23):** The entire section below presents the *original draft argument* for θ = 0. **The conclusion is withdrawn.** It is not formally proven in `proofs/` and is refuted in `HARSH_REVIEW_v49.md` §9 (smooth spectral cutoff does not see instantons; the same D_F predicts δ_CP ≠ 0 in PMNS). The text is preserved for historical transparency only. See [`STRONG_CP_HONEST_STATUS.md`](../../STRONG_CP_HONEST_STATUS.md) for the canonical reconciliation.
+
 The H4/spectral action framework provides a natural solution to the strong CP problem through **five key mechanisms**:
 
 #### Mechanism 1: Absence of theta in the Spectral Action

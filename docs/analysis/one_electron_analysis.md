@@ -300,7 +300,7 @@ The remaining ~3% discrepancy is attributed to:
 
 ### 6.2 Formula 2: Koide Q_K = 2/3
 
-The Koide formula emerges as a **geometric constraint** from H4/600-cell lattice structure. The electron's world-line must satisfy this constraint to be consistent with icosahedral symmetry. This is not fitted -- it is the unique value permitted by the democratic diagonal geometry of the 600-cell.
+The Koide formula emerges as a **numerical coincidence** in the H4/600-cell framework. The value 2/3 is not derived from H4 geometry; `KoideOrigins.v` explicitly states the Koide formula cannot be derived from H4 geometry in the Trinity framework. This is a fitted coincidence, not a unique prediction.
 
 ### 6.3 Formula 3: phi-Scaling Mass Formula
 

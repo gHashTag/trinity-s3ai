@@ -196,7 +196,7 @@ The Trinity framework uses a **mixed mass scheme**:
 | Pr | $m_p / m_e$ **[phenomenological_fit]** | $6\pi^5$ | 1836.12 | 1836.15267343(11) | 0.0019% | ★ SG | ⬜ | ✅ |
 | Σν | $\Sigma m_\nu$ **[phenomenological_fit]** | $8\phi^{-6}\pi^{-5}e^6 \cdot 10^{-1}$ eV | 0.0588 eV | $< 0.12$ eV (Planck) / $0.058$ eV (theory) | 0.007% | ★ SG | ⬜ | ✅ |
 
-**Tier 1 Summary:** 25 formulas total — 14 ★ SG class, 8 V class, 1 P class, 1 NV class (N03 corrected from NV → ★ SG 2025-07-28). 17 of 25 are tagged `[phenomenological_fit]` — see [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md).
+**Tier 1 Summary:** 25 formulas total — 13 ★ SG class, 8 V class, 3 P class, 3 NV class, 1 WITHDRAWN (N04 δ_CP). 17 of 25 are tagged `[phenomenological_fit]` — see [`derivations/catalog_audit/audit_report.md`](derivations/catalog_audit/audit_report.md).
 
 ---
 

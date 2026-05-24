@@ -9,7 +9,7 @@
 1. The mass formula `lambda = pi^4 * Tr(D^-4) / (4 * Tr(D^-2)^2)` is not derived from the spectral action principle
 2. The Hodge-Dirac operator `D = d + d^dagger` computes geometric data correctly, but the Higgs mass should come from **H4 invariants**, not raw traces
 
-**Resolution:** Replace the ad-hoc mass formula with the **Trinity spectral action formula** derived from H4 Coxeter group invariants:
+**Resolution:** Replace the ad-hoc mass formula with the **Trinity fitted formula** post-hoc selected from H4 Coxeter group invariants to match the measured Higgs mass:
 
 ```
 m_H = a_4(600-cell) * e^2 / 2 = 8*phi^3 * e^2 / 2 = 4*phi^3*e^2 = 125.202 GeV
@@ -436,7 +436,7 @@ The Python code's mass formula `lambda = pi^4 * Tr(D^-4) / (4 * Tr(D^-2)^2)` is 
 
 ### The Fix
 
-Replace the ad-hoc formula with the **Trinity spectral action formula** derived from H4 invariants:
+Replace the ad-hoc formula with the **Trinity fitted formula** selected from H4 invariants to match data:
 
 ```
 m_H = a_4(600-cell) * e^2 / 2 = 8*phi^3 * e^2 / 2 = 4*phi^3*e^2

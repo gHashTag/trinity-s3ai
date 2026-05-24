@@ -52,7 +52,7 @@ A theory that changes its predictions with each revision is not a theory. The ma
 | m_νe | φ³/(πe) ≈ 0.496 eV | 1/(6φ) ≈ 0.103 eV | 1/(6φ) ≈ 0.103 eV |
 | Σm_ν | Not stated | Not stated | φ²/(2e) ≈ 0.31 eV (in tension with Planck!) |
 
-The δ_CP prediction has shifted by **25°** across versions — from 90.2° to 77.9° to 65.66°. This is not "refinement"; it is parameter-fitting to shifting experimental central values. The newest version (Predictions.v) even claims δ_CP = 65.66° is "confirmed at 0.1σ" — a meaningless claim given the formula was selected *after* the data converged.
+The δ_CP prediction has shifted by **25°** across versions — from 90.2° to 77.9° to 65.66°. This is not "refinement"; it is parameter-fitting to shifting experimental central values. The newest version (Predictions.v) even claims δ_CP = 65.66° is "confirmed at 0.1σ" — a meaningless claim given the formula was selected *after* the data converged. **This prediction is now WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025); the anti-post-hoc rule is enforced.
 
 ### Flaw 4: Mixed Renormalization Scheme — Post-Hoc Convenience
 

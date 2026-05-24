@@ -1,6 +1,6 @@
 (******************************************************************************)
 (*                                                                            *)
-(*  NoGoTheorems.v                                                            *)
+(*  BoundaryTheorems.v (canonical file for BT-1–BT-4)                          *)
 (*                                                                            *)
 (*  Wave 9.6: Formal Boundary Theorems for H4/600-cell Standard Model           *)
 (*            Unification                                                     *)
@@ -117,7 +117,7 @@ Qed.
 
 (* BT1: Main boundary theorem for cosmology.
    The Trinity Omega_b formula is falsified at >> 5 sigma by Planck 2018. *)
-Theorem NGT1_cosmology_nogo :
+Theorem BT1_cosmology_boundary :
   (omega_b_h2_planck - trinity_omega_b) / omega_b_h2_error > 600.
 Proof.
   unfold omega_b_h2_planck, omega_b_h2_error.
@@ -202,7 +202,7 @@ Qed.
    Statement: The H4 spectral data yield exactly 1 vertex contribution to a4
    and 0 sigma contributions. A dynamical sigma field requires an additional
    input not derivable from the 600-cell alone. *)
-Theorem NGT2_sigma_nogo :
+Theorem BT2_sigma_boundary :
   (* The degree-2 invariant is the smallest H4 invariant *)
   H4_degree2_invariant = 2 /\
   (* All fundamental degrees are even (orbit-constant) *)
@@ -302,7 +302,7 @@ Proof. unfold two_I_irreps. reflexivity. Qed.
 (* BT3: Main theorem — chirality obstruction.
    The antipodal symmetry of the 600-cell forces vector-like spectrum,
    as evidenced by Tr(D_F) = 0 and spectral sigma = 5.62 >> 0.5. *)
-Theorem NGT3_chirality_nogo :
+Theorem BT3_chirality_boundary :
   (* Tr(D_F) = 0, consistent with antipodal symmetry *)
   D_F_trace = 0 /\
   (* Spectral incompatibility with SM is > threshold *)
@@ -411,7 +411,7 @@ Qed.
 (* BT4: Main theorem — mass hierarchy boundary.
    The 2I-equivariant structure forces degenerate lepton masses;
    the actual log-sigma distance from SM is >> 5. *)
-Theorem NGT4_mass_hierarchy_nogo :
+Theorem BT4_mass_hierarchy_boundary :
   (* Log-sigma^2 for trivial prediction vs SM masses *)
   (1/3) * ((ln 1)^2 + (ln ratio_mu_e_val)^2 + (ln ratio_tau_e_val)^2) > 25 /\
   (* Schur's lemma forces degeneracy in the 3-dimensional irrep *)
@@ -600,7 +600,7 @@ Theorem META_four_nogo_theorems :
   (1/3) * ((ln 1)^2 + (ln ratio_mu_e_val)^2 + (ln ratio_tau_e_val)^2) > 25.
 Proof.
   refine (conj _ (conj _ (conj _ _))).
-  - apply NGT1_cosmology_nogo.
+  - apply BT1_cosmology_boundary.
   - unfold a4_sigma_sources. lia.
   - apply D_F_trace_zero.
   - assert (H := D_F_log_sigma_exceeds_5_sq). lra.

@@ -631,9 +631,9 @@ WEEK 7-12 (Days 43-84):
   Month 4: Peer review submission pipeline (LT2)
   Month 5-6: Complete all Coq proofs, zero Admitted (LT3)
 
-MILESTONE: DUNE 2028 first data
-  → If delta_CP ≈ 65°: Nature/Science submission
-  → If delta_CP ≈ 177°: Revise PMNS sector, rest stands
+MILESTONE: DUNE 2028–2035 data
+  → ~~If delta_CP ≈ 65°: Nature/Science submission~~ **WITHDRAWN** — δ_CP = 65.66° excluded at >5σ
+  → If delta_CP ≈ 177°: Consistent with current data; PMNS sector remains open
 ```
 
 ---

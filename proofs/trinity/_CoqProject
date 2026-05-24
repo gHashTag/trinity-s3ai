@@ -90,7 +90,7 @@ AltCrystallography.v
 E8Bulk.v
 
 # Wave 4 W4.6 (Wave 3 W3.3): Extended finite algebra A_F + Cl_4^+
-# Skeleton resolution of NGT2 (sigma-field) and NGT3 (chirality)
+# Skeleton resolution of BT2 (sigma-field) and BT3 (chirality)
 ExtendedAF.v
 
 # Wave 14: Z3 tripartition of snub 24-cell

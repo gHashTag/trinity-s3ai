@@ -70,7 +70,9 @@ The Trinity a_4 = 8phi^3 gives the correct Higgs mass (125.202 GeV), but **there
 
 ---
 
-### File 2: `SpectralAction600Cell.v` -- Spectral Action Computation (PROVEN)
+### File 2: `SpectralAction600Cell.v` -- Spectral Action Computation (MATHEMATICALLY PROVEN, PHYSICALLY WRONG)
+
+> **Honesty note:** The spectral action computation is formally correct in Coq, but it predicts m_H ≈ 132.88 GeV, which is refuted at 55.6σ by the measured 125.2 GeV. The 125.2 GeV match comes from a *fitted* formula, not from the spectral action.
 
 **What's PROVEN:**
 - `phi^2 = phi + 1` (from scratch in Coq)
@@ -637,7 +639,7 @@ The Trinity framework computes couplings at a single scale but doesn't derive th
 | H4 contains phi structurally | E6vsH4.v: phi = 2cos(pi/5), H4 non-crystallographic | **PROVEN** |
 | E6 cannot explain Trinity | E6vsH4.v: E6 invariants rational, phi irrational | **PROVEN** |
 | Higgs mass = 125.202 GeV | HiggsPrediction.v: formula matches data at 0.02 sigma | **FORMULA WORKS** (not derived) |
-| 27 formulas match data | FORMULAS.md: 11 SG-class, 0 FAIL | **VERIFIED** (phenomenological) |
+| 25 Tier-1 formulas match data | FORMULAS.md: 13 SG-class, 8 V-class, 3 P-class, 3 NV-class, 1 WITHDRAWN | **VERIFIED** (phenomenological) |
 | 5 testable predictions | Predictions.v: all with interval bounds | **FALSIFIABLE** |
 
 ### What's SHAKY
@@ -655,8 +657,8 @@ The Trinity framework computes couplings at a single scale but doesn't derive th
 
 | Problem | Resolution | Date |
 |---------|-----------|------|
-| delta_CP = 77.9 deg (excluded) | Corrected to 3/phi^2 = 65.66 deg | v3.6 |
-| Higgs mass = 87.4 GeV (wrong) | Corrected formula to 125.202 GeV | v3.6 |
+| delta_CP = 77.9 deg (excluded) | **WITHDRAWN** — post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025 | v3.6 → Wave 20 |
+| Higgs mass = 87.4 GeV (spectral action) | Fitted formula 4φ³e² = 125.202 GeV replaces spectral action prediction; **not derived** | v3.6 |
 | 7 FAILED formulas | All corrected to <1% error | v3.6 |
 | Neutrino formulas (99% error) | Replaced, now SG-class | v3.6 |
 | 3 different a_4 definitions | Documented and analyzed | v3.6 |

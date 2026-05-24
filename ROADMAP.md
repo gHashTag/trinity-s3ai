@@ -150,7 +150,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 
 | # | Item | Status | Evidence |
 |---|------|--------|----------|
-| 1 | H₄/600-cell: KO-dim = 6 mod 8 | ✅ Confirmed | `proofs/trinity/KODimension.v` — sign triple (+,+,+) proved (`Qed`); off-diagonal J admitted as `PHYSICAL_AXIOM` |
+| 1 | H₄/600-cell: KO-dim = 6 mod 8 | ⚠️ Partially confirmed | `proofs/trinity/KODimension.v` — sign triple (+,+,+) proved (`Qed`); off-diagonal J is an admitted `PHYSICAL_AXIOM`, not proven |
 | 2 | D₄/24-cell: KO-dim = 5 mod 8 | ✅ Confirmed (boundary finding) | `derivations/trinity_d4/trinity_d4_analysis.md` — explicit numeric computation gives (−,+,+) → KO-dim 5, **not SM-like** |
 | 3 | η(2I) = −2 | ✅ Confirmed | `proofs/trinity/EtaInvariant.v` — `eta_poincare_nonzero`, `eta_poincare_negative`, `eta_poincare_magnitude` all `Qed` |
 | 4 | η(2T) = −3/2 | ✅ Open (convention-dependent) | `derivations/eta_2t_2o/eta_table_analysis.md` — adopted from plumbing convention η = σ/4; Dedekind-sum cross-check gives different value under natural metric |
@@ -158,7 +158,7 @@ Wave 12 is a **communication and consolidation wave**. No new physics claims are
 | 6 | Spectral action Higgs: 132.88 GeV | ✅ Refuted | `derivations/higgs_spectral_action/higgs_analysis.md` — PDG 2024: 125.10 ± 0.14 GeV; **55.6σ discrepancy** |
 | 7 | 1-loop Higgs correction | ⬜ OPEN | Wave 12.4 — can quantum effects bridge 132.88 → 125.10? |
 | 8 | E₆/E₇ explicit D_P | ⬜ OPEN | Wave 12.5 — no positive results yet |
-| 9 | All Admitted closed | ⬜ OPEN | **100 Admitted remain** in Coq (`proofs/trinity/*.v`) |
+| 9 | All Admitted closed | ⬜ OPEN | **5 real `Admitted.` remain** across the full Coq tree (`proofs/trinity/` has 0; `proofs/clifford_cl8/` has 4; `derivations/chirality/` has 1). Total unproven obligations: 25 `Admitted.` + 18 `admit` + 73 `Axiom` + 7 `Parameter` = 123. See [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md) |
 | 10 | Lean port complete | ⬜ OPEN | **6 `sorry` remain** in Lean 4 port (`derivations/lean_port/TrinityLean/`) |
 
 ### Boundary Theorems (with citations)

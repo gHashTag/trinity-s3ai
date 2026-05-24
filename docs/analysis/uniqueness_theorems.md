@@ -23,7 +23,7 @@ empirical fitting.
 | Coefficient | Uniqueness Type | H4 Origin | Formula Appearances |
 |-------------|----------------|-----------|---------------------|
 | **239** | 1-op unique (count=1) | `\|E8\| - 1` | L01, L02 |
-| **549** | Structurally unique (2 derivations, 1 structure) | `(19 x 29) - 2` | L03 |
+| **549** | NOT unique (2 distinct derivations; 41 alternative 2-op paths exist) | `(19 x 29) - 2` | L03 |
 | **720** | H4 order factor | `\|H4\| / 20` | Q04 (normalization) |
 | **120** | Binary icosahedral | `\|2I\|` | Q05b (as 127), geometric |
 | **φ** | Eigenvalue of H4 Coxeter | `2cos(π/5)` | ALL formulas |

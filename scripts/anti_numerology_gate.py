@@ -340,7 +340,7 @@ def build_section_tag_map(lines: list[str]) -> list[bool]:
 def has_refutation_theorem(text: str, def_name: str) -> bool:
     """
     Check if the file contains a Theorem/Lemma whose name or body
-    explicitly refutes or bounds this definition (e.g., NoGoTheorems.v pattern).
+    explicitly refutes or bounds this definition (e.g., BoundaryTheorems.v pattern).
     A crude check: look for the def_name near 'Refut' or 'no_go' or 'nogo'
     or 'NGT' keywords.
     """

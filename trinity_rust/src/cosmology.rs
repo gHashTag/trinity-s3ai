@@ -6,7 +6,7 @@
 
 use crate::ring::phi_pow;
 
-/// Cosmological parameters derived from H4 invariants
+/// Cosmological parameters fitted from H4 invariants; 7 of 15 Tier 3 formulas are falsified by measurement
 pub struct CosmologyConstants;
 
 impl CosmologyConstants {

@@ -49,7 +49,7 @@
 
 This document provides the detailed technical specification for embedding Trinity's 17 H4-invariant formulas for Standard Model parameters into Morató de Dalmases' 600-cell spectral triple framework. The integration achieves the following:
 
-**The Core Problem:** Morató's 600-cell spectral triple (A, H, D) proposes a connection between the geometry of the 600-cell (Coxeter group H4) and the Standard Model gauge group U(1) x SU(2) x SU(3). **Critical honesty note:** Neither Morató's construction nor Trinity's extensions *derive* three fermion generations, the gauge group, or mass formulas from first principles of H4 geometry (see `ThreeGenerations.v` BT-3, `NoGoTheorems.v` BT-1–BT-4, and `N_GEN_HONEST_STATUS.md`). The specific numerical values of Yukawa couplings, mass ratios, and mixing angles in Trinity are fitted coincidences (0/26 rigorous derivations per `audit_report.md`).
+**The Core Problem:** Morató's 600-cell spectral triple (A, H, D) proposes a connection between the geometry of the 600-cell (Coxeter group H4) and the Standard Model gauge group U(1) x SU(2) x SU(3). **Critical honesty note:** Neither Morató's construction nor Trinity's extensions *derive* three fermion generations, the gauge group, or mass formulas from first principles of H4 geometry (see `ThreeGenerations.v` BT-3, `BoundaryTheorems.v` BT-1–BT-4, and `N_GEN_HONEST_STATUS.md`). The specific numerical values of Yukawa couplings, mass ratios, and mixing angles in Trinity are fitted coincidences (0/26 rigorous derivations per `audit_report.md`).
 
 **The Solution:** We establish a precise mapping between Trinity's coefficients (L01=239, L03=549, Q07=24, etc.) and the corresponding terms in the Connes-Chamseddine spectral action S_Lambda[D] = Tr(f(D/Lambda)). Each Trinity coefficient maps to a specific entry in the Yukawa coupling matrices Y_u, Y_d, Y_e, or to combinations of Seeley-DeWitt coefficients a_{2k}(D_A^2).
 
@@ -88,7 +88,7 @@ The Hilbert space consists of square-summable functions on the 120 vertices, ten
 A_F = C ⊕ H ⊕ M_3(C)
 ```
 
-The internal algebra is derived from H4 representation theory, not postulated:
+The internal algebra A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) is **postulated** (Connes' SM ansatz), not derived from H4 representation theory:
 - C corresponds to U(1) hypercharge
 - H (quaternions) corresponds to SU(2) weak isospin
 - M_3(C) corresponds to SU(3) color

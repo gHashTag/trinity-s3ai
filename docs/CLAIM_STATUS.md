@@ -16,7 +16,7 @@ It is intentionally short. The deep audits live in
 
 Every claim in this repository — every formula, every theorem, every
 numeric match, every prediction — is in exactly one of these states.
-The same vocabulary is used by the GOLDEN BRIDGE puzzle's
+The same vocabulary is used by the GOLDEN CHAIN puzzle's
 `ClaimStatus` enum.
 
 | Status | Meaning | Where it appears in code |
@@ -39,7 +39,7 @@ This is the single rule that the rest of the policy is built on.
 
 > **A numeric coincidence is not a derivation.**
 > **A Coq `Qed.` on an interval bound is not a physical derivation.**
-> **A high score in GOLDEN BRIDGE is not evidence.**
+> **A high score in GOLDEN CHAIN is not evidence.**
 > **No statement in this repository constitutes a Theory of Everything.**
 > **No statement claims prize-level recognition.**
 
@@ -106,7 +106,8 @@ status for the project's most-referenced statements as of Wave 17.
 | RG running of gauge couplings | **verified** (as a numerical scheme) | `RGRunningExtras.v`, [`RG_RUNNING_PROVEN.md`](analysis/RG_RUNNING_PROVEN.md) |
 | E₈ plumbing η discrepancy converges to −2 | **high_risk_or_falsified** — Wave 17 reports the η discrepancy does **not** converge to −2 and that the underlying B-matrix is a heuristic, not a rigorous derivation | [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md) "Honesty Notes" |
 | String / heterotic / F-theory / orbifold compactification predicts H4 or F4 and rescues the SM mass hierarchy | **high_risk_or_falsified** — no known string compactification selects H4 or F4; toy Z₂ orbifold improves Yukawa eigenvalue ratio ~2× against required ~5000× | [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) §"Wave 17.2 Findings" |
-| DUNE / JUNO / LHC predictions for δ_CP, mass ordering, Λ_NP | **risky_prediction** under the project's own typology — treat as **open_conjecture** until data lands | [`RISKY_PREDICTIONS.md`](analysis/RISKY_PREDICTIONS.md), [`DUNE_RISKY_PREDICTION.md`](experiments/DUNE_RISKY_PREDICTION.md) |
+| DUNE / JUNO / LHC predictions for δ_CP | **withdrawn** — post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025; anti-post-hoc rule enforced | [`DELTA_CP_HONEST_STATUS.md`](DELTA_CP_HONEST_STATUS.md) |
+| DUNE / JUNO / LHC predictions for mass ordering, Λ_NP | **risky_prediction** under the project's own typology — treat as **open_conjecture** until data lands | [`RISKY_PREDICTIONS.md`](analysis/RISKY_PREDICTIONS.md), [`DUNE_RISKY_PREDICTION.md`](experiments/DUNE_RISKY_PREDICTION.md) |
 | Theory of Everything | **not claimed** | — |
 | Nobel-level / prize-worthy claim | **not claimed** | — |
 
@@ -123,7 +124,7 @@ The table in §4 is a human view of the SSOT at
 
 - the **README claim table** between `<!-- CLAIMS_TABLE:START -->` /
   `<!-- CLAIMS_TABLE:END -->` markers in [`README.md`](../README.md);
-- the **GOLDEN BRIDGE generated card data** at
+- the **GOLDEN CHAIN generated card data** at
   [`games/trinity_fold/fixtures/generated_claim_cards.json`](../games/trinity_fold/fixtures/generated_claim_cards.json),
   embedded into the wasm build at compile time via `ring3_adapters::embedded_claim_deck`.
 
@@ -153,7 +154,7 @@ generated artefacts are stale.
 | Honest counter | Comment-stripped Coq statistics | `python3 scripts/count_admitted_honest.py` |
 | Formula bounds | Error windows match what the docs claim | `python3 scripts/validators/validate_v4.py` |
 | Coq build | Every advertised `Qed.` actually closes | `cd proofs/trinity && make -f Makefile.coq` |
-| GOLDEN BRIDGE tests | Ring boundaries hold; falsified tiles floor the score | `cargo test --workspace` in `games/trinity_fold/` |
+| GOLDEN CHAIN tests | Ring boundaries hold; falsified tiles floor the score | `cargo test --workspace` in `games/trinity_fold/` |
 | Public-docs language | English-only public docs (CONTRIBUTING is bilingual by design) | manual / reviewer check |
 | Claim ledger SSOT | YAML parses, statuses/layers/kinds valid, README block and game card JSON match `docs/claims.yaml` | `python3 scripts/generate_claims.py --check` |
 

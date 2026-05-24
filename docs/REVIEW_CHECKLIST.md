@@ -31,7 +31,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 ## C. Proof debt
 
 - [ ] [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) reports the same `Admitted.` count as `python3 scripts/count_admitted_honest.py` does locally.
-- [ ] As of Wave 17 (`0832b72`), the comment-stripped real `Admitted.` count is **0** across the canonical Coq tree. Any future `Admitted.` introduced in a PR has either a published citation or an `[OPEN_PROBLEM]` label per [`admitted_log.md`](analysis/admitted_log.md).
+- [ ] As of Wave 17 (`0832b72`), the comment-stripped real `Admitted.` count is **0** in `proofs/trinity/` only. The **global** unproven-obligation count is **123** (25 `Admitted.` + 18 `admit` + 73 `Axiom` + 7 `Parameter`) per [`COQ_HONEST_STATUS.md`](../docs/status/COQ_HONEST_STATUS.md). Any future `Admitted.` introduced in a PR has either a published citation or an `[OPEN_PROBLEM]` label per [`admitted_log.md`](analysis/admitted_log.md).
 - [ ] The Wave 17 honest counter table (run `python3 scripts/count_admitted_honest.py`) shows the load-bearing line **`proofs/trinity/` → 52 files, 1063 `Qed.`+`Def.`, 0 `Admitted.`, 50 `Axiom`s, 11 refutations**, matching the README and paper claims.
 - [ ] [`docs/TECH_TREE.md`](TECH_TREE.md) Layer 2 lists the same set of open obligations and notes that BT-5..7 are paper-level (not yet Coq-formal).
 - [ ] No `Admitted.` in Coq code outside the locations enumerated in `HONESTY_MANIFEST.md` §2.
@@ -43,7 +43,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 - [ ] No document in the repository claims a Theory of Everything.
 - [ ] No document in the repository claims prize-level recognition as a fact. (Historical hype documents, if retained, are clearly framed as historical.)
 - [ ] Every multi-atom φ/π/e formula in Coq code is followed by an approved honesty tag, as enforced by `scripts/anti_numerology_gate.py`.
-- [ ] [`docs/claims.yaml`](claims.yaml) is the single source of truth for the public claim table and the GOLDEN BRIDGE generated card data; `python3 scripts/generate_claims.py --check` exits 0 (no stale artefacts).
+- [ ] [`docs/claims.yaml`](claims.yaml) is the single source of truth for the public claim table and the GOLDEN CHAIN generated card data; `python3 scripts/generate_claims.py --check` exits 0 (no stale artefacts).
 
 ## E. No secrets, no leaks
 
@@ -62,7 +62,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 
 - [ ] No README or paper text describes any result as a Theory of Everything, "unification achieved", "Nobel-level", or equivalent.
 - [ ] The word "derived" is used only where there is an actual derivation (not just a numeric match) — or qualified with "fit" / "ansatz" wording.
-- [ ] The GOLDEN BRIDGE game is described as a hypothesis-discovery puzzle, not as evidence.
+- [ ] The GOLDEN CHAIN game is described as a hypothesis-discovery puzzle, not as evidence.
 - [ ] Risky predictions are labelled as such and listed in [`RISKY_PREDICTIONS.md`](analysis/RISKY_PREDICTIONS.md) with falsification criteria.
 
 ## H. Reproducibility

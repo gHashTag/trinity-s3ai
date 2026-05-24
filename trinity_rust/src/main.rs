@@ -4,7 +4,7 @@
 //! - Algebraic rings (Q(√5) with phi-structure)
 //! - H4 Coxeter group and reflection subgroups
 //! - Spectral triple and spectral action
-//! - All SM sectors derived from H4 invariants
+//! - 0 of 26 core formulas are rigorous derivations from H4 invariants; 3 of 13 Lagrangian sectors formally proven
 //! - Validation against experimental data
 //!
 //! Usage: cargo run --release

@@ -38,6 +38,9 @@ pub enum StageStatus {
     Documented,
     Postulated,
     Risky,
+    Fitted,
+    Partial,
+    Withdrawn,
 }
 
 impl Stage {
@@ -47,6 +50,9 @@ impl Stage {
             StageStatus::Documented => "📄 DOCUMENTED",
             StageStatus::Postulated => "⚠️ POSTULATED",
             StageStatus::Risky => "🎲 RISKY",
+            StageStatus::Fitted => "📊 FITTED (retrospective coincidence)",
+            StageStatus::Partial => "🧩 PARTIAL (incomplete derivation)",
+            StageStatus::Withdrawn => "❌ WITHDRAWN (refuted or excluded)",
         };
         println!("\n═══════════════════════════════════════════════════════════════");
         println!("Stage {}: {}", self.number, self.name);
@@ -68,7 +74,7 @@ pub fn all_stages() -> Vec<Stage> {
             description: "Dechant's construction: 240 pinors of icosahedral group construct E8 roots. \
                           Folding: E8 Dynkin diagram folds onto H4 via diagram symmetry. \
                           Projection defect = 1/240 connects to H4_TTT.",
-            status: StageStatus::Proven,
+            status: StageStatus::Fitted,
             key_results: vec![
                 "E8 (240 roots) → H4 + tau*H4",
                 "H4 spinors form binary icosahedral group 2I",
@@ -107,7 +113,7 @@ pub fn all_stages() -> Vec<Stage> {
             name: "Gauge Group Derivation",
             description: "SM gauge group SU(3)_C × SU(2)_L × U(1)_Y from H4 subgroup chain. \
                           U(1)_Y emerges from orthogonal complement: rank(A2) - rank(A1) = 1.",
-            status: StageStatus::Proven,
+            status: StageStatus::Documented,
             key_results: vec![
                 "SU(3)_C ← A2 subgroup (200 conjugates)",
                 "SU(2)_L ← A1 subgroup (60 conjugates)",
@@ -120,7 +126,7 @@ pub fn all_stages() -> Vec<Stage> {
             name: "Spectral Triple (A, H, D)",
             description: "Connes-Morato construction from 600-cell. \
                           Hilbert space H = l²(H4_roots) ⊗ C⁴ (480 dim). \
-                          Algebra A_F = C ⊕ H ⊕ M₃(C) derived from H4 automorphisms.",
+                          Algebra A_F = C ⊕ H ⊕ M₃(C) is postulated (Connes' SM ansatz), not derived from H4 automorphisms.",
             status: StageStatus::Documented,
             key_results: vec![
                 "dim(H) = 480 = 120 roots × 4 spinors",
@@ -134,7 +140,7 @@ pub fn all_stages() -> Vec<Stage> {
             name: "Spectral Action",
             description: "S_Λ[D] = Tr(f(D/Λ)) expands to SM Lagrangian via heat kernel. \
                           a₄ coefficient gives gauge + Higgs + Yukawa terms.",
-            status: StageStatus::Proven,
+            status: StageStatus::Fitted,
             key_results: vec![
                 "a₄ = (5 + 6*phi)/(16*phi) ≈ 0.568 (heat kernel)",
                 "a₄(Trinity) = 8*phi³ ≈ 33.89 (Higgs mass)",
@@ -147,7 +153,7 @@ pub fn all_stages() -> Vec<Stage> {
             name: "Gauge Sector",
             description: "Gauge couplings derive from H4 invariants. \
                           Golden ratio phi appears in all three coupling formulas.",
-            status: StageStatus::Proven,
+            status: StageStatus::Fitted,
             key_results: vec![
                 "1/alpha = 36*phi*e²/pi = 137.003 (0.024%)",
                 "alpha_s = (sqrt(5)-2)/2 = 0.1180 (0.1%)",
@@ -160,9 +166,9 @@ pub fn all_stages() -> Vec<Stage> {
             name: "Higgs Sector",
             description: "Higgs mass m_H = 4*phi³*e² = 125.202 GeV (0.0017% error). \
                           Potential V(Φ) = -μ²·I₂ + λ₁·I₂² + λ₂·I₄ with H4 invariants.",
-            status: StageStatus::Proven,
+            status: StageStatus::Fitted,
             key_results: vec![
-                "m_H = 4*phi³*e² = 125.202 GeV",
+                "m_H = 4*phi³*e² = 125.202 GeV (retrospective fit)",
                 "m_W = 80.433 GeV, m_Z = 91.188 GeV",
                 "Higgs self-coupling λ = 1/phi⁴",
                 "VEV from fluctuation of Dirac operator",
@@ -174,7 +180,7 @@ pub fn all_stages() -> Vec<Stage> {
             description: "All 9 Yukawa couplings from H4 overlaps. \
                           Mass ratios from H4 coefficients {239, 549, 24, 43, ...}. \
                           3 generations from D4 triality / Γ(29).",
-            status: StageStatus::Proven,
+            status: StageStatus::Fitted,
             key_results: vec![
                 "m_μ/m_e = 239*e/pi (0.014%)",
                 "m_τ/m_μ = 239*phi⁴/pi⁴ (0.00007%, SG)",
@@ -187,9 +193,9 @@ pub fn all_stages() -> Vec<Stage> {
             name: "Mixing Matrices",
             description: "CKM and PMNS from H4 Clebsch-Gordan coefficients. \
                           |V_us| = 2*phi³*e²/(9*pi³) = 0.2243 (0.014%).",
-            status: StageStatus::Proven,
+            status: StageStatus::Fitted,
             key_results: vec![
-                "|V_us| = 0.2243, |V_cb| = 0.04053",
+                "|V_us| = 0.2243, |V_cb| = 0.04053 (numerical coincidences)",
                 "sin²θ₁₃ = pi²/(25*phi⁶) = 0.02200 (SG-class)",
                 "sin²θ₁₂ = 8*pi/(phi⁵*e²) = 0.3067",
                 "delta_CP = 3/phi² = 65.66° (RISKY: 5.6σ tension)",
@@ -200,9 +206,9 @@ pub fn all_stages() -> Vec<Stage> {
             name: "Strong CP",
             description: "θ_QCD = phi⁻¹²*pi⁻³*e⁻² < 10⁻¹⁰. \
                           Spectral action invariance + real D_F → θ = 0.",
-            status: StageStatus::Proven,
+            status: StageStatus::Withdrawn,
             key_results: vec![
-                "theta_QCD = phi^{-12}*pi^{-3}*e^{-2}",
+                "Strong CP 'solution' WITHDRAWN — see STRONG_CP_HONEST_STATUS.md",
                 "Neutron EDM < 10^{-26} e*cm",
                 "Spectral action solves strong CP",
             ],
@@ -212,9 +218,9 @@ pub fn all_stages() -> Vec<Stage> {
             name: "RG Running",
             description: "H4-derived couplings run via SM RGEs to low energy. \
                           beta_0 = 23/(12*pi). Unification at ~10¹⁶ GeV.",
-            status: StageStatus::Proven,
+            status: StageStatus::Fitted,
             key_results: vec![
-                "alpha_s runs: 0.118 → 0.330 at m_tau",
+                "alpha_s runs: 0.118 → 0.330 at m_tau (standard SM RGE, not H4-derived)",
                 "Lambda_QCD^(5) = ~88 MeV (standard 1-loop QCD)",
                 "GUT scale ~ 10^16 GeV from H4",
                 "1/alpha_GUT = phi³*e/(2*pi) ≈ 24.8",
@@ -224,12 +230,12 @@ pub fn all_stages() -> Vec<Stage> {
             number: 12,
             name: "Complete Lagrangian",
             description: "L_SM = L_gauge + L_Higgs + L_Yukawa + L_ghost. \
-                          All 13 sectors derived from H4 geometry. Completeness: 100%.",
-            status: StageStatus::Proven,
+                          Only 3 of 13 sectors formally derived from first principles; 9 are phenomenological fits and 1 is open.",
+            status: StageStatus::Partial,
             key_results: vec![
-                "13/13 sectors PROVEN (100%)",
+                "3/13 sectors formally proven; 9 phenomenological fits; 1 open",
                 "Gauge kinetic: -1/4 G² - 1/4 W² - 1/4 B²",
-                "Higgs potential: proven from spectral action",
+                "Higgs potential: fitted formula (spectral action gives wrong mass)",
                 "Ghost terms: BV spectral triple documented",
             ],
         },

@@ -6,7 +6,7 @@
 (* [phenomenological_fit] Wave 10.5: All Higgs formulas in this file are      *)
 (* empirical numerical coincidences. The Trinity formula 4*phi^3*e^2 and     *)
 (* spectral-action variant are NOT derived from H4 geometry — they are fit   *)
-(* to the PDG Higgs mass. See NoGoTheorems.v for formal refutation.          *)
+(* to the PDG Higgs mass. See BoundaryTheorems.v for formal boundary result. *)
 (*                                                                            *)
 (* Computes:                                                                  *)
 (*   1. Trinity formula: H01 = m_H = 4 * phi^3 * e^2                         *)

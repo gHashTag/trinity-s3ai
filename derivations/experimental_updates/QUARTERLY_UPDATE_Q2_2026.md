@@ -27,7 +27,7 @@ Q2 2026 was a milestone quarter for experimental neutrino physics and collider o
 - **Milestone:** KATRIN celebrated 1000 days of tritium β-decay data at a symposium at KIT on **17 April 2026**.
 - **Published limit:** m_νe < **0.45 eV** (90% CL, *Science* 388, 180–185, April 2025) from campaigns 1–5 (259 days).
 - **Outlook:** Analysis of the full 1000-day dataset is ongoing. The collaboration projects a final sensitivity of **< 0.3 eV** (90% CL).
-- **Trinity relevance:** Trinity predicts m_νe = **0.103 eV**. The current upper limit is ~4× above this value. No tension yet, but the prediction is now within a factor of ~3 of the projected final bound.
+- **Trinity relevance:** Trinity's fitted formula gives m_νe = **0.103 eV** (already falsified at ~5σ by Planck+DESI cosmological bounds; Σm_ν ≈ 0.31 eV excluded). The current upper limit is ~4× above this value. No tension with KATRIN yet, but cosmology has already excluded the value.
 - **Next phase:** TRISTAN (sterile-neutrino search) begins 2026; KATRIN++ R&D starts 2029.
 
 ### 2.2 Belle II — World Luminosity Record (March 2026)

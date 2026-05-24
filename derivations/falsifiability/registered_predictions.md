@@ -3,7 +3,7 @@
 **Project:** Trinity S3AI v3.5  
 **Registration Date:** 2026-05-22 (signed in this session)  
 **Status:** Pre-experimental lock — predictions fixed before receiving DUNE/LZ/KATRIN results  
-**Format:** arXiv-ready
+**Format:** Markdown record (paper is NOT yet submitted; see [`paper/README_paper.md`](../../paper/README_paper.md))
 
 ---
 

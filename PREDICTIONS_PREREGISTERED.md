@@ -2,7 +2,7 @@
 
 **Wave 4 of the honesty pass, refreshed in Wave 20.** Companion to [`EPISTEMOLOGY.md`](./EPISTEMOLOGY.md).
 
-**CRITICAL HONESTY DISCLAIMER (Wave 20):** This document pre-registers predictions, but *none* of them are derived from first principles. The Coq theorems listed prove **interval bounds** (`|formula - value| < ε`), not physical derivations. "Confirmed" means "numerical coincidence matches experiment within the stated window" — it does **not** mean the H4 framework predicted the value. See [`audit_report.md`](derivations/catalog_audit/audit_report.md) for the canonical classification: **0/26 formulas are rigorous derivations.**
+**CRITICAL HONESTY DISCLAIMER (Wave 20):** This document pre-registers predictions, but *none* of them are derived from first principles. The Coq theorems listed prove **interval bounds** (`|formula - value| < ε`), not physical derivations. "Confirmed" means "numerical coincidence matches experiment within the stated window" — it does **not** mean the H4 framework predicted the value. See [`audit_report.md`](derivations/catalog_audit/audit_report.md) for the canonical classification: **0/26 formulas are rigorous derivations** (26 = 25 Tier-1 core formulas + 1 withdrawn δ_CP formula).
 
 This document formally pre-registers Trinity S³AI's open predictions — those that cannot yet be adjudicated against a model-clean measurement. Each entry includes the predicted value, the Coq theorem (where applicable), the falsification threshold, and the freeze commit hash.
 
@@ -111,7 +111,7 @@ Each prediction has five fields:
 
 | Field | Value |
 |---|---|
-| **Predicted values** | Fitted formulas; see `proofs/trinity/H4Derivations.v` (0 Admitted) |
+| **Predicted values** | Fitted formulas; see `proofs/trinity/H4Derivations.v` (0 `Admitted.` in this file; 123 total unproven obligations globally per [`COQ_HONEST_STATUS.md`](../../docs/status/COQ_HONEST_STATUS.md)) |
 | **Current measurement** | PDG world averages |
 | **Agreement** | 0.024% for 1/α(0); α_s has 0.1% error (above V-class threshold); sin²θ_W is a genuine 84σ failure (see G03) |
 | **Status** | **NUMERICALLY VERIFIED (partial)** |

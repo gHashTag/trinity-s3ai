@@ -5,7 +5,7 @@
 
 Dear Professor Martinetti,
 
-The Trinity S³AI project (github.com/gHashTag/trinity-s3ai) is a machine-verified reconstruction of Standard Model structures from the H₄ Coxeter group. We have formalized in Coq the axioms of an almost-commutative spectral triple over the group algebra C[2I] (binary icosahedral group).
+The Trinity S³AI project (github.com/gHashTag/trinity-s3ai) is a Coq-formalized catalog of numerical coincidences and boundary theorems relating H₄ Coxeter group invariants to Standard Model parameters. We have formalized in Coq the axioms of an almost-commutative spectral triple over the group algebra C[2I] (binary icosahedral group). **Zero SM structures are reconstructed from H4; all numerical matches are fitted coincidences.** We have formalized in Coq the axioms of an almost-commutative spectral triple over the group algebra C[2I] (binary icosahedral group).
 
 Our MAIN OPEN PROBLEM is the first-order condition (FOC). Rather than claim a proof we do not have, we are adopting the direction your recent work has opened:
 

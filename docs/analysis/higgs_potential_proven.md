@@ -81,7 +81,7 @@ The gap arises from **mixing two different levels of approximation:**
 | Level | λ | m_H Formula | Status |
 |-------|---|-------------|--------|
 | Bare 600-cell geometry | 1/φ⁴ ≈ 0.146 | √(2/φ⁴) × 246 = 132.9 GeV | ❌ 6% high m_H |
-| Full Trinity spectral action | Derived from 4φ³e² | **4φ³e² = 125.2 GeV** | ✓ Correct |
+| Full Trinity fitted formula | 4φ³e² (phenomenological fit, not derived from spectral action) | **4φ³e² = 125.2 GeV** | ✓ Matches data |
 
 The bare λ = 1/φ⁴ does **not** include the spectral action cutoff normalization.
 The Trinity formula m_H = 4φ³e² **does** include it via the e² factor.
@@ -372,11 +372,9 @@ m_H = 4φ³e² was derived heuristically from the 600-cell spectral action, but:
 
 ### 7.2 Now: PROVEN
 
-**Current status:** The Higgs potential is **proven** from the Trinity spectral
-action with the following logic:
+**Current status:** The Higgs potential formula is a **numerical fit** to the measured Higgs mass; the spectral action itself predicts m_H ≈ 132.88 GeV (refuted at 55.6σ). The following logic rationalizes the coincidence:
 
-1. **The Trinity formula m_H = 4φ³e² = 125.2 GeV is correct** (derived from H4
-   invariants, matches experiment at 0.09%).
+1. **The Trinity formula m_H = 4φ³e² = 125.2 GeV is a retrospective fit** (not derived from H4 invariants; matches experiment at 0.09% by construction).
 
 2. **The VEV v = 246 GeV is an input** from the Fermi constant G_F, not a
    prediction of the Higgs sector alone.
@@ -450,14 +448,13 @@ The 6% VEV gap is **closed**. It was not a failure of the Trinity framework but
 an artifact of using the bare geometric Higgs coupling λ = 1/φ⁴ without the
 spectral action cutoff normalization. The corrected derivation:
 
-1. **Starts from** m_H = 4φ³e² (proven from H4 invariants)
+1. **Starts from** m_H = 4φ³e² (retrospective fit to measured Higgs mass, not derived from H4 invariants)
 2. **Uses** v = 246 GeV (measured SM input)
 3. **Derives** λ = m_H²/(2v²) ≈ 0.130 self-consistently
 4. **Satisfies** all SM Higgs sector relations
-5. **Explains** the 6% correction as a known NCG cutoff effect (within ±5–8%
-   theoretical uncertainty)
+5. **Rationalizes** the 6% correction as a possible NCG cutoff effect (unverified; no derivation from spectral action exists)
 
-**Status: POSTULATED → PROVEN (with ~6% theoretical uncertainty)**
+**Status: POSTULATED → FITTED (with ~6% theoretical uncertainty; no first-principles derivation)**
 
 The Higgs potential V(Φ) = −μ²|Φ|² + λ|Φ|⁴ with parameters derived from the
 600-cell spectral action is a **theorem-level result** in the Trinity framework,

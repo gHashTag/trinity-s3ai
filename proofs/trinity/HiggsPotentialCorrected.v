@@ -49,7 +49,7 @@ Definition m_H_measured : R := 125.09.
 Section TrinityFormula.
 
 (* The Trinity formula for the Higgs mass *)
-(* Derived from H4 Coxeter group invariants of the 600-cell *)
+(* Fitted coincidence matching H4 Coxeter group invariants to the measured Higgs mass; not derived from first principles *)
 (* m_H = 4 * phi^3 * e^2 *)
 Definition m_H_Trinity : R := 4 * phi ^ 3 * e ^ 2.
 

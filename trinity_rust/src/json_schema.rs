@@ -21,9 +21,9 @@ impl Default for ArxivSubmission {
                 "Trinity S³AI Framework".into(),
             ],
             abstract_text: concat!(
-                "We present a rigorous derivation of the Standard Model Lagrangian ",
-                "from the H4 Coxeter group using noncommutative geometry and spectral triples. ",
-                "All 61 SG-class formulas, 13 Lagrangian sectors, and 5 key theorems are proven."
+                "We present a catalog of numerical coincidences between H4 invariants ",
+                "and SM parameters using noncommutative geometry and spectral triples. ",
+                "0 of 26 core formulas are rigorous derivations; 3 of 13 Lagrangian sectors formally proven; 5 boundary theorems are proven. "
             ).into(),
             formulas: vec![
                 "φ² + 1/φ² = 3".into(),
@@ -31,7 +31,7 @@ impl Default for ArxivSubmission {
                 "sin²θ_W = 0.23122".into(),
             ],
             predictions: vec![
-                "Higgs mass: 125.09 ± 0.24 GeV".into(),
+                "Higgs mass: 125.09 ± 0.24 GeV (retrospective fit, not a prediction)".into(),
                 "Top quark mass: 173.1 ± 0.9 GeV".into(),
             ],
             validation_status: "ALL VALIDATIONS PASSED".into(),

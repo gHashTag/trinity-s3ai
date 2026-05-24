@@ -2,7 +2,7 @@
 //!
 //! Implements the Connes-Morato spectral triple (A, H, D) where:
 //! - H = l^2(H4_roots) ⊗ C^4 — Hilbert space (480 dim)
-//! - A = C ⊕ H ⊕ M_3(C) — algebra derived from H4 automorphisms
+//! - A = C ⊕ H ⊕ M_3(C) — algebra postulated (Connes' SM ansatz), not derived from H4 automorphisms
 //! - D — Dirac operator encoding 600-cell geometry
 //!
 //! The spectral action: S_Λ[D] = Tr(f(D/Λ))

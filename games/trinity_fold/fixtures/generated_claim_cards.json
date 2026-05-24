@@ -6,8 +6,8 @@
     {
       "id": "infra-game-deploy",
       "kind": "infra",
-      "name": "GOLDEN BRIDGE deploy",
-      "description": "Rust + wasm GOLDEN BRIDGE canvas builds in CI and ships to GitHub Pages. Software artefact only; carries no physics claim.",
+      "name": "GOLDEN CHAIN deploy",
+      "description": "Rust + wasm GOLDEN CHAIN canvas builds in CI and ships to GitHub Pages. Software artefact only; carries no physics claim.",
       "claim": "verified",
       "layer": "L0",
       "evidence": ".github/workflows/pages.yml; live at https://t27.ai/trinity-s3ai/",
@@ -30,11 +30,11 @@
     {
       "id": "ngt1-ngt4-coq",
       "kind": "constraint",
-      "name": "BT-1–BT-4 (Qed)",
-      "description": "Four Coq-formal impossibility results: BT-1 (no phi^a pi^b e^c fits Lambda + Omega_b), BT-2 (no sigma-field from H4 alone), BT-3 (600-cell D_F is vector-like), BT-4 (2I-equivariant D_F cannot reproduce lepton mass hierarchy).",
+      "name": "BT1-BT4 (Qed)",
+      "description": "Four Coq-formal boundary theorems: BT1 (no phi^a pi^b e^c fits Lambda + Omega_b), BT2 (no sigma-field from H4 alone), BT3 (600-cell D_F is vector-like), BT4 (2I-equivariant D_F cannot reproduce lepton mass hierarchy).","},{
       "claim": "verified",
       "layer": "L2",
-      "evidence": "proofs/trinity/BoundaryTheorems.v (BT-1, BT-2, BT-3, BT-4 all Qed)",
+      "evidence": "proofs/trinity/BoundaryTheorems.v (BT1, BT2, BT3, BT4 all Qed)",
       "owner_file": "proofs/trinity/BoundaryTheorems.v",
       "blocking_gap": "",
       "tags": [
@@ -92,14 +92,14 @@
       "layer": "L5",
       "evidence": "proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md",
       "owner_file": "docs/analysis/higgs_potential_proven.md",
-      "blocking_gap": "Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the NGT2 sigma-field obstruction.",
+      "blocking_gap": "Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the BT2 sigma-field boundary.",
       "tags": []
     },
     {
       "id": "golden-bridge-puzzle",
       "kind": "meta",
-      "name": "GOLDEN BRIDGE framing",
-      "description": "Software artefact (verified): the GOLDEN BRIDGE puzzle scores candidate boards against a fixed catalog and floors any board that contains a falsified tile. Physics meta-claim: a high in-game score is not evidence for a Theory of Everything.",
+      "name": "GOLDEN CHAIN framing",
+      "description": "Software artefact (verified): the GOLDEN CHAIN puzzle scores candidate boards against a fixed catalog and floors any board that contains a falsified tile. Physics meta-claim: a high in-game score is not evidence for a Theory of Everything.",
       "claim": "verified",
       "layer": "L6",
       "evidence": "games/trinity_fold/README.md; ring0_core::ClaimStatus enum",

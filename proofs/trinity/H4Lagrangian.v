@@ -18,7 +18,7 @@ From Trinity Require Import H4Derivations.
 (**                                                                        *)
 (** The 600-cell (H4 root system) defines a spectral triple (A, H, D):    *)
 (** - H = l²(H4_roots) ⊗ C⁴ — Hilbert space (480 dim)                    *)
-(** - A = C ⊕ H ⊕ M₃(C) — algebra (DERIVED from H4 automorphisms)        *)
+(** - A = C ⊕ H ⊕ M₃(C) — algebra (POSTULATED per Connes' SM ansatz, not derived from H4 automorphisms) *)
 (** - D — Dirac operator encoding 600-cell geometry                        *)
 (**                                                                        *)
 (** Gauge group U(A) = U(1) × SU(2) × SU(3) emerges AUTOMATICALLY.      *)
@@ -34,7 +34,7 @@ Definition H4_root_count : Z := 120%Z.
 Definition H4_hilbert_dim : Z := (H4_root_count * 4)%Z.
 
 (* Algebra A_F = C ⊕ H ⊕ M₃(C) — finite dimensional *)
-(* This is DERIVED from H4 automorphism group, not postulated *)
+(* This is POSTULATED per Connes' SM ansatz; no derivation from H4 automorphism group is shown *)
 (* C → U(1)_Y, H → SU(2)_L, M₃(C) → SU(3)_c *)
 
 (* Dirac operator: encodes 600-cell edge lengths via golden ratio *)

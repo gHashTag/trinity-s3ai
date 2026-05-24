@@ -4,7 +4,7 @@
 #
 # Generated artefacts:
 #   - README.md table (between CLAIMS_TABLE markers)
-#   - games/trinity_fold/fixtures/generated_claim_cards.json (GOLDEN BRIDGE)
+#   - games/trinity_fold/fixtures/generated_claim_cards.json (GOLDEN CHAIN)
 #
 # Status vocabulary is canonical and matches docs/CLAIM_STATUS.md §1 and the
 # Rust `ClaimStatus` enum at games/trinity_fold/crates/ring0_core/src/claim.rs:
@@ -25,7 +25,7 @@
 #   owner_file    — primary canonical owner doc / source file
 #   blocking_gap  — what would have to happen to upgrade the status (free text;
 #                   empty string if no upgrade is intended, e.g. for refutations)
-#   game_card     — metadata for the GOLDEN BRIDGE puzzle
+#   game_card     — metadata for the GOLDEN CHAIN puzzle
 #       kind        — constant | symmetry | geometry | field | constraint |
 #                     observable | infra | meta
 #       description — one-paragraph description shown on the card
@@ -48,8 +48,8 @@ generated_marker_end: "<!-- CLAIMS_TABLE:END -->"
 
 claims:
   - id: infra-game-deploy
-    title: "GOLDEN BRIDGE live canvas deployed on GitHub Pages (Rust + wasm)"
-    short_label: "GOLDEN BRIDGE deploy"
+    title: "GOLDEN CHAIN live canvas deployed on GitHub Pages (Rust + wasm)"
+    short_label: "GOLDEN CHAIN deploy"
     layer: L0
     status: verified
     evidence: ".github/workflows/pages.yml; live at https://t27.ai/trinity-s3ai/"
@@ -58,7 +58,7 @@ claims:
     game_card:
       kind: infra
       description: >-
-        Rust + wasm GOLDEN BRIDGE canvas builds in CI and ships to GitHub
+        Rust + wasm GOLDEN CHAIN canvas builds in CI and ships to GitHub
         Pages. Software artefact only; carries no physics claim.
       tags: []
 
@@ -83,18 +83,18 @@ claims:
 
   - id: ngt1-ngt4-coq
     title: "BT-1–BT-4: four formal Boundary theorems closed with `Qed.`"
-    short_label: "NGT1-NGT4 (Qed)"
+    short_label: "BT1-BT4 (Qed)"
     layer: L2
     status: verified
-    evidence: "proofs/trinity/NoGoTheorems.v (NGT1, NGT2, NGT3, NGT4 all Qed)"
-    owner_file: "proofs/trinity/NoGoTheorems.v"
+    evidence: "proofs/trinity/BoundaryTheorems.v (BT1, BT2, BT3, BT4 all Qed)"
+    owner_file: "proofs/trinity/BoundaryTheorems.v"
     blocking_gap: ""
     game_card:
       kind: constraint
       description: >-
-        Four Coq-formal impossibility results: NGT1 (no phi^a pi^b e^c fits
-        Lambda + Omega_b), NGT2 (no sigma-field from H4 alone), NGT3 (600-cell
-        D_F is vector-like), NGT4 (2I-equivariant D_F cannot reproduce lepton
+        Four Coq-formal boundary theorems: BT1 (no phi^a pi^b e^c fits
+        Lambda + Omega_b), BT2 (no sigma-field from H4 alone), BT3 (600-cell
+        D_F is vector-like), BT4 (2I-equivariant D_F cannot reproduce lepton
         mass hierarchy).
       tags: [no_go]
 
@@ -160,7 +160,7 @@ claims:
     blocking_gap: >-
       Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial.
       Any such derivation must pass the anti-numerology gate and avoid the
-      NGT2 sigma-field obstruction.
+      BT2 sigma-field boundary.
     game_card:
       kind: observable
       description: >-
@@ -170,8 +170,8 @@ claims:
       tags: []
 
   - id: golden-bridge-puzzle
-    title: "GOLDEN BRIDGE puzzle is a hypothesis-discovery game, not evidence"
-    short_label: "GOLDEN BRIDGE framing"
+    title: "GOLDEN CHAIN puzzle is a hardware-verified proof chain, not evidence"
+    short_label: "GOLDEN CHAIN framing"
     layer: L6
     status: verified
     evidence: "games/trinity_fold/README.md; ring0_core::ClaimStatus enum"
@@ -180,7 +180,7 @@ claims:
     game_card:
       kind: meta
       description: >-
-        Software artefact (verified): the GOLDEN BRIDGE puzzle scores
+        Software artefact (verified): the GOLDEN CHAIN puzzle scores
         candidate boards against a fixed catalog and floors any board that
         contains a falsified tile. Physics meta-claim: a high in-game score
         is not evidence for a Theory of Everything.

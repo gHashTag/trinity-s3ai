@@ -11,7 +11,7 @@
 (* Honesty policy:                                                            *)
 (*   - Qed: the statement is a provable mathematical fact.                    *)
 (*   - HONEST comments: flag claims that are physically motivated but not     *)
-(*     formally derived from H4 group theory in this file.                   *)
+(*     NOT formally derived from H4 group theory in this file; structurally motivated fits only. *)
 (*                                                                            *)
 (* Coq version: 8.20.1 (sandbox). User's Mac runs Rocq 9.1.1.               *)
 (* Version note: interval tactic proofs using Rabs_def1 + interval work      *)

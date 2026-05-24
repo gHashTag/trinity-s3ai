@@ -127,7 +127,7 @@ Trinity-s3ai does **not** predict a standard WIMP. The framework's dark matter c
 
 δ_CP = 65.66° was the **critical-risk** prediction in the Trinity registry. It is now **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Historically, it was:
 
-- **Mathematically fixed**: derived from H4 Coxeter geometry, not adjustable.
+- **Post-hoc fit**: found by brute-force search over φ/π/e combinations targeting an outdated PDG value; withdrawn under anti-post-hoc rule.
 - **In strong tension** with current global fits (NuFit 6.0, 2024).
 - **Binary testable**: DUNE will give a clear answer.
 

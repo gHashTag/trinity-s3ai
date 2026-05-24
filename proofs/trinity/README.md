@@ -15,12 +15,12 @@ the H4 Coxeter group and S3AI (S3 Artificial Intelligence) algebra.**
 
 | Metric | Value |
 |--------|-------|
-| **Q-series** (mass/coupling formulas) | **17 / 17** derived from H4 |
+| **Q-series** (mass/coupling formulas) | **0 / 17** rigorous derivations from H4 (all are fitted coincidences) |
 | **L-series** (lepton precision) | **3 / 3** — SG-class formulas |
 | **P-series** (predictions) | **4** with experimental tests |
 | **Total formulas** | **23** |
-| **Proof completeness** | 100% (all Qed, zero Admitted) |
-| **p-value** | **~10<sup>-9</sup>** (honest estimate, not 10<sup>-14</sup>) |
+| **Proof completeness** | 100% interval-bound Qed in `proofs/trinity/`; 123 total unproven obligations globally |
+| **p-value** | **p = 0.077** (mean error, not significant); **p < 0.0001** (SG-hit density, significant) — Wave 20 MC, 500k trials |
 
 ### SG-class formulas (0.01% tolerance)
 - **Q07** — W boson mass
