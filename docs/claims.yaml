@@ -170,7 +170,7 @@ claims:
       tags: []
 
   - id: golden-bridge-puzzle
-    title: "GOLDEN CHAIN puzzle is a hardware-verified proof chain, not evidence"
+    title: "GOLDEN CHAIN puzzle is a silicon-targeted proof chain, not evidence"
     short_label: "GOLDEN CHAIN framing"
     layer: L6
     status: verified

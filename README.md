@@ -36,7 +36,7 @@ Most unification programs publish only successes. We publish the **dead ends** t
 | **25 `Admitted.` + 123 total obligations** | No cosmetic edits. Every open gap is tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and carries a literature citation. See `COQ_HONEST_STATUS.md` for full accounting. |
 | **0 fake proofs** | The honest parser strips comments before counting. Naive `grep` finds 77; the real count is 0 in `proofs/trinity/`. |
 
-> **$TRI is not a cryptocurrency.** It is a hardware-verified compression score (bits-per-byte) measured on TTSKY26b silicon (Three Crowns submitted May 2026). You cannot mine it on a GPU.
+> **$TRI is not a cryptocurrency.** It is a compression score (bits-per-byte) benchmarked on synthetic φ-structured data; silicon validation on TTSKY26b is pending (~Nov 2026). You cannot mine it on a GPU.
 
 ---
 
@@ -68,7 +68,7 @@ living claim ledger.
 ```mermaid
 flowchart BT
     L7["L7 Publication: paper v2 / arXiv / Zenodo"] --> L6
-    L6["L6 GOLDEN CHAIN: hardware-verified chain"] --> L5
+    L6["L6 GOLDEN CHAIN: silicon-targeted chain"] --> L5
     L5["L5 Numerical Fits: 59 formulas, p-values"] --> L4
     L4["L4 NCG / Lagrangian: spectral action"] --> L3
     L3["L3 Geometry: H4 / 600-cell / Cl(8)"] --> L2
@@ -103,7 +103,7 @@ flowchart BT
 
 ## 🔗 Why $TRI Is Mined Only on TTSKY26b
 
-The Trinity S³AI knowledge chain is anchored in silicon. **$TRI** (Trinity Index) is the project's native proof-of-work metric — not a cryptocurrency, but a **hardware-verified compression score** measured in bits-per-byte (BPB) on φ-structured arithmetic.
+The Trinity S³AI knowledge chain is designed to anchor in silicon. **$TRI** (Trinity Index) is the project's native proof-of-work metric — not a cryptocurrency, but a **compression score** measured in bits-per-byte (BPB) on φ-structured arithmetic. Hardware validation is pending.
 
 ### The Chain — Three Links
 
@@ -114,7 +114,7 @@ The Trinity S³AI knowledge chain is anchored in silicon. **$TRI** (Trinity Inde
    +-------------------+   +-----------------------+   +------------------------+
    | Formal proof of   |   | Lucas chain L2 = 3    |   | BT-1..BT-4 prove which   |
    | 1,762 theorems    |   | anchored in GF(16)      |   | H4→SM paths are closed   |
-   | (Track A + B)     |   | on TTSKY26b silicon     |   | (saves field from blind  |
+   | (Track A + B)     |   | submitted for TTSKY26b  |   | (saves field from blind  |
    |                   |   |                         |   | alleys)                  |
    +-------------------+   +-----------------------+   +------------------------+
             |                         |                          |
@@ -123,12 +123,12 @@ The Trinity S³AI knowledge chain is anchored in silicon. **$TRI** (Trinity Inde
                          v
               +---------------------+
               |  GOLDEN CHAIN score  |
-              |  = hardware-verified |
+              |  = silicon-targeted |
               |  proof-of-work       |
               +---------------------+
 ```
 
-Every link is independently auditable: the Coq side builds in CI, the silicon anchor is taped out on TinyTapeout, and the boundary theorems are in `BoundaryTheorems.v` with `Qed.`
+Every link is independently auditable: the Coq side builds in CI, the silicon anchor is submitted for TinyTapeout fabrication, and the boundary theorems are in `BoundaryTheorems.v` with `Qed.`
 
 ### The Three Crowns
 
@@ -142,10 +142,10 @@ All three crowns are **designed** to carry the canonical anchor **`0x47C0`** at 
 
 ### Why GF16?
 
-- **🥇 Best BPB** (bits-per-byte) among all tested numeric formats: 4-bit GF(16) beats bf16, fp16, gf32, gf64 in compression benchmarks
+- **φ-structured step**: each quantization level approximates `φ⁻¹ ≈ 0.618`, giving **0.694-bit reduction per level** (`verified` — log₂ φ identity)
+- **Best BPB on synthetic data**: phi-4Q quantizer (4-bit) achieves raw BPB 0.125 vs 0.500 for 16-bit formats (`empirical_fit` — synthetic φ-monomial data only; real datasets untested)
 - **Optimal field size**: GF(2⁴) with primitive polynomial `x⁴ + x + 1` is the minimal field that carries 4 canonical Trinity basis vectors
-- **φ-structured step**: each quantization level approximates `φ⁻¹ ≈ 0.618`, giving **0.694-bit reduction per step**
-- **Hardware exclusivity**: no generic CPU reproduces this φ-structured Galois arithmetic efficiently; the chain is verified only on TTSKY26b silicon (Three Crowns: Phi + Euler + Gamma)
+- **Hardware exclusivity**: planned validation on TTSKY26b silicon (Three Crowns: Phi + Euler + Gamma)
 
 ### Honest performance
 
@@ -254,7 +254,7 @@ _Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_cla
 | No known string / heterotic / F-theory / orbifold compactification rescues the SM hierarchy from H4 or F4 | L4 | `high_risk_or_falsified` | ROADMAP_WAVE17_PLUS.md (Wave 17.2 Findings) | — |
 | `a4` conversion factor not fully reconciled across three derivations | L3 | `open_conjecture` | docs/analysis/a4_conversion_factor_analysis.md; docs/analysis/a4_honest_resolution.md | Produce a single derivation that all three (analytic, spectral, fit) paths agree on, or document why they cannot agree and downgrade the relevant fits. |
 | `m_H = 4 phi^3 e^2 ~ 125.1 GeV` is the Higgs mass | L5 | `empirical_fit` | proofs/trinity/HiggsPrediction.v (interval bound); docs/analysis/higgs_potential_proven.md | Derive m_H from H4 / NCG structure rather than from a (phi, e) monomial. Any such derivation must pass the anti-numerology gate and avoid the BT2 sigma-field boundary. |
-| GOLDEN CHAIN puzzle is a hardware-verified proof chain, not evidence | L6 | `verified` | games/trinity_fold/README.md; ring0_core::ClaimStatus enum | — |
+| GOLDEN CHAIN puzzle is a silicon-targeted proof chain, not evidence | L6 | `verified` | games/trinity_fold/README.md; ring0_core::ClaimStatus enum | — |
 | No Theory-of-Everything claim and no prize claim is made | L1 | `verified` | docs/CLAIM_STATUS.md §2; README.md preamble | — |
 | GF16 (1-6-9, bias 31) phi-anchored float format specified and FPGA-verified | L0 | `verified` | docs/hardware/gf16_spec.md §2–2.6; t27/conformance/FORMAT-SPEC-001.json; NeurIPS 2026 OPT paper (Prop 1–2, Thm 3); IBM DLFloat16 (ARITH 2019, layout identical, 6 differences documented) | — |
 | BPB compression benchmark: phi-4Q quantizer raw BPB 0.125 vs 0.500 for fp16/bf16/GF16 | L5 | `empirical_fit` | docs/hardware/bpb_benchmark.py; docs/hardware/bpb_results.json (generated 2026-05-25) | Extend benchmark to real physics datasets (e.g. PDG parameter vectors, MNIST weights) and verify the advantage persists outside synthetic phi-monomial data. |
