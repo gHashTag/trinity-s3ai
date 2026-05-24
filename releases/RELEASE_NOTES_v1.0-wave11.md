@@ -24,7 +24,7 @@ Wave 12 is a **consolidation and communication wave**. No new physics claims are
 | Qed theorems | 312 | ~340+ |
 | Admitted proofs | 25 | **100** |
 | Lean 4 files | 2 | 3+ (KODimension, QuaternionicLinearity, CorePhi) |
-| No-go theorems | 4 (documented) | 5 (D₄ added) |
+| Boundary theorems | 4 (documented) | 5 (D₄ added) |
 | Falsified predictions | 2 (P5, P6) | 5 (cosmology tier) + 1 (m_H tree) |
 
 > **Note:** Admitted count increased from 25 to **100** as the honest audit expanded to all `proofs/trinity/*.v` files.

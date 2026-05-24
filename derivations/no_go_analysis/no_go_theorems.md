@@ -43,9 +43,9 @@ From the first wave, the Trinity-s3ai project declared the principle: **"Do not 
 
 - Every `Admitted.` in Coq is tagged with `(* HONEST: ... *)` explaining the reason.
 - Formulas are classified by rigor: **(R) Rigorous / (S) Structural / (NF) Numerical Fit**.
-- Negative results are documented as thoroughly as positive ones.
+- Boundary findings are documented as thoroughly as structural results.
 
-By Wave 9.6, enough negative results had accumulated to formulate them **as strict obstruction theorems**. This may be the most valuable scientific contribution of the project.
+By Wave 9.6, enough boundary findings had accumulated to formulate them **as strict obstruction theorems**. This may be the most valuable scientific contribution of the project.
 
 ### 1.2 Why Obstruction Theorems Are Valuable
 
@@ -73,7 +73,7 @@ There are two ways to conclude eight waves of formalization:
 
 ---
 
-### Theorem NGT-1: Cosmological Impossibility
+### Theorem BT-1: Cosmological Impossibility
 
 **Statement:**
 
@@ -96,7 +96,7 @@ The cosmological constant is determined by the vacuum energy of quantum fields �
 
 ---
 
-### Theorem NGT-2: σ-Field Impossibility
+### Theorem BT-2: σ-Field Impossibility
 
 **Statement:**
 
@@ -109,13 +109,13 @@ The cosmological constant is determined by the vacuum energy of quantum fields �
 
 **Status:** PROVEN (Wave 5.3). Theorems S3, S4, S5 in UnimodularityAndSigma.v are proven with `Qed.` Theorem S6 is postulated as `Axiom sigma_no_go` with tag `SIGMA_NO_GO_STRUCTURAL`.
 
-**What NGT-2 does NOT forbid:**
+**What BT-2 does NOT forbid:**
 
-Theorem NGT-2 does not forbid the *existence* of a σ-field in a richer construction including H4 geometry. The prohibition is formulated within the *current* spectral triple with A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ), motivated by H4, and observations (i)–(iii) above.
+Theorem BT-2 does not forbid the *existence* of a σ-field in a richer construction including H4 geometry. The prohibition is formulated within the *current* spectral triple with A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ), motivated by H4, and observations (i)–(iii) above.
 
 ---
 
-### Theorem NGT-3: Chirality Impossible Without External Input
+### Theorem BT-3: Chirality Impossible Without External Input
 
 **Statement:**
 
@@ -128,7 +128,7 @@ Theorem NGT-2 does not forbid the *existence* of a σ-field in a richer construc
 - D_F, built from adjacency matrices and right multiplication, inherits antipodal symmetry.
 - This is **NOT** the Distler–Garibaldi theorem for H4 (the latter is formally inapplicable — H4 is not a Lie algebra, SL(2,ℂ) is not embedded in H4). This is an **independent structural argument**.
 
-**What is needed to bypass NGT-3:**
+**What is needed to bypass BT-3:**
 
 1. An explicit mechanism breaking the symmetry v ↦ -v (orbifold twisting, G₄-fluxes, etc.).
 2. Or use of a nonzero η-invariant on S³/2I (η = -2, Wave 8.3) via APS boundary conditions.
@@ -136,11 +136,11 @@ Theorem NGT-2 does not forbid the *existence* of a σ-field in a richer construc
 
 All these paths remain **open questions**, not implemented in the current formulation of Trinity-s3ai.
 
-**Status:** PROVEN within current axioms (Wave 6: ChiralityAnalysis.v, theorem Vector_like_spectrum — `Admitted [OPEN_PROBLEM]` replaced by NGT-3 in this wave). D_F from Wave 8.1/8.4 confirms: the spectrum of the 480×480 Hermitian matrix is symmetric: Tr(D_F) = 0 and eigenvalues come in ± pairs.
+**Status:** PROVEN within current axioms (Wave 6: ChiralityAnalysis.v, theorem Vector_like_spectrum — `Admitted [OPEN_PROBLEM]` replaced by BT-3 in this wave). D_F from Wave 8.1/8.4 confirms: the spectrum of the 480×480 Hermitian matrix is symmetric: Tr(D_F) = 0 and eigenvalues come in ± pairs.
 
 ---
 
-### Theorem NGT-4: Mass Hierarchy Cannot Be Reproduced Without External Yukawa
+### Theorem BT-4: Mass Hierarchy Cannot Be Reproduced Without External Yukawa
 
 **Statement:**
 
@@ -157,7 +157,7 @@ All these paths remain **open questions**, not implemented in the current formul
 
 **Key argument:**
 
-Yukawa coupling matrices in NCG SM arise from the finite Dirac operator D_F, whose elements are real numbers fitted to data. In the standard Chamseddine–Connes approach these are explicit parameters (`Yukawa_e`, `Yukawa_mu`, `Yukawa_tau`). The Trinity claim that these parameters are derived from H4 geometry is refuted by NGT-4: the structure of 2I-multiplets fixes the **multiplicities** of eigenvalues, but not their **values**. Without additional (non-H4) input, the mass hierarchy is not reproduced.
+Yukawa coupling matrices in NCG SM arise from the finite Dirac operator D_F, whose elements are real numbers fitted to data. In the standard Chamseddine–Connes approach these are explicit parameters (`Yukawa_e`, `Yukawa_mu`, `Yukawa_tau`). The Trinity claim that these parameters are derived from H4 geometry is refuted by BT-4: the structure of 2I-multiplets fixes the **multiplicities** of eigenvalues, but not their **values**. Without additional (non-H4) input, the mass hierarchy is not reproduced.
 
 **Status:** PROVEN (Wave 8.4, DFSpectrum.v + df_analysis.md). σ = 5.62 — machine-computed.
 
@@ -165,7 +165,7 @@ Yukawa coupling matrices in NCG SM arise from the finite Dirac operator D_F, who
 
 ## Section 3: Proof Sketches
 
-### 3.1 NGT-1: Proof by Direct Verification
+### 3.1 BT-1: Proof by Direct Verification
 
 **Lemma 1.1 (numerical):** For any a, b, c, d ∈ ℤ with |a|, |b|, |c| ≤ 200 and d ∈ {0, 1, 2}:
 ```
@@ -179,7 +179,7 @@ Yukawa coupling matrices in NCG SM arise from the finite Dirac operator D_F, who
 ```
 Source: Planck Collaboration 2020, DOI: 10.1051/0004-6361/201833910.
 
-### 3.2 NGT-2: Proof from UnimodularityAndSigma.v
+### 3.2 BT-2: Proof from UnimodularityAndSigma.v
 
 **Theorem S3** (Coq, Qed): `H4_degree2_is_constant_on_orbit` — degree-2 invariant is constant on the H4 orbit, hence not a dynamical field.
 
@@ -189,9 +189,9 @@ Source: Planck Collaboration 2020, DOI: 10.1051/0004-6361/201833910.
 
 **Axiom sigma_no_go** (tag SIGMA_NO_GO_STRUCTURAL): axiomatically fixed after analytical arguments.
 
-**Independent argument (Higgs mass):** The 6.2% error in Higgs mass (Wave 5.3) cannot be corrected without a σ-field. If there is no σ-field (NGT-2), then the 6.2% error is a **lower bound on the error** of H4-predicted m_H.
+**Independent argument (Higgs mass):** The 6.2% error in Higgs mass (Wave 5.3) cannot be corrected without a σ-field. If there is no σ-field (BT-2), then the 6.2% error is a **lower bound on the error** of H4-predicted m_H.
 
-### 3.3 NGT-3: Proof from the Structure of 2I
+### 3.3 BT-3: Proof from the Structure of 2I
 
 **Step 1:** 2I is a group of order 120, closed under multiplication and inversion. The element -1 (antipode) lies in Z(2I) — the center of the group.
 
@@ -207,7 +207,7 @@ because the adjacency matrix A is also antipodally symmetric (v and -v have the 
 
 **Confirmation:** Wave 8.4 numerically: Tr(D_F) = 0, eigenvalues of the 480×480 matrix are symmetric.
 
-### 3.4 NGT-4: Proof from Representation Theory of 2I
+### 3.4 BT-4: Proof from Representation Theory of 2I
 
 **Step 1:** Maschke's theorem: finite groups are completely reducible. 2I has 9 irreducible representations ρ₁,...,ρ₉ with dimensions {1,2,3,4,5,6,4,2,2}.
 
@@ -223,9 +223,9 @@ because the adjacency matrix A is also antipodally symmetric (v and -v have the 
 
 ### 4.1 Survivability Table
 
-| Trinity Claim | Status after NGT | Justification |
+| Trinity Claim | Status after BT | Justification |
 |---------------|-----------------|---------------|
-| "H4 derives the Standard Model" | **REFUTED** | NGT-1,2,3,4 collectively |
+| "H4 derives the Standard Model" | **REFUTED** | BT-1,2,3,4 collectively |
 | "α is computed from H4" | **REFUTED** | Wave 3, alpha_from_H4_refuted (Qed) |
 | "Λ = φ^(-144)/2" | **FALSIFIED** | Wave 7, ~118 orders deviation |
 | "δ_CP = 3/φ² = 65.66°" | **FALSIFIABLE** | Wave 3, ~2.7σ deviation; DUNE 2028 will answer |
@@ -237,12 +237,12 @@ because the adjacency matrix A is also antipodally symmetric (v and -v have the 
 | D = R_i satisfies first order exactly | **SURVIVES** | Wave 8.1, Qed |
 | Unimodularity via chain H4 → A4 → SU(5) | **SURVIVES** | Wave 5.3, U1–U7 with Qed |
 | Numerical catalog with error tags | **SURVIVES** | 25 formulas with honest tags (NF/S) |
-| σ-field from H4 | **REFUTED** | NGT-2, Wave 5.3 |
-| Chirality from 600-cell | **REFUTED** | NGT-3, Wave 6 |
+| σ-field from H4 | **REFUTED** | BT-2, Wave 5.3 |
+| Chirality from 600-cell | **REFUTED** | BT-3, Wave 6 |
 
 ### 4.2 Positive Core of the Project
 
-Despite theorems NGT-1–4, the project has a **positive core** that represents scientific value:
+Despite theorems BT-1–4, the project has a **positive core** that represents scientific value:
 
 **1. Formal framework (340 Qed):**  
 The Coq formalization of H4/600-cell is one of the first in the world of machine-verified formalizations of this structure. The framework itself (CorePhi.v, SpectralExtras.v, DiracOperator.v, EtaInvariant.v) has value independent of physical claims.
@@ -254,7 +254,7 @@ The structural correspondence is nontrivial and remains valid. This means that t
 The binary icosahedral group 2I ⊂ SU(2) provides a canonical embedding of ℍ into the algebra A_F. This is an algebraic fact that remains motivation for the ℍ-structure in NCG regardless of the failure of the full SM derivation.
 
 **4. η = -2 on S³/2I:**  
-A nonzero η-invariant is a *necessary condition* for chirality. The full mechanism is not built (NGT-3), but the necessary condition is satisfied.
+A nonzero η-invariant is a *necessary condition* for chirality. The full mechanism is not built (BT-3), but the necessary condition is satisfied.
 
 **5. Honest catalog of 25 formulas:**  
 The catalog of NF/S formulas with measured accuracies, honest tags, and Coq verification of inequalities procedure is methodologically exemplary.
@@ -268,7 +268,7 @@ Systematic refutation of cosmological claims with specific σ-distances — this
 
 ### 5.1 Key Thesis
 
-**An honest negative result is publishable. A failed positive claim is not.**
+**An honest boundary theorem is publishable. A failed positive claim is not.**
 
 The history of physics is full of examples:
 - The obstruction theorem for a "theory of everything" in E8 (Distler–Garibaldi 2010, CMP) — refuted Lisi's approach, but became an important paper.
@@ -284,13 +284,13 @@ Title: *"H4 and the 600-cell in Noncommutative Geometry: Four Obstruction Theore
 
 **Option B: Studies in History and Philosophy of Modern Physics (SHPMP)**  
 Suitable for: methodological works on the role of formalization and machine verification in theoretical physics.  
-Strategy: present the Coq formalization as a new methodological tool; negative results as a demonstration of the method.  
+Strategy: present the Coq formalization as a new methodological tool; boundary theorems as a demonstration of the method.  
 Title: *"Machine-Verified Obstruction Theorems in Speculative Physics: The Trinity-s3ai Case Study"*
 
 **Option C: arXiv (math-ph or hep-th)**  
 Suitable for: more technical works without journal requirements.  
 Strategy: pure technical report with Coq code.  
-Title: *"Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification"*
+Title: *"Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Standard Model Unification"*
 
 **Option D: Journal of Mathematical Physics (JMP)**  
 Suitable for: formalization of H4 as a mathematical object, independent of physical ambitions.  
@@ -302,7 +302,7 @@ Strategy: 340 Qed, structure of 2I, η-invariant — mathematically new results.
 1. Introduction: H4/600-cell in physics — motivation and prior work
 2. Formal framework: Coq formalization of H4 (340 Qed)
 3. Positive structural results: KO-dim, 2I, η
-4. Four obstruction theorems (NGT-1 through NGT-4)
+4. Four obstruction theorems (BT-1 through BT-4)
 5. Proof sketches and machine verification
 6. Comparison with E8/Lisi (DG2010)
 7. Conclusion: salvage value and open questions
@@ -312,7 +312,7 @@ Appendix: Coq code, catalog of 25 formulas with honest tags
 ### 5.4 What NOT to Do
 
 - Do not claim "derivation of the Standard Model" — this is refuted.
-- Do not hide NGT in appendices — they should be in the main text.
+- Do not hide BT in appendices — they should be in the main text.
 - Do not call NF formulas "predictions" without explicit tags.
 - Do not claim that δ_CP = 65.66° is a "prediction" (it is a falsifiable statement with pending status).
 
@@ -335,20 +335,20 @@ Appendix: Coq code, catalog of 25 formulas with honest tags
 | Aspect | E8/Lisi | Trinity-s3ai |
 |--------|---------|-------------|
 | Base group | E8 (Lie algebra) | H4 (Coxeter group) |
-| Type of no-go | D–G theorem (chirality) | NGT-1–4 (structural) |
+| Type of boundary | D–G theorem (chirality) | BT-1–4 (structural) |
 | Role of formalization | Absent | 340 Qed, Coq |
-| Honesty | Lisi continues to defend | Project acknowledges NGT |
-| Value of negative result | D–G >> Lisi | NGT >> Trinity-claims |
+| Honesty | Lisi continues to defend | Project acknowledges BT |
+| Value of boundary theorem | D–G >> Lisi | BT >> Trinity-claims |
 
-**Key difference:** Trinity-s3ai *itself* formulates theorems about its own impossibility. This is **epistemically stronger** than if NGT were formulated by an external critic.
+**Key difference:** Trinity-s3ai *itself* formulates theorems about its own impossibility. This is **epistemically stronger** than if BT were formulated by an external critic.
 
 ### 6.2 Other "Failed" Theories That Became Valuable
 
 **The Λ catastrophe (cosmological constant problem, Weinberg 1989):**  
-Negative result: impossibility of explaining the smallness of Λ from symmetry principles. Became one of the most cited works in physics.
+Boundary finding: impossibility of explaining the smallness of Λ from symmetry principles. Became one of the most cited works in physics.
 
 **Absence of monopoles in the SM (t'Hooft 1974):**  
-Negative result (no monopoles in the SM in observable quantities) became motivation for extensions.
+Boundary finding (no monopoles in the SM in observable quantities) became motivation for extensions.
 
 **Coleman–Mandula theorem (1967):**  
 Supersymmetry became the only "bypass" precisely because all other paths were closed by this theorem.
@@ -382,12 +382,12 @@ This restriction is **informative** in itself: it tells theorists what to look f
 | QuaternionicLinearity.v: 2I-structure | QuaternionicLinearity.v | Qed |
 | UnimodularityAndSigma.v: Unimodularity (U1–U7) + sigma_no_go | UnimodularityAndSigma.v | Qed+Axiom |
 | RGRunningExtras.v: alpha_from_H4_refuted | RGRunningExtras.v | Qed |
-| NoGoTheorems.v: NGT-1–4 (this wave) | NoGoTheorems.v | Qed |
+| BoundaryTheorems.v: BT-1–4 (this wave) | NoGoTheorems.v | Qed |
 
 ### 7.2 Physical Results (Preserve)
 
 - **25 formulas with NF/S tags** and verified accuracies — honest catalog.
-- **9 falsified Tier-3 formulas** with σ-distances — negative result for the record.
+- **9 falsified Tier-3 formulas** with σ-distances — boundary finding for the record.
 - **δ_CP = 65.66°** — remains a falsifiable prediction (DUNE 2028).
 - **KO-dim = 6 mod 8** — positive structural result.
 
@@ -402,10 +402,10 @@ This restriction is **informative** in itself: it tells theorists what to look f
 
 | Claim | Reason |
 |-------|--------|
-| "Trinity derives the SM" — headline | Refuted by NGT-1–4 |
+| "Trinity derives the SM" — headline | Refuted by BT-1–4 |
 | Tier-3 cosmological formulas as "predictions" | Falsified |
 | Claim of deriving α from H4 | alpha_from_H4_refuted (Qed) |
-| σ-field from H4 structure | sigma_no_go (NGT-2) |
+| σ-field from H4 structure | sigma_boundary (BT-2) |
 | "Catalog formulas are rigorous derivations" | 0/25 of class R |
 
 ### 7.5 Proposed Renaming
@@ -422,17 +422,17 @@ This accurately reflects what the project has done: it **honestly and formally**
 
 | Aspect | Result |
 |--------|--------|
-| No-go theorems | **4** (NGT-1 through NGT-4) |
-| Of which machine-proven | NGT-2 (partially, Qed), NGT-4 (numerically, σ=5.62) |
-| Of which analytically proven | NGT-1 (Planck data + lemma), NGT-3 (structure of 2I) |
+| Boundary theorems | **4** (BT-1 through BT-4) |
+| Of which machine-proven | BT-2 (partially, Qed), BT-4 (numerically, σ=5.62) |
+| Of which analytically proven | BT-1 (Planck data + lemma), BT-3 (structure of 2I) |
 | Trinity claims surviving | **6** (KO-dim, 2I, η, D=R_i, unimodularity, catalog) |
 | Trinity claims refuted | **8** (SM-derivation, α, Λ, σ-field, chirality, D_F spectrum, Tier-3) |
 | Status of δ_CP = 65.66° | Awaiting DUNE 2028 |
 | Publication recommendation | **arXiv hep-th + Foundations of Physics** |
-| Proposed title | "Trinity-s3ai: A Constructive Negative Result on H4-Based Unification" |
+| Proposed title | "Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Unification" |
 
 ---
 
-*Honest final assessment of eight waves of formalization. A negative result is also a result. Especially when it is machine-verified.*
+*Honest final assessment of eight waves of formalization. A boundary theorem is also a result. Especially when it is machine-verified.*
 
 **End of document — Wave 9.6, June 2026.**

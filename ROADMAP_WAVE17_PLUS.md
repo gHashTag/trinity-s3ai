@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-Wave 17.2 investigated whether string theory mechanisms (heterotic E₈×E₈, Type IIB flux, F-theory GUTs) or orbifold symmetry breaking could rescue the F₄/H₄ program after the failures of Waves 14.4 (NGT-6: no σ-field) and 16.1 (no natural 3-generation hierarchy).
+Wave 17.2 investigated whether string theory mechanisms (heterotic E₈×E₈, Type IIB flux, F-theory GUTs) or orbifold symmetry breaking could rescue the F₄/H₄ program after the failures of Waves 14.4 (BT-6: no σ-field) and 16.1 (no natural 3-generation hierarchy).
 
 **Verdict: The string correspondence is too weak to provide predictive power.**
 
@@ -83,7 +83,7 @@ See `derivations/string_correspondence/orbifold_yukawa_test.py`.
 
 ### Direction C: Formal Negative-Result Publication
 
-**Goal:** Publish the Obstruction Theorems (NGT-1 through NGT-6) as a contribution to mathematical physics.
+**Goal:** Publish the Obstruction Theorems (BT-1 through BT-6) as a contribution to mathematical physics.
 
 | Action | Priority | Owner | Deadline |
 |--------|----------|-------|----------|
@@ -91,7 +91,7 @@ See `derivations/string_correspondence/orbifold_yukawa_test.py`.
 | C2. Submit to SIGMA (Symmetry, Integrability and Geometry) or similar math-phys journal | 🟢 Exploration | Wave 20 | 2026-08 |
 | C3. Archive Coq proofs with Zenodo + permanent DOI | 🟡 Important | Wave 19 | 2026-07 |
 
-**Rationale:** Negative results are scientifically valuable. The Coq formalization of NGT-1–6 is a genuine methodological achievement.
+**Rationale:** Boundary theorems are scientifically valuable. The Coq formalization of BT-1–6 is a genuine methodological achievement.
 
 ### Direction D: Orbifold / Discrete Symmetry (Deprecated unless new evidence)
 
@@ -99,7 +99,7 @@ See `derivations/string_correspondence/orbifold_yukawa_test.py`.
 
 Wave 17.2 showed that naive orbifold breaking does not help. Deeper orbifold analysis would require:
 - Identifying a genuine Z₂ symmetry of the 600-cell that acts non-trivially on Yukawa couplings.
-- Proving that twisted sectors of such an orbifold carry the needed σ-field (circumventing NGT-6).
+- Proving that twisted sectors of such an orbifold carry the needed σ-field (circumventing BT-6).
 - Constructing a Froggatt-Nielsen charge from H₄ invariants.
 
 These are PhD-level problems. Without a concrete breakthrough, do not allocate further waves.
@@ -113,7 +113,7 @@ These are PhD-level problems. Without a concrete breakthrough, do not allocate f
 | Track A (F₄/H₄) generates no publishable physics | High | High | Pivot to data paper (Direction A) or boundary-result paper (Direction C). |
 | Track B (Cl(8)) also hits obstruction theorems | Medium | High | Maintain honest admitted_log; do not overclaim. |
 | Honest p-value shows catalog is no better than random | Medium | Medium | Pre-register analysis protocol; report regardless of sign. |
-| Reviewers reject boundary-result paper | Low | Medium | Target journals that explicitly welcome negative results (e.g., PLOS ONE, SIGMA). |
+| Reviewers reject boundary-result paper | Low | Medium | Target journals that welcome obstruction theorems and methodological papers (e.g., PLOS ONE, SIGMA). |
 
 ---
 
@@ -123,7 +123,7 @@ These are PhD-level problems. Without a concrete breakthrough, do not allocate f
 |-------|-------------------|------------------|-------------------|
 | A — Phenomenology | 2 waves | Data paper + updated catalog | p-value computed honestly |
 | B — Cl(8) formalization | 4 waves | Coq proofs for Cl(8) triality | T1–T3 Qed, 0 new Admitted |
-| C — Negative-result paper | 1 wave | Submitted manuscript | NGT-1–6 clearly stated |
+| C — Negative-result paper | 1 wave | Submitted manuscript | BT-1–6 clearly stated |
 | D — Orbifold rescue | 0 waves (on hold) | — | Resume only if toy model improves >1000× |
 
 ---

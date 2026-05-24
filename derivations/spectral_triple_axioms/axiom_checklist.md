@@ -399,7 +399,7 @@ Honest answer: **Not yet — but the structural signs are encouraging.**
    `proofs/trinity/QuaternionicLinearity.v` — quaternionic structure, 15 Qed.
 
 8. **Trinity S3AI — UnimodularityAndSigma.v** (Wave 5.3):
-   `proofs/trinity/UnimodularityAndSigma.v` — unimodularity + sigma no-go.
+   `proofs/trinity/UnimodularityAndSigma.v` — unimodularity + sigma boundary.
 
 9. **Trinity S3AI — ChiralityAnalysis.v** (Wave 6):
    `proofs/trinity/ChiralityAnalysis.v` — Distler–Garibaldi, chirality.

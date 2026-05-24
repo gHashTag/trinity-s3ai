@@ -85,7 +85,7 @@
 |---------|------|------|
 | **Data in Brief** (Elsevier) | Dedicated data journal | APC ~$600 |
 | **Scientific Data** (Nature) | High impact | Very competitive; requires novelty |
-| **PLOS ONE** | Welcomes negative results; no APC for some | Broad scope may mean less visibility |
+| **PLOS ONE** | Welcomes methodological and data papers; no APC for some | Broad scope may mean less visibility |
 | **SIGMA** | Math-physics focus; free OA | May want more theory |
 
 ---

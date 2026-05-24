@@ -10,12 +10,12 @@
 ## Slide 1: Title (0:00–0:30)
 
 **What to say:**
-> "Good afternoon. Thank you for being here. Today I want to tell you about a two-year project called Trinity S³AI — and I will spoil the ending right away. The question we asked was: can the Standard Model of particle physics be derived from the geometry of the H₄ Coxeter group and its 600-cell polytope? The answer is no. But the journey to that 'no' turned out to be surprisingly rich — it produced machine-checked theorems, falsifiable predictions, and what I think is a model for how negative results should be reported in our field."
+> "Good afternoon. Thank you for being here. Today I want to tell you about a two-year project called Trinity S³AI — and I will spoil the ending right away. The question we asked was: can the Standard Model of particle physics be derived from the geometry of the H₄ Coxeter group and its 600-cell polytope? The answer is no. But the journey to that 'no' turned out to be surprisingly rich — it produced machine-checked theorems, falsifiable predictions, and what I think is a model for how boundary findings should be reported in our field."
 
 **Key phrases to emphasize:**
 - *"spoiler: the answer is no"* — say it with a slight smile; disarms the audience.
 - *"machine-checked theorems"* — pause after this.
-- *"model for how negative results should be reported"* — this is the framing.
+- *"model for how boundary findings should be reported"* — this is the framing.
 
 **Transition:**
 > "Before I show you why it fails, let me explain why anyone thought it might work."
@@ -91,10 +91,10 @@
 ## Slide 6: Table of Obstruction Theorems (8:00–9:30)
 
 **What to say:**
-> "We proved five No-Go theorems — all Qed in Coq. One: no sigma-field exists in H₄ geometry. Two: no three-generation structure emerges from H₄. Three: the D₄ alternative gives KO-dimension five mod eight, not six. Four: the spectral-action prediction for the Higgs mass is one hundred thirty-two point eight eight GeV. Five: E₆ and E₇ plumbing also mismatch. Every refutation is a formal theorem, not a heuristic argument. This is the core of the talk: the hypothesis is dead, but it died with a certificate."
+> "We proved five Boundary theorems — all Qed in Coq. One: no sigma-field exists in H₄ geometry. Two: no three-generation structure emerges from H₄. Three: the D₄ alternative gives KO-dimension five mod eight, not six. Four: the spectral-action prediction for the Higgs mass is one hundred thirty-two point eight eight GeV. Five: E₆ and E₇ plumbing also mismatch. Every refutation is a formal theorem, not a heuristic argument. This is the core of the talk: the hypothesis is dead, but it died with a certificate."
 
 **Key phrases to emphasize:**
-- *"five No-Go theorems — all Qed in Coq"* — slap the table lightly if you do that.
+- *"five Boundary theorems — all Qed in Coq"* — slap the table lightly if you do that.
 - *"formal theorem, not a heuristic argument"* — contrast with typical physics folklore.
 - *"died with a certificate"* — memorable phrase; own it.
 
@@ -167,7 +167,7 @@
 ## Slide 11: Conclusion — What Survives? (16:30–18:00)
 
 **What to say:**
-> "On the left, what survives: KO-dimension six mod eight for H₄; eta equals minus two on the spherical space form; the fact that the binary icosahedral group motivates the quaternionic part of the algebra; the machine-verified honesty framework; and four rigorous No-Go theorems. On the right, what does not survive: the claim that H₄ derives the Standard Model — refuted. The claim that H₄ predicts one hundred twenty-five GeV — that was a retrospective fit, and we label it as such. And all Tier-Three cosmological formulas — falsified by Planck and DESI. The honest summary is this: Trinity S³AI is a active boundary-mapping research program. Knowing what does not work is as valuable as knowing what does — because it saves the next researcher two years of chasing the same beautiful hypothesis."
+> "On the left, what survives: KO-dimension six mod eight for H₄; eta equals minus two on the spherical space form; the fact that the binary icosahedral group motivates the quaternionic part of the algebra; the machine-verified honesty framework; and four rigorous Boundary theorems. On the right, what does not survive: the claim that H₄ derives the Standard Model — refuted. The claim that H₄ predicts one hundred twenty-five GeV — that was a retrospective fit, and we label it as such. And all Tier-Three cosmological formulas — falsified by Planck and DESI. The honest summary is this: Trinity S³AI is a active boundary-mapping research program. Knowing what does not work is as valuable as knowing what does — because it saves the next researcher two years of chasing the same beautiful hypothesis."
 
 **Key phrases to emphasize:**
 - *"what survives"* vs *"what does not survive"* — gesture left then right.
@@ -203,7 +203,7 @@
 | 3 | Discrete Dirac | 2:30–4:30 | 4:30 |
 | 4 | KO-dimension | 4:30–6:00 | 6:00 |
 | 5 | Positive results | 6:00–8:00 | 8:00 |
-| 6 | No-Go table | 8:00–9:30 | 9:30 |
+| 6 | Boundary table | 8:00–9:30 | 9:30 |
 | 7 | σ-field / Higgs | 9:30–12:00 | 12:00 |
 | 8 | Three generations | 12:00–13:30 | 13:30 |
 | 9 | Honest tags | 13:30–15:00 | 15:00 |
@@ -218,7 +218,7 @@
 
 ## Delivery Tips
 
-- **Pace:** Start slow (Slides 1–3), accelerate through the No-Go table (Slide 6), then slow down for the Higgs story (Slide 7) and conclusion (Slide 11).
+- **Pace:** Start slow (Slides 1–3), accelerate through the Boundary table (Slide 6), then slow down for the Higgs story (Slide 7) and conclusion (Slide 11).
 - **Eye contact:** Look at the phenomenologists when you say "fifty-five sigma." Look at the mathematicians when you say "Qed."
 - **Laser pointer:** Use it only on the spectrum diagram (Slide 3) and the Higgs mass plot (Slide 7). Avoid waving it around text.
 - **Pause rule:** After every key phrase marked in bold above, pause for one full second.

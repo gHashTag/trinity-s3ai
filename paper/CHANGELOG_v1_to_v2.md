@@ -17,8 +17,8 @@
 
 ## New Sections Added
 
-### 1. Section 5 — Extended Negative Results (Waves 16–17)
-A new main section inserted between the original No-Go theorems (now §4) and Discussion (now §6).
+### 1. Section 5 — Extended Boundary Findings (Waves 16–17)
+A new main section inserted between the original Boundary theorems (now §4) and Discussion (now §6).
 
 #### 5.1 F₄ Yukawa Test (Obstruction Theorem 7)
 - Describes the numerical scan of 5 models per fermion type
@@ -40,9 +40,9 @@ A new main section inserted between the original No-Go theorems (now §4) and Di
 
 #### Abstract
 - Updated Coq stats: 1375 Qed (was 1183), 0 Admitted (was 81)
-- Added F₄ Yukawa negative result mention
+- Added F₄ Yukawa boundary finding mention
 - Added experimental consistency (JUNO, DESI) and tension (DUNE δ_CP)
-- Expanded negative results from 5 to 7 No-Go theorems
+- Expanded boundary theorems from 5 to 7 Boundary theorems
 
 #### §2.4 Formal Proof Infrastructure
 - Qed: 1375 (was 1183)
@@ -69,7 +69,7 @@ A new main section inserted between the original No-Go theorems (now §4) and Di
 - Qed: 1375 (was 1183)
 - Admitted: 0 (was 81)
 - Axioms: 77 (new line)
-- Refutations: 7 (was 6; added NGT-7)
+- Refutations: 7 (was 6; added BT-7)
 - Files: 79 (was 49)
 
 #### Appendix B — Lean 4 Port Status
@@ -97,7 +97,7 @@ A new main section inserted between the original No-Go theorems (now §4) and Di
 
 | ID | Name | Section | Status |
 |----|------|---------|--------|
-| NGT-7 | F₄ cannot produce 3-generation hierarchy | 5.1 | Qed (numerical test) |
+| BT-7 | F₄ cannot produce 3-generation hierarchy | 5.1 | Qed (numerical test) |
 
 ---
 
@@ -110,7 +110,7 @@ A new main section inserted between the original No-Go theorems (now §4) and Di
 | Coq Axioms | not stated | **77** | new |
 | Coq .v files | 49 | **79** | +30 |
 | Lean modules | 4 | **9** | +5 |
-| No-Go theorems | 5 | **7** | +2 |
+| Boundary theorems | 5 | **7** | +2 |
 | Refutations | 6 | **7** | +1 |
 
 ---

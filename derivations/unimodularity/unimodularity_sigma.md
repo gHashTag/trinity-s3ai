@@ -186,7 +186,7 @@ the 6% error in the m_H prediction (in case it is present in the specific versio
 | Subtask | Result | Honest Status |
 |-----------|-----------|---------------|
 | A: Unimodularity of H4-generators | Satisfied by inheritance from A4 ⊂ H4 (su(5) is traceless) | Positive, but not new relative to SU(5)-GUT |
-| B: σ-analogue in 600-cell | **Negative**: no dynamical singlet | Honest no-go for Connes-style σ in H4 |
+| B: σ-analogue in 600-cell | **Negative**: no dynamical singlet | Honest boundary for Connes-style σ in H4 |
 
 ---
 

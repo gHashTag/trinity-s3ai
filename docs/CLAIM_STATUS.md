@@ -51,7 +51,7 @@ Concretely:
   about numbers, and at the same time the *underlying physical claim*
   they suggest (that `4 φ³ e²` is the Higgs mass for a structural
   reason) is **open_conjecture** or **high_risk_or_falsified**, ruled
-  out for H4 by the No-Go theorems where applicable.
+  out for H4 by the Boundary theorems where applicable.
 - Documents that describe past hype around prize-level claims are
   retained for transparency but tagged as historical; the canonical
   position of the project is that *no such claim is made*.
@@ -77,7 +77,7 @@ When reading a Coq file or a markdown derivation, use these checks:
    spectral triple, or a Clifford algebra. If the right-hand side is a
    bare combination of φ, π, e and small integers with no such path,
    it is a fit.
-4. **Look for the corresponding No-Go.** Where a No-Go theorem applies
+4. **Look for the corresponding Boundary Theorem.** Where a Boundary theorem applies
    (chirality, lepton mass hierarchy, σ-field, Λ), the matching fit
    *cannot* be a derivation by construction; it is at best a
    phenomenological coincidence within an H4-style ansatz.
@@ -95,12 +95,12 @@ status for the project's most-referenced statements as of Wave 17.
 
 | Claim | Status | Pointer |
 |-------|--------|---------|
-| H4 / 600-cell cannot produce a consistent NCG model of the SM (four Coq-formal impossibilities NGT1–NGT4) | **verified** | [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) (NGT1–NGT4, all `Qed.`) |
-| Additional Wave 11–17 No-Go results: NGT-5 (D₄/24-cell), NGT-6 (no σ-field under string/orbifold rescue), NGT-7 (F₄ cannot produce 3-generation hierarchy) | **verified** (at paper / analysis level — not yet Coq-formalised in `proofs/trinity/NoGoTheorems.v`) | [`ROADMAP.md`](../ROADMAP.md) §"No-Go theorems", [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) |
+| H4 / 600-cell cannot produce a consistent NCG model of the SM (four Coq-formal impossibilities BT-1–BT-4) | **verified** | [`proofs/trinity/BoundaryTheorems.v`](../proofs/trinity/BoundaryTheorems.v) (BT-1–BT-4, all `Qed.`) |
+| Additional Wave 11–17 Boundary results: BT-5 (D₄/24-cell), BT-6 (no σ-field under string/orbifold rescue), BT-7 (F₄ cannot produce 3-generation hierarchy) | **verified** (at paper / analysis level — not yet Coq-formalised in `proofs/trinity/BoundaryTheorems.v`) | [`ROADMAP.md`](../ROADMAP.md) §"Boundary theorems", [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md) |
 | 59 numerical matches between H4 invariants and PDG 2024 observables, within stated error windows | **verified** (bound check) + **empirical_fit** (physical reading) | [`Catalog42.v`](../proofs/catalog/Catalog42_corrected.v) |
 | `m_H = 4 φ³ e² ≈ 125.1 GeV` is the Higgs mass | **empirical_fit** | `HiggsPrediction.v`, [`higgs_potential_proven.md`](analysis/higgs_potential_proven.md) |
 | Koide relation in H4 | **high_risk_or_falsified** | `KoideOrigins.v` (the "Koide ≠ 2/3 in H4" theorem is `Qed.`) |
-| H4 chirality fully derived | **open_conjecture** | `derivations/chirality/ChiralityAnalysis.v`; chirality No-Go is NGT3 (`Qed.`) |
+| H4 chirality fully derived | **open_conjecture** | `derivations/chirality/ChiralityAnalysis.v`; chirality Boundary Theorem is BT-3 (`Qed.`) |
 | Cl(0,6) ≅ M₈(R) ⊕ M₈(R); Bott 8-periodicity | **open_conjecture** | `proofs/clifford_cl8/` — Wave 17 honest counter reports 0 real `Admitted.`; load-bearing statements retained as `Axiom` with published citations (Lounesto 2001, Wieser–Song 2022, Atiyah–Bott–Shapiro 1964, Lawson–Michelsohn 1989) |
 | Standard Model Lagrangian "derived from H4" | **open_conjecture** with substantial empirical-fit content | [`LAGRANGIAN_HONEST_STATUS.md`](status/LAGRANGIAN_HONEST_STATUS.md) |
 | RG running of gauge couplings | **verified** (as a numerical scheme) | `RGRunningExtras.v`, [`RG_RUNNING_PROVEN.md`](analysis/RG_RUNNING_PROVEN.md) |

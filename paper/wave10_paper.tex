@@ -1,5 +1,5 @@
 %% wave10_paper.tex
-%% Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification
+%% Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Standard Model Unification
 %% Wave 10.1 — arXiv submission draft
 %% Target: hep-th (primary), math-ph, cs.LO (secondary)
 %% Compile: pdflatex + biber + pdflatex + pdflatex
@@ -25,7 +25,7 @@
   linkcolor=blue,
   citecolor=blue,
   urlcolor=blue,
-  pdftitle={Trinity-s3ai: A Constructive Negative Result on H4-Based Standard Model Unification},
+  pdftitle={Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Standard Model Unification},
   pdfauthor={Anonymous},
 }
 \usepackage[style=numeric-comp, sorting=none, backend=biber, maxnames=5]{biblatex}
@@ -69,7 +69,7 @@
 \newcommand{\DF}{D_F}
 \newcommand{\TwoI}{2I}
 \newcommand{\HON}[1]{\textcolor{teal}{\textbf{[HONEST: #1]}}}
-\newcommand{\NGT}[1]{\textbf{NGT-#1}}
+\newcommand{\BT}[1]{\textbf{BT-#1}}
 \newcommand{\Qed}{\texttt{Qed}}
 \newcommand{\Admitted}{\texttt{Admitted}}
 \newcommand{\sigdist}{\sigma_{\mathrm{dist}}}
@@ -80,9 +80,9 @@
 %% ============================================================
 %%  Title block
 %% ============================================================
-\title{\textbf{Trinity-s3ai: A Constructive Negative Result\\
+\title{\textbf{Trinity-s3ai: An Active Boundary-Mapping Research Program\\
 on H4-Based Standard Model Unification}\\[0.5em]
-{\normalsize Four No-Go Theorems for NCG Approaches Founded on the 600-Cell}}
+{\normalsize Four Boundary Theorems for NCG Approaches Founded on the 600-Cell}}
 
 \author{[Anonymous]\thanks{Correspondence: \url{https://github.com/[gHashTag]/trinity-s3ai}.
   All Coq source files, validation scripts, and derivation logs are publicly archived in the
@@ -105,22 +105,22 @@ acting as the symmetry group of the 600-cell regular 4-polytope, can serve as th
 foundation for a noncommutative-geometry (NCG) derivation of Standard Model (SM) parameters.
 After eight waves of machine-verified formalization in Coq (73 \texttt{.v} files, approximately
 730 \texttt{Qed} statements, 7 honest \texttt{Admitted} gaps) and a catalog of 25 numerically
-precise formulas for SM parameters, we arrive at a \emph{constructive negative result}.
+precise formulas for SM parameters, we arrive at a \emph{mapped boundary} on direct H4-based unification.
 
-We prove four no-go theorems (NGT-1 through NGT-4).
-\NGT{1} establishes that no rational power combination
+We prove four boundary theorems (BT-1 through BT-4).
+\BT{1} establishes that no rational power combination
 \(\varphi^a \pi^b e^c X_{H4}^d\) can simultaneously reproduce the observed dark energy density
 \(\Omega_\Lambda\) and baryon density \(\Omega_b h^2\) within 60 orders of magnitude;
 the specific Trinity cosmological formulas are falsified at \({\sim}754\sigma\) and
 \({\sim}118\) decades of error (Planck 2018 data).
-\NGT{2} proves, partly via machine-verified Coq lemmas, that no analogue of the
+\BT{2} proves, partly via machine-verified Coq lemmas, that no analogue of the
 Chamseddine-Connes \(\sigma\)-field arises from H4 geometry: the degree-2 invariant is
 constant on orbits, not a dynamical scalar field.
-\NGT{3} shows that the antipodal involution \(v \mapsto -v\) on the 600-cell vertices
+\BT{3} shows that the antipodal involution \(v \mapsto -v\) on the 600-cell vertices
 is an exact symmetry of any H4-equivariant Dirac operator, forcing a vector-like
 (non-chiral) fermion spectrum; the Dirac operator \(D_F = \sum_i (R_i + R_i^\top)\)
 has \(\operatorname{Tr}(D_F) = 0\) with eigenvalues in \(\pm\) pairs.
-\NGT{4} invokes Schur's lemma for the binary icosahedral group \(\TwoI\)
+\BT{4} invokes Schur's lemma for the binary icosahedral group \(\TwoI\)
 (order 120) to prove that the lepton mass hierarchy \(m_e : m_\mu : m_\tau = 1 : 206.77 : 3477.2\)
 cannot arise from \(\TwoI\)-equivariant data; the spectral distance is \(\sigdist = 5.62 > 5\).
 
@@ -134,7 +134,7 @@ DUNE (2028).
 \end{abstract}
 
 \textbf{Keywords:} H4 Coxeter group; 600-cell; noncommutative geometry; spectral triple;
-no-go theorems; binary icosahedral group; Coq formalization; Standard Model parameters;
+boundary theorems; binary icosahedral group; Coq formalization; Standard Model parameters;
 eta invariant; chirality.
 
 \tableofcontents
@@ -173,11 +173,11 @@ investigation of the claim that H4/600-cell geometry can derive SM parameters. T
 adopted from its first wave the honesty principle \emph{``Do not lie. Be honest.''}: every gap
 in a proof is tagged \(\Admitted\) with an explicit \texttt{HONEST:~...} comment, formulas are
 classified by rigor class (Rigorous~\Rclass, Structural~\Sclass, Numerical Fit~\NFclass),
-and negative results are documented with the same care as positive ones.
+and obstruction theorems are documented with the same care as positive ones.
 
 After nine waves of formalization spanning 73 Coq \texttt{.v} files and approximately
 730 \texttt{Qed} statements, the project has reached a point where the \emph{negative}
-results have crystallized into four provable no-go theorems, and six positive structural
+results have crystallized into four provable boundary theorems, and six positive structural
 results survive. The central finding is:
 
 \begin{quote}
@@ -186,24 +186,24 @@ of the Dirac operator, is insufficient to derive the Standard Model without addi
 input: a chirality mechanism, external Yukawa parameters, and a sigma field.}
 \end{quote}
 
-We emphasize that this is a \emph{constructive} negative result: we do not merely fail to find a
+We emphasize that this is a \emph{constructive} boundary mapping: we do not merely fail to find a
 derivation, but prove structural obstructions to its existence. In the spirit of the
 Distler-Garibaldi theorem~\cite{Distler:2009dm} for E8, which transformed Lisi's
 conjecture~\cite{Lisi:2007rx} into a precisely formulated impossibility,
-Trinity-s3ai provides analogous no-go theorems for the H4 approach.
+Trinity-s3ai provides analogous boundary theorems for the H4 approach.
 
-\subsection{Why publish a negative result?}
+\subsection{Why publish boundary theorems?}
 
-No-go theorems are among the most valuable contributions in theoretical physics.
+Boundary theorems are among the most valuable contributions in theoretical physics.
 The Coleman-Mandula theorem~\cite{Coleman:1967ad} and Haag-Lopuszanski-Sohnius
 theorem~\cite{Haag:1974qh} restricted the space of possible extensions of the S-matrix
 symmetry algebra, motivating supersymmetry as the unique loophole.
 Weinberg's cosmological constant analysis~\cite{Weinberg:1988cp} remains one of the most
-cited papers in high-energy physics despite (or because of) being a negative result.
+cited papers in high-energy physics despite (or because of) being a boundary theorem on vacuum energy.
 The Distler-Garibaldi theorem~\cite{Distler:2009dm}, refuting Lisi's E8 program, is cited
 over 300 times and is considered a significant positive contribution to mathematical physics.
 
-An honest negative result published with full proofs narrows the solution space and guides
+An honest boundary theorem published with full proofs narrows the solution space and guides
 future work. Section~\ref{sec:disc} discusses what remains open and what the H4/600-cell
 geometry cannot do.
 
@@ -211,7 +211,7 @@ geometry cannot do.
 
 Section~\ref{sec:h4} reviews H4 and the 600-cell. Section~\ref{sec:catalog} presents the 25-formula
 catalog with honest classification. Section~\ref{sec:positive} develops the six positive
-structural results. Section~\ref{sec:nogo} presents the four no-go theorems with proof sketches.
+structural results. Section~\ref{sec:boundary} presents the four boundary theorems with proof sketches.
 Section~\ref{sec:comparison} compares with prior work. Section~\ref{sec:coq} describes the
 Coq/Lean 4 formalization architecture. Section~\ref{sec:falsifiability} discusses the remaining
 falsifiable prediction. Section~\ref{sec:disc} discusses implications. Section~\ref{sec:conclusion}
@@ -265,14 +265,14 @@ The \textbf{binary icosahedral group} \(\TwoI\) is the preimage of the icosahedr
   \label{eq:2Iextension}
 \end{equation}
 Crucially, \(-1 \in Z(\TwoI)\) (the center), so the antipodal map \(q \mapsto -q\) is
-an \emph{exact symmetry} of \(\TwoI\). This observation is central to \NGT{3}
+an \emph{exact symmetry} of \(\TwoI\). This observation is central to \BT{3}
 (Section~\ref{sec:ngt3}).
 
 The group \(\TwoI\) has 9 irreducible complex representations with dimensions
 \(\{1, 2, 3, 4, 5, 6, 4, 2, 2\}\) (two representations of each dimension \(2\) and \(4\)).
 By Schur's lemma~\cite{Serre:1977}, any \(\TwoI\)-equivariant operator is block-diagonal in
 the irreducible decomposition, with each block proportional to the identity.
-This is the basis for \NGT{4} (Section~\ref{sec:ngt4}).
+This is the basis for \BT{4} (Section~\ref{sec:ngt4}).
 
 \subsection{Relation to E8}
 
@@ -421,7 +421,7 @@ so the agreement is uninformative.
 \textsuperscript{b}~Absolute mass values in GeV depend on the renormalization scheme;
 not a dimensionless ratio from symmetry.
 \(\dagger\)~Falsified by Planck+DESI 2024 at \({\sim}5\sigma\).
-\(\dagger\dagger\)~Falsified by \({\sim}118\) orders of magnitude (see \NGT{1}).
+\(\dagger\dagger\)~Falsified by \({\sim}118\) orders of magnitude (see \BT{1}).
 
 \subsection{The search space problem}
 
@@ -533,7 +533,7 @@ The Coq file \texttt{EtaInvariant.v} formalizes this with \(\Qed\) lemmas for st
 \textbf{Physical significance:} A non-zero eta invariant is a \emph{necessary condition}
 for chirality via APS boundary conditions. The value \(\eta = -2\) means the boundary
 Dirac operator contributes an asymmetric spectral correction to the bulk index.
-However, \NGT{3} (Section~\ref{sec:ngt3}) shows that the \emph{bulk} operator \(\DF\)
+However, \BT{3} (Section~\ref{sec:ngt3}) shows that the \emph{bulk} operator \(\DF\)
 on the 600-cell is vector-like; \(\eta = -2\) is a necessary but not sufficient condition
 for physical chirality in the current formulation.
 
@@ -573,7 +573,7 @@ block structure. \(\square\) (\texttt{DiracOperator.v}: \texttt{first\_order\_ex
 
 The \(480 \times 480\) matrix \(D_F\) is Hermitian (proven numerically and analytically),
 and \(\operatorname{Tr}(D_F) = 0\) with eigenvalues appearing in \(\pm\)-symmetric pairs---
-this is the starting observation for \NGT{3}.
+this is the starting observation for \BT{3}.
 
 \subsection{Hochschild orientation cycle (Axiom~6)}
 \label{sec:axiom6}
@@ -605,7 +605,7 @@ Tables~\ref{tab:positive} summarizes all six positive results.
 
 \begin{table}[htbp]
   \centering
-  \caption{Six positive structural results surviving the no-go theorems.}
+  \caption{Six positive structural results surviving the boundary theorems.}
   \label{tab:positive}
   \begin{tabular}{cllll}
     \toprule
@@ -624,41 +624,41 @@ Tables~\ref{tab:positive} summarizes all six positive results.
 
 
 %% ============================================================
-%%  Section 5: No-go theorems
+%%  Section 5: Boundary theorems
 %% ============================================================
-\section{No-Go Theorems}
-\label{sec:nogo}
+\section{Boundary Theorems}
+\label{sec:boundary}
 
-We now state and prove the four no-go theorems. All proofs are formalized in
-\texttt{NoGoTheorems.v}. Table~\ref{tab:ngt} summarizes the results.
+We now state and prove the four boundary theorems. All proofs are formalized in
+\texttt{BoundaryTheorems.v}. Table~\ref{tab:bt} summarizes the results.
 
 \begin{table}[htbp]
   \centering
-  \caption{Summary of four no-go theorems.}
-  \label{tab:ngt}
+  \caption{Summary of four boundary theorems.}
+  \label{tab:bt}
   \begin{tabular}{clll}
     \toprule
     Theorem & Statement & Proof method & Status \\
     \midrule
-    \NGT{1} & Cosmological impossibility & Direct falsification & Planck 2018 data \\
-    \NGT{2} & No \(\sigma\)-field from H4 & Coq (\(\Qed\) lemmas) & Machine-verified \\
-    \NGT{3} & Vector-like spectrum & Antipodal symmetry & Analytic + numerical \\
-    \NGT{4} & Mass hierarchy impossible & Schur's lemma & Rep theory \\
+    \BT{1} & Cosmological impossibility & Direct falsification & Planck 2018 data \\
+    \BT{2} & No \(\sigma\)-field from H4 & Coq (\(\Qed\) lemmas) & Machine-verified \\
+    \BT{3} & Vector-like spectrum & Antipodal symmetry & Analytic + numerical \\
+    \BT{4} & Mass hierarchy impossible & Schur's lemma & Rep theory \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\subsection{\NGT{1}: Cosmological impossibility}
+\subsection{\BT{1}: Cosmological impossibility}
 \label{sec:ngt1}
 
-\begin{theorem}[\NGT{1}; Cosmological No-Go]
-\label{thm:NGT1}
+\begin{theorem}[\BT{1}; Cosmological Boundary]
+\label{thm:BT1}
 Let \(X_{H4} \in \{h, |\TwoI|, |H_4|\} = \{30, 120, 14400\}\) be H4 structural constants.
 No formula of the form
 \begin{equation}
   f(a,b,c,d) = \varphi^a \pi^b e^c X_{H4}^d,\quad
   a,b,c,d \in \mathbb{Q},\; |a|,|b|,|c| \leq 200,
-  \label{eq:NGT1form}
+  \label{eq:BT1form}
 \end{equation}
 can simultaneously reproduce the observed cosmological constant density ratio
 \(\rho_\Lambda/\rho_{\mathrm{Pl}} \approx 10^{-123}\) and the baryon density
@@ -669,7 +669,7 @@ Concretely, the Trinity prediction \(\Omega_b h^2 = \varphi^{-3}\pi^{-2}e^{-1} =
 is falsified at:
 \begin{equation}
   \sigdist = \frac{|0.022383 - 0.00880|}{0.000018} \approx 754\sigma,
-  \label{eq:NGT1baryon}
+  \label{eq:BT1baryon}
 \end{equation}
 and \(\rho_\Lambda/\rho_{\mathrm{Pl}} = \varphi^{-144}/2 \approx 1.84 \times 10^{-10}\)
 deviates from the measured value \({\sim}10^{-123}\) by 113 orders of magnitude.
@@ -716,7 +716,7 @@ Table~\ref{tab:cosmo_refuted} lists all 9 refuted Tier-3 cosmological formulas.
   \end{tabular}
 \end{table}
 
-\subsection{\NGT{2}: No \(\sigma\)-field from H4}
+\subsection{\BT{2}: No \(\sigma\)-field from H4}
 \label{sec:ngt2}
 
 The Chamseddine-Connes NCG SM requires a scalar \(\sigma\)-field to correct the Higgs mass
@@ -724,8 +724,8 @@ prediction after the 2012 discovery showed \(m_H = 125\;\mathrm{GeV}\) (vs.\ the
 NCG prediction of \(170\)--\(180\;\mathrm{GeV}\))~\cite{Chamseddine:2012qs}. The \(\sigma\)-field
 must be a genuine \emph{dynamical scalar} with nontrivial orbit under the gauge group.
 
-\begin{theorem}[\NGT{2}; No \(\sigma\)-field]
-\label{thm:NGT2}
+\begin{theorem}[\BT{2}; No \(\sigma\)-field]
+\label{thm:BT2}
 In the H4 spectral triple \((\AF, \HF, \DF)\):
 \begin{enumerate}
   \item[(i)] The degree-2 H4-invariant polynomial is \emph{constant} on each orbit of H4
@@ -759,11 +759,11 @@ The theorem is partially formalized; the axiom \texttt{sigma\_no\_go}
 is tagged \texttt{SIGMA\_NO\_GO\_STRUCTURAL} in \texttt{UnimodularityAndSigma.v}. \(\square\)
 \end{proof}
 
-\subsection{\NGT{3}: Vector-like fermion spectrum}
+\subsection{\BT{3}: Vector-like fermion spectrum}
 \label{sec:ngt3}
 
-\begin{theorem}[\NGT{3}; Chirality Obstruction]
-\label{thm:NGT3}
+\begin{theorem}[\BT{3}; Chirality Obstruction]
+\label{thm:BT3}
 Let \(D_F\) be any \(\TwoI\)-equivariant Hermitian operator on
 \(\ell^2(\TwoI) \otimes \mathbb{C}^4\) of the form~\eqref{eq:DF}.
 Then the spectrum of \(D_F\) is exactly symmetric under \(\lambda \mapsto -\lambda\):
@@ -816,18 +816,18 @@ in symmetric pairs. \(\square\) (\texttt{ChiralityAnalysis.v},
 \end{proof}
 
 \begin{remark}
-\NGT{3} is \emph{not} the Distler-Garibaldi theorem. The latter applies to E8 as a Lie algebra
+\BT{3} is \emph{not} the Distler-Garibaldi theorem. The latter applies to E8 as a Lie algebra
 and its real forms~\cite{Distler:2009dm}; H4 is not a Lie algebra, and the DG theorem does not
-directly apply. \NGT{3} is an independent structural argument specific to the antipodal symmetry
+directly apply. \BT{3} is an independent structural argument specific to the antipodal symmetry
 of the 600-cell. Potential loopholes include: (a) APS boundary conditions using \(\eta = -2\);
 (b) G4-flux compactification; (c) orbifolding the antipodal symmetry. All remain open.
 \end{remark}
 
-\subsection{\NGT{4}: Mass hierarchy by Schur's lemma}
+\subsection{\BT{4}: Mass hierarchy by Schur's lemma}
 \label{sec:ngt4}
 
-\begin{theorem}[\NGT{4}; Mass Hierarchy Obstruction]
-\label{thm:NGT4}
+\begin{theorem}[\BT{4}; Mass Hierarchy Obstruction]
+\label{thm:BT4}
 Let \(G = \TwoI\) act on the fermion Hilbert space \(\HF\). By Maschke's theorem,
 \(\HF = \bigoplus_{i=1}^{9} \rho_i^{n_i}\), where \(\rho_i\) are the 9 irreducible
 representations of \(\TwoI\) with dimensions \(\{1,2,3,4,5,6,4,2,2\}\). Any
@@ -915,7 +915,7 @@ contrasts the two programs.
     Aspect & E8 / Lisi & Trinity-s3ai / H4 \\
     \midrule
     Base object & E8 (Lie algebra) & H4 (Coxeter group) \\
-    No-go mechanism & DG: SL(2,C) centralization & NGT-3: antipodal symmetry \\
+    Boundary mechanism & DG: SL(2,C) centralization & BT-3: antipodal symmetry \\
     Chirality obstruction & adj(E8) self-conjugate & spectrum \(\pm\)-symmetric \\
     Machine formalization & none & \(\sim\)730 \(\Qed\), Coq \\
     Self-assessment & Lisi maintains claim & Project proves own NGTs \\
@@ -925,7 +925,7 @@ contrasts the two programs.
 \end{table}
 
 The critical distinguishing feature of Trinity-s3ai is \emph{self-refutation}: the project
-itself derives the no-go theorems, rather than having them imposed externally. This is
+itself derives the boundary theorems, rather than having them imposed externally. This is
 epistemically stronger and methodologically exemplary.
 
 \subsection{Chamseddine-Connes NCG Standard Model}
@@ -938,11 +938,11 @@ Trinity-s3ai provides an \emph{independent geometric motivation} for this algebr
 the classification argument.
 
 The NCG SM remains the framework within which the Trinity spectral triple is defined.
-The results of Sections~\ref{sec:positive} and~\ref{sec:nogo} identify specific obstacles
+The results of Sections~\ref{sec:positive} and~\ref{sec:boundary} identify specific obstacles
 to \emph{deriving} SM parameters from H4 geometry within the NCG framework.
 
 The \(\sigma\)-field resolution of the Higgs mass~\cite{Chamseddine:2012qs} is ruled out
-for H4 by \NGT{2}. This means the H4 spectral triple, even embedded in the standard NCG SM,
+for H4 by \BT{2}. This means the H4 spectral triple, even embedded in the standard NCG SM,
 inherits the 6.2\% Higgs mass error without recourse to the standard \(\sigma\)-field fix.
 
 \subsection{Other approaches}
@@ -965,7 +965,7 @@ no NCG model derives \(N_{\mathrm{gen}} = 3\) from first principles without addi
 The formalization consists of 73 Coq \texttt{.v} files organized in two main trees:
 \begin{enumerate}
   \item \texttt{proofs/trinity/} --- 37 files covering catalog, spectral action,
-    uniqueness, gauge, Higgs, cosmology, and no-go theorems;
+    uniqueness, gauge, Higgs, cosmology, and boundary theorems;
   \item \texttt{derivations/[module]/} --- 36 files, one module per physical observable class,
     each with a \texttt{.v} file and companion \texttt{.md} derivation log.
 \end{enumerate}
@@ -976,7 +976,7 @@ The approximately 730 \(\Qed\) theorems include:
   \item Spectral constants of the 600-cell (\texttt{SpectralExtras.v});
   \item First-order condition \([D_F, L_a]=0\) (\texttt{DiracOperator.v});
   \item Unimodularity chain \texttt{U1}--\texttt{U7} (\texttt{UnimodularityAndSigma.v});
-  \item NGT-1 through NGT-4 partial formalizations (\texttt{NoGoTheorems.v});
+  \item BT-1 through BT-4 partial formalizations (\texttt{BoundaryTheorems.v});
   \item Numerical bounds: each catalog formula's \(|f - f_{\mathrm{PDG}}|/f_{\mathrm{PDG}} < \epsilon\).
 \end{itemize}
 
@@ -1094,7 +1094,7 @@ derivation. Even if falsified, it does not affect the positive structural result
 
 \subsection{What survives}
 
-The six positive structural results (Section~\ref{sec:positive}) survive the no-go theorems.
+The six positive structural results (Section~\ref{sec:positive}) survive the boundary theorems.
 These are genuine mathematical facts about the H4/600-cell geometry:
 \begin{itemize}
   \item KO-dim 6 (mod 8) confirms H4/600-cell is \emph{compatible} with the NCG SM framework
@@ -1114,21 +1114,21 @@ geometric facts, available for future work regardless of the physical interpreta
 
 The following claims from earlier project phases are refuted:
 \begin{enumerate}
-  \item ``H4 derives the Standard Model'' --- refuted by NGT-1 through NGT-4 collectively;
+  \item ``H4 derives the Standard Model'' --- refuted by BT-1 through BT-4 collectively;
   \item ``\(\alpha\) is computable from H4'' --- \(\Qed\) theorem \texttt{alpha\_from\_H4\_refuted}
     in \texttt{RGRunningExtras.v};
-  \item ``The 600-cell is chiral'' --- refuted by NGT-3;
-  \item ``\(D_F\) reproduces SM fermion masses'' --- refuted by NGT-4 at \(\sigdist = 5.62\);
+  \item ``The 600-cell is chiral'' --- refuted by BT-3;
+  \item ``\(D_F\) reproduces SM fermion masses'' --- refuted by BT-4 at \(\sigdist = 5.62\);
   \item All 9 Tier-3 cosmological formulas --- refuted by Planck 2018 and DESI 2024.
 \end{enumerate}
 
 \subsection{Implications for NCG programs}
 
-NGT-3 implies that \emph{any} finite spectral triple built from the regular representation
+BT-3 implies that \emph{any} finite spectral triple built from the regular representation
 of a group with an antipodal central involution will be vector-like. This is a general
 structural observation relevant to other discrete-geometry approaches.
 
-The specific failure mode of NGT-4 (Schur's lemma forcing degenerate multiplets) shows
+The specific failure mode of BT-4 (Schur's lemma forcing degenerate multiplets) shows
 that Yukawa coupling \emph{hierarchies} within NCG cannot be derived from a single equivariant
 group action---additional representation-breaking input is always required. This resonates
 with the well-known problem that the Chamseddine-Connes SM treats Yukawa couplings as free
@@ -1146,7 +1146,7 @@ The following remain open and potentially fruitful:
     H4 structural results?
   \item \textbf{Richer algebra:} Can a spectral triple over a larger algebra
     \(\tilde{\AF} \supset \AF\) motivated by H4 (e.g., including \(M_5(\mathbb{C})\))
-    circumvent NGT-2 and NGT-4?
+    circumvent BT-2 and BT-4?
   \item \textbf{\(\delta_{CP}\) resolution:} Is the \(65.66^\circ\) prediction a genuine
     structural feature or pure numerology? DUNE data (2028) will provide a decisive answer.
 \end{enumerate}
@@ -1158,12 +1158,12 @@ The following remain open and potentially fruitful:
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have presented Trinity-s3ai as a \textbf{constructive negative result} on H4-based
+We have presented Trinity-s3ai as a \textbf{boundary-mapping research program} on H4-based
 Standard Model unification. After eight waves of machine-verified Coq formalization,
 the project has:
 
 \begin{enumerate}
-  \item Proved four no-go theorems (NGT-1 through NGT-4) establishing that H4/600-cell
+  \item Proved four boundary theorems (BT-1 through BT-4) establishing that H4/600-cell
     geometry in its current formulation cannot derive SM cosmological parameters, the
     sigma field, SM chirality, or SM mass hierarchies;
   \item Identified six positive structural results (KO-dimension, quaternionic motivation,
@@ -1175,8 +1175,8 @@ the project has:
     durable machine-verified library of H4/600-cell geometry.
 \end{enumerate}
 
-An honest negative result is a scientific contribution. It narrows the solution space,
-prevents others from pursuing provably dead ends, and provides a foundation on which
+An honest boundary theorem is a scientific contribution. It narrows the solution space,
+prevents others from pursuing provably obstructed direct paths, and provides a foundation on which
 genuine progress can build. In the spirit of Coleman-Mandula, Distler-Garibaldi, and
 the cosmological constant problem, Trinity-s3ai contributes a precisely formulated
 set of constraints on H4-based unification programs.
@@ -1250,10 +1250,10 @@ and the NuFit collaboration for neutrino oscillation fits. The git repository
   \texttt{RGRunningExtras.v} & \texttt{alpha\_from\_H4\_refuted} & Q \\
   \texttt{ChiralityAnalysis.v} & \texttt{antipodal\_symmetry\_DF} & Q \\
   \texttt{DFSpectrum.v} & \texttt{spectral\_sigma\_5\_62} & Q (numerical) \\
-  \texttt{NoGoTheorems.v} & \texttt{NGT1\_baryon\_density\_refuted} & Q \\
-  \texttt{NoGoTheorems.v} & \texttt{NGT2\_sigma\_field\_impossible} & Ax \\
-  \texttt{NoGoTheorems.v} & \texttt{NGT3\_vector\_like\_spectrum} & Q \\
-  \texttt{NoGoTheorems.v} & \texttt{NGT4\_mass\_hierarchy\_Schur} & Q \\
+  \texttt{BoundaryTheorems.v} & \texttt{BT1\_baryon\_density\_refuted} & Q \\
+  \texttt{BoundaryTheorems.v} & \texttt{BT2\_sigma\_field\_impossible} & Ax \\
+  \texttt{BoundaryTheorems.v} & \texttt{BT3\_vector\_like\_spectrum} & Q \\
+  \texttt{BoundaryTheorems.v} & \texttt{BT4\_mass\_hierarchy\_Schur} & Q \\
   \texttt{Axiom6Orientation.v} & \texttt{hochschild\_cycle\_closed} & Q \\
   \texttt{Axiom7Poincare.v} & \texttt{K0\_poincare\_duality} & Q + A \\
   \texttt{ThreeGenerations.v} & \texttt{three\_gen\_obstruction} & A \\

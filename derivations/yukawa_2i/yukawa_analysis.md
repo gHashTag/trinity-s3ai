@@ -9,7 +9,7 @@
 
 ## Summary
 
-We investigated whether the decomposition of the fermion space $H_F = \mathbb{C}^{480}$ into isotypic components of the group $2I$ could lead to a Yukawa matrix $Y$ with singular values approximating SM masses. Answer: **no**. Schur's lemma is an absolute barrier for a purely 2I-equivariant $D_F$. σ-distance to SM lepton masses: $\sigma = 5.62$ (for the best pair of irreducible representations). This is a strong **negative result**: it precisely determines what the 2I symmetry can and cannot predict.
+We investigated whether the decomposition of the fermion space $H_F = \mathbb{C}^{480}$ into isotypic components of the group $2I$ could lead to a Yukawa matrix $Y$ with singular values approximating SM masses. Answer: **no**. Schur's lemma is an absolute barrier for a purely 2I-equivariant $D_F$. σ-distance to SM lepton masses: $\sigma = 5.62$ (for the best pair of irreducible representations). This is a strong **boundary finding**: it precisely determines what the 2I symmetry can and cannot predict.
 
 ---
 
@@ -280,7 +280,7 @@ Conclusion: **2I-symmetry forbids mass hierarchy between generations**. For phys
 | CG decompositions for 17 tensor products | ✓ Numerically |
 | Schur's lemma: equivariant $D_F$ block-scalar | ✓ Analytically |
 | Schur's lemma verified numerically | ✓ SVD = 1:1:1 |
-| Mass hierarchy from pure 2I-symmetry impossible | ✓ Negative result |
+| Mass hierarchy from pure 2I-symmetry impossible | ✓ Boundary finding |
 
 ### 8.2 What Does Not Work
 
@@ -339,8 +339,8 @@ The choice $y_e : y_\mu : y_\tau = 1 : 206.77 : 3477.23$ trivially reproduces le
 | Fundamental barrier | Schur's lemma |
 | Next step | Explicit 2I-breaking through Higgs field |
 
-**Conclusion:** Wave 9.2 gives a **strong negative result** with clear mathematical justification. Schur's lemma is an absolute barrier for a purely 2I-equivariant Yukawa mechanism. To reproduce Standard Model masses, explicit symmetry breaking of $2I$ is necessary.
+**Conclusion:** Wave 9.2 gives a **strong boundary finding** with clear mathematical justification. Schur's lemma is an absolute barrier for a purely 2I-equivariant Yukawa mechanism. To reproduce Standard Model masses, explicit symmetry breaking of $2I$ is necessary.
 
 ---
 
-*Wave 9.2 | Trinity S3AI | June 2025 | Negative result documented honestly*
+*Wave 9.2 | Trinity S3AI | June 2025 | Boundary finding documented honestly*

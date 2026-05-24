@@ -174,7 +174,7 @@ Tier 3 monomial formulas failed. This is a **strength** of the repository — we
 | Mean relative error vs random formulas | p = 0.077 | **NOT significant** — Trinity catalog mean precision is compatible with chance |
 | Ultra-precise (SG-hit) coincidence density | p < 0.0001 | **Significant** — density of sub-0.1% coincidences exceeds random expectation |
 
-**Conclusion:** The catalog does not show statistically significant mean precision, but the **density of ultra-precise coincidences is non-trivial.** This is an honest negative result on one metric and a genuine anomaly on another. See `reports/honest_pvalue_report_v20.md`.
+**Conclusion:** The catalog does not show statistically significant mean precision, but the **density of ultra-precise coincidences is non-trivial.** This is an honest boundary finding on one metric and a genuine anomaly on another. See `reports/honest_pvalue_report_v20.md`.
 
 ---
 

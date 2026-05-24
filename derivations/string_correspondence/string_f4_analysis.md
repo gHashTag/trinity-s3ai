@@ -210,7 +210,7 @@ Reasons:
 
 2. **Dirac operator correspondence.** Construct a continuous $D_{CY}$ such that its discretization on some triangulation coincides with $D_F$. This is a problem of spectral geometry (can one hear the shape of a polytope?).
 
-3. **Mass mechanism.** Add a σ-field (NGT-6 showed its absence in the reduction) or replace it with a string mechanism (e.g. worldsheet instantons for Yukawa).
+3. **Mass mechanism.** Add a σ-field (BT-6 showed its absence in the reduction) or replace it with a string mechanism (e.g. worldsheet instantons for Yukawa).
 
 4. **KO-dimension.** Prove that the proposed compactification gives KO-dim = 6 mod 8 in the Connes-Lott spectral triple.
 

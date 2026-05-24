@@ -52,7 +52,7 @@ tar -czf trinity-s3ai-arxiv.tar.gz arxiv_submission/
 2. Select **Category:** `hep-th` (High Energy Physics - Theory)
 3. Upload the `.tar.gz` tarball (`trinity-s3ai-arxiv.tar.gz`)
 4. Fill metadata:
-   - **Title:** Trinity S$^3$AI: A Constructive Negative Result in Geometric Unification
+   - **Title:** Trinity S$^3$AI: An Active Boundary-Mapping Research Program in Geometric Unification
    - **Authors:** [Author List TBD]
    - **Abstract:** (copy from `paper/arxiv_abstract.txt`)
    - **Comments:** 6 pages, ancillary files include Python validation scripts
@@ -99,12 +99,12 @@ Dear [Dr. Endorser Name],
 
 I am preparing a submission to arXiv hep-th and would be grateful for your endorsement.
 
-**Paper:** "Trinity S³AI: A Constructive Negative Result in Geometric Unification"
+**Paper:** "Trinity S³AI: An Active Boundary-Mapping Research Program in Geometric Unification"
 **Category:** hep-th
 **Abstract:** [paste abstract from paper/arxiv_abstract.txt]
 **Repository:** https://github.com/gHashTag/trinity-s3ai
 
-The paper reports a machine-assisted falsification of a discrete spectral-action model for the Standard Model based on the H₄ Coxeter group and the 600-cell. The result is negative (a No-Go theorem), but it is constructive: all theorems are formally proved in Coq/Rocq 8.20.1, and every numerical claim is reproducible in Python.
+The paper reports a machine-assisted falsification of a discrete spectral-action model for the Standard Model based on the H₄ Coxeter group and the 600-cell. The result is negative (a Boundary theorem), but it is constructive: all theorems are formally proved in Coq/Rocq 8.20.1, and every numerical claim is reproducible in Python.
 
 I have verified that the manuscript compiles with pdflatex and that all figures are high-resolution PNG. The source code and proof scripts are included in the `anc/` directory.
 

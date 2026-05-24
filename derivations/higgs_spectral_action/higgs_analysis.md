@@ -385,7 +385,7 @@ not predict the correct Higgs boson mass.**
 > Tuning the cutoff scale \(\Lambda\) is meaningless, since
 the tree-level prediction \(m_H\) does not depend on \(\Lambda\).
 >
-> This is **another no-go** for the purely geometric
+> This is **another boundary result** for the purely geometric
 program within H₄: without the σ-field the spectral action
 cannot explain the observed Higgs mass.
 

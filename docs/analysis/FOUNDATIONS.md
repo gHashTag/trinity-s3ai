@@ -10,7 +10,7 @@
 
 This document provides complete transparency about every `Axiom`, `Admitted`, and `admit` in the Trinity S3AI codebase. It is the companion to `admitted_log.md` (which covers the Admitted/admit registry) and extends it with stratification of all 88 `Axiom` declarations.
 
-A formal Coq proof is only as strong as its axioms. The four Obstruction Theorems (NGT1–NGT4) in `NoGoTheorems.v` are formally verified **modulo** the axioms listed below.
+A formal Coq proof is only as strong as its axioms. The four Obstruction Theorems (BT-1–BT-4) in `BoundaryTheorems.v` are formally verified **modulo** the axioms listed below.
 
 ---
 
@@ -40,8 +40,8 @@ These assert classical mathematical results with traceable published proofs.
 | `cell600_J_off_diagonal_KO6` | `SpectralTripleAxioms.v` | Connes, *Noncommutative Geometry* §VI; DOI: 10.1007/978-3-540-34228-1 |
 | `cell600_J_off_diagonal` | `KODimension.v` | Same as above |
 | `unimod_hypercharge_from_H4_roots` | `UnimodularityAndSigma.v` | Connes-Chamseddine NCG SM papers |
-| `sigma_no_go` | `UnimodularityAndSigma.v` | Proved in NoGoTheorems.v as NGT2 |
-| `sigma_no_dynamical_field` | `UnimodularityAndSigma.v` | Consequence of NGT2 |
+| `sigma_boundary` | `UnimodularityAndSigma.v` | Proved in BoundaryTheorems.v as BT-2 |
+| `sigma_no_dynamical_field` | `UnimodularityAndSigma.v` | Consequence of BT-2 |
 | `sm_cubic_anomaly_zero_per_gen` | `ThreeGenerations.v` | Gross-Jackiw 1972, Phys.Rev.D 6:477; DOI: 10.1103/PhysRevD.6.477 |
 | `schur_orthogonality_2I` | `derivations/axiom7_poincare/` | Standard representation theory; Fulton-Harris |
 | *(6 mirror copies in derivations/)* | — | Same citations as above |
@@ -221,18 +221,18 @@ decoupled, so it can be developed in parallel with the core proofs.
 
 ---
 
-## Impact on NGT1–NGT4
+## Impact on BT-1–BT-4
 
-The obstruction theorems NGT1–NGT4 **do not depend** on:
+The obstruction theorems BT-1–BT-4 **do not depend** on:
 - DFSpectrum.v `True` placeholders
 - SpectralTripleAxioms.v open conditions
 - HiggsOrigins.v spectral identities
 
 They **do depend** on:
 - CITED_PHYSICS axioms: g_SU2_value, g_U1_value, Lambda_obs_planck_units_small
-- CITED_MATH axioms: sigma_no_go (itself proved as NGT2), D4 triality
+- CITED_MATH axioms: sigma_boundary (itself proved as BT-2), D4 triality
 
-**Conclusion:** NGT1–NGT4 are sound given the cited physics measurements. The GENUINE_ASSUMPTION set affects only the positive claims (spectral triple completeness, chirality mechanism, neutrino mass prediction) — not the negative results.
+**Conclusion:** BT-1–BT-4 are sound given the cited physics measurements. The GENUINE_ASSUMPTION set affects only the positive claims (spectral triple completeness, chirality mechanism, neutrino mass prediction) — not the negative results.
 
 ---
 

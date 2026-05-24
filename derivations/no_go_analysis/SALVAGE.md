@@ -9,7 +9,7 @@
 
 ## Brief summary
 
-After eight waves of formalisation, 340 machine-verified theorems and 4 obstruction theorems (NGT-1–4), the project is at a point of honest reckoning. This document defines:
+After eight waves of formalisation, 340 machine-verified theorems and 4 obstruction theorems (BT-1–4), the project is at a point of honest reckoning. This document defines:
 
 - **KEEP**: mathematical and methodological achievements of independent value
 - **ARCHIVE**: physical claims that have been refuted or falsified
@@ -29,12 +29,12 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 obstruct
 | `EtaInvariant.v` | High | η = -2 on S³/2I — necessary condition for chirality |
 | `KODimension.v` | High | KO-dimension = 6 mod 8 — positive structural result |
 | `QuaternionicLinearity.v` | High | 2I structure and quaternionic motivation ℍ ⊂ A_F |
-| `UnimodularityAndSigma.v` | Medium | U1–U7: Qed, sigma_no_go: NGT-2 reinforced |
-| `RGRunningExtras.v` | High | alpha_from_H4_refuted (Qed) — exemplary negative result |
-| `ChiralityAnalysis.v` | High | Honest analysis; NGT-3 is based on this file |
+| `UnimodularityAndSigma.v` | Medium | U1–U7: Qed, sigma_boundary: BT-2 reinforced |
+| `RGRunningExtras.v` | High | alpha_from_H4_refuted (Qed) — exemplary boundary finding |
+| `ChiralityAnalysis.v` | High | Honest analysis; BT-3 is based on this file |
 | **`NoGoTheorems.v`** | **High** | **32 Qed, 0 Admitted — main contribution of Wave 9.6** |
 | `SpectralTripleAxioms.v` | Medium | Structure of NCG axioms |
-| `DFSpectrum.v` | High | σ = 5.62 — key number of NGT-4 |
+| `DFSpectrum.v` | High | σ = 5.62 — key number of BT-4 |
 | `EtaInvariant.v` | High | Poincaré η-invariant |
 
 **Total: ~340 machine-verified lemmas and theorems.**
@@ -51,7 +51,7 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 obstruct
 
 **Methodology:** Coq verification of numerical inequalities as a means of honest documentation of formula accuracy — this is a novel approach worthy of a separate methodological publication.
 
-### 1.3 Physical results surviving after NGT-1–4
+### 1.3 Physical results surviving after BT-1–4
 
 | Result | Status | Value |
 |--------|--------|-------|
@@ -75,11 +75,11 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 obstruct
 
 | Claim | Wave of refutation | Reason |
 |-------|-------------------|--------|
-| "Trinity derives the Standard Model" | Wave 9.6 (NGT-1–4) | The combined force of four obstruction theorems |
+| "Trinity derives the Standard Model" | Wave 9.6 (BT-1–4) | The combined force of four obstruction theorems |
 | "α is computed from H4" | Wave 3 | alpha_from_H4_refuted (Qed) |
-| "σ-field from H4-structure" | Wave 5.3 | sigma_no_go (NGT-2) |
-| "600-cell is chiral" | Wave 6 | Antipodal symmetry (NGT-3) |
-| "D_F reproduces the SM spectrum" | Wave 8.4 | σ = 5.62 >> 5 (NGT-4) |
+| "σ-field from H4-structure" | Wave 5.3 | sigma_boundary (BT-2) |
+| "600-cell is chiral" | Wave 6 | Antipodal symmetry (BT-3) |
+| "D_F reproduces the SM spectrum" | Wave 8.4 | σ = 5.62 >> 5 (BT-4) |
 | Λ = φ^(-144)/2 | Wave 7/8.5 | ~118 orders of magnitude deviation |
 | All Tier-3 CMB formulas | Wave 8.5 | 9 falsifications (up to 754σ) |
 | "Catalogue formulas are rigorous derivations" | Wave 3 | 0/25 class R |
@@ -89,10 +89,10 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 obstruct
 **DO NOT** delete — this is the scientific history of the project. **Move** them with appropriate tags:
 
 ```
-Status: ARCHIVED — superseded by NGT-[1-4] (Wave 9.6)
+Status: ARCHIVED — superseded by BT-[1-4] (Wave 9.6)
 ```
 
-Keep them in the repository as documentary evidence of **exactly how** the negative results were obtained.
+Keep them in the repository as documentary evidence of **exactly how** the boundary findings were obtained.
 
 ---
 
@@ -127,9 +127,9 @@ This name is inaccurate: the formalisation **did not achieve** SM unification. T
 
 Regardless of physical content, Trinity-s3ai demonstrates:
 
-### 4.1 Machine verification of negative results
+### 4.1 Machine verification of boundary findings
 
-This is a **novel methodological approach**: using Coq to document not only positive but also negative results in speculative physics. Example from `NoGoTheorems.v`:
+This is a **novel methodological approach**: using Coq to document not only positive but also boundary findings in speculative physics. Example from `NoGoTheorems.v`:
 
 ```coq
 Theorem alpha_from_H4_refuted :
@@ -161,14 +161,14 @@ This contrasts with the practice of hiding `Admitted` or using them without expl
 
 ### Step 1: Immediate (Week 1)
 
-- [x] Create `no_go_theorems.md` — formulation of NGT-1–4 (done)
+- [x] Create `no_go_theorems.md` — formulation of BT-1–4 (done)
 - [x] Create `NoGoTheorems.v` — 32 Qed, 0 Admitted (done)
 - [x] Update README.md: add a warning that the project has reached active boundary-mapping research programs
 - [ ] Add `Status: ARCHIVED` tag to falsified claims
 
 ### Step 2: Short-term (Month 1)
 
-- [ ] Write arXiv preprint (~20 pages) with NGT-1–4 and their proofs
+- [ ] Write arXiv preprint (~20 pages) with BT-1–4 and their proofs
 - [ ] Submit to arXiv hep-th or math-ph
 - [ ] Update CITATION.bib with an accurate project description
 
@@ -196,7 +196,7 @@ All three — open questions, not claims.
 |----------|-------|--------|
 | Qed (machine-verified) | **340** | KEEP |
 | Admitted (honest gaps) | **7** | KEEP with tags |
-| No-go theorems | **4** (NGT-1–4) | PUBLISH |
+| Boundary theorems | **4** (BT-1–4) | PUBLISH |
 | Falsified CMB formulas | **9** | ARCHIVE with tags |
 | Surviving physical results | **6** | KEEP |
 | Refuted claims | **8** | ARCHIVE |
@@ -208,7 +208,7 @@ All three — open questions, not claims.
 
 The Trinity-s3ai project conducted eight waves of honest formalisation. The result is not a "theory of everything", but a **active boundary-mapping research program**: H4/600-cell in its current formulation is insufficient to derive the SM. This is a scientific contribution. It should be published as such.
 
-*"An honest negative result is worth more than a failed positive claim."*
+*"An honest boundary theorem is worth more than a failed positive claim."*
 
 ---
 

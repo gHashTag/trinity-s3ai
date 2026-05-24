@@ -11,10 +11,10 @@
 
 Wave 9 closed the Trinity-H₄ program with four obstruction theorems:
 
-- **NGT1 (Cosmology):** Formulas φ^a π^b e^c do not reproduce Λ and Ω_b
-- **NGT2 (σ-field):** No NCG σ-field from the H₄ root structure
-- **NGT3 (Chirality):** The 600-cell gives a vector-like D_F (antipodal symmetry)
-- **NGT4 (Mass Hierarchy):** The 2I-equivariant D_F does not reproduce lepton mass relations
+- **BT-1 (Cosmology):** Formulas φ^a π^b e^c do not reproduce Λ and Ω_b
+- **BT-2 (σ-field):** No NCG σ-field from the H₄ root structure
+- **BT-3 (Chirality):** The 600-cell gives a vector-like D_F (antipodal symmetry)
+- **BT-4 (Mass Hierarchy):** The 2I-equivariant D_F does not reproduce lepton mass relations
 
 A natural question: perhaps H₄ is the wrong root system?  
 This wave checks D₄ and F₄ as candidates.

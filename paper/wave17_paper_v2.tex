@@ -1,4 +1,4 @@
-% Trinity S³AI — Constructive Negative Result in Geometric Unification
+% Trinity S³AI — Boundary-Mapping Research Program in Geometric Unification
 % Wave 17.3 — arXiv revision (Waves 16–17 results incorporated)
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
@@ -18,7 +18,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{nogo}{No-Go Theorem}
+\newtheorem{boundary}{Boundary Theorem}
 
 % Macros
 \newcommand{\ph}{\varphi}
@@ -33,7 +33,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 
-\title{Trinity S$^3$AI: A Constructive Negative Result in Geometric Unification}
+\title{Trinity S$^3$AI: An Active Boundary-Mapping Research Program in Geometric Unification}
 \author{[Author List TBD]\\
   \texttt{trinity-s3ai@proton.me}}
 \date{May 2026}
@@ -57,12 +57,12 @@ verification of 25 SM parameter formulas against PDG 2024 with mean relative
 error $0.1\%$; (iv) JUNO 2025 and DESI DR2 data consistent with Trinity
 oscillation and cosmology predictions.
 
-Our \textbf{negative results} include seven No-Go theorems:
-$\sigma$-field unavailable in H$_4$ (NGT-1); no 3-generation structure from
-H$_4$ (NGT-2); D$_4$ KO-dimension $5 \pmod 8 \neq 6$ (NGT-3); spectral
-action Higgs mass $132.88\,\text{GeV} \neq 125.10\,\text{GeV}$ (NGT-4);
-E$_6$/E$_7$ plumbing discretization mismatch (NGT-5); F$_4$ Yukawa scan
-fails to produce 3-generation hierarchy without external parameters (NGT-7).
+Our \textbf{boundary theorems} include seven Boundary theorems:
+$\sigma$-field unavailable in H$_4$ (BT-1); no 3-generation structure from
+H$_4$ (BT-2); D$_4$ KO-dimension $5 \pmod 8 \neq 6$ (BT-3); spectral
+action Higgs mass $132.88\,\text{GeV} \neq 125.10\,\text{GeV}$ (BT-4);
+E$_6$/E$_7$ plumbing discretization mismatch (BT-5); F$_4$ Yukawa scan
+fails to produce 3-generation hierarchy without external parameters (BT-7).
 The formal proof base now stands at \textbf{$1375$~Qed}, \textbf{$0$~Admitted},
 across \textbf{$79$~Coq files} and \textbf{$77$~Axioms}, with an active
 Lean~4 port.
@@ -89,16 +89,15 @@ H$_4$ root polytope). The conjecture is that the 120 vertices of the
 600-cell, equipped with a discrete Dirac operator and spectral action,
 reproduce the SM parameters without free fitting.
 
-\textbf{Scope and honesty.} This paper reports a \emph{constructive negative
-result}. We do \emph{not} claim to disprove NCG in general; we refute a
+\textbf{Scope and honesty.} This paper reports a \emph{boundary-mapping research program}. We do \emph{not} claim to disprove NCG in general; we refute a
 \emph{specific discrete model}. Every theorem is either formally proved in
 Coq (\S\ref{sec:coqstats}), numerically verified in Python, or honestly
 labelled as open.
 
 \textbf{Roadmap.} \S\ref{sec:framework} reviews the discrete spectral
 framework. \S\ref{sec:positive} states the surviving positive results.
-\S\ref{sec:nogo} presents the five original No-Go theorems.
-\S\ref{sec:extended} reports new negative results from Waves 16--17
+\S\ref{sec:boundary} presents the five original Boundary theorems.
+\S\ref{sec:extended} reports new boundary findings from Waves 16--17
 (F$_4$ Yukawa scan and E$_8$ plumbing convergence).
 \S\ref{sec:discussion} discusses implications, and
 \S\ref{sec:conclusion} summarises open questions.
@@ -183,44 +182,44 @@ As of Wave~17:
 \end{theorem}
 
 % ============================================================
-\section{No-Go Theorems}\label{sec:nogo}
+\section{Boundary Theorems}\label{sec:boundary}
 
-\begin{nogo}[Sigma-field, Wave 5.3]\label{nogo:sigma}
+\begin{boundary}[Sigma-field, Wave 5.3]\label{boundary:sigma}
   The Hodge $*$ operator required for the Connes--Marcolli $\sigma$-field
 correction does not exist on the 600-cell triangulation with the correct
 sign $*^2 = -1$ on 2-forms.
-\end{nogo}
+\end{boundary}
 \textit{Consequence:} Without $\sigma$, the spectral action predicts
 $m_H \approx 132.88\,\text{GeV}$ (Wave 11.5), incompatible with the
 observed $125.10 \pm 0.14\,\text{GeV}$ at $55.6\sigma$.
 
-\begin{nogo}[Three generations, Wave 9]\label{nogo:3gen}
+\begin{boundary}[Three generations, Wave 9]\label{boundary:3gen}
   The H$_4$ outer automorphism group is trivial ($|\operatorname{Out}(H_4)| = 1$).
   Therefore the 600-cell Dirac spectrum does not decompose into three
   isomorphic fermion families.
-\end{nogo}
+\end{boundary}
 
-\begin{nogo}[D$_4$ KO-dimension, Wave 11.2]\label{nogo:d4}
+\begin{boundary}[D$_4$ KO-dimension, Wave 11.2]\label{boundary:d4}
   The D$_4$/24-cell discrete real structure has KO-dimension
   $5 \pmod 8$ ($J^2 = -1$), not $6 \pmod 8$.
-\end{nogo}
+\end{boundary}
 
-\begin{nogo}[Higgs mass, Wave 11.5]\label{nogo:higgs}
+\begin{boundary}[Higgs mass, Wave 11.5]\label{boundary:higgs}
   The Chamseddine--Connes spectral action on the 600-cell predicts a
   tree-level Higgs mass of $132.88\,\text{GeV}$, deviating from the PDG
   value $125.10\,\text{GeV}$ by $7.78\,\text{GeV}$ ($55.6\sigma$).
   One-loop corrections increase the discrepancy to $\sim 175\,\text{GeV}$
   (Wave 12.4).
-\end{nogo}
+\end{boundary}
 
-\begin{nogo}[E$_6$/E$_7$ plumbing, Wave 12.5]\label{nogo:e6e7}
+\begin{boundary}[E$_6$/E$_7$ plumbing, Wave 12.5]\label{boundary:e6e7}
   Explicit discrete Dirac operators on the E$_6$ and E$_7$ plumbings yield
   boundary eta-invariants $-4$ and $-2$ respectively, which differ from the
   continuum targets $-3/2$ and $-7/4$ due to finite-size discretization.
-\end{nogo}
+\end{boundary}
 
 % ============================================================
-\section{Extended Negative Results (Waves 16--17)}\label{sec:extended}
+\section{Extended Boundary Findings (Waves 16--17)}\label{sec:extended}
 
 \subsection{F$_4$ Yukawa Test}\label{sec:f4yukawa}
 
@@ -274,13 +273,13 @@ Block 48 ($4$ params) & $6.6 \times 10^{-18}$ & $8.3 \times 10^{-18}$ & $2.2 \ti
 fitting $3$--$4$ free parameters, not from geometric prediction.
 \end{table}
 
-\begin{nogo}[F$_4$ three-generation hierarchy, Wave 16.1]\label{nogo:f4}
+\begin{boundary}[F$_4$ three-generation hierarchy, Wave 16.1]\label{boundary:f4}
   F$_4$ root geometry alone cannot produce the observed three-generation
   fermion mass hierarchy. The D$_4$ triality symmetry inherent in the
   short-root sector forces eigenvalue degeneracies that cap symmetric-model
   mass ratios at $\sim 20{:}1$. Models with enough free parameters can fit
   the data, but those parameters lack a principled geometric derivation.
-\end{nogo}
+\end{boundary}
 
 \subsection{E$_8$ Plumbing Convergence}\label{sec:e8conv}
 
@@ -382,7 +381,7 @@ any claim to ``derive'' them must match experimental precision.
 
 \subsection{What survives?}
 
-Despite the No-Go theorems, several structural observations survive:
+Despite the Boundary theorems, several structural observations survive:
 \begin{itemize}
   \item The eta-invariant $-2$ is exact and physically meaningful (APS).
   \item KO-dim $6 \pmod 8$ for H$_4$ is a genuine geometric fact.
@@ -424,7 +423,7 @@ This strengthens the case that generation number requires a dynamical
 mechanism beyond static Coxeter geometry.
 
 String theory compactifications naturally obtain three generations from
-intersection numbers, not from Coxeter-group triality. Our negative result
+intersection numbers, not from Coxeter-group triality. Our boundary finding
 strengthens the case for string-derived, rather than discrete-geometric,
 origin of generation number.
 
@@ -462,7 +461,7 @@ numerical validation, and honest refutation, we conclude:
   Yukawa hierarchy test.
 \end{quote}
 
-However, the program produced \emph{constructive} negative results:
+However, the program produced \emph{constructive} boundary theorems:
 exact theorems, falsifiable predictions, and a rigorous framework for
 testing future geometric unification proposals. We encourage the community
 to use our open-source Coq/Lean/Python infrastructure to test alternative
@@ -485,7 +484,7 @@ As of Wave 17:
   Qed:        1375
   Admitted:      0
   Axioms:       77 (all tagged)
-  Refutations:   7 (No-Go Theorems 1--5, 7)
+  Refutations:   7 (Boundary Theorems 1--5, 7)
   Files:        79 .v files
   CI:           passing (Coq 8.20.1)
 \end{verbatim}

@@ -1,6 +1,6 @@
 # Wave 9.5: Three Fermion Generations from H4/600-Cell Geometry + 2I
 
-**Status:** Negative result documented.  
+**Status:** Boundary finding documented.  
 **Date:** June 2025  
 **Author:** Trinity S3AI, Wave 9.5  
 
@@ -325,7 +325,7 @@ Trinity S3AI sets a more ambitious task — to derive 3 from first principles �
 
 **NONE of the five investigated mechanisms gives the number 3 of fermion generations from first principles of H4/600-cell + 2I geometry.**
 
-This conclusion is a significant negative result. It means:
+This conclusion is a significant boundary finding. It means:
 
 1. H4-based unification *cannot automatically* explain three generations — an additional principle is needed.
 2. The existing document `three-generations-proof.md` contains incorrect statements: mixing of H4 and E8 exponents, unjustified "stability criterion", postulation instead of derivation.
@@ -371,5 +371,5 @@ A more fundamental approach may require:
 
 ---
 
-*Wave 9.5 | Trinity S3AI | Analysis of five mechanisms completed | Negative result documented*  
+*Wave 9.5 | Trinity S3AI | Analysis of five mechanisms completed | Boundary finding documented*  
 *Date: June 2025*

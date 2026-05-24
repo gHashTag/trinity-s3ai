@@ -33,7 +33,7 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 - [ ] [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) reports the same `Admitted.` count as `python3 scripts/count_admitted_honest.py` does locally.
 - [ ] As of Wave 17 (`0832b72`), the comment-stripped real `Admitted.` count is **0** across the canonical Coq tree. Any future `Admitted.` introduced in a PR has either a published citation or an `[OPEN_PROBLEM]` label per [`admitted_log.md`](analysis/admitted_log.md).
 - [ ] The Wave 17 honest counter table (run `python3 scripts/count_admitted_honest.py`) shows the load-bearing line **`proofs/trinity/` → 52 files, 1063 `Qed.`+`Def.`, 0 `Admitted.`, 50 `Axiom`s, 11 refutations**, matching the README and paper claims.
-- [ ] [`docs/TECH_TREE.md`](TECH_TREE.md) Layer 2 lists the same set of open obligations and notes that NGT-5..7 are paper-level (not yet Coq-formal).
+- [ ] [`docs/TECH_TREE.md`](TECH_TREE.md) Layer 2 lists the same set of open obligations and notes that BT-5..7 are paper-level (not yet Coq-formal).
 - [ ] No `Admitted.` in Coq code outside the locations enumerated in `HONESTY_MANIFEST.md` §2.
 - [ ] The Lean 4 build (`.github/workflows/lean.yml`) is known to be red on `main` as of `0832b72` due to pre-existing issues in `TrinityLean/H4RootSystem.lean` and `TrinityLean/Snub24Z3.lean`; this is tracked as follow-up and is independent of the Coq side.
 
@@ -81,8 +81,8 @@ Pair this checklist with [`docs/REVIEW_GUIDE.md`](REVIEW_GUIDE.md)
 ## J1. Wave 17 honest-negative-result discipline
 
 - [ ] The README and `RESEARCH_STATUS.md` describe the project as a *active boundary-mapping research program*, not as a successful unification.
-- [ ] The four Coq-formal No-Go theorems NGT1–NGT4 in [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) close with `Qed.` and are listed in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) §4.
-- [ ] The additional Wave 11–17 No-Go results NGT-5 (D₄/24-cell), NGT-6 (no σ-field under string/orbifold rescue) and NGT-7 (F₄ 3-generation hierarchy) are documented at paper / analysis level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP.md`](../ROADMAP.md) and [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md), and are flagged as *not yet Coq-formalised* in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) and [`docs/TECH_TREE.md`](TECH_TREE.md).
+- [ ] The four Coq-formal Boundary theorems BT-1–BT-4 in [`proofs/trinity/BoundaryTheorems.v`](../proofs/trinity/BoundaryTheorems.v) close with `Qed.` and are listed in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) §4.
+- [ ] The additional Wave 11–17 Boundary results BT-5 (D₄/24-cell), BT-6 (no σ-field under string/orbifold rescue) and BT-7 (F₄ 3-generation hierarchy) are documented at paper / analysis level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md), [`ROADMAP.md`](../ROADMAP.md) and [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md), and are flagged as *not yet Coq-formalised* in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) and [`docs/TECH_TREE.md`](TECH_TREE.md).
 - [ ] The E₈-plumbing η-convergence claim and the string / heterotic / orbifold rescue claim are both classified as **high_risk_or_falsified** in [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) §4, consistent with the Wave 17 honesty notes in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md) and the findings in [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md).
 - [ ] The post-Wave-17 program is published as Tracks A (honest phenomenology), B (Cl(8) / J₃(𝕆)) and C (boundary-result paper) in [`ROADMAP_WAVE17_PLUS.md`](../ROADMAP_WAVE17_PLUS.md); no track claims a Theory of Everything or prize-level recognition.
 

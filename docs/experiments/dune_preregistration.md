@@ -253,8 +253,8 @@ If Trinity is WRONG (true delta_CP = 234°):
 
 **DUNE will definitively resolve the Trinity delta_CP prediction within 2-4 years of first data.** There is no "gray zone" where the prediction remains ambiguous. Either:
 
-1. DUNE measures delta_CP ≈ 65° and Trinity is spectacularly confirmed (current data falsified at >10 sigma), OR
-2. DUNE measures delta_CP ≈ 234° and Trinity is decisively falsified at >16 sigma.
+1. **HISTORICAL (superseded):** The δ_CP = 3/φ² prediction is **WITHDRAWN** (>5σ excluded by current data). This pre-registration was framed against outdated PDG-2024 data. OR
+2. DUNE measures delta_CP ≈ 234° and the historical Trinity prediction is decisively excluded at >16 sigma.
 
 This is a **high-risk, high-reward** prediction with no hedging possible.
 

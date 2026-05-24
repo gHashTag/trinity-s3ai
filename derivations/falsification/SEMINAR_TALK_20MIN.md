@@ -1,4 +1,4 @@
-# Trinity S³AI: Constructive Negative Results in Geometric Unification
+# Trinity S³AI: Boundary-Mapping Research Program in Geometric Unification
 
 **20-minute seminar talk outline**  
 **Target audience:** Physicists and mathematicians familiar with the Standard Model and basic NCG  
@@ -10,7 +10,7 @@
 
 ## Slide 1 — Title
 
-**Title:** Trinity S³AI: Constructive Negative Results in Geometric Unification  
+**Title:** Trinity S³AI: Boundary-Mapping Research Program in Geometric Unification  
 **Subtitle:** What H₄/600-cell can and cannot do for the Standard Model
 
 **Authors:** Trinity S³AI Research Collective  
@@ -101,7 +101,7 @@
 
 ---
 
-## Slide 7 — Negative Results (1/3): No σ-field
+## Slide 7 — Boundary Theorems (1/3): No σ-field
 
 **Visual:** Higgs potential with and without σ.
 
@@ -117,7 +117,7 @@
 
 ---
 
-## Slide 8 — Negative Results (2/3): No 3 Generations from H₄
+## Slide 8 — Boundary Theorems (2/3): No 3 Generations from H₄
 
 **Visual:** Schoute decomposition of 600-cell into 5 disjoint 24-cells.
 
@@ -133,7 +133,7 @@
 
 ---
 
-## Slide 9 — Negative Results (3/3): No Chirality from 600-cell Alone
+## Slide 9 — Boundary Theorems (3/3): No Chirality from 600-cell Alone
 
 **Visual:** Antipodal symmetry v ↦ −v on 600-cell vertices.
 
@@ -184,7 +184,7 @@
 5. **DUNE 2028:** δ_CP = 65.66° is 2.7σ from NuFit 6.0. Will it survive?
 
 **Speaker notes:**
-> “We are not closing the book. There are open computational questions: one-loop corrections, E₆ and E₇ geometries, and the formal completion of the Coq and Lean libraries. But the core negative results stand.”
+> “We are not closing the book. There are open computational questions: one-loop corrections, E₆ and E₇ geometries, and the formal completion of the Coq and Lean libraries. But the core boundary theorems stand.”
 
 ---
 
@@ -217,7 +217,7 @@
 | 2 | Motivation | 2 min |
 | 3–4 | Framework | 3 min |
 | 5–6 | Positive results | 3 min |
-| 7–9 | Negative results | 6 min |
+| 7–9 | Boundary theorems | 6 min |
 | 10 | Higgs detail | 2 min |
 | 11 | Open questions | 2 min |
 | 12 | Conclusion | 1.5 min |

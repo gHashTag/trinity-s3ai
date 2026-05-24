@@ -8,7 +8,7 @@
 
 ### Q1: "Why H₄ and not E₈?"
 
-**A:** "We tested E₈ and F₄ too. H₄ was the original conjecture — the 600-cell has 120 vertices, matching the binary icosahedral group, and the McKay correspondence links it to E₈. That made it the natural starting point. E₈ plumbing appears in our No-Go theorem NGT-5, where we show that the E₆ and E₇ root lattices also fail to give the right finite spectral triple. So we did not ignore E₈; we broadened the search and the negative result got stronger. E₈ remains relevant — our Track B is now investigating Cl(8) and triality — but that is a different program, not H₄-based."
+**A:** "We tested E₈ and F₄ too. H₄ was the original conjecture — the 600-cell has 120 vertices, matching the binary icosahedral group, and the McKay correspondence links it to E₈. That made it the natural starting point. E₈ plumbing appears in our Boundary theorem BT-5, where we show that the E₆ and E₇ root lattices also fail to give the right finite spectral triple. So we did not ignore E₈; we broadened the search and the boundary finding got stronger. E₈ remains relevant — our Track B is now investigating Cl(8) and triality — but that is a different program, not H₄-based."
 
 **Tone:** Curious, not dismissive.  
 **Trap to avoid:** Do not sound like you picked H₄ arbitrarily.  
@@ -28,7 +28,7 @@
 
 ### Q3: "What about string theory?"
 
-**A:** "String theory naturally gets three generations from intersection numbers of D-branes. Our negative result strengthens the case for string-derived, not discrete-geometric, unification. In other words: if you want to derive the Standard Model from a finite discrete structure, H₄ is not the answer. String theory does not use a finite spectral triple in the Connes sense; it uses Calabi-Yau compactification and gauge bundles. Those are different frameworks. Our result says: the discrete-geometric path is blocked. That makes the string path relatively more attractive, not less."
+**A:** "String theory naturally gets three generations from intersection numbers of D-branes. Our boundary finding strengthens the case for string-derived, not discrete-geometric, unification. In other words: if you want to derive the Standard Model from a finite discrete structure, H₄ is not the answer. String theory does not use a finite spectral triple in the Connes sense; it uses Calabi-Yau compactification and gauge bundles. Those are different frameworks. Our result says: the discrete-geometric path is blocked. That makes the string path relatively more attractive, not less."
 
 **Tone:** Generous to string theory; no tribal warfare.  
 **Trap to avoid:** Do not sound like you are attacking string theory or endorsing it blindly.  
@@ -38,7 +38,7 @@
 
 ### Q4: "Are the Coq proofs machine-checked?"
 
-**A:** "Yes. One thousand one hundred ninety-eight theorems are Qed. Thirty remain open, all in non-core modules — mostly cosmology and biology tiers, which are explicitly labeled as speculative. The four No-Go theorems are fully Qed. We also have an anti-numerology CI gate that runs on every pull request: it rejects any phi-pi-e formula that lacks an honesty tag. So the checking is both machine-verified and socially enforced."
+**A:** "Yes. One thousand one hundred ninety-eight theorems are Qed. Thirty remain open, all in non-core modules — mostly cosmology and biology tiers, which are explicitly labeled as speculative. The four Boundary theorems are fully Qed. We also have an anti-numerology CI gate that runs on every pull request: it rejects any phi-pi-e formula that lacks an honesty tag. So the checking is both machine-verified and socially enforced."
 
 **Tone:** Proud but precise.  
 **Trap to avoid:** Do not claim "all proofs are complete" — the eighty-one Admitted are public.  
@@ -46,13 +46,13 @@
 
 ---
 
-### Q5: "What's the point of a negative result?"
+### Q5: "What's the point of a boundary finding?"
 
-**A:** "It rules out a specific class of models, saving future researchers time. It also provides exact theorems and falsifiable predictions. For example, our delta-CP prediction of sixty-five point six six degrees is registered with a falsification criterion: if DUNE measures it outside the range forty-five to eighty-five degrees, the formula is dead. That is more than most phenomenological papers offer. A negative result with a certificate is a permanent contribution to the field. A vague negative result is just a blog post. We chose the former."
+**A:** "It rules out a specific class of models, saving future researchers time. It also provides exact theorems and falsifiable predictions. For example, our delta-CP prediction of sixty-five point six six degrees is registered with a falsification criterion: if DUNE measures it outside the range forty-five to eighty-five degrees, the formula is dead. That is more than most phenomenological papers offer. A boundary theorem with a certificate is a permanent contribution to the field. A vague negative result is just a blog post. We chose the former."
 
 **Tone:** Passionate but measured.  
 **Trap to avoid:** Do not sound bitter or defensive about the project "failing."  
-**Follow-up:** "Will anyone actually cite a negative result?" → "Yes — the no-go literature in quantum foundations and in model building is well-cited. See the Coleman-Mandula theorem, or the Weinberg-Witten theorem."
+**Follow-up:** "Will anyone actually cite a boundary theorem?" → "Yes — the boundary literature in quantum foundations and in model building is well-cited. See the Coleman-Mandula theorem, or the Weinberg-Witten theorem."
 
 ---
 
@@ -70,11 +70,11 @@
 
 ### Q7: "How do you know your Coq proofs are correct if you use Axioms and Admitted?"
 
-**A:** "Every Axiom and every Admitted is logged with a unique ID, a severity tag, and a discharge plan. You can run grep Admitted on the repository and get a full accounting. The four No-Go theorems depend only on axioms that are standard in the field — for example, the existence of the real numbers and the Atiyah-Patodi-Singer index theorem. The structural axioms — like the off-diagonal J — are explicitly flagged as [STRUCTURAL_AXIOM]. We publish the full stratification in FOUNDATIONS dot em dee. So you do not have to trust us; you can audit the dependency graph yourself."
+**A:** "Every Axiom and every Admitted is logged with a unique ID, a severity tag, and a discharge plan. You can run grep Admitted on the repository and get a full accounting. The four Boundary theorems depend only on axioms that are standard in the field — for example, the existence of the real numbers and the Atiyah-Patodi-Singer index theorem. The structural axioms — like the off-diagonal J — are explicitly flagged as [STRUCTURAL_AXIOM]. We publish the full stratification in FOUNDATIONS dot em dee. So you do not have to trust us; you can audit the dependency graph yourself."
 
 **Tone:** Inviting audit, not defensive.  
 **Body language:** Open palms.  
-**Follow-up:** "Could an Admitted proof hide a bug that invalidates the No-Go theorems?" → "No — the No-Go theorems are Qed. The Admitted items are in peripheral modules."
+**Follow-up:** "Could an Admitted proof hide a bug that invalidates the Boundary theorems?" → "No — the Boundary theorems are Qed. The Admitted items are in peripheral modules."
 
 ---
 
@@ -100,7 +100,7 @@
 
 ### Q10: "The 600-cell has 120 vertices. The SM has 48 fermions per generation. 120 is not divisible by 48. Did you really need a theorem to know this would fail?"
 
-**A:** "That is a sharp observation — and you are right that the arithmetic is suggestive. But arithmetic suspicion is not a theorem. The No-Go theorem is stronger: it proves that the 600-cell partitions into five 24-cells, and that the multiplicities of the Dirac eigenspaces are 16 and 32, which are not divisible by 3. Those are statements about the representation theory of the binary icosahedral group acting on the spinor bundle. The naive vertex count is a red herring — what matters is how the group acts on the Hilbert space. So yes, we needed a theorem, because the naive counting is misleading."
+**A:** "That is a sharp observation — and you are right that the arithmetic is suggestive. But arithmetic suspicion is not a theorem. The Boundary theorem is stronger: it proves that the 600-cell partitions into five 24-cells, and that the multiplicities of the Dirac eigenspaces are 16 and 32, which are not divisible by 3. Those are statements about the representation theory of the binary icosahedral group acting on the spinor bundle. The naive vertex count is a red herring — what matters is how the group acts on the Hilbert space. So yes, we needed a theorem, because the naive counting is misleading."
 
 **Tone:** Respect the questioner; they have a good point.  
 **Key phrase:** *"Arithmetic suspicion is not a theorem."*  
@@ -111,7 +111,7 @@
 
 ### Q11: "You have a 'Sacred Biology' tier with DNA formulas. Isn't that embarrassing for a physics project?"
 
-**A:** "Yes. It is in the repository because we promised transparency — we do not delete failed ideas. But it is explicitly labeled as Tier 4, outside the core physics program. None of the biology formulas are used in the No-Go theorems or the SM predictions. They are tagged [phenomenological_fit] just like the physics formulas, and the anti-numerology gate rejects any new biology formula unless it is tagged. If I were writing a grant proposal, I would leave them out. But this is an open research log, not a curated CV. The embarrassing parts are part of the record."
+**A:** "Yes. It is in the repository because we promised transparency — we do not delete failed ideas. But it is explicitly labeled as Tier 4, outside the core physics program. None of the biology formulas are used in the Boundary theorems or the SM predictions. They are tagged [phenomenological_fit] just like the physics formulas, and the anti-numerology gate rejects any new biology formula unless it is tagged. If I were writing a grant proposal, I would leave them out. But this is an open research log, not a curated CV. The embarrassing parts are part of the record."
 
 **Tone:** Self-deprecating but principled.  
 **Key phrase:** *"An open research log, not a curated CV."*  

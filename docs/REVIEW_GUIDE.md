@@ -11,8 +11,8 @@ hold the detail and tells you in what order to read them.
 > result* on whether H4 / 600-cell geometry (and, in Wave 17, the
 > broader F4 / E8 / string-correspondence neighbourhood) can support a
 > noncommutative geometry (NCG) model of the Standard Model. Four
-> Coq-formal Obstruction Theorems (NGT1–NGT4) and additional paper-level
-> No-Go results (NGT-5..7, see `paper/CHANGELOG_v1_to_v2.md`) prove or
+> Coq-formal Obstruction Theorems (BT-1–BT-4) and additional paper-level
+> Boundary results (BT-5..7, see `paper/CHANGELOG_v1_to_v2.md`) prove or
 > document specific impossibilities. The remaining content is a
 > catalogue of numerological coincidences, all *explicitly tagged as
 > phenomenological fits*, not derivations. We make no Theory-of-
@@ -30,7 +30,7 @@ hold the detail and tells you in what order to read them.
 | 1 | Read this section | 1 min | You are here. |
 | 2 | Read [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) and the README claim table | 2 min | The claim ledger: what is verified, what is a fit, what is open, what is refuted. The README table is auto-generated from [`docs/claims.yaml`](claims.yaml). |
 | 3 | Skim [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) | 1 min | Ground-truth Coq statistics with comments stripped. |
-| 4 | Skim the [Obstruction Theorems](../proofs/trinity/NoGoTheorems.v) | 2 min | The four Coq-formal impossibility results NGT1–NGT4 (Qed). Additional No-Go results NGT-5..7 are documented at paper level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md). |
+| 4 | Skim the [Obstruction Theorems](../proofs/trinity/BoundaryTheorems.v) | 2 min | The four Coq-formal impossibility results BT-1–BT-4 (Qed). Additional No-Go results BT-5..7 are documented at paper level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md). |
 | 5 | Open the live GOLDEN BRIDGE canvas | 1 min | <https://t27.ai/trinity-s3ai/> — a hypothesis-discovery puzzle, **not** evidence. |
 | 6 | Read [`docs/TECH_TREE.md`](TECH_TREE.md) | 2 min | Layered status: infra → claim ledger → proofs → geometry → fits → game → paper. |
 | 7 | Use the [Review Checklist](REVIEW_CHECKLIST.md) | 1 min | Tick off install/run/tests/no-secrets/no-hype/reproducibility. |
@@ -46,7 +46,7 @@ If you only have 3 minutes, read steps 2, 3, and 5 and stop.
 methodology, then
 [`COQ_HONEST_STATUS.md`](status/COQ_HONEST_STATUS.md) for the canonical
 reconciliation across older docs, then
-[`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v) and
+[`proofs/trinity/BoundaryTheorems.v`](../proofs/trinity/BoundaryTheorems.v) and
 [`admitted_log.md`](analysis/admitted_log.md).
 
 **Physics / phenomenology reviewer.** Start with
@@ -197,15 +197,15 @@ public-facing claim against them.
    √n} that matches a PDG value is, by repository policy, a
    phenomenological fit unless explicitly proved otherwise. The
    anti-numerology gate enforces this for new code.
-4. **A No-Go theorem is a negative claim with a formal proof.** The
-   four Coq-formal No-Go theorems NGT1–NGT4 in
-   [`proofs/trinity/NoGoTheorems.v`](../proofs/trinity/NoGoTheorems.v)
+4. **A Boundary theorem is a negative claim with a formal proof.** The
+   four Coq-formal Boundary theorems BT-1–BT-4 in
+   [`proofs/trinity/BoundaryTheorems.v`](../proofs/trinity/BoundaryTheorems.v)
    close with `Qed.` and rule out specific constructions
    (cosmology ansatz; σ-field from H4; chirality on the 600-cell;
    mass hierarchy from 2I-equivariant D_F). They are not omnibus
    impossibility claims for "any H4-based theory"; read the
-   statement. Additional Wave 11–17 No-Go results — NGT-5 (D₄/24-cell),
-   NGT-6 (no σ-field under string/orbifold rescue), NGT-7 (F₄
+   statement. Additional Wave 11–17 No-Go results — BT-5 (D₄/24-cell),
+   BT-6 (no σ-field under string/orbifold rescue), BT-7 (F₄
    3-generation hierarchy) — are documented at paper / analysis
    level (see [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md)
    and [`ROADMAP.md`](../ROADMAP.md)).
@@ -242,7 +242,7 @@ they are easy to find rather than hidden in long appendices.
   Lawson–Michelsohn 1989). Reviewers should treat these as
   *citation-backed assumptions*, not yet as in-tree proofs.
 - **Chirality.** `derivations/chirality/ChiralityAnalysis.v` is the
-  reference for the chirality No-Go (NGT3); the comment-stripped
+  reference for the chirality Boundary Theorem (BT-3); the comment-stripped
   honest counter reports 0 real `Admitted.` there in Wave 17.
 - **E8 plumbing.** The Wave 17 paper / changelog report that the
   E8-plumbing η discrepancy does **not** converge to −2 and that the
@@ -285,14 +285,14 @@ Theory of Everything:
   reports 0 real `Admitted.`, with the load-bearing isomorphisms
   retained as cited `Axiom`s. Replace these with in-tree proofs over
   the next waves.
-- **Track C — Negative-result publication.** Submit the Coq-formal
-  NGT1–NGT4 plus the paper-level NGT-5..7 as a boundary-result paper.
+- **Track C — Boundary-result publication.** Submit the Coq-formal
+  BT-1–BT-4 plus the paper-level BT-5..7 as a boundary-result paper.
   arXiv submission (`trinity-s3ai-arxiv.tar.gz`) and Zenodo deposit
   (`scripts/prepare_zenodo.md`) are prepared; the seminar talk v2 is
   in [`talks/wave17_talk.tex`](../talks/wave17_talk.tex).
 
 Reviewers can therefore judge the present state as: *negative result,
-formally backed in the four NGT1–NGT4 theorems, with the further
+formally backed in the four BT-1–BT-4 theorems, with the further
 Wave 17 negative findings documented but not yet Coq-formalised*. No
 claim is upgraded above its honest status, and no Theory-of-Everything
 or prize-level claim is made.

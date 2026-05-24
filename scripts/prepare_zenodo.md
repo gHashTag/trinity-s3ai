@@ -2,10 +2,10 @@
 
 **Version**: v1.0-wave14  
 **Date**: 2026-05-23  
-**Status**: Constructive negative result
+**Status**: Active boundary-mapping research program
 
 > **IMPORTANT**: This is a "active boundary-mapping research program" release. The DOI will point
-> to a software record documenting No-Go theorems and falsification tests, not to
+> to a software record documenting Boundary theorems and falsification tests, not to
 > a positive unification claim.
 
 ---
@@ -56,7 +56,7 @@ chmod +x scripts/push_release.sh
 
 1. Within ~5 minutes of pushing the tag, Zenodo creates a new draft record.
 2. Go to [https://zenodo.org/deposit](https://zenodo.org/deposit).
-3. Locate the draft titled *"Trinity S3AI: A Constructive Negative Result in Geometric Unification"*.
+3. Locate the draft titled *"Trinity S3AI: An Active Boundary-Mapping Research Program in Geometric Unification"*.
 4. A DOI is **reserved** at this stage but is not public until you publish.
 
 ---
@@ -70,7 +70,7 @@ Click **Edit** on the draft record and complete or verify the following fields:
 
 | Field | Value |
 |-------|-------|
-| **Title** | Trinity S3AI: A Constructive Negative Result in Geometric Unification |
+| **Title** | Trinity S3AI: An Active Boundary-Mapping Research Program in Geometric Unification |
 | **Authors** | [Fill in real names and ORCID iDs] |
 | **Description** | Formal proofs, numerical validation, and discrete spectral geometry testing the hypothesis that Standard Model parameters derive from the H4 Coxeter group and 600-cell. |
 | **Resource type** | Software |

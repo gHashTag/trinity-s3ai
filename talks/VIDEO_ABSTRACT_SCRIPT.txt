@@ -17,7 +17,7 @@ Our answer, after two years of work, is no. H₄ does not derive the Standard Mo
 
 [BEAT]
 
-So: this is a story about a constructive negative result. A refutation with a certificate.
+So: this is a story about a boundary-mapping research program. A refutation with a certificate.
 
 ---
 
@@ -47,10 +47,10 @@ Third: a catalog of 25 formulas matching Standard Model parameters. Eight are st
 
 ---
 
-[2:30–4:00] NEGATIVE RESULTS: 5 NO-GO THEOREMS
+[2:30–4:00] BOUNDARY THEOREMS: 5 BOUNDARY THEOREMS
 ----------------------------------------------
 
-Now the failures. We proved five No-Go theorems. All are Qed in Coq.
+Now the failures. We proved five Boundary theorems. All are Qed in Coq.
 
 One: no sigma-field exists in H₄ geometry. The sigma-field is what Connes and Chamseddine used in 2012 to pull the Higgs mass down from 170 GeV to 125 GeV. Without it, the spectral-action prediction is fixed: square root of 2 over phi to the fourth, times 246 GeV. That gives 132.88 GeV. The discrepancy with experiment is 7.78 GeV — 55.6 sigma. In particle physics, 55 sigma is not "close enough."
 
@@ -67,13 +67,13 @@ The hypothesis died. But it died with a certificate.
 
 So what survives?
 
-KO-dimension 6 mod 8 for H₄. Eta equals minus 2, APS-exact. The binary icosahedral group motivating the quaternionic algebra. A machine-verified honesty framework. And four rigorous No-Go theorems that save the next researcher from chasing a beautiful but false idea.
+KO-dimension 6 mod 8 for H₄. Eta equals minus 2, APS-exact. The binary icosahedral group motivating the quaternionic algebra. A machine-verified honesty framework. And four rigorous Boundary theorems that save the next researcher from chasing a beautiful but false idea.
 
 What does not survive? The claim that H₄ derives the Standard Model. The claim that it predicts 125 GeV — that was a retrospective fit, and we label it as such. And the Tier-3 cosmological formulas, falsified by Planck and DESI.
 
 What is next? Track B: investigating Cl(8), the exceptional Jordan algebra, and triality as an alternative basis for the three-generation problem. DUNE 2028 will test our delta-CP prediction of 65.66 degrees. And we keep discharging the 81 remaining Admitted proofs — one at a time, in public.
 
-Trinity S³AI is a constructive negative result. Knowing what does not work is as valuable as knowing what does — because science advances not only by success stories, but by honest refutations.
+Trinity S³AI is a boundary-mapping research program. Knowing what does not work is as valuable as knowing what does — because science advances not only by success stories, but by honest refutations.
 
 If you want to check the proofs, the repository is open. One thousand one hundred ninety-eight theorems Qed. Eighty-one Admitted, all logged. Zero fake proofs.
 
@@ -89,7 +89,7 @@ PRODUCTION NOTES
   - 0:00–0:30: Title card + rotating 600-cell wireframe
   - 0:30–1:30: Matrix animation (480×480 sparse pattern) + Coq IDE screenshot
   - 1:30–2:30: KO-dimension table + eta-invariant formula + formula catalog scrolling
-  - 2:30–4:00: No-Go table highlighting each row + Higgs mass plot (132.88 vs 125.10)
+  - 2:30–4:00: Boundary table highlighting each row + Higgs mass plot (132.88 vs 125.10)
   - 4:00–5:00: Split screen (survives / does not survive) + DUNE logo + GitHub repo
 - **Music:** Minimal, ambient. Drop to silence during "55 sigma" for impact.
 - **Captions:** Required. Add Russian subtitles if primary audience is Russian-speaking.
@@ -100,7 +100,7 @@ PRODUCTION NOTES
 [RU] KEY PHRASES FOR RUSSIAN DUBBING
 ------------------------------------
 
-- "constructive negative result"
+- "boundary-mapping research program"
 - "refutation with a certificate"
 - "55 sigma is not 'close enough'"
 - "the hypothesis died, but it died with a certificate"

@@ -400,7 +400,7 @@ Exact character values of 2I for classes $C_{5A}, C_{5B}, C_{10A}, C_{10B}$ incl
 
 **Three generations:** η = −2 does not directly explain the number 3 (|ind| = 2 ≠ 3; ker D_F has dim = 100, not a multiple of 3). Connecting η = −2 to three generations requires an additional mechanism beyond the current construction.
 
-**This is an honest negative result, valuable for the project:** it clearly indicates that to get χ = −2 → 3 generations one needs a 4D Dirac operator on a discrete analogue of the $E_8$-manifold, not the 3D discrete $D_F$.
+**This is an honest boundary finding, valuable for the project:** it clearly indicates that to get χ = −2 → 3 generations one needs a 4D Dirac operator on a discrete analogue of the $E_8$-manifold, not the 3D discrete $D_F$.
 
 ---
 
