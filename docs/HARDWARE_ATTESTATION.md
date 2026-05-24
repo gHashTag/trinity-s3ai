@@ -77,7 +77,7 @@ Both shuttles were submitted. TTSKY26b carries the multi-chip family; TTSKY26a c
 5. **GF16 layout is not original.** The 1-6-9 bias 31 layout is identical to IBM's DLFloat16 (ARITH 2019). Trinity's contribution is the φ-semantic overlay (phi-distance, PHI_BIAS=60 rounding, hardware-silicon binding), not the bit encoding.
 6. **Formal proofs apply to the φ-theory, not the hardware.** Propositions 1–2 and Theorem 3 prove properties of the golden ratio as a bit-allocation principle. They do not prove that the TTSKY26a chip will function correctly.
 7. **Coq phi identity is for binary64, not GF16.** `PhiFloat.v` proves `fl(phi*phi) = fl(phi+1)` in IEEE double precision (Flocq). A GF16-specific extension is future work.
-8. **Bias=15 in trios-trainer-igla is NOT canonical GF16.** The trainer repo contains a temporary `gf16.rs` with bias=15 (IEEE-like range). Canonical GF16 uses bias=31 (DLFloat16 compatible). Trainer benchmarks with bias=15 must not be cited for hardware attestation. See `SOURCE_OF_TRUTH.md` §Critical boundary.
+8. **Bias=15 deviation in trios-trainer-igla is fixed.** The trainer repo temporarily used bias=15 (IEEE-like range). This was corrected to bias=31 on 2026-05-25 (commits `042c2b5` and `9830432`). Pre-fix trainer benchmarks are invalid for hardware attestation. Post-fix results are valid but should still be cross-checked against `zig-golden-float` BENCH-001–006 before claiming hardware equivalence. See `SOURCE_OF_TRUTH.md` §Critical boundary.
 
 ---
 
