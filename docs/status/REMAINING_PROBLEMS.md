@@ -95,7 +95,7 @@ bridge is not formally proved.
 **Fix**: State this explicitly in every document.
 **Timeline**: Already done, but needs reinforcement.
 
-### 7. δ_CP prediction — RESOLVED ✅ (see v3.6 summary above)
+### 7. δ_CP prediction — WITHDRAWN ❌ (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Post-hoc fit; anti-post-hoc rule enforced.
 **Status**: Formula corrected from e/2 = 77.9° (excluded at 7.7σ) to **3/φ² = 65.66°**.
 **Result**: WITHDRAWN. The 0.1σ agreement was with outdated PDG-2024 data; NuFIT-6.0 + T2K+NOvA 2025 exclude 65.66° at >5σ.
 **Action**: All documents updated. DUNE will test with ±3° precision by 2035.

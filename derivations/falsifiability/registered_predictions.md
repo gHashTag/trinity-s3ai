@@ -9,7 +9,7 @@
 
 ## English Abstract (arXiv-ready, ~150 words)
 
-We register falsifiable numerical predictions of the Trinity S3AI framework — a spectral triple construction on the 600-cell (H4 Coxeter group) — prior to forthcoming experimental decisions. The most critical prediction is the CP-violation phase in the lepton sector: \(\delta_{CP} = 3/\varphi^2 \approx 65.66°\), derived from the ratio of the number of fermion generations to the square of the golden ratio. This stands in ~2.7σ tension with the current NuFit 6.0 best-fit value for normal ordering (197°), and will be decisively tested by DUNE (2028–2032). Additional predictions include: the vacuum frequency \(f_0 = 12.8\) THz as a quasicrystal spectroscopic signature; the dark-matter WIMP mass \(m_{DM} = \varphi^5\pi/e \approx 12.82\) GeV (testable at LZ/XENONnT); the Higgs boson mass \(m_H = 4\varphi^3 e^2 \approx 125.20\) GeV (retrospectively consistent with PDG 2024 at 0.02σ). Two predictions are already falsified: the cosmological constant formula (92 orders of magnitude off) and the lightest neutrino mass \(m_{\nu_1} = 1/(6\varphi) \approx 0.103\) eV (implies \(\Sigma m_\nu \approx 0.31\) eV, excluded at ~5σ by Planck+DESI 2024). Honest σ-distances and falsification criteria are tabulated for all predictions.
+We register falsifiable numerical predictions of the Trinity S3AI framework — a spectral triple construction on the 600-cell (H4 Coxeter group) — prior to forthcoming experimental decisions. The most critical prediction is the CP-violation phase in the lepton sector: \(\delta_{CP} = 3/\varphi^2 \approx 65.66°\), derived from the ratio of the number of fermion generations to the square of the golden ratio. This stands in ~2.7σ tension with the current NuFit 6.0 best-fit value for normal ordering (197°), and is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). The anti-post-hoc rule is enforced: no replacement formula introduced after exclusion. Additional predictions include: the vacuum frequency \(f_0 = 12.8\) THz as a quasicrystal spectroscopic signature; the dark-matter WIMP mass \(m_{DM} = \varphi^5\pi/e \approx 12.82\) GeV (testable at LZ/XENONnT); the Higgs boson mass \(m_H = 4\varphi^3 e^2 \approx 125.20\) GeV (retrospectively consistent with PDG 2024 at 0.02σ). Two predictions are already falsified: the cosmological constant formula (92 orders of magnitude off) and the lightest neutrino mass \(m_{\nu_1} = 1/(6\varphi) \approx 0.103\) eV (implies \(\Sigma m_\nu \approx 0.31\) eV, excluded at ~5σ by Planck+DESI 2024). Honest σ-distances and falsification criteria are tabulated for all predictions.
 
 ---
 
@@ -149,7 +149,7 @@ Here \(\varphi^2 = \varphi + 1 = (3+\sqrt{5})/2\), 3 is the number of fermion ge
 - \(\sigma\text{-distance} = 131.3°/49° \approx \mathbf{2.7\sigma}\) (using lower 1σ)
 - Using symmetric 1σ ≈ 35°: **3.8σ**
 
-**Conclusion:** Trinity δ_CP is in the range **2.7–3.8σ** from the current NuFit 6.0 (NO) best-fit value. This is **BORDERLINE** — neither numerically verified nor refuted (the δ_CP prediction is now WITHDRAWN). The statistical significance of existing data is insufficient for a final verdict.
+**Conclusion:** Trinity δ_CP is excluded at **>5σ** by NuFIT-6.0 + T2K+NOvA 2025. The prediction is **WITHDRAWN** (post-hoc fit). No replacement formula is introduced under the anti-post-hoc rule.
 
 **Falsification criterion:**
 > *If DUNE (2028–2032) measures δ_CP > 130° at 3σ significance, the formula \(3/\varphi^2\) is considered falsified.*

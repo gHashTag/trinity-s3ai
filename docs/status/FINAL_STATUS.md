@@ -141,7 +141,7 @@ The Jarlskog invariant J quantifies CP violation magnitude:
 | **DUNE full (10 yr)** | **~2034** | **~6–15°** | **Strong** |
 | DUNE 15 yr | ~2039 | ~5–15° | Definitive |
 
-**DUNE will test δ_CP with ±3° precision by 2035** — sufficient to distinguish 65.66° from most alternative values at >3σ.
+**DUNE will measure δ_CP with ±3° precision by 2035** — regardless of outcome, the Trinity δ_CP = 3/φ² prediction is already **WITHDRAWN** (>5σ excluded, post-hoc fit).
 
 ---
 
@@ -267,7 +267,7 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 |---------|--------|-------------|
 | First-principles derivation from Lagrangian | ⬜ **OPEN** | The deepest theoretical gap — no complete RG trajectory E8→H4→SM |
 | 2-op uniqueness for 92 and 549 | ⬜ **OPEN** | Neither is unique (both have multiple derivations), but 549 is relatively rare |
-| DUNE will test δ_CP with ±3° precision | ⬜ **OPEN** | Awaiting experimental data by 2035 |
+| DUNE δ_CP measurement | ⬜ **OPEN** | DUNE will measure δ_CP by 2035; Trinity prediction already **WITHDRAWN** |
 | Independent p-value verification | ⬜ **OPEN** | p < 10⁻³² computed by authors; needs peer review |
 | Complete E6 vs H4 proof | ⬜ **OPEN** | E6vsH4.v is hand-wavy; needs formal proof that E6 invariants cannot produce φ |
 

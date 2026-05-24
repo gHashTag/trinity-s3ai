@@ -95,7 +95,7 @@ Lake resolves to `TrinityLean/H4RootSystem.lean` (subdirectory).
 - [ ] Reduce Admitted ≤ 20, Axiom ≤ 30.
 - [ ] Complete Lean 4 port (0 sorry).
 - [ ] Obtain feedback from Wilson / Furey / Martinetti.
-- [ ] Publish full paper in JHEP or Phys. Rev. D **only if δ_CP crisis is resolved**
+- [ ] Publish full paper in JHEP or Phys. Rev. D **with transparent δ_CP withdrawal documented**
       or honestly acknowledged as an open problem.
 
 **Odds:** 30–40%.

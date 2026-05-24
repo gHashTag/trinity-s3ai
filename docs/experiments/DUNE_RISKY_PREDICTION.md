@@ -148,7 +148,7 @@ the phase is in tension with current data. This could indicate:
 | Einstein: light bending = 1.75 arcsec | 1915 | HIGH (opposed Newton) | CONFIRMED 1919 |
 | Gell-Mann: Omega- baryon | 1962 | HIGH (specific mass) | CONFIRMED 1964 |
 | Connes: m_H = 170 GeV | 2006 | MEDIUM | FALSIFIED (observed 125) |
-| Trinity: delta_CP = 65.66 degrees | 2026 | **VERY HIGH** (5.6 sigma tension) | **TBD by DUNE** |
+| Trinity: delta_CP = 65.66 degrees | 2026 | **WITHDRAWN** (>5σ excluded, post-hoc fit) | N/A |
 
 Connes' incorrect Higgs mass prediction (170 GeV) was later revised post-hoc
 to match the 125 GeV observation. **We will not do this.** If 65.66 degrees is

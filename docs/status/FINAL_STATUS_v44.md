@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (v4.4 historical status)
+# Current status: δ_CP prediction is WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 # Trinity S³AI v4.4 — FINAL STATUS
 ## 100% Lagrangian Completeness Achieved
 

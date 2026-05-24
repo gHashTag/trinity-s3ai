@@ -155,7 +155,7 @@ Status: STRONGLY DISFAVORED by current data (5.6 sigma tension)
 
   STRENGTH: Strong - absolute prediction, no wiggle room.
   VERDICT: ALREADY DISFAVORED at 3-5.6 sigma. Most VULNERABLE prediction.
-           DUNE (starting ~2028) will definitively test this.
+           Prediction is WITHDRAWN (>5σ excluded, post-hoc fit).
 
 PREDICTION 5: lambda_Higgs = sqrt(phi)/pi^2 ~ 0.1289
 --------------------------------------------------------------------------------
@@ -366,7 +366,8 @@ FALSIFIABILITY GRADE: B+ (makes clear predictions, but some are weak
 or have formula issues, and one is already disfavored)
 
 SCIENTIFIC MERIT: The m_H formula is intriguing. The delta_CP prediction
-is bold but likely wrong. The framework needs to fix formula issues and
-address the delta_CP tension before it can be taken seriously.
+is **WITHDRAWN** (>5σ excluded, post-hoc fit). The framework needs to fix
+formula issues and acknowledge the withdrawal transparently before it can be
+taken seriously.
 
 ================================================================================

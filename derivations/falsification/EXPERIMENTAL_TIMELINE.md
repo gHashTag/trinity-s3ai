@@ -13,7 +13,7 @@
 
 | # | Prediction | Trinity Value | Experiment | Start Date | End Date | Status | Falsification Threshold |
 |---|------------|---------------|------------|------------|----------|--------|------------------------|
-| **P1** | δ_CP (PMNS) | **65.66°** (`3/φ²` rad) | DUNE (Long-Baseline Neutrino Oscillation) | 2028 | 2038 | **OPEN / BORDERLINE** | \|δ_CP − 65.66°\| > 10° at 3σ → refuted |
+| **P1** | δ_CP (PMNS) | **65.66°** (`3/φ²` rad) | DUNE (Long-Baseline Neutrino Oscillation) | 2028 | 2038 | **WITHDRAWN** (>5σ excluded, post-hoc fit) | Prediction withdrawn under anti-post-hoc rule. |
 | **P2** | f₀ (quasicrystal THz line) | **12.8 THz** | THz spectroscopy of icosahedral quasicrystals (Al-Mn-Pd, i-YbMgZn) | 2025 | 2035 | **OPEN** (no data) | No line at 12.8 ± 0.5 THz in high-resolution scan → refuted |
 | **P3a** | m_DM (WIMP mass, Predictions.v) | **12.82 GeV** | LZ-2, XENONnT, DARWIN | 2024 | 2035 | **OPEN** | σ_SI excluded > 10⁻⁴⁹ cm² at 12.82 GeV without signal → severely constrained |
 | **P3b** | m_DM (WIMP mass, Catalog42.v) | **36.0 GeV** | LZ-2, XENONnT, DARWIN | 2024 | 2035 | **OPEN** (internal inconsistency) | Same threshold as P3a at 36.0 GeV |

@@ -56,7 +56,7 @@
 - Higgs mass derivation (matches m_H ≈ 125 GeV — numerically verified coincidence)
 - Yukawa couplings structure (pattern claim, not numerical values)
 - Gauge group identification (SU(3)×SU(2)×U(1) — post-hoc or derived?)
-- **Tension**: δ_CP in tension with data is a significant concern
+- **Withdrawn**: δ_CP prediction is WITHDRAWN (>5σ excluded, post-hoc fit)
 - **Verdict**: Only m_H is experimentally checked. Others are structural claims.
 
 #### Experimental Confirmation: **2/10** — Critically Weak
@@ -64,7 +64,7 @@
 - **Not numerically verified**: N_gen mechanism (we know N=3 empirically)
 - **Not numerically verified**: Strong CP mechanism (θ_QCD ≈ 0 known, but axion searches ongoing)
 - **Not numerically verified**: Yukawa coupling values (no numerical predictions tested)
-- **Tension**: δ_CP value conflicts with experimental measurements
+- **Withdrawn**: δ_CP prediction is WITHDRAWN (>5σ excluded, post-hoc fit)
 - **Verdict**: This is the weakest dimension. Trinity currently explains one number (m_H) that many theories explain.
 
 #### Peer Review Validation: **0/10** — Absent
@@ -146,7 +146,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 
 ### 4.3 Why 4/10 (not higher):
 - **Zero peer review** — the single most important filter in physics
-- **δ_CP tension** — an active contradiction with experiment
+- **δ_CP withdrawn** — prediction excluded at >5σ (post-hoc fit)
 - **No experimental predictions beyond m_H** — which many models fit
 - **No independent verification** — one person's Coq proofs are not community consensus
 - **No response to criticism** — critics say REJECT/Major Revision, no rebuttal published
@@ -162,7 +162,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 **Timeline**: 6-18 months  
 **Actions**:
 - Submit to Physical Review D, JHEP, or Communications in Mathematical Physics
-- Address δ_CP tension explicitly in manuscript
+- Address δ_CP withdrawal explicitly in manuscript
 - Provide detailed response to "REJECT → Major Revision" critiques
 - Make Coq proofs publicly available (GitHub) for independent inspection
 - Publish companion paper explaining H4 choice (why not other Coxeter groups?)
@@ -213,7 +213,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 ```
 2026 Q2-Q3:  Peer review submission          → Impact: 4 → 5
 2026 Q4:     First independent verification  → Impact: 5 → 6.5
-2027 Q1-Q4:  δ_CP resolved or withdrawn      → Impact: 6.5 → 7.5
+2027 Q1-Q4:  δ_CP withdrawal acknowledged    → Impact: 6.5 → 7.5
 2028+:       Experimental predictions        → Impact: 7.5 → 9
 ```
 
@@ -222,7 +222,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 | Risk | Probability | Impact if realized |
 |------|------------:|--------------------|
 | Fatal flaw in H4→SM mapping | 25% | Drops to 2/10 (refuted) |
-| δ_CP tension unresolvable | 20% | Caps at 5/10 |
+| δ_CP withdrawal not acknowledged | 20% | Caps at 5/10 |
 | Theory is "curve-fitting" (post-hoc, not first principles) | 15% | Drops to 3/10 |
 | Community indifference (ignores it) | 30% | Stays at 4/10 |
 | Positive but niche (like Connes NCG) | 10% | Caps at 6/10 |
@@ -274,7 +274,7 @@ Trinity S³AI currently has:
 [ ] 1. Submit to peer-reviewed journal (PRD, JHEP, CMP)
 [ ] 2. Publish Coq proofs on GitHub with documentation
 [ ] 3. Write "H4 choice" paper justifying the starting point
-[ ] 4. Address δ_CP tension explicitly
+[ ] 4. Address δ_CP withdrawal explicitly
 [ ] 5. Respond to all REJECT/Major Revision critiques point-by-point
 [ ] 6. Present at Strings, ICMP, or APS conference
 [ ] 7. Invite external expert (Connes, Distler, Shaposhnikov) to review
@@ -296,7 +296,7 @@ Trinity S³AI is a **high-potential, high-risk theoretical framework** with exce
 
 The 3/13 first-principles derivations (m_H, gauge couplings, λ), **1325 Coq Qed proofs** (with 123 unproven obligations transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md)), and 61 SG-class formulas are genuinely impressive artifacts. But history teaches us that formal beauty is necessary, not sufficient, for physical truth.
 
-**The next 18 months are critical.** If Trinity navigates peer review, resolves δ_CP tension, and produces one independent verification, it could become the most significant SM foundation advance since Yang-Mills. If it fails any of these, it joins E8 and others in the graveyard of beautiful ideas.
+**The next 18 months are critical.** If Trinity navigates peer review, acknowledges δ_CP withdrawal transparently, and produces one independent verification, it could become a significant SM foundation advance. If it fails any of these, it joins E8 and others in the graveyard of beautiful ideas.
 
 > *"In physics, the graveyard of ideas is filled with mathematical elegance. The pantheon is filled with experimental confirmation."*
 

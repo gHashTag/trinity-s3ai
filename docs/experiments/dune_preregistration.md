@@ -201,7 +201,7 @@ If DUNE falsifies delta_CP = 65.66°:
 
 ### 6.4 What Would Partial Confirmation Look Like?
 
-If DUNE measures delta_CP = 80-100°, this is **tension but not definitive falsification**. In this case:
+If DUNE measures delta_CP = 80-100°, this is **inconsistent with the withdrawn prediction**. The pre-registration is preserved as a historical scientific act; the prediction itself is WITHDRAWN (>5σ excluded). In this case:
 
 - Wait for DUNE 2030/2032 higher precision data
 - The formula could be approximately correct but with corrections (e.g., from matter effects, new physics)

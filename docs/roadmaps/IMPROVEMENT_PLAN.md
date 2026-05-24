@@ -587,8 +587,8 @@ PRIMARY STRATEGY (honest, high-integrity):
    → 1 day, creates permanent public record
    
 2. FRAME the experimental landscape honestly:
-   → "PDG 2024 agrees (0.1 sigma). NuFit 6.0 disagrees (5.6 sigma).
-      The field is unsettled. DUNE 2028 decides."
+   → "The δ_CP = 3/φ² prediction is WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+      It was a post-hoc fit, not a first-principles derivation. Anti-post-hoc rule enforced."
    
 3. EMPHASIZE the quark-lepton CP angle equality:
    → gamma (CKM) = 65.9 +/- 3.3°

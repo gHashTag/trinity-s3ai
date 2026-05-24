@@ -71,7 +71,7 @@ KO-dimension 6 mod 8 for H₄. Eta equals minus 2, APS-exact. The binary icosahe
 
 What does not survive? The claim that H₄ derives the Standard Model. The claim that it predicts 125 GeV — that was a retrospective fit, and we label it as such. And the Tier-3 cosmological formulas, falsified by Planck and DESI.
 
-What is next? Track B: investigating Cl(8), the exceptional Jordan algebra, and triality as an alternative basis for the three-generation problem. DUNE 2028 will test our delta-CP prediction of 65.66 degrees. And we keep discharging the 81 remaining Admitted proofs — one at a time, in public.
+What is next? Track B: investigating Cl(8), the exceptional Jordan algebra, and triality as an alternative basis for the three-generation problem. The delta-CP prediction of 65.66 degrees is **WITHDRAWN** (>5σ excluded, post-hoc fit). And we keep discharging the 81 remaining Admitted proofs — one at a time, in public.
 
 Trinity S³AI is a boundary-mapping research program. Knowing what does not work is as valuable as knowing what does — because science advances not only by success stories, but by honest refutations.
 

@@ -331,6 +331,22 @@ Proof.
   symmetry. exact H.
 Qed.
 
+Lemma alg_mul_opp_r (B : RAlgebra) (a b : carrier B) :
+  alg_mul B a (alg_opp B b) = alg_opp B (alg_mul B a b).
+Proof.
+  rewrite (alg_opp_is_smul_neg1 B b).
+  rewrite (alg_opp_is_smul_neg1 B (alg_mul B a b)).
+  apply (alg_smul_mul_r B (-1) a b).
+Qed.
+
+Lemma alg_mul_opp_l (B : RAlgebra) (a b : carrier B) :
+  alg_mul B (alg_opp B a) b = alg_opp B (alg_mul B a b).
+Proof.
+  rewrite (alg_opp_is_smul_neg1 B a).
+  rewrite (alg_opp_is_smul_neg1 B (alg_mul B a b)).
+  apply (alg_smul_mul_l B (-1) a b).
+Qed.
+
 Lemma cl02_hom_fn_one_v (B : RAlgebra) (j : Vec 2 -> carrier B) :
   cl02_hom_fn B j H_one_v = alg_one B.
 Proof. unfold H_one_v. apply cl02_hom_one. Qed.
