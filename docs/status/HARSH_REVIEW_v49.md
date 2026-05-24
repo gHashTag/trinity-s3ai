@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (simulated peer review exercise)
+# Current status: See RESEARCH_STATUS.md and TECH_TREE.md for canonical assessment.
+# Key withdrawals: δ_CP prediction (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 # REFEREE REPORT: Trinity S^3AI v4.9
 
 **Journal:** Physical Review Letters (rejected; recommended for Rev. Mod. Phys. only if entirely rewritten)

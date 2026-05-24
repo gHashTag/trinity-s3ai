@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (historical delta_CP analysis against outdated PDG-2024 data)
+# Current status: See RESEARCH_STATUS.md and TECH_TREE.md for canonical assessment.
+# Key withdrawals: δ_CP prediction (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 > ⚠️ **DEPRECATED TARGET (2026-05-23)** — This analysis was constructed against the experimental target **PDG-2024 δ_CP = 65.5° ± 1.6°**, which has since been superseded by [NuFIT-6.0 (Sep 2024)](https://arxiv.org/abs/2410.05380) best fit **177° (NO) / 285° (IO)** and the [T2K+NOvA joint analysis (Nature, Oct 2025)](https://www.nature.com/articles/s41586-025-09599-3) (3σ NO interval [−248°, 54°]; 3σ IO interval [194°, 353°]). Under current data **both** δ_CP = e/2 = 77.87° and the post-hoc fit δ_CP = 3/φ² = 65.66° are excluded at >5σ from the NO global best fit. See [`DELTA_CP_HONEST_STATUS.md`](../../DELTA_CP_HONEST_STATUS.md) for the corrected reassessment. This document is preserved as a **historical record of how the 3/φ² formula was found by brute-force search against an outdated target**.
 
 ---
@@ -296,7 +301,7 @@ The 12.4 deg discrepancy between e/2 and the measured value could be interpreted
 - Cost: Loses the elegant e/2 connection
 
 **Option C: Hybrid (RECOMMENDED)**
-- **Primary prediction**: delta_CP = 3/phi^2 = 65.66 deg
+- **Historical / WITHDRAWN prediction**: delta_CP = 3/phi^2 = 65.66 deg — excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025
 - **Secondary (meta-prediction)**: The correction from e/2 -> 3/phi^2 encodes new physics
 - Frame as: "The tree-level value e/2 = 77.9 deg is corrected to 3/phi^2 = 65.7 deg by [mechanism]"
 - Advantage: Acknowledges data while preserving theoretical structure

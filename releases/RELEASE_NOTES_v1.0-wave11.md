@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (historical release notes wave 11–12)
+# Current status: See RESEARCH_STATUS.md and TECH_TREE.md for canonical assessment.
+# Key withdrawals: δ_CP prediction (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 # Trinity S³AI v1.0 — Wave 11–12 Release Notes
 
 **Date:** 2026-05-22  

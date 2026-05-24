@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (historical verification results 2024)
+# Current status: See RESEARCH_STATUS.md and TECH_TREE.md for canonical assessment.
+# Key withdrawals: δ_CP prediction (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 # Independent Verification of All 25 Trinity Formulas
 
 **Date:** 2024

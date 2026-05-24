@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (historical Lagrangian status v4.3)
+# Current status: See RESEARCH_STATUS.md and TECH_TREE.md for canonical assessment.
+# Key withdrawals: δ_CP prediction (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical up-to-date assessment.
+
 > ⚠️ **DEPRECATED (2026-05-23)** — The "92.3% PROVEN" framing in this file conflates formal derivation with numerical fit. See [`LAGRANGIAN_HONEST_STATUS.md`](LAGRANGIAN_HONEST_STATUS.md) for the corrected breakdown: **3 of 13 sectors formally proven, 9 phenomenological, 1 open**. The internal documents [`lagrangian_roadmap.md`](../roadmaps/lagrangian_roadmap.md) (4 major gaps including 60× a_4 discrepancy and e² mystery) and [`HARSH_REVIEW_v49.md`](HARSH_REVIEW_v49.md) (post-hoc fitting critique) supersede the claims below.
 
 ---
