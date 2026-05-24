@@ -268,7 +268,42 @@ operator). The only runtime is the TinyTapeout Verilog wrapper.
 
 ---
 
-## 9. AetherFloat — Keita Morisaki (2026)
+## 9. M2XFP — Shanghai Jiao Tong University / Huawei (ASPLOS 2026)
+
+**Paper:** "M²XFP: A Metadata-Augmented Microscaling Data Format for
+Efficient Low-bit Quantization"  
+**Authors:** Weiming Hu et al., SJTU + Huawei  
+**Venue:** ASPLOS 2026 (arXiv:2601.19213)  
+**Code:** [SJTU-ReArch-Group/M2XFP_ASPLOS26](https://github.com/SJTU-ReArch-Group/M2XFP_ASPLOS26)  
+**Link:** [arXiv:2601.19213](https://arxiv.org/abs/2601.19213)
+
+**Key claim:**
+- **4.5 effective bits** per element (0.25 bits metadata overhead on top of
+  FP4) via hybrid metadata: element-level extra mantissa (Elem-EM) for
+  dynamic activations, subgroup-level extra mantissa + adaptive shared scale
+  for static weights.
+- Hardware PE tile is **~4.0% larger** than MXFP4 PE, adding only decoder
+  and shift-and-add logic (no multipliers).
+- **70.63% accuracy-loss reduction** vs MXFP4 on LLaMA-2/3, Mistral, Falcon,
+  OPT benchmarks. **1.91× speedup** and **1.75× energy savings** vs MicroScopiQ
+  baseline.
+
+**Relevance to GF16:**
+M2XFP addresses the same core problem as GF4: **4-bit quantization is too
+coarse for LLM weights**. M2XFP solves it with metadata augmentation; GF4
+solves it with φ-structured mantissa spacing. Both are custom low-bit formats
+that reject vanilla FP4.
+
+**Honest gap:**
+- M2XFP has **peer-reviewed ASPLOS acceptance** + **open evaluation code**;
+  GF4 has neither yet.
+- M2XFP targets **LLM inference** with proven accuracy recovery; GF4 targets
+  **physics-structured data** with no LLM accuracy data published.
+- No head-to-head benchmark on the same model.
+
+---
+
+## 10. AetherFloat — Keita Morisaki (2026)
 
 **Paper:** "AetherFloat: A Quad-Radix Floating-Point Format for Deep Learning"  
 **Author:** Keita Morisaki  
@@ -293,9 +328,9 @@ radix-4 for hardware simplicity; GF16 chooses φ-rooting for compression.
 
 ---
 
-## 10. TinyTapeout / Open-Silicon Floating-Point Projects
+## 11. TinyTapeout / Open-Silicon Floating-Point Projects
 
-### 10.1 `tt_um_float_synth` — NikLeberg
+### 11.1 `tt_um_float_synth` — NikLeberg
 
 **Repo:** [github.com/NikLeberg/tt_um_float_synth](https://github.com/NikLeberg/tt_um_float_synth)  
 **Shuttle:** IHP26A (TinyTapeout)
@@ -303,7 +338,7 @@ radix-4 for hardware simplicity; GF16 chooses φ-rooting for compression.
 Synthesizes floating-point units (VHDL/Verilog) using open-source toolchains
 (Yosys, GHDL, OpenROAD) on the IHP 130nm open PDK.
 
-### 10.2 `Systolic_Array_with_DFT_v2` — Essenceia
+### 11.2 `Systolic_Array_with_DFT_v2` — Essenceia
 
 **Repo:** [github.com/Essenceia/Systolic_Array_with_DFT_v2](https://github.com/Essenceia/Systolic_Array_with_DFT_v2)  
 **Shuttle:** IHP26A (TinyTapeout)
@@ -318,7 +353,7 @@ submission to TTSKY26a follows the same open-silicon methodology.
 
 ---
 
-## 11. Custom FP for FPGAs (ECP5)
+## 12. Custom FP for FPGAs (ECP5)
 
 **Repo:** [Marc103/Floating-Point-Image-Processing-SV-RTL](https://github.com/Marc103/Floating-Point-Image-Processing-SV-RTL)
 
@@ -329,7 +364,7 @@ philosophy to DLFloat/GF16.
 
 ---
 
-## 12. GoldenFloat Paper (t27 Project, NeurIPS 2026 OPT target)
+## 13. GoldenFloat Paper (t27 Project, NeurIPS 2026 OPT target)
 
 **Paper:** "GoldenFloat: A Formally Verified, φ-Optimal Floating-Point
 Family for Ternary-Native Mixed-Precision Computing" (April 2026)  
@@ -354,12 +389,16 @@ Family for Ternary-Native Mixed-Precision Computing" (April 2026)
 - "General irrational constants: For π, e, and other irrationals without
   denominator factor 3, GF does not have advantage over IEEE formats."
 
-**Note:** The NeurIPS paper does **not** cite DLFloat16. This is a
-documentation gap that should be closed in the camera-ready version.
+**Note:** The NeurIPS paper draft (t27 repo) does **not** cite DLFloat16.
+This documentation gap was **closed in the `zig-golden-float` whitepaper v1.1**
+(commit `965b5a3`, April 2026), which explicitly states:
+"GF16 = IBM DLFloat (1/6/9 format, Agrawal 2019). Format is NOT novel.
+Our novelty: integer-backed u16 implementation + FPGA characterization."
+The NeurIPS camera-ready version should carry the same citation.
 
 ---
 
-## 13. zig-golden-float — Zig Reference Implementation (2026)
+## 14. zig-golden-float — Zig Reference Implementation (2026)
 
 **Repo:** [github.com/gHashTag/zig-golden-float](https://github.com/gHashTag/zig-golden-float)  
 **Authors:** Dmitrii Vasilev (gHashTag)  
@@ -397,7 +436,7 @@ on φ-structured data, but it does not prove hardware correctness.
 
 ---
 
-## 14. HiFloat4 (HiF4) — Huawei (arXiv 2026)
+## 15. HiFloat4 (HiF4) — Huawei (arXiv 2026)
 
 **Paper:** "HiFloat4: A 4-bit Block Floating-Point Format for Efficient LLM
 Inference"  
@@ -425,7 +464,7 @@ favor of a domain-specific layout. HiF4 uses block-scaling; GF4 uses
 
 ---
 
-## 15. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
+## 16. Harmonia — Algorithm-Hardware Co-Design (arXiv 2026)
 
 **Paper:** "Harmonia: Algorithm-Hardware Co-Design for Memory- and
 Compute-Efficient BFP-based LLM Inference"  
@@ -451,7 +490,7 @@ principle: not all bits need the same precision everywhere.
 
 ---
 
-## 16. TinyTapeout IHP26A Ecosystem (2025–2026)
+## 17. TinyTapeout IHP26A Ecosystem (2025–2026)
 
 The **IHP26A** shuttle (IHP 130nm `sg13g2` open PDK) launched November 2025,
 with chips expected **September 2026**. It carries a dense cluster of
@@ -481,7 +520,7 @@ success.
 
 ---
 
-## 17. Summary: Where Trinity Fits
+## 18. Summary: Where Trinity Fits
 
 | Project | Base | Layout | φ-aware? | Silicon? | Format type |
 |---------|------|--------|----------|----------|-------------|
@@ -499,6 +538,7 @@ success.
 | **ZipNN** | IBM | BF16 + exponent codec | No | Software | Lossless codec |
 | **DFloat11** | Rice | Huffman exponents | No | Software | Dynamic FP |
 | **ECF8** | Rice | Alpha-stable FP8 | No | Software | Data-tuned FP8 |
+| **M2XFP** | SJTU/Huawei | Metadata-augmented FP4 | No | Yes (ASPLOS 2026) | Research format |
 | **MXFP4/6/8** | OCP | Micro-block scaled | No | Yes (multiple vendors) | Industry standard |
 | **tt_um_float_synth** | Community | Custom | No | IHP26A submitted | Open-silicon FP |
 | **Systolic_Array** | Community | bfloat16 subset | No | IHP26A submitted | Open-silicon FP |
@@ -525,6 +565,7 @@ empirical question** — tracked in `docs/hardware/bpb_benchmark.py` and
 - `docs/hardware/silicon_anchor.md` — TTSKY26a/b submission status
 - `docs/HARDWARE_ATTESTATION.md` — Honest proof inventory
 - `gHashTag/zig-golden-float` — Zig reference implementation with BENCH-001–006
+- arXiv:2601.19213 — M2XFP (SJTU/Huawei, ASPLOS 2026)
 - arXiv:2602.11287 — HiFloat4 (Huawei)
 - arXiv:2602.04595 — Harmonia (algorithm-hardware co-design)
 - [TinyTapeout IHP26A chip list](https://tinytapeout.com/chips/ttihp26a/) — Open-silicon FP ecosystem
