@@ -290,7 +290,7 @@ Ring 4 ships 43 unit tests, all native (no browser):
 
 The GOLDEN CHAIN concept (piers, span, honesty floor, recipes, space-fold
 motif) is documented separately in
-[`GOLDEN_BRIDGE.md`](GOLDEN_BRIDGE.md).
+[`GOLDEN_CHAIN.md`](GOLDEN_CHAIN.md).
 
 
 The boundary test
