@@ -121,7 +121,7 @@ The Trinity project builds a spectral triple over the 600-cell (regular 4-dimens
 
 ---
 
-#### P1 — δ_CP: The Most Important Awaited Resolution (DUNE 2028–2032)
+#### P1 — δ_CP: WITHDRAWN (>5σ excluded, post-hoc fit)
 
 **Formula:**
 \[
@@ -316,7 +316,7 @@ Full guide to classifications: S = Structural (structurally motivated), NF = Num
 
 | # | Prediction | Value | Status | Decision Awaited |
 |---|-------------|---------|--------|------------------|
-| P1 | δ_CP = 65.66° | NuFit 6.0: 197° (NO), Δ = 2.7σ | **BORDERLINE** | DUNE 2028–2032 |
+| P1 | δ_CP = 65.66° | NuFIT-6.0 + T2K+NOvA 2025: excluded at >5σ | **WITHDRAWN** | Anti-post-hoc rule enforced |
 | P2 | m_H = 125.20 GeV | PDG: 125.20±0.11, 0.02σ | **COMPATIBLE** (retrospective) | — |
 | P3 | f₀ = 12.8 THz | Not measured | **PENDING** | Quasicrystal THz spectroscopy |
 | P4 | m_DM = 12.82 GeV | No WIMP signal | **PENDING** | LZ-2 / XENONnT 2026–2028 |

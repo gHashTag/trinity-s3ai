@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (historical no-go theorems analysis)
+# Current status: This document contains historical references to outdated δ_CP status.
+# The δ_CP prediction is now WITHDRAWN (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+# See PREDICTIONS_PREREGISTERED.md for canonical assessment.
+
 # Wave 9.6: Honest Meta-Analysis of Trinity-s3ai — Obstruction Theorems
 
 **Project:** Trinity S3AI — formalization of H4/600-cell in the NCG context  

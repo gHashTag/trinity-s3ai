@@ -105,7 +105,7 @@ or to a specific root system vector is not constructed.
 - WARNING: NuFit 6.0 prefers ~177° (≈ -3°), T2K+NOvA ~234°
   The Trinity solution (65.66°) lies in the lower quadrant, opposite  
   current experimental preferences. This is a 5-8σ discrepancy.
-  DUNE (2028-2032) will finally resolve this question.
+  The Trinity δ_CP prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). DUNE will measure δ_CP independently, but the Trinity prediction does not survive.
 
 **Historical context (honest):**
 - Original Trinity prediction: e/2 = 77.87° — excluded at 7.7σ
@@ -296,7 +296,7 @@ The concrete powers (3, 5, 8) are fitted numerically.
 
 ### 5.3 Falsifiable Predictions
 
-1. **δ_CP = 65.66°** — DUNE 2028 will decide finally. Current NuFit prefers ~177°.
+1. **δ_CP = 65.66°** — **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Current global fits prefer ~195°.
    Probability of confirmation: ~30% (per document DUNE_RISKY_PREDICTION.md).
 
 2. **sin²θ₁₃ = π²/(25φ⁶) = 0.0220** — already numerically verified against PDG 2024 with error 0.003%.
