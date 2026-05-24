@@ -65,14 +65,36 @@ Russian-language documents created before this policy are grandfathered with a `
 
 The CI gate `cyrillic-check` enforces this. If you have a legitimate reason to include Cyrillic (e.g., quoting a Russian paper title), add the `LEGACY:` header or request exemption in the PR.
 
-#### 5. PR requirements
+#### 5. Commit signing (required on `main`)
+
+All commits pushed to `main` must be **GPG-signed**. Unsigned commits are rejected by CI.
+
+Quick setup:
+```bash
+gpg --full-generate-key   # or use an existing key
+git config --global user.signingkey <YOUR_KEY_ID>
+git config --global commit.gpgsign true
+```
+
+Then commit normally; Git will sign automatically. If you forget to sign:
+```bash
+git commit --amend -S --no-edit  # re-sign the last commit
+git push --force-with-lease      # safe force-push on a PR branch
+```
+
+CI runs `scripts/check_commit_signatures.py` on every PR. Emergency bypass:
+add `[skip-signature-check]` to the commit message (not recommended; log a reason
+in the PR description).
+
+#### 6. PR requirements
 
 Every PR must:
 1. Fill in the PR template (`.github/PULL_REQUEST_TEMPLATE.md`)
 2. Pass `anti_numerology_check` CI job (or include `[skip-numerology-check]` with explanation)
 3. Pass `cyrillic-check` CI job (or include `[skip-cyrillic-check]` with justification)
-3. Pass `scripts/validators/validate_v4.py` (formula error bounds)
-4. Have a "What is verified / What is open" section
+4. Pass `scripts/validators/validate_v4.py` (formula error bounds)
+5. Have a "What is verified / What is open" section
+6. Be **GPG-signed** (or include `[skip-signature-check]` with justification)
 
 #### 5. Build instructions (Coq 8.20.1)
 

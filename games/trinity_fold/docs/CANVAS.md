@@ -2,7 +2,7 @@
 
 ## How to play (3 steps)
 
-GOLDEN BRIDGE is a kid-friendly hypothesis-discovery puzzle. The goal is to
+GOLDEN CHAIN is a kid-friendly hypothesis-discovery puzzle. The goal is to
 *light four bridge stones* by picking matched pairs of cards. The bridge
 stays stable as long as you avoid falsified (red ⚠) cards.
 
@@ -111,9 +111,9 @@ moves, and benchmark logic are the *same* code paths exercised by `cargo run`.
 
 | File | Purpose |
 |---|---|
-| `src/state.rs`   | `AppState` — owns `Board`, `Catalog`, latest `ScoreBreakdown`, view options, recipes, and the GOLDEN BRIDGE view. The only mutator is `AppState::apply(UiEvent)`. |
+| `src/state.rs`   | `AppState` — owns `Board`, `Catalog`, latest `ScoreBreakdown`, view options, recipes, and the GOLDEN CHAIN view. The only mutator is `AppState::apply(UiEvent)`. |
 | `src/input.rs`   | `UiEvent`, `InputAction`, `KeyCode`. `resolve(model, action) -> Option<UiEvent>` does pure hit-testing against the latest render model. |
-| `src/render.rs`  | `layout(state, viewport, theme) -> RenderModel`. Emits `RenderPrimitive`s (rect, line, circle, text) and `HitBox`es — no DOM types. Renders the GOLDEN BRIDGE deck (piers + span line + space-fold motif + integrity banner + recipe rail) above the two towers. |
+| `src/render.rs`  | `layout(state, viewport, theme) -> RenderModel`. Emits `RenderPrimitive`s (rect, line, circle, text) and `HitBox`es — no DOM types. Renders the GOLDEN CHAIN deck (piers + span line + space-fold motif + integrity banner + recipe rail) above the two towers. |
 | `src/bridge.rs`  | `BridgeView` — view projection over `Board` + `Catalog` + `ScoreBreakdown`. Computes pier counts, span nodes with `SpanStatus`, `BridgeIntegrity` (Empty/Sound/Provisional/Collapsed), and a `compression` ratio. Introduces no new scoring. |
 | `src/recipes.rs` | Built-in `Recipe` list (named tile sets with rationale). Clicking a recipe chip emits `UiEvent::LoadRecipe(id)`. |
 
@@ -164,7 +164,7 @@ python3 -m http.server 8000
 
 The page detects a missing bundle and shows a fallback notice with the same
 build command, so a fresh checkout never silently breaks. The fallback also
-embeds a static SVG snapshot of the GOLDEN BRIDGE layout so the preview is
+embeds a static SVG snapshot of the GOLDEN CHAIN layout so the preview is
 visually meaningful even without the wasm bundle.
 
 ### Static SVG fallback
@@ -274,9 +274,9 @@ holds no game data at all.
 Ring 4 ships 43 unit tests, all native (no browser):
 
 - `state::tests` — apply/toggle/clear/benchmark/hill-climb/anneal determinism,
-  unknown-id handling, GOLDEN BRIDGE view tracking, recipe loading.
+  unknown-id handling, GOLDEN CHAIN view tracking, recipe loading.
 - `render::tests` — hit-region coverage of the catalog, toolbar buttons,
-  worst-claim text, GOLDEN BRIDGE branding, integrity label, collapse
+  worst-claim text, GOLDEN CHAIN branding, integrity label, collapse
   warning, recipe-chip hits, colour CSS formatting, truncation, plus
   game-feel guards (tutorial banner lists three numbered steps, toolbar
   uses kid-friendly Reset/Hint/Auto-build labels, friendly tile labels
@@ -288,7 +288,7 @@ Ring 4 ships 43 unit tests, all native (no browser):
 - `recipes::tests` — built-in recipes are non-empty and rebind cleanly
   against the default catalog.
 
-The GOLDEN BRIDGE concept (piers, span, honesty floor, recipes, space-fold
+The GOLDEN CHAIN concept (piers, span, honesty floor, recipes, space-fold
 motif) is documented separately in
 [`GOLDEN_BRIDGE.md`](GOLDEN_BRIDGE.md).
 

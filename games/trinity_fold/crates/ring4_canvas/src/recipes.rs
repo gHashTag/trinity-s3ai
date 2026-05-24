@@ -1,4 +1,4 @@
-// Recipes — community-curated build strategies for the GOLDEN BRIDGE.
+// Recipes — community-curated build strategies for the GOLDEN CHAIN.
 //
 // A `Recipe` is a *named list of catalog ids* paired with a short rationale.
 // Loading a recipe replays its tile placements via `UiEvent::ToggleTile`, so

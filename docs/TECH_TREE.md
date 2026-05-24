@@ -44,7 +44,7 @@ Boundary-mapping principle:
 ║  ✅ CI/CD (GitHub Actions)                                       ║
 ║  ✅ Anti-numerology gate (all φ/π/e tags checked)                ║
 ║  ✅ Honest Admitted counter (script strips comments)             ║
-║  ✅ GOLDEN BRIDGE (Rust + wasm, live)                            ║
+║  ✅ GOLDEN CHAIN (Rust + wasm, live)                            ║
 ║  ✅ Railway/Postgres SSOT for data                               ║
 ╚══════════════════════════════════════════════════════════════════╝
                              │

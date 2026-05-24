@@ -42,7 +42,7 @@ If you are a peer reviewer arriving cold, the recommended reading order is:
 | `releases/` | Release notes per version (`v1.0-wave11`, `v1.0-wave14`) and the arxiv tarball. |
 | `archive/legacy/` | Historically important but superseded documents (Russian-language critic response, README from earlier `v4.6` cut). Preserved for context, not part of the active document set. |
 | `arxiv_submission/` | Self-contained arXiv submission package (separate from `paper/`). |
-| `games/trinity_fold/` | GOLDEN BRIDGE puzzle (Rust + wasm) and its docs. |
+| `games/trinity_fold/` | GOLDEN CHAIN puzzle (Rust + wasm) and its docs. |
 | `trinity_rust/` | Rust workspace mirroring the formula catalog (Cargo workspace). |
 | `research/` | Long-form research notes (currently a stub README). |
 | `docs/` | Reviewer-facing docs — see breakdown below. |

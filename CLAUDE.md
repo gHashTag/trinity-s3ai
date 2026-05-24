@@ -73,7 +73,7 @@ cd trinity_rust && cargo test
 | `proofs/catalog/` | Standalone reference catalog |
 | `docs/claims.yaml` | **SSOT** — machine-readable claim ledger |
 | `scripts/` | Validators, gates, and generators (CI-critical) |
-| `games/trinity_fold/` | GOLDEN BRIDGE puzzle (Rust + wasm, 5-ring workspace) |
+| `games/trinity_fold/` | GOLDEN CHAIN puzzle (Rust + wasm, 5-ring workspace) |
 | `trinity_rust/` | Rust formula catalog and numeric checks |
 | `paper/` | LaTeX sources and Markdown paper drafts |
 | `derivations/` | Per-topic derivation notes across 54 subdirectories |

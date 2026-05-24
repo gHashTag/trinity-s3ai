@@ -1,0 +1,41 @@
+repos:
+  - repo: local
+    hooks:
+      # ── Gate 1: Anti-numerology ───────────────────────────────────────────
+      - id: anti-numerology
+        name: Anti-numerology gate (phi/pi/e tag check)
+        entry: python3 scripts/anti_numerology_gate.py
+        language: system
+        files: proofs/.*\.v$
+        pass_filenames: false
+        always_run: false
+        stages: [pre-commit]
+
+      # ── Gate 2: Claim ledger consistency ────────────────────────────────
+      - id: claims-check
+        name: Claim ledger SSOT check (stale artefacts)
+        entry: python3 scripts/generate_claims.py --check
+        language: system
+        files: ^(docs/claims\.yaml|README\.md|games/trinity_fold/fixtures/generated_claim_cards\.json)$
+        pass_filenames: false
+        always_run: false
+        stages: [pre-commit]
+
+      # ── Gate 3: No Cyrillic in public docs ──────────────────────────────
+      - id: cyrillic-check
+        name: English-only public docs (no Cyrillic leakage)
+        entry: bash scripts/check_english_only.sh
+        language: system
+        files: .*\.md$
+        pass_filenames: false
+        always_run: false
+        stages: [pre-commit]
+
+      # ── Gate 4: Commit signature reminder ───────────────────────────────
+      - id: signing-reminder
+        name: Commit signing reminder (non-blocking)
+        entry: bash -c 'echo "[signing] Remember to sign commits: git commit -S"'
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [prepare-commit-msg]

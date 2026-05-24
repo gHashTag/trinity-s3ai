@@ -97,7 +97,7 @@ impl AppState {
         } else {
             self.score = score_board(&self.catalog, &self.board);
         }
-        // GOLDEN BRIDGE projection is derived state — rebuild whenever score
+        // GOLDEN CHAIN projection is derived state — rebuild whenever score
         // does. Keeps the render path free of branching on benchmark mode.
         self.bridge = BridgeView::build(&self.catalog, &self.board, &self.score);
     }

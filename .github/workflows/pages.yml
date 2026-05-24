@@ -1,4 +1,4 @@
-name: Deploy GOLDEN BRIDGE canvas to GitHub Pages
+name: Deploy GOLDEN CHAIN canvas to GitHub Pages
 
 # Builds the Rust-source-of-truth canvas UI for games/trinity_fold (ring 4 —
 # ring4_canvas) into a self-contained static site under

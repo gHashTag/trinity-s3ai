@@ -18,7 +18,7 @@ pub enum UiEvent {
     ToggleBenchmark,
     RunHillClimb,
     RunAnneal { seed: u64, iters: usize },
-    /// Replace the board with the tiles named by a GOLDEN BRIDGE recipe.
+    /// Replace the board with the tiles named by a GOLDEN CHAIN recipe.
     LoadRecipe(String),
     /// Remove the most recently-picked tile (single-step undo).
     UndoLast,

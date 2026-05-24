@@ -1,0 +1,41 @@
+# CODEOWNERS — Trinity S3AI
+#
+# The following files are critical to the project's integrity and claim
+# ledger consistency. Changes require review by the project owner.
+#
+# See GitHub docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Single source of truth for all public claims
+docs/claims.yaml                     @gHashTag
+
+# Formal boundary theorems — tampering here would falsify the project's strongest results
+proofs/trinity/BoundaryTheorems.v    @gHashTag
+
+# Ground-truth statistics and honesty methodology
+HONESTY_MANIFEST.md                  @gHashTag
+
+# Security policy and reporting path
+SECURITY.md                          @gHashTag
+
+# CI gates — changes could silently disable protection
+scripts/anti_numerology_gate.py      @gHashTag
+scripts/count_admitted_honest.py    @gHashTag
+scripts/generate_claims.py          @gHashTag
+scripts/check_english_only.sh       @gHashTag
+scripts/check_commit_signatures.py  @gHashTag
+
+# Generated claim cards — must stay in sync with claims.yaml
+games/trinity_fold/fixtures/generated_claim_cards.json  @gHashTag
+
+# All GitHub workflow and policy files
+.github/workflows/*                  @gHashTag
+.github/CODEOWNERS                   @gHashTag
+.github/PULL_REQUEST_TEMPLATE.md    @gHashTag
+.github/ISSUE_TEMPLATE.md            @gHashTag
+
+# Citation metadata — affects Zenodo / DOI
+CITATION.cff                         @gHashTag
+CITATION.bib                         @gHashTag
+
+# Live deploy configuration
+.github/workflows/pages.yml          @gHashTag

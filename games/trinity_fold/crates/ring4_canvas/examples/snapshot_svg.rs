@@ -1,4 +1,4 @@
-// GOLDEN BRIDGE — static SVG snapshot exporter.
+// GOLDEN CHAIN — static SVG snapshot exporter.
 //
 // Calls the same `ring4_canvas::render::layout` used by the live wasm shell
 // and emits an SVG file. This is the fallback that `web/canvas/index.html`
@@ -67,11 +67,11 @@ fn render_svg(model: &RenderModel) -> String {
          <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 {w} {h}\" \
          width=\"100%\" preserveAspectRatio=\"xMidYMid meet\" \
          font-family=\"ui-sans-serif, system-ui, -apple-system, sans-serif\" \
-         role=\"img\" aria-label=\"GOLDEN BRIDGE static layout snapshot\">\n",
+         role=\"img\" aria-label=\"GOLDEN CHAIN static layout snapshot\">\n",
         w = w as i32,
         h = h as i32,
     ));
-    out.push_str("<title>GOLDEN BRIDGE — static layout snapshot</title>\n");
+    out.push_str("<title>GOLDEN CHAIN — static layout snapshot</title>\n");
     out.push_str(
         "<desc>Rendered from ring4_canvas::render::layout on the empty board. \
          Static fallback for the wasm-backed canvas UI.</desc>\n",

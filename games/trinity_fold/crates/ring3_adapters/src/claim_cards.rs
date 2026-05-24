@@ -69,7 +69,7 @@ mod tests {
     #[test]
     fn at_least_one_falsified_card_present() {
         // The SSOT must always carry at least one falsified/refuted entry so
-        // the GOLDEN BRIDGE honesty floor has something to demonstrate.
+        // the GOLDEN CHAIN honesty floor has something to demonstrate.
         let deck = embedded_claim_deck();
         assert!(
             deck.cards

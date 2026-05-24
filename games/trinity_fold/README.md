@@ -1,12 +1,12 @@
-# GOLDEN BRIDGE (crate folder: `games/trinity_fold/`)
+# GOLDEN CHAIN (crate folder: `games/trinity_fold/`)
 
 A hypothesis-discovery puzzle for exploring candidate unification structures,
-inspired by FoldIt, AlphaFold, and CASP. **GOLDEN BRIDGE** is the user-facing
+inspired by FoldIt, AlphaFold, and CASP. **GOLDEN CHAIN** is the user-facing
 product name; the Cargo workspace and crate names remain `trinity_fold*` for
 backwards compatibility with PRs #24 / #25. The Rust canvas UI in
-`crates/ring4_canvas` renders the GOLDEN BRIDGE concept.
+`crates/ring4_canvas` renders the GOLDEN CHAIN concept.
 
-> **GOLDEN BRIDGE is not a Theory of Everything, and a high "bridge strength"
+> **GOLDEN CHAIN is not a Theory of Everything, and a high "bridge strength"
 > is not evidence for one.** It is a hypothesis-discovery and
 > constraint-checking environment whose only deliverable is a tagged
 > breakdown of how a candidate fares against a small, illustrative,
@@ -14,7 +14,7 @@ backwards compatibility with PRs #24 / #25. The Rust canvas UI in
 
 ## The bridge metaphor
 
-GOLDEN BRIDGE reframes the puzzle as **building a structural bridge between
+GOLDEN CHAIN reframes the puzzle as **building a structural bridge between
 two shores of reality**:
 
 * **Data pier** (left) — observational and experimental constraints
@@ -112,7 +112,7 @@ and **enforced by integration tests** in
 | 1 | `ring1_constraints` | ring 0 | `ScoreBreakdown`, `score_board*`, `tower_counts`. Pure functions. |
 | 2 | `ring2_search` | ring 0, ring 1 | `hill_climb`, `anneal`, self-contained LCG. Deterministic given seeds. |
 | 3 | `ring3_adapters` | ring 0–2 | `fixtures::default_catalog`, JSON load/save, web JSON export. Sole IO boundary. |
-| 4 | `ring4_canvas` | ring 0–3 | Rust canvas UI: pure `RenderModel` + input handling, GOLDEN BRIDGE view (`bridge::BridgeView`), built-in `recipes`, plus wasm-bindgen browser shell (`Canvas2D`). See [`docs/CANVAS.md`](docs/CANVAS.md) and [`docs/GOLDEN_BRIDGE.md`](docs/GOLDEN_BRIDGE.md). |
+| 4 | `ring4_canvas` | ring 0–3 | Rust canvas UI: pure `RenderModel` + input handling, GOLDEN CHAIN view (`bridge::BridgeView`), built-in `recipes`, plus wasm-bindgen browser shell (`Canvas2D`). See [`docs/CANVAS.md`](docs/CANVAS.md) and [`docs/GOLDEN_BRIDGE.md`](docs/GOLDEN_BRIDGE.md). |
 
 | app | `trinity_fold_app` | all rings | CLI parsing + presentation only. No domain logic. |
 

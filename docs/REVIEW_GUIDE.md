@@ -31,7 +31,7 @@ hold the detail and tells you in what order to read them.
 | 2 | Read [`docs/CLAIM_STATUS.md`](CLAIM_STATUS.md) and the README claim table | 2 min | The claim ledger: what is verified, what is a fit, what is open, what is refuted. The README table is auto-generated from [`docs/claims.yaml`](claims.yaml). |
 | 3 | Skim [`HONESTY_MANIFEST.md`](../HONESTY_MANIFEST.md) | 1 min | Ground-truth Coq statistics with comments stripped. |
 | 4 | Skim the [Boundary Theorems](../proofs/trinity/BoundaryTheorems.v) | 2 min | The four Coq-formal impossibility results BT-1–BT-4 (Qed). Additional Boundary results BT-5..7 are documented at paper level in [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md). |
-| 5 | Open the live GOLDEN BRIDGE canvas | 1 min | <https://t27.ai/trinity-s3ai/> — a hypothesis-discovery puzzle, **not** evidence. |
+| 5 | Open the live GOLDEN CHAIN canvas | 1 min | <https://t27.ai/trinity-s3ai/> — a hypothesis-discovery puzzle, **not** evidence. |
 | 6 | Read [`docs/TECH_TREE.md`](TECH_TREE.md) | 2 min | Layered status: infra → claim ledger → proofs → geometry → fits → game → paper. |
 | 7 | Use the [Review Checklist](REVIEW_CHECKLIST.md) | 1 min | Tick off install/run/tests/no-secrets/no-hype/reproducibility. |
 
@@ -107,7 +107,7 @@ python3 scripts/validators/validate_v4.py
 **Expected:** a list of formulas with their numeric error vs PDG values.
 These are *fits*, not derivations; the script verifies the error claims.
 
-### 3.4 GOLDEN BRIDGE prototype (~30 s, needs Rust toolchain)
+### 3.4 GOLDEN CHAIN prototype (~30 s, needs Rust toolchain)
 
 ```bash
 cd games/trinity_fold
@@ -153,7 +153,7 @@ Or use the published Coq Docker image as documented in
 |----------|---------------|------|
 | `ci.yml` | Anti-numerology gate, then Coq build, then Python validators | [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) |
 | `rust.yml` | Rust formatter, clippy, tests for `trinity_rust/` and the game workspace | [`.github/workflows/rust.yml`](../.github/workflows/rust.yml) |
-| `pages.yml` | Builds and deploys the GOLDEN BRIDGE canvas to GitHub Pages | [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) |
+| `pages.yml` | Builds and deploys the GOLDEN CHAIN canvas to GitHub Pages | [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) |
 | `lean.yml` | Lean 4 (Mathlib) auxiliary proof PRs | [`.github/workflows/lean.yml`](../.github/workflows/lean.yml) |
 | `release.yml` | Builds the release bundle (Coq + PDF) | [`.github/workflows/release.yml`](../.github/workflows/release.yml) |
 
@@ -209,7 +209,7 @@ public-facing claim against them.
    3-generation hierarchy) — are documented at paper / analysis
    level (see [`paper/CHANGELOG_v1_to_v2.md`](../paper/CHANGELOG_v1_to_v2.md)
    and [`ROADMAP.md`](../ROADMAP.md)).
-5. **The GOLDEN BRIDGE game is not evidence.** A high "bridge strength"
+5. **The GOLDEN CHAIN game is not evidence.** A high "bridge strength"
    says nothing about the underlying physics. If any tile is
    `HighRiskOrFalsified`, the bridge collapses by design.
 6. **No prize claims.** This project takes no position on prize-level

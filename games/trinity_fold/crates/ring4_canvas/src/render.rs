@@ -9,7 +9,7 @@
 // Layout (16:9 game stage, designed for 1280x720):
 //
 //   +----------------------------------------------------------------------+
-//   | Title bar:  GOLDEN BRIDGE — Build the Bridge!     (small subtitle)   |
+//   | Title bar:  GOLDEN CHAIN — Build the Bridge!     (small subtitle)   |
 //   +----------------------------------------------------------------------+
 //   |                                                                      |
 //   |  ###############  BIG BRIDGE STAGE  (60-70% screen height)  #######  |
@@ -615,12 +615,12 @@ fn draw_bridge_stage(
     });
 
     // Slim integrity micro-row at the very top — keeps the required
-    // "GOLDEN BRIDGE — integrity:" label without dominating the stage.
+    // "GOLDEN CHAIN — integrity:" label without dominating the stage.
     let header_y = y + 18.0;
     prims.push(RenderPrimitive::Text {
         x: x + 16.0, y: header_y,
         s: format!(
-            "GOLDEN BRIDGE — integrity: {}   strength: {:+.2}",
+            "GOLDEN CHAIN — integrity: {}   strength: {:+.2}",
             bridge.integrity.label(), bridge.strength,
         ),
         color: integrity_color(bridge.integrity, theme),
@@ -1390,10 +1390,10 @@ mod tests {
     fn header_uses_golden_bridge_name() {
         let m = layout(&s(), vp(), &Theme::default());
         let has_brand = m.primitives.iter().any(|p| match p {
-            RenderPrimitive::Text { s, .. } => s.contains("GOLDEN BRIDGE"),
+            RenderPrimitive::Text { s, .. } => s.contains("GOLDEN CHAIN"),
             _ => false,
         });
-        assert!(has_brand, "header text must surface GOLDEN BRIDGE branding");
+        assert!(has_brand, "header text must surface GOLDEN CHAIN branding");
     }
 
     #[test]
@@ -1418,7 +1418,7 @@ mod tests {
         let mut pier_ys: Vec<f32> = Vec::new();
         for p in &m.primitives {
             if let RenderPrimitive::Text { s, y, .. } = p {
-                if s.starts_with("GOLDEN BRIDGE — integrity:") {
+                if s.starts_with("GOLDEN CHAIN — integrity:") {
                     integrity_y = Some(*y);
                 } else if s.starts_with("Data·") || s.starts_with("Geometry·") {
                     pier_ys.push(*y);

@@ -1,4 +1,4 @@
-// GOLDEN BRIDGE — a structural projection over `Board` + `Catalog` + `ScoreBreakdown`.
+// GOLDEN CHAIN — a structural projection over `Board` + `Catalog` + `ScoreBreakdown`.
 //
 // The bridge metaphor reframes the puzzle from "fold a hypothesis" to
 // "build a structural bridge between two shores of reality":
@@ -99,7 +99,7 @@ impl BridgeIntegrity {
     }
 }
 
-/// A render-ready view of the GOLDEN BRIDGE. Built from the current board and
+/// A render-ready view of the GOLDEN CHAIN. Built from the current board and
 /// the latest score breakdown.
 #[derive(Clone, Debug)]
 pub struct BridgeView {

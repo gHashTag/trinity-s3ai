@@ -40,8 +40,8 @@ pub use state::{AppState, ViewOptions};
 
 /// Product / concept name surfaced in the UI header. The crate folder
 /// remains `trinity_fold` for historical reasons (the workspace was created
-/// before the rename); user-facing copy refers to it as **GOLDEN BRIDGE**.
-pub const PRODUCT_NAME: &str = "GOLDEN BRIDGE";
+/// before the rename); user-facing copy refers to it as **GOLDEN CHAIN**.
+pub const PRODUCT_NAME: &str = "GOLDEN CHAIN";
 pub const PRODUCT_TAGLINE: &str =
     "Build a structural bridge between data and geometry — without collapsing it.";
 

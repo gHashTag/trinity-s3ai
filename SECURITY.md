@@ -59,7 +59,7 @@ disclosure schedule with the reporter.
 - A reviewer disagreeing with a claim status is not a security issue;
   see [`docs/CLAIM_STATUS.md`](docs/CLAIM_STATUS.md) for the rules and
   open an issue if a document violates them.
-- Bugs in the GOLDEN BRIDGE canvas that affect UX but not the user's
+- Bugs in the GOLDEN CHAIN canvas that affect UX but not the user's
   browser security are regular bugs, not vulnerabilities.
 
 ## Dependencies

@@ -77,7 +77,7 @@ and are tracked for promotion to `Qed.` in future waves.
   LHC are listed in [`RISKY_PREDICTIONS.md`](docs/analysis/RISKY_PREDICTIONS.md) with
   criteria that would falsify them. The protocol is in
   [`Trinity_Falsifiability_Assessment.md`](docs/analysis/Trinity_Falsifiability_Assessment.md).
-- **A hypothesis-discovery puzzle, GOLDEN BRIDGE.** Live at
+- **A hypothesis-discovery puzzle, GOLDEN CHAIN.** Live at
   <https://t27.ai/trinity-s3ai/>. The game scores candidate boards
   against a small curated rule set, surfaces the worst claim status,
   and floors the score if any tile is falsified. It does not prove or

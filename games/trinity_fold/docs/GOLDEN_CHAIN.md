@@ -1,11 +1,11 @@
-# GOLDEN BRIDGE — concept and architecture
+# GOLDEN CHAIN — concept and architecture
 
-> **GOLDEN BRIDGE is the user-facing product name for the game whose source
+> **GOLDEN CHAIN is the user-facing product name for the game whose source
 > code lives at `games/trinity_fold/`.** The Cargo workspace and crate names
 > were created earlier under the working title "Trinity Fold" and are kept
-> for backwards compatibility; the UI now renders the GOLDEN BRIDGE concept.
+> for backwards compatibility; the UI now renders the GOLDEN CHAIN concept.
 >
-> **GOLDEN BRIDGE is a hypothesis-discovery puzzle. It is NOT a proven
+> **GOLDEN CHAIN is a hypothesis-discovery puzzle. It is NOT a proven
 > Theory of Everything, and a high "bridge strength" is not evidence for
 > one.** The game inherits the honesty policy of the surrounding repository
 > (see [`README.md`](../README.md), [`FOUNDATIONS.md`](../../../docs/analysis/FOUNDATIONS.md),
@@ -14,7 +14,7 @@
 
 ## The metaphor
 
-GOLDEN BRIDGE reframes the Trinity Fold prototype as a **structural bridge
+GOLDEN CHAIN reframes the Trinity Fold prototype as a **structural bridge
 between two shores of reality**:
 
 | Shore / pier | What sits there | Source crate |
@@ -63,7 +63,7 @@ Collapsed   — one or more falsified cables; the honesty floor has tripped
 
 `Collapsed` is also what `ring1_constraints::score_board` does internally:
 the total is capped at `-0.25` whenever a falsified tile is on the board.
-GOLDEN BRIDGE merely surfaces that cap as a visual collapse rather than
+GOLDEN CHAIN merely surfaces that cap as a visual collapse rather than
 burying it in a number.
 
 ## Space-fold motif
@@ -91,7 +91,7 @@ do not require recompiling, but that loader is not implemented yet — see
 
 ## Architecture: where the bridge lives
 
-GOLDEN BRIDGE does **not** introduce a new ring. The bridge is a **view**
+GOLDEN CHAIN does **not** introduce a new ring. The bridge is a **view**
 over the existing ring 0..3 outputs:
 
 ```
@@ -145,7 +145,7 @@ python3 -m http.server 8000
 
 ## Limitations
 
-* **No proof of physics.** GOLDEN BRIDGE is a puzzle. The default catalog is
+* **No proof of physics.** GOLDEN CHAIN is a puzzle. The default catalog is
   illustrative. The score surface is shallow. No claim about reality is
   asserted by reaching any total.
 * **`trios-a2a` ring pattern not cross-imported.** The task brief asked the
@@ -163,12 +163,12 @@ python3 -m http.server 8000
   and tests are unaffected. Build instructions are above.
 * **Recipes are in-crate.** The JSON loader hook is documented but not
   wired through `ring3_adapters` yet.
-* **No multiplayer / collective intelligence backend.** GOLDEN BRIDGE is
+* **No multiplayer / collective intelligence backend.** GOLDEN CHAIN is
   local-first.
 
 ## What is explicitly NOT claimed
 
-* That GOLDEN BRIDGE has discovered, verified, or even narrowed any candidate
+* That GOLDEN CHAIN has discovered, verified, or even narrowed any candidate
   unification model.
 * That a `Sound` integrity verdict means the candidate is "true". It means
   the board avoids the falsification floor and carries low proof debt

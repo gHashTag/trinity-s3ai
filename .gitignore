@@ -34,3 +34,4 @@ Cargo.lock
 *.toc
 *.synctex.gz
 .mcp.json
+.claude/

@@ -42,7 +42,7 @@ jobs:
 
       - name: Validate claim ledger SSOT (docs/claims.yaml)
         # Fails if YAML is malformed, a status/layer/kind is invalid, or the
-        # README table / generated GOLDEN BRIDGE card JSON is stale.
+        # README table / generated GOLDEN CHAIN card JSON is stale.
         run: python3 scripts/generate_claims.py --check
 
   # ── Job 1b: Markdown link audit (fast, no network) ────────────────────────
@@ -56,6 +56,26 @@ jobs:
           python-version: '3.12'
       - name: Check internal markdown links (no external HTTP)
         run: python3 scripts/check_markdown_links.py --check --all
+
+  # ── Job 1c: Commit signature check (fast, read-only) ─────────────────────
+  signature_check:
+    runs-on: ubuntu-latest
+    name: Commit signature check
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # need full history to verify signatures
+      - name: Check all commits in PR are signed
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          if [ -n "$BASE_SHA" ] && [ -n "$HEAD_SHA" ]; then
+            python3 scripts/check_commit_signatures.py "${BASE_SHA}..${HEAD_SHA}"
+          else
+            echo "Not a PR event (push to main?) — checking last 20 commits"
+            python3 scripts/check_commit_signatures.py HEAD~20..HEAD
+          fi
 
   # ── Job 2: Coq proof build + Python validators ────────────────────────────
   build:
