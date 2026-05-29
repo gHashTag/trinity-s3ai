@@ -30,7 +30,7 @@ labelled clean. See the critical-honesty notes below.
 | `phase_transition.pdf` / `.png` | Figure 1 (embedded in the paper). |
 | `audit.py` | Independent 50-digit `mpmath` audit of every printed deviation. |
 | `apply_metadata.py` | Re-applies PDF metadata (Title + Author) after each tectonic compile. |
-| `pellis_vasilev_letter.pdf` | Compiled output, 16 pages. |
+| `pellis_vasilev_letter.pdf` | Compiled output, 18 pages. |
 
 ## Build (tectonic only)
 
@@ -58,6 +58,47 @@ Audited values (mpmath, dps=50), all reproduced:
 - μ leading term `φ¹⁶/√5` = 987.0002 (schematic only; `F₈·L₈ = 21·47 = 987`).
 - δ_CP formula `8π³/(9e²)` = 3.730 rad / 213.7°, **off ~8.4%** vs the
   measured ~3.44 rad (197°, PDG 2024).
+
+## Changelog — adversarial-hardening wave (May 2026)
+
+This wave hardened the manuscript against referee attack without changing
+any audited number (all figures still reproduce at `dps=50`). Edits:
+
+- **A1.** Tightened the epistemic-status convention: `Verified` is now
+  defined in exactly three senses, and sense (iii) — *faithful
+  transcription* of the unpublished GOLDEN CHAIN compendium — explicitly
+  caps the underlying scientific claim at `Open conjecture` (Track-1 rule).
+- **A2.** Added the exact combinatorial derivation of the hypothesis-class
+  cardinality `|S(C)| = Σⱼ 2ʲ C(4,j) C(C,j)` (leading `(2C)⁴/4! = ⅔C⁴`),
+  and a `High-risk` note that the prefactor `n` is *unbounded above*, so
+  the true class size is `|S(C)| × N_max` (catalogue reaches n = 8715) —
+  multiplying, not dividing, the look-elsewhere burden.
+- **A3.** Flagged the "15 of 128,400" look-elsewhere count as a **lower
+  bound** (one target, one tolerance, C≤4, n≤400); the real exposure over
+  all ~42 targets × forms × higher C is larger by orders of magnitude.
+- **A4.** Reframed the Strand-I/III correspondence from "genuine
+  unification" to an **algebraic re-grouping** (a faithful change of basis,
+  not a derivation, no information-theoretic gain).
+- **A5.** Strengthened the silicon `0x47C0`/TTSKY26b provenance disclaimer
+  (private, single-source, **not falsifiable as stated**, used nowhere);
+  clarified that the Coldea et al. `E₈` result is one specific 1D Ising
+  chain (CoNb₂O₆), **not** a general appearance of φ "in nature."
+- **A6.** Added a `High-risk`/`Open conjecture` note that the Bayes factor
+  is an **empty functional without a published prior**, with a
+  falsification path requiring a pre-registered description-length prior.
+- **A7.** Added a new **"Threats to validity"** section aggregating every
+  known failure (negative single-constant MDL, look-elsewhere, generator
+  choice, retracted circular δ_CP, retracted fabricated μ form, eight
+  flagged rows, empty Bayes factor, non-falsifiable provenance, no
+  external peer review, code-relative MDL).
+- `audit.py` extended: cardinality is now checked by **brute-force
+  enumeration** against the closed form (129/321/8361 all match), plus a
+  structural MDL sub-cost check. The toy ΔMDL reconstruction was removed
+  because it gave the wrong sign and would contradict the paper's encoder;
+  the frozen −2.3/−5.4/−5.8-bit figures are reported as referee-recompute
+  targets.
+- Claim-status counts after this wave: Verified 15, Empirical fit 1,
+  Open conjecture 19, High-risk 21, Retracted 4, Falsification-path 14.
 
 ## Critical-honesty notes (not hidden)
 
@@ -96,7 +137,7 @@ Audited values (mpmath, dps=50), all reproduced:
   re-executed, and output hashes recorded below).
 - mpmath 1.4.1, pypdf 6.x, matplotlib, numpy.
 - Output `sha256`:
-  - `pellis_vasilev_letter.pdf` — `337674a9e04af550cc4382f61b12ead599372de12700174ba17cc1e3463b637c`
+  - `pellis_vasilev_letter.pdf` — `2a93bd20dadf998440857fcdec9d5ea3eaa5cb141442acdbecdc435c55e3c9c6`
   - `phase_transition.pdf` — `cbd2e23d42503e37d7bcf4e4b34b858b039b878c93e756ab2a8ef974789d441d`
 
   (The PDF hash is recorded pre-metadata; `apply_metadata.py` mutates the

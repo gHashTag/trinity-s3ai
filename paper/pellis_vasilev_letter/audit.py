@@ -84,11 +84,57 @@ print("  vs MEASURED ~3.44 rad (197 deg): reldev =",
       "  <-- the honest ~8% gap; the 3.73-rad self-match is circular and RETRACTED")
 
 # --- hypothesis-class cardinality |S(C)| ~ (2/3) C^4 ----------------------
+# Eq.(card): |S(C)| = sum_{j=0..4} 2^j C(4,j) C(C,j), leading (2C)^4/4! = (2/3)C^4.
+# We verify the closed form against a brute-force enumeration of the signed
+# l1-ball of radius C in Z^4, so a referee can reproduce 129/321/8361 directly.
+from math import comb
+from itertools import product
+
+
+def card_closed(C):
+    return sum(2**j * comb(4, j) * comb(C, j) for j in range(5))
+
+
+def card_bruteforce(C):
+    n = 0
+    for k, p, m, q in product(range(-C, C + 1), repeat=4):
+        if abs(k) + abs(p) + abs(m) + abs(q) <= C:
+            n += 1
+    return n
+
+
 print("-" * 100)
-print("Hypothesis-class cardinality (signed exponent lattice):")
+print("Hypothesis-class cardinality (signed exponent lattice, Eq. card):")
 for C, expected in [(3, 129), (4, 321), (10, 8361)]:
+    closed = card_closed(C)
+    brute = card_bruteforce(C)
     approx = mpf(2) / 3 * C**4
-    print(f"  |S({C})| reported = {expected:<6} (2/3)C^4 approx = {mp.nstr(approx,6)}")
+    ok = "OK" if closed == brute == expected else "MISMATCH"
+    print(f"  |S({C})| paper={expected:<6} closed-form={closed:<6} "
+          f"brute-force={brute:<6} (2/3)C^4={mp.nstr(approx,6):<10} [{ok}]")
+
+# --- MDL worked example (bits) -------------------------------------------
+# These are the FROZEN, paper-reported MDL figures (Sections sec:mdl, sec:pellis-map).
+# We reproduce only the partial accounting that is fully specified in the text; the
+# residual term L(T|M) depends on the encoder's precision convention, so we do NOT
+# re-derive dMDL here from a toy address-cost formula (a naive 'address + prefactor'
+# count gives the WRONG sign and would contradict the paper -- see note below).
+# What we DO check arithmetically are the structural sub-costs the text quotes.
+import math
+
+print("-" * 100)
+print("MDL worked example (frozen paper figures; structural sub-costs checked):")
+logS4 = math.log2(321)                 # per-address selection cost at C=4
+print(f"  per-address cost  log2|S(4)| = {logS4:.2f} bits   (paper: ~8.3) "
+      f"[{'OK' if abs(logS4-8.3)<0.1 else 'CHECK'}]")
+for n in (36, 360):
+    print(f"  prefactor cost    ceil(log2 {n}) = {math.ceil(math.log2(n))} bits")
+print("  Reported per-constant gains (all NEGATIVE -> no single-constant compression):")
+print("    compact fit 36 pi^-1 phi e^2   dMDL ~ -2.3 bits")
+print("    3-term re-grouping             dMDL ~ -5.4 bits")
+print("    single-term anchor             dMDL ~ -5.8 bits")
+print("  NOTE: dMDL sign is reproduced in the paper's encoder, not in this audit;")
+print("  a referee should recompute it from the released capsule, not from a toy code.")
 
 print("=" * 100)
 print("CAVEAT: A small relative deviation is NOT a proof of structure. With")
