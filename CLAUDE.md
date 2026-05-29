@@ -91,6 +91,71 @@ cd trinity_rust && cargo test
 7. **Edit `docs/claims.yaml` first**, then run `python3 scripts/generate_claims.py` to regenerate derived artifacts (README table, game cards).
 8. **CI runs all validators with `--check`** and fails if anything is stale.
 
+## Safe Self-Improvement Protocol
+
+The agent (Claude Code with custom skills/hooks) can self-improve, but **only inside a sandbox**.
+This prevents the "agent breaks itself and I have to rollback manually" problem.
+
+### Architecture (AgentGit + SICA + EvoGit + Gödel Agent)
+
+```
+agent-stable  (protected)  ← merge only from agent-dev + CI pass
+      ↑
+agent-dev     (testing)    ← merge feature- branches + harness pass
+      ↑
+agent-exp/NNN (sandbox)    ← agent edits itself here
+```
+
+### Branches
+
+| Branch | Purpose | Direct edits? |
+|--------|---------|-------------|
+| `main` | Physics project trunk | Yes (physics work) |
+| `agent-stable` | Release version of agent config | **No** — only fast-forward from agent-dev |
+| `agent-dev` | Integration branch for agent improvements | **No** — only merge from agent-exp/* |
+| `agent-exp/NNN` | Sandbox for one self-improvement task | **Yes** — agent edits only here |
+
+### Commands
+
+```bash
+# 1. Start a self-improvement task in sandbox
+python3 scripts/agent_overseer.py start-task "Improve second-brain skill"
+#    → creates agent-exp/001 + worktree at ../trinity-s3ai-exp-001
+
+# 2. Work in the sandbox (Claude Code runs there)
+cd ../trinity-s3ai-exp-001
+claude --project ../trinity-s3ai-exp-001
+
+# 3. Evaluate when done
+python3 scripts/agent_overseer.py evaluate --branch agent-exp/001
+#    → runs harness + scope gate
+
+# 4. Promote or abort
+python3 scripts/agent_overseer.py promote --branch agent-exp/001   # merge into agent-dev
+python3 scripts/agent_overseer.py abort --branch agent-exp/001     # delete sandbox
+```
+
+### Scope Gate (Gödel Agent pattern)
+
+Allowed to edit in sandbox:
+- `.claude/skills/*`
+- `.claude/scheduled_tasks.json`
+- `scripts/agent_overseer.py`, `scripts/agent_test_harness.py`
+
+**Forbidden** (overseer auto-rejects if touched):
+- `CLAUDE.md`
+- `docs/claims.yaml`
+- `proofs/`
+- `.github/workflows/`
+- `scripts/validators/`, `scripts/anti_numerology_gate.py`, `scripts/generate_claims.py`
+
+### Rules for the agent
+
+1. If asked to self-improve, **always use `python3 scripts/agent_overseer.py start-task`**.
+2. Never edit `.claude/skills/` directly on `main`, `agent-stable`, or `agent-dev`.
+3. Commit after every significant agent step: `git commit -m "agent-step: ..."`.
+4. Maximum 15 agent commits per sandbox task.
+
 ---
 
 ## MCP & Second Brain

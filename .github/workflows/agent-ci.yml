@@ -1,0 +1,47 @@
+name: Agent CI
+
+on:
+  push:
+    branches: [agent-stable, agent-dev]
+  pull_request:
+    branches: [agent-stable, agent-dev]
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run Agent Test Harness
+        run: python3 scripts/agent_test_harness.py
+      - name: Run Overseer Syntax Check
+        run: python3 -m py_compile scripts/agent_overseer.py
+
+  project-validators:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Anti-Numerology Gate
+        run: python3 scripts/anti_numerology_gate.py
+      - name: Claims Generator Check
+        run: python3 scripts/generate_claims.py --check
+      - name: English Only Check
+        run: bash scripts/check_english_only.sh
+
+  scope-gate:
+    runs-on: ubuntu-latest
+    if: github.ref_name != 'agent-stable'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check branch is not agent-stable for direct pushes
+        run: |
+          if [[ "${{ github.ref_name }}" == "agent-stable" ]]; then
+            echo "ERROR: Direct push to agent-stable is forbidden. Use promote from agent-dev."
+            exit 1
+          fi
+          echo "Scope gate passed."
