@@ -48,6 +48,16 @@ These remain canonical in their respective repositories:
 - OpenROAD + Yosys synthesis scripts
 - Post-silicon validation testbenches (pending)
 
+### `gHashTag/trios-mcp-rag`
+- GOLDEN CHAIN Compendium PDF (PhD-style brochure)
+- Postgres SSOT (`ssot_brochure.chapters`) for compendium chapters
+- Rust `trios-mcp-rag` build pipeline (pandoc + tectonic)
+- Forensic audit ledger (`docs/audits/build-*.md`) and migration runbooks
+  (`docs/migrations/*-runbook.md`)
+- Brochure-specific Lua filters and chapter LaTeX template
+- Latest pinned snapshot in this repo: `releases/GOLDEN_CHAIN_compendium_v11.pdf`
+  (sha256 `25dd2b18...`, upstream commit `5e19773`)
+
 ---
 
 ## Critical boundary — GF16 number type

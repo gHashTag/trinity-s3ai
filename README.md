@@ -63,6 +63,46 @@ living claim ledger.
 
 ---
 
+## 📖 Latest GOLDEN CHAIN Compendium (PDF)
+
+The **GOLDEN CHAIN Compendium** is a PhD-style brochure rendered from the
+[`gHashTag/trios-mcp-rag`](https://github.com/gHashTag/trios-mcp-rag) SSOT
+(Postgres `ssot_brochure.chapters`) and pinned here for each released build.
+This is the printed back-end of the same narrative; the live puzzle at
+[t27.ai/trinity-s3ai/](https://t27.ai/trinity-s3ai/) is the interactive
+front-end.
+
+<a href="releases/GOLDEN_CHAIN_compendium_v11.pdf">
+  <img src="figures/golden_chain_compendium_cover.png" alt="GOLDEN CHAIN Compendium v11 — cover page" width="360" />
+</a>
+
+| Field | Value |
+|-------|-------|
+| Version | **v11** (2026-05-29) |
+| Download | [`releases/GOLDEN_CHAIN_compendium_v11.pdf`](releases/GOLDEN_CHAIN_compendium_v11.pdf) (3.36 MB) |
+| Pages | 259 (A4) |
+| Chapters | 69 SSOT rows · 62 canonical `\chapter{}` |
+| SHA-256 | `25dd2b18d306e5e96e02b538a1ed6a8ebea73f1b3eaf922881ac1b3087b21916` |
+| Upstream commit | [`trios-mcp-rag@5e19773`](https://github.com/gHashTag/trios-mcp-rag/commit/5e19773) |
+| Audit | [`trios-mcp-rag/docs/audits/build-2026-05-29-v11.md`](https://github.com/gHashTag/trios-mcp-rag/blob/docs/agent-wake-up/docs/audits/build-2026-05-29-v11.md) |
+| Wave note | [`WAVE22_STATUS.md`](WAVE22_STATUS.md) |
+
+**v11 fixes (3 P0 + 1 P1 + 1 P2):** order_key collisions resolved
+(14 dup groups → 0); 16 phantom `\chapter{}` commands from body-level `#`
+headings eliminated; missing leading title H1 in
+`unified-symmetry-article` injected via pipeline; title-vs-H1 drift
+aligned in 8 chapters; sub-perceptual overfull `\hbox` warnings
+documented. See [`WAVE22_STATUS.md`](WAVE22_STATUS.md) for full ledger.
+
+**Updating to a new version:** run
+[`scripts/refresh_compendium.sh`](scripts/refresh_compendium.sh)
+— it copies the latest PDF into `releases/`, regenerates the cover
+preview into `figures/golden_chain_compendium_cover.png`, and recomputes
+the SHA-256. The README block above stays valid; only the version /
+hash / commit metadata need to be edited per release.
+
+---
+
 ## 🏗️ Verification Stack
 
 ```mermaid
