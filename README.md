@@ -73,7 +73,7 @@ This is the printed back-end of the same narrative; the live puzzle at
 front-end.
 
 <a href="releases/GOLDEN_CHAIN_compendium_v12.pdf">
-  <img src="figures/golden_chain_compendium_cover.png" alt="GOLDEN CHAIN Compendium v11 — cover page" width="360" />
+  <img src="figures/golden_chain_compendium_cover.png" alt="GOLDEN CHAIN Compendium v12 — cover page" width="360" />
 </a>
 
 | Field | Value |
@@ -84,15 +84,19 @@ front-end.
 | Chapters | 69 SSOT rows · 62 canonical `\chapter{}` |
 | SHA-256 | `6d2e29ed32cc92b4aea32a0c639f7f16c646d94e1aa4adba97787869ec79293d` |
 | Upstream commit | [`trios-mcp-rag@7bec06f`](https://github.com/gHashTag/trios-mcp-rag/commit/7bec06f) |
-| Audit | [`trios-mcp-rag/docs/audits/build-2026-05-29-v11.md`](https://github.com/gHashTag/trios-mcp-rag/blob/docs/agent-wake-up/docs/audits/build-2026-05-29-v11.md) |
+| Audit | [`trios-mcp-rag/docs/audits/build-2026-05-29-v12.md`](https://github.com/gHashTag/trios-mcp-rag/blob/docs/agent-wake-up/docs/audits/build-2026-05-29-v12.md) |
 | Wave note | [`WAVE22_STATUS.md`](WAVE22_STATUS.md) |
 
-**v11 fixes (3 P0 + 1 P1 + 1 P2):** order_key collisions resolved
-(14 dup groups → 0); 16 phantom `\chapter{}` commands from body-level `#`
-headings eliminated; missing leading title H1 in
-`unified-symmetry-article` injected via pipeline; title-vs-H1 drift
-aligned in 8 chapters; sub-perceptual overfull `\hbox` warnings
-documented. See [`WAVE22_STATUS.md`](WAVE22_STATUS.md) for full ledger.
+**v12 fixes (1 P0 + 4 P1):** six leaked `\tbd{…}` macro boxes in
+`fm-13-depin-positioning` collapsed to plain text; smart quote in
+Verilog literal `16'h47C0` flattened to ASCII; missing claim-status
+badges inserted on 4 chapters (`gf-format-audit`,
+`gf-numeric-formats-history`, `london-handout`,
+`unified-symmetry-article`); `## References` sections appended to 5
+chapters with inline DOI/arXiv anchors. See
+[`WAVE22_STATUS.md`](WAVE22_STATUS.md) for the full cross-repo ledger
+and [`trios-mcp-rag@7bec06f`](https://github.com/gHashTag/trios-mcp-rag/commit/7bec06f)
+for migration SQL + runbook.
 
 **Updating to a new version:** run
 [`scripts/refresh_compendium.sh`](scripts/refresh_compendium.sh)

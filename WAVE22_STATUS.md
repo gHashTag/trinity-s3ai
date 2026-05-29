@@ -1,4 +1,4 @@
-# Wave 22 Status — GOLDEN CHAIN Compendium v11 (External Brochure SSOT)
+# Wave 22 Status — GOLDEN CHAIN Compendium v12 (External Brochure SSOT)
 
 > Wave 22 is a **cross-repo documentation wave**, not a code wave.
 > The deliverable is the GOLDEN CHAIN compendium PDF rebuilt from the
@@ -122,3 +122,32 @@ this repo first.
 ---
 
 *WAVE22_STATUS.md — created 2026-05-29 (UTC).*
+
+---
+
+## v12 Compendium Build (2026-05-29) — Next-Wave Critic-Proof Pass
+
+| Field | Value |
+|-------|-------|
+| Upstream | [`gHashTag/trios-mcp-rag@7bec06f`](https://github.com/gHashTag/trios-mcp-rag/commit/7bec06f) |
+| PDF | [`releases/GOLDEN_CHAIN_compendium_v12.pdf`](releases/GOLDEN_CHAIN_compendium_v12.pdf) |
+| Pages | 259 (A4) |
+| Size | 3.37 MB |
+| SHA-256 | `6d2e29ed32cc92b4aea32a0c639f7f16c646d94e1aa4adba97787869ec79293d` |
+| Audit | [`trios-mcp-rag/docs/audits/build-2026-05-29-v12.md`](https://github.com/gHashTag/trios-mcp-rag/blob/docs/agent-wake-up/docs/audits/build-2026-05-29-v12.md) |
+| Migration | [`trios-mcp-rag/docs/migrations/2026-05-29-v12-fixes.sql`](https://github.com/gHashTag/trios-mcp-rag/blob/docs/agent-wake-up/docs/migrations/2026-05-29-v12-fixes.sql) |
+| Runbook | [`trios-mcp-rag/docs/migrations/2026-05-29-v12-runbook.md`](https://github.com/gHashTag/trios-mcp-rag/blob/docs/agent-wake-up/docs/migrations/2026-05-29-v12-runbook.md) |
+
+## v12 Fixes (vs v11 baseline `5e19773`)
+
+The next-wave pass closed **1 P0 + 4 P1** anomaly classes:
+
+- **C15 (P0)** — `fm-13-depin-positioning`: six leaked `\tbd{real measurement pending}` macro instances inside backtick code spans rendered as live red TBD badges in the v11 PDF. Replaced with plain text `TBD: real measurement pending`.
+- **C12 (P1)** — `unified-symmetry-article`: smart quote (U+2019) inside Verilog literal `16'h47C0` flattened to ASCII apostrophe.
+- **C18 (P1)** — Inserted missing claim-status badges on 4 chapters: `gf-format-audit → Open conjecture`, `gf-numeric-formats-history → Verified`, `london-handout → Open conjecture`, `unified-symmetry-article → Empirical fit`.
+- **C27 (P1)** — Appended `## References {.unnumbered}` sections to `unified-symmetry-article` and `gf-numeric-formats-history`, sourced from the DOI / arXiv anchors already cited in body.
+- **C31 (P1)** — Appended `## References {.unnumbered}` sections to `p2-02-epistemic-boundary`, `p2-03-math-preliminaries`, `p2-04-e8-toda`.
+
+QA gates (all green): zero `\tbd` literal leaks, zero `\status` literal leaks, zero U+2019 smart-quote leaks in `16'h47C0`, visual QA clean on pp. 46 / 118 / 151 / 221 / 226.
+
+Wave 22 still ships **zero new physics or proofs**. v12 is a derived-artefact rebuild that closes the next set of anomalies a reviewer could exploit against v11.
