@@ -96,7 +96,7 @@ def main():
     results.append(test_validator("Anti-Numerology Gate", "python3 scripts/anti_numerology_gate.py"))
     results.append(test_validator("Claims Generator Check", "python3 scripts/generate_claims.py --check"))
     results.append(test_validator("English-Only Check", "bash scripts/check_english_only.sh"))
-    results.append(test_validator("Comprehensive Validator", "python3 scripts/validators/test_comprehensive.py"))
+    results.append(test_validator("Admitted Counter", "python3 scripts/count_admitted_honest.py"))
 
     results.append(test_skills_smoke())
     results.append(test_claude_md_exists())
