@@ -72,18 +72,18 @@ This is the printed back-end of the same narrative; the live puzzle at
 [t27.ai/trinity-s3ai/](https://t27.ai/trinity-s3ai/) is the interactive
 front-end.
 
-<a href="releases/GOLDEN_CHAIN_compendium_v11.pdf">
+<a href="releases/GOLDEN_CHAIN_compendium_v12.pdf">
   <img src="figures/golden_chain_compendium_cover.png" alt="GOLDEN CHAIN Compendium v11 — cover page" width="360" />
 </a>
 
 | Field | Value |
 |-------|-------|
-| Version | **v11** (2026-05-29) |
-| Download | [`releases/GOLDEN_CHAIN_compendium_v11.pdf`](releases/GOLDEN_CHAIN_compendium_v11.pdf) (3.36 MB) |
+| Version | **v12** (2026-05-29) |
+| Download | [`releases/GOLDEN_CHAIN_compendium_v12.pdf`](releases/GOLDEN_CHAIN_compendium_v12.pdf) (3.37 MB) |
 | Pages | 259 (A4) |
 | Chapters | 69 SSOT rows · 62 canonical `\chapter{}` |
-| SHA-256 | `25dd2b18d306e5e96e02b538a1ed6a8ebea73f1b3eaf922881ac1b3087b21916` |
-| Upstream commit | [`trios-mcp-rag@5e19773`](https://github.com/gHashTag/trios-mcp-rag/commit/5e19773) |
+| SHA-256 | `6d2e29ed32cc92b4aea32a0c639f7f16c646d94e1aa4adba97787869ec79293d` |
+| Upstream commit | [`trios-mcp-rag@7bec06f`](https://github.com/gHashTag/trios-mcp-rag/commit/7bec06f) |
 | Audit | [`trios-mcp-rag/docs/audits/build-2026-05-29-v11.md`](https://github.com/gHashTag/trios-mcp-rag/blob/docs/agent-wake-up/docs/audits/build-2026-05-29-v11.md) |
 | Wave note | [`WAVE22_STATUS.md`](WAVE22_STATUS.md) |
 
