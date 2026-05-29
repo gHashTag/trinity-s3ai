@@ -34,4 +34,14 @@ Cargo.lock
 *.toc
 *.synctex.gz
 .mcp.json
-.claude/
+
+# Claude Code local state (secrets, session-specific)
+.claude/settings.local.json
+.claude/plans/
+.claude/scheduled_tasks.lock
+
+# Claude Code tracked config (skills, scheduled tasks, memory)
+# These MUST be tracked for agent sandboxing to work:
+# .claude/skills/
+# .claude/scheduled_tasks.json
+# .claude/memory/
