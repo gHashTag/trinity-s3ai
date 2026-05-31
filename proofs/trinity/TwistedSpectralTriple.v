@@ -148,7 +148,7 @@ Section SpeculativeAxiom.
 (* certain almost-commutative geometries, a twisted FOC with non-trivial σ    *)
 (* replaces the standard FOC while preserving the physical content of the     *)
 (* spectral action (bosonic Lagrangian, gauge couplings).                     *)
-Axiom axiom_twisted_first_order [RESEARCH_DIRECTION] :
+Axiom axiom_twisted_first_order :
   exists sigma : sigma_twist,
     sigma <> sigma_id /\
     twisted_first_order_condition sigma.

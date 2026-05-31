@@ -271,7 +271,7 @@ Qed.
 (* which distinguishes KO-dim 6 from KO-dim 0.                  *)
 (* This requires full quaternionic representation theory of 2I. *)
 (* Tag: PHYSICAL_AXIOM                                           *)
-Axiom cell600_J_off_diagonal_KO6 [PHYSICAL_AXIOM] :
+Axiom cell600_J_off_diagonal_KO6 :
   (* J_cell600 maps H_left ↔ H_right (off-diagonal structure).         *)
   (* This is the structural property of the icosian real structure      *)
   (* that forces KO-dim = 6 rather than KO-dim = 0.                    *)
@@ -424,7 +424,7 @@ Qed.
 (* shows L_l o R_g = R_g o L_l (component 0-3) -- the key structural fact.   *)
 (* Full proof for all of ℂ[2I] requires the complete algebra structure.       *)
 (* Tag: PHYSICAL_AXIOM (geometric commutativity of 2I left/right actions)     *)
-Axiom axiom4_commutator_vanishing [PHYSICAL_AXIOM] :
+Axiom axiom4_commutator_vanishing :
   (* [a, JbJ^{-1}] = 0 for all a, b ∈ A = ℂ[2I]                       *)
   (* Evidence: QuaternionicLinearity.v, quaternion_full_associativity    *)
   (*   proves L(l·(q·g)) = L((l·q)·g) — left-right commutation in ℍ    *)
