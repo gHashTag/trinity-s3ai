@@ -1,7 +1,7 @@
 # LEGACY DOCUMENT (Proof Base v3.3 — historical version)
 # Current status: This README reflects an outdated assessment. See COQ_HONEST_STATUS.md
-# for current metrics (1325 Qed / 25 Admitted / 73 Axiom / 7 Parameter).
-# See PREDICTIONS_PREREGISTERED.md for prediction status (1 withdrawn, 4 numerically verified).
+# for current metrics (1216 Qed in proofs/trinity/ / 0 real Admitted / 51 Axiom/Parameter/Conjecture).
+# See PREDICTIONS_PREREGISTERED.md for prediction status (1 withdrawn, 4 numerically matched).
 # See EPISTEMOLOGY.md for the 0/26 rigorous derivations audit.
 
 # Trinity S3AI Proof Base v3.3
@@ -19,7 +19,7 @@ the H4 Coxeter group and S3AI (S3 Artificial Intelligence) algebra.**
 | **L-series** (lepton precision) | **3 / 3** — SG-class formulas |
 | **P-series** (predictions) | **4** with experimental tests |
 | **Total formulas** | **23** |
-| **Proof completeness** | 100% interval-bound Qed in `proofs/trinity/`; 123 total unproven obligations globally |
+| **Proof completeness** | 100% interval-bound Qed in `proofs/trinity/`; 93 total unproven obligations globally (0 real Admitted + 93 Axiom/Parameter/Conjecture) |
 | **p-value** | **p = 0.077** (mean error, not significant); **p < 0.0001** (SG-hit density, significant) — Wave 20 MC, 500k trials |
 
 ### SG-class formulas (0.01% tolerance)
@@ -79,9 +79,8 @@ input values.
 | P04 | Koide relation consistency | (Koide = 2/3) | Consistent |
 
 **Note on Koide (P04):** The Koide mass relation is used as a **consistency
-check**, not as a derivation. The Trinity framework independently derives the
-lepton masses; the Koide relation emerges as a geometric consequence of the
-S3AI algebra structure. It serves as a cross-validation, not a foundational
+check**, not as a derivation. The Trinity framework contains fitted formulas for the
+lepton masses; the Koide relation approximately matches within these formulas. It serves as a cross-validation, not a foundational
 assumption.
 
 ---

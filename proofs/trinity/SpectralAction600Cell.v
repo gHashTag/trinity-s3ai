@@ -502,7 +502,7 @@ Close Scope R_scope.
 SPECTRAL ACTION FOR THE 600-CELL (Schläfli {3,3,5})
 =====================================================
 
-This Coq file rigorously proves the spectral action coefficient a_4(D^2) 
+This Coq file computes the spectral action coefficient a_4(D^2) as a [NUMERICAL_FIT] 
 for the 600-cell regular polytope using the H4 root system structure.
 
 Key Results:

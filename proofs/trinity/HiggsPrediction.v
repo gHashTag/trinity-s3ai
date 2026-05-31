@@ -64,7 +64,7 @@ Definition faces_600cell : R := 1200.
 Definition cells_600cell : R := 600.
 
 (* -------------------------------------------------------------------------- *)
-(* PREDICTION 1: TRINITY FORMULA                                              *)
+(* RETROSPECTIVE FIT 1: TRINITY FORMULA                                       *)
 (*                                                                            *)
 (* H01 = m_H = 4 * phi^3 * e^2                                                *)
 (*                                                                            *)
@@ -116,7 +116,7 @@ Proof.
 Qed.
 
 (* -------------------------------------------------------------------------- *)
-(* PREDICTION 2: SPECTRAL ACTION a4(600-cell)                                 *)
+(* RETROSPECTIVE FIT 2: SPECTRAL ACTION a4(600-cell)                          *)
 (*                                                                            *)
 (* The 600-cell is the 4D regular polytope {3,3,5} with full H4 symmetry.     *)
 (* Its spectral action coefficient a4 relates to the Higgs mass via:          *)
@@ -148,7 +148,7 @@ Proof.
 Qed.
 
 (* -------------------------------------------------------------------------- *)
-(* PREDICTION 3: KOIDE-LIKE FORMULA                                           *)
+(* RETROSPECTIVE FIT 3: KOIDE-LIKE FORMULA                                    *)
 (*                                                                            *)
 (* m_H = m_W * (2 * phi)                                                      *)
 (*                                                                            *)
@@ -164,7 +164,7 @@ Definition m_H_koide : R := m_W * (2 * phi).
 (* Definition only — not compatible with experiment *)
 
 (* -------------------------------------------------------------------------- *)
-(* PREDICTION 4: H4 DEGREES FORMULA                                           *)
+(* RETROSPECTIVE FIT 4: H4 DEGREES FORMULA                                    *)
 (*                                                                            *)
 (* m_H = (d1 + d2) * phi * e^2 / 2                                            *)
 (*                                                                            *)
@@ -183,7 +183,7 @@ Definition m_H_degrees : R := (d1 + d2) * phi * (exp 1)^2 / 2.
 (* EQUIVALENCE RELATIONS                                                       *)
 (* -------------------------------------------------------------------------- *)
 
-(* The Trinity formula and spectral action are the SAME prediction *)
+(* The Trinity formula and spectral action are the SAME fit       *)
 Theorem trinity_is_spectral :
   H01_theoretical = a4_600cell * (exp 1)^2 / 2.
 Proof.
@@ -196,7 +196,7 @@ Qed.
 (* SUMMARY THEOREM                                                             *)
 (* -------------------------------------------------------------------------- *)
 
-(* The Trinity formula (primary prediction) agrees with PDG 2024 at          *)
+(* The Trinity formula (primary fit) agrees with PDG 2024 at                  *)
 (* better than 0.02 sigma — essentially perfect agreement.                   *)
 
 Theorem Trinity_formula_verified :

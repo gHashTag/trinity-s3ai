@@ -112,7 +112,7 @@ Definition Nu31_SG : R := 15 * powZ phi (-5) * powZ PI (-2) * powZ (exp 1) (-4).
 Definition NuSum_SG : R := 8 * powZ phi (-6) * powZ PI (-5) * powZ (exp 1) 6 * /10.
 
 (* ================================================================== *)
-(* VERIFIED FORMULAS (14 total) — error 0.01% to 0.3%                *)
+(* FITTED FORMULAS (14 total) — error 0.01% to 0.3%                  *)
 (* ================================================================== *)
 
 Definition L01_V  : R := 239 * exp 1 / PI.            (* m_mu/m_e, 0.0135% *)
@@ -436,4 +436,4 @@ Qed.
 (* Sin13 CORRECTED: PI^2/(25*phi^6) (was phi^(3/2)/(30*PI), 0.74% err) *)
 (* ================================================================== *)
 
-(* END OF Catalog42.v v3.5 — ALL FORMULAS VERIFIED *)
+(* END OF Catalog42.v v3.5 — ALL FORMULAS FITTED AND COMPARED TO PDG *)

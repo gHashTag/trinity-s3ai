@@ -43,6 +43,7 @@ From Coq Require Import Lra.
 From Coq Require Import Arith.
 From Coq Require Import Lia.
 From Coq Require Import Compare_dec.
+From Coq Require Import ProofIrrelevance.
 
 Open Scope R_scope.
 
@@ -62,6 +63,32 @@ Record Fin (n : nat) := mkFin {
 Arguments mkFin {n} _ _.
 Arguments fin_val {n} _.
 Arguments fin_lt  {n} _.
+
+(* [fin_nat Hn k] returns the k-th element of Fin n when k < n,
+   and a dummy element (0) otherwise.  Hn is a proof that n > 0.
+   This avoids dependent-match gymnastics inside functions nat -> R. *)
+Definition fin_nat {n} (Hn : (0 < n)%nat) (k : nat) : Fin n.
+Proof.
+  destruct (lt_dec k n).
+  - exact (mkFin k l).
+  - exact (mkFin 0 Hn).
+Defined.
+
+Lemma fin_val_eq : forall n (x y : Fin n), fin_val x = fin_val y -> x = y.
+Proof.
+  intros n [x Hx] [y Hy]. simpl. intros H. subst y.
+  f_equal. apply proof_irrelevance.
+Qed.
+
+Lemma fin_nat_correct : forall n Hn k (Hk : (k < n)%nat),
+  @fin_nat n Hn k = mkFin k Hk.
+Proof.
+  intros n Hn k Hk.
+  unfold fin_nat.
+  destruct (lt_dec k n).
+  - apply fin_val_eq. reflexivity.
+  - lia.
+Qed.
 
 (* A vector in R^n is a function on its index set. *)
 Definition Vec (n : nat) : Type := Fin n -> R.

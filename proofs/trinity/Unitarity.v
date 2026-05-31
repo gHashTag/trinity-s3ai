@@ -63,7 +63,7 @@ Qed.
 (* KATRIN Phase II projected sensitivity: m_nue < 0.2 eV (90% C.L.)          *)
 Definition KATRIN_II_sensitivity : R := 0.2.
 
-(* Our prediction is well below this threshold *)
+(* Our fitted value is well below this threshold *)
 Theorem m_nue_below_KATRIN_II :
   m_nue_formula < KATRIN_II_sensitivity.
 Proof.

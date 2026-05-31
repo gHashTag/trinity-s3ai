@@ -171,4 +171,4 @@ Proof.
   apply sin2_theta13_bounds.
 Qed.
 
-(* All assumptions discharged — Trinity predictions verified *)
+(* All assumptions discharged — Trinity predictions are [PHENOMENOLOGICAL_FIT] *)

@@ -77,3 +77,36 @@ library.
 3. Build `RAlg_tensor` concretely (or port from MathComp-Analysis).
 4. T4–T6 from `B_program_T1_T12.md`: spinor modules, minimal left ideals
    (Furey 2018), and SU(3)c × U(1)em quantum numbers from Cl(6) ideals.
+
+---
+
+## Peer-reviewed scientific foundation (updated Wave 24)
+
+The **Gourlay & Gresnigt 2024** paper (*Eur. Phys. J. C* **84**, 1129)
+provides the algebraic mechanism that Track B seeks to formalize:
+
+- **Algebra:** Complex sedenions **C ⊗ S** have automorphism group  
+  Aut(S) = G₂ × **S₃**.
+- **Clifford structure:** The left multiplication algebra of C ⊗ S is  
+  **Cl(8)**.
+- **Generation mechanism:** The **S₃** factor permutes three minimal
+  left ideals of Cl(8). Each ideal hosts one generation of SM fermions
+  with unbroken SU(3)C × U(1)em.
+- **Independence:** The three generations are **linearly independent**.
+
+This is the most rigorous known route from exceptional algebra to three
+freedoms. It bypasses H4-specific obstructions BT-3 and BT-4 by using a
+different algebraic starting point.
+
+**Honesty note:** The formal bridge between H4 and Cl(8) (e.g. via
+Dechant's E8 → H4 pinor construction) is still an open problem.
+
+## Relation to Trinity's boundary theorems
+
+| H4 obstruction | How Cl(8) may bypass it |
+|----------------|--------------------------|
+| BT-3: 600-cell D_F is vector-like (antipodal symmetry) | Cl(8) spinors are not constrained by antipodal symmetry; chirality comes from the even/odd grading |
+| BT-4: 2I-equivariant D_F cannot reproduce lepton masses | Cl(8) mass matrices arise from sedenion automorphisms, not 2I-equivariance |
+| BT-2: No NCG σ-field from H4 root structure alone | Cl(8) may admit a natural Dirac operator via its spinor structure |
+
+*This is a hypothesis, not a proven detour.*
