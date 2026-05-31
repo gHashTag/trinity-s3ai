@@ -16,8 +16,8 @@ prove that *certain direct constructions* from H4 geometry do not reproduce
 the SM. These are **guideposts**, not dead ends — they narrow the search
 space and direct ongoing work toward Tracks A, B, and C.
 
-The project maintains a living catalog of 59 numerical coincidences between
-H4 invariants and PDG 2024 measurements, all formally verified in Coq and
+The project maintains a living catalog of ~59 numerical coincidences between
+H4 invariants and PDG 2024 measurements, some with Coq formalization and all
 tagged by epistemic status. Whether these coincidences are deep or
 accidental is itself an open research question. The ultimate goal is to
 find a rigorous bridge from discrete geometry to fundamental physics — or
@@ -66,11 +66,11 @@ and are tracked for promotion to `Qed.` in future waves.
 - **A growing body of real Coq mathematics.** As of Wave 17 the
   comment-stripped honest counter
   ([`scripts/count_admitted_honest.py`](scripts/count_admitted_honest.py))
-  reports **1 790 `Qed.`+`Defined.`** across **81** `.v` files in the
-  canonical tree, with **1 063** of those in `proofs/trinity/`
-  (52 files), and **0** real `Admitted.` anywhere in the canonical
-  tree. Most of these are bound checks and structural lemmas; the
-  boundary theorems are the load-bearing physical content. See
+  reports **2 098 `Qed.`+`Defined.`** across **100** `.v` files in the
+  canonical tree, with **1 216** of those in `proofs/trinity/`
+  (56 files), and **93** total unproven obligations (0 real Admitted +
+  93 Axiom/Parameter/Conjecture). Most of these are bound checks and structural lemmas;
+  the boundary theorems are the load-bearing physical content. See
   [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md) for the reconciliation
   with older inconsistent metric documents.
 - **A falsification protocol.** Risky predictions for DUNE, JUNO and
@@ -97,5 +97,6 @@ The project explores the H4 → SM hypothesis through several interconnected app
 | **E8 plumbing / string correspondence** | 🔄 Partial (η discrepancy documented) | Testing whether exceptional-group embeddings rescue the construction |
 | **Neutrino sector predictions** | 🔄 Open (δ_CP withdrawn; θ₁₂, θ₁₃ match) | Pre-registered predictions to be adjudicated by DUNE, JUNO, KATRIN |
 | **Cosmology ansatz** | ❌ Obstructed (BT-1; >300σ) | Honest closure: this sub-ansatz does not work |
+| **ML engineering / φ hyperparameters** | ❌ Falsified (Wave 24; +0.1013 BPB) | φ-anchored lr/wd/beta1 degrade IGLA RACE performance vs conventional values; see `docs/audit/PHI_ABLATION_DESIGN.md` |
 
 > **The research continues.** The H4 → SM hypothesis is alive and under active investigation. Obstructions on specific constructions are data, not defeats. Every boundary theorem tells us where *not* to build — which is as valuable as knowing where to build next.

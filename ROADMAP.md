@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical roadmap Waves 1–7)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Trinity-s3ai — Improvement Plan (ROADMAP)
 
 This document synthesizes the results of Waves 1–3 (completed) and the literature review (NCG, E8/H4, mass formulas, Coq/Lean formalization) into a roadmap for Waves 4–7.
@@ -23,7 +27,7 @@ This document synthesizes the results of Waves 1–3 (completed) and the literat
 
 **The literature shows:**
 - H4/600-cell ↔ E8 — a mathematically rigorous connection (McKay, icosians; see [e8_h4_in_physics.md](derivations/literature/e8_h4_in_physics.md))
-- Trinity-s3ai is **the first** attempt to derive fermion masses from H4 structure (no prior art)
+- Trinity-s3ai is **the first** attempt to catalog numerical coincidences between H4 invariants and SM parameters (0 rigorous derivations from H4; no prior art)
 - The Connes NCG program is alive but has unresolved problems (Lorentz signature, gravity, neutrino sector); see [ncg_state_of_art.md](derivations/literature/ncg_state_of_art.md)
 - F-theory Pati-Salam 2025 found two models reproducing masses; modular A4/S4 models predict the whole leptonic structure with a single parameter τ; see [mass_formulas_state_of_art.md](derivations/literature/mass_formulas_state_of_art.md)
 - The level of NCG formalization in Coq/Lean is ~ zero — Trinity-s3ai is potentially at the frontier; see [formalization_state_of_art.md](derivations/literature/formalization_state_of_art.md)
@@ -121,7 +125,7 @@ Lessons 1, 2, 15 from the E8 review: H4 is not a Lie algebra, so the Distler-Gar
 |---|---|
 | 4 | 0 false claims; admitted_log.md complete |
 | 5 | Either A_F derivation from H4, or an honest boundary result |
-| 6 | Chirality analysis complete; Distler-Garibaldi pattern resolved |
+| 6 | Chirality analysis complete; Distler-Garibaldi pattern documented as open (not resolved) |
 | 7 | 1 arXiv preprint, 1 falsifiable prediction, Lean 4 port of one section |
 
 ---

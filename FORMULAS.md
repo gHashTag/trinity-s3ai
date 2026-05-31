@@ -92,7 +92,7 @@ The Trinity framework uses a **mixed mass scheme**:
 
 | Class | Symbol | Description | Threshold |
 |-------|--------|-------------|-----------|
-| Sacred Geometry | ★ SG | Agreement $< 0.01\%$ (1 part in $10^4$) | Golden-ratio-derived exactness |
+| Sacred Geometry | ★ SG | Agreement $< 0.01\%$ (1 part in $10^4$) | Close numerical agreement (not derived from H4) |
 | Verified | V | Agreement $0.01\% - 0.1\%$ (1 to 10 parts in $10^4$) | Within experimental uncertainty |
 | Pass | P | Agreement $0.1\% - 1\%$ | Within theoretical uncertainty |
 | Needs Verification | NV | Agreement unknown or $> 1\%$ | Pending cross-check |
@@ -294,7 +294,9 @@ The Trinity framework uses a **mixed mass scheme**:
 |----|-----------|---------|----------------|------------------|-------|-------|-----------|--------|
 | HQ01 | $m_c^{\text{pole}}$ | $m_c^{\overline{MS}} (1 + 4\alpha_s/(3\pi) + \ldots)$ | 1.49 GeV | $1.49 \pm 0.02$ GeV | 0.1% | P | ⬜ | ✅ |
 | HQ02 | $m_b^{\text{pole}}$ | $m_b^{\overline{MS}} (1 + 4\alpha_s/(3\pi) + \ldots)$ | 4.78 GeV | $4.78 \pm 0.06$ GeV | 0.3% | P | ⬜ | ✅ |
-| HQ03 | $m_t^{\text{pole}}$ | $4\phi^3 e^4 / 1000$ GeV | 172.69 GeV | $172.69 \pm 0.30$ GeV | 0.02% | P | ⬜ | ✅ |
+| HQ03 | $m_t^{\text{pole}}$ | $\pi e^4 + 6/5$ GeV **[phenomenological_fit]** | 172.73 GeV | $172.69 \pm 0.30$ GeV | 0.02% | P | ⬜ | ✅ |
+
+**⚠️ Wave 20 Correction:** The previous HQ03 formula (`4φ³e⁴/1000`) was mathematically incorrect (yields ~0.925 GeV). Corrected to `πe⁴ + 6/5`, identical to Q06. The top quark pole mass is not independently derived from H4.
 | HQ04 | $m_c(2\text{ GeV})$ | $m_c^{\overline{MS}}(m_c)$ | 1.27 GeV | $1.27 \pm 0.02$ GeV | 0% | ★ SG | ⬜ | ✅ |
 | HQ05 | $m_b(m_b)$ | $m_s \cdot (43 + \pi/\phi) \cdot (m_c/m_s) / (m_c/m_d)$ | 4.18 GeV | $4.18 \pm 0.03$ GeV | 0% | ★ SG | ⬜ | ✅ |
 | HQ06 | $m_s(2\text{ GeV})$ | $m_d \cdot 24\phi^2 / \pi$ | 96.0 MeV | $96 \pm 4$ MeV | 0% | ★ SG | ⬜ | ✅ |
@@ -445,7 +447,7 @@ See [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REW
 
 **Notes on Biology Tier:**
 - BIO01: The $\phi \cdot 2\pi$ formula gives $10.17$ bp/turn for the idealized helix. Actual B-DNA varies from 10.0 to 10.5 bp/turn depending on sequence and hydration. The A-DNA form has $\sim 11$ bp/turn.
-- BIO04-BIO06: These helical parameters are derived from the Ramachandran plot geometry where $\phi$ and $\psi$ backbone angles cluster around values related to the golden ratio.
+- BIO04-BIO06: These helical parameters are empirical fits to Ramachandran plot geometry where $\phi$ and $\psi$ backbone angles cluster around values related to the golden ratio. They are not derived from H4 first principles.
 - BIO08: The gamma rhythm (40 Hz) is associated with conscious awareness and binding problems. The $\phi^4 \cdot 6$ Hz formula connects it to the framework's fundamental scaling.
 
 **Tier 4 Summary:** 8 formulas total — 3 ★ SG class, 3 P class, 2 T class
@@ -752,7 +754,7 @@ See [`derivations/honest_cosmology/REWRITE.md`](derivations/honest_cosmology/REW
 
 ## Appendix A: Quick-Reference Card
 
-### Most Precise Predictions (★ SG Class)
+### Most Precise Fitted Formulas (★ SG Class)
 
 | Rank | Formula | Predicted | Measured | Error |
 |------|---------|-----------|----------|-------|

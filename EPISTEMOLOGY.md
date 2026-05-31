@@ -17,7 +17,7 @@ This is **not** a rejection of empiricism. It is a refinement of it. A measureme
 
 A first-principles calculation, by contrast, has a fixed structure once the symmetry group is chosen. If the symmetry is correct, the prediction is unconditional. If it is wrong, the framework dies cleanly. There is no "fitting room."
 
-This doctrine governs how Trinity S³AI treats tension between its first-principles predictions and reported "measurements" of derived quantities such as δ_CP.
+This doctrine describes an ideal epistemological framework. **Trinity currently has zero first-principles predictions**; all 26 core formulas are fitted coincidences (S/NF classes). The doctrine must not be invoked to shield fitted formulas from experimental exclusion.
 
 ---
 
@@ -31,7 +31,7 @@ This doctrine governs how Trinity S³AI treats tension between its first-princip
 | Replication | Deterministic (re-run the proof) | Requires independent apparatus + analysis |
 | Model dependence | Self-contained | Conditional on detector + Standard Model assumptions |
 
-A 1325-Qed Coq proof of `δ_CP = 3/φ²` (see [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)) is **deterministic**: re-run the proof checker and you get the same number forever. A NuFIT-6.0 extraction of δ_CP is **conditional**: change the nuclear interaction model used by T2K, and the extracted value shifts.
+A formal proof of `δ_CP = 3/φ²` **does NOT exist** in the Coq corpus. The formula is a fitted coincidence, not a derived result. What the 1,325 Qed corpus contains are mathematical theorems about H4 invariants, interval bounds, and impossibility results — not proofs of physical predictions. A NuFIT-6.0 extraction of δ_CP is **conditional**: change the nuclear interaction model used by T2K, and the extracted value shifts.
 
 This is not a criticism of experimentalists. It is a statement about what kind of object each side of the equation is.
 
@@ -103,15 +103,16 @@ The NuFIT-6.0 and T2K+NOvA Nature 2025 reports do not "measure" δ_CP. They repo
 
 The extracted value of δ_CP is **conditional on all six assumptions being correct**. T2K and NOvA are internally **in 2σ tension with each other** even before being combined ([NuFIT-6.0](https://arxiv.org/abs/2410.05380), [T2K+NOvA Nature](https://www.nature.com/articles/s41586-025-09599-3)). A global fit that averages two experiments in mutual tension produces a number, not a measurement.
 
-By contrast, the Trinity prediction `δ_CP = 3/φ² ≈ 65.66°` has:
-- Zero free parameters
-- Derivation from H4 Coxeter symmetry (mathematically rigid)
-- A formal Coq proof in the 1325-Qed corpus
-- No dependence on nuclear physics
+By contrast, the historically claimed Trinity formula `δ_CP = 3/φ² ≈ 65.66°` was:
+- A fitted coincidence found by brute-force search over 72,600 combinations
+- **WITHDRAWN** at >5σ (NuFIT-6.0 + T2K+NOvA 2025)
+- **NOT** derived from H4 Coxeter symmetry (no rigorous derivation exists)
+- **NOT** formally proven in Coq (the corpus contains 0 proofs of physical predictions)
+- Independent of nuclear physics, but also independent of experimental reality
 
-**The asymmetry favors the calculation.** The "5.6σ tension" reported in `DELTA_CP_HONEST_STATUS.md` is therefore better understood as a **5.6σ tension between the H4 prediction and a model-dependent extraction**, not as falsification.
+**The formula is falsified.** The "5.6σ tension" reported in `DELTA_CP_HONEST_STATUS.md` is a **falsification**, not a model-dependent disagreement. The anti-post-hoc rule forbids replacement formulas.
 
-This does not mean the H4 prediction is correct. It means the question is open until a model-independent measurement (or a calculation-independent prediction) breaks the symmetry.
+This means the H4→δ_CP path is a dead end. The question is closed.
 
 ---
 
@@ -123,7 +124,7 @@ To prevent abuse of the doctrine, the following are explicitly **not** licensed:
 
 2. **It does not license post-hoc rescue.** A calculation that needs to be modified to match a measurement that later turns out to be wrong is still numerology. The calculation must be fixed **before** the measurement is questioned, and the prediction must be **pre-registered** (see [`PREDICTIONS_PREREGISTERED.md`](./PREDICTIONS_PREREGISTERED.md)).
 
-3. **It does not license cherry-picking.** All Trinity predictions that match measurements at <1σ (m_H, α₁/α₂/α₃, λ, PMNS θ₁₂/θ₁₃) and all predictions that do not (δ_CP, a₄ bridge, θ₂₃ octant) are reported with the same standard.
+3. **It does not license cherry-picking.** All Trinity fitted formulas that match measurements at <1σ (m_H, α₁/α₂/α₃, λ, PMNS θ₁₂/θ₁₃) and all fitted formulas that do not (δ_CP, a₄ bridge, θ₂₃ octant) are reported with the same standard.
 
 4. **It does not assume H4 is correct.** The framework can still die — but it must die from a measurement that cannot be reduced to model-dependent extraction. DUNE 2028 with controlled cross-section measurements would qualify. NuFIT global fits do not.
 
@@ -135,7 +136,7 @@ From this commit forward, the following rules apply to all public documentation:
 
 ### 5.1 Predictions vs Measurements
 
-- A Trinity prediction from H4 + Coq derivation is a **first-principles calculation**.
+- A Trinity formula from H4 + Coq verification is a **fitted coincidence checked by interval arithmetic**, not a first-principles calculation. Trinity currently has **zero** first-principles derivations of SM parameters.
 - A NuFIT / T2K / NOvA value is a **model-dependent extraction**.
 - These are different epistemic objects and must be labeled as such.
 
@@ -156,7 +157,7 @@ All predictions are pre-registered in [`PREDICTIONS_PREREGISTERED.md`](./PREDICT
 ### 5.4 Sequencing
 
 The honesty pass waves are **not** withdrawals. They are reframings:
-- **Wave 1**: Lagrangian 92.3% claim → 3/13 sectors formally proven, 9 phenomenological, 1 open (see [`LAGRANGIAN_HONEST_STATUS.md`](docs/status/LAGRANGIAN_HONEST_STATUS.md)). The 9 phenomenological sectors are predictions to be tested, not failures.
+- **Wave 1**: Lagrangian 92.3% claim → 3/13 sectors have Coq-verified interval bounds on fitted formulas, 9 phenomenological, 1 open (see [`LAGRANGIAN_HONEST_STATUS.md`](docs/status/LAGRANGIAN_HONEST_STATUS.md)). None are first-principles derivations.
 - **Wave 2**: δ_CP prediction is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It was a post-hoc fit, not a first-principles derivation. No replacement formula is introduced under the anti-post-hoc rule. See `DELTA_CP_HONEST_STATUS.md` and `PREDICTIONS_PREREGISTERED.md`.
 - **Wave 3**: Coq metrics reconciled (see [`COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)). The proof corpus is the substrate on which calculation primacy rests.
 - **Wave 4 (this)**: Establishes the epistemological frame that all previous waves implicitly assumed.
@@ -186,7 +187,7 @@ This is not anti-Bayesian. It is a statement about **likelihoods** and **priors*
 
 A "measurement" with strong model dependence has a **fat likelihood**: the data are consistent with a wide range of underlying parameter values once systematic uncertainty over models is properly marginalized. NuFIT-6.0 does not marginalize over choice of nuclear-interaction model — it picks one and reports the resulting likelihood.
 
-A first-principles calculation from a rigid symmetry has a **sharp prior**: the prediction is one number, derivable in advance, with no fitting room.
+A first-principles calculation from a rigid symmetry has a **sharp prior**: the prediction is one number, derivable in advance, with no fitting room. **Trinity does not currently possess such a calculation for any SM parameter.**
 
 When you update a sharp prior with a fat likelihood, the posterior remains close to the prior. This is correct Bayesian behavior. The naive procedure — taking the "central value" of a model-dependent extraction as if it were a model-independent measurement — implicitly **assumes a flat prior over models**, which is the wrong prior when first-principles theory is available.
 

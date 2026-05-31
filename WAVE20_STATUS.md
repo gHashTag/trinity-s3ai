@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 20 status — Cl(8)/Octonion Track)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Wave 20 Status — Cl(8)/Octonion Track
 
 ## Python Numerical Exploration (BOUNDARY FINDING)

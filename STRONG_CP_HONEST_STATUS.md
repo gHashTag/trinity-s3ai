@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 6 honesty pass — Strong CP assessment)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # STRONG CP — HONEST STATUS
 
 **Date**: 2026-05-23
@@ -137,9 +141,8 @@ canonical count, Wave 3, PR #23):
   comments inside `ghost_strongcp_rg_analysis.md`, but never as the conclusion
   of a discharged Coq obligation.
 
-Compare with Wave 1 audit: of 13 Lagrangian parameters, **3 are formally proven
-in Coq** (m_H, gauge couplings α₁-α₂-α₃, Higgs self-coupling λ). Strong CP is
-not among them.
+Compare with Wave 1 audit: of 13 Lagrangian parameters, **3 have Coq-verified
+interval bounds on fitted formulas** (m_H, gauge couplings α₁-α₂-α₃, Higgs self-coupling λ). These are **numerical interval checks**, not derivations from H4 first principles. Strong CP is not among them.
 
 ---
 

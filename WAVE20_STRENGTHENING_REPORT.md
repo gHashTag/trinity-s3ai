@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 20 strengthening report — deep RAG audit)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Wave 20 Strengthening Report — Deep RAG Analysis & Position Hardening
 
 **Date:** 2026-05-23  
@@ -75,7 +79,7 @@ A deep RAG analysis of the entire repository was conducted using 4 parallel expl
 ### 11. Inconsistent Formula Counts (MEDIUM — DOCUMENTED)
 **Problem:** The project cites 59, 93, and 130 formulas depending on which claim is being defended.
 
-**Fix:** `README.md` now consistently uses "26 core + 33 extended formulas."
+**Fix:** `README.md` updated to remove inflated counts; formula tally remains "59 phenomenological formulas" with explicit caveat that these are fitted coincidences, not predictions.
 
 ### 12. Russian-Language Public Doc (LOW — NOTED)
 **Problem:** `audit_report.md` is in Russian, violating the project's own "English-only public docs" rule.

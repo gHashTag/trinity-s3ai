@@ -1,7 +1,7 @@
 # Honesty Manifest — Trinity S³AI
 
-**Version:** Wave 15.1  
-**Date:** 2026-05-22  
+**Version:** Wave 23  
+**Date:** 2026-05-31  
 **Policy:** No fake proofs. No cosmetic edits to hide gaps.
 
 ---
@@ -33,39 +33,31 @@ The honest parser finds **0** real `Admitted.` proof obligations in `proofs/trin
 
 | Metric | Count |
 |--------|-------|
-| Coq `.v` files scanned | **79** |
-| `Qed.` + `Defined.` | **1 762** (of which 1,325 are theorems with `Qed.`) |
-| Real `Admitted.` (outside comments/strings) | **25** (5 in `proofs/trinity/` comments; 4 in `proofs/clifford_cl8/`; 1 in `derivations/chirality/`) |
-| `Axiom` + `Conjecture` + `Parameter` | **80** (73 `Axiom` + 7 `Parameter`; 0 `Conjecture`) |
+| Coq `.v` files scanned | **100** (56 in `proofs/trinity/` + 6 in `proofs/clifford_cl8/` + 38 in `derivations/`) |
+| `Qed.` + `Defined.` | **2 104** (of which 2,098 are theorems with `Qed.` and 6 with `Defined.`) |
+| Real `Admitted.` (comment-stripped) | **0** globally (proofs/trinity/: 0; proofs/clifford_cl8/: 0; derivations/: 0) |
+| Mentions of `Admitted.` inside comments | ~25 across all files (historical notes only, not obligations) |
+| `Axiom` + `Conjecture` + `Parameter` | **93** (82 `Axiom` + 11 `Parameter`; 0 `Conjecture`) |
 | Refutation theorems (`refuted`) | **14** |
 
 ### Breakdown by directory
 
 | Directory | Files | Qed+Def | Admitted | Axioms | Refutations |
 |-----------|-------|---------|----------|--------|-------------|
-| `proofs/trinity/` | 50 | 1 045 | **0** | 49 | 11 |
-| `proofs/clifford_cl8/` | 3 | 11 | **4** | 6 | 0 |
-| `derivations/chirality/` | 1 | 22 | **1** | 3 | 0 |
-| *other derivations/* | 25 | 684 | 0 | 27 | 3 |
+| `proofs/trinity/` | 56 | 1 130 | **0** | 51 | 11 |
+| `proofs/trinity/coq_models/` | 11 | 86 | **0** | 3 | 0 |
+| `proofs/clifford_cl8/` | 6 | 174 | **0** | 9 | 0 |
+| `proofs/catalog/` | 1 | 1 | **0** | 0 | 0 |
+| *derivations/* | 26 | 713 | 0 | 30 | 3 |
 
-### What the 5 real `Admitted.` are
+### Comment-only `Admitted.` mentions (not real obligations)
 
-| # | File | Context |
-|---|------|---------|
-| 1 | `proofs/clifford_cl8/Cl6_iso_M8R.v` | Cl(0,6) ≅ M₈(R) ⊕ M₈(R) — stated with citation (Lounesto 2001, Wieser-Song 2022) |
-| 2 | `proofs/clifford_cl8/Cl8_periodicity.v` | Bott 8-periodicity Cl(n+8) ≅ Cl(n) ⊗ Cl(8) — stated with citation (Atiyah-Bott-Shapiro 1964) |
-| 3 | `proofs/clifford_cl8/Cl8_periodicity.v` | Second structural lemma for periodicity proof |
-| 4 | `proofs/clifford_cl8/CliffordAlgebra.v` | Universal-property existence lemma for Cl(p,q) |
-| 5 | `derivations/chirality/ChiralityAnalysis.v` | Chiral charge mechanism (documented as open problem) |
-
-All 5 are **honestly tagged** with physical/mathematical citations or `[OPEN_PROBLEM]` labels.
-
-### The 77 "Admitted" in `proofs/trinity/`
-
-These are **historical comments**, not open gaps. They document:
+All `.v` files in `proofs/trinity/` and `proofs/clifford_cl8/` contain **zero** real `Admitted.` commands. Historical mentions exist inside `(* ... *)` comments only, documenting:
 - Waves where a theorem was planned but later proved or refuted.
 - Honesty tags explaining why a gap existed at the time.
-- Cross-references to `admitted_log.md`.
+- Cross-references to `admitted_log.md` and wave logs.
+
+Load-bearing gaps in `proofs/clifford_cl8/` (Track B) are declared as **well-cited `Axiom`** statements (e.g., Bott periodicity with ABS 1964 citation), not as `Admitted.`
 
 We **do not delete** these comments; they are valuable provenance metadata.
 

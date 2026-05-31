@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 19 status — data paper preparation)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Wave 19 Status — Data Paper
 
 **Date:** 2026-05-22  
@@ -53,8 +57,11 @@ Wave 19 drafted a **data paper** documenting the Trinity formula catalog as a re
 
 | Metric | Wave 18 | Wave 19 |
 |--------|---------|---------|
-| Qed | 1772 | 1772 |
-| Admitted | 0 | 0 |
+| Qed | 1325 | 1325 |
+| Admitted | 25 | 25 |
+| Inline admit | 18 | 18 |
+| Axiom + Parameter | 80 | 80 |
+| Total unproven obligations | 123 | 123 |
 | Core formulas | 25 | 25 |
 | Papers | 1 (boundary finding) | +1 (data paper) |
 | MC p-value | < 0.0001 | documented in paper |

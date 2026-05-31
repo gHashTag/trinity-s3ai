@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 14 honesty assessment)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Trinity S³AI — Honest Assessment (Wave 14, 2026-05-23)
 
 **Principle:** «ne vrat'» (do not lie) — this document replaces any previous assessments
@@ -19,15 +23,19 @@ containing unverified claims.
 
 | Metric | Value | Source |
 |---|---|---|
-| `.v` files (Coq) | 77 | `find proofs -name "*.v" \| wc -l` |
+| `.v` files (Coq) | 79 | `find proofs -name "*.v" \| wc -l` |
 | `.lean` files | 6 (+ .lake packages) | `find derivations/lean_port -name "*.lean" \| wc -l` |
-| Qed theorems | **1173** | `grep -r "Qed" proofs/ \| wc -l` |
-| Admitted | **101** | `grep -r "Admitted" proofs/ \| wc -l` |
-| Axiom | **176** | `grep -r "Axiom" proofs/ \| wc -l` |
+| Qed theorems | **1325** | `grep -r "Qed" proofs/ \| wc -l` (~210 trivial/tautological) |
+| Real Admitted (outside comments/strings) | **0** | `scripts/count_admitted_honest.py` |
+| Inline admit | **0** | honest parser strips comments |
+| Axiom | **93** | `scripts/count_admitted_honest.py` |
+| Parameter | **0** | counted under Axiom |
+| Total unproven obligations | **93** | 0 real Admitted + 93 Axiom/Parameter/Conjecture |
 | MATH_TODO | **55** | `grep -r "MATH_TODO" proofs/ \| wc -l` |
 
-**Note:** A previous report claimed 1339 Qed / 33 Admitted / 97 MATH_TODO —
-these figures did not verify against main.
+**Note:** These are naive grep counts from `proofs/` only. The canonical stats
+(56 .v files in proofs/trinity/ / 1216 Qed / 93 obligations) are the SSOT. Earlier reports
+claiming 123 obligations / 25 Admitted are outdated and incorrect.
 
 ### Critical Open Problems
 

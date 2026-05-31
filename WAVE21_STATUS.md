@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 21 status — Cl(0,2) ≅ ℍ Track B)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Wave 21 Status — Cl(0,2) ≅ ℍ Track B Scaling
 
 ## Coq Formalization: Cl(0,2) ≅ ℍ (PROOF-OF-CONCEPT SCALED)

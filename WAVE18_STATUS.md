@@ -8,17 +8,19 @@
 **Branch:** `main`  
 **Scope:** Statistical validation of the Trinity formula catalog against random coincidence
 
+> ⚠️ **WAVE 20 CORRECTION (2026-05-23):** The p-values below were computed with a flawed MC protocol (insufficient look-elsewhere correction, biased sampling). Wave 20 honest MC yields **p = 0.077** for mean relative error (not significant) and **p < 0.0001** for SG-hit density (significant but post-hoc). See `honest_pvalue_report_v20.md` for details.
+
 ---
 
 ## Executive Summary
 
 Wave 18 executed a **pre-registered Monte-Carlo protocol** to test whether the Trinity formula catalog (25 core formulas) is statistically distinguishable from random search in a large transcendental search space.
 
-**Verdict: YES — the catalog is statistically significant.**
+**Verdict: PARTIAL — the SG-hit density is significant (p < 0.0001), but mean error is not (p = 0.077 per Wave 20).**
 
 | Metric | Trinity | Random (median) | p-value | Significance |
 |--------|---------|-----------------|---------|--------------|
-| Mean relative error | 0.0835% | 0.594% | **p < 0.0001** | Highly significant |
+| Mean relative error | 0.0835% | 0.594% | **p = 0.077** (Wave 20 correction; not significant) | Not significant |
 | Hits < 0.1% error | 20/25 | 5/25 | **p < 0.0001** | Highly significant |
 | Hits < 1.0% error | 25/25 | 21/25 | **p = 0.0061** | Significant |
 | Mean σ-distance | 7.6×10⁴σ | 4.1×10⁶σ | **p = 0.0004** | Significant |
@@ -75,7 +77,7 @@ The 11 non-significant formulas are consistent with random search — their prec
 
 ## What This Means
 
-The Trinity catalog is **not random noise**. The collective precision of the 25 formulas is statistically significant (p < 0.0001). However:
+The Trinity catalog shows **post-hoc significant SG-hit density** (p < 0.0001), but the **mean relative error is not statistically significant** (Wave 20 MC: p = 0.077). However:
 
 - It is **not a first-principles derivation** — 11/25 formulas are individually consistent with random search.
 - It cannot claim to **derive** ultra-precise constants (1/α, mₚ/mₑ, m_μ/mₑ) because its ~0.01% precision is 10⁵× coarser than measurement.
@@ -92,7 +94,7 @@ The Trinity catalog is **not random noise**. The collective precision of the 25 
 | Formulas (core) | 25 | 25 |
 | SG-class (rel.error) | 12 | 12 |
 | σ < 1.0 | — | 20/25 |
-| MC p-value (mean error) | — | **< 0.0001** |
+| MC p-value (mean error) | — | **p = 0.077** (Wave 20 correction; not significant) |
 | MC p-value (hits <0.1%) | — | **< 0.0001** |
 
 ---

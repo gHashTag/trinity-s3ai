@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical roadmap Wave 17+, 2026-05-22)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # ROADMAP: Wave 17+ — Post-String-Correspondence Directions
 
 **Project:** Trinity S3AI  

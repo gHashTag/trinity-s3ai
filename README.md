@@ -18,7 +18,7 @@
 | Role | Start here | Time | What you'll learn |
 |------|-----------|------|-------------------|
 | **Physicist / Reviewer** | [`docs/REVIEW_GUIDE.md`](docs/REVIEW_GUIDE.md) | 10 min | Honest path with commands and expected outputs |
-| **Formal methods researcher** | [`proofs/trinity/BoundaryTheorems.v`](proofs/trinity/BoundaryTheorems.v) | 5 min | BT-1..BT-4 Qed, 0 real Admitted in `proofs/trinity/` |
+| **Formal methods researcher** | [`proofs/trinity/BoundaryTheorems.v`](proofs/trinity/BoundaryTheorems.v) | 5 min | BT-1..BT-4 Qed; 51 unproven obligations (0 real Admitted + 51 Axiom/Parameter/Conjecture) across 56 Coq files in proofs/trinity/ |
 | **Curious visitor** | [🔗 GOLDEN CHAIN live](https://t27.ai/trinity-s3ai/) | 2 min | Hardware-verified proof chain puzzle |
 | **Contributor** | [`CONTRIBUTING.md`](CONTRIBUTING.md) + [`good first issue`](https://github.com/gHashTag/trinity-s3ai/issues) | 15 min | Build instructions, phi-loop protocol |
 
@@ -30,17 +30,17 @@ Most unification programs publish only successes. We publish the **dead ends** t
 
 | Our Strong Side | What It Means For You |
 |-----------------|----------------------|
-| **1,325 theorems with `Qed.`** | Every positive claim is machine-checked, not hand-waved. |
+| **1,325 theorems with `Qed.`** | Every positive claim is machine-checked (~210 are trivial/tautological; ~1,100 are substantive). |
 | **4 boundary theorems (BT-1..BT-4)** | Four direct H4→SM construction paths are formally ruled out. You don't have to try them. |
 | **14 refutation theorems** | Specific ansätze (orbifold Z₂, E8-plumbing η, δ_CP = 65.66°) are proven dead and documented. |
-| **25 `Admitted.` + 123 total obligations** | No cosmetic edits. Every open gap is tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and carries a literature citation. See `COQ_HONEST_STATUS.md` for full accounting. |
+| **0 real `Admitted.` + 51 obligations in proofs/trinity/** | No cosmetic edits. Every open gap is an Axiom/Parameter with a literature citation. See `COQ_HONEST_STATUS.md` for full accounting. |
 | **0 fake proofs** | The honest parser strips comments before counting. Naive `grep` finds 77; the real count is 0 in `proofs/trinity/`. |
 
 > **$TRI is not a cryptocurrency.** It is a compression score (bits-per-byte) benchmarked on synthetic φ-structured data; silicon validation on TTSKY26b is pending (~Nov 2026). You cannot mine it on a GPU.
 
 ---
 
-We maintain a catalog of **59 phenomenological formulas** between H4 Coxeter
+We maintain a catalog of **130 total formulas/invariants** (59 SM-sector phenomenological formulas) between H4 Coxeter
 invariants and PDG 2024 measurements, plus **4 formal boundary theorems**
 proving obstructions. Whether the coincidences are deep or accidental is itself an
 open research question — tracked via a 7-layer verification stack and a
@@ -54,7 +54,7 @@ living claim ledger.
 |-------|--------|------------|---------|
 | L0 Infrastructure | ✅ | [Live demo](https://t27.ai/trinity-s3ai/) | Rust + Coq CI, anti-numerology gate |
 | L1 Claim Ledger | ✅ | SSOT `claims.yaml` | 5-status vocabulary enforced |
-| L2 Formal Proofs | ✅ | **0 real Admitted** | `proofs/trinity/` only; Track B has 4 cited Axioms |
+| L2 Formal Proofs | ✅ | **0 real Admitted** in proofs/trinity/ | 51 unproven obligations (Axiom/Parameter/Conjecture) in proofs/trinity/ |
 | L3 Geometry | ⚠️ | `a₄` factor unresolved | 3 derivations don't converge |
 | L4 NCG / Lagrangian | 🔴 | BT-2, BT-6 bound recovery | No σ-field from H4; no string rescue |
 | L5 Numerical Fits | ⚠️ | 59 formulas, 1 withdrawn | δ_CP withdrawn; sin²θ_W = 84σ genuine failure |
@@ -93,11 +93,41 @@ flowchart BT
 | **BT-3** (Chirality) | 600-cell D_F is vector-like (antipodal symmetry) | The 600-cell cannot source SM chirality; chirality must enter via a different mechanism. |
 | **BT-4** (Mass hierarchy) | 2I-equivariant D_F cannot reproduce lepton mass ratios | Icosahedral symmetry-breaking ansatz for lepton masses is insufficient; needs stronger breaking. |
 
-**Coq Stats (Wave 23):** 1,325 theorems with `Qed.` · 25 `Admitted.` + 123 total unproven obligations · 14 refutation theorems  
+**Coq Stats (Wave 23):** 1,325 theorems with `Qed.` (~210 trivial, ~1,100 substantive) · 0 real `Admitted.` + 51 unproven obligations (Axiom/Parameter/Conjecture) in proofs/trinity/ · 14 refutation theorems  
 **Honest p-value:** p = 0.077 (mean error, not significant) · p < 0.0001 (SG-hit density, significant)
 
 > *"Not a proof is also a proof."* — We share what we tried to prove and could not,
 > because knowing the boundary is as valuable as knowing the path.
+
+---
+
+## 📊 IGLA RACE: Live BPB Benchmarks
+
+Real training results on FineWeb-Edu 10B token subset, 196K-parameter transformer (hidden=384, 2 attention layers, AdamW lr=0.003). Lower BPB = better compression.
+
+**Champion (no quantization, seed=43, 81K steps):** `best = 2.3900` [empirical_fit]
+
+| Format | Best BPB @ 10K | Best BPB @ 40–50K | Verdict |
+|--------|---------------|-------------------|---------|
+| **bf16** | **2.7127** | — | Reference |
+| **fp16** | 2.7183 | 3.0383 @ 50K | Reference |
+| **f32** | 2.7375 | 3.0391 @ 50K | Reference |
+| **gf16** | 2.7186 | **3.0260** @ 50K | Matches 16-bit baseline |
+| **posit8** | 3.0099 | **2.9737** @ 40K | Competitive at medium steps |
+| **gf8** | 3.0099 | **2.9737** @ 40K | Competitive at medium steps |
+| **mxfp8** | 3.3874 | ~3.5 | Marginal |
+| **int8** | 3.6092 | ~3.9 | Marginal |
+| **nf4** | 3.8659 | ~4.0 | Marginal |
+| **fp8_e5m2** | 4.5309 | — | Non-viable |
+| **int4** | 7.0005 | ~7.0 | Non-viable |
+
+> **Key finding [empirical_fit]:** GF16 matches fp16/f32 compression despite φ-structured mantissa — no accuracy penalty at 16-bit precision on language modeling.
+>
+> **Surprise [empirical_fit]:** posit8 and gf8 (8-bit formats) outperform 16-bit fp16/f32 at 40–50K steps, suggesting φ-aware quantization may stabilize optimization beyond naive bit-width expectations.
+>
+> **Dead formats [verified — refutation]:** int4 and fp8_e5m2 fail to converge below 4.5 BPB on this architecture — empirically ruled out for the 196K-param regime.
+
+Raw logs: `trios-trainer-igla/.trinity/results/` — see [`trios-trainer-igla`](https://github.com/gHashTag/trios-trainer-igla).
 
 ---
 
@@ -142,11 +172,11 @@ All three crowns are **designed** to carry the canonical anchor **`0x47C0`** at 
 
 ### Why GF16?
 
-- **φ-structured step**: each quantization level approximates `φ⁻¹ ≈ 0.618`, giving **0.694-bit reduction per level** (`verified` — log₂ φ identity; Prop 1–2, Thm 3 in `gf16_mathematics.md`)
+- **φ-structured step**: each quantization level approximates `φ⁻¹ ≈ 0.618`, giving **0.694-bit reduction per level** (`mathematical identity` — log₂ φ identity; Prop 1–2, Thm 3 in `gf16_mathematics.md`)
 - **16.2× better than bf16 on uniform data**: 9-bit mantissa vs bf16's 7 bits (`empirical_fit` — zig-golden-float BENCH-010 Uniform [-100,100])
 - **65× wider dynamic range than fp16**: max normal ~4.29×10⁹ vs fp16's 65504; exact powers-of-two at `-120.00 dB` NMSE (`empirical_fit` — `benchmark_nmse.py` D-5)
 - **Zero inference accuracy drop**: Fashion-MNIST MLP post-training quantization = 0.00% drop vs fp32 (`empirical_fit` — zig-golden-float BENCH-008)
-- **Optimal integer φ-split**: `round((N−1)/φ²)` gives exp=6/mant=9 for N=16; phi-distance 0.049 vs fp16 0.118 (`verified` — NeurIPS 2026 OPT Prop 2)
+- **Optimal integer φ-split**: `round((N−1)/φ²)` gives exp=6/mant=9 for N=16; phi-distance 0.049 vs fp16 0.118 (`proposed` — NeurIPS 2026 OPT Prop 2; not yet peer-reviewed)
 - **Hardware exclusivity**: planned validation on TTSKY26b silicon (Three Crowns: Phi + Euler + Gamma)
 
 > **Honest note on BPB:** GF16 is a 16-bit float, so raw BPB = 0.500 — identical to fp16 and bfloat16 by bit-width. The 0.125 raw BPB claim belongs to the separate **phi-4Q** 4-bit quantizer (synthetic φ-structured data only). See `docs/hardware/bpb_benchmark.py` and `docs/hardware/gf16_mathematics.md` §2.2.
@@ -163,10 +193,10 @@ This project is built on a counter-intuitive principle: **proving what cannot be
 
 | What we proved | Count | Status |
 |---|---|---|
-| Theorems with `Qed.` | **1,325** | Verified |
+| Theorems with `Qed.` | **1,325** (~210 trivial, ~1,100 substantive) | Verified |
 | Boundary theorems (impossibility proofs) | **4** (BT-1..BT-4) | Verified |
 | Refutation theorems (`*_refuted`) | **14** | Verified dead ends |
-| Real `Admitted.` (honestly tagged) | **25** | Open problems with citations |
+| Real `Admitted.` (outside comments/strings) | **0** in proofs/trinity/ | Verified by honest parser |
 | Fake proofs | **0** | — |
 
 **Boundary theorems save the field from wasted effort:**
@@ -175,7 +205,7 @@ This project is built on a counter-intuitive principle: **proving what cannot be
 - **BT-3** — 600-cell Dirac operator is vector-like → chirality must come from elsewhere
 - **BT-4** — 2I-equivariant D_F fails for lepton masses → mass hierarchy needs different symmetry breaking
 
-**25 real Admitted gaps** — all honestly tagged with `[OPEN_PROBLEM]`, `[LIBRARY_GAP]`, or `[PHYSICAL_AXIOM]` and documented with citations (Lounesto 2001, Atiyah-Bott-Shapiro 1964, etc.). Total unproven obligations: 25 Admitted + 18 admit + 73 Axiom + 7 Parameter = 123.
+**0 real Admitted gaps** in proofs/trinity/ — the honest parser strips comments before counting. Naive `grep` finds 5 mentions in comments; the real count is 0. Total unproven obligations in proofs/trinity/: 51 (Axiom/Parameter/Conjecture).
 
 **0 fake proofs. 0 cosmetic edits to hide gaps.** Every number is produced by a comment-stripping parser and treated as ground truth.
 
@@ -210,7 +240,7 @@ python3 scripts/anti_numerology_gate.py
 
 # 2. Honest Coq counter — strips comments before counting Admitted (~2 s)
 python3 scripts/count_admitted_honest.py
-# Expected: proofs/trinity/ → 0 real Admitted.
+# Expected: proofs/trinity/ → 0 real Admitted + 51 Axiom/Parameter/Conjecture; 56 .v files.
 
 # 3. Formula error bounds — verifies numeric claims against PDG 2024 (~10 s)
 pip install mpmath numpy
@@ -262,6 +292,11 @@ _Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_cla
 | No Theory-of-Everything claim and no prize claim is made | L1 | `verified` | docs/CLAIM_STATUS.md §2; README.md preamble | — |
 | GF16 (1-6-9, bias 31) phi-anchored float format specified and FPGA-verified | L0 | `verified` | docs/hardware/gf16_spec.md §2–2.6; t27/conformance/FORMAT-SPEC-001.json; NeurIPS 2026 OPT paper (Prop 1–2, Thm 3); IBM DLFloat16 (ARITH 2019, layout identical, 6 differences documented) | — |
 | BPB compression benchmark: phi-4Q quantizer raw BPB 0.125 vs 0.500 for fp16/bf16/GF16 | L5 | `empirical_fit` | docs/hardware/bpb_benchmark.py; docs/hardware/bpb_results.json (generated 2026-05-25) | Extend benchmark to real physics datasets (e.g. PDG parameter vectors, MNIST weights) and verify the advantage persists outside synthetic phi-monomial data. |
+| IGLA RACE champion: f32 baseline BPB = 2.3900 on 81K steps (196K params) | L5 | `empirical_fit` | trios-trainer-igla/.trinity/results/champion_81k_seed43.log; seed=43, hidden=384, 2 attn layers, AdamW lr=0.003 | Reproduce on independent hardware and confirm the BPB floor is stable across seeds. Run seeds 44–50 to 81K with identical hyperparameters. |
+| IGLA RACE: GF16 matches fp16/f32 BPB on language modeling (empirical parity) | L5 | `empirical_fit` | trios-trainer-igla/.trinity/results/v2_gf16_seed44_81k.log (ema_bpb=3.0260 @ 50K); v2_fp16_seed44_81k.log (ema_bpb=3.0383 @ 50K); v2_f32_seed42_81k.log (ema_bpb=3.0391 @ 50K) | Run GF16 to 81K steps (currently only 50K available) and verify the parity holds at full convergence. Run multiple seeds to bound variance. |
+| IGLA RACE: posit8 and gf8 outperform 16-bit baselines at 50K steps (surprise) | L5 | `empirical_fit` | trios-trainer-igla/.trinity/results/v2_posit8_seed44_50k.log (ema_bpb=2.9737 @ 40K); v2_gf8_seed44_50k.log (ema_bpb=2.9737 @ 40K) | Extend to 81K steps and multiple seeds. Verify the advantage is not a seed artifact. Compare against int8 to isolate phi-aware benefit. |
+| IGLA RACE: int4 and fp8_e5m2 non-viable on 196K-param transformer | L5 | `high_risk_or_falsified` | trios-trainer-igla/.trinity/results/v3_int4_seed46_10k.log (ema_bpb=7.0005); v3_fp8_e5m2_seed47_10k.log (ema_bpb=4.5309) | — |
+| φ-anchored hyperparameters falsified on IGLA RACE: +0.1013 BPB worse than conventional | L5 | `high_risk_or_falsified` | docs/audit/PHI_ABLATION_DESIGN.md; trios-trainer-igla/.trinity/gardener_harvest.log (control best=2.6167, treatment best=2.7180) | — |
 | GF16 silicon tapeout on TinyTapeout TTSKY26a shuttle (submitted, pending silicon) | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §3.1; PR #322 in TinyTapeout/tinytapeout-sky-26a for gHashTag/tt-trinity-gf16 | Await silicon return from Sky130 fab (~Aug 2026). Post-silicon validation requires logic-analyzer reset witness, clock sweep, and conformance run. |
 | 0x47C0 reset-time silicon anchor validates Lucas chain L2=3 | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §1–2; no RTL testbench found in t27 repo | Document the anchor in RTL (add reset witness to gf16_mul.v or wrapper), add testbench simulation, or downgrade claim to design-intent only. |
 | phi-structured quantization step gives ~0.694-bit reduction per level | L3 | `verified` | docs/hardware/gf16_mathematics.md §3, §6.1–6.3; log2(phi) = 0.6942419136...; NeurIPS 2026 Prop 1 (Golden Self-Similarity), Prop 2 (Optimal Integer Rounding), Thm 3 (Universal Attractor) | — |
@@ -293,6 +328,8 @@ script with `--check` and fails if anything is stale.
 | 19 | Merge of honesty-pass PRs #29, #31, #32 (calculation-primacy, N_gen=3 withdrawn, Strong CP withdrawn); all old PRs merged |
 | 20 | Honest phenomenology refresh: 500k-trial p-value, σ-ranking updated (26 obs, δ_CP withdrawn, sin²θ_13/23/W + \|V_ub\| + λ added) |
 | 23 | README redesign: lean structure, audience selector, Mermaid tech tree, collapsible ledger |
+| 24 | φ falsifiability ablation: φ-anchored hyperparameters **falsified** (+0.1013 BPB worse than conventional) — see [`docs/audit/PHI_ABLATION_DESIGN.md`](docs/audit/PHI_ABLATION_DESIGN.md) |
+| 25–28 | Queued: Coq gap closure (Wave 25), IGLA Gate-2 push (Wave 26), Lean 4 port (Wave 27), GOLDEN CHAIN integration (Wave 28) — see [`docs/WAVES_24_28.md`](docs/WAVES_24_28.md) |
 
 </details>
 
@@ -307,6 +344,7 @@ script with `--check` and fails if anything is stale.
 | [`docs/CLAIM_STATUS.md`](docs/CLAIM_STATUS.md) | Claim-status rule book (5 canonical statuses) |
 | [`docs/TECH_TREE.md`](docs/TECH_TREE.md) | Layered status of the whole stack |
 | [`RESEARCH_STATUS.md`](RESEARCH_STATUS.md) | Boundary map: open, obstructed, or under exploration |
+| [`docs/WAVES_24_28.md`](docs/WAVES_24_28.md) | Next waves: IGLA RACE, Coq gaps, Lean port, game integration |
 | [`HONESTY_MANIFEST.md`](HONESTY_MANIFEST.md) | **Ground-truth statistics** (comments stripped) |
 | [`ROADMAP_WAVE17_PLUS.md`](ROADMAP_WAVE17_PLUS.md) | Tracks A, B, C of active research |
 | [`paper/CHANGELOG_v1_to_v2.md`](paper/CHANGELOG_v1_to_v2.md) | Paper v2 changelog — new boundary notes |

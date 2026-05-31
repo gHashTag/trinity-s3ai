@@ -20,7 +20,7 @@ Each prediction has five fields:
 | **Coq theorem** | The Coq identifier proving an **interval bound** on the formula's numerical accuracy, not a physical derivation |
 | **Current extraction** | What model-dependent extractions currently report, with the model assumed |
 | **Falsification threshold** | What experimental result, at what σ, in what experiment, would kill the prediction |
-| **Status** | OPEN (not yet adjudicated) / WITHDRAWN / FALSIFIED / NUMERICALLY VERIFIED (not "confirmed" in the theoretical sense) |
+| **Status** | OPEN (not yet adjudicated) / WITHDRAWN / FALSIFIED / NUMERICALLY MATCHED (not "confirmed" in the theoretical sense) |
 
 **Rule**: a prediction can only be moved from OPEN to FALSIFIED by a measurement that satisfies the criteria in [`EPISTEMOLOGY.md §6`](./EPISTEMOLOGY.md#6-what-would-falsify-trinity-under-this-doctrine) — model-independent, multiple-technique agreement, or Coq proof error. However, **Wave 20 override**: δ_CP is withdrawn regardless of doctrine, because the project's own honesty audit (`DELTA_CP_HONEST_STATUS.md`) found it was a post-hoc fit excluded at >5σ.
 
@@ -30,8 +30,8 @@ Each prediction has five fields:
 
 | Field | Value |
 |---|---|
-| **Predicted value** | `δ_CP = 3/φ² ≈ 65.6620° ≈ 1.1461 rad` |
-| **Derivation** | Phenomenological in `proofs/trinity/Predictions.v`; framework derivation from H4 Coxeter invariants |
+| **Predicted value** | `δ_CP = 3/φ² ≈ 65.6620° ≈ 1.1461 rad` (WITHDRAWN) |
+| **Derivation** | Phenomenological in `proofs/trinity/Predictions.v`; historically claimed derivation from H4 Coxeter invariants (refuted) |
 | **Coq theorem** | `delta_cp_value` (Predictions.v) — value is `Definition`-level, not yet a derived theorem from H4 generators alone |
 | **Current extraction** | NuFIT-6.0 favors `δ_CP ≈ 195° ± 25°` (NO ordering, model-dependent extraction); T2K-only and NOvA-only are in mutual 2σ tension |
 | **Sources** | [NuFIT-6.0](https://arxiv.org/abs/2410.05380), [T2K+NOvA Nature 2025](https://www.nature.com/articles/s41586-025-09599-3), [arXiv:2510.19888](https://arxiv.org/abs/2510.19888) |
@@ -47,7 +47,7 @@ Each prediction has five fields:
 
 | Field | Value |
 |---|---|
-| **Predicted value** | Trinity H4 derivation places `sin²θ₂₃` in the **upper octant** (>0.5), specifically near `sin²θ₂₃ ≈ 0.563` |
+| **Predicted value** | Trinity fitted formula places `sin²θ₂₃` in the **upper octant** (>0.5), specifically near `sin²θ₂₃ ≈ 0.563` |
 | **Coq theorem** | Phenomenological — see `proofs/trinity/Bounds_Mixing.v` and `proofs/trinity/Predictions.v` |
 | **Current extraction** | NuFIT-6.0 has a slight upper-octant preference at ~1.7σ; T2K-only prefers maximal mixing; NOvA-only prefers upper octant |
 | **Sources** | [NuFIT-6.0](https://arxiv.org/abs/2410.05380) |
@@ -111,7 +111,7 @@ Each prediction has five fields:
 
 | Field | Value |
 |---|---|
-| **Predicted values** | Fitted formulas; see `proofs/trinity/H4Derivations.v` (0 `Admitted.` in this file; 123 total unproven obligations globally per [`COQ_HONEST_STATUS.md`](../../docs/status/COQ_HONEST_STATUS.md)) |
+| **Predicted values** | Fitted formulas; see `proofs/trinity/H4Derivations.v` (0 `Admitted.` in this file; 93 total unproven obligations globally per [`docs/status/COQ_HONEST_STATUS.md`](docs/status/COQ_HONEST_STATUS.md)) |
 | **Current measurement** | PDG world averages |
 | **Agreement** | 0.024% for 1/α(0); α_s has 0.1% error (above V-class threshold); sin²θ_W is a genuine 84σ failure (see G03) |
 | **Status** | **NUMERICALLY VERIFIED (partial)** |

@@ -70,7 +70,7 @@ The `delta_cp_analysis.md` document itself was constructed against the **PDG-202
 
 ## 3. What survives
 
-The PMNS angle predictions are **genuinely strong** and survive this pass:
+The PMNS angle fitted formulas are numerically close and survive this pass:
 
 | Angle | Trinity | NuFIT-6.0 NO bf ± 1σ | NuFIT-6.0 3σ | Pull |
 |---|---|---|---|---|
