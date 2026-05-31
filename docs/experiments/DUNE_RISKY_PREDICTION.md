@@ -40,7 +40,7 @@ a fundamental disagreement about the CP-violating phase.
 ### 2. Not adjustable
 
 Unlike previous Trinity predictions that evolved
-(delta_CP changed 90.2 degrees -> 77.9 degrees -> 65.66 degrees), this derivation from 3/phi^2
+(delta_CP changed 90.2 degrees -> 77.9 degrees -> 65.66 degrees), this fitted formula 3/phi^2
 is mathematically constrained. If DUNE measures ~180 degrees, we cannot
 "tweak" the formula without breaking the H4 structure.
 

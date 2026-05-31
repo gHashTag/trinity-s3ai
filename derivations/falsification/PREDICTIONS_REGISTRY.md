@@ -97,7 +97,8 @@ Source: `derivations/catalog_audit/audit_report.md`, `validate_v4.py`.
 | Open mathematical results | 2 (η(2T), η(2O) — convention dependent) |
 | Refuted structural predictions | 1 (m_H tree = 132.88 GeV) |
 | Retrospective fits (not predictions) | 2 (m_H = 125.20 GeV, sin²θ₁₃) |
-| Open experimental predictions | 2 (δ_CP, f₀) |
+| Open experimental predictions | 1 (f₀) |
+| Withdrawn experimental predictions | 1 (δ_CP = 65.66°, >5σ excluded) |
 | Refuted cosmological predictions | 5 (Λ, m_ν₁, Ω_b, H₀, Ω_c) |
 | Structural compatibilities (S) | 8 formulas |
 | Numerical fits (NF) | 17 formulas |

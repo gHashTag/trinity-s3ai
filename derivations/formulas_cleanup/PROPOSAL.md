@@ -33,7 +33,7 @@ Per the audit (`full_audit.csv`, `audit_report.md`), the following 17 formulas a
 ### Justification for the `[phenomenological_fit]` tag
 
 Each of the 17 formulas:
-- reproduces the measured value with error < 1%, confirmed by `validate_v4.py` (mpmath, 50 digits);
+- reproduces the measured value with error < 1%, numerically matched by `validate_v4.py` (mpmath, 50 digits);
 - is **not** derived from the axioms of the theory (H4 symmetry, NCG spectral action): the transcendental combinations (e/π, e²/π, π⁵, etc.) are fit, not derived;
 - exhibits one or more fit signatures: an arbitrary scale (10⁻⁵, 0.1), an absolute mass in GeV (which depends on Λ_QCD), Admitted status in `.v` files, or a history of formula revisions.
 

@@ -145,7 +145,7 @@ The 6% correction is **well within** the theoretical uncertainty budget.
 
 ### 3.1 Correct Procedure
 
-**Step 1:** Start from the Trinity mass formula (proven from H4 invariants):
+**Step 1:** Start from the Trinity mass formula (fitted using H4 invariants, NOT proven from H4 first principles):
 
 > **m_H = 4φ³e² = 125.202 GeV** ✓
 
@@ -347,7 +347,7 @@ theoretical uncertainty of the spectral action.
 
 ### 6.2 Assessment
 
-- **m_H = 4φ³e² = 125.2 GeV:** ✅ Proven (0.09% accuracy, well within error budget)
+- **m_H = 4φ³e² = 125.2 GeV:** ⚠️ Fitted coincidence (retrospective, 0.09% accuracy). NOT derived from spectral action (BT-4 refutes spectral-action derivation).
 - **v = 246 GeV:** ✅ Matches SM exactly (used as input)
 - **λ = 0.130:** ✅ Matches SM (within 0.4%)
 - **μ² = 7838 GeV²:** ✅ Self-consistent
@@ -363,7 +363,7 @@ theoretical uncertainty of the spectral action.
 
 ---
 
-## 7. Status Change: POSTULATED → PROVEN
+## 7. Status Change: POSTULATED → FITTED
 
 ### 7.1 Was: POSTULATED
 
@@ -374,7 +374,7 @@ m_H = 4φ³e² was derived heuristically from the 600-cell spectral action, but:
 - The λ value from bare geometry (1/φ⁴) gave v = 232 GeV (6% low)
 - The spectral action cutoff function was not specified
 
-### 7.2 Now: PROVEN
+### 7.2 Now: FITTED
 
 **Current status:** The Higgs potential formula is a **numerical fit** to the measured Higgs mass; the spectral action itself predicts m_H ≈ 132.88 GeV (refuted at 55.6σ). The following logic rationalizes the coincidence:
 
@@ -392,18 +392,18 @@ m_H = 4φ³e² was derived heuristically from the 600-cell spectral action, but:
 5. **All SM relations are satisfied:** m_H = √(2λ)v, m_W = gv/2, m_Z =
    √(g²+g'²)v/2, sin²θ_W = 1 − m_W²/m_Z².
 
-### 7.3 What "PROVEN" Means Here
+### 7.3 What "FITTED" Means Here
 
 "Proven" means:
 
-- ✅ The **formula** m_H = 4φ³e² is derived from the 600-cell spectral action
+- ⚠️ The **formula** m_H = 4φ³e² is a fitted coincidence using the 600-cell spectral action (BT-4: no rigorous derivation from H4 geometry)
 - ✅ The **self-consistency** of the Higgs potential is verified
 - ✅ All **SM mass relations** are satisfied
-- ✅ The 6% gap is **explained** as a known NCG cutoff effect
+- ⚠️ The 6% gap is **attributed** to a known NCG cutoff effect (post-hoc explanation, not derived)
 - ⚠️ The formal **Coq proof** of Theorems 3–5 is still pending
 - ⚠️ The **cutoff function** f that gives e² is not yet specified
 
-The honest assessment is **"proven at the theoretical physics level with ~6%
+The honest assessment is **"numerically matched at the theoretical physics level with ~6%
 uncertainty, pending formal Coq verification of geometric theorems."**
 
 ---

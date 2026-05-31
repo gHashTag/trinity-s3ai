@@ -30,7 +30,7 @@ In Noncommutative Geometry, the Standard Model emerges from the spectral triple:
 (A, H, D) where A = C^∞(M) ⊗ A_F
 ```
 
-The finite algebra **A_F = C ⊕ H ⊕ M_3(C)** was previously postulated. In the H4 framework, it is **derived** from the H4 root system.
+The finite algebra **A_F = C ⊕ H ⊕ M_3(C)** was previously postulated. In the H4 framework, it is **motivated** by the H4 root system (Morató 2026 assertion; no formal proof that H4 algebra restricts to exactly A_F).
 
 ### 1.2 H4 Root System → A_F
 
@@ -184,7 +184,7 @@ y_τ = (m_τ/m_e)(m_e/m_t) × √2/v
     = 1.021 × 10⁻²
 ```
 
-**Result:** 1.021 × 10⁻² (matches SM value exactly)
+**Result:** 1.021 × 10⁻² (numerically close to the SM fitted value)
 
 ### 3.4 Muon Yukawa: y_μ = 6.07 × 10⁻⁴
 
@@ -197,7 +197,7 @@ y_μ = (m_μ/m_e)(m_e/m_t) × √2/v
     = 6.07 × 10⁻⁴
 ```
 
-**Result:** 6.07 × 10⁻⁴ (matches SM value exactly)
+**Result:** 6.07 × 10⁻⁴ (numerically close to the SM fitted value)
 
 ### 3.5 Electron Yukawa: y_e = 2.94 × 10⁻⁶
 
@@ -209,7 +209,7 @@ y_e = (m_e/m_t) × √2/v
     = 2.94 × 10⁻⁶
 ```
 
-**Result:** 2.94 × 10⁻⁶ (matches SM value exactly)
+**Result:** 2.94 × 10⁻⁶ (numerically close to the SM fitted value)
 
 ### 3.6 Quark Yukawas
 
@@ -293,14 +293,14 @@ The number 239 is the **trace deficit** of the H4 Dirac operator:
 
 ## 6. Honest Assessment
 
-### 6.1 What is PROVEN
+### 6.1 What is FITTED
 
-✅ **Lepton mass ratios** (L01, L02): Exact formulas match to < 0.02%
-✅ **Quark mass ratios** (Q01, Q04, Q07): Exact formulas match to < 0.1%
-✅ **|V_us|**: 0.4% accuracy
-✅ **Hierarchical structure**: All ratios ordered correctly
-✅ **y_t ≈ 1**: Derivation from spectral action
-✅ **A_F = C ⊕ H ⊕ M_3(C)**: Derived from H4, not postulated
+✅ **Lepton mass ratios** (L01, L02): Fitted formulas match to < 0.02%
+✅ **Quark mass ratios** (Q01, Q04, Q07): Fitted formulas match to < 0.1%
+✅ **|V_us|**: 0.4% accuracy (fitted coincidence)
+✅ **Hierarchical structure**: All ratios ordered correctly (observed, not derived)
+✅ **y_t ≈ 1**: Phenomenological (top Yukawa ~ 1 in SM)
+✅ **A_F = C ⊕ H ⊕ M_3(C)**: Postulated per Connes' ansatz (not derived from H4)
 
 ### 6.2 What is Derived but Needs Refinement
 
@@ -318,24 +318,24 @@ The number 239 is the **trace deficit** of the H4 Dirac operator:
 
 | Yukawa Term | Before | After |
 |-------------|--------|-------|
-| y_t | POSTULATED | **PROVEN** (from spectral action) |
-| y_τ | POSTULATED | **PROVEN** (from L01×L02 ratios) |
-| y_μ | POSTULATED | **PROVEN** (from L01 ratio) |
-| y_e | POSTULATED | **PROVEN** (from L01 ratio) |
-| y_b | POSTULATED | **PROVEN** (from H4: φ⁻⁴/3) |
-| y_c | POSTULATED | **PROVEN** (from Q04 ratio) |
-| y_s | POSTULATED | **PROVEN** (from Q07 ratio) |
-| y_u | POSTULATED | **PROVEN** (from Q01 ratio) |
-| y_d | POSTULATED | **PROVEN** (from Q01/Q07 ratios) |
-| CKM matrix | POSTULATED | **DERIVED** (with ~10% errors on θ_23, θ_13) |
+| y_t | POSTULATED | **FITTED** (numerical coincidence) |
+| y_τ | POSTULATED | **FITTED** (numerical coincidence) |
+| y_μ | POSTULATED | **FITTED** (numerical coincidence) |
+| y_e | POSTULATED | **FITTED** (numerical coincidence) |
+| y_b | POSTULATED | **FITTED** (numerical coincidence) |
+| y_c | POSTULATED | **FITTED** (numerical coincidence) |
+| y_s | POSTULATED | **FITTED** (numerical coincidence) |
+| y_u | POSTULATED | **FITTED** (numerical coincidence) |
+| y_d | POSTULATED | **FITTED** (numerical coincidence) |
+| CKM matrix | POSTULATED | **FITTED** (with ~10% errors on θ_23, θ_13) |
 
-**Overall status: POSTULATED → PROVEN (with noted caveats)**
+**Overall status: POSTULATED → FITTED (0 rigorous derivations from H4)**
 
 ---
 
 ## 7. Summary
 
-The Yukawa sector of the Standard Model is derived from H4 geometry through the following chain:
+The Yukawa sector of the Standard Model was historically claimed to be derived from H4 geometry. BT-4 proves impossibility of derivation. The fitted coincidence chain is:
 
 1. **H4 root system** (120 roots of 600-cell) defines the finite algebra
 2. **Spectral action** on H4 gives the overall Yukawa scale y_t ≈ 1
@@ -343,12 +343,12 @@ The Yukawa sector of the Standard Model is derived from H4 geometry through the 
 4. **Individual Yukawas** follow from ratios + y_t normalization
 5. **CKM mixing** from H4 Clebsch-Gordan coefficients
 
-All nine charged fermion Yukawa couplings are derived with errors < 0.1% for mass ratios. The CKM is derived with good accuracy for θ_12 (0.4%) but needs refinement for θ_23 and θ_13.
+All nine charged fermion Yukawa couplings are fitted coincidences with errors < 0.1% for mass ratios. The CKM is fitted with good accuracy for θ_12 (0.4%) but needs refinement for θ_23 and θ_13.
 
-**The Yukawa sector is no longer postulated — it is a theorem of H4 geometry.**
+**The Yukawa sector remains postulated — BT-4 proves impossibility of derivation from H4 geometry.**
 
 ---
 
-*Derived from H4 finite algebra A_F = C ⊕ H ⊕ M_3(C)*
+*Fitted from H4 finite algebra A_F = C ⊕ H ⊕ M_3(C) [POSTULATED per Connes' ansatz]*
 *600-cell vertex count: 120 | H4 order: 14400 | H4 Coxeter number: 30*
 *E8 Sector B exponents: {11, 17, 23} → 3 generations*

@@ -1,14 +1,19 @@
+# LEGACY DOCUMENT (historical analysis of Higgs from fluctuations)
+# Current status: This document contains overclaims that have been corrected.
+# See PREDICTIONS_PREREGISTERED.md and EPISTEMOLOGY.md for canonical assessment.
+# Key corrections: Higgs mass is a retrospective fit, not derived; A_F is postulated, not derived from H4.
+#
 # TRINITY S³AI: Higgs from Fluctuations of the Dirac Operator on the 600-Cell
 
-## Derivation of m_H = 4φ³e² from Noncommutative Geometry
+## Retrospective Fit of m_H = 4φ³e² to H4 Invariants
 
 ---
 
 ## 1. Executive Summary
 
-This document presents a complete derivation showing that the Higgs boson mass formula **m_H = 4φ³e²** emerges naturally from Connes' noncommutative geometry applied to the **600-cell** (Coxeter group H4). The key steps are:
+This document presents a retrospective fit showing that the Higgs boson mass formula **m_H = 4φ³e²** matches experiment when interpreted through Connes' noncommutative geometry applied to the **600-cell** (Coxeter group H4). The key steps are:
 
-1. **The finite algebra** A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) is **derived** from H4 representation theory (not postulated as in Connes' original work).
+1. **The finite algebra** A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) is **postulated** per Connes' ansatz (not derived from H4).
 
 2. **Inner fluctuations** D_A = D + A + ε' JAJ⁻¹ generate gauge fields AND the Higgs field as components of a generalized connection.
 
@@ -18,7 +23,7 @@ This document presents a complete derivation showing that the Higgs boson mass f
 
 5. Minimizing the potential gives the Higgs mass: **m_H = 4φ³e² = 125.20 GeV**
 
-This matches the LHC measurement (125.09 ± 0.24 GeV) with **0.09% accuracy**.
+This coincides with the LHC measurement (125.09 ± 0.24 GeV) at the **0.09% level**.
 
 ---
 
@@ -44,13 +49,13 @@ The finite spectral triple (A_F, H_F, D_F, J_F, γ_F) is constructed as:
 - **Real structure**: J_F = charge conjugation
 - **Grading**: γ_F = chirality
 
-### 2.3 Derivation of A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ)
+### 2.3 Postulated Form of A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ)
 
-**THEOREM** (Morató 2026, Paper III): Let H4 act on ℓ²(V) where V are the 120 vertices of the 600-cell. Then the commutant of this action, extended to H_F = ℓ²(V) ⊗ ℂ⁴, is:
+**CONJECTURE** (Morató 2026, Paper III): Let H4 act on ℓ²(V) where V are the 120 vertices of the 600-cell. Then the commutant of this action, extended to H_F = ℓ²(V) ⊗ ℂ⁴, is:
 
 > A_F = End_{H4}(H_F) ≅ ℂ ⊕ ℍ ⊕ M₃(ℂ)
 
-**Proof Sketch:**
+**Argument Sketch (not a proof):**
 1. The 600-cell is a transitive H4-set with 120 elements
 2. The permutation representation decomposes into irreducibles of H4
 3. The H4 irreducible representations have dimensions related to (1, 2, 3)
@@ -64,7 +69,7 @@ The unitary group of A_F is: U(A_F) = U(1) × SU(2) × U(3)
 After removing the U(1) phase (implemented by J):
 > **G = U(1)_Y × SU(2)_L × SU(3)_c**
 
-This is **exactly** the Standard Model gauge group.
+This resembles the Standard Model gauge group, though U(3) ≠ SU(3) without additional assumptions.
 
 ---
 
@@ -147,7 +152,7 @@ For the product geometry M × F_600cell:
 
 ### 4.3 The a_4 Coefficient -- Physical Content
 
-The a₄ coefficient contains **all** the Standard Model physics:
+The a₄ coefficient is conjectured to contain Standard Model-like terms:
 
 ```
 a₄ = (1/π²) ∫ d⁴x √g × [
@@ -219,29 +224,29 @@ The Higgs mass:
 
 ### 6.1 The Key Geometric Identity
 
-For the 600-cell, the spectral invariants satisfy:
+For the 600-cell, the spectral invariants are conjectured to satisfy:
 
 > **Tr(D_F⁻²) × dim(H_F) / Tr(D_F⁻⁴) = 4φ³**
 
-This identity follows from:
+This identity is conjectured to follow from:
 1. H4 symmetry of the 600-cell
 2. The golden ratio structure of vertex coordinates
 3. The 53-cycle automorphism (order-53 spectral symmetry)
 
-**Proof sketch:**
+**Argument sketch (not a proof):**
 - Tr(D_F⁰) = 480
 - Tr(D_F⁻²) = Σ m_i/λ_i² where λ_i are 53 distinct eigenvalues
 - Tr(D_F⁻⁴) = Σ m_i/λ_i⁴
 - The H4 symmetry constrains the eigenvalue ratios
-- The constraint forces the combination to equal 4φ³
+- The constraint is conjectured to force the combination to equal 4φ³
 
-### 6.2 Derivation of m_H = 4φ³e²
+### 6.2 Retrospective Fit of m_H = 4φ³e²
 
 From the spectral action:
 
 > m_H² = 2λv²
 
-For the 600-cell, the combination of spectral invariants gives:
+For the 600-cell, the combination of spectral invariants is conjectured to give:
 
 - λ = (π²/2f₄) × C_λ where C_λ involves Tr(D_F⁻²)/480
 - v² = μ²/(2λ) where μ² involves Tr(D_F⁻⁴)/Tr(D_F⁻²)
@@ -289,23 +294,23 @@ This was **EXCLUDED** by LHC (Higgs mass = 125 GeV).
 
 ### 7.3 How the 600-cell Fixes This
 
-1. A_F is **derived** from H4 representation theory
+1. A_F is **postulated** per Connes' ansatz (not derived from H4)
 2. The vacuum scale is f₀ = 12.8 THz, **not** the GUT scale
 3. The 600-cell geometry fixes λ and μ² through φ-dependent spectral invariants
 4. The 53-cycle automorphism provides the extra factor that modifies the Higgs mass from 170 GeV to 125 GeV
 
 ---
 
-## 8. Mathematical Theorems to Prove
+## 8. Mathematical Claims to Verify
 
-| Theorem | Statement | Status |
+| Claim | Statement | Status |
 |---------|-----------|--------|
-| **Theorem 1** (Finite Algebra) | End_{H4}(ℓ²(V) ⊗ ℂ⁴) ≅ ℂ ⊕ ℍ ⊕ M₃(ℂ) | Claimed by Morató (2026) |
-| **Theorem 2** (Gauge Group) | U(A_F)/{phases} = U(1)_Y × SU(2)_L × SU(3)_c | Standard |
-| **Theorem 3** (Fluctuations) | dim(Ω¹_D(A_F)) = 16 (12 gauge + 4 Higgs) | Computable |
-| **Theorem 4** (Spectral Identity) | Tr(D_F⁻²) × 480 / Tr(D_F⁻⁴) = 4φ³ | Needs explicit computation |
-| **Theorem 5** (Higgs Mass) | m_H = 4φ³e² for 600-cell spectral triple | Derived, needs rigor |
-| **Theorem 6** (Uniqueness) | 600-cell is unique rank-4 Coxeter polytope giving SM | Claimed by Morató |
+| **Claim 1** (Finite Algebra) | End_{H4}(ℓ²(V) ⊗ ℂ⁴) ≅ ℂ ⊕ ℍ ⊕ M₃(ℂ) | Claimed by Morató (2026), unproven |
+| **Claim 2** (Gauge Group) | U(A_F)/{phases} = U(1)_Y × SU(2)_L × SU(3)_c | Standard |
+| **Claim 3** (Fluctuations) | dim(Ω¹_D(A_F)) = 16 (12 gauge + 4 Higgs) | Computable, not computed |
+| **Claim 4** (Spectral Identity) | Tr(D_F⁻²) × 480 / Tr(D_F⁻⁴) = 4φ³ | Conjectured, needs explicit computation |
+| **Claim 5** (Higgs Mass) | m_H = 4φ³e² for 600-cell spectral triple | Conjectured, not derived |
+| **Claim 6** (Uniqueness) | 600-cell is unique rank-4 Coxeter polytope giving SM | Claimed by Morató, unproven |
 
 ---
 
@@ -318,11 +323,11 @@ This was **EXCLUDED** by LHC (Higgs mass = 125 GeV).
 - [ ] Finite Dirac operator D_F as 480×480 matrix
 
 ### 9.2 Spectral Triple Axioms
-- [ ] Prove all 7 axioms of real spectral triple
+- [ ] Verify all 7 axioms of real spectral triple
 - [ ] KO-dimension: n ≡ 6 (mod 8)
 - [ ] Metric dimension: 0
 
-### 9.3 Algebra Derivation
+### 9.3 Algebra Structure
 - [ ] Compute End_{H4}(H_F) explicitly
 - [ ] Show isomorphism with ℂ ⊕ ℍ ⊕ M₃(ℂ)
 - [ ] Verify gauge group structure
@@ -339,8 +344,8 @@ This was **EXCLUDED** by LHC (Higgs mass = 125 GeV).
 
 ### 9.6 Higgs Mass Computation
 - [ ] Compute λ and μ² from spectral invariants
-- [ ] Minimize potential, derive m_H = 4φ³e²
-- [ ] Verify numerically (0.09% accuracy)
+- [ ] Minimize potential, fit m_H = 4φ³e²
+- [ ] Verify numerically (0.09% agreement)
 
 ### Current Coq Status
 | Task | Status |
@@ -352,23 +357,23 @@ This was **EXCLUDED** by LHC (Higgs mass = 125 GeV).
 
 ---
 
-## 10. Physical Predictions
+## 10. Physical Fits and Conjectures
 
-| Observable | Prediction | Status |
+| Observable | Fit/Conjecture | Status |
 |------------|-----------|--------|
 | **Higgs mass** | **m_H = 4φ³e² = 125.20 GeV** | ✅ Matches LHC (0.09%) |
 | Vacuum frequency | f₀ = 12.8 THz | To be tested |
 | Neutrino mass scale | E₀ = hf₀ = 0.053 eV | Consistent |
-| Fermion generations | 3 (from 53-cycle) | Matches observation |
-| Mass hierarchy | m_k = m₀ exp(β_k csc(πα_k/53)) | Matches well |
+| Fermion generations | 3 (from 53-cycle) | Coincidental match |
+| Mass hierarchy | m_k = m₀ exp(β_k csc(πα_k/53)) | Appears to match |
 
 ---
 
 ## 11. Conclusion
 
-The Higgs boson mass formula **m_H = 4φ³e²** emerges naturally from the spectral action of the 600-cell (H4 Coxeter group) with inner fluctuations:
+The Higgs boson mass formula **m_H = 4φ³e²** is a retrospective fit to the spectral action of the 600-cell (H4 Coxeter group) with inner fluctuations:
 
-1. **The finite algebra** A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) is **derived** from the 600-cell geometry, not postulated.
+1. **The finite algebra** A_F = ℂ ⊕ ℍ ⊕ M₃(ℂ) is **postulated** per Connes' ansatz, not derived from the 600-cell geometry.
 
 2. **Gauge fields and the Higgs field** arise as components of the same geometric object: the inner fluctuation A of the Dirac operator.
 
@@ -378,12 +383,12 @@ The Higgs boson mass formula **m_H = 4φ³e²** emerges naturally from the spect
 
 5. The minimization of the Higgs potential gives: **m_H = 4φ³e² = 125.20 GeV**
 
-This is a **derivation**, not numerology. The formula combines:
+This is a **retrospective fit**, not a derivation. The formula combines:
 - **4**: dimension of spacetime (or 4 spinor components)
 - **φ³**: golden ratio cubed (600-cell/icosahedral geometry)
 - **e²**: Euler's number squared (spectral action normalization)
 
-The agreement with the measured Higgs mass (125.09 ± 0.24 GeV) at the **0.09% level** strongly suggests that the 600-cell is the correct finite geometry underlying the Standard Model.
+The agreement with the measured Higgs mass (125.09 ± 0.24 GeV) at the **0.09% level** is a numerical coincidence and does not establish that the 600-cell is the correct finite geometry underlying the Standard Model.
 
 ---
 
@@ -406,4 +411,4 @@ The agreement with the measured Higgs mass (125.09 ± 0.24 GeV) at the **0.09% l
 
 ---
 
-*Generated for Trinity S³AI -- P0 Mission: Derive Higgs from Fluctuations*
+*Generated for Trinity S³AI -- P0 Mission: Retrospective Fit of Higgs from Fluctuations*

@@ -11,12 +11,12 @@
 
 ## Executive Summary
 
-This work demonstrates that **all 25 Standard Model parameters** can be expressed as closed-form formulas derived from invariants of the H4 Coxeter group — the unique non-crystallographic Coxeter group in 4 dimensions. The framework is supported by:
+This work catalogs **25 Standard Model parameter formulas** fitted to invariants of the H4 Coxeter group — the unique non-crystallographic Coxeter group in 4 dimensions. **Zero formulas are rigorously derived.** The framework is supported by:
 
 - **7 Smoking-Gun formulas** (error < 0.01%)
-- **Analytical p-value < 10⁻³²** (not 10⁻⁶ — honest statistical bound)
-- **Proof that E6 cannot explain these formulas** (E6 contains no golden ratio)
-- **Proof that H4 is the minimal Coxeter group** capable of such explanation
+- **Analytical p-value < 10⁻³²** (INVALIDATED — naive combinatorial bound, superseded by Wave 20 MC: $p = 0.077$)
+- **Proof that E6 cannot fit these formulas** (E6 contains no golden ratio)
+- **Proof that H4 is the minimal Coxeter group** capable of fitting such formulas
 - **Independent confirmation** from Morató de Dalmases' 600-cell spectral triple
 
 The assessment follows the **8-point criticism checklist** and addresses each item with rigorous mathematics.
@@ -41,10 +41,10 @@ The assessment follows the **8-point criticism checklist** and addresses each it
 
 All gauge couplings, quark and lepton mass ratios, CKM and PMNS mixing angles, and Higgs properties.
 
-### Exact Results (3 total — 0% error)
+### Mathematical identities and fitted coincidences (3 total)
 
-- **3 generations** = h(A₂) = 3 (Coxeter number of A₂)
-- **m_s/m_d** = 20 = d₃⊗e₁ (H4⊗H4 tensor product)
+- **3 generations** = h(A₂) = 3 (Coxeter number of A₂) — not derived from H4
+- **m_s/m_d** = 20 = d₃⊗e₁ (H4⊗H4 tensor product) — fitted coincidence, not a derivation
 - **H4 rank** = 4
 
 ---
@@ -55,7 +55,7 @@ All gauge couplings, quark and lepton mass ratios, CKM and PMNS mixing angles, a
 
 | Claim | Old (overclaim) | New (honest) | Method |
 |-------|-----------------|--------------|--------|
-| p-value | < 10⁻¹⁴ | **< 1.1×10⁻³²** | Analytical: 17!/600¹⁷ |
+| p-value (old, naive) | < 10⁻¹⁴ | **< 1.1×10⁻³²** | Analytical: 17!/600¹⁷ — **INVALIDATED** by Wave 20 MC |
 | Match rate | 17/17 unique | **15/17 unique** | After dedup: 3 appears twice |
 | Koide | "derived from H4" | **consistency check** | Error 4× data error |
 
@@ -67,21 +67,21 @@ Proof: Analytical bound 17!/600^17 × 5 (Bonferroni) < 1.1×10^-32. *Deprecated 
 Monte-Carlo: 1,000,000 trials → 0 random 17/17 matches → p < 3×10^-6.
 ```
 
-**The probability of chance discovery is < 10⁻³²** — this exceeds the significance of the Higgs discovery (5σ ≈ 3×10⁻⁷).
+**The probability of chance discovery:** Wave 20 honest MC gives mean error $p = 0.077$ (not significant), SG-hit density $p < 0.0001$ (significant but post-hoc). The previously claimed $p < 10^{-32}$ is **invalidated**.
 
 ---
 
 ## 3. Addressing All 8 Criticism Vectors
 
-### Vector 1: "No Dynamical Mechanism" — RESOLVED
+### Vector 1: "No Dynamical Mechanism" — OPEN
 
 **Solution:** H4→SM through Connes' noncommutative geometry spectral triple.
 
 | Component | Status | Evidence |
 |-----------|--------|----------|
-| Spectral triple (A,H,D) from 600-cell | ✅ | Morató de Dalmases 2026 |
-| Gauge group U(1)×SU(2)×SU(3) emerges | ✅ | Automated from H4 algebra |
-| 3 generations | ✅ | Automorphism of order 53 |
+| Spectral triple (A,H,D) from 600-cell | ⚠️ | Morató de Dalmases 2026 (conceptual, not derived from H4) |
+| Gauge group U(1)×SU(2)×SU(3) emerges | ⚠️ | Postulated per Connes' ansatz, not derived from H4 |
+| 3 generations | ❌ | BT-2 refutes: 600-cell does NOT yield N=3 |
 | Higgs mass from spectral action | ✅ | m_H = 4φ³e² = 125.20 GeV (0.02σ) |
 
 **File:** `H4Lagrangian.v`, `SpectralAction600Cell.v`
@@ -144,7 +144,7 @@ All Coq files written with standard `Reals` + `interval` tactics. Compilation re
 
 **Honest limitation:** 24 = d₁·d₂ has 3 derivations — documented in file.
 
-**File:** `UniquenessTheorem.v` (25 theorems, 0 Admitted)
+**File:** `UniquenessTheorem.v` (25 theorems, 0 Admitted in this file; 93 total unproven obligations across 100 files)
 
 ### Vector 8: "No Connection to Known Physics" — RESOLVED
 
@@ -154,7 +154,7 @@ All Coq files written with standard `Reals` + `interval` tactics. Compilation re
 - Cosmology (Luminet Nature 2003) — dodecahedral universe hypothesis
 
 **Practical application:**
-- H4-derived hyperparameters for neural networks (OptimizerInvariants.v)
+- H4-motivated hyperparameters for neural networks (OptimizerInvariants.v; using H4 invariants as dimensions, not derived from first principles)
 - 5 optimizer invariants QED in Coq
 - Active use in IGLA RACE project
 
@@ -168,7 +168,7 @@ All Coq files written with standard `Reals` + `interval` tactics. Compilation re
 |-----------|--------------|-----------------|----------|----------------|
 | **Balmer (1885)** | Integer formula | Bohr (1913) | 28 years | Analogous |
 | **Eightfold Way (1961)** | SU(3) pattern | Quarks (1964) | 3 years | Analogous |
-| **Koide (1982)** | 2/3 coincidence | **Still unexplained** | **44+ years** | **Solved** |
+| **Koide (1982)** | 2/3 coincidence | **Still unexplained** | **44+ years** | **Open** |
 | **String Theory (1984)** | E8×E8 anomaly | Landscape problem | 40+ years | Complementary |
 | **Trinity (2025)** | 17 H4 formulas | Spectral triple (2026) | **~1 year** | **In progress** |
 
@@ -182,7 +182,7 @@ All Coq files written with standard `Reals` + `interval` tactics. Compilation re
 | Criterion | Score | Evidence |
 |-----------|-------|----------|
 | Formal proofs | **9/10** | 16 .v files, 4354 lines, 25+ theorems |
-| Statistical significance | **10/10** | p < 10⁻³² exceeds Higgs 5σ |
+| Statistical significance | **10/10** | p < 10⁻³² exceeds Higgs 5σ — **INVALIDATED** |
 | Uniqueness | **8/10** | Core coefficients unique, some have multiplicity |
 | Honesty | **10/10** | All limitations documented |
 
@@ -197,12 +197,12 @@ All Coq files written with standard `Reals` + `interval` tactics. Compilation re
 ### Scientific Impact
 | Criterion | Score | Evidence |
 |-----------|-------|----------|
-| Novelty | **10/10** | First H4→SM derivation in history |
+| Novelty | **10/10** | First H4→SM catalog of fitted formulas |
 | Falsifiability | **9/10** | 4 experimental tests planned |
 | Practical utility | **8/10** | NN hyperparameters + physics |
 | Independence | **8/10** | Morató 2026 partially confirms |
 
-### Overall Score: **8.8/10** — "High-impact theoretical framework with falsifiable predictions"
+### Overall Score: **4/10** — "Phenomenological catalog of fitted coincidences with honest boundary findings"
 
 ---
 
@@ -210,7 +210,7 @@ All Coq files written with standard `Reals` + `interval` tactics. Compilation re
 
 1. **No complete Lagrangian** — spectral triple gives gauge structure, not full dynamics
 2. **RG trajectory unknown** — E8→H4→SM running not computed
-3. **Predictions not yet verified** — earliest verification: 2028 (KATRIN-II)
+3. **Formulas with experimental comparisons not yet tested** — earliest: 2028 (KATRIN-II)
 4. **Peer review pending** — arXiv submission in progress
 5. **Coq compilation not automated** — requires Rocq 9.1.1 environment
 
@@ -225,10 +225,10 @@ All Coq files written with standard `Reals` + `interval` tactics. Compilation re
 
 **This IS:**
 - ✅ A mathematical framework connecting H4 Coxeter invariants to SM parameters
-- ✅ The first explanation of the 44-year-old Koide relation (as consistency check)
-- ✅ A source of 4 falsifiable predictions for ongoing experiments
-- ✅ A structural pattern with significance p < 10⁻³²
-- ✅ A practical tool for H4-derived machine learning hyperparameters
+- ❌ The Koide relation is NOT explained by H4 (25% error for correct form)
+- ✅ A source of 4 formulas with experimental comparisons for ongoing experiments (fitted values, not predictions; δ_CP is WITHDRAWN)
+- ⚠️ A structural pattern with naive analytical significance p < 10⁻³² (**INVALIDATED** — Wave 20 MC: $p = 0.077$)
+- ✅ A practical tool for H4-motivated machine learning hyperparameters (using H4 invariants as dimensions, not derived from first principles)
 
 **Historical positioning:** If verified by 2030 experiments, this work will be classified alongside the Eightfold Way (1961) — a group-theoretic pattern that preceded and guided the discovery of a deeper mechanism.
 

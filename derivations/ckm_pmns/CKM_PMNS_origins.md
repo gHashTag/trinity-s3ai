@@ -84,7 +84,7 @@ is a hypothesis, not a proven fact. Error 0.37% within V-class.
 **Geometric interpretation:**
 - 5φ³ ≈ 5 × 4.236 ≈ 21.18
 - π/21.18 ≈ 0.1483, i.e., θ₁₃ ≈ 8.53° vs exp. 8.57°
-- Accuracy 0.003% (★SG class) — the best result for the PMNS matrix
+- Accuracy 0.003% (★SG class) — the closest match for the PMNS matrix
 
 HONEST: Although the number 25 = 5² is linked with pentagonal symmetry of H4,  
 an explicit mapping of this formula to a specific Coxeter matrix element  
@@ -110,7 +110,7 @@ or to a specific root system vector is not constructed.
 **Historical context (honest):**
 - Original Trinity prediction: e/2 = 77.87° — excluded at 7.7σ
 - Corrected to 3/φ² = 65.66° (numerical search in delta_cp_analysis.md)
-- HONEST: 3/φ² was chosen as the best match among 72600 tested formulas.
+- HONEST: 3/φ² was had the smallest error among 72600 tested formulas.
   This is not a derivation from H4 first principles.
 
 ### 2.6 Jarlskog Invariant (Lepton Sector)
@@ -232,7 +232,7 @@ J_CKM ≈ 0.2243 × 0.04053 × 0.00382 × sin(65.66°)
 PDG: (3.18 ± 0.15) × 10⁻⁵, error 0.3%  ✓
 ```
 
-**This is a remarkable result:** Trinity predicts J_CKM ≈ 3.17×10⁻⁵  
+**Trinity's fitted angles give** Trinity predicts J_CKM ≈ 3.17×10⁻⁵  
 with error ~0.3% (P-class). Angle γ = 3/φ² ≈ 65.66° agrees with  
 experimental γ = (65.9 ± 3.4)° at the 0.4% level (V-class, CKM12).
 
@@ -299,7 +299,7 @@ The concrete powers (3, 5, 8) are fitted numerically.
 1. **δ_CP = 65.66°** — **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). Current global fits prefer ~195°.
    Probability of confirmation: ~30% (per document DUNE_RISKY_PREDICTION.md).
 
-2. **sin²θ₁₃ = π²/(25φ⁶) = 0.0220** — already numerically verified against PDG 2024 with error 0.003%.
+2. **sin²θ₁₃ = π²/(25φ⁶) = 0.0220** — already numerically matched against PDG 2024 with error 0.003%.
    This is the most reliable result.
 
 3. **|V_us| = 0.2243** — within 1σ of PDG, but PDG center 0.22650 differs by 0.9%.

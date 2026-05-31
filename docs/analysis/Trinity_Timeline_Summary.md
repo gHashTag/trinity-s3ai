@@ -53,13 +53,13 @@ lambda_Higgs     YES      2050+          > 0.2 or < 0.05 (10% prec) Untestable
 Delta m^2_21     YES      2031 (JUNO)    < 7.40e-5 (5.7 sigma)      Consistent
 Delta m^2_31     YES      2032 (DUNE/HK) > 2.60e-3 (6.9 sigma)      Consistent
 
-* SG-class coincidence numerically verified against current data
+* SG-class coincidence numerically matched against current data
 
 BOTTOM LINE:
 ------------
-- 2 numerically verified (m_H, sin^2 theta_13), 1 WITHDRAWN (delta_CP)
+- 2 numerically matched (m_H, sin^2 theta_13), 1 WITHDRAWN (delta_CP)
 - 1 remaining formula notation issue (Delta m^2_31)
-- 3 predictions consistent with data but need future tests
+- 3 fitted formulas consistent with data but need future tests
 - delta_CP is the ACHILLES HEEL: if DUNE confirms ~180 deg, Trinity collapses
 - sin^2 theta_13 correction strengthens framework credibility significantly
 - Overall scientific value: Strong m_H + sin^2 theta_13 double confirmation

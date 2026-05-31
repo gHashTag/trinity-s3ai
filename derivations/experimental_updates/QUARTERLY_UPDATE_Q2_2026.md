@@ -40,7 +40,7 @@ Q2 2026 was a milestone quarter for experimental neutrino physics and collider o
 ### 2.3 JUNO — Extended Data Taking
 
 - JUNO’s first 59.1-day result (sin²θ₁₂, Δm²₂₁) was published in **November 2025**. Since then the detector has continued stable operation.
-- **Trinity cross-check:** Trinity predicts Δm²₂₁ = **7.53 × 10⁻⁵ eV²**. JUNO measures **(7.50 ± 0.12) × 10⁻⁵ eV²** — a **0.25σ match**. This is the first direct test of a Trinity oscillation parameter, and it **passes**.
+- **Trinity cross-check:** Trinity fitted formula gives Δm²₂₁ = **7.53 × 10⁻⁵ eV²**. JUNO measures **(7.50 ± 0.12) × 10⁻⁵ eV²** — a **0.25σ match**. This is a numerical coincidence, not a prediction; the formula was found post-hoc.
 - **Next:** Sub-percent precision on Δm²₂₁ and sin²θ₁₂ expected with ~1–2 years of data.
 
 ### 2.4 DUNE — Construction on Track

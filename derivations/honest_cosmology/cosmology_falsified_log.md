@@ -86,7 +86,7 @@ Current verdict: ❌ FALSIFIED
 
 Physical reason for failure:
   Ω_c h² is determined by the mechanism of dark matter generation (WIMP
-  freeze-out, axion, primordial black holes, etc.). Trinity predicts m_DM ≈ 12.82 GeV
+  freeze-out, axion, primordial black holes, etc.). Trinity fitted formula gives m_DM ≈ 12.82 GeV
   (WIMP), but does not compute the relic density from the annihilation cross-section.
   The divisor 5 has no structural justification.
 

@@ -50,8 +50,9 @@ reconstruction levels at:
 ..., φ⁻³, φ⁻², φ⁻¹, 1, φ, φ², φ³, ...
 ```
 
-The **logarithmic spacing** of these levels matches the distribution of
+The **logarithmic spacing** of these levels correlates with the distribution of
 φ-monomials (φ^a · π^b · e^c) that appear in the Trinity formula catalog.
+**Caveat:** This is a structural correlation, not a derivation. GF16 validity is independent of Trinity formula status.
 
 ### 2.2 Entropy Argument
 

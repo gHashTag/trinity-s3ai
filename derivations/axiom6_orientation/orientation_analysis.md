@@ -16,7 +16,7 @@ where `π(a₀⊗...⊗aₙ) = a₀[D,a₁]...[D,aₙ]`.
 
 **Number of theorems Qed:** ≥ 88 (36 in proofs/trinity/ + 52 in derivations/)
 
-**Number of Admitted:** 0
+**Number of Admitted:** 0 in this file (global: 93 unproven obligations across 100 files; post-Wave 23 correction)
 
 ---
 
@@ -210,7 +210,7 @@ turning the sum into `π(c₆) = γ`.
 
 ### 4.1 proofs/trinity/Axiom6Orientation.v
 
-**Structure:** 9 sections, 36 theorems Qed, 0 Admitted.
+**Structure:** 9 sections, 36 theorems Qed, 0 Admitted in this file.
 
 | Section | Content | Qed |
 |---------|---------|-----|
@@ -231,7 +231,7 @@ Key theorems:
 
 ### 4.2 derivations/axiom6_orientation/Axiom6Orientation.v
 
-**Structure:** 8 sections, 52 theorems Qed, 0 Admitted.
+**Structure:** 8 sections, 52 theorems Qed, 0 Admitted in this file.
 
 Additional theorems:
 - `mat_unit_product_match`: general formula e_{ij}·e_{jk}=e_{ik}

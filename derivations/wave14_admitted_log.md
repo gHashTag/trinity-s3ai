@@ -52,7 +52,7 @@
 
 ## Honest Assessment
 
-- **`proofs/trinity/` is already at 0 admitted.** The user's "81" metric is a naive grep over comments in that directory. No open proof obligations remain there.
+- **`proofs/trinity/` has 0 Admitted in this directory.** The user's "81" metric is a naive grep over comments in that directory. No open proof obligations remain there. (Global status: 0 real Admitted + 93 Axiom/Parameter/Conjecture = 93 unproven obligations across 100 files.)
 - The **9 actual admitted** across the repo were reduced to **5** (4 closed / 1 refuted).
 - The remaining 5 are genuinely hard structural results requiring new infrastructure (Clifford algebra models, trig polynomial proofs).
 - If the goal is to drive the **actual admitted count** to ≤30, it is already achieved (5 remaining). If the goal is to drive the **comment string count** to ≤30, that would require editing ~50 historical comments, which is cosmetic and not recommended under the "honest" policy.

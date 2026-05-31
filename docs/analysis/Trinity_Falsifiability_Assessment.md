@@ -10,7 +10,7 @@ Status: CRITICAL ASSESSMENT
 EXECUTIVE SUMMARY
 ================================================================================
 
-Trinity S³AI v4.0 makes 7 falsifiable predictions. Of these:
+Trinity S³AI v4.0 cataloged 7 falsifiable open items (1 withdrawn: δ_CP). Of these:
 - 1 is NUMERICALLY VERIFIED COINCIDENCE (m_H = 125.202 GeV, retrospective fit)
 - 1 is STRONGLY DISFAVORED by current data (delta_CP = 65.66 deg)
 - 1 had a FORMULA ISSUE now RESOLVED (sin^2 theta_13)
@@ -31,12 +31,12 @@ CRITICAL FINDINGS:
    already equals 2.51 x 10^-3 eV^2. The appended "x 10^-3" would make it
    1000x too small.
 
-3. THE delta_CP PREDICTION IS STRONGLY DISFAVORED: Trinity predicts 65.66 deg,
+3. THE delta_CP FIT IS WITHDRAWN (>5σ): Trinity fit was 65.66 deg,
    but the global fit best fit is 177 deg +/- 20 deg. The Trinity value is
    5.6 sigma away from current data.
 
 4. THE m_nue PREDICTION IS UNTESTABLE BEFORE 2035+: KATRIN's 2025 limit of
-   <0.45 eV is still 4x above the Trinity prediction of 0.103 eV.
+   <0.45 eV is still 4x above the Trinity fit of 0.103 eV.
 
 ================================================================================
 SECTION 1: PREDICTION-BY-PREDICTION ANALYSIS
@@ -50,7 +50,7 @@ Status: NUMERICALLY VERIFIED COINCIDENCE (within 0.02 sigma, retrospective fit)
   Measured:    125.20 +/- 0.11 GeV
   sigma-dist:  0.02 sigma
 
-  This is the flagship success. The formula uses phi (golden ratio),
+  This is the closest fitted coincidence. The formula uses phi (golden ratio),
   e (Euler's number), and pi. The match is excellent.
 
   FALSIFIABILITY: This was numerically verified AFTER the formula was proposed
@@ -153,8 +153,8 @@ Status: STRONGLY DISFAVORED by current data (5.6 sigma tension)
   FALSIFIABILITY: HIGH. Any measurement not near 65 deg with prec. < 20 deg
   excludes Trinity. Current data already does so at 3-5.6 sigma.
 
-  STRENGTH: Strong - absolute prediction, no wiggle room.
-  VERDICT: ALREADY DISFAVORED at 3-5.6 sigma. Most VULNERABLE prediction.
+  STRENGTH: Withdrawn - absolute fit, excluded at >5σ.
+  VERDICT: WITHDRAWN at >5 sigma. Anti-post-hoc rule forbids replacement.
            Prediction is WITHDRAWN (>5σ excluded, post-hoc fit).
 
 PREDICTION 5: lambda_Higgs = sqrt(phi)/pi^2 ~ 0.1289
@@ -277,7 +277,7 @@ STRONG PREDICTIONS (if wrong, formula is falsified):
 STRONG NUMERICAL COINCIDENCES (verified):
   [S6] sin^2 theta_13 = pi^2/(25 phi^6) = 0.02200 -- NUMERICALLY VERIFIED COINCIDENCE at 0.003%.
          Corrected from broken formula 7 phi^-5 pi^-1 e on 2025-07-28.
-         New formula achieves SG-class precision. Confirmed by Daya Bay + RENO.
+         New formula achieves SG-class precision. Numerically matched by Daya Bay + RENO (retrospective fit, not a prediction).
 
 WEAK PREDICTIONS (can be "fixed" if wrong):
   [W1] m_nue = 1/(6 phi) = 0.103 eV -- Upper-bound-type argument.
@@ -288,7 +288,7 @@ SECTION 4: CRITICAL SCENARIOS
 ================================================================================
 
 SCENARIO A: DUNE measures delta_CP = 180 +/- 10 deg
-  Trinity predicts: 65.66 deg
+  Trinity fit (WITHDRAWN): 65.66 deg
   Measurement:      180 +/- 10 deg
   Distance:         (180 - 65.66) / 10 = 11.4 sigma
   RESULT: Trinity δ_CP prediction is WITHDRAWN (>5σ excluded). The formula was a post-hoc fit.
@@ -297,7 +297,7 @@ SCENARIO A: DUNE measures delta_CP = 180 +/- 10 deg
   This is the most likely outcome, and it would destroy Trinity.
 
 SCENARIO B: DUNE measures delta_CP = 70 +/- 10 deg
-  Trinity predicts: 65.66 deg
+  Trinity fit (WITHDRAWN): 65.66 deg
   Measurement:      70 +/- 10 deg
   Distance:         |70 - 65.66| / 10 = 0.4 sigma
   RESULT: Trinity SURVIVES on delta_CP.
@@ -306,14 +306,14 @@ SCENARIO B: DUNE measures delta_CP = 70 +/- 10 deg
   Would require a major shift in the global fit.
 
 SCENARIO C: KATRIN++ measures m_nue = 20 +/- 5 meV
-  Trinity predicts: 103 meV
+  Trinity fit: 103 meV
   Measurement:      20 +/- 5 meV
   Distance:         |103 - 20| / 5 = 16.6 sigma
-  RESULT: Trinity prediction for m_nue is wrong.
+  RESULT: Trinity fit for m_nue is inconsistent with Planck+DESI.
   But this is a WEAK prediction - can be "excused" as an upper bound.
 
 SCENARIO D: JUNO measures Delta m^2_21 = 7.40 +/- 0.02 e-5
-  Trinity predicts: 7.53 x 10^-5
+  Trinity formula gives: 7.53 x 10^-5
   Measurement:      7.40 +/- 0.02 x 10^-5
   Distance:         |7.53 - 7.40| / 0.02 = 6.5 sigma
   RESULT: Trinity Delta m^2_21 formula is FALSIFIED.
@@ -327,7 +327,7 @@ SCENARIO E: All predictions match Trinity within 2 sigma
   - KATRIN++ measures m_nue near 103 meV
   - Future colliders measure lambda_Higgs near 0.1289
 
-  This would require a near-miraculous reversal of the delta_CP measurement.
+  This would require a major reversal of the delta_CP measurement.
 
 ================================================================================
 SECTION 5: OVERALL ASSESSMENT

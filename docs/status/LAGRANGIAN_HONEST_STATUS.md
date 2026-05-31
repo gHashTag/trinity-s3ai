@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 20 Lagrangian status)
+# Current status: Superseded by Wave 24+ canonical assessment. See RESEARCH_STATUS.md and
+# TECH_TREE.md for current project state.
+
 # Lagrangian Status — Honest Reclassification
 
 **Status**: Canonical (supersedes `SM_LAGRANGIAN_STATUS_v43.md` 92.3% claim)
@@ -10,35 +14,35 @@
 
 | Category | Count | What it means |
 |---|---|---|
-| ✅ **PROVEN** | **3 / 13** | Closed Coq theorem, no `Axiom`/`Admitted` on the critical path, prediction matches data |
+| ✅ **FORMALLY VERIFIED** | **3 / 13** | Coq interval proof confirms fitted formula matches data; **NOT derived** from H₄ first principles |
 | 📊 **PHENOMENOLOGICAL** | **9 / 13** | Numerical fit reproduces the observable, but the Lagrangian term itself is *postulated*, not *derived* from H4 / Cl(8) / Spectral Triple first principles |
 | 🟡 **OPEN** | **1 / 13** | Acknowledged unfinished (RG running) |
 
-**The previous headline "92.3% of the SM Lagrangian is proven" is withdrawn.** A more accurate statement is: *3 out of 13 sectors are formally derived from first principles; the remaining 10 are either parameter fits or open work.*
+**The previous headline "92.3% of the SM Lagrangian is proven" is withdrawn.** A more accurate statement is: *3 out of 13 sectors have Coq-verified numerical bounds on fitted formulas; none are derived from H₄ first principles. The remaining 10 are either parameter fits or open work.*
 
 ---
 
-## ✅ PROVEN (3 sectors)
+## ✅ INTERVAL-BOUND VERIFIED (3 sectors)
 
-These sectors have a closed Coq theorem deriving the result from project first principles (H4 root system, Clifford Cl(8) structure, or Connes spectral triple), with no `Axiom`/`Admitted` on the critical path.
+These sectors have closed Coq theorems verifying numerical bounds on fitted formulas. The formulas themselves are **not derived** from H₄ root system, Clifford Cl(8) structure, or Connes spectral triple first principles — they are phenomenological fits whose agreement with data is confirmed via the `interval` tactic.
 
 ### 1. Higgs mass m_H
 - **File**: `proofs/HiggsPrediction.v`
-- **Result**: m_H = 125.1 ± 0.1 GeV (prediction) vs 125.20 ± 0.11 GeV (PDG 2024)
+- **Result**: m_H = 125.1 ± 0.1 GeV (retrospective fit / post-hoc coincidence) vs 125.20 ± 0.11 GeV (PDG 2024)
 - **Deviation**: 0.09%
-- **Derivation**: From H4 → E8 → Coleman-Weinberg potential. Closed chain.
+- **Coq verification**: Interval proof confirms the fitted formula matches PDG value. **NOT a derivation** from H₄ geometry.
 
 ### 2. Gauge couplings (α₁, α₂, α₃ at M_Z)
 - **File**: `proofs/GaugeCouplings.v`
 - **Result**: g₁, g₂, g₃ reproduced within 0.024%
-- **Derivation**: From E8 → SU(3)×SU(2)×U(1) branching with H4 normalization. Closed chain.
+- **Coq verification**: Interval proof confirms fitted couplings match PDG values. **NOT a derivation** from H₄ geometry. The branching itself is postulated.
 - **Caveat**: The *branching itself* (which subgroup of E8 maps to which SM factor) is the open gauge-assignment problem flagged in `lagrangian_roadmap.md` §3.
 
 ### 3. Higgs self-coupling λ
 - **File**: `proofs/HiggsSelfCoupling.v`
-- **Result**: λ ≈ 0.129 (predicted) vs 0.1291 (PDG 2024)
+- **Result**: λ ≈ 0.129 (retrospective fit) vs 0.1291 (PDG 2024)
 - **Deviation**: 0.4%
-- **Derivation**: From m_H prediction + tree-level relation λ = m_H² / (2v²). Closed.
+- **Coq verification**: Interval proof confirms λ from the fitted m_H formula via the tree-level relation. **NOT a derivation** from H₄ geometry.
 
 ---
 
@@ -117,4 +121,4 @@ Files updated in this branch:
 
 A theory's credibility depends more on what it *honestly says it has not yet proven* than on what it advertises as done. The internal documents `lagrangian_roadmap.md` and `HARSH_REVIEW_v49.md` were already saying the harder truth in the basement; this file lifts it to the front page.
 
-The strongest results of the project — m_H, gauge couplings, λ — survive this pass intact. They are now stated without being diluted by 10 over-claims.
+The strongest results of the project — m_H, gauge couplings, λ as Coq-verified numerical fits — survive this pass intact. They are now stated without being diluted by 10 over-claims.

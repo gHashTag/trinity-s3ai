@@ -9,12 +9,12 @@
 
 ## EXECUTIVE SUMMARY
 
-The Trinity S3AI framework contains 25 empirical formulas that predict Standard Model parameters using combinations of mathematical constants (phi, pi, e) and integer coefficients derived from H4 Coxeter group invariants. After systematic analysis:
+The Trinity S3AI framework contains ~25 empirical formulas that match Standard Model parameters using combinations of mathematical constants (phi, pi, e) and integer coefficients fitted to H4 Coxeter group invariants. After systematic analysis:
 
 | Category | Count | Description |
 |----------|-------|-------------|
 | **Verified (< 1% error)** | 16 | Formulas correctly predict their assigned SM parameter |
-| **Misclassified** | 1 | Formula works but predicts a DIFFERENT quantity than labeled |
+| **Misclassified** | 1 | Formula works but gives a DIFFERENT quantity than labeled |
 | **Borderline (1-5% error)** | 3 | Close but not precise; may need scale adjustment |
 | **Failed (> 5% error)** | 4 | Formulas do not match any known SM parameter at any standard scale |
 | **Uncertain** | 1 | Insufficient data for definitive assignment |
@@ -56,7 +56,7 @@ The file `verify_all_25.py` contains several incorrect reference values:
 | m_t/m_u | 20.003 | **~80,000** (172690/2.16) | Q07 is actually m_s/m_d |
 | m_H/m_Z | ~1.373 | **1.373** (correct) | H03 formula has 1.3% error |
 
-**Correction**: Q07 = 24*phi^2/pi predicts **m_s(2GeV)/m_d(2GeV) = 20.0**, NOT m_t/m_u. The label in verify_all_25.py is wrong.
+**Correction**: Q07 = 24*phi^2/pi gives **m_s(2GeV)/m_d(2GeV) = 20.0**, NOT m_t/m_u. The label in verify_all_25.py is wrong.
 
 ---
 
@@ -66,8 +66,8 @@ The file `verify_all_25.py` contains several incorrect reference values:
 
 | Coeff | Formula | Predicts | PDG Value | Error | Status |
 |-------|---------|----------|-----------|-------|--------|
-| **Q07** | 24*phi^2/pi | **m_s(2GeV) / m_d(2GeV)** | 20.00 | 0.002% | VERIFIED |
-| **Q05** | 127*phi/120 + 30/19 | **m_b(m_b) / m_c(m_c)** | 3.291 | 0.001% | VERIFIED |
+| **Q07** | 24*phi^2/pi | **m_s(2GeV) / m_d(2GeV)** | 20.00 | 0.002% | FITTED |
+| **Q05** | 127*phi/120 + 30/19 | **m_b(m_b) / m_c(m_c)** | 3.291 | 0.001% | FITTED |
 | **Q02** | phi^3 * pi^2 | **m_t(pole) / m_b(m_b)** | 41.31 | 1.20% | BORDERLINE |
 | **Q06** | phi^4 * e^2 / 3 | **m_tau(pole) / m_mu(pole)** | 16.817 | 0.385% | MISCLASSIFIED |
 | **Q04** | 14*e^2 / 9 | **m_c(m_c) / m_s(2GeV)** | 13.60 | 15.5% | FAILED |
@@ -75,9 +75,9 @@ The file `verify_all_25.py` contains several incorrect reference values:
 | **Q01** | 1/(8*phi^2*pi*e) | **m_u(2GeV) / m_d(2GeV)** | 0.4625 | 98.8% | FAILED |
 
 **Notes:**
-- Q07 was WRONGLY labeled as m_t/m_u in verify_all_25.py. It correctly predicts m_s/m_d at 2GeV.
-- Q05 predicts the ratio of running masses at their own scales: m_b(m_b)/m_c(m_c).
-- Q06 was WRONGLY placed in the quark series. It perfectly predicts the lepton ratio m_tau/m_mu.
+- Q07 was WRONGLY labeled as m_t/m_u in verify_all_25.py. It correctly gives m_s/m_d at 2GeV.
+- Q05 gives the ratio of running masses at their own scales: m_b(m_b)/m_c(m_c).
+- Q06 was WRONGLY placed in the quark series. It numerically approximates the lepton ratio m_tau/m_mu.
 - Q02 is borderline: better match as m_t/m_b (1.2%) than as m_s/m_u (3.3%).
 - Q04, Q03, Q01 have no good match at any standard scale. These formulas need revision.
 
@@ -85,20 +85,20 @@ The file `verify_all_25.py` contains several incorrect reference values:
 
 | Coeff | Formula | Predicts | PDG Value | Error | Status |
 |-------|---------|----------|-----------|-------|--------|
-| **L01** | 239*e/pi | **m_mu(pole) / m_e(pole)** | 206.768 | 0.013% | VERIFIED |
-| **L02** | 239*phi^4/pi^4 | **m_tau(pole) / m_mu(pole)** | 16.817 | 0.0001% | VERIFIED |
-| **L03** | 549*e*pi^2/phi^3 | **m_tau(pole) / m_e(pole)** | 3477.2 | 0.007% | VERIFIED |
+| **L01** | 239*e/pi | **m_mu(pole) / m_e(pole)** | 206.768 | 0.013% | FITTED |
+| **L02** | 239*phi^4/pi^4 | **m_tau(pole) / m_mu(pole)** | 16.817 | 0.0001% | FITTED |
+| **L03** | 549*e*pi^2/phi^3 | **m_tau(pole) / m_e(pole)** | 3477.2 | 0.007% | FITTED |
 
-**Note**: All three lepton formulas use **pole masses** and achieve extraordinary precision (< 0.02%).
+**Note**: All three lepton formulas use **pole masses** and achieve sub-0.02% agreement (< 0.02%).
 The closure relation L01 * L02_exp = L03 holds to high accuracy, confirming internal consistency.
 
 ### 2.3 G-SERIES: Gauge Sector (G01-G03)
 
 | Coeff | Formula | Predicts | PDG Value | Error | Status |
 |-------|---------|----------|-----------|-------|--------|
-| **G01** | 36*phi*e^2/pi | **1 / alpha_em** (low energy) | 137.036 | 0.024% | VERIFIED |
-| **G02** | (sqrt(5)-2)/2 | **alpha_s(m_Z)** | 0.1179 | 0.114% | VERIFIED |
-| **G03** | 3/(8*phi) | **sin^2(theta_W)(m_Z)** | 0.23121 | 0.239% | VERIFIED |
+| **G01** | 36*phi*e^2/pi | **1 / alpha_em** (low energy) | 137.036 | 0.024% | FITTED |
+| **G02** | (sqrt(5)-2)/2 | **alpha_s(m_Z)** | 0.1179 | 0.114% | FITTED |
+| **G03** | 3/(8*phi) | **sin^2(theta_W)(m_Z)** | 0.23121 | 0.239% | FITTED |
 
 **Notes:**
 - G01 predicts the inverse fine-structure constant at low energy (~Thomson limit).
@@ -110,8 +110,8 @@ The closure relation L01 * L02_exp = L03 holds to high accuracy, confirming inte
 
 | Coeff | Formula | Predicts | PDG Value | Error | Status |
 |-------|---------|----------|-----------|-------|--------|
-| **H01** | 4*phi^3*e^2 | **m_H (pole, GeV)** | 125.20 GeV | 0.002% | VERIFIED |
-| **H02** | phi*11/20 + 20/30 | **m_H(pole) / m_W(pole)** | 1.5577 | 0.069% | VERIFIED |
+| **H01** | 4*phi^3*e^2 | **m_H (pole, GeV)** | 125.20 GeV | 0.002% | FITTED |
+| **H02** | phi*11/20 + 20/30 | **m_H(pole) / m_W(pole)** | 1.5577 | 0.069% | FITTED |
 | **H03** | 4*phi*pi/15 | **m_H(pole) / m_Z(pole)** | 1.3730 | 1.27% | BORDERLINE |
 
 **Notes:**
@@ -123,8 +123,8 @@ The closure relation L01 * L02_exp = L03 holds to high accuracy, confirming inte
 
 | Coeff | Formula | Predicts | PDG Value | Error | Status |
 |-------|---------|----------|-----------|-------|--------|
-| **N01** | 8*pi/(phi^5*e^2) | **sin^2(theta_12) (PMNS)** | 0.307 | 0.098% | VERIFIED |
-| **N03** | pi^2/18 | **sin^2(theta_23) (PMNS)** | 0.546 | 0.42% | VERIFIED |
+| **N01** | 8*pi/(phi^5*e^2) | **sin^2(theta_12) (PMNS)** | 0.307 | 0.098% | FITTED |
+| **N03** | pi^2/18 | **sin^2(theta_23) (PMNS)** | 0.546 | 0.42% | FITTED |
 | **Sin13** | pi^2/(25*phi^6) | **sin^2(theta_13) (PMNS)** | 0.02200 | 0.003% | ★ SG |
 | **Neutrino** | pi/(40*phi^2) | **Delta_m^2_21 / Delta_m^2_31** | 0.0304 | 1.48% | BORDERLINE |
 
@@ -137,7 +137,7 @@ The closure relation L01 * L02_exp = L03 holds to high accuracy, confirming inte
 
 | Coeff | Formula | Predicts | PDG Value | Error | Status |
 |-------|---------|----------|-----------|-------|--------|
-| **C01** | 2*phi^3*e^2/(9*pi^3) | **|V_us| (CKM)** | 0.2265 | 0.96% | VERIFIED |
+| **C01** | 2*phi^3*e^2/(9*pi^3) | **|V_us| (CKM)** | 0.2265 | 0.96% | FITTED |
 | **C02** | 1/(3*phi^2*pi) | **|V_cb| (CKM)** | 0.0410 | 1.15% | BORDERLINE |
 | **C03** | 1/(39*phi^2*e) | **|V_ub| (CKM)** | 0.00394 | 8.55% | FAILED |
 
@@ -150,8 +150,8 @@ The closure relation L01 * L02_exp = L03 holds to high accuracy, confirming inte
 
 | Formula | Predicts | PDG Value | Error | Status |
 |---------|----------|-----------|-------|--------|
-| **Proton** | 6*pi^5 | **m_p / m_e** | 1836.15 | 0.002% | VERIFIED |
-| **Lambda** | sqrt(phi)/pi^2 | **lambda(tree) = m_H^2/(2v^2)** | 0.129 | 0.31% | VERIFIED |
+| **Proton** | 6*pi^5 | **m_p / m_e** | 1836.15 | 0.002% | FITTED |
+| **Lambda** | sqrt(phi)/pi^2 | **lambda(tree) = m_H^2/(2v^2)** | 0.129 | 0.31% | FITTED |
 
 ---
 
@@ -217,7 +217,7 @@ The Trinity verification script (`verify_all_25.py`) contains several incorrect 
 - Q07 actually predicts m_s/m_d = 20.0 (correct!)
 
 **Scale Mismatch**: `'m_b/m_c': 52.3` uses wrong scale combination
-- Should be m_b(m_b)/m_c(m_c) = 4180/1270 = 3.291 (matches Q05 perfectly!)
+- Should be m_b(m_b)/m_c(m_c) = 4180/1270 = 3.291 (matches Q05 numerically)
 - The value 52.3 might be m_b(1S)/m_c(1S) or some other combination
 
 ### 4.2 Error Source #2: Misclassified Formulas
@@ -250,7 +250,7 @@ The Trinity verification script (`verify_all_25.py`) contains several incorrect 
 **C03** = 1/(39*phi^2*e) = 0.00360:
 - Should predict |V_ub| = 0.00394
 - Error: 8.6% (underpredicts)
-- **Verdict**: Coefficient 39 may need to be ~35.7 for exact match
+- **Verdict**: Coefficient 39 may need to be ~35.7 for closer numerical agreement
 
 ### 4.4 Error Source #4: Scale Ambiguity
 
@@ -375,13 +375,13 @@ Testing Q01-Q04 at GUT scale (~10^16 GeV):
 
 The Trinity framework represents an **empirical discovery**, not a derived theory. The pattern of successes and failures provides clues about the underlying physics:
 
-- **16/25 formulas verified** (< 1% error): Strong evidence for systematic structure
-- **Lepton sector (L01-L03)**: All 3 verified with extraordinary precision -- this is the strongest evidence
-- **Gauge sector (G01-G03)**: All 3 verified -- suggests coupling unification structure
-- **Higgs sector (H01-H02)**: Both verified -- Higgs mass is NOT accidental
+- **16/25 formulas numerically matched** (< 1% error): Systematic structure is hypothesized, not proven
+- **Lepton sector (L01-L03)**: All 3 agree at sub-0.02% -- this is the closest numerical agreement
+- **Gauge sector (G01-G03)**: All 3 numerically matched -- coupling unification structure is hypothesized
+- **Higgs sector (H01-H02)**: Both numerically matched -- Higgs mass formula is a fitted coincidence
 - **Quark sector**: Mixed results -- Q07, Q05 are perfect; Q01-Q04 need work
-- **Neutrino sector**: All 3 mixing angles verified -- suggests flavor structure
-- **CKM sector**: C01 verified, C02 borderline, C03 needs work
+- **Neutrino sector**: All 3 mixing angles numerically matched -- flavor structure is hypothesized
+- **CKM sector**: C01 numerically matched, C02 borderline, C03 needs work
 
 The **mixed-scale scheme** is the key interpretive insight. It suggests the Trinity formulas encode a UV symmetry breaking pattern where each fermion acquires mass at its own characteristic scale, with the H4 Coxeter group invariants determining the numerical coefficients.
 
@@ -419,7 +419,7 @@ The **mixed-scale scheme** is the key interpretive insight. It suggests the Trin
 
 ## APPENDIX B: H4 COXETER GROUP INVARIANTS
 
-The Trinity coefficients are derived from the H4 Coxeter group:
+The Trinity coefficients are fitted to H4 Coxeter group invariants:
 
 | Invariant | Value | Role in Trinity |
 |-----------|-------|-----------------|

@@ -8,17 +8,16 @@
 | Date | 2025-07-28 |
 | Scope | Structural uniqueness of key Trinity coefficients in H4 context |
 | Basis | Full 2-operation enumeration (1,179,120 combinations) |
-| Status | Peer-reviewed |
+| Status | Internal audit — not peer-reviewed |
 
 ---
 
 ## Executive Summary
 
 While **0 out of 15** Trinity coefficients are strictly unique under 2-operation
-enumeration from H4 invariants, **structural uniqueness** exists. This document
-formalizes 5 theorems proving why certain coefficients are *natural* — they emerge
-uniquely from the algebraic and geometric structure of H4, independent of any
-empirical fitting.
+enumeration from H4 invariants, certain coefficients are *motivated* by H4 structure.
+These are observations about algebraic relationships, not proofs that the SM parameters
+are determined by H4 geometry. The coefficients were selected because they fit data.
 
 | Coefficient | Uniqueness Type | H4 Origin | Formula Appearances |
 |-------------|----------------|-----------|---------------------|

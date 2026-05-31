@@ -1082,7 +1082,7 @@ The integration can be verified through a three-step program:
 
 **Falsifiability Criteria:**
 
-The integration makes the following falsifiable predictions:
+The integration historically claimed the following falsifiable statements (all are fitted coincidences, not predictions from first principles):
 
 1. If any Standard Model parameter is measured to differ from the Trinity-Morató prediction by more than 5 sigma, the integration fails.
 2. If new physics (e.g., supersymmetry, extra dimensions) is discovered below 10^16 GeV, the uniqueness claim must be reconsidered.

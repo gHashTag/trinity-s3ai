@@ -269,7 +269,7 @@ The file `QuaternionicLinearity.v` formalizes the following results:
    - |H₄| = 120² = 14400 (via φ-algebra)
    - Size of 2I = 120 (axiomatically)
 
-All theorems are proven with Qed — without Admitted.
+All theorems in this file are proven with Qed — without Admitted. (Global status: 93 unproven obligations across 100 files; post-Wave 23 correction.)
 
 ---
 

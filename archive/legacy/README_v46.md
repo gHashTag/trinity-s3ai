@@ -1,7 +1,13 @@
+# LEGACY DOCUMENT (Trinity S³AI v4.6 — historical README)
+# Current status: See README.md and RESEARCH_STATUS.md for canonical assessment.
+# Key withdrawals: δ_CP (>5σ excluded), N_gen=3 (not derived), Strong CP (not solved),
+# tree-level Higgs 132.88 GeV (refuted at 55.6σ), 0/26 formulas rigorous derivation.
+# SG-class count corrected from 61 to ~44 in Wave 20 audit.
+
 # Trinity S³AI v4.6
 ## H4 Coxeter Invariants → Standard Model Lagrangian
 
-**Status**: 130 formulas | 61 SG-class | **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [COQ_HONEST_STATUS.md](../../docs/status/COQ_HONEST_STATUS.md) | 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ) — 9 phenomenological, 1 open — see [LAGRANGIAN_HONEST_STATUS.md](../../docs/status/LAGRANGIAN_HONEST_STATUS.md) | δ_CP interpretation withdrawn — see [delta_cp_analysis.md](../../docs/experiments/delta_cp_analysis.md) (formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22) | arXiv-ready
+**Status**: 130 formulas | **~44 SG-class** | **79 Coq .v files / 1325 Qed / 123 unproven obligations** (25 Admitted + 18 admit + 73 Axiom + 7 Parameter) — see [COQ_HONEST_STATUS.md](../../docs/status/COQ_HONEST_STATUS.md) | 3/13 Lagrangian sectors formally proven (m_H, gauge couplings, λ) — 9 phenomenological, 1 open — see [LAGRANGIAN_HONEST_STATUS.md](../../docs/status/LAGRANGIAN_HONEST_STATUS.md) | δ_CP interpretation withdrawn — see [delta_cp_analysis.md](../../docs/experiments/delta_cp_analysis.md) (formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22) | **NOT arXiv-ready** (0 rigorous derivations, 123 unproven obligations)
 
 > φ² + 1/φ² = 3
 
@@ -9,7 +15,7 @@
 
 ## Hero Line
 
-**Trinity S³AI v4.6** — **79 Coq .v files / 1325 Qed** with **123 unproven obligations** categorized in [COQ_HONEST_STATUS.md](../../docs/status/COQ_HONEST_STATUS.md) (was previously advertised as "326 Qed / 0 Admitted" — actual Qed count is **larger**, but Admitted/Axiom obligations were undercounted) | **61 SG-class** formulas (<0.01%) | **3/13 Lagrangian sectors formally proven** (9 phenomenological, 1 open — see [LAGRANGIAN_HONEST_STATUS.md](../../docs/status/LAGRANGIAN_HONEST_STATUS.md)) | δ_CP interpretation withdrawn — see [delta_cp_analysis.md](../../docs/experiments/delta_cp_analysis.md) (formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22) | 130 total formulas
+**Trinity S³AI v4.6** — **79 Coq .v files / 1325 Qed** with **123 unproven obligations** categorized in [COQ_HONEST_STATUS.md](../../docs/status/COQ_HONEST_STATUS.md) (was previously advertised as "326 Qed / 0 Admitted" — actual Qed count is **larger**, but Admitted/Axiom obligations were undercounted) | **~44 SG-class** formulas (<0.01%) | **3/13 Lagrangian sectors formally proven** (9 phenomenological, 1 open — see [LAGRANGIAN_HONEST_STATUS.md](../../docs/status/LAGRANGIAN_HONEST_STATUS.md)) | δ_CP interpretation withdrawn — see [delta_cp_analysis.md](../../docs/experiments/delta_cp_analysis.md) (formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22) | 130 total formulas
 
 ---
 
@@ -108,7 +114,7 @@
 | Sacred Biology (Tier 4) | 8 | ~3 |
 | IGLA Invariants (Tier 5) | 6 | ~2 |
 | Parameter Golf (Tier 6) | 8 | ~1 |
-| **Total** | **130** | **61** |
+| **Total** | **130** | **~44** |
 
 Source of truth: `FORMULAS.md` v4.0 (783 lines)
 
@@ -251,7 +257,7 @@ Of 551 integers reachable with 2 operations in [1,1000], only **45** have exactl
 | **Connes NCG (1990s)** | ~5 | ✅ **Yes** | ✅ Yes | ~2000 | Respected, post-hoc m_H fix |
 | **Trinity S³AI (2025)** | **130** | 3/13 formally proven (9 fit, 1 open) | ❌ No | **0** | **This project** |
 
-**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), 61 SG-class formulas, DUNE pre-registration, full uniqueness enumeration, honest a₄ documentation, **formal Coq obstruction theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md) — a negative result is still a real result), and an explicit honesty pass (Waves 1-6) reconciling every public claim with `proofs/` (see STRONG_CP_HONEST_STATUS.md).
+**What Trinity has that Connes doesn't**: H4 motivation (non-crystallographic = unique), **~44 SG-class** formulas, DUNE pre-registration, full uniqueness enumeration, honest a₄ documentation, **formal Coq boundary theorem on N_gen=3 H4-derivation** (see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md) — a negative result is still a real result), and an explicit honesty pass (Waves 1-6) reconciling every public claim with `proofs/` (see STRONG_CP_HONEST_STATUS.md).
 
 **What Connes has that Trinity doesn't**: Peer-reviewed publications, ~2000 citations, mathematical community acceptance, working RG running. (Direct "% of Lagrangian derived" comparisons with Connes are not apples-to-apples and have been removed; see [`LAGRANGIAN_HONEST_STATUS.md`](../../docs/status/LAGRANGIAN_HONEST_STATUS.md).)
 
@@ -339,6 +345,6 @@ Of 551 integers reachable with 2 operations in [1,1000], only **45** have exactl
 
 ---
 
-*Trinity S³AI v4.6 | 130 formulas | 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [COQ_HONEST_STATUS.md](../../docs/status/COQ_HONEST_STATUS.md)) | 61 SG-class | 3/13 Lagrangian sectors formally proven (see [LAGRANGIAN_HONEST_STATUS.md](../../docs/status/LAGRANGIAN_HONEST_STATUS.md)) | δ_CP interpretation withdrawn (see [delta_cp_analysis.md](../../docs/experiments/delta_cp_analysis.md); formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22) | arXiv-ready | Honest about limitations*
+*Trinity S³AI v4.6 | 130 formulas | 79 Coq .v files / 1325 Qed / 123 unproven obligations (see [COQ_HONEST_STATUS.md](../../docs/status/COQ_HONEST_STATUS.md)) | **~44 SG-class** | 3/13 Lagrangian sectors formally proven (see [LAGRANGIAN_HONEST_STATUS.md](../../docs/status/LAGRANGIAN_HONEST_STATUS.md)) | δ_CP interpretation withdrawn (see [delta_cp_analysis.md](../../docs/experiments/delta_cp_analysis.md); formal `DELTA_CP_HONEST_STATUS.md` companion tracked in PR #22) | **NOT arXiv-ready** | Honest about limitations*
 
 *φ² + 1/φ² = 3*

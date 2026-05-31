@@ -66,7 +66,7 @@ This is not justified by any physical principle. It is post-hoc scheme-mixing th
 
 ### Flaw 5: The Koide "Solution" Is a 4% Failure
 
-The synthesis document and earlier claims trumpet: "Koide = 2/3 follows from H4-derived mass formulas... Error: 0.004%. The 2/3 emerges as a closure condition. This is the FIRST derivation of Koide from a mathematical structure in 44 years."
+The synthesis document and earlier claims trumpet: "Koide = 2/3 follows from H4-fitted mass formulas... Error: 0.004%. The 2/3 appears as a fitted coincidence. This is the FIRST fit of Koide from a mathematical structure in 44 years." [NOTE: Even these quoted claims are overstatements — see Koide.v honest assessment.]
 
 **This is false.** The Koide.v file HONESTLY computes:
 - H4-derived Koide formula: Q_H4 = 0.639887(1)

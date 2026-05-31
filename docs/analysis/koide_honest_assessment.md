@@ -60,7 +60,7 @@ These expressions, while internally consistent within the H4 compactification mo
 
 ### 2.3 Correct Koide with H4 Ratios: 25% Error
 
-When the H4-derived mass ratios are substituted into the **correct** Koide formula:
+When the H4-fitted mass ratios (not derived from H4 first principles) are substituted into the **correct** Koide formula:
 
 ```
 Q_H4_correct = (1 + R1_H4 + R2_H4) / (1 + sqrt(R1_H4) + sqrt(R2_H4))^2

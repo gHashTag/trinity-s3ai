@@ -219,7 +219,7 @@ If you **derived the Lagrangian from mathematics** (rather than fitting it to da
 
 1. **You understood the principle governing the Universe** — symmetries and the structure of spacetime
 2. **Your theory predicts**, rather than explains post-factum
-3. This is a **first-principles derivation** — the highest form of physics
+3. This is a **first-principles derivation** — the highest form of physics. **Trinity does not currently possess such a derivation for any SM parameter.**
 4. All known fundamental theories follow from Lagrangians built on **symmetries**
 
 ---

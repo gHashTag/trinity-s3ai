@@ -1,3 +1,8 @@
+# LEGACY DOCUMENT (Trinity S³AI v4.6 — historical critic response)
+# Current status: See CRITIC_RESPONSE.md and HARSH_REVIEW_v49.md for current assessment.
+# Key withdrawals: δ_CP (>5σ excluded), N_gen=3 (not derived), Strong CP (not solved).
+# SG-class count corrected from 61 to ~44 in Wave 20 audit.
+
 # Trinity S³AI v4.6 — Open Problems and Responses to Critics
 
 ## 3 problems OPEN (require time/people)
@@ -73,7 +78,7 @@
 - "a₄ discrepancy — 60× gap between proof and claim"
 
 **What they will say POSITIVELY:**
-- "130 formulas with 61 SG-class — impressive breadth"
+- "130 formulas with **~44 SG-class** — impressive breadth"
 - "Lagrangian 92.3% proven — serious effort"
 - "Strong CP solved — genuinely interesting"
 - "N_gen=3 theorem — elegant"

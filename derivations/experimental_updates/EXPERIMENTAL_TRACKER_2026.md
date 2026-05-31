@@ -12,7 +12,7 @@
 
 | Symbol | Meaning |
 |--------|---------|
-| ✅ | Prediction confirmed by data |
+| ✅ | Formula numerically matched by data (retrospective fit, not a prediction) |
 | ❌ | Prediction falsified |
 | ⏳ | Awaiting data |
 | ⚠️ | Tension with data (2–3σ) |
@@ -189,7 +189,7 @@ Other sectors (Higgs, quark masses, strong CP) are **unaffected**.
 
 ### 4.2 Higgs Self-Coupling
 
-Trinity predicts λ = 0.129 from the spectral action. This is consistent with the SM prediction λ_SM ≈ 0.13. HL-LHC will constrain λ indirectly via Higgs pair production.
+Trinity catalogs λ ≈ 0.129 as a fitted coincidence. The spectral action does not predict this value. HL-LHC will constrain λ indirectly via Higgs pair production.
 
 | HL-LHC λ measurement | Verdict |
 |----------------------|---------|
@@ -221,7 +221,7 @@ Trinity does **not** predict standard BSM particles (no supersymmetry, no extra 
 | **Reference** | *Science* 388, 180–185 (2025); campaigns 1–5 (259 days) |
 | **1000-day milestone** | **Reached April 2026** |
 | **Projected final sensitivity** | **< 0.3 eV** (90% C.L., full dataset analysis ongoing) |
-| **Trinity prediction** | m_νe = **0.103 eV** (effective beta-decay mass) |
+| **Trinity fitted value** | m_νe = **0.103 eV** (effective beta-decay mass; not a prediction) |
 | **Falsification date** | 2025–2030 |
 
 ### Falsification Criteria
@@ -259,7 +259,7 @@ Trinity does **not** predict standard BSM particles (no supersymmetry, no extra 
 
 | Quantity | Hyper-K Expected | Trinity Prediction | Status |
 |----------|-----------------|-------------------|--------|
-| δ_CP precision | < 20° (10 yr @ 1.3 MW) | 65.66° | ⏳ |
+| δ_CP precision | < 20° (10 yr @ 1.3 MW) | 65.66° | **WITHDRAWN** (>5σ excluded) |
 | Mass ordering | >3σ (atmospheric) | Normal | ⏳ |
 | Proton decay τ/Br | >10³⁵ yr (p → e⁺π⁰) | — | ⏳ |
 

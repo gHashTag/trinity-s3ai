@@ -5,11 +5,11 @@
 
 ## 1. Validation of Current Hyperparameters
 
-Project already uses H4-derived dimensions:
+Project already uses H4-inspired dimensions:
 - **hidden** = {128, 1408, 2432, 3712} = {1, 11, 19, 29} × 128 = H4_EXPONENTS × BASE
 - **ctx** = {2, 12, 20, 30} = H4_DEGREES
 
-This paper independently confirms these same numbers (through φ, π, 239) give the most precise match to real physical constants (0.000103% for α_EW⁻¹). This strengthens the justification for INV-6 — we didn't just pick "pretty numbers," we use the same invariant basis that describes the Standard Model.
+The same H4 invariants appear in the Trinity fitted formula for α_EW⁻¹ (0.000103% numerical match). This is a **correlation**, not an independent confirmation — both the ML hyperparameters and the physics formula use the same set of H4 invariants, but neither is derived from H4 first principles.
 
 ---
 
@@ -41,7 +41,7 @@ Theorem defect_ratio_is_e8_projection :
 
 ## 4. Predictions as Model Quality Metrics
 
-Three predictions from the paper can be used as a check for the "physicality" of the trained model:
+Three fitted formulas from the paper can be used as a check for the "physicality" of the trained model:
 
 - If BPB < 1.50 is achieved at hidden = 1408 (e₂=11) and ctx = 12 (d₂=12), this corresponds to the H4 mass hierarchy: m_τ/m_μ ~ φ⁴/2, m_μ/m_e ~ π/(6φ⁵).
 - If not — H4 invariants do not manifest in the loss landscape, and we reject the hypothesis.

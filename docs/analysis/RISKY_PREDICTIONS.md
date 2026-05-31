@@ -2,10 +2,10 @@
 
 ## Purpose
 
-This document catalogs all Trinity predictions that carry genuine experimental risk --
-predictions that could **falsify** the framework if they disagree with future data.
+This document catalogs Trinity formulas that can be compared with experiment.
 Most "predictions" in physics literature are actually post-dictions or retroactive fits.
-The predictions listed here are **pre-registered** and **high-stakes**.
+The formulas listed here are **fitted coincidences** found by matching data.
+**δ_CP = 65.66° is WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
 
 ---
 
@@ -25,7 +25,7 @@ The predictions listed here are **pre-registered** and **high-stakes**.
 | Attribute | Value |
 |-----------|-------|
 | **Formula** | 3/phi^2 radians = 65.66 degrees |
-| **Derivation** | H4 Coxeter geometry -> PMNS matrix |
+| **Origin** | Fitted formula (historically claimed: H4 Coxeter geometry -> PMNS matrix) |
 | **Current data** | ~177 +/- 20 degrees (NuFit 6.0) |
 | **Tension** | **5.6 sigma** |
 | **Test experiment** | DUNE (2028-2032) |
@@ -43,7 +43,7 @@ The predictions listed here are **pre-registered** and **high-stakes**.
 ### Why This Is The Riskiest Prediction
 
 1. **5.6 sigma tension** with current global fits -- most theorists would abandon
-2. **Not adjustable** -- 3/phi^2 is mathematically fixed by H4 structure
+2. **Not adjustable** -- 3/phi^2 was historically claimed to be fixed by H4 structure (anti-post-hoc rule now forbids replacement formulas)
 3. **Binary test** -- DUNE gives a clear yes/no answer
 4. **High visibility** -- delta_CP is one of the most anticipated neutrino measurements
 
@@ -83,21 +83,21 @@ The CP violation *magnitude* is correct even if the *phase* is tensioned.
 
 ---
 
-## Prediction 3: sin^2(theta_13) = 0.022001 (LOW RISK)
+## Formula 3: sin²θ₁₃ = 0.022001 (retrospective fit — LOW RISK)
 
 | Attribute | Value |
 |-----------|-------|
 | **Formula** | pi^2 / (25 * phi^6) |
 | **Predicted value** | 0.022001 |
 | **Current data** | 0.0220 +/- 0.0007 (Daya Bay + RENO + T2K) |
-| **Agreement** | **Excellent** -- within 0.003% |
+| **Agreement** | Close numerical coincidence -- within 0.003% |
 | **Test experiment** | JUNO (2027-2028) |
 | **JUNO precision** | +/- 0.0007 (comparable to current) |
 | **Falsifiable?** | MILDLY -- only if JUNO finds large deviation |
 
 ### Why It's Low Risk
 
-- Already agrees with current data at sub-percent level
+- Already numerically matches current data at sub-percent level (post-hoc fit, not a prediction)
 - JUNO will confirm or refine, not revolutionize
 - Even if shifted slightly, the formula pi^2/(25*phi^6) can accommodate small corrections
 - The 5-fold symmetry (25 = 5^2) connecting to H4 Coxeter group is robust
@@ -135,7 +135,7 @@ The H4 -> PMNS mapping is incorrect. Possible responses:
 
 ### If m_nue is falsified (KATRIN < 0.05 eV)
 The neutrino mass generation mechanism is wrong. Possible responses:
-- Trinity predicts inverted hierarchy instead of normal hierarchy
+- Trinity's fitted formula may be consistent with inverted hierarchy instead of normal hierarchy
 - The seesaw scale is different from expected
 - The sum of masses prediction (0.059 eV) may need revision
 
@@ -149,16 +149,16 @@ This would be the least consequential falsification.
 
 > **A theory that cannot be falsified is not scientific.**
 
-Trinity makes three predictions at three risk levels:
-- One CRITICAL (could destroy the framework)
-- One HIGH (would require major revision)
-- One LOW (minor adjustment needed)
+Trinity has three formulas at three risk levels:
+- One CRITICAL (δ_CP — WITHDRAWN at >5σ)
+- One HIGH (m_νe — fitted coincidence)
+- One LOW (sin²θ₁₃ — fitted coincidence)
 
-This is the correct distribution for a genuine scientific theory. If all predictions
+This distribution reflects the mixed status of fitted coincidences. If all predictions
 were "safe" (agreeing with known data), Trinity would be curve-fitting, not science.
 If all predictions were wildly wrong, Trinity would be pseudoscience.
 
-The 5.6 sigma tension on delta_CP is **precisely what makes this interesting**.
+The 5.6 sigma tension on delta_CP confirms that the formula was a post-hoc fit, not a genuine prediction.
 
 ---
 

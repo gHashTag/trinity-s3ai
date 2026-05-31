@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical roadmap Waves 16–20)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Trinity S³AI — Roadmap Waves 16–20
 
 **Document type:** Strategic research roadmap  
@@ -19,7 +23,7 @@
 | Formal derivations | 0 fully rigorous (R-class), 8 structural (S-class), 17 numerical fit (NF-class) |
 | F4/2O spectrum | Complete (48 elements, KO-dim = 6, η = 0 vs target −7/4) |
 | E₈ plumbing | Reduced model (20 vertices), full model (128 vertices) proposed |
-| Experimental predictions | 3 pre-registered (δ_CP, m_νe, sin²θ₁₃) |
+| Experimental comparisons | 2 active (m_νe, sin²θ₁₃) + 1 withdrawn (δ_CP) |
 
 **Honest assessment:**
 - The H₄/600-cell → E₈ correspondence is **mathematically solid** (McKay, Baez).

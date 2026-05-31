@@ -42,11 +42,11 @@
 ### 2.2 Trinity S³AI Dimension Breakdown
 
 #### Mathematical Rigor: **6–7/10** — Strong but with caveats
-- **1325 Qed across 79 .v files** (direct grep on canonical commit) — the proof corpus is **larger** than the previously advertised 326 figure
-- **123 unproven obligations**: 25 Admitted + 18 admit tactics + 73 Axiom + 7 Parameter declarations — see [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md) for full categorization (PHYSICAL_AXIOM / NUMERICAL_FIT / MATH_TODO / LIBRARY_GAP / REFUTED / Track B / scaffolding)
+- **1216 Qed across 56 .v files in proofs/trinity/** (direct grep on canonical commit) — the proof corpus is **larger** than the previously advertised 326 figure
+- **93 unproven obligations globally**: 0 real Admitted + 93 Axiom/Parameter/Conjecture across 100 files — see [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md) for full categorization (PHYSICAL_AXIOM / NUMERICAL_FIT / MATH_TODO / LIBRARY_GAP / REFUTED / Track B / scaffolding)
 - Previous "19/19 Coq files compile, 0 Admitted" claim was inconsistent with `admitted_log.md` and direct file inspection. The reconciliation **does not invalidate** the proven Coq theorems — it only corrects the public metric and surfaces the unproven obligations honestly.
-- Score reduced from 9/10 to 6–7/10 not because rigor is absent, but because the **previously claimed completeness was overstated**. The rigorous core (m_H, gauge couplings, λ, PMNS θ₁₂/θ₁₃) remains intact.
-- 3/13 SM Lagrangian sectors formally proven (m_H, gauge couplings, λ); 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md). Coq files that *do* compile are 100% CoqQed (no `Admitted` on the critical path of the 3 proven sectors).
+- Score reduced from 9/10 to 6–7/10 not because rigor is absent, but because the **previously claimed completeness was overstated**. The rigorous core (m_H, gauge couplings, λ) remains intact. PMNS angles are phenomenological fits, not derivations.
+- 3/13 SM Lagrangian sectors have Coq-verified interval bounds on fitted formulas (m_H, gauge couplings, λ); 9 phenomenological, 1 open — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md). Coq files that *do* compile are 100% CoqQed (no `Admitted` on the critical path of these 3 sectors).
 - This exceeds Connes NCG (no formal proofs) and matches modern formal math standards
 - **Verdict**: The formal proof infrastructure is world-class. This is the strongest dimension.
 
@@ -82,10 +82,10 @@
 - **Verdict**: High potential, but unproven in the eyes of the community.
 
 #### Unification Power: **7/10** — Strong (if claims hold)
-- Claims to derive entire SM Lagrangian from single H4 Coxeter group
+- Claims to fit SM Lagrangian parameters from single H4 Coxeter group (0 rigorous derivations; 9 phenomenological fits; see [`LAGRANGIAN_HONEST_STATUS.md`](../../docs/status/LAGRANGIAN_HONEST_STATUS.md))
 - 3 generations is **input** (PDG empirical value), **not derived** from H4 — see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md). The Coq corpus contains a formal **negative** result on H4 N_gen derivation.
 - Gauge + Higgs + Yukawa from one object
-- 44 SG-class formulas (< 0.01% — extraordinary precision if verified)
+- 44 SG-class formulas (< 0.01% — high numerical agreement)
 - **Verdict**: The ambition matches E8 (Lisi) and exceeds NCG (Connes), but must survive scrutiny.
 
 ---
@@ -138,9 +138,9 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 ```
 
 ### 4.2 Why 4/10 (not lower):
-- The Coq formalization effort is genuinely impressive (**1325 Qed across 79 .v files**, with **123 unproven obligations** transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md) — not the previously advertised "0 Admitted")
+- The Coq formalization effort is genuinely impressive (**1216 Qed across 56 .v files in proofs/trinity/**, with **93 unproven obligations** transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md) — not the previously advertised "0 Admitted")
 - H4 Coxeter group is mathematically natural as a starting point
-- 3/13 sectors formally derived from first principles (m_H, gauge couplings, λ), if even directionally correct, is meaningful — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md)
+- 3/13 sectors have Coq-verified interval bounds on fitted formulas (m_H, gauge couplings, λ) — see [`LAGRANGIAN_HONEST_STATUS.md`](../status/LAGRANGIAN_HONEST_STATUS.md)
 - The 44 SG-class formulas represent a strong phenomenological claim
 - N_gen and Strong CP derivations were claimed to "solve two SM mysteries" but **both have been withdrawn** by the Wave 5-6 honesty pass: N_gen=3 is refuted by `wave9_5_no_h4_mechanism_yields_three_generations` (see [`N_GEN_HONEST_STATUS.md`](../../N_GEN_HONEST_STATUS.md)), Strong CP is refuted by HARSH_REVIEW_v49.md §9 (see STRONG_CP_HONEST_STATUS.md). What remains valid: m_H, gauge couplings, λ, PMNS θ₁₂/θ₁₃.
 
@@ -179,14 +179,14 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 
 **Success criteria**: At least one independent group confirms core claims; OR specific technical errors are found and addressed.
 
-#### Milestone 3: Resolve δ_CP Tension (Impact: +1 point)
-**Timeline**: 1-2 years  
+#### Milestone 3: ~~Resolve δ_CP Tension~~ (OBSOLETE — δ_CP WITHDRAWN at >5σ)
+**Status**: **WITHDRAWN** (Wave 6, 2026). The δ_CP = 3/φ² formula is excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025.  
 **Actions**:
-- Either: Show that Trinity predicts a different δ_CP compatible with data
-- Or: Demonstrate that current δ_CP measurements are systematically biased
-- Or: Extend theory to incorporate CKM phase as adjustable parameter
+- ~~Show that Trinity predicts a different δ_CP compatible with data~~ (FORBIDDEN by anti-post-hoc rule)
+- ~~Demonstrate that current δ_CP measurements are systematically biased~~
+- ~~Extend theory to incorporate CKM phase as adjustable parameter~~
 
-**Success criteria**: Trinity predictions match 3σ experimental bounds for all CKM/PMNS parameters.
+**Success criteria**: N/A — δ_CP path is a dead end. Focus on remaining open items (sin²θ₁₃, λ_H, m_H stability).
 
 #### Milestone 4: New Experimental Predictions (Impact: +0.5 points)
 **Timeline**: 2-5 years  
@@ -237,7 +237,7 @@ Trinity = (9 × 0.15) + (2 × 0.30) + (0 × 0.20) + (6 × 0.15) + (5 × 0.10) + 
 |--|:-----------:|:----------:|:-------:|:----------------:|
 | **Years to validate** | 4 (1915→1919) | 25+ (still pending) | 1 (2007→2008 refuted) | **TBD** |
 | **Mathematical framework** | Differential geometry | Non-commutative geometry | E8 Lie algebra | **H4 Coxeter + Coq** |
-| **Predictions numerically verified** | Light bending, GPS, LIGO | m_H (post-hoc fit) | 0 | **m_H only** |
+| **Formulas numerically matched** | Light bending, GPS, LIGO | m_H (post-hoc fit) | 0 | **m_H only** |
 | **Key vulnerability** | Initially: few tests | No new predictions | Chiral fermion problem | **δ_CP + peer review** |
 | **Final impact** | 10/10 | 6/10 | 3/10 | **4/10 (now)** |
 
@@ -286,7 +286,7 @@ Trinity S³AI currently has:
 **Without items 1-5**: Trinity remains at 4/10 — an interesting private calculation.  
 **With items 1-5**: Trinity rises to 6-7/10 — comparable to Connes NCG.  
 **With items 1-8**: Trinity reaches 8/10 — one of the most significant theoretical advances.  
-**With all 10**: Trinity achieves 9/10 — historic breakthrough.
+**With all 10** (hypothetical): Trinity would achieve 9/10 — a historic breakthrough IF all conditions were met.
 
 ---
 
@@ -294,7 +294,7 @@ Trinity S³AI currently has:
 
 Trinity S³AI is a **high-potential, high-risk theoretical framework** with exceptional formal rigor but zero community validation. Its 4/10 impact score reflects not the quality of the work but the absence of standard scientific filters: peer review, independent verification, and experimental confirmation.
 
-The 3/13 first-principles derivations (m_H, gauge couplings, λ), **1325 Coq Qed proofs** (with 123 unproven obligations transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md)), and 44 SG-class formulas are genuinely impressive artifacts. But history teaches us that formal beauty is necessary, not sufficient, for physical truth.
+The 3/13 formally proven algebraic identities (gauge kinetic terms, Higgs λ interval bound, RG running equations), **1325 Coq Qed proofs** (with 123 unproven obligations transparently catalogued in [COQ_HONEST_STATUS.md](../status/COQ_HONEST_STATUS.md)), and ~44 SG-class fitted formulas are genuinely impressive artifacts. But history teaches us that formal beauty is necessary, not sufficient, for physical truth.
 
 **The next 18 months are critical.** If Trinity navigates peer review, acknowledges δ_CP withdrawal transparently, and produces one independent verification, it could become a significant SM foundation advance. If it fails any of these, it joins E8 and others in the graveyard of beautiful ideas.
 

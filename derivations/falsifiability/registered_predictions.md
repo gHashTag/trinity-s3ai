@@ -46,7 +46,7 @@ Forward predictions (data not yet available, future experiments):
 | M_PS mass (pseudoscalar) | M_PS approx 2.983e6 GeV | 2.983e6 GeV | Mu2e / COMET / LISA (stochastic background) | 2028-2035 |
 | delta_CP for IO | **WITHDRAWN** — delta_CP approx 294.34 deg (IO) | 294.34 deg | JUNO / Hyper-K / DUNE (IO confirmation) | 2027-2032 |
 
-Note: delta_CP = 65.655 deg (P1, normal ordering NO) is also a forward prediction for DUNE, since DUNE has not yet published final data. However, this prediction is at 2.7-3.8 sigma from the current NuFit 6.0 best-fit (see Section 3, P1).
+Note: delta_CP = 65.655 deg was historically claimed as a forward prediction for DUNE. **CURRENT STATUS: WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). The formula was a post-hoc fit to outdated PDG-2024 data.
 
 ---
 
@@ -145,7 +145,7 @@ Here \(\varphi^2 = \varphi + 1 = (3+\sqrt{5})/2\), 3 is the number of fermion ge
 
 **σ-distance calculation:**
 - Lower 1σ bound of NO: 197° − 148° = 49°
-- Trinity predicts 65.66°, which is (197° − 65.66°) = **131.3°** below the central value
+- Trinity historically claimed 65.66°, which is (197° − 65.66°) = **131.3°** below the central value
 - \(\sigma\text{-distance} = 131.3°/49° \approx \mathbf{2.7\sigma}\) (using lower 1σ)
 - Using symmetric 1σ ≈ 35°: **3.8σ**
 
@@ -343,7 +343,7 @@ The formulas of Trinity S3AI demonstrate numerical coincidences of high precisio
 
 3. **Two predictions are already falsified:** the cosmological constant (92 orders) and the lightest neutrino (5σ). This should be counted as evidence against the completeness of the theory.
 
-4. **The main test — δ_CP (P1):** if DUNE measures a value near ~65°, this will be a *genuine* non-trivial confirmation (the prediction radically differs from the current NuFit central value). If DUNE confirms δ_CP ≈ 197°, the formula 3/φ² is dead.
+4. **The δ_CP formula is WITHDRAWN.** The formula 3/φ² ≈ 65.66° is excluded at >5σ by current global fits. No replacement formula is permitted under the anti-post-hoc rule.
 
 5. **Connes vs Trinity:** The original Connes–Chamseddine prediction for the Higgs mass (~170 GeV before LHC) was falsified by the LHC. Trinity S3AI corrected formula H01 *after* LHC measurements. This deprives H01 of the status of a genuine prediction.
 

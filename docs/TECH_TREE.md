@@ -71,7 +71,7 @@ Boundary-mapping principle:
 ║     → ⛔ DIRECT PATH BLOCKED (boundary theorem): H4 → lepton mass hierarchy ║
 ║                                                                  ║
 ║  ✅ 14 refutation theorems (*_refuted)                           ║
-║  ✅ 1325 Qed. theorems, 25 Admitted + 123 obligations             ║
+║  ✅ 1216 Qed. theorems in proofs/trinity/, 0 real Admitted + 51 obligations  ║
 ╚══════════════════════════════════════════════════════════════════╝
                              │
          ┌───────────────────┼───────────────────┐
@@ -237,14 +237,15 @@ All predictions are fixed **before** data in `PREDICTIONS_PREREGISTERED.md` with
 | Priority | Task | Unlocks |
 |----------|------|---------|
 | 🔴 P1 | Unified a₄-coefficient derivation | Closes or opens L4 |
-| 🔴 P1 | Lean 4: H4RootSystem.lean (red) | L2 fully green |
+| 🟡 P1 | Lean 4: H4RootSystem.lean (skeleton created, 4 `sorry`) | L2 partially green |
 | 🟡 P2 | T2–T3 Admitted → Qed (Cl(8)) | Track B advances |
 | 🟡 P2 | Paper v2 on arXiv | Track C |
 | 🟢 P3 | Document δ_CP withdrawal transparently in all publications | Final resolution N04 (WITHDRAWN) |
 | 🟢 P3 | Snub 24-cell → three generations in Coq | Main open hypothesis |
 | 🟢 P3 | Independent validation of 500k MC protocol | Confirms or refutes Wave 20 |
+| ⛔ **DONE** | Wave 24: φ-anchored hyperparameters falsified on IGLA RACE | Treatment +0.1013 BPB worse than control; see `docs/audit/PHI_ABLATION_DESIGN.md` |
 
 ---
 
-*Version: Wave 22 | 2026-05-24 | Dmitrii Vasilev (gHashTag)*  
+*Version: Wave 24 | 2026-05-31 | Dmitrii Vasilev (gHashTag)*  
 *Related files: [RESEARCH_STATUS.md](../RESEARCH_STATUS.md) | [EPISTEMOLOGY.md](../EPISTEMOLOGY.md) | [PREDICTIONS_PREREGISTERED.md](../PREDICTIONS_PREREGISTERED.md)*

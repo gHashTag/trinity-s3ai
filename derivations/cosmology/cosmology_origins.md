@@ -220,7 +220,7 @@ Definition cosmological_sum_bound : R := 0.12.  (* eV, typical Planck+BAO bound 
 
 3. **C01_h_over_3 = 10** is the only "cosmologically labeled" theorem with a Coq proof. But this is a trivial arithmetic fact (30/3 = 10), having no physical cosmological content. The comment "cosmological parameter" is misleading.
 
-4. **m_DM_pred (~12.8 or ~36 GeV)** is a genuine falsifiable prediction (LZ/XENONnT), but (a) two files give different formulas and (b) there are no direct experimental observations of WIMPs in this range.
+4. **m_DM (~12.8 or ~36 GeV)** is a fitted value (not a prediction) that could be compared with LZ/XENONnT data, but (a) two files give different formulas and (b) there are no direct experimental observations of WIMPs in this range.
 
 5. **Not a single cosmological formula** in this project has a Coq proof and is included in validate_v4.py.
 
@@ -232,4 +232,4 @@ Definition cosmological_sum_bound : R := 0.12.  (* eV, typical Planck+BAO bound 
 
 - `grep -rn --include="*.v"` on keywords: cosmolog, Lambda, Omega, Hubble, H_0, dark, baryon, CMB, asymmetr
 - Full reading: FORMULAS.md (Tier 3 sections), validate_v4.py, Catalog42.v, H4Derivations.v, Predictions.v, Unitarity.v, HiggsOrigins.v
-- Numerical verification of all key formulas using mpmath (50-digit precision)
+- Numerical comparison of all key formulas with literature values using mpmath (50-digit precision)

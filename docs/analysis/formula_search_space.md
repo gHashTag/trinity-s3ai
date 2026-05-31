@@ -55,7 +55,7 @@
 - **PDG target**: 52.3
 - **Error**: 0.002303%
 - **H4 coefficient**: 19 (Coxeter exponent)
-- **H4 derivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
+- **H4 motivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
 - **LaTeX**: $19 \phi^{0} \pi^{1} - e^{2}$
 - **Form type**: sub2
 
@@ -65,7 +65,7 @@
 - **PDG target**: 52.3
 - **Error**: 0.006003%
 - **H4 coefficient**: 20 (5×rank)
-- **H4 derivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
+- **H4 motivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
 - **LaTeX**: $20 \phi^{2} - \pi^{1} e^{-4}$
 - **Form type**: sub
 
@@ -75,7 +75,7 @@
 - **PDG target**: 52.3
 - **Error**: 0.008940%
 - **H4 coefficient**: 20 (5×rank)
-- **H4 derivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
+- **H4 motivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
 - **LaTeX**: $20 (\phi^{2} - \pi^{-5}) e^{0}$
 - **Form type**: diff_inside
 
@@ -91,7 +91,7 @@
 - **PDG target**: 0.47
 - **Error**: 0.001872%
 - **H4 coefficient**: 2 (Coxeter number dual)
-- **H4 derivation**: Related to H4 dual Coxeter number h∨ = 2 (for simply-laced)
+- **H4 motivation**: Related to H4 dual Coxeter number h∨ = 2 (for simply-laced)
 - **LaTeX**: $2 \phi^{-3} - \pi^{-1} e^{-5}$
 - **Form type**: sub
 
@@ -101,7 +101,7 @@
 - **PDG target**: 0.47
 - **Error**: 0.002412%
 - **H4 coefficient**: 11 (Coxeter exponents)
-- **H4 derivation**: 11 = 2×H4 rank + 3 = 2×4 + 3; from Weyl group structure W(H4) decomposition
+- **H4 motivation**: 11 = 2×H4 rank + 3 = 2×4 + 3; from Weyl group structure W(H4) decomposition
 - **LaTeX**: $11^2 \phi^{-5} \pi^{-1} e^{-2}$
 - **Form type**: coeff_sq
 
@@ -111,7 +111,7 @@
 - **PDG target**: 0.47
 - **Error**: 0.004308%
 - **H4 coefficient**: 11 (Coxeter exponents)
-- **H4 derivation**: 11 = 2×H4 rank + 3 = 2×4 + 3; from Weyl group structure W(H4) decomposition
+- **H4 motivation**: 11 = 2×H4 rank + 3 = 2×4 + 3; from Weyl group structure W(H4) decomposition
 - **LaTeX**: $(11 - \phi^{-5}) \pi^{-1} e^{-2}$
 - **Form type**: sub_coeff
 
@@ -127,7 +127,7 @@
 - **PDG target**: 136.2
 - **Error**: 0.004317%
 - **H4 coefficient**: 120 (Weyl group order)
-- **H4 derivation**: 120 = |W(H4)| / 120 = 14400/120 = 120; H4 Weyl group order factor
+- **H4 motivation**: 120 = |W(H4)| / 120 = 14400/120 = 120; H4 Weyl group order factor
 - **LaTeX**: $120 \phi^{-5} (\pi^{2} + e^{1})$
 - **Form type**: sum_pi_e
 
@@ -137,7 +137,7 @@
 - **PDG target**: 136.2
 - **Error**: 0.009610%
 - **H4 coefficient**: 240 (E8 roots / W(H4)/60)
-- **H4 derivation**: 240 = E8 root count = |W(H4)| / 60 = 14400/60; H4 Weyl group order / 60
+- **H4 motivation**: 240 = E8 root count = |W(H4)| / 60 = 14400/60; H4 Weyl group order / 60
 - **LaTeX**: $(240 - \phi^{-4}) \pi^{3} e^{-4}$
 - **Form type**: sub_coeff
 
@@ -147,7 +147,7 @@
 - **PDG target**: 136.2
 - **Error**: 0.010577%
 - **H4 coefficient**: 19 (Coxeter exponent)
-- **H4 derivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
+- **H4 motivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
 - **LaTeX**: $19 \phi^{2} \pi^{1} - e^{3}$
 - **Form type**: sub2
 
@@ -163,7 +163,7 @@
 - **PDG target**: 270.2
 - **Error**: 0.011253%
 - **H4 coefficient**: 240 (E8 roots / W(H4)/60)
-- **H4 derivation**: 240 = E8 root count = |W(H4)| / 60 = 14400/60; H4 Weyl group order / 60
+- **H4 motivation**: 240 = E8 root count = |W(H4)| / 60 = 14400/60; H4 Weyl group order / 60
 - **LaTeX**: $240 (\phi^{-2} + \pi^{-3}) e^{1}$
 - **Form type**: sum_inside
 
@@ -173,7 +173,7 @@
 - **PDG target**: 270.2
 - **Error**: 0.014021%
 - **H4 coefficient**: 19 (Coxeter exponent)
-- **H4 derivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
+- **H4 motivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
 - **LaTeX**: $19 \phi^{-4} (\pi^{4} + e^{-3})$
 - **Form type**: sum_pi_e
 
@@ -183,7 +183,7 @@
 - **PDG target**: 270.2
 - **Error**: 0.014518%
 - **H4 coefficient**: 29 (Max Coxeter exponent)
-- **H4 derivation**: 29 = H4 maximal Coxeter exponent e4+1 = 29; fundamental invariant degree
+- **H4 motivation**: 29 = H4 maximal Coxeter exponent e4+1 = 29; fundamental invariant degree
 - **LaTeX**: $29^2 \phi^{3} \pi^{-4} e^{2}$
 - **Form type**: coeff_sq
 
@@ -199,7 +199,7 @@
 - **PDG target**: 13.6
 - **Error**: 0.012937%
 - **H4 coefficient**: 19 (Coxeter exponent)
-- **H4 derivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
+- **H4 motivation**: 19 = H4 maximal Coxeter exponent (largest fundamental degree of H4 invariant ring)
 - **LaTeX**: $19 - \phi^{2} \pi^{5} e^{-5}$
 - **Form type**: sub_coeff2
 
@@ -209,7 +209,7 @@
 - **PDG target**: 13.6
 - **Error**: 0.014594%
 - **H4 coefficient**: 7 (E7 embedding)
-- **H4 derivation**: 7 = H4 rank + 3 = 4 + 3; arises from E7 ⊃ H4 embedding (7 = dim Cartan E7 / 2)
+- **H4 motivation**: 7 = H4 rank + 3 = 4 + 3; arises from E7 ⊃ H4 embedding (7 = dim Cartan E7 / 2)
 - **LaTeX**: $7 \phi^{-1} \pi^{1} + e^{-5}$
 - **Form type**: add2
 
@@ -219,7 +219,7 @@
 - **PDG target**: 13.6
 - **Error**: 0.015666%
 - **H4 coefficient**: 11 (Coxeter exponents)
-- **H4 derivation**: 11 = 2×H4 rank + 3 = 2×4 + 3; from Weyl group structure W(H4) decomposition
+- **H4 motivation**: 11 = 2×H4 rank + 3 = 2×4 + 3; from Weyl group structure W(H4) decomposition
 - **LaTeX**: $11 \phi^{1} - \pi^{3} e^{-2}$
 - **Form type**: sub
 
@@ -235,7 +235,7 @@
 - **PDG target**: 1.373
 - **Error**: 0.003219%
 - **H4 coefficient**: 12 (3×rank)
-- **H4 derivation**: 12 = 3×H4 rank = 3×4 = 12; from Coxeter exponents {1,11,19,29} sum-related
+- **H4 motivation**: 12 = 3×H4 rank = 3×4 = 12; from Coxeter exponents {1,11,19,29} sum-related
 - **LaTeX**: $12 \phi^{5} \pi^{-4} + e^{-5}$
 - **Form type**: add2
 
@@ -245,7 +245,7 @@
 - **PDG target**: 1.373
 - **Error**: 0.028091%
 - **H4 coefficient**: 2 (Coxeter number dual)
-- **H4 derivation**: Related to H4 dual Coxeter number h∨ = 2 (for simply-laced)
+- **H4 motivation**: Related to H4 dual Coxeter number h∨ = 2 (for simply-laced)
 - **LaTeX**: $2^2 \phi^{-4} \pi^{-1} e^{2}$
 - **Form type**: coeff_sq
 
@@ -255,7 +255,7 @@
 - **PDG target**: 1.373
 - **Error**: 0.032591%
 - **H4 coefficient**: 29 (Max Coxeter exponent)
-- **H4 derivation**: 29 = H4 maximal Coxeter exponent e4+1 = 29; fundamental invariant degree
+- **H4 motivation**: 29 = H4 maximal Coxeter exponent e4+1 = 29; fundamental invariant degree
 - **LaTeX**: $29 (\phi^{2} - \pi^{-3}) e^{-4}$
 - **Form type**: diff_inside
 
@@ -271,7 +271,7 @@
 - **PDG target**: 43.3
 - **Error**: 0.001256%
 - **H4 coefficient**: 12 (3×rank)
-- **H4 derivation**: 12 = 3×H4 rank = 3×4 = 12; from Coxeter exponents {1,11,19,29} sum-related
+- **H4 motivation**: 12 = 3×H4 rank = 3×4 = 12; from Coxeter exponents {1,11,19,29} sum-related
 - **LaTeX**: $12 + \phi^{3} \pi^{0} e^{2}$
 - **Form type**: add_coeff2
 
@@ -281,7 +281,7 @@
 - **PDG target**: 43.3
 - **Error**: 0.001923%
 - **H4 coefficient**: 20 (5×rank)
-- **H4 derivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
+- **H4 motivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
 - **LaTeX**: $(20 + \phi^{0}) \pi^{5} e^{-5}$
 - **Form type**: add_coeff
 
@@ -291,7 +291,7 @@
 - **PDG target**: 43.3
 - **Error**: 0.014085%
 - **H4 coefficient**: 20 (5×rank)
-- **H4 derivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
+- **H4 motivation**: 20 = 5×H4 rank = 5×4 = 20; from H4 Schlafli symbol {3,3,5} vertex count / 6
 - **LaTeX**: $20 \phi^{3} - \pi^{5} e^{-2}$
 - **Form type**: sub
 
@@ -311,7 +311,7 @@
 
 ## Key Findings
 
-1. **All 7 FAILED cases now have sub-0.02% error formulas** derived from H4 invariants
+1. **All 7 FAILED cases now have sub-0.02% error fitted formulas** using H4 invariants
 2. **The H4 Coxeter exponents (11, 19, 29)** appear most frequently as leading coefficients
 3. **The H4 Weyl group order factors (120, 240)** are essential for large-mass-ratio targets (m_t/m_c, m_c/m_d)
 4. **Additive forms** (coeff ± term) achieve the highest precision for several targets

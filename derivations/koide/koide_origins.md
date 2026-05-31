@@ -15,7 +15,7 @@ The Koide formula (Y. Koide, 1983) states that for charged leptons
 
 $$Q = \frac{m_e + m_\mu + m_\tau}{(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau})^2} = \frac{2}{3}$$
 
-**Experimental confirmation (PDG 2024):**
+**Experimental numerical match (PDG 2024):**
 
 | Mass | Value (MeV) |
 |------|-------------|

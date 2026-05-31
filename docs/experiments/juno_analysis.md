@@ -1,17 +1,19 @@
-# Trinity Prediction vs JUNO & Global Neutrino Data: sin²θ₁₃
+# Trinity Post-Hoc Fit vs JUNO & Global Neutrino Data: sin²θ₁₃
+
+> **DISCLAIMER:** The formula sin²θ₁₃ = φ^(3/2)/(30π) is a **retrospective fit** (post-hoc coincidence) found by matching experimental data, not a prediction made before the measurement. See `PREDICTIONS_PREREGISTERED.md` for the distinction.
 
 ## Executive Summary
 
 | Quantity | Value |
 |----------|-------|
-| **Trinity prediction** | sin²θ₁₃ = φ^(3/2)/(30π) = **0.021838** |
+| **Trinity fitted formula** | sin²θ₁₃ = φ^(3/2)/(30π) = **0.021838** |
 | **NuFIT 6.0 best fit (NO, 2024)** | sin²θ₁₃ = **0.02195 ± 0.00056** |
 | **Deviation from best fit** | **0.51%** (0.20σ) — WITHIN 1σ |
 | **JUNO can falsify Trinity?** | **NO** — σ_JUNO(6yr) ≈ 0.003 is ~5× larger than current precision |
 
 ---
 
-## 1. Trinity Prediction
+## 1. Trinity Fitted Formula
 
 **Formula:** sin²θ₁₃ = φ^(3/2)/(30π)
 
@@ -27,7 +29,7 @@ Where φ = (1+√5)/2 is the golden ratio.
 sin²θ₁₃ = φ^(3/2)/(30π)       = 0.021837872847919...
 ```
 
-**Trinity prediction: sin²θ₁₃ ≈ 0.021838**
+**Trinity fitted value: sin²θ₁₃ ≈ 0.021838**
 
 Derived quantity: sin²(2θ₁₃) = 4 sin²θ₁₃ cos²θ₁₃ = 4 × 0.021838 × (1−0.021838) = **0.08544**
 
@@ -101,7 +103,7 @@ Using NuFIT 6.0 Normal Ordering as the reference:
 Deviation = 0.000112 / 0.00056 = 0.20σ
 ```
 
-**Result: The Trinity prediction is 0.20σ from the NuFIT 6.0 best fit.**
+**Result: The Trinity fitted value is 0.20σ from the NuFIT 6.0 best fit.**
 
 | Confidence Level | Is Trinity Inside? |
 |------------------|-------------------|
@@ -109,7 +111,7 @@ Deviation = 0.000112 / 0.00056 = 0.20σ
 | 2σ range: [0.02079, 0.02307] | **YES** |
 | 3σ range: [0.02023, 0.02376] | **YES** |
 
-The Trinity prediction lies comfortably within 1σ of the global best fit.
+The Trinity fitted value lies comfortably within 1σ of the global best fit.
 
 ---
 
@@ -134,7 +136,7 @@ This is ~5× **larger** than current global precision (σ ≈ 0.00056). JUNO rel
 
 ### 4.2 Falsifiability Criterion
 
-To falsify a prediction, we need: |pred − exp| > 3 × σ_experiment
+To falsify a fitted formula, we need: |fit − exp| > 3 × σ_experiment
 
 **Using JUNO 6-year σ = 0.003:**
 ```
@@ -154,7 +156,7 @@ The Trinity-experiment difference is only **0.04σ** of JUNO's expected uncertai
 0.000112 < 0.00168  →  NOT falsifiable at 3σ
 ```
 
-The Trinity prediction is at 0.20σ — well within 1σ of the current best fit.
+The Trinity fitted value is at 0.20σ — well within 1σ of the current best fit.
 
 ### 4.3 Verdict
 
@@ -165,21 +167,21 @@ The Trinity prediction is at 0.20σ — well within 1σ of the current best fit.
 | Actual σ-distance (current) | **0.20σ** | Compatible |
 | Actual σ-distance (JUNO) | **0.04σ** | Compatible |
 
-**→ JUNO CANNOT falsify the Trinity prediction.** 
+**→ JUNO CANNOT falsify the Trinity fitted value.** 
 
-The experiment with the best chance to test Trinity is actually **Daya Bay** (already concluded, 2.8% precision on sin²2θ₁₃), whose data the Trinity prediction matches at 0.41% accuracy.
+The experiment with the best chance to test this fitted formula is actually **Daya Bay** (already concluded, 2.8% precision on sin²2θ₁₃), whose data the Trinity fitted value matches at 0.41% accuracy.
 
 ---
 
 ## 5. Key Takeaways
 
-1. **Trinity prediction (0.021838) is 0.51% below the NuFIT 6.0 best fit (0.02195)** — an excellent agreement.
+1. **Trinity fitted value (0.021838) is 0.51% below the NuFIT 6.0 best fit (0.02195)** — a close numerical coincidence.
 
-2. **The prediction is 0.20σ from the global best fit** — well within 1σ and comfortably inside all confidence contours up to 3σ.
+2. **The fitted value is 0.20σ from the global best fit** — well within 1σ and comfortably inside all confidence contours up to 3σ.
 
 3. **JUNO cannot falsify Trinity** because JUNO's precision on sin²θ₁₃ (~12%) is actually much worse than existing measurements (~3%). JUNO is designed for Δm²₂₁, sin²θ₁₂, and neutrino mass ordering — NOT for θ₁₃.
 
-4. **The best test of Trinity on sin²θ₁₃ already exists** in the Daya Bay + RENO + global fit data, and Trinity passes with flying colors.
+4. **The best test of this fitted formula on sin²θ₁₃ already exists** in the Daya Bay + RENO + global fit data, and the Trinity value matches the data.
 
 5. **To achieve a 3σ test of Trinity**, an experiment would need:
    - σ(sin²θ₁₃) < 0.000112/3 ≈ **0.00004** 

@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 20 σ-distance ranking)
+# Current status: Superseded by Wave 24+ canonical assessment. See TECH_TREE.md and
+# RESEARCH_STATUS.md for current project state.
+
 # Wave 20 — σ-Distance Ranking (26 Formulas, Post-δ_CP Withdrawal)
 
 **Methodology:** σ = |predicted − measured| / σ_measured using **real** PDG 2024 + NuFit 6.0 experimental uncertainties. δ_CP (N04) withdrawn at >5σ; replaced by sin²θ_13, sin²θ_23, sin²θ_W, |V_ub|, λ_Higgs.

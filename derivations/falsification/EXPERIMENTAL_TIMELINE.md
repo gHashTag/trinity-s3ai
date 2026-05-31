@@ -59,23 +59,23 @@ DUNE is a long-baseline neutrino oscillation experiment using the LBNF beamline 
 
 ### 2.3 JUNO (Jiangmen Underground Neutrino Observatory)
 
-JUNO is a 20-kt liquid-scintillator reactor neutrino experiment in China designed to determine the neutrino mass ordering and measure oscillation parameters with sub-percent precision. Using eight reactor complexes at baselines ~53 km, JUNO targets Δm²₂₁ to ~0.6% and sin²θ₁₂ to ~0.5%. Startup and first physics data are expected in 2025, with full statistics by ~2030. For Trinity S³AI, JUNO tests the structural prediction Δm²₂₁/Δm²₃₁ = 0.0300 (P5), currently compatible at ~0.1σ. JUNO will independently measure both Δm² values, tightening the ratio uncertainty. A > 3σ deviation from 0.0300 would refute the structural formula π/(40φ²). JUNO also contributes to sin²θ₁₃ at the ~1% level, though this parameter is already known to high precision.
+JUNO is a 20-kt liquid-scintillator reactor neutrino experiment in China designed to determine the neutrino mass ordering and measure oscillation parameters with sub-percent precision. Using eight reactor complexes at baselines ~53 km, JUNO targets Δm²₂₁ to ~0.6% and sin²θ₁₂ to ~0.5%. Startup and first physics data are expected in 2025, with full statistics by ~2030. For Trinity S³AI, JUNO tests the fitted formula Δm²₂₁/Δm²₃₁ = 0.0300 (P5), currently compatible at ~0.1σ. JUNO will independently measure both Δm² values, tightening the ratio uncertainty. A > 3σ deviation from 0.0300 would refute the structural formula π/(40φ²). JUNO also contributes to sin²θ₁₃ at the ~1% level, though this parameter is already known to high precision.
 
 ### 2.4 LZ (LUX-ZEPLIN)
 
-LZ is a dual-phase xenon time-projection chamber located at SURF, with a 7-tonne active xenon mass and unprecedented low-background sensitivity. LZ-1 completed its first science run in 2023–2024, setting world-leading limits on spin-independent WIMP-nucleon cross sections. LZ-2, an upgrade with reduced backgrounds and increased exposure, is planned for 2026–2028. For Trinity S³AI, LZ-2 is the primary direct-detection probe of the WIMP mass predictions 12.82 GeV and 36.0 GeV. Current limits already exclude σ_SI > ~10⁻⁴⁷ cm² at ~10–40 GeV. LZ-2 will push this to ~10⁻⁴⁸ cm² or better. If LZ-2 excludes σ_SI > 10⁻⁴⁹ cm² at 12.82 GeV without signal, the WIMP interpretation of Trinity dark matter becomes untenable unless a specific cross-section prediction is provided by the theory.
+LZ is a dual-phase xenon time-projection chamber located at SURF, with a 7-tonne active xenon mass and unprecedented low-background sensitivity. LZ-1 completed its first science run in 2023–2024, setting world-leading limits on spin-independent WIMP-nucleon cross sections. LZ-2, an upgrade with reduced backgrounds and increased exposure, is planned for 2026–2028. For Trinity S³AI, LZ-2 is the primary direct-detection probe of the WIMP mass fitted values 12.82 GeV and 36.0 GeV. Current limits already exclude σ_SI > ~10⁻⁴⁷ cm² at ~10–40 GeV. LZ-2 will push this to ~10⁻⁴⁸ cm² or better. If LZ-2 excludes σ_SI > 10⁻⁴⁹ cm² at 12.82 GeV without signal, the WIMP interpretation of Trinity dark matter becomes untenable unless a specific cross-section prediction is provided by the theory.
 
 ### 2.5 XENONnT
 
-XENONnT is the successor to XENON1T, operating at Gran Sasso with ~5.9 tonnes of liquid xenon. It has been taking data since 2021 and continues to set competitive WIMP limits, particularly in the 10–100 GeV mass range. XENONnT will run through approximately 2028, with potential upgrades (e.g., nT+) extending sensitivity. For Trinity S³AI, XENONnT provides complementary coverage to LZ-2, especially at masses around 12.82 GeV and 36.0 GeV. Combined LZ + XENONnT data by 2028 will likely probe σ_SI < 10⁻⁴⁸ cm² across the 10–50 GeV window. Absence of a signal at the predicted masses would force Trinity to either abandon the WIMP interpretation or predict a specific (and very small) cross-section.
+XENONnT is the successor to XENON1T, operating at Gran Sasso with ~5.9 tonnes of liquid xenon. It has been taking data since 2021 and continues to set competitive WIMP limits, particularly in the 10–100 GeV mass range. XENONnT will run through approximately 2028, with potential upgrades (e.g., nT+) extending sensitivity. For Trinity S³AI, XENONnT provides complementary coverage to LZ-2, especially at the fitted mass values 12.82 GeV and 36.0 GeV. Combined LZ + XENONnT data by 2028 will likely probe σ_SI < 10⁻⁴⁸ cm² across the 10–50 GeV window. Absence of a signal at the predicted masses would force Trinity to either abandon the WIMP interpretation or predict a specific (and very small) cross-section.
 
 ### 2.6 DARWIN (Dark Matter WImp search with liquid xenoN)
 
-DARWIN is a proposed next-generation multi-tonne liquid-xenon observatory (~50 tonnes), aiming for the ultimate sensitivity to WIMP dark matter and neutrinoless double-beta decay. If approved, construction could begin in the early 2030s, with data-taking starting around 2033–2035. DARWIN targets σ_SI < 10⁻⁴⁹ cm² for WIMP masses above ~10 GeV and will probe the neutrino fog — the irreducible background from coherent neutrino-nucleus scattering. For Trinity S³AI, DARWIN represents the final direct-detection test: if no WIMP signal is found at 12.82 GeV or 36.0 GeV by 2035, the WIMP interpretation is effectively closed unless Trinity predicts a cross-section below the neutrino fog.
+DARWIN is a proposed next-generation multi-tonne liquid-xenon observatory (~50 tonnes), aiming for the ultimate sensitivity to WIMP dark matter and neutrinoless double-beta decay. If approved, construction could begin in the early 2030s, with data-taking starting around 2033–2035. DARWIN targets σ_SI < 10⁻⁴⁹ cm² for WIMP masses above ~10 GeV and will probe the neutrino fog — the irreducible background from coherent neutrino-nucleus scattering. For Trinity S³AI, DARWIN represents the final direct-detection test: if no WIMP signal is found at 12.82 GeV or 36.0 GeV by 2035, the WIMP interpretation is effectively closed.
 
 ### 2.7 ADMX (Axion Dark Matter eXperiment)
 
-ADMX is a microwave cavity haloscope searching for axion dark matter in the 1–10 μeV mass range (~0.2–2.5 GHz), corresponding to the QCD axion window. The experiment has been operational since the 1990s and has reached sensitivity to the KSVZ axion coupling in parts of its mass range. Upgrades (ADMX-Gen2) aim to extend coverage to higher masses and lower couplings by 2030. For Trinity S³AI, ADMX does not directly test the 12.8 THz prediction (which is far above microwave frequencies), but it establishes the experimental paradigm for axion/ALP searches. If Trinity's f₀ = 12.8 THz is reinterpreted as an axion-like particle mass (~0.053 meV), ADMX-style technology would need to be adapted to the THz regime.
+ADMX is a microwave cavity haloscope searching for axion dark matter in the 1–10 μeV mass range (~0.2–2.5 GHz), corresponding to the QCD axion window. The experiment has been operational since the 1990s and has reached sensitivity to the KSVZ axion coupling in parts of its mass range. Upgrades (ADMX-Gen2) aim to extend coverage to higher masses and lower couplings by 2030. For Trinity S³AI, ADMX does not directly test the 12.8 THz fitted value (which is far above microwave frequencies), but it establishes the experimental paradigm for axion/ALP searches. If Trinity's f₀ = 12.8 THz is reinterpreted as an axion-like particle mass (~0.053 meV), ADMX-style technology would need to be adapted to the THz regime.
 
 ### 2.8 CAST (CERN Axion Solar Telescope)
 
@@ -87,7 +87,7 @@ DESI (Dark Energy Spectroscopic Instrument) has been operating at Kitt Peak sinc
 
 ### 2.10 Hyper-Kamiokande (Hyper-K)
 
-Hyper-K is a next-generation water-Cherenkov detector in Japan, with a 188-kt fiducial mass (x25 Super-K), designed for precision neutrino oscillation physics, proton decay searches, and supernova neutrino detection. Construction is underway, with data-taking expected to begin around 2030. For Trinity S³AI, Hyper-K provides an independent long-baseline measurement of δ_CP (using the J-PARC neutrino beam) with precision comparable to DUNE in some channels. It also searches for proton decay, which, while not directly predicted by Trinity, is a key signature of grand unification that any finite-geometry model should address. Hyper-K's δ_CP measurement will cross-validate DUNE's result, either reinforcing or weakening the Trinity prediction.
+Hyper-K is a next-generation water-Cherenkov detector in Japan, with a 188-kt fiducial mass (x25 Super-K), designed for precision neutrino oscillation physics, proton decay searches, and supernova neutrino detection. Construction is underway, with data-taking expected to begin around 2030. For Trinity S³AI, Hyper-K provides an independent long-baseline measurement of δ_CP (using the J-PARC neutrino beam) with precision comparable to DUNE in some channels. It also searches for proton decay, which, while not directly predicted by Trinity, is a key signature of grand unification that any finite-geometry model should address. Hyper-K's δ_CP measurement will cross-validate DUNE's result. The Trinity δ_CP formula is WITHDRAWN (>5σ excluded).
 
 ### 2.11 FCC-hh (Future Circular Collider — hadron)
 
@@ -108,17 +108,20 @@ High-resolution terahertz time-domain spectroscopy (THz-TDS) and Raman spectrosc
 ```
 START: DUNE measures δ_CP (2028–2035)
 │
+> **NOTE:** Trinity δ_CP = 65.66° is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025).
+> The decision tree below is preserved for historical reference only.
+│
 ├─ If DUNE finds δ_CP ∈ [30°, 100°] at 3σ
-│  └─→ Trinity δ_CP = 65.66° SURVIVES this test (non-trivial confirmation)
+│  └─→ Trinity δ_CP = 65.66° would have SURVIVED this test (historical)
 │
 ├─ If DUNE finds δ_CP ∈ [100°, 150°] at 3σ
-│  └─→ Trinity δ_CP is TENSIONED but not definitively excluded (~1–2σ)
+│  └─→ Trinity δ_CP would have been TENSIONED (historical)
 │
 ├─ If DUNE finds δ_CP ∈ [150°, 260°] at 3σ (current best-fit region)
-│  └─→ Trinity δ_CP = 65.66° is REFUTED
+│  └─→ Trinity δ_CP = 65.66° is already REFUTED at >5σ
 │
 └─ If DUNE finds δ_CP ≈ 270° (T2K best fit) at 3σ
-   └─→ Trinity δ_CP is strongly refuted
+   └─→ Trinity δ_CP is strongly refuted (already exceeded)
 
 START: HL-LHC measures m_H with ±0.05 GeV precision (2029–2041)
 │
@@ -267,7 +270,7 @@ As of Wave 13.6, the Trinity S³AI framework has **zero phenomenological predict
 
 For Trinity S³AI to establish genuine predictive power, the following must occur:
 
-1. **DUNE measures δ_CP ≈ 65.66° at 3σ significance.** This would be a non-trivial confirmation because the current best fit (197°) is far from the prediction. The formula `3/φ²` must have been registered *before* the measurement.
+1. **~~DUNE measures δ_CP ≈ 65.66° at 3σ significance.~~** (WITHDRAWN — this criterion is obsolete. The formula `3/φ²` is excluded at >5σ by current data. Under the anti-post-hoc rule, no replacement δ_CP formula may be introduced.)
 
 2. **THz spectroscopy finds a line at 12.8 ± 0.5 THz** in icosahedral quasicrystals with no known phonon explanation. This would open a new empirical window for the framework.
 

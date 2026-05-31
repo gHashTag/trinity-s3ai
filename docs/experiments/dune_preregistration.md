@@ -31,9 +31,7 @@ Derivation: The CP-violating phase in the Trinity framework is predicted to be:
 
 delta_CP = 3/phi² = 3/2.618034... = 1.145898 rad = 65.6551°
 
-This prediction is **mathematically constrained** -- derived from the H4 Coxeter group
-structure. It cannot be adjusted to match neutrino data without breaking the
-entire geometric framework.
+This prediction was **historically claimed** to be mathematically constrained and derived from the H4 Coxeter group structure. It cannot be adjusted to match neutrino data without breaking the geometric framework. **Current assessment:** The formula is a post-hoc fit, not a first-principles derivation.
 
 ---
 
@@ -202,7 +200,7 @@ If DUNE falsifies delta_CP = 65.66°:
 2. **Do not modify the formula** to match DUNE data (unless the modification was pre-registered with independent justification)
 3. **Reassess the entire Trinity framework** -- if one of its four angle predictions fails, the underlying algebraic structure is called into question
 4. **Publish the boundary finding** -- the pre-registration itself has scientific value regardless of outcome
-5. **Consider whether other Trinity predictions** (KATRIN m_nue, JUNO sin²theta_13, HL-LHC lambda) are still valid or should be treated as independent tests
+5. **Consider whether other Trinity formulas with experimental comparisons** (KATRIN m_nue, JUNO sin²theta_13, HL-LHC lambda) remain valid as independent tests
 
 ### 6.4 What Would Partial Confirmation Look Like?
 

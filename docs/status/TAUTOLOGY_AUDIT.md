@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 20 tautology audit)
+# Current status: Superseded by Wave 24+ canonical assessment. See RESEARCH_STATUS.md and
+# TECH_TREE.md for current project state.
+
 # Tautology Audit — Trinity S³AI Coq Codebase (Wave 20)
 
 **Methodology:** Automated pattern search across all `.v` files in `proofs/` and `derivations/`.
