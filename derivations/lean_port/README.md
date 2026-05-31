@@ -76,7 +76,7 @@ a build in < 2 seconds and no external dependencies.
 
 ---
 
-## Directory Structure
+## Directory Structure (post Wave 24+ cleanup)
 
 ```
 derivations/lean_port/
@@ -85,12 +85,21 @@ derivations/lean_port/
 ├── lean-toolchain          # version pinned: leanprover/lean4:v4.13.0
 ├── README.md               # this file
 └── TrinityLean/
-    ├── CorePhi.lean              # port of proofs/trinity/CorePhi.v (requires Mathlib)
-    ├── KODimension.lean          # KO-dimension of the 600-cell
-    ├── QuaternionicLinearity.lean # quaternionic linearity
-    ├── Spectrum600Cell.lean      # spectrum of the 600-cell (0 sorry)
-    ├── EtaInvariant.lean         # eta invariants for platonic plumbing
-    └── DiracOperator.lean        # Dirac operator, gamma matrices, Clifford
+    ├── CorePhi.lean                  # requires Mathlib; NOT in default target
+    ├── KODimensionMathlib.lean       # Mathlib-based extended version (281 lines)
+    ├── QuaternionicLinearityMathlib.lean # Mathlib-based extended version (326 lines)
+    ├── TrinityLean.lean              # root file — imports default target modules
+    ├── lakefile.lean                 # package config
+    ├── README.md                     # module-specific docs
+    └── TrinityLean/                  # default `lake build` target modules
+        ├── KODimension.lean          # pure-Lean KO-dimension (95 lines)
+        ├── QuaternionicLinearity.lean # pure-Lean quaternions (Float, 137 lines)
+        ├── Spectrum600Cell.lean      # spectrum of the 600-cell (0 sorry)
+        ├── EtaInvariant.lean         # eta invariants for platonic plumbing
+        ├── DiracOperator.lean        # Dirac operator, gamma matrices, Clifford
+        ├── H4RootSystem.lean         # H₄ Coxeter matrix (1 sorry)
+        ├── HamiltonFano.lean         # Fano-plane Hamilton cycle
+        └── Snub24Z3.lean            # Z₃ partition of snub 24-cell
 ```
 
 ---
@@ -102,11 +111,11 @@ derivations/lean_port/
 | File | Lemmas/Theorems | sorry | axiom | Note |
 |------|-------------|-------|-------|-----------|
 | `CorePhi.lean` | 14 | 0 | 0 | Requires Mathlib, not in default target |
-| `KODimension.lean` | 18 | 0 | 1 (`cell600_J_off_diagonal`) | Structural axiom |
-| `QuaternionicLinearity.lean` | 6 | **0** | 11 | 10 Float axioms + `normSq_mul` |
-| `Spectrum600Cell.lean` | 3 | **0** | 0 | `chiral_symmetry` proven in pure Lean |
-| `EtaInvariant.lean` | 4 | 0 | 0 | Pure definitions |
-| `DiracOperator.lean` | 5 | 0 | 1 (`clifford_mul_assoc`) | Structural axiom (analog of `normSq_mul`) |
+| `TrinityLean/KODimension.lean` | 18 | 0 | 1 (`cell600_J_off_diagonal`) | Structural axiom |
+| `TrinityLean/QuaternionicLinearity.lean` | 6 | **0** | 11 | 10 Float axioms + `normSq_mul` |
+| `TrinityLean/Spectrum600Cell.lean` | 3 | **0** | 0 | `chiral_symmetry` proven in pure Lean |
+| `TrinityLean/EtaInvariant.lean` | 4 | 0 | 0 | Pure definitions |
+| `TrinityLean/DiracOperator.lean` | 5 | 0 | 1 (`clifford_mul_assoc`) | Structural axiom (analog of `normSq_mul`) |
 | **Total** | **50** | **0** | **13** | |
 
 ### What Changed in Stage 3
@@ -212,14 +221,17 @@ or open the files in VS Code with the `leanprover.lean4` extension.
 
 ## File Correspondence: Coq ↔ Lean 4
 
-| Coq (proofs/trinity/) | Lean 4 (TrinityLean/) | Status |
-|-----------------------|-----------------------|--------|
-| `CorePhi.v` | `CorePhi.lean` | Stage 0 + aux. |
-| `KODimension.v` | `KODimension.lean` | Stage 1 ✓ |
-| `QuaternionicLinearity.v` | `QuaternionicLinearity.lean` | Stage 2 ✓ |
-| `Spectrum600Cell.v` | `Spectrum600Cell.lean` | Stage 3 ✓ |
-| `EtaInvariant.v` | `EtaInvariant.lean` | Stage 3 ✓ |
-| `DiracOperator.v` | `DiracOperator.lean` | Stage 3 ✓ (new) |
+| Coq (proofs/trinity/) | Lean 4 (TrinityLean/TrinityLean/) | Status |
+|-----------------------|-----------------------------------|--------|
+| `CorePhi.v` | `CorePhi.lean` (top-level, Mathlib) | Stage 0 + aux. |
+| `KODimension.v` | `TrinityLean/KODimension.lean` | Stage 1 ✓ |
+| `QuaternionicLinearity.v` | `TrinityLean/QuaternionicLinearity.lean` | Stage 2 ✓ |
+| `Spectrum600Cell.v` | `TrinityLean/Spectrum600Cell.lean` | Stage 3 ✓ |
+| `EtaInvariant.v` | `TrinityLean/EtaInvariant.lean` | Stage 3 ✓ |
+| `DiracOperator.v` | `TrinityLean/DiracOperator.lean` | Stage 3 ✓ (new) |
+| `H4RootSystem.v` | `TrinityLean/H4RootSystem.lean` | Stage 1 ✓ |
+| `HamiltonFano.v` | `TrinityLean/HamiltonFano.lean` | Stage 2 ✓ |
+| `Snub24Z3.v` | `TrinityLean/Snub24Z3.lean` | Stage 3 ✓ |
 | `H4Derivations.v` | _not started_ | — |
 | `E6vsH4.v` | _not started_ | — |
 | `Bounds_LeptonMasses.v` | _not started_ | — |
