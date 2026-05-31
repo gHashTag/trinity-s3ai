@@ -106,7 +106,7 @@ derivations/lean_port/
 
 ## Stage 3 Status (Wave 13.2)
 
-`lake build` passes **with 0 errors** and **0 `sorry`**.
+`lake build` passes **with 0 errors** and **1 `sorry`** (in `H4RootSystem.lean`, icosian embedding).
 
 | File | Lemmas/Theorems | sorry | axiom | Note |
 |------|-------------|-------|-------|-----------|
@@ -116,7 +116,10 @@ derivations/lean_port/
 | `TrinityLean/Spectrum600Cell.lean` | 3 | **0** | 0 | `chiral_symmetry` proven in pure Lean |
 | `TrinityLean/EtaInvariant.lean` | 4 | 0 | 0 | Pure definitions |
 | `TrinityLean/DiracOperator.lean` | 5 | 0 | 1 (`clifford_mul_assoc`) | Structural axiom (analog of `normSq_mul`) |
-| **Total** | **50** | **0** | **13** | |
+| `TrinityLean/H4RootSystem.lean` | 5 | **1** (icosian embedding) | 0 | Structural gap; TODO follow-up PR |
+| `TrinityLean/HamiltonFano.lean` | 3 | 0 | 0 | Fano-plane Hamilton cycle |
+| `TrinityLean/Snub24Z3.lean` | 4 | 0 | 0 | Z₃ partition of snub 24-cell |
+| **Total** | **62** | **1** | **13** | |
 
 ### What Changed in Stage 3
 
@@ -141,7 +144,7 @@ derivations/lean_port/
 
 ```bash
 cd derivations/lean_port/TrinityLean
-lake build   # ~1.4 s, 0 errors, 0 sorry
+lake build   # ~1.4 s, 0 errors, 1 sorry (H4RootSystem icosian embedding)
 ```
 
 ---
