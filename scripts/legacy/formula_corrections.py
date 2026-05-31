@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# LEGACY SCRIPT — contains outdated formulas and superseded computations.
+# See scripts/validators/validate_v4.py and FORMULAS.md for canonical data.
 """
 Trinity S³AI v3.5 — Complete Formula Corrections
 =================================================

@@ -10,7 +10,7 @@ Complete Rust implementation testing numerical coincidences between H4 invariant
 |--------|---------|-----------|
 | `ring` | Algebraic foundations: `Ring`, `Field`, `QSqrt5` | `QSqrt5`, `phi_pow(n)` |
 | `h4` | H4 root system & reflection subgroups | `H4Root`, `H4Subgroup`, `generate_h4_roots()` |
-| `gauge` | SU(3)×SU(2)×U(1) from H4 subgroups | `SMGaugeGroup`, `GaugeCouplings` |
+| `gauge` | SU(3)×SU(2)×U(1) postulated per Connes' ansatz (H4 subgroups provide historical motivation) | `SMGaugeGroup`, `GaugeCouplings` |
 | `higgs` | Higgs potential & mass formulas | `HiggsPotential`, `HiggsTrinity` |
 | `yukawa` | Fermion mass matrices | `QuarkMasses`, `LeptonMasses` |
 | `mixing` | CKM & PMNS matrices | `CKM`, `PMNS` |

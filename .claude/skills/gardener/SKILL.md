@@ -3,6 +3,7 @@ name: gardener
 description: |
   Садовник IGLA RACE — управление садом обучающих запусков trios-train.
   Команды: status, prune, water, harvest, fertilize, weed, trellis, compost, full.
+  Предпочитает tri gardener CLI (Rust) и HTML chart report с Chart.js.
   Триггеры: «/gardener», «садовник», слова про BPB/логи/упавшие процессы в контексте trios-train.
 trigger:
   paths:
@@ -37,6 +38,30 @@ trigger:
 6. **Fertilize (Удобрение)** — определять лучшие комбинации format/seed/hidden/lr и повышать их приоритет в свипе.
 7. **Trellis (Шпалера)** — направлять поиск гиперпараметров в перспективные подпространства.
 8. **Compost (Компостирование)** — архивировать старые логи и освобождать диск.
+
+## Инструменты садовника
+
+### `tri gardener` CLI (предпочтительный способ)
+
+Реализован в `src/bin/tri.rs` (bin `tri`). Скомпилировать: `cargo build --bin tri`.
+
+| Команда | Что делает |
+|---|---|
+| `tri gardener status` | Локальные процессы, диск логов, лучший BPB флота |
+| `tri gardener harvest <service>` | Собрать последний BPB из Railway и дописать в `gardener_harvest.log` |
+| `tri gardener harvest-all` | Собрать все 35 известных сервисов флота |
+| `tri gardener prune` | Убить zombie `trios-train` |
+| `tri gardener water` | Показать упавшие логи (OOM/Killed/Segfault) |
+| `tri gardener logs <service>` | Потоковые логи Railway для сервиса |
+| `tri gardener report` | Открыть HTML chart report в браузере |
+
+### HTML Chart Report
+
+Файл: `.trinity/gardener_report.html` — автоматически генерируется Python-скриптом `/tmp/build_chart.py` + вставка JSON в HTML.
+- Chart.js график `Best BPB` vs `Training Steps` по всем сервисам
+- Карточки статистики (services tracked, harvest entries, best/worst BPB, champion, Gate-2 target)
+- Скроллируемая таблица последних 30 записей с цветовой кодировкой BPB
+- Для обновления: `python3 /tmp/build_chart.py gardener_harvest.log`, затем вставить `CHART_DATA` и `RAW_DATA` в HTML.
 
 ## Команды и их реализация
 

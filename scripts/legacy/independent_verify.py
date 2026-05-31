@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# LEGACY SCRIPT — contains outdated verification logic.
+# See scripts/validators/validate_v4.py for current canonical validation.
 """
 ================================================================================
 INDEPENDENT EVALUATION OF ~25 TRINITY FORMULAS

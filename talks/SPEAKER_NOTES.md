@@ -91,7 +91,7 @@
 ## Slide 6: Table of Boundary Theorems (8:00–9:30)
 
 **What to say:**
-> "We proved five Boundary theorems — all Qed in Coq. One: no sigma-field exists in H₄ geometry. Two: no three-generation structure emerges from H₄. Three: the D₄ alternative gives KO-dimension five mod eight, not six. Four: the spectral-action prediction for the Higgs mass is one hundred thirty-two point eight eight GeV. Five: E₆ and E₇ plumbing also mismatch. Every refutation is a formal theorem, not a heuristic argument. This is the core of the talk: the hypothesis is dead, but it died with a certificate."
+> "We proved four canonical Boundary theorems (BT-1..BT-4) — all Qed in Coq. One: no sigma-field exists in H₄ geometry. Two: no three-generation structure emerges from H₄. Three: the D₄ alternative gives KO-dimension five mod eight, not six. Four: the spectral-action prediction for the Higgs mass is one hundred thirty-two point eight eight GeV. Five: E₆ and E₇ plumbing also mismatch. Every refutation is a formal theorem, not a heuristic argument. This is the core of the talk: the hypothesis is dead, but it died with a certificate."
 
 **Key phrases to emphasize:**
 - *"five Boundary theorems — all Qed in Coq"* — slap the table lightly if you do that.
@@ -152,7 +152,7 @@
 ## Slide 10: Open Questions (15:00–16:30)
 
 **What to say:**
-> "Five open problems. One: can one-loop quantum corrections bridge one thirty-two point eight eight to one twenty-five point one zero? Open. Two: does E₆ or E₇ plumbing give a better finite space? Open. Three: we still have eighty-one Admitted proofs in Coq and one sorry in Lean — we log every single one. Four: can eta equals minus two be promoted to full Standard Model chirality? Open. Five: our delta CP prediction of sixty-five point six six degrees is two point seven sigma from NuFit six point zero. DUNE will measure this in twenty twenty-eight. It might survive; it might not. Every prediction is registered in Predictions Registry dot em dee, with dates and falsification criteria."
+> "Five open problems. One: can one-loop quantum corrections bridge one thirty-two point eight eight to one twenty-five point one zero? Open. Two: does E₆ or E₇ plumbing give a better finite space? Open. Three: we still have one hundred twenty-three unproven obligations in Coq — we log every single one. Four: can eta equals minus two be promoted to full Standard Model chirality? Open. Five: our delta CP fit of sixty-five point six six degrees was withdrawn at greater than five sigma. Three open items remain: sum m_nu, lambda_H, and m_H over m_W. Every open item is registered in Predictions Registry dot em dee, with dates and falsification criteria."
 
 **Key phrases to emphasize:**
 - *"eighty-one Admitted proofs — we log every single one"* — transparency.

@@ -51,3 +51,9 @@ This strips all comments and strings before counting, so historical `Admitted` m
 BT-1 through BT-4 are **impossibility results** (proven in `proofs/trinity/BoundaryTheorems.v`). They prove that *certain direct constructions* fail. When citing them:
 - Do not call them "dead ends" — they are guideposts.
 - Always reference the specific BT number and the obstruction it proves.
+
+### Limits of Formal Proof (honest scope)
+- Coq `Qed.` on a mathematical theorem **does not** guarantee correctness of a generated implementation (RTL, C, etc.).
+- Formal proofs and implementation are orthogonal layers: proofs verify the *spec*, implementation must be verified separately (functional sweep, simulation, testing).
+- Example: 84 Coq proofs of φ-mathematics did not catch systematic RTL bugs in GF multipliers (out-of-bounds product width, wrong normalization bit).
+- Rule of thumb: if there is a code generator or handwritten implementation, add a **functional verification layer** (sweep against exact reference) in addition to formal proofs.

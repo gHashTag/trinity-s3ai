@@ -74,7 +74,7 @@ elements naturally explains the CKM hierarchy.
 
 ### 2.1 H4 Mixing Angles
 
-The CKM matrix elements are derived from H4 root system geometry.
+The CKM matrix elements are fitted coincidences postulated from H4 root system geometry (not derived from first principles).
 The key mixing angles are:
 
 **θ₁₂ (1-2 mixing):**
@@ -134,7 +134,7 @@ Majorana mass (H4-invariant, at GUT scale).
     Δm²₂₁ = (φe/π)⁶ × 10⁻⁵ eV² = 7.53 × 10⁻⁵ eV²
 
     This matches the experimental value
-    Δm²₂₁(exp) = (7.53 ± 0.18) × 10⁻⁵ eV² exactly!
+    Δm²₂₁(exp) = (7.53 ± 0.18) × 10⁻⁵ eV² within the fitted window.
 
 The factor (φe/π)⁶ = 7.53 is a pure number from H4 structure.
 
@@ -275,12 +275,12 @@ sums of dimensions of specific irreducible representations.
    with hierarchical structure from φ-power spacings. Off-diagonal
    elements come from H4 CG coefficients.
 
-2. **CKM**: Mixing angles are derived from H4 root system geometry,
-   giving excellent agreement for |V_us| and reasonable agreement
-   for other elements.
+2. **CKM**: Mixing angles are fitted coincidences using H4-inspired coefficients,
+   giving close numerical agreement for |V_us| and reasonable agreement
+   for other elements. None are derived from H4 first principles.
 
-3. **Neutrinos**: The solar mass splitting Δm²₂₁ is predicted exactly
-   by (φe/π)⁶. The seesaw scale is ~10¹⁰ GeV.
+3. **Neutrinos**: The solar mass splitting Δm²₂₁ matches the fitted coincidence
+   (φe/π)⁶. The seesaw scale is ~10¹⁰ GeV. This is not a prediction from H4 geometry.
 
 4. **3 Generations**: E8 Sector B exponents {11, 17, 23} give exactly
    3 generation-like couplings. A 4th generation would have coupling

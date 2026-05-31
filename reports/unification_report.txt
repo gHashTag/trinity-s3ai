@@ -17,7 +17,7 @@ GAUGE COUPLING UNIFICATION ANALYSIS FROM H4
 
    Comparison with measured (PDG) values:
      α1(m_Z) [H4] = 0.010142  vs  α1(m_Z) [PDG] ≈ 0.016903  (40% lower)
-     α2(m_Z) [H4] = 0.033829  vs  α2(m_Z) [PDG] ≈ 0.033829  (exact match)
+     α2(m_Z) [H4] = 0.033829  vs  α2(m_Z) [PDG] ≈ 0.033829  (numerical coincidence)
      α3(m_Z) [H4] = 0.118637  vs  α3(m_Z) [PDG] ≈ 0.118000  (0.5% higher)
 
    → g2 and g3 are well-matched, but g1 is significantly too weak.

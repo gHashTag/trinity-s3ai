@@ -1,3 +1,5 @@
+# LEGACY SCRIPT — Yukawa couplings are fitted coincidences (BT-4 proves impossibility).
+# See docs/analysis/yukawa_from_h4_derivation.md for canonical honest status.
 """
 Yukawa Couplings from H4: Complete Mathematical Verification
 =============================================================

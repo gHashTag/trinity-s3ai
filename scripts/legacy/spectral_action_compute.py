@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# LEGACY SCRIPT — spectral action computes m_H ≈ 132.88 GeV (refuted at 55.6σ).
+# See proofs/trinity/HiggsPotentialCorrected.v for honest retrospective fit status.
 """
 Spectral Action Computation for 600-Cell Dirac Operator
 

@@ -8,6 +8,12 @@ Makefile.coq
 Makefile.coq.conf
 .Makefile.coq.d
 *.aux
+.lia.cache
+.nra.cache
+
+# Coq scratch / experiment directories
+gamma_test_dir/
+*.v.bak
 
 # Python
 __pycache__/

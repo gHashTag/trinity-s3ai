@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# LEGACY SCRIPT — superseded by Wave 20 honest MC (p = 0.077, not significant).
+# See scripts/honest_phenomenology_v20.py for current canonical protocol.
 """
 Honest P-Value Computation for Trinity V33
 ============================================

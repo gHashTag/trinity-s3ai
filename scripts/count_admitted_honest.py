@@ -127,20 +127,26 @@ def main():
             "refutations": r["refuted"],
         }
 
+    total_axioms_combined = total["Axiom"] + total["Conjecture"] + total["Parameter"]
     report = {
         "total_files": total_files,
         "total_qed": total["Qed"] + total["Defined"],
         "total_defined": total["Defined"],
         "total_admitted": total["Admitted"],
-        "total_axioms": total["Axiom"] + total["Conjecture"] + total["Parameter"],
+        "total_axioms": total_axioms_combined,
         "total_conjectures": total["Conjecture"],
         "total_parameters": total["Parameter"],
         "total_refutations": total["refuted"],
         "by_directory": by_dir,
         "honest_assessment": (
-            "proofs/trinity/ has 0 real Admitted but 123 total unproven obligations "
-            "(25 Admitted + 18 admit + 73 Axiom + 7 Parameter) across 79 Coq files; "
-            "4 Admitted in proofs/clifford_cl8/ and 1 in derivations/chirality/. "
+            f"proofs/trinity/ has {by_dir.get('proofs/trinity/', {}).get('admitted', 0)} Admitted + "
+            f"{by_dir.get('proofs/trinity/', {}).get('axioms', 0)} Axiom/Parameter/Conjecture = "
+            f"{by_dir.get('proofs/trinity/', {}).get('admitted', 0) + by_dir.get('proofs/trinity/', {}).get('axioms', 0)} "
+            f"total unproven obligations across {by_dir.get('proofs/trinity/', {}).get('files', 0)} Coq files; "
+            f"{by_dir.get('proofs/clifford_cl8/', {}).get('admitted', 0)} Admitted in proofs/clifford_cl8/ "
+            f"({by_dir.get('proofs/clifford_cl8/', {}).get('axioms', 0)} Axiom/Parameter/Conjecture). "
+            f"Project total: {total['Admitted']} Admitted + {total_axioms_combined} Axiom/Parameter/Conjecture = "
+            f"{total_axioms_combined + total['Admitted']} unproven obligations. "
         ),
     }
 

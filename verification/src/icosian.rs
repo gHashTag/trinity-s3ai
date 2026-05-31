@@ -90,33 +90,31 @@ fn group3_96() -> Vec<Quat2> {
     let inv_phi = Phi::new(-1, 1);
     let m_inv_phi = Phi::new(1, -1);
 
-    // Choose three nonzero values for x, y, z (1, phi, 1/phi) and place a
-    // zero in one of the four positions. The "even permutation" condition
-    // selects 3 cyclic orderings of (1, phi, 1/phi) (out of 6 permutations)
-    // and combined with all sign choices and all four zero positions gives
-    // 4 * 3 * 2^3 = 96 elements.
-    let triple = [(one, phi, inv_phi), (phi, inv_phi, one), (inv_phi, one, phi)];
-    let neg_triple = [
-        (m_one, m_phi, m_inv_phi),
-        (m_phi, m_inv_phi, m_one),
-        (m_inv_phi, m_one, m_phi),
+    // The 96 elements come from the 12 even permutations of (0, 1, phi, 1/phi)
+    // times 8 sign choices.  For each zero position there are exactly 3 even
+    // permutations.  The triples below list the three values (va, vb, vc) that
+    // must be placed at the three non-zero positions (in ascending order) for
+    // each zero position.
+    let triples_for_zero_pos = [
+        // zero_pos=0:  id, (1 2 3), (1 3 2)
+        [(one, phi, inv_phi), (phi, inv_phi, one), (inv_phi, one, phi)],
+        // zero_pos=1:  (0 2 1), (0 3 1), (0 1)(2 3)
+        [(phi, one, inv_phi), (inv_phi, phi, one), (one, inv_phi, phi)],
+        // zero_pos=2:  (0 2 1), (0 2 3), (0 2)(1 3)
+        [(one, phi, inv_phi), (inv_phi, one, phi), (phi, inv_phi, one)],
+        // zero_pos=3:  (0 1 3), (0 2 3), (0 3)(1 2)
+        [(one, inv_phi, phi), (phi, one, inv_phi), (inv_phi, phi, one)],
     ];
 
     let mut out = Vec::with_capacity(96);
-    // For each zero position, each cyclic triple, each sign-mask, place the
-    // values. We accumulate 4 * 3 * 8 = 96 distinct elements (verified by
-    // build-time assertion below).
     for zero_pos in 0..4 {
+        let triple = triples_for_zero_pos[zero_pos];
         for s in 0..8u32 {
             let sx = if s & 1 == 0 { 1 } else { -1 };
             let sy = if s & 2 == 0 { 1 } else { -1 };
             let sz = if s & 4 == 0 { 1 } else { -1 };
-            for (i, &(va, vb, vc)) in triple.iter().enumerate() {
-                let _ = neg_triple[i]; // referenced to keep the symmetric
-                                       // structure explicit
+            for &(va, vb, vc) in triple.iter() {
                 let mut comps = [zero, zero, zero, zero];
-                // Distribute the triple across the three non-zero positions,
-                // skipping zero_pos.
                 let positions: Vec<usize> = (0..4).filter(|&k| k != zero_pos).collect();
                 let signed = [
                     if sx == 1 { va } else { -va },

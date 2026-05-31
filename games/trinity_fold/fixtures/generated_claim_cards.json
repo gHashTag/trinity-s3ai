@@ -146,6 +146,78 @@
       ]
     },
     {
+      "id": "igla-race-baseline",
+      "kind": "observable",
+      "name": "IGLA baseline 2.3900",
+      "description": "Best observed BPB on FineWeb-Edu 10B subset with 196K-parameter transformer. No quantization (f32). EMA BPB = 2.3900 at step 79K.",
+      "claim": "empirical_fit",
+      "layer": "L5",
+      "evidence": "trios-trainer-igla/.trinity/results/champion_81k_seed43.log; seed=43, hidden=384, 2 attn layers, AdamW lr=0.003",
+      "owner_file": "docs/hardware/igla_race.md",
+      "blocking_gap": "Reproduce on independent hardware and confirm the BPB floor is stable across seeds. Run seeds 44\u201350 to 81K with identical hyperparameters.",
+      "tags": [
+        "compression"
+      ]
+    },
+    {
+      "id": "igla-race-gf16-parity",
+      "kind": "observable",
+      "name": "GF16 BPB parity",
+      "description": "GF16 (1-6-9 bias-31) achieves BPB parity with fp16 and f32 on language-modeling despite aggressive quantization. No accuracy penalty at 16-bit precision on this architecture.",
+      "claim": "empirical_fit",
+      "layer": "L5",
+      "evidence": "trios-trainer-igla/.trinity/results/v2_gf16_seed44_81k.log (ema_bpb=3.0260 @ 50K); v2_fp16_seed44_81k.log (ema_bpb=3.0383 @ 50K); v2_f32_seed42_81k.log (ema_bpb=3.0391 @ 50K)",
+      "owner_file": "docs/hardware/igla_race.md",
+      "blocking_gap": "Run GF16 to 81K steps (currently only 50K available) and verify the parity holds at full convergence. Run multiple seeds to bound variance.",
+      "tags": [
+        "compression"
+      ]
+    },
+    {
+      "id": "igla-race-surprise-8bit",
+      "kind": "observable",
+      "name": "8-bit phi surprise",
+      "description": "8-bit phi-aware formats (posit8, gf8) achieve lower BPB than 16-bit fp16/f32 at 40\u201350K steps. Suggests phi-structured quantization may confer optimization stability beyond naive bit-width expectations.",
+      "claim": "empirical_fit",
+      "layer": "L5",
+      "evidence": "trios-trainer-igla/.trinity/results/v2_posit8_seed44_50k.log (ema_bpb=2.9737 @ 40K); v2_gf8_seed44_50k.log (ema_bpb=2.9737 @ 40K)",
+      "owner_file": "docs/hardware/igla_race.md",
+      "blocking_gap": "Extend to 81K steps and multiple seeds. Verify the advantage is not a seed artifact. Compare against int8 to isolate phi-aware benefit.",
+      "tags": [
+        "compression"
+      ]
+    },
+    {
+      "id": "igla-race-dead-formats",
+      "kind": "observable",
+      "name": "int4/fp8_e5m2 dead",
+      "description": "int4 quantization collapses to BPB ~7.0 (no compression, worse than random). fp8_e5m2 stalls at ~4.5 BPB. Both formats empirically ruled out for this architecture and dataset.",
+      "claim": "high_risk_or_falsified",
+      "layer": "L5",
+      "evidence": "trios-trainer-igla/.trinity/results/v3_int4_seed46_10k.log (ema_bpb=7.0005); v3_fp8_e5m2_seed47_10k.log (ema_bpb=4.5309)",
+      "owner_file": "docs/hardware/igla_race.md",
+      "blocking_gap": "",
+      "tags": [
+        "compression",
+        "no_go"
+      ]
+    },
+    {
+      "id": "wave24-phi-ablation-falsified",
+      "kind": "observable",
+      "name": "\u03c6 hyperparams falsified",
+      "description": "Controlled ablation on IGLA RACE (seed=1597, 81K steps, hidden=128): conventional hyperparameters beat \u03c6-anchored (lr=\u03c6\u207b\u00b3, wd=\u03c6\u207b\u00b3, beta1=1/\u03c6) by 0.1013 BPB. Single-seed; multi-seed replication could reclassify to NULL.",
+      "claim": "high_risk_or_falsified",
+      "layer": "L5",
+      "evidence": "docs/audit/PHI_ABLATION_DESIGN.md; trios-trainer-igla/.trinity/gardener_harvest.log (control best=2.6167, treatment best=2.7180)",
+      "owner_file": "docs/audit/PHI_ABLATION_DESIGN.md",
+      "blocking_gap": "",
+      "tags": [
+        "no_go",
+        "compression"
+      ]
+    },
+    {
       "id": "gf16-silicon-tapeout",
       "kind": "infra",
       "name": "TTSKY26a tapeout",

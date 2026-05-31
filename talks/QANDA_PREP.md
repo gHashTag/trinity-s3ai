@@ -52,7 +52,7 @@
 
 ### Q5: "What's the point of a boundary finding?"
 
-**A:** "It rules out a specific class of models, saving future researchers time. It also provides exact theorems and falsifiable predictions. For example, our delta-CP prediction of sixty-five point six six degrees is registered with a falsification criterion: if DUNE measures it outside the range forty-five to eighty-five degrees, the formula is dead. That is more than most phenomenological papers offer. A boundary theorem with a certificate is a permanent contribution to the field. A vague boundary finding is just a blog post. We chose the former."
+**A:** "It rules out a specific class of models, saving future researchers time. It also provides exact theorems and falsifiable predictions. For example, our delta-CP fit of sixty-five point six six degrees was withdrawn at greater than five sigma (NuFit 6.0). The remaining open items have falsification criteria. That is more than most phenomenological papers offer. A boundary theorem with a certificate is a permanent contribution to the field. A vague boundary finding is just a blog post. We chose the former."
 
 **Tone:** Passionate but measured.  
 **Trap to avoid:** Do not sound bitter or defensive about the project "failing."  
@@ -92,7 +92,7 @@
 
 ---
 
-### Q9: "Your delta-CP prediction disagrees with NuFit 6.0 by 2.7 sigma. Why even mention it?"
+### Q9: "Your delta-CP fit disagrees with NuFit 6.0 by more than 5 sigma. Why was it ever mentioned?"
 
 **A:** "Because we registered it before the DUNE measurement. In twenty twenty-eight, DUNE will measure delta-CP with a precision of about ten degrees. If they find a value near sixty-six degrees, our formula survives. If they find something near ninety or one hundred twenty degrees — the current best-fit region — our formula is falsified. Either outcome is valuable. The problem with numerology is not that it is wrong; it is that it is unfalsifiable. We make our formulas falsifiable. The two-point-seven-sigma tension is not a weakness; it is the whole point."
 

@@ -9,7 +9,7 @@
 
 This analysis tests whether H4-derived boundary conditions at a unification
 scale Lambda, combined with Standard Model renormalization group equations,
-can reproduce the Trinity S³AI predictions at the electroweak scale (m_Z).
+can reproduce the Trinity S³AI fitted values at the electroweak scale (m_Z).
 
 Key Finding: The H4 unification ansatz partially matches Trinity fitted formulas numerically:
   - alpha_s(m_Z): EXCELLENT agreement (within ~2-3%)
@@ -81,7 +81,7 @@ Electroweak threshold corrections (at m_Z, m_t, m_H):
   - Standard threshold corrections: ~1-3% effect
   - Can shift sin^2(theta_W) by ~0.001-0.003 in MSbar scheme
   - NOT sufficient to bridge the 0.02 gap
-  - Top quark threshold at m_t = 172.69 GeV (Trinity prediction)
+  - Top quark threshold at m_t = 172.69 GeV (Trinity fitted value)
     affects primarily the strong coupling running
 
 7. THE sin^2(theta_W) PROBLEM
@@ -90,7 +90,7 @@ Electroweak threshold corrections (at m_Z, m_t, m_H):
 The fundamental issue:
   - The SM has 3 gauge couplings but only 2 RG-running parameters
     (g_unif and Lambda) from exact unification
-  - The system is OVERCONSTRAINED: 3 predictions, 2 parameters
+  - The system is OVERCONSTRAINED: 3 fitted values, 2 parameters
   - Any two observables can be fit, but not all three simultaneously
 
 With b_1 = 41/3:
@@ -130,7 +130,7 @@ The H4 unification framework successfully predicts:
   ✓ The unification scale Lambda = 10^15 GeV
   ✓ alpha_s(m_Z) to within 2-3%
   ✓ 1/alpha(m_Z) to within 2%
-  ✗ sin^2(theta_W) is 10% below the Trinity prediction
+  ✗ sin^2(theta_W) is 10% below the Trinity fitted value
 
 RECOMMENDATION: The RG running sector shows promising agreement for
 two of three observables. The sin^2(theta_W) discrepancy is a known
