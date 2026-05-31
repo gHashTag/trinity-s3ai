@@ -152,20 +152,20 @@ End VEVGapAnalysis.
 
 Section CorrectedDerivation.
 
-(* CORRECTED Higgs self-coupling: derived from Trinity m_H and SM v *)
+(* REVISED Higgs self-coupling: algebraically obtained from Trinity m_H and SM v *)
 (* lambda = m_H^2 / (2 * v^2) *)
 Definition lambda_corrected : R := m_H_Trinity ^ 2 / (2 * v_SM ^ 2).
 
-(* CORRECTED Higgs mass parameter *)
+(* REVISED Higgs mass parameter *)
 (* From minimization: v^2 = mu^2/(2*lambda) --> but careful with sign convention *)
 (* In SM: V(Phi) = -mu^2|Phi|^2 + lambda|Phi|^4, minimum at |Phi|^2 = mu^2/(2*lambda) = v^2/2 *)
 (* So mu^2 = lambda * v^2 *)
 Definition mu_sq_corrected : R := lambda_corrected * v_SM ^ 2.
 
-(* The corrected VEV from the corrected potential *)
+(* The revised VEV from the revised potential *)
 Definition v_corrected : R := sqrt (mu_sq_corrected / lambda_corrected).
 
-(* Theorem: The corrected VEV matches the SM VEV exactly *)
+(* Theorem: The revised VEV matches the SM VEV by algebraic identity *)
 (* Algebraic identity: sqrt((lambda*v_SM^2)/lambda) = v_SM *)
 Theorem VEV_corrected_matches_SM :
   v_corrected = v_SM.
@@ -181,7 +181,7 @@ Qed.
 (* The corrected Higgs mass *)
 Definition m_H_corrected : R := sqrt (2 * lambda_corrected) * v_SM.
 
-(* Theorem: The corrected m_H matches the Trinity formula *)
+(* Theorem: The revised m_H equals the Trinity formula by definition *)
 (* Algebraic identity: sqrt(2 * m_H^2/(2*v^2)) * v = m_H *)
 Theorem m_H_corrected_matches_Trinity :
   m_H_corrected = m_H_Trinity.
@@ -216,7 +216,7 @@ Proof.
   - apply Rinv_0_lt_compat. unfold v_SM. nra.
 Qed.
 
-(* Theorem: The corrected lambda matches the SM value *)
+(* Theorem: The revised lambda matches the SM value *)
 Theorem lambda_corrected_matches_SM :
   Rabs (lambda_corrected - 0.13) < 0.01.
 Proof.
@@ -398,7 +398,7 @@ Qed.
 End StatusChange.
 
 (******************************************************************************)
-(* Section 8: Main Theorem -- The Corrected Higgs Potential                   *)
+(* Section 8: Main Theorem -- The Revised Higgs Potential                     *)
 (******************************************************************************)
 
 Section MainTheorem.
@@ -470,7 +470,7 @@ Derive lambda self-consistently:
 
 This matches the SM value and closes the 6% gap.
 
-Corrected Parameters:
+Revised Parameters:
 ---------------------
   lambda = 0.1295 (matches SM ~0.13)
   mu^2 = lambda*v^2 = 7838 GeV^2

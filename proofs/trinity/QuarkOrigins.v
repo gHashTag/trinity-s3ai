@@ -127,11 +127,11 @@ Proof. unfold H4_d1_d2, H4_d1, H4_d2. lra. Qed.
 (*******************************************************************************)
 (* Section 4: H4 Exponent = Lucas Number Coincidences                        *)
 (*                                                                            *)
-(* e2 = 11 = L_5 and e4 = 29 = L_7 are exact mathematical facts.            *)
+(* e2 = 11 ≈ L_5 and e4 = 29 ≈ L_7 are numerical coincidences.              *)
 (* HONEST: e3 = 19 is NOT a Lucas number (L_6=18, L_7=29).                   *)
 (*******************************************************************************)
 
-(* H4 exponent e2 = 11 equals L_5 (fifth Lucas number). Exact up to 10^{-3}. *)
+(* H4 exponent e2 = 11 is near L_5 (fifth Lucas number). Proximity within 10^{-3}.*)
 Theorem H4_e2_eq_Lucas_5 :
   Rabs (11 - (powZ phi 5 + powZ psi 5)) < 1/1000.
 Proof.
@@ -139,7 +139,7 @@ Proof.
   apply Rabs_def1; interval.
 Qed.
 
-(* H4 exponent e4 = 29 equals L_7 (seventh Lucas number). Exact up to 10^{-3}. *)
+(* H4 exponent e4 = 29 is near L_7 (seventh Lucas number). Proximity within 10^{-3}.*)
 Theorem H4_e4_eq_Lucas_7 :
   Rabs (29 - (powZ phi 7 + powZ psi 7)) < 1/1000.
 Proof.
@@ -164,7 +164,7 @@ Qed.
 (*                                                                            *)
 (* Q01: m_u/m_d = 2*phi/7 = H4_d1 * phi / L_4                               *)
 (*                                                                            *)
-(* Structural identification: 7 = L_4 (exact integer, 4th Lucas number).      *)
+(* Numerical coincidence: 7 ≈ L_4 (4th Lucas number) within 10^{-3}.           *)
 (* H4 connection: numerator 2 = d1 (smallest H4 degree).                     *)
 (* HONEST: The physical argument why m_u/m_d should equal d1*phi/L_4 is      *)
 (* not rigorous; it is a numerical observation motivated by H4 structure.     *)

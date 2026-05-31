@@ -1,3 +1,7 @@
+(* SCRATCH TEST FILE — not part of canonical proof base
+   Purpose: local interval/tactics validation for Higgs sector algebra
+   All axioms are #[local] and scoped inside TestScratch section *)
+
 Require Import Reals.
 From Coq Require Import Lra.
 Require Import Field.

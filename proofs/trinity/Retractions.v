@@ -15,7 +15,7 @@ From Trinity Require Import CorePhi.
 Open Scope R_scope.
 
 (******************************************************************************)
-(* Section 1: The Retracted Prediction                                         *)
+(* Section 1: The Retracted Fit                                                *)
 (******************************************************************************)
 
 (* The formula delta_CP = 3 / phi^2 evaluates to approximately 65.66 degrees. *)
@@ -58,7 +58,7 @@ Definition delta_CP_T2K2025_sigma : R := 20.
 (* Section 3: Exclusion Theorems                                               *)
 (******************************************************************************)
 
-(* Theorem: The retracted prediction is excluded at >5 sigma by NuFit 6.0. *)
+(* Theorem: The retracted fit is excluded at >5 sigma by NuFit 6.0. *)
 Theorem delta_CP_excluded_at_5sigma_NuFit60 :
   Rabs (delta_CP_retracted_degrees - delta_CP_NuFit60_center) > 5 * delta_CP_NuFit60_sigma.
 Proof.
@@ -72,7 +72,7 @@ Proof.
   interval with (i_prec 60).
 Qed.
 
-(* Theorem: The retracted prediction is excluded at >10 sigma by T2K 2025. *)
+(* Theorem: The retracted fit is excluded at >10 sigma by T2K 2025. *)
 Theorem delta_CP_excluded_at_10sigma_T2K2025 :
   Rabs (delta_CP_retracted_degrees - delta_CP_T2K2025_center) > 10 * delta_CP_T2K2025_sigma.
 Proof.
@@ -86,7 +86,7 @@ Proof.
   interval with (i_prec 60).
 Qed.
 
-(* Corollary: The prediction is in the opposite quadrant from experiment.
+(* Corollary: The fit is in the opposite quadrant from experiment.
    NuFit 6.0 center 212 degrees is in Q3 (pi < delta < 3pi/2).
    Trinity prediction 65.66 degrees is in Q1 (0 < delta < pi/2). *)
 Theorem delta_CP_wrong_quadrant :
@@ -108,7 +108,7 @@ Qed.
    as a reliable physical prediction for the PMNS CP-violating phase.
 
    Reasons:
-   1. The prediction is in >5.6 sigma tension with NuFit 6.0 global fits.
+   1. The fit is in >5.6 sigma tension with NuFit 6.0 global fits.
    2. It is in >10 sigma tension with T2K 2025 + NOvA combined data.
    3. A systematic search of >7,000 alternative H4-derived formulas
       (Wave 16, see derivations/delta_cp_crisis/Wave16_investigation.md)

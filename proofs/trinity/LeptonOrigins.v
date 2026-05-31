@@ -3,7 +3,7 @@
 (*                                                                             *)
 (* Trinity S3AI Framework v3.5                                                *)
 (*                                                                             *)
-(* This file derives the GROUP-THEORETIC ORIGINS of the lepton mass ratio     *)
+(* This file documents the GROUP-THEORETIC MOTIVATION for the lepton mass ratio *)
 (* formulas L01-L03 from first principles of the H4 root system and E8        *)
 (* projection. It contains:                                                   *)
 (*                                                                             *)
@@ -505,7 +505,7 @@ Qed.
 (* HONEST: No constructive derivation of the specific function f is available.
    The formula L01 = 239 * e / pi was found by numerical search, not derived
    from the E8/H4 geometric structure. The integer 239 = |E8| - 1 is the only
-   rigorous group-theoretic content. *)
+   group-theoretic content. *)
 
 (*******************************************************************************)
 (* Section 13: Consistency Between L01, L02, L03                              *)

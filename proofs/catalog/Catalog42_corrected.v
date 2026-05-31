@@ -114,7 +114,7 @@ Definition SumNu_SG : R := 8 * phi^(-6) * PI^(-5) * (exp 1)^6 / 10.
 Definition H02_SG : R := phi * 11 / 20 + 20 / 30.
 
 (* ═══════════════════════════════════════════════════════════════════ *)
-(* VERIFIED FORMULAS (11 total) — error 0.01% to 0.1%             *)
+(* FITTED FORMULAS (11 total) — error 0.01% to 0.1%               *)
 (* ═══════════════════════════════════════════════════════════════════ *)
 
 (* V-1: Q05 — m_b(m_b)/m_s(2GeV) = 43 + π/φ, error 0.013%          *)
@@ -217,7 +217,7 @@ Definition Lambda_pred : R := phi^(-144) / 2.          (* Cosmology *)
 (* Σm_ν = 8φ⁻⁶π⁻⁵e⁶/10 → Σm_ν (eV)            error 0.007%   SG  *)
 (* H02 = 11φ/20+20/30  → m_H/m_W              error 0.005%   SG  *)
 (*                                                                  *)
-(* ═══ VERIFIED (0.01% - 0.1%) ═══                                 *)
+(* ═══ FITTED (0.01% - 0.1%) ═══                                   *)
 (* Q05 = 43+π/φ        → m_b(m_b)/m_s(2GeV)    error 0.013%   V   *)
 (* Q01 = 2φ/7          → m_u(2GeV)/m_d(2GeV)   error 0.050%   V   *)
 (* L01 = 239e/π        → m_μ/m_e (pole)        error 0.013%   V   *)
@@ -253,4 +253,4 @@ Proof.
   repeat split; reflexivity.
 Qed.
 
-(* END OF Catalog42_corrected.v — ALL FORMULAS VERIFIED AND CORRECTED *)
+(* END OF Catalog42_corrected.v — ALL FORMULAS FITTED AND COMPARED TO PDG *)

@@ -505,7 +505,7 @@ Proof.
   unfold catalog_R_count, catalog_S_count, catalog_NF_count. lia.
 Qed.
 
-(* SURV-8: The delta_CP prediction is IN CRISIS (Wave 17, 2026-05-23).
+(* SURV-8: The delta_CP fit is IN CRISIS (Wave 17, 2026-05-23).
    Current value: delta_CP(Trinity) = 3/phi^2 = 65.66 degrees.
    NuFit 6.0 global fit (NO with SK): best fit ~212 degrees, 1-sigma +26/-41.
    T2K 2025 + NOvA: best fit ~270 degrees, 1-sigma ~20 degrees.
@@ -538,7 +538,7 @@ Qed.
 Definition delta_CP_NuFit60_center : R := 212.
 Definition delta_CP_NuFit60_sigma : R := 26.
 
-(* SURV-8b: The delta_CP prediction is excluded at >5 sigma by NuFit 6.0. *)
+(* SURV-8b: The delta_CP fit is excluded at >5 sigma by NuFit 6.0. *)
 Lemma delta_CP_excluded_at_5sigma :
   Rabs (delta_CP_trinity_deg - delta_CP_NuFit60_center) > 5 * delta_CP_NuFit60_sigma.
 Proof.

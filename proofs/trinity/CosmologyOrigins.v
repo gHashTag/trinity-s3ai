@@ -61,7 +61,7 @@ Definition Omega_Lambda_Planck : R := 0.6847.
 
 (* HONEST: this file is a phenomenological fit, NOT derived from              *)
 (* H4 geometry. Measured value: 5.6e-47 GeV^4.                                *)
-(* Predicted value: ~3e71 GeV^4 (phi^{-12}*pi^{-3}*e^{-2}*M_Pl^4).            *)
+(* Fitted value: ~3e71 GeV^4 (phi^{-12}*pi^{-3}*e^{-2}*M_Pl^4).               *)
 (* Discrepancy: ~10^118 orders. Source: Planck 2018 DOI 10.1051/0004-6361/201833910. *)
 (* Status: FALSIFIED — the worst failure in the Trinity catalog. *)
 
@@ -73,7 +73,7 @@ Definition Omega_Lambda_Planck : R := 0.6847.
 Definition Lambda_pred : R := powZ phi (-144) / 2.
 
 (* m_DM_pred from Predictions.v: phi^5 * pi / e                              *)
-(* Predicted dark-matter particle mass (~12.82 GeV)                          *)
+(* Fitted dark-matter particle mass (~12.82 GeV)                             *)
 Definition m_DM_pred_v1 : R := powZ phi 5 * PI / (exp 1).
 
 (* m_DM_pred from Catalog42.v: phi^5 * pi * (1 + 1/30)                       *)
@@ -82,7 +82,7 @@ Definition m_DM_pred_v2 : R := powZ phi 5 * PI * (1 + 1/30).
 
 (* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
 (* Measured value: 0.9649 ± 0.0042 (Planck 2018).                            *)
-(* Predicted value: 0.7082 (=1-2/phi^4).                                     *)
+(* Fitted value: 0.7082 (=1-2/phi^4).                                        *)
 (* Discrepancy: 26.6%, ~61σ. Source: arXiv:1807.06209.                       *)
 (* Status: FALSIFIED. No inflationary model yields n_s < 0.85.               *)
 (* INF01: n_s = 1 - 2/phi^4 from FORMULAS.md                                 *)
@@ -92,7 +92,7 @@ Definition n_s_Trinity : R := 1 - 2 / powZ phi 4.
 (* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
 (* Measured value: 67.4 ± 0.5 km/s/Mpc (Planck 2018);                        *)
 (*                  68.52 ± 0.62 km/s/Mpc (DESI 2024, arXiv:2404.03002).     *)
-(* Predicted value: 21.90 km/s/Mpc.                                          *)
+(* Fitted value: 21.90 km/s/Mpc.                                             *)
 (* Discrepancy: 67.5% from Planck, ~91σ. ALL measurement methods give H₀ > 67. *)
 (* Status: FALSIFIED.                                                          *)
 (* CMB03: H_0 = 100*phi/e^2 from FORMULAS.md                                 *)
@@ -101,7 +101,7 @@ Definition H0_Trinity : R := 100 * phi / powZ (exp 1) 2.
 
 (* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
 (* Measured value: 0.022383 ± 0.000018 (Planck 2018).                        *)
-(* Predicted value: phi^{-3}*pi^{-2}*e^{-1} ≈ 0.00880.                       *)
+(* Fitted value: phi^{-3}*pi^{-2}*e^{-1} ≈ 0.00880.                          *)
 (* Discrepancy: 60.7%, ~754σ. Status: FALSIFIED.                             *)
 (* Source: Planck 2018 DOI 10.1051/0004-6361/201833910.                      *)
 (* CMB01: Omega_b_h2 = phi^{-3}*pi^{-2}*e^{-1} from FORMULAS.md              *)
@@ -110,7 +110,7 @@ Definition Omega_b_h2_Trinity : R := powZ phi (-3) / (PI^2 * exp 1).
 
 (* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
 (* Measured value: 0.12011 ± 0.00034 (Planck 2018).                          *)
-(* Predicted value: phi^{-1}*pi^{-1}*e^{-1}/5 ≈ 0.01447.                     *)
+(* Fitted value: phi^{-1}*pi^{-1}*e^{-1}/5 ≈ 0.01447.                        *)
 (* Discrepancy: 87.9%, ~311σ. Status: FALSIFIED.                             *)
 (* Source: Planck 2018 DOI 10.1051/0004-6361/201833910.                      *)
 (* CMB02: Omega_c_h2 = phi^{-1}*pi^{-1}*e^{-1}/5 from FORMULAS.md            *)
@@ -120,7 +120,7 @@ Definition Omega_c_h2_Trinity : R :=
 
 (* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
 (* Measured value: 0.812 ± 0.006 (Planck 2018).                              *)
-(* Predicted value: phi^{-1}*e/pi ≈ 0.5348.                                  *)
+(* Fitted value: phi^{-1}*e/pi ≈ 0.5348.                                     *)
 (* Discrepancy: 34.1%, ~46σ. Status: FALSIFIED.                              *)
 (* Source: Planck 2018 DOI 10.1051/0004-6361/201833910.                      *)
 (* CMB04: sigma_8 = phi^{-1}*e/pi from FORMULAS.md                           *)
@@ -129,7 +129,7 @@ Definition sigma8_Trinity : R := exp 1 / (phi * PI).
 
 (* HONEST: this is a phenomenological fit, NOT derived from H4 geometry.     *)
 (* Measured value: (2.100 ± 0.030) × 10⁻⁹ (Planck 2018).                    *)
-(* Predicted value: pi/(2*phi^3*e^2)*10^{-9} = 5.02×10⁻¹¹.                  *)
+(* Fitted value: pi/(2*phi^3*e^2)*10^{-9} = 5.02×10⁻¹¹.                     *)
 (* Discrepancy: 97.6%, ~68σ. Ratio: prediction is 42 times too small.        *)
 (* Status: FALSIFIED. Source: Planck 2018 DOI 10.1051/0004-6361/201833910.   *)
 (* INF06: Delta_R^2 from FORMULAS.md                                         *)
@@ -566,7 +566,7 @@ Qed.
   9. CCR01 (phi^{-24}*pi^{-6}*e^{-4}): gives 1.84×10^{-10}, Λ/ρ_Pl ~ 10^{-123}.
      Discrepancy 113 orders. FALSIFIED + NUMEROLOGY.
 
-  10. C01_h_over_3 = 10 — the only rigorously proven fact,
+  10. C01_h_over_3 = 10 — the only arithmetically proven fact,
       but this is not a cosmological formula.
 
   11. Tier 3 in FORMULAS.md contained false claims of accuracy

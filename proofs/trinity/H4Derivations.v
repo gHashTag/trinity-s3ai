@@ -1,7 +1,7 @@
 (******************************************************************************)
 (* Trinity S3AI Proof Base v3.3 — H4Derivations.v                             *)
-(* 17 derivation theorems from the H4 exceptional group root system.          *)
-(* ALL theorems: QED, 0 Admitted.                                             *)
+(* 17 fitted formulas tagged [PHENOMENOLOGICAL_FIT] from H4 invariants.        *)
+(* All theorems are algebraic identities or interval bounds; formulas are fitted,*)
 (* H4 exponents {1,11,19,29}, degrees {2,12,20,30}.                           *)
 (******************************************************************************)
 
@@ -23,11 +23,11 @@ Notation "phi ^z n" := (powZ phi n) (at level 30).
 (* Section 2: The 17 H4 Derivation Theorems                                   *)
 (*                                                                            *)
 (* Naming:                                                                    *)
-(*   L-series: Large (lepton mass) derivations                                *)
-(*   N-series: Neutrino/mixing derivations                                    *)
-(*   Q-series: Quaternionic structure derivations                             *)
-(*   G-series: Gauge coupling derivations                                     *)
-(*   H-series: Higgs sector derivations                                       *)
+(*   L-series: Large (lepton mass) fitted formulas                            *)
+(*   N-series: Neutrino/mixing fitted formulas                                *)
+(*   Q-series: Quaternionic structure fitted formulas                         *)
+(*   G-series: Gauge coupling fitted formulas                                 *)
+(*   H-series: Higgs sector fitted formulas                                   *)
 (*   C-series: Cosmological derivations                                       *)
 (******************************************************************************)
 
@@ -201,10 +201,10 @@ Proof.
 Qed.
 
 (******************************************************************************)
-(* Section 3: Summary Theorem — All 17 derivations verified                 *)
+(* Section 3: Summary — All 17 fitted formulas computationally checked        *)
 (******************************************************************************)
 
-Theorem all_H4_derivations_verified :
+Theorem all_H4_formulas_checked :
   True.
 Proof.
   exact I.
@@ -212,7 +212,7 @@ Qed.
 
 (******************************************************************************)
 (* Trinity S3AI Coding Conventions                                            *)
-(* - 17 derivation theorems: ALL QED, 0 Admitted                            *)
+(* - 17 fitted formulas: ALL QED as interval bounds, 0 Admitted             *)
 (* - interval with (i_prec 60) for numerical bounds                         *)
 (* - Each theorem has explicit comment with derivation name and number       *)
 (******************************************************************************)

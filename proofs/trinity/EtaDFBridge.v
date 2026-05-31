@@ -142,7 +142,7 @@ Qed.
 (******************************************************************************)
 
 (** We axiomatize the key structural fact about D_F:
-    {D_F, γ⁵} = 0 exactly.
+    {D_F, γ⁵} = 0 [NUMERICAL_FIT].
     This is verified numerically with error < 10^{-15}. [NUMERICAL_FIT] *)
 (* Was Axiom; closed in Wave 12 sprint W12.4. The statement is a True
    placeholder for the numerically-verified anticommutation; the formal
@@ -151,7 +151,7 @@ Lemma DF_chiral_symmetry : True.
 Proof. exact I. Qed.
 (* Placeholder: the actual mathematical content is that if we represent D_F
    as a block matrix [[0, M], [M†, 0]] in the Weyl basis, the off-diagonal
-   structure guarantees exact chirality. *)
+   structure guarantees chirality by definition (not proved from spectrum). *)
 
 (** Consequence of chiral symmetry: if λ is an eigenvalue, so is -λ *)
 (** We formalize this as a property of the discrete counting. *)
@@ -317,7 +317,7 @@ Qed.
       This is a topological invariant of the Riemannian manifold S³/2I.
       
     η_DF is the spectral asymmetry of a finite-dimensional operator:
-      By exact chirality {D_F, γ⁵} = 0: η_DF = 0 always.
+      By assumed chirality {D_F, γ⁵} = 0 [NUMERICAL_FIT]: η_DF = 0 always.
       This is a property of the discrete graph Dirac on the 600-cell.
     
     These measure DIFFERENT things on DIFFERENT geometric levels.
@@ -428,7 +428,7 @@ Theorem verdict_C :
   (** η_continuous and η_DF measure different objects *)
   eta_continuous = -2 ->
   eta_DF_naive = 0%Z ->
-  (** D_F has exact chiral symmetry *)
+  (** D_F has chiral symmetry [NUMERICAL_FIT] *)
   dim_pos_DF = dim_neg_DF ->
   (** mass twist fails *)
   index_DF = 0%Z ->

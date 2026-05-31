@@ -21,7 +21,7 @@ From Trinity Require Import H4Derivations.
 (** - A = C ⊕ H ⊕ M₃(C) — algebra (POSTULATED per Connes' SM ansatz, not derived from H4 automorphisms) *)
 (** - D — Dirac operator encoding 600-cell geometry                        *)
 (**                                                                        *)
-(** Gauge group U(A) = U(1) × SU(2) × SU(3) emerges AUTOMATICALLY.      *)
+(** Gauge group U(A) = U(1) × SU(2) × SU(3) is POSTULATED per Connes' ansatz.*)
 (** Fermions: basis vectors of H (12 per generation × 3 gen = 36).       *)
 (**                                                                        *)
 (** Reference: Morató de Dalmases 2026, "600-Cell Spectral Triple"       *)
@@ -159,17 +159,17 @@ Qed.
 (**                                                                        *)
 (** Then Koide = (Σmᵢ)/(Σ√mᵢ)² is INDEPENDENT of the overall scale!     *)
 (**                                                                        *)
-(** This explains why Koide works: the mass HIERARCHY is determined by   *)
+(** PLAUSIBILITY ARGUMENT for why Koide might work: the mass HIERARCHY is  *)
 (** H4 invariants, and Koide tests the CONSISTENCY of this hierarchy.    *)
 (**                                                                        *)
-(** The value 2/3 emerges from the algebraic structure of H4 invariants. *)
+(** The value 2/3 is a fitted coincidence within H4-inspired formulas.    *)
 (**                                                                        *)
 (** HONEST: This is NOT a derivation of Koide from H4. It is a           *)
 (** PLAUSIBILITY ARGUMENT for why Koide is approximately satisfied.      *)
 (** The exact value 2/3 is still unexplained.                            *)
 (** ====================================================================== *)
 
-(* Koide formula for H4-derived masses *)
+(* Koide formula for H4-fitted mass ratios *)
 Definition Koide_H4 (c1 c2 c3 : R) : R :=
   let s := c1 + c2 + c3 in
   let t := sqrt c1 + sqrt c2 + sqrt c3 in
@@ -183,7 +183,7 @@ Proof.
   interval with (i_prec 100).
 Qed.
 
-(* Koide ≈ 2/3 within 1% for H4-derived coefficients. *)
+(* Koide ≈ 2/3 within 1% for H4-fitted coefficients. *)
 (* This is a CONSISTENCY CHECK, not a derivation. *)
 
 (** ====================================================================== *)
