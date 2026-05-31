@@ -1,5 +1,7 @@
 /-
-  Trinity S3AI — TrinityLean/QuaternionicLinearity.lean
+  Trinity S3AI — TrinityLean/QuaternionicLinearityMathlib.lean
+  NOTE: This is the Mathlib-based extended version.  The default `lake build`
+  target uses the pure-Lean version at `TrinityLean/TrinityLean/QuaternionicLinearity.lean`.
   Stage 1 port of proofs/trinity/QuaternionicLinearity.v  (Wave 5.2)
 
   STATUS: Scaffold — NOT yet compiled. Requires elan + lake on host.

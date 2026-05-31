@@ -1,5 +1,7 @@
 /-
-  Trinity S3AI — TrinityLean/KODimension.lean
+  Trinity S3AI — TrinityLean/KODimensionMathlib.lean
+  NOTE: This is the Mathlib-based extended version.  The default `lake build`
+  target uses the pure-Lean version at `TrinityLean/TrinityLean/KODimension.lean`.
   Stage 1 port of proofs/trinity/KODimension.v  (Wave 5.1)
 
   STATUS: Scaffold — NOT yet compiled. Requires elan + lake on host.
