@@ -299,8 +299,8 @@ The dataset is organized as follows:
       \item \texttt{honest\_pvalue\_report\_v18.md} — Full MC report
       \item \texttt{wave18\_mc\_results.json} — Raw MC results
     \end{itemize}
-  \item \texttt{proofs/trinity/} — Coq formal proofs (1,772 \texttt{Qed},
-    0 \texttt{Admitted}, 77 Axioms).
+  \item \texttt{proofs/trinity/} — Coq formal proofs (1216 \texttt{Qed},
+    0 real \texttt{Admitted}, 51 Axiom/Parameter/Conjecture).
   \item \texttt{derivations/lean\_port/} — Lean 4 port (9 modules).
 \end{itemize}
 
@@ -384,8 +384,8 @@ $\nu$21, $\nu$31, N21, and Pr.
 \begin{verbatim}
   $ python3 validate_v4.py
 \end{verbatim}
-Expected output: 25 formulas validated, mean relative error $0.08\%$,
-100\% pass rate at $<1\%$ threshold.
+Expected output: 25 formulas numerically compared with PDG 2024, mean relative error $0.08\%$,
+100\% pass rate at $<1\%$ threshold (fitted coincidences, not derivations).
 
 \paragraph{Reproduce the Monte-Carlo test.}
 \begin{verbatim}
@@ -406,17 +406,15 @@ arbitrary formula templates via the \texttt{TEMPLATE\_REGISTRY}.
 All data, code, and formal proofs are available at:
 \begin{itemize}
   \item \textbf{GitHub}: \url{https://github.com/gHashTag/trinity-s3ai}
-  \item \textbf{Zenodo}: DOI 10.5281/zenodo.XXXXXX (pending publication)
+  \item \textbf{Zenodo}: DOI [PENDING] 10.5281/zenodo.XXXXXX (pending publication)
   \item \textbf{License}: MIT (code) / CC-BY-4.0 (data)
 \end{itemize}
 
 The repository includes:
 \begin{itemize}
-  \item 79 Coq proof files (1,772 \texttt{Qed}, 0 \texttt{Admitted})
-  \item 9 Lean 4 modules
-  \item Python validation and MC scripts
-  \item LaTeX source of this paper
-  \item JSON data files
+  \item 56 Coq proof files in \texttt{proofs/trinity/} (1130 \texttt{Qed}, 0 real \texttt{Admitted} + 51 Axiom/Parameter obligations)
+  \item 6 additional Coq files in \texttt{proofs/clifford\_cl8/} (174 \texttt{Qed}, 9 Axiom/Parameter)
+  \item 26 Lean 4 derivation modules (with cited \texttt{sorry} gaps)
 \end{itemize}
 
 % ═══════════════════════════════════════════════════════════════════════════════
@@ -473,7 +471,7 @@ F. Johansson et al., ``mpmath: a Python library for arbitrary-precision
 
 \bibitem{TrinityWave17}
 Trinity S$^3$AI Collaboration, ``An Active Boundary-Mapping Research Program in
-  Geometric Unification,'' arXiv:XXXX.XXXXX [hep-th] (2026).
+  Geometric Unification,'' [PENDING] arXiv:XXXX.XXXXX [hep-th] (2026).
 
 \bibitem{TrinityAudit}
 Trinity S$^3$AI Collaboration, ``Catalog Audit Report,''

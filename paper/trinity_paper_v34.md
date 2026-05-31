@@ -1,6 +1,6 @@
 # H4 Coxeter Invariants and Standard Model Parameters: An Honest Assessment
 
-**Abstract.** We present a systematic analysis of 25 closed-form formulas expressing Standard Model (SM) parameters through the Coxeter invariants of the non-crystallographic group $H_4$, notably the golden ratio $\varphi = (1+\sqrt{5})/2$, $\pi$, and Euler's number $e$. The construction proceeds via Dechant's $E_8 \to H_4$ projection. Of the 25 formulas proposed, 18 pass independent numerical verification against PDG 2024 central values with sub-1\% accuracy --- including 7 achieving sub-0.01\% (SG-class) precision (see Table 1). Seven formulas fail independent verification (errors of 3\% to 99\%); these were corrected in subsequent revisions. The most precise verified formula, $m_\tau/m_\mu = 239\varphi^4/\pi^4$, matches experiment at $0.0004\%$. The Koide formula $K = 2/3$ is recovered as a consistency check, not a derivation. An empirical Monte-Carlo assessment yields $p \sim 3 \times 10^{-6}$ (95\% CI: $[0, 3 \times 10^{-6}]$) --- substantially weaker than previously claimed values of $10^{-9}$ to $10^{-32}$. Only 2 of 15 integer coefficients (15 and 239) are provably unique under single-operation enumeration from $H_4$ invariants. The spectral action applied to the 600-cell geometry predicts $m_H \approx 87.4$ GeV, in significant disagreement with the measured $125.2$ GeV. The CP-violating phase prediction $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It was a post-hoc fit to outdated PDG-2024 data, not a first-principles prediction. The anti-post-hoc rule is enforced: no replacement formula introduced after exclusion. We discuss five falsifiable predictions with their experimental timelines, enumerate all known limitations openly, and identify critical open problems. This work establishes a phenomenological correspondence, not a fundamental theory: no Lagrangian derivation exists, the dynamical mechanism $H_4 \to$ SM is unknown, and the Coq formalization proofs do not yet compile.
+**Abstract.** We present a systematic analysis of 25 closed-form formulas expressing Standard Model (SM) parameters through the Coxeter invariants of the non-crystallographic group $H_4$, notably the golden ratio $\varphi = (1+\sqrt{5})/2$, $\pi$, and Euler's number $e$. The construction proceeds via Dechant's $E_8 \to H_4$ projection. Of the 25 formulas proposed, 18 achieve numerical agreement with PDG 2024 central values at sub-1\% accuracy --- including 7 achieving sub-0.01\% (SG-class) precision (see Table 1). Seven formulas deviate from PDG 2024 values (errors of 3\% to 99\%); these were corrected in subsequent revisions. The most precise matching formula, $m_\tau/m_\mu = 239\varphi^4/\pi^4$, agrees with experiment at $0.0004\%$. The Koide formula $K = 2/3$ is recovered as a consistency check, not a derivation. An empirical Monte-Carlo assessment yields $p \sim 3 \times 10^{-6}$ (95\% CI: $[0, 3 \times 10^{-6}]$) --- substantially weaker than previously claimed values of $10^{-9}$ to $10^{-32}$. Only 2 of 15 integer coefficients (15 and 239) are provably unique under single-operation enumeration from $H_4$ invariants. The spectral action applied to the 600-cell geometry predicts $m_H \approx 87.4$ GeV, in significant disagreement with the measured $125.2$ GeV. The CP-violating phase prediction $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ is **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025). It was a post-hoc fit to outdated PDG-2024 data, not a first-principles prediction. The anti-post-hoc rule is enforced: no replacement formula introduced after exclusion. We discuss five formulas with experimental comparisons and timelines, enumerate all known limitations openly, and identify critical open problems. This work establishes a phenomenological correspondence, not a fundamental theory: no Lagrangian derivation exists, the dynamical mechanism $H_4 \to$ SM is unknown, and the Coq formalization proofs do not yet compile.
 
 ---
 
@@ -50,7 +50,7 @@ where $c$ is a small integer derivable (in some cases) from $H_4$ invariants $\{
 
 ## 3. Trinity Formulas: The Complete Set of 25
 
-Table 1 presents all 25 formulas with independent numerical verification against PDG 2024 central values [2]. Classification: SG ($<0.01\%$), V ($<0.1\%$), W ($<1\%$), FAIL ($>1\%$).
+Table 1 presents all 25 formulas with independent numerical comparison against PDG 2024 central values [2]. Classification: SG ($<0.01\%$), V ($<0.1\%$), W ($<1\%$), FAIL ($>1\%$).
 
 **Table 1: Complete Set of 25 H4 Trinity Formulas**
 
@@ -93,9 +93,9 @@ Table 1 presents all 25 formulas with independent numerical verification against
 | Passing (SG+V+W) | **18** | **72%** |
 | FAIL ($>1\%$) | **7** | **28%** |
 
-**Mean relative error:** 17.3% (heavily skewed by 7 failures). **Median relative error:** 0.084% (the passing formulas are genuinely precise).
+**Mean relative error:** 17.3% (heavily skewed by 7 failures). **Median relative error:** 0.084% (the passing formulas show small numerical discrepancies from PDG 2024).
 
-**Note on N13 (sin²θ₁₃):** The formula was corrected from $\varphi^{3/2}/(30\pi)$ (0.74% error, W-class) to $\pi^2/(25\varphi^6)$ (0.003% error, SG-class). The original formula was an accidental misidentification; the corrected formula $\sin\theta_{13} = \pi/(5\varphi^3)$ achieves extraordinary precision against reactor neutrino data (Daya Bay, RENO, JUNO).
+**Note on N13 (sin²θ₁₃):** The formula was corrected from $\varphi^{3/2}/(30\pi)$ (0.74% error, W-class) to $\pi^2/(25\varphi^6)$ (0.003% error, SG-class). The original formula was an accidental misidentification; the corrected formula $\sin\theta_{13} = \pi/(5\varphi^3)$ achieves close numerical agreement with reactor neutrino data (Daya Bay, RENO, JUNO).
 
 ### 3.2 Notes on Selected Formulas
 
@@ -133,7 +133,7 @@ Seven formulas were corrected between the initial proposal and the current versi
 - H03: Label mismatch between formula and predicted quantity
 - Q02: Borderline failure (3.3% error, just above 1% threshold)
 
-**Critical acknowledgment:** The fact that 7 of 25 initial formulas were wrong undermines confidence in the remaining 18. An independent third-party numerical verification is essential.
+**Critical acknowledgment:** The fact that 7 of 25 initial formulas were wrong undermines confidence in the remaining 18. An independent third-party numerical check is essential.
 
 ---
 
@@ -146,13 +146,13 @@ Each formula is classified by epistemic status:
 | Class | Description | Count | Criteria |
 |-------|-------------|-------|----------|
 | **SG** (Structural-Geometric) | Fitted coincidence using $H_4$ invariants; no free parameters after the fit | 6 | Sub-0.01\% error, coefficients selected from search over $H_4$ invariants |
-| **V** (Verified) | Achieves sub-0.1\% error with one scale factor | 7 | Sub-0.1\% error, independently verified |
+| **V** (Verified) | Achieves sub-0.1\% error with one scale factor | 7 | Sub-0.1\% error, independently matched |
 | **W** (Working) | Sub-1\% accuracy, functional but less precise | 5 | Sub-1\% error, empirical match |
 | **F** (Failed) | Fails independent verification | 7 | Error $>1\%$ |
 
 ### 4.2 What Works Well
 
-The following sectors show genuine precision:
+The following sectors show small numerical discrepancies:
 
 1. **Charged lepton mass ratios** (L01-L03): 0.0004\% to 0.007\% error
 2. **Higgs mass** (H01): 0.0017\% error
@@ -257,11 +257,11 @@ The inflation from $10^{-32}$ to $10^{-9}$ to $3 \times 10^{-6}$ reflects progre
 
 ---
 
-## 7. Predictions and Experimental Tests
+## 7. Experimental Tests and Fitted Formulas
 
-### 7.1 Falsifiable Predictions
+### 7.1 Testable Formulas
 
-The framework makes five testable predictions:
+The framework makes five formulas that can be compared with experiment:
 
 **P1: $\sin^2\theta_{13} = 0.0218$**
 - Formula: $\varphi^{3/2}/(30\pi)$
@@ -274,7 +274,7 @@ The framework makes five testable predictions:
 - Formula: $4\varphi^3 e^2$
 - LHC measurement: $125.20 \pm 0.17$ GeV [2]
 - Deviation: $0.0017\%$ ($<0.01\sigma$)
-- **Status:** NUMERICALLY VERIFIED by LHC (but post-hoc: the formula was constructed after the measurement)
+- **Status:** NUMERICALLY MATCHED by LHC (but post-hoc: the formula was constructed after the measurement)
 - **Falsifiability:** NONE --- this is a post-diction, not a prediction
 
 **P3: $m_{\nu_e} = 0.00117$ eV**
@@ -288,7 +288,7 @@ The framework makes five testable predictions:
 - LHC Run 3 indirect: $\lambda \approx 0.129 \pm 0.22$ [2]
 - Deviation: $0.49\%$
 - **Test:** LHC Run 3 data (analysis ongoing)
-- **Falsifiability:** LOW --- LHC uncertainty on $\lambda$ is $\sim 170\%$, far too large to test the $0.5\%$ prediction
+- **Falsifiability:** LOW --- LHC uncertainty on $\lambda$ is $\sim 170\%$, far too large to test the $0.5\%$ fitted value
 
 **P5: $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$**
 - Formula: $3/\varphi^2$ radians $= 180^\circ \times 3/(\pi\varphi^2) \approx 65.66^\circ$
@@ -302,7 +302,7 @@ The framework makes five testable predictions:
 | Prediction | Status | Confidence | Timeline |
 |-----------|--------|-----------|----------|
 | $\sin^2\theta_{13}$ | Consistent with data | LOW testability | JUNO 2027+ |
-| $m_H$ | NUMERICALLY VERIFIED (post-diction) | N/A (post-hoc) | Already tested |
+| $m_H$ | NUMERICALLY MATCHED (post-diction) | N/A (post-hoc) | Already tested |
 | $m_{\nu_e}$ | Not yet testable | MEDIUM | KATRIN-II 2028+ |
 | $\lambda$ | Consistent, untestable | LOW (uncertainty too large) | HL-LHC 2035+ |
 | $\delta_{CP}$ | **>5σ excluded** | WITHDRAWN | N/A |
@@ -315,7 +315,7 @@ The $\delta_{CP} = 3/\varphi^2$ prediction is **WITHDRAWN** (>5σ excluded by Nu
 
 ### 8.1 The 600-Cell Dirac Operator
 
-The Hodge-Dirac operator on the 600-cell (the regular 4-polytope with Schlafli symbol $\{3,3,5\}$ and 120 vertices) was constructed as a discrete spectral triple. The spectrum exhibits remarkable algebraic structure, with eigenvalues expressible through $\varphi$ and $\sqrt{5}$ [4, 5].
+The Hodge-Dirac operator on the 600-cell (the regular 4-polytope with Schlafli symbol $\{3,3,5\}$ and 120 vertices) was constructed as a discrete spectral triple. The spectrum exhibits algebraic structure, with eigenvalues expressible through $\varphi$ and $\sqrt{5}$ [4, 5].
 
 ### 8.2 Spectral Action Predictions
 
@@ -333,7 +333,7 @@ Applying the spectral action formalism [6] to the 600-cell geometry yields:
 
 This is a major discrepancy:
 1. The spectral action (derived from first principles) gives the WRONG Higgs mass
-2. The phenomenological Trinity formula gives the CORRECT Higgs mass
+2. The phenomenological Trinity formula matches the measured Higgs mass
 3. This suggests the Trinity formula is a numerical coincidence, not a consequence of the spectral geometry
 
 **Possible resolutions:**
@@ -345,12 +345,12 @@ This is a major discrepancy:
 
 ## 9. Comparison with Other Approaches
 
-| Approach | Parameters explained | p-value claim | Testable predictions | First-principles derivation? |
+| Approach | Parameters explained | p-value claim | Formulas with experimental comparisons | First-principles derivation? |
 |----------|---------------------|---------------|---------------------|------------------------------|
-| **Trinity (this work)** | 25 (18 verified) | $\sim 3 \times 10^{-6}$ | 5 (1 in tension) | No |
+| **Trinity (this work)** | 25 (18 matching) | $\sim 3 \times 10^{-6}$ | 5 (1 in tension) | No |
 | D4D (Furey) | 3-4 SM charges | Not quantitative | 0 | Partial (Clifford algebra) |
 | String theory landscape | $\sim 10^{500}$ vacua | Anthropic (no p-value) | 0 | Yes (from string Lagrangian) |
-| Asymptotic safety | Coupling unification | Not SM-specific | $m_H$ numerically verified | Yes (FRG equations) |
+| Asymptotic safety | Coupling unification | Not SM-specific | $m_H$ numerically matched | Yes (FRG equations) |
 | Spectral SM (Connes) | $\sim 5$ parameters | Not quantitative | $m_H$ (initially wrong) | Yes (NCG framework) |
 | GUT models | 3 gauge couplings | Not quantitative | Proton decay (not seen) | Yes (SU(5), SO(10)) |
 
@@ -358,15 +358,15 @@ This is a major discrepancy:
 
 **Advantages:**
 - Covers 25 parameters (most comprehensive)
-- 18/25 independently verified
+- 18/25 independently matched
 - 7 formulas at sub-0.01% precision (in the 25-formula core set)
-- Makes 5 testable predictions
+- Makes 5 formulas that can be compared with experiment
 - Mathematical structure ($H_4$, $E_8$) is well-defined
 
 **Disadvantages:**
 - No Lagrangian or dynamical derivation
 - 7/25 formulas fail
-- p-value ($\sim 3 \times 10^{-6}$) is weaker than claimed in prior versions
+- p-value (honest Wave 20 MC: $p = 0.077$, not significant for mean error; $p < 0.0001$ for SG-hit density, post-hoc)
 - Only 2/15 coefficients are provably unique
 - $\delta_{CP} = 3/\varphi^2$ is **WITHDRAWN** (>5σ excluded); the 0.1σ claim used outdated PDG-2024 data
 - Spectral action gives wrong Higgs mass
@@ -379,9 +379,9 @@ This work has the following explicit limitations:
 
 1. **No Lagrangian derivation.** None of the 25 formulas are derived from a Lagrangian. They are algebraic identities between $H_4$ invariants and measured SM parameters. The existence of such identities is surprising and deserves explanation, but it does not constitute a physical theory.
 
-2. **Post-hoc selection risk.** The formulas were selected from a larger set of candidates by requiring agreement with experiment. While coefficients are determined by $H_4$ geometry (no continuous fitting), the selection of which invariants to test introduces a look-elsewhere effect. The p-value $\sim 3 \times 10^{-6}$ does not fully account for this.
+2. **Post-hoc selection risk.** The formulas were selected from a larger set of candidates by requiring agreement with experiment. While coefficients are determined by $H_4$ geometry (no continuous fitting), the selection of which invariants to test introduces a look-elsewhere effect. The honest Wave 20 MC p-value $p = 0.077$ (mean error, not significant) confirms this concern.
 
-3. **Paper-to-code discrepancy.** Earlier versions of this paper (v33 and below) presented formulas (L01-L17) that differ from the verified formulas in the Trinity codebase (Q/L/C/N/G/H series). The paper formulas fail independent testing; the code formulas achieve 72% success. This discrepancy has been resolved in v34 by using the verified formulas throughout.
+3. **Paper-to-code discrepancy.** Earlier versions of this paper (v33 and below) presented formulas (L01-L17) that differ from the formulas in the Trinity codebase (Q/L/C/N/G/H series). The paper formulas fail independent testing; the code formulas achieve 72% success. This discrepancy has been resolved in v34 by using the codebase formulas throughout.
 
 4. **7 of 25 formulas fail.** The quark mass ratio sector is systematically problematic. The fact that 7 formulas were initially wrong and subsequently corrected undermines confidence in the remaining 18.
 
@@ -416,7 +416,7 @@ The spectral action applied to the 600-cell Dirac operator predicts $m_H \approx
 
 **Possible approaches:** Compute higher-order Seeley-DeWitt coefficients $a_6(D^2)$ and $a_8(D^2)$; explore product geometries $M \times F$ with non-trivial 4D manifold $M$; modify the Dirac operator to include $H_4$-specific terms as proposed by Morató [4].
 
-### 11.2 The $\delta_{CP}$ Withdrawal (RESOLVED)
+### 11.2 The $\delta_{CP}$ Withdrawal (Status: Falsified at >5σ)
 
 **Status: WITHDRAWN.** The formula $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ was a post-hoc fit to outdated PDG-2024 data. NuFIT-6.0 + T2K+NOvA 2025 exclude it at >5σ. 
 
@@ -432,7 +432,7 @@ DUNE (2030+) will test the PMNS sector, but the $\delta_{CP} = 3/\varphi^2$ pred
 Only 2 of 15 coefficients are unique. For the uniqueness argument to be compelling:
 - Extend enumeration to multi-operation derivations (2+ operations)
 - Prove that non-unique coefficients nevertheless select preferred values
-- Explain why coefficients 92 and 549 (with no $H_4$ derivation) appear in precise formulas
+- Explain why coefficients 92 and 549 (with no $H_4$ derivation) appear in numerically fitted formulas
 
 ### 11.4 First-Principles Derivation (Fundamental)
 
@@ -459,11 +459,11 @@ The Coq formalization does not yet compile. Completing the formal proofs would:
 
 ## 12. Conclusion
 
-We have presented 25 closed-form formulas expressing Standard Model parameters through the Coxeter invariants of $H_4$. Of these, 18 pass independent numerical verification --- including 6 at sub-0.01% precision. The most precise, $m_\tau/m_\mu = 239\varphi^4/\pi^4$, matches experiment at $0.0004\%$. Four testable predictions are advanced (δ_CP formula withdrawn at >5σ).
+We have presented 25 closed-form formulas expressing Standard Model parameters through the Coxeter invariants of $H_4$. Of these, 18 achieve numerical agreement with PDG 2024 --- including 6 at sub-0.01% precision. The most precise fitted coincidence, $m_\tau/m_\mu = 239\varphi^4/\pi^4$, agrees with the PDG 2024 central value at $0.0004\%$. Four formulas can be compared with experiment (δ_CP formula withdrawn at >5σ).
 
 **What we CAN claim:**
 - 25 closed-form algebraic identities between $H_4$ invariants and SM parameters exist
-- 18 of 25 (72%) pass independent numerical verification
+- 18 of 25 (72%) achieve numerical agreement with PDG 2024
 - 6 formulas achieve sub-0.01% precision against PDG 2024 values
 - The Wave 20 honest Monte Carlo p-value is $p = 0.077$ (not significant); $p < 0.0001$ for SG-hit density is significant but inconclusive for post-hoc fits
 - 2 of 15 integer coefficients are provably unique (15 and 239)
@@ -472,13 +472,13 @@ We have presented 25 closed-form formulas expressing Standard Model parameters t
 **What we CANNOT claim:**
 - A derivation of the SM from $H_4$ (no Lagrangian exists)
 - That the formulas are unique determinations of $H_4$ geometry (only 2/15 coefficients are unique)
-- That the p-value is $< 10^{-9}$ (honest value is $\sim 3 \times 10^{-6}$)
+- That the p-value is significant (honest Wave 20 MC: $p = 0.077$ for mean error, not significant)
 - That the Koide formula is derived (it is a consistency check)
 - That the spectral action validates the framework (it predicts $m_H = 87.4$ GeV, not 125.2 GeV)
 - That $\delta_{CP}$ is correctly predicted (it is **WITHDRAWN** — post-hoc fit excluded at >5σ)
 - That the formulas are proved correct (Coq proofs do not compile)
 
-**The central question remains open:** Why should the invariants of a four-dimensional non-crystallographic Coxeter group determine the parameters of the Standard Model? Whether this correspondence reflects a deep structural property of nature or an elaborate coincidence remains to be determined. The construction of a dynamical framework that explains *why* the $H_4$ root system should determine SM parameters is the essential next step.
+**The central question remains open:** Why should the invariants of a four-dimensional non-crystallographic Coxeter group determine the parameters of the Standard Model? Whether this correspondence reflects a structural property of nature or an elaborate coincidence remains to be determined. The construction of a dynamical framework that explains *why* the $H_4$ root system should determine SM parameters is the essential next step.
 
 ---
 
@@ -490,7 +490,7 @@ We have presented 25 closed-form formulas expressing Standard Model parameters t
 
 [3] P.-P. Dechant, "The birth of $E_8$ out of the spinors of the icosahedron", *Proceedings of the Royal Society A*, **472** (2016) 20150504. doi:10.1098/rspa.2015.0504.
 
-[4] J. Morató, "Noncommutative Geometry and the Standard Model: A Spectral Approach to Coxeter Symmetries", *Journal of Mathematical Physics*, to appear (2026). Preliminary: arXiv:2503.XXXXX [hep-th]. (Work in progress.)
+[4] J. Morató, "Noncommutative Geometry and the Standard Model: A Spectral Approach to Coxeter Symmetries", *Journal of Mathematical Physics*, to appear (2026). Preliminary: [PENDING] arXiv:2503.XXXXX [hep-th]. (Work in progress.)
 
 [5] J.W. Barrett, "The Standard Model and the 600-cell", arXiv:2202.05167 [hep-th] (2022).
 
@@ -529,7 +529,7 @@ Experimental uncertainties from PDG 2024 are included. The combined p-value uses
 
 ## Appendix C: Verification Protocol
 
-All 25 formulas were independently verified against PDG 2024 central values using:
+All 25 formulas were numerically compared with PDG 2024 central values using independently written code:
 1. Direct numerical computation with $\varphi = (1+\sqrt{5})/2$, $\pi = 3.1415926535...$, $e = 2.7182818284...$
 2. Classification by error: SG $<0.01\%$, V $<0.1\%$, W $<1\%$, FAIL $>1\%$
 3. No formula was adjusted after verification

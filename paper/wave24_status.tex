@@ -1,0 +1,333 @@
+% LEGACY DOCUMENT (historical data paper wave 24)
+% Current status: See RESEARCH_STATUS.md and TECH_TREE.md for canonical assessment.
+% Claim status: high_risk_or_falsified (wave24-phi-ablation-falsified, Layer L5)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  IGLA RACE φ-Ablation Falsification Report — Wave 24
+%
+%  Data paper — documenting a controlled ablation test on the IGLA RACE
+%  benchmark.  Not a theory paper; makes no derivation claims.
+%  Version: Wave 24
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{article}
+
+% ─── Packages ─────────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{caption}
+\usepackage{xcolor}
+
+% ─── Hyperref setup ───────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdftitle={IGLA RACE φ-Ablation Falsification Report — Wave 24},
+    pdfsubject={Data paper, machine learning phenomenology},
+    pdfkeywords={falsification, ablation, golden ratio, hyperparameters, language model, BPB}
+}
+
+% ─── Custom commands ──────────────────────────────────────────────────────────
+\newcommand{\ph}{\varphi}
+
+% ─── Begin Document ───────────────────────────────────────────────────────────
+\begin{document}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  TITLE AND AUTHORS
+% ═══════════════════════════════════════════════════════════════════════════════
+\title{IGLA RACE $\varphi$-Ablation Falsification Report — Wave~24}
+\author{[Author List TBD]\\
+  \texttt{trinity-s3ai@proton.me}}
+\date{June 2026}
+\maketitle
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  ABSTRACT
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{abstract}
+We present a controlled ablation test on the IGLA RACE benchmark that
+falsifies the hypothesis that $\varphi$-anchored hyperparameters improve
+language-model Bits Per Byte (BPB).  The treatment arm uses
+learning-rate $\varphi^{-3}\approx 0.236$, weight-decay
+$\varphi^{-3}\approx 0.236$, and $\beta_{1}=1/\varphi\approx 0.618$
+(AdamW, bf16, 81\,K steps, single seed 1597, 2-layer Transformer,
+hidden=128, character-level modeling).  The conventional control arm
+uses lr$=0.001$, wd$=0.01$, $\beta_{1}=0.9$.  Control best BPB =
+$2.6167$; treatment best BPB = $2.7180$; delta = $+0.1013$ BPB
+($\sim 3.9\%$ relative, treatment worse).  All data, code, and
+ablation design are available on GitHub and archived with Zenodo.
+\textbf{Honest caveats:} single seed, single scale, task-specific
+benchmark, and no first-principles derivation links $\varphi$ to optimal
+learning rates even if the treatment had won.
+\end{abstract}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  INTRODUCTION
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+
+The Trinity S$^3$AI program investigates whether geometric invariants of
+the H$_4$ Coxeter group (and related structures such as the 600-cell and
+Clifford algebra Cl(8)) can encode or constrain the parameters of the
+Standard Model of particle physics.  A core epistemic principle of the
+program is that \emph{a numeric coincidence is not a derivation}.  This
+principle extends to engineering choices: even if a mathematical constant
+appears in a hyperparameter recipe, its success or failure on a machine
+learning benchmark must be treated as an \texttt{[empirical\_fit]}, not as
+a \texttt{[verified]} theorem.
+
+This paper is a \textbf{data paper}.  It documents a controlled ablation
+test on the IGLA RACE benchmark; it makes no claim that the result is
+derived from first principles, and it reports both the numerical outcome
+and its honest limitations.  The canonical claim status for the
+$\varphi$-anchored-hyperparameter hypothesis is
+\texttt{high\_risk\_or\_falsified} (claim ID:
+\texttt{wave24-phi-ablation-falsified}, Layer~L5 of the Trinity claim
+ledger).
+
+\paragraph{Prior art.}  The IGLA RACE benchmark (Trinity Waves~18--23)
+establishes a character-level language-modeling task on $\varphi$-structured
+data and uses Bits Per Byte (BPB) as the primary metric.  Fleet results
+(spanning fp8, fp16, bf16, gf16, gf20 precisions and multiple seeds)
+report a best-known BPB of $2.4872$ (scarab-fp16-seed77, conventional
+hyperparameters).
+
+\paragraph{Gap.}  No controlled ablation had previously tested whether
+$\varphi$-anchored hyperparameters outperform conventional values on this
+benchmark.
+
+\paragraph{Scope.}  This paper presents exactly such an ablation.  The
+negative result closes one speculative avenue (``$\varphi$ hyperparameters
+are universally beneficial'') and directs attention back to the physics
+content of the project.
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  DATA DESCRIPTION
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Data Description}
+\label{sec:data}
+
+The ablation compares two arms on an identical model architecture and
+training pipeline.  Table~\ref{tab:fixed} lists the fixed parameters.
+Table~\ref{tab:arms} lists the hyperparameters that differ between arms.
+
+% ─── Table: Fixed parameters ──────────────────────────────────────────────────
+\begin{table}[htbp]
+\centering
+\caption{Fixed parameters for both ablation arms.}
+\label{tab:fixed}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Architecture & 2-layer Transformer (decoder-only) \\
+Hidden size & 128 \\
+Attention heads & 4 \\
+Precision & bf16 \\
+Optimizer & AdamW \\
+Batch size & 64 \\
+Seed & 1597 \\
+Total steps & 81\,K \\
+Evaluation interval & 10\,K steps \\
+Task & Character-level LM on $\varphi$-structured data \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ─── Table: Arm hyperparameters ───────────────────────────────────────────────
+\begin{table}[htbp]
+\centering
+\caption{Hyperparameters that differ between the two ablation arms.}
+\label{tab:arms}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Parameter & Control (conventional) & Treatment ($\varphi$-anchored) \\
+\midrule
+Learning rate & $0.001$ & $\ph^{-3}\approx 0.236$ \\
+Weight decay & $0.01$ & $\ph^{-3}\approx 0.236$ \\
+$\beta_{1}$ & $0.9$ & $1/\ph\approx 0.618$ \\
+$\beta_{2}$ & $0.999$ & $0.999$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  METHODS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Methods}
+
+The primary metric is Bits Per Byte (BPB), evaluated on a held-out
+validation set at 10\,K-step intervals.  Both arms start from identical
+initial loss ($\sim 7.0$ BPB).  No early stopping is applied; training
+runs to the full 81\,K steps.  Data collection is automated via the
+\texttt{trios-trainer-igla} gardener pipeline, which appends BPB
+trajectories to a canonical harvest log.
+
+\paragraph{Ablation protocol.}  The two arms are launched
+simultaneously on identical hardware.  Wall-clock time is recorded for
+budget comparison.  The best BPB achieved by each arm at any step is
+tracked as the ``best'' metric; the final BPB at 81\,K steps is tracked
+as the ``final'' metric.
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  DATA RECORDS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Data Records}
+
+Table~\ref{tab:trajectory} presents the step-by-step BPB trajectory for
+both arms.  Table~\ref{tab:final} presents the final summary metrics.
+
+% ─── Table: Trajectory ────────────────────────────────────────────────────────
+\begin{table}[htbp]
+\centering
+\caption{BPB trajectory at selected checkpoints.}
+\label{tab:trajectory}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Step & Control BPB & Treatment BPB & Delta \\
+\midrule
+20\,K & $2.6995$ & $3.0922$ & $+0.3927$ \\
+30\,K & $2.6378$ & $3.0509$ & $+0.4131$ \\
+40\,K & $2.6088$ & $2.9379$ & $+0.3291$ \\
+50\,K & $2.5781$ & $2.8210$ & $+0.2429$ \\
+60\,K & $\mathbf{2.6167}^{*}$ & $2.8519$ & $+0.2352$ \\
+65\,K & $\mathbf{2.6167}^{*}$ & $2.8148$ & $+0.1981$ \\
+75\,K & $\mathbf{2.6167}^{*}$ & $2.7483$ & $+0.1316$ \\
+81\,K & $\mathbf{2.6167}^{*}$ & $2.7180$ & $+0.1013$ \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\small $^{*}$ Control best achieved at 60\,K steps; no further improvement.
+\end{flushleft}
+\end{table}
+
+% ─── Table: Final metrics ─────────────────────────────────────────────────────
+\begin{table}[htbp]
+\centering
+\caption{Final summary metrics at 81\,K steps.}
+\label{tab:final}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Metric & Control & Treatment & Delta \\
+\midrule
+Best BPB & $\mathbf{2.6167}$ & $2.7180$ & $+0.1013$ (treatment worse) \\
+Final BPB & $2.6596$ & $2.6981$ & $+0.0385$ \\
+nCA (higher is better) & $1.287$ & $0.451$ & --- \\
+Wall time & $\sim$16\,567 s & $\sim$16\,653 s & comparable \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  TECHNICAL VALIDATION
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Technical Validation}
+
+\paragraph{Fleet comparison.}  The best BPB achieved across the full
+IGLA RACE fleet (as of 2026-05-31) is $2.4872$
+(scarab-fp16-seed77, conventional hyperparameters, fp16 precision).
+Both ablation arms are substantially above this value (Control $+0.1295$,
+Treatment $+0.2308$), confirming that the ablation model (hidden=128) is
+under-parameterized relative to fleet leaders.  The \emph{relative}
+comparison between Control and Treatment remains valid because both arms
+share the identical under-parameterized architecture.
+
+\paragraph{Limitations.}
+\begin{enumerate}
+  \item \textbf{Single seed.} Only seed 1597 was tested.  Multi-seed
+    variance could shift the classification from
+    \texttt{high\_risk\_or\_falsified} to \texttt{NULL} or vice versa.
+  \item \textbf{Single scale.}  Hidden size 128 is small; $\varphi$
+    benefits might emerge at different scales.
+  \item \textbf{Task-specific.}  IGLA RACE is a character-level language
+    model on $\varphi$-structured data.  Other tasks (vision, protein
+    folding, speech) are untested.
+  \item \textbf{No theoretical derivation.}  Even if the treatment arm
+    had won, the result would be \texttt{[empirical\_fit]}, not
+    \texttt{[verified]}, because no first-principles derivation links
+    $\varphi$ to optimal learning-rate or weight-decay schedules.
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  USAGE NOTES
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Usage Notes}
+
+\paragraph{Reproduction.}  Training logs are stored in the
+\texttt{trios-trainer-igla} repository under
+\texttt{.trinity/gardener\_harvest.log}.  The canonical ablation design
+document is \texttt{docs/audit/PHI\_ABLATION\_DESIGN.md} in the
+\texttt{trinity-s3ai} repository.
+
+\paragraph{Extension.}  Additional seeds or scales can be registered in
+the ablation design document.  A multi-seed replication (Wave~24.1) is
+optional and not prioritized unless the physics track advances.
+
+\paragraph{Validation suite.}  The Trinity repository includes five
+automated validators: anti-numerology gate, admitted-honest counter,
+claim-generator check, English-only checker, and Markdown link checker.
+All must pass before any commit to the main branch.
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  DATA AVAILABILITY
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Data Availability}
+
+\begin{itemize}
+  \item \textbf{GitHub:} \url{https://github.com/gHashTag/trinity-s3ai}
+  \item \textbf{Zenodo:} DOI [PENDING] \texttt{10.5281/zenodo.XXXXXX}
+    (reserve after GitHub release tag).
+  \item \textbf{License:} MIT (code) / CC-BY-4.0 (data).
+  \item \textbf{Canonical ablation design:}
+    \texttt{docs/audit/PHI\_ABLATION\_DESIGN.md}
+  \item \textbf{Falsification log:}
+    \texttt{derivations/falsifiability/wave24\_phi\_ablation.md}
+  \item \textbf{Claim ledger (SSOT):} \texttt{docs/claims.yaml}
+\end{itemize}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+%  ACKNOWLEDGEMENTS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section*{Acknowledgements}
+
+We thank the anonymous reviewers of Waves~10--19 for forcing the
+introduction of the honesty-tag system, and the operators of the IGLA
+RACE fleet for maintaining the benchmarking infrastructure.
+
+% ─── Bibliography (inline) ────────────────────────────────────────────────────
+\begin{thebibliography}{9}
+
+\bibitem{Koide:1983}
+Y. Koide, ``New Mass Relation for Leptons and the Issue of the
+  Heaviest Neutrino Mass,''
+  \textit{Phys. Lett. B} \textbf{120} (1983) 161--165.
+
+\bibitem{Connes:1996}
+A. Connes, ``Gravity Coupled with Matter and the Foundation of
+  Noncommutative Geometry,'' \textit{Commun. Math. Phys.}
+  \textbf{182} (1996) 155--176.
+
+\bibitem{TrinityWave17}
+Trinity S$^3$AI Collaboration,
+  ``Boundary Theorem BT-4: Impossibility of H$_4$ Direct Derivation,''
+  negative-result companion paper (Wave 17).
+  [PENDING] arXiv:XXXX.XXXXX [hep-th] (2026).
+
+\bibitem{TrinityAudit}
+Trinity S$^3$AI Collaboration,
+  ``Catalog Audit: Sigma Ranking and Epistemic Classification,''
+  \texttt{docs/analysis/} (2025).
+
+\end{thebibliography}
+
+\end{document}

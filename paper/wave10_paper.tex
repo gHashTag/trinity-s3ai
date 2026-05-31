@@ -111,7 +111,7 @@ acting as the symmetry group of the 600-cell regular 4-polytope, can serve as th
 foundation for a noncommutative-geometry (NCG) derivation of Standard Model (SM) parameters.
 After eight waves of machine-verified formalization in Coq (73 \texttt{.v} files, approximately
 730 \texttt{Qed} statements, 7 honest \texttt{Admitted} gaps) and a catalog of 25 numerically
-precise formulas for SM parameters, we arrive at a \emph{mapped boundary} on direct H4-based unification.
+fitted formulas for SM parameters, we arrive at a \emph{mapped boundary} on direct H4-based unification.
 
 We prove four boundary theorems (BT-1 through BT-4).
 \BT{1} establishes that no rational power combination
@@ -135,8 +135,7 @@ quaternionic structure \(\mathbb{H} \subset \AF\) motivated by \(\TwoI \subset \
 (iii) the APS eta invariant \(\eta(D_{S^3/\TwoI}) = -2\); (iv) the first-order condition
 \([D_F, L_a] = 0\) verified exactly by \(D_F = R_i\); (v) a closed Hochschild orientation cycle
 (Axiom~6); and (vi) Poincar\'e duality at the \(K_0\) level (Axiom~7).
-One prediction, \(\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ\), remains falsifiable by
-DUNE (2028).
+One historically claimed formula, \(\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ\), was withdrawn at ${>}5\sigma$ (NuFIT-6.0 + T2K+NOvA 2025).
 \end{abstract}
 
 \textbf{Keywords:} H4 Coxeter group; 600-cell; noncommutative geometry; spectral triple;
@@ -219,8 +218,8 @@ Section~\ref{sec:h4} reviews H4 and the 600-cell. Section~\ref{sec:catalog} pres
 catalog with honest classification. Section~\ref{sec:positive} develops the six positive
 structural results. Section~\ref{sec:boundary} presents the four boundary theorems with proof sketches.
 Section~\ref{sec:comparison} compares with prior work. Section~\ref{sec:coq} describes the
-Coq/Lean 4 formalization architecture. Section~\ref{sec:falsifiability} discusses the remaining
-falsifiable prediction. Section~\ref{sec:disc} discusses implications. Section~\ref{sec:conclusion}
+Coq/Lean 4 formalization architecture. Section~\ref{sec:falsifiability} discusses the falsifiability status
+of Trinity claims (all historical predictions are either refuted, withdrawn, or retrospective fits). Section~\ref{sec:disc} discusses implications. Section~\ref{sec:conclusion}
 concludes. Appendix~\ref{app:coq} provides a key-theorem table; Appendix~\ref{app:repro}
 describes reproducibility.
 
@@ -349,7 +348,7 @@ but no \(\Qed\) theorem derives \(f_{\mathrm{Trinity}}\) from H4 axioms.
 
 \subsection{Selected formulas}
 
-Table~\ref{tab:formulas} lists all 25 catalog formulas with their SM target, Trinity prediction,
+Table~\ref{tab:formulas} lists all 25 catalog formulas with their SM target, Trinity fitted coincidence,
 deviation, and rigor class. We highlight a few examples.
 
 \textbf{Structural examples:}
@@ -671,7 +670,7 @@ can simultaneously reproduce the observed cosmological constant density ratio
 \(\Omega_b h^2 = 0.022383 \pm 0.000018\)~\cite{Planck:2018vyg}
 with accuracy better than 60 orders of magnitude.
 
-Concretely, the Trinity prediction \(\Omega_b h^2 = \varphi^{-3}\pi^{-2}e^{-1} = 0.00880\)
+Concretely, the Trinity fitted formula \(\Omega_b h^2 = \varphi^{-3}\pi^{-2}e^{-1} = 0.00880\)
 is falsified at:
 \begin{equation}
   \sigdist = \frac{|0.022383 - 0.00880|}{0.000018} \approx 754\sigma,
@@ -1039,13 +1038,13 @@ mathematical library (\texttt{Mathlib4}). The current Lean~4 port covers
 
 As documented in \texttt{cosmology\_falsified\_log.md} and summarized in
 Table~\ref{tab:cosmo_refuted}, 9 Tier-3 cosmological formulas are definitively
-falsified. The lightest-neutrino prediction \(m_{\nu_1} = 1/(6\varphi) \approx 0.103\;\mathrm{eV}\)
+falsified. The lightest-neutrino fitted coincidence \(m_{\nu_1} = 1/(6\varphi) \approx 0.103\;\mathrm{eV}\)
 implies \(\Sigma m_\nu \approx 0.31\;\mathrm{eV}\), excluded at \({\sim}5\sigma\) by
 Planck+DESI 2024~\cite{DESI:2024mwx}.
 
-\subsection{The \(\delta_{CP}\) prediction}
+\subsection{The \(\delta_{CP}\) fit (\textbf{WITHDRAWN})}
 
-One prediction remains falsifiable (not yet falsified):
+\textbf{WITHDRAWN at $>5\sigma$ (NuFit 6.0 + T2K + NOvA 2025).} The historical fit was:
 \begin{equation}
   \delta_{CP} = \frac{3}{\varphi^2} \approx \frac{3}{2.618} \approx 1.146\;\mathrm{rad}
   \approx 65.66^\circ.
@@ -1054,19 +1053,13 @@ One prediction remains falsifiable (not yet falsified):
 This is~\NFclass~(Numerical Fit): the coefficient~3 is post-hoc identified with the
 number of fermion generations, not derived.
 
-Current status (NuFit 6.0~\cite{NuFit:2024}): the best-fit for normal ordering is
-\(\delta_{CP} \approx 197^\circ\), approximately \(2.7\sigma\) from the Trinity value.
-The DUNE experiment~\cite{DUNE:2020jqi} will determine \(\delta_{CP}\) to \(\sim 5^\circ\)
-precision by 2028--2032. If DUNE measures \(\delta_{CP} \notin [50^\circ, 80^\circ]\),
-the prediction is falsified; if \(\delta_{CP} \in [50^\circ, 80^\circ]\), the formula
-warrants further investigation (though even confirmation would not establish a rigorous
-derivation, given the NF class of the formula).
+**WITHDRAWN** (Wave 6, 2026): The \(\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ\) formula is excluded at \({>}5\sigma\) by NuFIT-6.0 + T2K+NOvA 2025 (best fit \(\approx 270^\circ\), 3\(\sigma\) window 124°--364°). The anti-post-hoc rule forbids replacement formulas. See \texttt{DELTA\_CP\_HONEST\_STATUS.md}.
 
 \begin{remark}
-In the spirit of Popperian falsifiability, this prediction is pre-registered in
-\texttt{registered\_predictions.md} (dated June 2026, before DUNE results). The prediction
-is registered as class~\NFclass: even if confirmed, it does not constitute a theoretical
-derivation. Even if falsified, it does not affect the positive structural results P1--P6.
+\textbf{WITHDRAWN.} This formula was pre-registered in \texttt{registered\_predictions.md}
+before DUNE results, but is now excluded at ${>}5\sigma$. The anti-post-hoc rule forbids
+replacement formulas. Even if it had been confirmed, it would not constitute a theoretical
+derivation (class~\NFclass).
 \end{remark}
 
 \subsection{Summary of falsifiability status}
@@ -1084,7 +1077,7 @@ derivation. Even if falsified, it does not affect the positive structural result
     \(\rho_\Lambda/\rho_{\mathrm{Pl}}\) & Falsified & 113 decades \\
     \(D_F\) reproduces SM spectrum & Falsified & \(\sigdist = 5.62\) \\
     \(\Sigma m_\nu\) formula & Falsified & \(\approx 5\sigma\) \\
-    \(\delta_{CP} = 65.66^\circ\) & Awaiting DUNE 2028 & \(\approx 2.7\sigma\) \\
+    \(\delta_{CP} = 65.66^\circ\) & \textbf{WITHDRAWN} ($>5\sigma$ excluded) & N/A \\
     KO-dim \(= 6\,(\mathrm{mod}\,8)\) & Verified & --- \\
     \(\eta = -2\) & Verified & --- \\
     \bottomrule
@@ -1153,7 +1146,7 @@ The following remain open and potentially fruitful:
   \item \textbf{Richer algebra:} Can a spectral triple over a larger algebra
     \(\tilde{\AF} \supset \AF\) motivated by H4 (e.g., including \(M_5(\mathbb{C})\))
     circumvent BT-2 and BT-4?
-  \item \textbf{\(\delta_{CP}\) resolution:} Is the \(65.66^\circ\) prediction a genuine
+  \item \textbf{\(\delta_{CP}\) status:} The \(65.66^\circ\) formula is withdrawn at ${>}5\sigma$; is it a genuine
     structural feature or pure numerology? DUNE data (2028) will provide a decisive answer.
 \end{enumerate}
 
@@ -1189,8 +1182,7 @@ set of constraints on H4-based unification programs.
 
 The defining methodological contribution is self-refutation under machine verification:
 the project proved its own impossibility theorems, rather than declaring victory in the
-face of failed predictions. This represents the standard of honesty that speculative
-theoretical physics should aspire to.
+face of failed predictions. This represents a methodological approach that other speculative programs may learn from.
 
 
 %% ============================================================

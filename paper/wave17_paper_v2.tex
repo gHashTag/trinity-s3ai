@@ -59,9 +59,9 @@ Our \textbf{positive results} include: (i) the eta-invariant
 $\eta(S^3/2I) = -2$ via the Atiyah--Patodi--Singer theorem applied to the
 E$_8$ plumbing; (ii) KO-dimension $6 \pmod 8$ for the H$_4$/600-cell Dirac
 operator, matching the Connes--Chamseddine SM requirement; (iii) numerical
-verification of 25 SM parameter formulas against PDG 2024 with mean relative
-error $0.1\%$; (iv) JUNO 2025 and DESI DR2 data consistent with Trinity
-oscillation and cosmology predictions.
+comparison of 25 fitted SM parameter formulas with PDG 2024 (mean relative
+error $0.1\%$; fitted coincidences, not derivations); (iv) JUNO 2025 data consistent with Trinity
+oscillation formulas (DESI DR2 cosmology formulas are largely refuted).
 
 Our \textbf{boundary theorems} include seven Boundary theorems:
 $\sigma$-field unavailable in H$_4$ (BT-1); no 3-generation structure from
@@ -69,9 +69,9 @@ H$_4$ (BT-2); D$_4$ KO-dimension $5 \pmod 8 \neq 6$ (BT-3); spectral
 action Higgs mass $132.88\,\text{GeV} \neq 125.10\,\text{GeV}$ (BT-4);
 E$_6$/E$_7$ plumbing discretization mismatch (BT-5); F$_4$ Yukawa scan
 fails to produce 3-generation hierarchy without external parameters (BT-7).
-The formal proof base now stands at \textbf{$1375$~Qed}, \textbf{$0$~Admitted},
-across \textbf{$79$~Coq files} and \textbf{$77$~Axioms}, with an active
-Lean~4 port.
+The formal proof base now stands at \textbf{$1375$~Qed}, \textbf{$25$~Admitted} + 18~inline admit,
+across \textbf{$79$~Coq files}, \textbf{$73$~Axioms} + 7~Parameter, totalling \textbf{$123$~unproven obligations},
+with an active Lean~4 port.
 
 We discuss the surviving open directions and conclude that naive geometric
 unification via discrete Coxeter groups is \textbf{refuted} as a complete SM
@@ -149,9 +149,9 @@ All Coq proofs use the Rocq/Coq~8.20.1 proof assistant
 with the \texttt{coq-interval} library for automated real bounds.
 As of Wave~17:
 \begin{itemize}
-  \item $1375$ theorems with \texttt{Qed}
-  \item $0$ theorems remain \texttt{Admitted}
-  \item $77$ Axioms (all tagged with physical or mathematical justification)
+  \item $1325$ theorems with \texttt{Qed}
+  \item $25$ theorems remain \texttt{Admitted} (+ 18 inline admit)
+  \item $73$ Axioms + 7 Parameter (all tagged with physical or mathematical justification)
   \item $79$ \texttt{.v} files in the canonical proof tree
   \item Lean 4 port: $9$ modules, $1$ honest \texttt{sorry} (needs Mathlib)
 \end{itemize}
@@ -182,9 +182,10 @@ As of Wave~17:
   i.e.\ KO-dimension $6 \pmod 8$.
 \end{theorem}
 
-\begin{theorem}[Formula verification, Wave 4]\label{thm:formulas}
+\begin{theorem}[Formula numerical comparison, Wave 4]\label{thm:formulas}
   $25$ SM parameter formulas (mass ratios, mixing angles, gauge couplings)
-  are verified against PDG 2024 with mean relative error $0.10\%$.
+  are numerically compared with PDG 2024 with mean relative error $0.10\%$.
+  These are fitted coincidences, not derived from first principles.
 \end{theorem}
 
 % ============================================================
@@ -393,12 +394,12 @@ Despite the Boundary theorems, several structural observations survive:
   \item KO-dim $6 \pmod 8$ for H$_4$ is a genuine geometric fact.
   \item The 25 verified formulas suggest \emph{accidental} (not derived)
     numerical coincidences, valuable as a ``periodic table'' of SM
-    parameters.  The Monte\-Carlo test (Sec.~\ref{sec:stats}) confirms
-    that this ``periodic table'' is statistically non\-trivial.
+    parameters.  The Monte\-Carlo test (Sec.~\ref{sec:stats}) shows
+    that this ``periodic table'' has SG-hit density $p < 0.0001$ (significant but post-hoc).
   \item JUNO 2025 measures $\Delta m^2_{21} = (7.50 \pm 0.12) \times 10^{-5}\,\text{eV}^2$
     \cite{JUNO:2025}, consistent with the Trinity value at $0.25\sigma$.
   \item DESI DR2 favors normal hierarchy with $\sum m_\nu < 0.064\,\text{eV}$
-    \cite{DESI:2025}, consistent with Trinity's normal-hierarchy prediction.
+    \cite{DESI:2025}, consistent with Trinity's normal-hierarchy fitted pattern (not a prediction).
 \end{itemize}
 
 \subsection{Experimental falsification registry}
@@ -409,7 +410,7 @@ The Trinity program maintains a pre-registered falsification tracker:
   \item $\delta_{CP} = 65.66^\circ$ --- \textbf{>3$\sigma$ TENSION} with
     NuFit~6.0 ($\sim$$220^\circ \pm 30^\circ$). DUNE (2028--2032) will
     render a binary verdict.
-  \item $\sin^2\theta_{13} = 0.0220$ --- \textbf{OPEN}, testable at JUNO
+  \item $\sin^2\theta_{13} = 0.0220$ --- \textbf{Active comparison} (retrospective fit, not a prediction), JUNO/DUNE
   \item $\Delta m^2_{21} = 7.53 \times 10^{-5}\,\text{eV}^2$ ---
     \textbf{CONSISTENT} with JUNO 2025 at $0.25\sigma$
   \item Normal mass hierarchy --- \textbf{CONSISTENT} with DESI DR2
@@ -435,8 +436,8 @@ origin of generation number.
 
 \subsection{Formal verification status}
 
-Wave~16 achieved \textbf{zero admitted proofs} across the canonical proof
-tree. The remaining unproven obligations are $77$ explicit Axioms, all tagged
+Wave~16 achieved \textbf{0 real Admitted} across the canonical proof
+tree. The remaining unproven obligations are $93$ total (0 real Admitted + 93 Axiom/Parameter/Conjecture), all tagged
 as physical assumptions or mathematical gaps. One inline \texttt{admit}
 remains in \texttt{E6vsH4.v}. The Lean~4 port now covers $9$ modules;
 one honest \texttt{sorry} remains in \texttt{Spectrum600Cell.lean}
@@ -468,7 +469,7 @@ numerical validation, and honest refutation, we conclude:
 \end{quote}
 
 However, the program produced \emph{constructive} boundary theorems:
-exact theorems, falsifiable predictions, and a rigorous framework for
+exact boundary theorems, fitted formulas with experimental comparisons, and a rigorous framework for
 testing future geometric unification proposals. We encourage the community
 to use our open-source Coq/Lean/Python infrastructure to test alternative
 models.
@@ -487,9 +488,9 @@ open-source tooling.
 
 As of Wave 17:
 \begin{verbatim}
-  Qed:        1375
-  Admitted:      0
-  Axioms:       77 (all tagged)
+  Qed:        1325
+  Admitted:     25
+  Axioms:       73 (+ 7 Parameter)
   Refutations:   7 (Boundary Theorems 1--5, 7)
   Files:        79 .v files
   CI:           passing (Coq 8.20.1)
@@ -520,12 +521,12 @@ As of Wave 17:
 
 \section{Falsification Registry}\label{app:falsify}
 
-Key predictions and their experimental status:
+Key formulas with experimental comparisons and their status:
 \begin{itemize}
   \item $m_H = 132.88\,\text{GeV}$ --- REFUTED by LHC (2012--2024)
-  \item $\delta_{CP} = 65.66^\circ$ --- $>$$3\sigma$ TENSION with NuFit 6.0;
-    DUNE verdict 2028--2032
-  \item $\sin^2\theta_{13} = 0.0220$ --- OPEN, testable at JUNO/DUNE
+  \item $\delta_{CP} = 65.66^\circ$ --- \textbf{WITHDRAWN} ($>5\sigma$ excluded);
+    DUNE verdict 2028--2032 will not rehabilitate the formula
+  \item $\sin^2\theta_{13} = 0.0220$ --- Active comparison (retrospective fit), JUNO/DUNE
   \item $\Delta m^2_{21} = 7.53 \times 10^{-5}\,\text{eV}^2$ --- CONSISTENT
     with JUNO 2025
   \item Normal hierarchy --- CONSISTENT with DESI DR2

@@ -6,7 +6,7 @@
 
 # H4 Coxeter Invariants and Standard Model Parameters: A Mathematical Framework
 
-**Abstract.** The Standard Model of particle physics rests on approximately twenty empirically determined parameters whose origins remain theoretically opaque. Among these, the Koide formula for charged lepton masses — $\Sigma m_e / (\sqrt{m_e m_\mu} + \sqrt{m_\mu m_\tau} + \sqrt{m_\tau m_e}) = 2/3$ with a precision of $10^{-9}$ — has resisted derivation from any known Lagrangian since its proposal in 1982. We present a systematic analysis showing that seventeen dimensionless combinations of Standard Model parameters, spanning fermion masses, gauge couplings, mixing angles, and cosmological observables, can be expressed through closed-form expressions built from the Coxeter invariants of the $H_4$ group, notably the golden ratio $\varphi = (1+\sqrt{5})/2$ and the irrational $\xi = \sqrt{2\varphi + 1/\varphi}$. The construction proceeds via Dechant's $E_8 \to H_4$ projection, which provides a well-defined algebraic map from the largest exceptional Lie algebra to the non-crystallographic Coxeter group $H_4$, the symmetry group of the 600-cell. Each formula is classified by its precision — twelve achieve sub-percent accuracy, six of these reach parts-per-million or better. The most precise, $\alpha_{\text{EW}}^{-1} = 360\varphi^{-3}(1+1/(15\pi\varphi))$, matches the measured value at $0.000103\%$. We classify the formulas into structural (S), geometric (G), derived (V), and weighted (W) categories, distinguishing genuine predictions from post-hoc fitting. Three testable predictions are advanced: the Dirac CP-violating phase $\delta_{CP} = -\varphi/2 \approx -107.5^\circ$, the electron neutrino mass $m_{\nu_e} \approx 0.00117$ eV, and the sum of neutrino masses $\Sigma m_\nu \approx 0.0591$ eV. The dark matter relic density $\Omega_c h^2 = 7/(240\pi^2\varphi^3)$ agrees with Planck 2018 at $2.3\%$. The combined statistical assessment yields $p \sim 10^{-9}$, but we emphasize that this figure assumes the seventeen relations are statistically independent — an assumption that cannot be rigorously justified. **The dynamical mechanism by which $H_4$ symmetry, if present at all, descends to the Standard Model gauge group is unknown.** This work establishes a mathematical consistency between $H_4$ invariants and observed particle parameters; it does not constitute a derivation from first principles.
+**Abstract.** The Standard Model of particle physics rests on approximately twenty empirically determined parameters whose origins remain theoretically opaque. Among these, the Koide formula for charged lepton masses — $\Sigma m_e / (\sqrt{m_e m_\mu} + \sqrt{m_\mu m_\tau} + \sqrt{m_\tau m_e}) = 2/3$ with a precision of $10^{-9}$ — has resisted derivation from any known Lagrangian since its proposal in 1982. We present a systematic analysis showing that seventeen dimensionless combinations of Standard Model parameters, spanning fermion masses, gauge couplings, mixing angles, and cosmological observables, can be expressed through closed-form expressions built from the Coxeter invariants of the $H_4$ group, notably the golden ratio $\varphi = (1+\sqrt{5})/2$ and the irrational $\xi = \sqrt{2\varphi + 1/\varphi}$. The construction proceeds via Dechant's $E_8 \to H_4$ projection, which provides a well-defined algebraic map from the largest exceptional Lie algebra to the non-crystallographic Coxeter group $H_4$, the symmetry group of the 600-cell. Each formula is classified by its precision — twelve achieve sub-percent accuracy, six of these reach parts-per-million or better. The most precise, $\alpha_{\text{EW}}^{-1} = 360\varphi^{-3}(1+1/(15\pi\varphi))$, matches the measured value at $0.000103\%$. We classify the formulas into structural (S), geometric (G), derived (V), and weighted (W) categories, distinguishing genuine predictions from post-hoc fitting. Three formulas with experimental comparisons are advanced (all are fitted coincidences, not predictions): the Dirac CP-violating phase $\delta_{CP} = -\varphi/2 \approx -107.5^\circ$ (SUPERSEDED by the withdrawn 65.66° fit; never validated against NuFIT-6.0), the electron neutrino mass $m_{\nu_e} \approx 0.00117$ eV, and the sum of neutrino masses $\Sigma m_\nu \approx 0.0591$ eV. The dark matter relic density $\Omega_c h^2 = 7/(240\pi^2\varphi^3)$ agrees with Planck 2018 at $2.3\%$. The combined statistical assessment yields $p \sim 10^{-9}$, but we emphasize that this figure assumes the seventeen relations are statistically independent — an assumption that cannot be rigorously justified. **The dynamical mechanism by which $H_4$ symmetry, if present at all, descends to the Standard Model gauge group is unknown.** This work establishes a mathematical consistency between $H_4$ invariants and observed particle parameters; it does not constitute a derivation from first principles.
 
 ---
 
@@ -20,7 +20,7 @@ With the 2024 Particle Data Group (PDG) values [2], this relation holds to one p
 
 This paper approaches the problem from the opposite direction. Rather than attempting to derive the Koide formula from known dynamics, we ask: *is there a mathematical structure whose intrinsic invariants reproduce not only the Koide relation but a broader set of SM parameters?* We identify the non-crystallographic Coxeter group $H_4$ as a candidate framework. The $H_4$ root system, which describes the symmetries of the 600-cell and 120-cell in four dimensions, contains the golden ratio $\varphi = (1+\sqrt{5})/2$ as an intrinsic algebraic element. Through Dechant's $E_8 \to H_4$ projection [3], the invariants of $H_4$ acquire a distinguished status within the exceptional Lie algebra hierarchy.
 
-We construct seventeen closed-form formulas expressing SM parameters through combinations of $\varphi$, $\pi$, and small integers. These are not fitted: each formula is uniquely determined by $H_4$ geometry, and their numerical evaluation is compared against measured values. The precision spans six orders of magnitude, from $\sim 10\%$ to $\sim 10^{-6}$. Twelve of seventeen achieve sub-percent accuracy; six reach parts-per-million. After removing two cases that reduce to identical expressions upon algebraic simplification, fifteen unique formulas remain.
+We construct seventeen closed-form formulas expressing SM parameters through combinations of $\varphi$, $\pi$, and small integers. All coefficients are selected from H4 invariants, but the specific transcendental combinations are numerically fitted, not derived from H4 geometry. The precision spans six orders of magnitude, from $\sim 10\%$ to $\sim 10^{-6}$. Twelve of seventeen achieve sub-percent accuracy; six reach parts-per-million. After removing two cases that reduce to identical expressions upon algebraic simplification, fifteen unique formulas remain.
 
 **Scope and limitations.** This paper does not claim to derive the SM from $H_4$. It establishes a mathematical correspondence. The dynamical mechanism — how $H_4$ symmetry, if present at any energy scale, could descend to $SU(3) \times SU(2) \times U(1)$ — is an open problem that we discuss but do not solve.
 
@@ -92,7 +92,7 @@ Table 1 presents the complete set of seventeen formulas. All numerical evaluatio
 | L12 | $\Omega_c h^2$ | $\frac{7}{240\pi^2\varphi^3}$ | $0.120$ | $2.3\%$ |
 | L13 | $\Sigma m_\nu$ | $\frac{3\varphi^2}{1000\pi}$ eV | $0.0587$ eV | $0.7\%$ |
 | L14 | $m_{\nu_e}$ | $\frac{\varphi^4}{10000}$ eV | $0.00117$ eV | *(prediction)* |
-| L15 | $\delta_{CP}$ | $-\frac{\pi}{\varphi^2}$ rad or $-\frac{180^\circ}{\varphi}$ | $-107.5^\circ$ | testable |
+| L15 | $\delta_{CP}$ | $-\frac{\pi}{\varphi^2}$ rad or $-\frac{180^\circ}{\varphi}$ | $-107.5^\circ$ | SUPERSEDED (never validated; withdrawn 65.66° fit is canonical) |
 | L16 | $\Delta m_{21}^2/\Delta m_{31}^2$ | $\frac{1}{2\varphi^3 - 1}$ | $0.030$ | $1.8\%$ |
 | L17 | $m_W/m_Z$ | $\frac{\varphi^2 - 1}{\varphi^2}$ | $0.8815$ | $0.06\%$ |
 
@@ -114,7 +114,7 @@ An alternative form, $\alpha_{\text{EW}}^{-1} = 360\varphi^{-3}(1 + 1/(15\pi\var
 
 **L13-L14 (Neutrino masses).** The sum of neutrino masses and the electron neutrino mass are predictions. The normal hierarchy gives $m_{\nu_e} : m_{\nu_\mu} : m_{\nu_\tau} \approx 1 : \varphi^2 : \varphi^4$, from which L13 and L14 follow by normalization to $\Delta m_{21}^2$ and $\Delta m_{31}^2$.
 
-**L15 (CP-violating phase).** The prediction $\delta_{CP} = -\pi/\varphi^2 \approx -1.876$ rad $= -107.5^\circ$ will be tested by DUNE and Hyper-Kamiokande at $3\sigma$ by 2035 [2].
+**L15 (CP-violating phase).** The formula $\delta_{CP} = -\pi/\varphi^2 \approx -107.5^\circ$ is SUPERSEDED. It was never validated against NuFIT-6.0 and is superseded by the withdrawn 65.66° fit.
 
 ---
 
@@ -207,7 +207,7 @@ Three predictions from the $H_4$ framework are experimentally testable within th
 
 $$\delta_{CP} = -\frac{\pi}{\varphi^2} \approx -107.5^\circ$$
 
-This is within the current $3\sigma$ range $\delta_{CP} \in [-120^\circ, -60^\circ]$ from T2K and NOvA [2]. DUNE and Hyper-Kamiokande will measure $\delta_{CP}$ with $\sim 10^\circ$ precision by 2035 [2]. A measured value of $-107.5^\circ \pm 10^\circ$ would be consistent with the $H_4$ prediction.
+**SUPERSEDED:** This formula was never validated against NuFIT-6.0 and is superseded by the withdrawn 65.66° fit.
 
 **Falsifiability:** If $\delta_{CP}$ is measured outside the range $[-130^\circ, -85^\circ]$, the $H_4$ prediction for this quantity will be falsified.
 
@@ -319,7 +319,7 @@ The most important results are:
 
 2. **The electroweak coupling** $\alpha_{\text{EW}}^{-1} = 239\varphi^4/\pi^4$ is predicted at $0.000103\%$, the highest precision in the framework.
 
-3. **Three testable predictions** are made: $\delta_{CP} \approx -107.5^\circ$, $m_{\nu_e} \approx 1.17$ meV, and $\Sigma m_\nu \approx 0.0591$ eV. These will be tested by DUNE, Hyper-Kamiokande, KATRIN, and CMB-S4 within the next decade.
+3. **Three formulas with experimental comparisons** (all fitted coincidences, not predictions): $\delta_{CP} \approx -107.5^\circ$ (SUPERSEDED; see withdrawn 65.66° fit), $m_{\nu_e} \approx 1.17$ meV, and $\Sigma m_\nu \approx 0.0591$ eV.
 
 4. **The dark matter relic density** $\Omega_c h^2 = 7/(240\pi^2\varphi^3)$ agrees with Planck 2018 at $2.3\%$.
 
@@ -337,7 +337,7 @@ The numerical agreement between $H_4$ invariants and SM parameters is sufficient
 
 [3] P.-P. Dechant (Dechant 2016), "The birth of $E_8$ out of the spinors of the icosahedron", *Proceedings of the Royal Society A*, **472** (2016) 20150504. doi:10.1098/rspa.2015.0504. See also: P.-P. Dechant, "Root systems & Clifford algebras: from symmetries of roots to quantum symmetries", *Symmetry*, **14** (2022) 1543.
 
-[4] J. Morató (Morató 2026), "Noncommutative Geometry and the Standard Model: A Spectral Approach to Coxeter Symmetries", *Journal of Mathematical Physics*, to appear (2026). Preliminary version: arXiv:2503.XXXXX [hep-th]. (Note: This is a forward reference to work in progress.)
+[4] J. Morató (Morató 2026), "Noncommutative Geometry and the Standard Model: A Spectral Approach to Coxeter Symmetries", *Journal of Mathematical Physics*, to appear (2026). Preliminary version: [PENDING] arXiv:2503.XXXXX [hep-th]. (Note: This is a forward reference to work in progress.)
 
 [5] A. H. Chamseddine and A. Connes, "The Spectral Action Principle", *Communications in Mathematical Physics*, **186** (1997) 731–750. doi:10.1007/s002200050126. See also: A. Connes, "Noncommutative Geometry, Year 2000", arXiv:math/0011193 [math.QA].
 
@@ -345,7 +345,7 @@ The numerical agreement between $H_4$ invariants and SM parameters is sufficient
 
 [7] M. S. El Naschie, "High Energy Physics and the Standard Model from the exceptional Lie groups", *Chaos, Solitons & Fractals*, **36** (2008) 1–17. (Note: Historical context for $E_8$-based approaches.)
 
-[8] M. D. Sheppeard, "The Mass Gap and the Golden Ratio", arXiv:2201.XXXXX [hep-ph] (2022). (Note: Related work on $\varphi$ in particle physics.)
+[8] M. D. Sheppeard, "The Mass Gap and the Golden Ratio", arXiv:2201.XXXXX [hep-ph] (2022). (Note: Related work on $\varphi$ in particle physics. **Caveat:** arXiv identifier not verified; citation may be approximate.)
 
 [9] R. Penrose, "The role of aesthetics in pure and applied mathematical research", *Bulletin of the Institute of Mathematics and its Applications*, **10** (1974) 266–271. (Note: Historical motivation for pentagonal symmetry in physics.)
 
@@ -388,9 +388,9 @@ Main results:
 
 1. **The Koide formula** $K = 2/3$ for charged lepton masses is reproduced as an $H_4$ invariant. This is a consistency check, not a derivation from first principles.
 
-2. **Fifteen unique formulas** (after deduplication from seventeen) express Standard Model parameters through the golden ratio $\varphi = (1+\sqrt{5})/2$, the number $\pi$, and small integers. The most precise formula — $\alpha_{\text{EW}}^{-1} = 239\varphi^4/\pi^4$ — matches experiment with precision $0.000103\%$.
+2. **Fifteen unique formulas** (after deduplication from seventeen) express Standard Model parameters through the golden ratio $\varphi = (1+\sqrt{5})/2$, the number $\pi$, and small integers. The most precise fitted coincidence — $\alpha_{\text{EW}}^{-1} = 239\varphi^4/\pi^4$ — numerically agrees with the PDG 2024 central value within $0.000103\%$.
 
-3. **Three predictions** are experimentally testable: the CP-violating phase $\delta_{CP} \approx -107.5^\circ$, the electron neutrino mass $m_{\nu_e} \approx 1.17$ meV, and the sum of neutrino masses $\Sigma m_\nu \approx 0.0591$ eV.
+3. **Three formulas with experimental comparisons** (all fitted coincidences): the CP-violating phase $\delta_{CP} \approx -107.5^\circ$ (SUPERSEDED; see withdrawn 65.66° fit), the electron neutrino mass $m_{\nu_e} \approx 1.17$ meV, and the sum of neutrino masses $\Sigma m_\nu \approx 0.0591$ eV.
 
 4. **The cosmological dark matter density** $\Omega_c h^2 = 7/(240\pi^2\varphi^3)$ agrees with Planck 2018 data at $2.3\%$.
 

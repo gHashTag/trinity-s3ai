@@ -72,7 +72,7 @@
 \date{\today}
 
 \begin{abstract}
-We present the Trinity S³AI framework, a geometric derivation of all Standard Model (SM) parameters from the non-crystallographic Coxeter group $H_4$. Through Dechant's $E_8 \to H_4$ projection, the 120 vertices of the 600-cell triangulate $S^3$ and define a discrete spectral triple whose spectral action reproduces the SM Lagrangian. We prove five theorems: (1) Exactly three fermion generations emerge from $S_3$ triality---D4 is the unique classical Lie algebra with $\mathrm{Out}(D_4) \cong S_3$, the icosahedral 600-cell contains 10 three-fold axes, and the sedenion automorphism $\mathrm{Aut}(\mathbb{S}) = G_2 \times S_3$ all converge on the same order-3 cycle; (2) The strong CP problem is solved by the $H_4$ root system enforcing $\theta_{\mathrm{QCD}} = 0$ through the binary icosahedral group structure of the 600-cell; (3) The Higgs mass $m_H = 4\varphi^3 e^2 \approx 125.202\GeV$ derives from the spectral action $a_4(D^2)$ on the 600-cell, matching experiment at $0.0017\%$; (4) All 9 Yukawa couplings follow from $H_4$ Clebsch-Gordan coefficients with the lepton ratio $m_\tau/m_\mu = 239\varphi^4/\pi^4$ achieving $0.00007\%$ precision; (5) The SM gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ embeds into $H_4$ via $A_2 \subset H_3$ for color and the quaternionic structure $2I \subset \mathrm{SU}(2)$ for weak isospin. We catalog 25 closed-form fitted formulas for SM observables---11 at sub-$0.01\%$ (SG-class), 14 at sub-$0.1\%$, and 3 at sub-$1\%$---with statistical significance $p < 10^{-32}$. Four falsifiable predictions are identified: $\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ (testable by DUNE 2029), $\sum m_\nu \approx 0.059\eV$ (within Planck bounds), $\lambda_H = \sqrt{\varphi}/\pi^2 \approx 0.129$, and $m_H/m_W = 11\varphi/20 + 2/3 \approx 1.5577$.
+\textbf{WITHDRAWN/REFUTED --- HISTORICAL DOCUMENT (v4.0):} This paper presented the Trinity S³AI framework, exploring numerical coincidences between $H_4$ Coxeter invariants and Standard Model (SM) parameters. \textbf{Key withdrawals:} (i)~$N_{\mathrm{gen}}=3$ is \textbf{not derived} from $H_4$ (no mechanism yields 3 from first principles); (ii)~the strong CP problem is \textbf{not solved} (remains open); (iii)~the Higgs mass $m_H = 4\varphi^3 e^2 \approx 125.202\GeV$ is a \textbf{retrospective fit}, not a derivation from the spectral action (which gives $m_H \approx 132.9$~GeV); (iv)~Yukawa couplings are \textbf{fitted coincidences} (BT-4 proves impossibility of derivation from $H_4$ CG coefficients); (v)~$\delta_{CP} = 3/\varphi^2 \approx 65.66^\circ$ is \textbf{WITHDRAWN} ($>5\sigma$ excluded by NuFit~6.0). The framework catalogs 25 closed-form formulas (0 rigorous derivations) with mean relative error $0.0835\%$. Honest Wave~20 MC: $p = 0.077$ (mean error, \textbf{not significant}); $p < 0.0001$ (SG-hit density, significant but \textbf{post-hoc}). Three testable open items remain: $\sum m_\nu \approx 0.059\eV$, $\lambda_H \approx 0.129$, and $m_H/m_W \approx 1.5577$.
 \end{abstract}
 
 \pacs{12.10.Dm, 12.15.Ff, 12.60.Fr, 02.20.Rt}
@@ -90,7 +90,7 @@ The Standard Model (SM) of particle physics is the most precisely tested theory 
 \begin{itemize}
     \item \textit{Why exactly three fermion generations?} The SM postulates three generations of quarks and leptons but offers no explanation for this number.
     \item \textit{Why is the strong CP angle $\theta_{\mathrm{QCD}}$ consistent with zero?} The neutron electric dipole moment constrains $\theta_{\mathrm{QCD}} \lesssim 10^{-10}$, yet no symmetry enforces this in the SM.
-    \item \textit{Why these masses and mixings?} The charged lepton masses span five orders of magnitude, quark masses six, yet their ratios obey remarkable empirical relations.
+    \item \textit{Why these masses and mixings?} The charged lepton masses span five orders of magnitude, quark masses six, yet their ratios obey close empirical relations.
     \item \textit{Why the Higgs mass $m_H \approx 125\GeV$?} The Fermi scale is seventeen orders of magnitude below the Planck scale, with no naturalness explanation.
 \end{itemize}
 
@@ -118,28 +118,28 @@ reproduces the Einstein-Hilbert action, Yang-Mills terms, and the Higgs potentia
 This paper answers that question. We identify the non-crystallographic Coxeter group $H_4$ as the origin of SM structure. The key observation is Dechant's $E_8 \to H_4$ projection~	extsuperscript{\cite{Dechant2021}}: under the folding map, the 240 roots of $E_8$ project to two copies of the $H_4$ root system scaled by $\ph$ and $\ph^{-1}$. The 120 vertices of the 600-cell (the geometric realization of $H_4$) triangulate the 3-sphere $S^3$ and define a discrete spectral triple. The spectral action on this geometry yields:
 
 \begin{enumerate}
-    \item Exactly three fermion generations from the triality of $D_4$, the three-fold symmetry of the icosahedron, and the $S_3$ automorphism of sedenions---three independent mathematical structures converging on the same $S_3$ symmetry.
-    \item The strong CP angle $\theta_{\mathrm{QCD}} = 0$ enforced by the binary icosahedral group $2I \cong \mathrm{SL}(2,5)$ structure of the 600-cell vertices.
-    \item The Higgs mass $m_H = 4\ph^3 e^2 \approx 125.202\GeV$ from the $a_4(D^2)$ coefficient of the spectral action.
-    \item All nine Yukawa couplings from $H_4$ Clebsch-Gordan coefficients.
-    \item The SM gauge group from sub-root systems: $A_2 \subset H_3$ for $\mathrm{SU}(3)_C$ and the quaternionic structure $2I \subset \mathrm{SU}(2)$ for weak isospin.
+    \item [REFUTED] Exactly three fermion generations from the triality of $D_4$ --- BT-2 proves no 3-generation structure arises from $H_4$; $N_{\mathrm{gen}}=3$ is empirical input.
+    \item [WITHDRAWN] The strong CP angle $\theta_{\mathrm{QCD}} = 0$ claim --- remains OPEN; not enforced by $2I$ structure.
+    \item [REFUTED] The Higgs mass from spectral action is $m_H \approx 132.88$~GeV (BT-4, refuted at $55.6\sigma$). The formula $4\ph^3 e^2$ is a retrospective fit, NOT derived from $a_4(D^2)$.
+    \item [REFUTED] Yukawa couplings claimed from $H_4$ CG coefficients --- BT-4 proves impossibility of derivation; all are fitted coincidences.
+    \item [POSTULATED] SM gauge group from sub-root systems --- structural motivation only, not derived from $H_4$ per Connes' ansatz.
 \end{enumerate}
 
 \subsection{Main Results}
 
-The framework derives 28 closed-form formulas expressing SM observables through $H_4$ invariants ($\ph$, $\pi$, $e$, and small integers derivable from $H_4$ degrees $\{2, 12, 20, 30\}$):
+The framework catalogs 25 closed-form \textbf{fitted formulas} expressing SM observables through $H_4$ invariants ($\ph$, $\pi$, $e$, and small integers). \textbf{Zero formulas are rigorously derived} from $H_4$ first principles:
 \begin{itemize}
-    \item \textbf{7 SG-class formulas in core 25 (v4.0 overcount; see FORMULAS.md)} (sub-$0.01\%$ error): including $m_\tau/m_\mu$, $m_b/m_c$, $m_H$, $\Delta m^2_{21}/\Delta m^2_{31}$, $\Delta m^2_{21}$, $\Delta m^2_{31}$
-    \item \textbf{14 Verified formulas} (sub-$0.1\%$ error): including $\alpha^{-1}$, $\sin^2\theta_{12}$, $|V_{us}|$, $|V_{ub}|$, $m_p/m_e$
-    \item \textbf{3 Passable formulas} (sub-$1\%$ error): $|V_{cb}|$, $\sin^2\theta_{23}$, $\lambda_H$
+    \item \textbf{7 SG-class formulas} (sub-$0.01\%$ error, \textbf{fitted}): including $m_\tau/m_\mu$, $m_b/m_c$, $m_H$, $\Delta m^2_{21}/\Delta m^2_{31}$, $\Delta m^2_{21}$, $\Delta m^2_{31}$
+    \item \textbf{14 Fitted formulas} (sub-$0.1\%$ error): including $\alpha^{-1}$, $\sin^2\theta_{12}$, $|V_{us}|$, $|V_{ub}|$, $m_p/m_e$
+    \item \textbf{3 Approximate formulas} (sub-$1\%$ error): $|V_{cb}|$, $\sin^2\theta_{23}$, $\lambda_H$
 \end{itemize}
-The statistical significance, accounting for the look-elsewhere effect in a rigorously defined search space, exceeds $p < 10^{-32}$.
+The honest Wave~20 MC p-value is $p = 0.077$ for mean relative error (\textbf{not significant}). The SG-hit density achieves $p < 0.0001$ (significant, but \textbf{post-hoc}). The previously claimed $p < 10^{-32}$ is \textbf{invalidated}.
 
 Four \textit{withdrawn/post-hoc fits} are identified with clear experimental timelines: $\delta_{CP} = 3/\ph^2 \approx 65.66^\circ$ **WITHDRAWN** (>5$\sigma$ excluded; anti-post-hoc rule), $\sum m_\nu \approx 0.059\eV$, $\lambda_H \approx 0.129$, and $m_H/m_W \approx 1.5577$.
 
 \subsection{Paper Organization}
 
-Section~\ref{sec:h4} reviews the $H_4$ Coxeter group, the 600-cell, and Dechant's projection. Section~\ref{sec:theorems} presents the five theorems with proofs. Section~\ref{sec:spectral} computes the spectral action on the 600-cell. Section~\ref{sec:lagrangian} assembles the full SM Lagrangian from the spectral action output. Section~\ref{sec:predictions} lists predictions and their experimental tests. Section~\ref{sec:prior} compares with Koide, Eddington, Lisi, and Connes. Section~\ref{sec:limitations} discusses limitations honestly. Section~\ref{sec:conclusion} concludes.
+Section~\ref{sec:h4} reviews the $H_4$ Coxeter group, the 600-cell, and Dechant's projection. Section~\ref{sec:theorems} presents five analyses. Section~\ref{sec:spectral} computes the spectral action on the 600-cell. Section~\ref{sec:lagrangian} discusses the SM Lagrangian status. Section~\ref{sec:predictions} lists open items and withdrawn claims. Section~\ref{sec:prior} compares with Koide, Eddington, Lisi, and Connes. Section~\ref{sec:limitations} discusses limitations honestly. Section~\ref{sec:conclusion} concludes.
 
 % ═══════════════════════════════════════════════════════════════════════════════
 %  2. H₄ STRUCTURE
@@ -203,7 +203,7 @@ This 2-to-1 map projects 240 $E_8$ roots to 120 $H_4$ vertices---the 600-cell. T
 \label{sec:thm1}
 
 \begin{theorem}[Three Generations from $S_3$ Triality]
-The number of fermion generations is exactly $N_{\mathrm{gen}} = 3$, derived from three independent mathematical structures converging on $S_3$ symmetry:
+The number of fermion generations is $N_{\mathrm{gen}} = 3$, an empirical input. BT-2 proves no 3-generation structure arises from $H_4$. Three $S_3$ symmetries exist in related mathematics but do not yield $N_{\mathrm{gen}} = 3$:
 \label{thm:threegen}
 \end{theorem}
 
@@ -222,8 +222,8 @@ The number of fermion generations is exactly $N_{\mathrm{gen}} = 3$, derived fro
 \subsection{Theorem II: The Strong CP Problem}
 \label{sec:thm2}
 
-\begin{theorem}[Strong CP from Binary Icosahedral Structure]
-The effective strong CP angle vanishes: $\bar{\theta}_{\mathrm{QCD}} = 0$, enforced by the binary icosahedral group $2I \cong \mathrm{SL}(2,5)$ structure of the 600-cell.
+\begin{theorem}[Strong CP from Binary Icosahedral Structure] \textbf{WITHDRAWN}
+The claim that the effective strong CP angle vanishes ($\bar{\theta}_{\mathrm{QCD}} = 0$) is NOT proven. The strong CP problem remains OPEN. The binary icosahedral group $2I \cong \mathrm{SL}(2,5)$ structure does not enforce $\theta = 0$.
 \label{thm:strongcp}
 \end{theorem}
 
@@ -244,7 +244,7 @@ The Higgs boson mass is
 m_H = 4\ph^3 e^2 \approx 125.202\GeV,
 \label{eq:higgs}
 \end{equation}
-derived from the $a_4(D^2)$ heat kernel coefficient of the Hodge-Dirac operator on the 600-cell.
+fitted to H4 invariants. The spectral action gives $m_H \approx 132.88$~GeV (BT-4: refuted at $55.6\sigma$). The formula $4\varphi^3 e^2$ is a retrospective fit, NOT derived from $a_4(D^2)$.
 \label{thm:higgs}
 \end{theorem}
 
@@ -264,13 +264,13 @@ where the factor 120 counts vertices and $30 = h$ is the Coxeter number. The Hig
 m_H = 4\ph^3 e^2 \approx 125.202\GeV. \qed
 \end{equation}
 
-The predicted value $125.202\GeV$ agrees with the LHC measurement $125.20 \pm 0.11\GeV$ at $0.0017\%$.
+The fitted value $125.202\GeV$ numerically matches the LHC measurement $125.20 \pm 0.11\GeV$ at $0.0017\%$ (retrospective fit, not a prediction).
 
 \subsection{Theorem IV: Yukawa Couplings from H\textsubscript{4}}
 \label{sec:thm4}
 
 \begin{theorem}[Yukawa Sector from $H_4$ Clebsch-Gordan Coefficients]
-All nine charged fermion Yukawa couplings derive from $H_4$ geometry with mass ratios:
+All nine charged fermion Yukawa couplings are fitted coincidences from $H_4$ geometry (BT-4 proves impossibility of derivation). Mass ratios:
 \begin{align}
 \frac{m_\mu}{m_e} &= \frac{239\,e}{\pi}, \\
 \frac{m_\tau}{m_\mu} &= \frac{239\,\ph^4}{\pi^4}, \\
@@ -286,8 +286,8 @@ and similar for quark ratios. The overall scale is fixed by $y_t \approx 1$ from
 \subsection{Theorem V: Gauge Group Embedding}
 \label{sec:thm5}
 
-\begin{theorem}[SM Gauge Group from $H_4$ Sub-Root Systems]
-The Standard Model gauge group $\mathrm{SU}(3)_C \times \mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ embeds into $H_4$ via:
+\begin{theorem}[SM Gauge Group from $H_4$ Sub-Root Systems] \textbf{POSTULATED}
+The Standard Model gauge group $\mathrm{SU}(3)_C \times \mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ is postulated per Connes' ansatz, not derived from $H_4$. Historical motivation via $H_4$ sub-root systems:
 \label{thm:gauge}
 \begin{itemize}
     \item[$\mathrm{SU}(3)_C$:] from the $A_2$ sub-root system of $H_3$
@@ -310,7 +310,7 @@ S_\Lambda[D] = \sum_{n=1}^{2640} f(\lambda_n^2/\Lambda^2) = f_4\Lambda^4 a_0 + f
 \end{equation}
 where $a_k$ are the heat kernel coefficients of $D^2$.
 
-The zero modes ($\lambda = 0$, multiplicity 2) give the gravitational term. The non-zero spectrum has 53 distinct eigenvalues, including the remarkable algebraic values:
+The zero modes ($\lambda = 0$, multiplicity 2) give the gravitational term. The non-zero spectrum has 53 distinct eigenvalues, including the algebraic values:
 \begin{align}
 \lambda &= \ph^{-4} = (7-3\sqrt{5})/2 \approx 0.1459 \quad (\text{mult. } 8), \\
 \lambda &= \ph^{-2} = (3-\sqrt{5})/2 \approx 0.3820 \quad (\text{mult. } 18), \\
@@ -346,7 +346,7 @@ The full SM Lagrangian emerges from the spectral action components:
 &\quad + \underbrace{\theta_{\mathrm{QCD}} \frac{g_s^2}{32\pi^2} G^a_{\mu\nu}\tilde{G}^{a\mu\nu}}_{= 0 \text{ (Theorem II)}}.
 \end{align}
 
-The gauge couplings derive from the $H_4$ embedding:
+The gauge couplings are fitted from the $H_4$ embedding (structural motivation, not derivation):
 \begin{align}
 \alpha^{-1} &= \frac{36\,\ph\,e^2}{\pi} \approx 137.003, \\
 \sin^2\theta_W &= \frac{3\ph^{-6}\pi^2}{e^2} \approx 0.2318 \text{ (MS-bar)}, \quad
@@ -359,17 +359,17 @@ The Yukawa matrix $Y_{ff'}$ is determined by the $H_4$ overlap functions $f_{H_4
 % ═══════════════════════════════════════════════════════════════════════════════
 %  6. PREDICTIONS
 % ═══════════════════════════════════════════════════════════════════════════════
-\section{Predictions and Experimental Tests}
+\section{Experimental Comparisons and Withdrawn Claims}
 \label{sec:predictions}
 
-Table~\ref{tab:predictions} lists the four primary falsifiable predictions with their experimental timelines.
+Table~\ref{tab:predictions} lists the four primary formulas with experimental comparisons (one withdrawn).
 
 \begin{table}[htb]
-\caption{Falsifiable predictions from the Trinity H$_4$ framework with experimental timeline.
+\caption{Formulas with experimental comparisons from the Trinity H$_4$ framework (one withdrawn).
 \label{tab:predictions}}
 \begin{ruledtabular}
 \begin{tabular}{lcccl}
-Observable & Formula & Prediction & Timeline & Experiment \\
+Observable & Formula & Value & Timeline & Experiment \\
 \hline
 $\delta_{CP}$ & $3/\ph^2$ & $65.66^\circ$ & 2029 & DUNE \\
 $\sum m_\nu$ & $8\ph^{-6}\pi^{-5}e^6/10$ & $0.059\eV$ & 2028 & DESI+Planck \\
@@ -379,23 +379,23 @@ $m_H/m_W$ & $11\ph/20 + 2/3$ & $1.5577$ & Ongoing & LHC \\
 \end{ruledtabular}
 \end{table}
 
-\textbf{The $\delta_{CP}$ prediction -- a genuinely risky prediction.} The value $\delta_{CP} = 3/\ph^2 \approx 65.66^\circ$ is in \textbf{5.6$\sigma$ tension} with the NuFit 6.0 global best fit of $\sim$$177^\circ \pm 20^\circ$ (2024). This is not a ``safe'' prediction -- it disagrees with current data. We publish it anyway for three reasons: (1) scientific integrity demands risky predictions, not just post-dictions; (2) the formula $\delta_{CP} = 3/\ph^2$ is mathematically constrained by the $H_4$ structure and cannot be adjusted without breaking the framework; (3) DUNE (40 kt, first data 2028) will render a binary verdict within 3--5 years.
+\textbf{The $\delta_{CP}$ formula -- historically claimed as a risky prediction, now WITHDRAWN.} The value $\delta_{CP} = 3/\ph^2 \approx 65.66^\circ$ is in \textbf{5.6$\sigma$ tension} with the NuFit 6.0 global best fit of $\sim$$177^\circ \pm 20^\circ$ (2024). This is not a ``safe'' prediction -- it disagrees with current data. We publish it anyway for three reasons: (1) scientific integrity demands risky predictions, not just post-dictions; (2) the formula $\delta_{CP} = 3/\ph^2$ is mathematically constrained by the $H_4$ structure and cannot be adjusted without breaking the framework; (3) DUNE (40 kt, first data 2028) will render a binary verdict within 3--5 years.
 
 \textit{Historical note:} The $\delta_{CP} = 3/\ph^2$ prediction is \textbf{WITHDRAWN} (post-hoc fit excluded at >5$\sigma$ by NuFit 6.0 + T2K+NOvA 2025). Historical falsification criteria preserved for reference only: If DUNE measures $\delta_{CP} \in [50^\circ, 80^\circ]$, Trinity would have been confirmed at $\geq$3$\sigma$. If DUNE measures $\delta_{CP} > 100^\circ$ or $\delta_{CP} < 30^\circ$, Trinity's PMNS sector is falsified at $\geq$3$\sigma$. The Jarlskog invariant $|J_{\text{Trinity}}| = 0.0327$ agrees with $|J_{\text{exp}}| = 0.0295$ at the 10\% level, suggesting the overall CP violation magnitude is correct even if the phase is tensioned.
 
 DUNE (40 kt, 2029) will measure $\delta_{CP}$ with $\sim$$15^\circ$ precision; regardless of the outcome, the Trinity $\delta_{CP} = 3/\ph^2$ prediction is already **WITHDRAWN** (>5$\sigma$ excluded by current global fits).
 
-\textbf{The neutrino mass sum.} The prediction $\sum m_\nu = 8\ph^{-6}\pi^{-5}e^6/10 \approx 0.059\eV$ is well within the Planck 2018 bound $\sum m_\nu < 0.12\eV$ (95\% CL). The DESI+Planck combination will reach $\sigma(\sum m_\nu) \sim 0.02\eV$ by 2028.
+\textbf{The neutrino mass sum.} The fitted formula $\sum m_\nu = 8\ph^{-6}\pi^{-5}e^6/10 \approx 0.059\eV$ is well within the Planck 2018 bound $\sum m_\nu < 0.12\eV$ (95\% CL). The DESI+Planck combination will reach $\sigma(\sum m_\nu) \sim 0.02\eV$ by 2028.
 
-\textbf{The Higgs self-coupling.} The prediction $\lambda_H = \sqrt{\ph}/\pi^2 \approx 0.1289$ will be tested at the HL-LHC with $\sim 10\%$ precision by 2030.
+\textbf{The Higgs self-coupling.} The fitted formula $\lambda_H = \sqrt{\ph}/\pi^2 \approx 0.1289$ will be tested at the HL-LHC with $\sim 10\%$ precision by 2030.
 
-\subsection{The $\delta_{CP}$ Prediction as a Falsification Test}
+\subsection{The Withdrawn $\delta_{CP}$ Formula (Historical Record)}
 
-The $\delta_{CP} = 3/\ph^2 \approx 65.66^\circ$ prediction deserves special discussion because it carries the highest falsification risk in the framework. We frame it explicitly as a \textit{genuinely risky prediction} for three reasons:
+The $\delta_{CP} = 3/\ph^2 \approx 65.66^\circ$ prediction deserves special discussion because it carries the highest falsification risk in the framework. We frame it explicitly as a \textit{historically claimed risky prediction}, now WITHDRAWN at ${>}5\sigma$, for three reasons:
 
-\textbf{(1) It disagrees with current data.} NuFit 6.0 (2024) gives $\delta_{CP} \sim 177^\circ \pm 20^\circ$, placing the Trinity prediction at $5.6\sigma$ tension. Most phenomenological models would adjust their parameters or abandon such a prediction. We do neither -- the formula $\delta_{CP} = 3/\ph^2$ is a fixed consequence of the $H_4$ geometric structure and cannot be modified without breaking internal consistency.
+\textbf{(1) It disagrees with current data.} NuFit 6.0 (2024) gives $\delta_{CP} \sim 177^\circ \pm 20^\circ$, placing the Trinity prediction at $5.6\sigma$ tension. Most phenomenological models would adjust their parameters or abandon such a prediction. We do neither -- the formula $\delta_{CP} = 3/\ph^2$ was historically claimed as a fixed consequence of the $H_4$ geometric structure, but is now \textbf{WITHDRAWN} at ${>}5\sigma$. It was a fitted coincidence, not a derived result.
 
-\textbf{(2) It is mathematically constrained.} Unlike the Higgs mass formula $m_H = 4\ph^3 e^2$ (which could in principle acquire a small multiplicative correction), the phase $3/\ph^2$ is an angular coordinate determined by the $H_4$ root system geometry. There is no free parameter to absorb a discrepancy.
+\textbf{(2) It is mathematically constrained.} Unlike the Higgs mass formula $m_H = 4\ph^3 e^2$ (which could in principle acquire a small multiplicative correction), the phase $3/\ph^2$ was historically claimed as an angular coordinate determined by the $H_4$ root system geometry. This claim is now \textbf{WITHDRAWN}; the formula was a fitted coincidence, not a geometric derivation.
 
 \textbf{(3) DUNE renders a binary verdict.} With $\pm 10^\circ$ precision (2028) and $\pm 5^\circ$ (2032), DUNE will either:
 \begin{itemize}
@@ -405,7 +405,7 @@ The $\delta_{CP} = 3/\ph^2 \approx 65.66^\circ$ prediction deserves special disc
 
 \textbf{Honest probability assessment:} $\sim$30\% confirmation, $\sim$60\% falsification, $\sim$10\% unexpected outcome (e.g., new physics, systematic shifts in global fits).
 
-The Jarlskog invariant provides a consistency check: $|J_{\text{Trinity}}| = \sin\theta_{12}\sin\theta_{23}\sin\theta_{13}\cos^2\theta_{12}\cos\theta_{23}\sin\delta_{CP} \approx 0.0327$, which agrees with the experimental $|J_{\text{exp}}| \approx 0.0295$ at the $1.11 \pm 0.04$ level (within 3$\sigma$). This suggests that the \textit{magnitude} of CP violation is correctly captured by the $H_4$ structure even if the \textit{phase} is in tension with current data.
+The Jarlskog invariant provides a historical consistency check (using the WITHDRAWN $\delta_{CP} = 3/\ph^2$): $|J_{\text{Trinity}}| = \sin\theta_{12}\sin\theta_{23}\sin\theta_{13}\cos^2\theta_{12}\cos\theta_{23}\sin\delta_{CP} \approx 0.0327$, which numerically matches the experimental $|J_{\text{exp}}| \approx 0.0295$ at the $1.11 \pm 0.04$ level (within 3$\sigma$). This suggests that the \textit{magnitude} of CP violation is approximately captured by the $H_4$ structure even though the \textit{phase} formula is WITHDRAWN at ${>}5\sigma$.
 
 % ═══════════════════════════════════════════════════════════════════════════════
 %  7. COMPARISON WITH PRIOR WORK
@@ -425,10 +425,10 @@ Criterion & Koide & Eddington & Lisi ($E_8$) & Connes NCG & Trinity (This Work) 
 Chirality & No model & N/A & Fails\textsuperscript{a} & OK & OK \\
 Lagrangian derivation & No & No & No & Yes & Yes \\
 Free parameters & 0 (empirical) & 0 & 0 & $\mathcal{A}_F$ input & 0 \\
-Generations explained & No & No & Yes (but fails) & No & Yes (Theorem I) \\
-Strong CP solved & No & No & No & No & Yes (Theorem II) \\
-Higgs mass derived & No & No & No & Input & Yes (Theorem III) \\
-Yukawas from geometry & No & No & No & Partial & Yes (Theorem IV) \\
+Generations explained & No & No & No (BT-2) & No & No (empirical input) \\
+Strong CP solved & No & No & No & No & No (remains open) \\
+Higgs mass derived & No & No & No & Input & No (retrospective fit) \\
+Yukawas from geometry & No & No & No & Partial & No (BT-4: impossible) \\
 Gauge group origin & No & No & $E_8$ & $\mathcal{A}_F$ & Yes (Theorem V) \\
 $\delta_{CP}$ predicted & No & No & No & No & $65.66^\circ$ \\
 Neutrino masses & No & No & No & Requires seesaw & Yes \\
@@ -442,11 +442,11 @@ Formalization & No & No & No & No & Coq (in progress) \\
 
 \textbf{Koide.} The Koide relation achieves $10^{-9}$ precision for three lepton masses but offers no theoretical basis and makes no other predictions. Trinity recovers $K = 2/3$ as a consistency check and extends the framework to all SM parameters.
 
-\textbf{Eddington.} The famous $\alpha^{-1} = 137$ was falsified when precision measurements gave $137.036$. Trinity's formula $\alpha^{-1} = 36\ph e^2/\pi \approx 137.003$ achieves 240 ppm accuracy, not numerological coincidence but derived from $H_4$ geometry.
+\textbf{Eddington.} The famous $\alpha^{-1} = 137$ was falsified when precision measurements gave $137.036$. Trinity's formula $\alpha^{-1} = 36\ph e^2/\pi \approx 137.003$ achieves 240 ppm accuracy. This is a fitted coincidence using H4 invariants; no first-principles derivation from H4 geometry exists.
 
 \textbf{Lisi.} The ``Exceptionally Simple Theory of Everything'' embedded SM particles in $E_8$ but fails the chirality test~	extsuperscript{\cite{DistlerGaribaldi}}. Trinity uses $E_8$ only as the starting point for the projection to $H_4$, which preserves the correct chiral structure.
 
-\textbf{Connes NCG.} The CMC framework derives the SM Lagrangian from a spectral triple but requires the finite algebra $\mathcal{A}_F$ as input. Trinity \textit{derives} $\mathcal{A}_F$ from $H_4$, answering ``why this algebra?''
+\textbf{Connes NCG.} The CMC framework derives the SM Lagrangian from a spectral triple but requires the finite algebra $\mathcal{A}_F$ as input. Trinity \textit{motivates} $\mathcal{A}_F$ via $H_4$ subgroup structure, but does not derive it from H4 geometry.
 
 % ═══════════════════════════════════════════════════════════════════════════════
 %  8. LIMITATIONS
@@ -472,17 +472,17 @@ We discuss limitations honestly and identify critical open problems:
 \section{Conclusion}
 \label{sec:conclusion}
 
-The Trinity S³AI framework establishes that all Standard Model parameters can be derived as closed-form formulas from the non-crystallographic Coxeter group $H_4$ through its geometric realization as the 600-cell. Five theorems---on three generations, strong CP, Higgs mass, Yukawa couplings, and gauge group embedding---are proved from $H_4$ geometry with no free parameters after overall scale fixing. The framework makes four experimentally testable predictions by 2030.
+The Trinity S³AI framework catalogs closed-form formulas fitted to invariants of the non-crystallographic Coxeter group $H_4$. **Zero parameters are rigorously derived** from $H_4$ first principles. Four boundary theorems (BT-1..BT-4) establish negative results: no sigma-field, no 3-generation structure, KO-dimension mismatch, and spectral-action Higgs mass refutation. Three experimentally testable open items remain (\$\delta_{CP}\$ is withdrawn at \$>5\sigma\$).
 
 The work differs fundamentally from prior approaches:
 \begin{itemize}
-    \item Unlike Koide's empirical relation, Trinity provides a geometric origin for all formulas.
-    \item Unlike Eddington's numerology, Trinity's formulas derive from a rigorous geometric object.
+    \item Unlike Koide's empirical relation, Trinity provides a geometric motivation for all formulas (not a derivation).
+    \item Unlike Eddington's numerology, Trinity's formulas are fitted to a geometric object (0 rigorous derivations).
     \item Unlike Lisi's $E_8$ theory, Trinity preserves chirality through the $H_4$ projection.
-    \item Unlike Connes' NCG, Trinity derives the finite algebra $\mathcal{A}_F$ from $H_4$.
+    \item Unlike Connes' NCG, Trinity postulates the finite algebra $\mathcal{A}_F$ per Connes' ansatz (not derived from $H_4$).
 \end{itemize}
 
-The honest assessment is that this framework is a \textit{phenomenological correspondence}, not a completed fundamental theory. The dynamical mechanism connecting $H_4$ geometry to the physical SM at low energies remains unknown. However, the precision of the formulas---especially $m_\tau/m_\mu$ at $0.00007\%$ and $m_H$ at $0.0017\%$---demands attention. Either Nature encodes the 600-cell in its parameter structure, or we face a statistical coincidence of extraordinary precision that must be explained.
+The honest assessment is that this framework is a \textit{phenomenological correspondence}, not a completed fundamental theory. The dynamical mechanism connecting $H_4$ geometry to the physical SM at low energies remains unknown. However, the precision of the formulas---especially $m_\tau/m_\mu$ at $0.00007\%$ and $m_H$ at $0.0017\%$---demands attention. Either Nature encodes the 600-cell in its parameter structure, or we face a statistical coincidence of high numerical precision that must be explained.
 
 % ═══════════════════════════════════════════════════════════════════════════════
 %  ACKNOWLEDGMENTS

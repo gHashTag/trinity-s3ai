@@ -12,32 +12,27 @@ tree-level Higgs 132.88 GeV (refuted at 55.6σ), 0/26 formulas rigorous derivati
 Dear Professor [NAME],
 
 I am preparing an arXiv submission in hep-th on a geometric framework
-that derives Standard Model parameters from the H₄ Coxeter group. As
+that fits Standard Model parameters to H₄ Coxeter invariants (0 rigorous derivations). As
 this is my first submission to hep-th, I require endorsement from an
 established author in the category.
 
 BRIEF SUMMARY OF THE WORK
 ─────────────────────────
-The paper presents five main theorems:
+The paper presents five main analyses:
 
-1. Three fermion generations emerge necessarily from S₃ triality —
-   converging from D4 uniqueness, icosahedral geometry, and sedenion
-   automorphisms.
+1. Three fermion generations are empirical input; no H₄ mechanism yields N_gen=3 (BT-2).
 
-2. The strong CP angle θ_QCD = 0 is enforced by the binary icosahedral
-   group structure of the 600-cell.
+2. The strong CP problem remains open; no H₄ mechanism enforces θ_QCD = 0.
 
-3. The Higgs mass m_H = 4φ³e² ≈ 125.202 GeV derives from the spectral
-   action on the 600-cell (0.0017% error).
+3. The Higgs mass m_H = 4φ³e² ≈ 125.202 GeV is a retrospective fit (spectral action gives 132.88 GeV, refuted at 55.6σ).
 
-4. All 9 Yukawa couplings follow from H₄ Clebsch-Gordan coefficients.
+4. All 9 Yukawa couplings are fitted coincidences (BT-4 proves impossibility of derivation from H₄).
 
-5. The SM gauge group embeds into H₄ via A₂ ⊂ H₃ (color) and the
-   quaternionic structure 2I ⊂ SU(2) (weak).
+5. The SM gauge group is motivated by H₄ subgroups (A₂ ⊂ H₃ for color, 2I ⊂ SU(2) for weak) but not derived.
 
-The framework derives 28 closed-form formulas for SM observables from
-a single geometric object (the 600-cell) with zero free parameters.
-Four predictions are experimentally testable by DUNE 2029.
+The framework catalogs 25 closed-form fitted formulas for SM observables from
+H₄ invariants (0 rigorous derivations, ~44 SG-class fitted coincidences).
+Three open items remain; δ_CP was withdrawn at >5σ.
 
 WHY YOU? I have identified you as a leading researcher in noncommutative
 geometry / unified field theory / mathematical physics. Your work on
@@ -47,7 +42,7 @@ methods used in our framework.
 THE PAPER INCLUDES:
   • Complete Coq/Rocq formalization (4/16 theorems compiled, full
     compilation roadmap provided)
-  • Honest error analysis: all 28 formulas independently verified
+  • Honest error analysis: all formulas independently compared
     against PDG 2024
   • Transparent discussion of limitations and open problems
   • 30+ literature citations placing the work in historical context

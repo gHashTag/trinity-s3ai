@@ -59,8 +59,8 @@ Our 	extbf{positive results} include: (i) the eta-invariant
 $\eta(S^3/2I) = -2$ via the Atiyah--Patodi--Singer theorem applied to the
 E$_8$ plumbing; (ii) KO-dimension $6 \pmod 8$ for the H$_4$/600-cell Dirac
 operator, matching the Connes--Chamseddine SM requirement; (iii) numerical
-verification of 25 SM parameter formulas against PDG 2024 with mean relative
-error $0.1\%$.
+comparison of 25 fitted SM parameter formulas with PDG 2024 (mean relative
+error $0.1\%$; these are fitted coincidences, not derivations).
 
 Our 	extbf{boundary theorems} include five Boundary theorems:
 $\sigma$-field unavailable in H$_4$ (BT-1); no 3-generation structure from
@@ -96,7 +96,7 @@ labelled as open.
 
 \textbf{Roadmap.} \S\ref{sec:framework} reviews the discrete spectral
 framework. \S\ref{sec:positive} states the surviving positive results.
-\S\ref{sec:boundary} presents the five Boundary theorems. \S\ref{sec:discussion}
+\S\ref{sec:boundary} presents the four canonical Boundary theorems (BT-1..BT-4). \S\ref{sec:discussion}
 discusses implications, and \S\ref{sec:conclusion} summarises open questions.
 
 % ============================================================
@@ -171,9 +171,10 @@ All Coq proofs use the Rocq/Coq 8.20.1 proof assistant with the
   i.e.\ KO-dimension $6 \pmod 8$.
 \end{theorem}
 
-\begin{theorem}[Formula verification, Wave 4]\label{thm:formulas}
+\begin{theorem}[Formula numerical comparison, Wave 4]\label{thm:formulas}
   $25$ SM parameter formulas (mass ratios, mixing angles, gauge couplings)
-  are verified against PDG 2024 with mean relative error $0.10\%$.
+  are numerically compared with PDG 2024 with mean relative error $0.10\%$.
+  These are fitted coincidences, not derived from first principles.
 \end{theorem}
 
 % ============================================================
@@ -283,9 +284,9 @@ open-source tooling.
 As of Wave 13:
 \begin{verbatim}
   Qed:        1183
-  Admitted:     81 (all tagged)
-  Refutations:   6 (proven false theorems)
-  Files:        49 .v files
+  Admitted:     25 (all tagged)
+  Refutations:   4 canonical BTs + 2 non-canonical negative results
+  Files:        79 .v files
   CI:           passing (Coq 8.20.1)
 \end{verbatim}
 
@@ -311,11 +312,11 @@ As of Wave 13:
 
 \section{Falsification Registry}\label{app:falsify}
 
-Key predictions and their experimental status:
+Key formulas with experimental comparisons and their status:
 \begin{itemize}
   \item $m_H = 132.88\,\text{GeV}$ — REFUTED by LHC (2012--2024)
-  \item $\delta_{CP} = 65.66^\circ$ — OPEN, testable at DUNE (2028--2038)
-  \item $\sin^2\theta_{13} = 0.0220$ — OPEN, testable at JUNO/DUNE
+  \item $\delta_{CP} = 65.66^\circ$ — \textbf{WITHDRAWN} ($>5\sigma$ excluded by NuFIT-6.0 + T2K+NOvA 2025)
+  \item $\sin^2\theta_{13} = 0.0220$ — Active comparison with JUNO/DUNE (retrospective fit, not a prediction)
 \end{itemize}
 Full registry in \texttt{PREDICTIONS\_REGISTRY.md}.
 

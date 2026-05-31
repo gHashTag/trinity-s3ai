@@ -43,16 +43,16 @@ A new main section inserted between the original Boundary theorems (now §4) and
 ### 2. Updated Sections
 
 #### Abstract
-- Updated Coq stats: 1375 Qed (was 1183), 0 Admitted (was 81) [SUPERSEDED: Wave 23 canonical is 1325 Qed / 25 Admitted / 123 obligations]
+- Updated Coq stats: 1375 Qed (was 1183), ~~0 Admitted~~ (was 81) [SUPERSEDED: Wave 23 canonical was 1325 Qed / 25 Admitted / 123 obligations; post-Wave 23 correction is 1216 Qed / 0 Admitted / 93 obligations]
 - Added F₄ Yukawa boundary finding mention
 - Added experimental consistency (JUNO, DESI) and tension (DUNE δ_CP)
 - Expanded boundary theorems from 5 to 7 Boundary theorems
 
 #### §2.4 Formal Proof Infrastructure
-- Qed: 1375 (was 1183) [SUPERSEDED: Wave 23 canonical is 1325 Qed]
-- Admitted: 0 (was 81) [SUPERSEDED: Wave 23 canonical is 25 Admitted]
-- Added Axiom count: 77
-- Added file count: 79 .v files
+- Qed: 1375 (was 1183) [SUPERSEDED: post-Wave 23 correction is 1216 Qed in proofs/trinity/]
+- Admitted: 0 (was 81) [SUPERSEDED: post-Wave 23 correction is 0 real Admitted]
+- Added Axiom count: 77 [SUPERSEDED: post-Wave 23 correction is 93 total obligations]
+- Added file count: 79 .v files [SUPERSEDED: post-Wave 23 correction is 56 files in proofs/trinity/]
 - Updated Lean 4 port: 9 modules (was 4)
 
 #### §6 Discussion (was §5)
@@ -61,8 +61,8 @@ A new main section inserted between the original Boundary theorems (now §4) and
   - DESI DR2 normal hierarchy consistent
   - DUNE δ_CP >3σ tension reaffirmed
 - Added "Formal verification status" subsection
-  - 0 Admitted achieved in Wave 16
-  - 77 Axioms + 1 inline admit documented
+  - ~~0 Admitted~~ achieved in Wave 16 (SUPERSEDED: post-Wave 23 correction is 0 real Admitted + 93 obligations)
+  - 77 Axioms + 1 inline admit documented [SUPERSEDED: post-Wave 23 correction is 93 obligations]
   - Lean 4 port: 9 modules
 - Added comparison to Gürsey–Ramond program
 
@@ -124,4 +124,4 @@ A new main section inserted between the original Boundary theorems (now §4) and
 - All numbers match the repo state as of commit `b509d4d` (Wave 16 + Lean pin).
 - The F₄ Yukawa result is framed as a "numerical test suggests" failure, not a rigorous proof.
 - The E₈ plumbing η discrepancy is honestly labelled: the B-matrix is a heuristic, not rigorously derived.
-- The 0 Admitted status applies to the canonical 79-file proof tree; 1 inline `admit` remains in `E6vsH4.v`.
+- The ~~0 Admitted~~ status applies to the canonical 79-file proof tree; 1 inline `admit` remains in `E6vsH4.v`. [SUPERSEDED: post-Wave 23 correction is 0 real Admitted + 93 obligations across 56 files in proofs/trinity/]

@@ -22,7 +22,7 @@
   - This is a **data paper**, not a theory paper
   - No claims about H₄ "deriving" the Standard Model
   - Dataset includes formal proofs, numerical validation, and statistical tests
-  - Negative-result companion paper already exists (Wave 17, arXiv:XXXX.XXXXX)
+  - Negative-result companion paper already exists (Wave 17, [PENDING] arXiv:XXXX.XXXXX)
 
 ### Statements
 - [ ] **Conflict of Interest**: None declared

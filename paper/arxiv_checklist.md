@@ -21,7 +21,7 @@
 ## Abstract
 
 - [x] Word count under 250 words: **248 words**
-- [x] Contains all key results (5 theorems, spectral action, predictions)
+- [x] Contains all key results (5 analyses, spectral action, formulas with experimental comparisons)
 - [x] Mentions what distinguishes from Koide/Lisi/Connes
 - [x] No undefined notation in abstract
 
@@ -40,7 +40,7 @@
 
 - [x] Table 1: Complete formula set (28 entries)
 - [x] Table 2: Classification summary (SG/V/P/F)
-- [x] Table 3: Falsifiable predictions with experimental timeline
+- [x] Table 3: Formulas with experimental comparisons and timelines
 - [x] Table 4: Comparison with prior work (Koide, Eddington, Lisi, Connes)
 
 ## Sections
@@ -49,13 +49,13 @@
 - [x] 2. H₄ Structure and Dechant's E₈ → H₄ Projection
 - [x] 3. Five Theorems
   - [x] 3.1 Theorem I: Exactly Three Generations (N_gen = 3)
-  - [x] 3.2 Theorem II: Strong CP Problem (θ_QCD = 0)
+  - [x] 3.2 Strong CP Problem (OPEN — not solved; θ_QCD = 0 is an assumption, not a theorem)
   - [x] 3.3 Theorem III: Higgs Mass from Spectral Action
   - [x] 3.4 Theorem IV: Yukawa Couplings from H₄
   - [x] 3.5 Theorem V: Gauge Group Embedding
 - [x] 4. Spectral Action Derivation
 - [x] 5. Lagrangian Construction
-- [x] 6. Predictions and Experimental Tests
+- [x] 6. Experimental Comparisons and Withdrawn Claims
 - [x] 7. Comparison with Prior Work
 - [x] 8. Limitations and Open Problems
 - [x] 9. Conclusion

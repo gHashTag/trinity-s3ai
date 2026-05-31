@@ -133,7 +133,7 @@ Dirac operator, attempt at Standard Model unification.
 
 **Secondary categories:**
 - `math-ph` — mathematical physics: KO-dimension theorems, η-invariant, Coxeter groups
-- `cs.LO` — logic in computer science: Coq formalization, ~730 Qed, Lean 4 scaffold
+- `cs.LO` — logic in computer science: Coq formalization, 1216 Qed, Lean 4 scaffold
 
 **How to specify at submission:**  
 At the "Subject Class" step in the arXiv submission interface:
@@ -178,7 +178,7 @@ Key features of the paper:
   vector-like spectrum, mass hierarchy obstruction via Schur's lemma)
 - Six positive structural results (KO-dim 6 mod 8, eta = -2, first-order
   condition, etc.)
-- ~730 machine-verified Coq Qed theorems (73 .v files)
+- 1216 machine-verified Coq Qed theorems in proofs/trinity/ (56 .v files) + 174 in proofs/clifford_cl8/
 - Honest comparison with Distler-Garibaldi theorem for E8
 
 My arXiv ID: [fill in]

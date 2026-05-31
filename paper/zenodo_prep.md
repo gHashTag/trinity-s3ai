@@ -17,7 +17,7 @@
 | Title | H₄ Numerological Atlas: A Catalog of Standard Model Parameter Formulas |
 | Authors | [TBD] |
 | Publication date | 2026-05-22 |
-| DOI | 10.5281/zenodo.XXXXXX (reserve after GitHub release) |
+| DOI | [PENDING] 10.5281/zenodo.XXXXXX (reserve after GitHub release) |
 | Keywords | Standard Model, particle physics, golden ratio, data catalog, formal verification, Coq, Lean |
 | License | MIT + CC-BY-4.0 |
 
@@ -25,7 +25,7 @@
 
 ```
 trinity-s3ai-v1.0-wave19.tar.gz
-├── proofs/              # Coq proof files (79 .v files)
+├── proofs/              # Coq proof files (56 .v files in proofs/trinity/ + 6 in proofs/clifford_cl8/)
 ├── derivations/         # Audit reports, MC results, σ-ranking
 ├── scripts/             # Python validation + MC engine
 ├── validate_v4.py       # Main validation script
@@ -51,7 +51,7 @@ trinity-s3ai-v1.0-wave19.tar.gz
   author={[Author List]},
   year={2026},
   publisher={Zenodo},
-  doi={10.5281/zenodo.XXXXXX},
+  doi={[PENDING] 10.5281/zenodo.XXXXXX},
   url={https://github.com/gHashTag/trinity-s3ai}
 }
 ```
