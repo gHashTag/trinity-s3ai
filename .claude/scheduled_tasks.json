@@ -5,7 +5,7 @@
       "cron": "*/30 * * * *",
       "prompt": "Harvest BPB data from Railway fleet. Append to /Users/playra/trios-trainer-igla/.trinity/gardener_harvest.log using /tmp/harvest_single.sh. After harvest, show a 1-sentence summary of the latest best BPB values.",
       "createdAt": 1779970681831,
-      "lastFiredAt": 1780251265613,
+      "lastFiredAt": 1780253102463,
       "recurring": true,
       "createdBySessionId": "70ec3e3d-f757-4f68-ae3e-fc6124714f55",
       "createdByPid": 71471,
