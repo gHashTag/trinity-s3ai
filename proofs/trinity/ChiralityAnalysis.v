@@ -314,7 +314,7 @@ Qed.
 (* ---------------------------------------------------------------------------*)
 Definition chiral_index_compactification : Z := 3%Z.  (* 3 generations hoped *)
 
-Axiom chirality_via_compactification [OPEN_PROBLEM] :
+Axiom chirality_via_compactification :
   (* [OPEN_PROBLEM: compactification mechanism]
      A consistent compactification of Trinity-s3ai to 4D with G4-flux
      background exists that produces chiral_index = 3 (three SM generations).
@@ -338,7 +338,7 @@ Axiom chirality_via_compactification [OPEN_PROBLEM] :
 (* ---------------------------------------------------------------------------*)
 Definition eta_invariant_S3_2I : R := 0. (* placeholder -- actual value unknown *)
 
-Axiom chirality_via_eta_invariant [OPEN_PROBLEM] :
+Axiom chirality_via_eta_invariant :
   (* [OPEN_PROBLEM: eta-invariant mechanism]
      The eta-invariant eta(0) of the Dirac operator on S^3/2I is nonzero,
      and this spectral asymmetry provides a physical basis for chiral
@@ -404,7 +404,7 @@ Qed.
        fundamental revision to address chirality.
    The currently available mathematical structure (600-cell, 2I, H4)
    does not distinguish between (a), (b), and (c). *)
-Axiom chirality_mechanism_unknown [OPEN_PROBLEM] :
+Axiom chirality_mechanism_unknown :
   (* [OPEN_PROBLEM: which mechanism operates?]
      Either:
        (a) exists flux : R, flux > 0 /\ chiral_index = 3, OR
