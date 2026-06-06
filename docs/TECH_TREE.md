@@ -238,13 +238,16 @@ All predictions are fixed **before** data in `PREDICTIONS_PREREGISTERED.md` with
 |----------|------|---------|
 | 🔴 P1 | Unified a₄-coefficient derivation | Closes or opens L4 |
 | 🔴 P1 | Lean 4: H4RootSystem.lean (red) | L2 fully green |
+| 🔴 P1 | **Stergios Pellis approval of phi-paper v2.3 §6.3 formulation** | **Unlocks `gHashTag/phi-paper` v2.3 push + arXiv submit gate (see [WAVE23_PHI_PAPER_v23_STATUS.md](../WAVE23_PHI_PAPER_v23_STATUS.md))** |
 | 🟡 P2 | T2–T3 Admitted → Qed (Cl(8)) | Track B advances |
 | 🟡 P2 | Paper v2 on arXiv | Track C |
+| 🟡 P2 | **External MDL-formalism audit (Finkelstein / Grünwald / ReScience C)** | **Closes W5, W7, or grants peer-review for phi-paper v2.3** |
 | 🟢 P3 | Document δ_CP withdrawal transparently in all publications | Final resolution N04 (WITHDRAWN) |
 | 🟢 P3 | Snub 24-cell → three generations in Coq | Main open hypothesis |
 | 🟢 P3 | Independent validation of 500k MC protocol | Confirms or refutes Wave 20 |
+| 🟢 P3 | **EGG-SR (Jiang 2026 ICLR) replication of 394-form class** | **Closes W6 (e-graph canonicalisation)** |
 
 ---
 
-*Version: Wave 22 | 2026-05-24 | Dmitrii Vasilev (gHashTag)*  
+*Version: Wave 23 | 2026-06-06 | Dmitrii Vasilev (gHashTag)*  
 *Related files: [RESEARCH_STATUS.md](../RESEARCH_STATUS.md) | [EPISTEMOLOGY.md](../EPISTEMOLOGY.md) | [PREDICTIONS_PREREGISTERED.md](../PREDICTIONS_PREREGISTERED.md)*
