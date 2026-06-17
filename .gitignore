@@ -51,3 +51,6 @@ Cargo.lock
 # .claude/skills/
 # .claude/scheduled_tasks.json
 # .claude/memory/
+
+.env*
+!.env.example
