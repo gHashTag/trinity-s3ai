@@ -96,3 +96,6 @@ ExtendedAF.v
 # Wave 14: Z3 tripartition of snub 24-cell
 Snub24CellZ3.v
 
+# Wave 8.1: a_4 bridge analysis — Boundary Theorem BT-8
+A4Bridge.v
+
