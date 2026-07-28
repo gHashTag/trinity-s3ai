@@ -27,7 +27,7 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 obstruct
 | File | Value | Reason |
 |------|-------|--------|
 | `CorePhi.v` | High | First-class formalisation of the golden ratio with arithmetic and inequalities |
-| `SpectralExtras.v` | High | Spectral constants of the 600-cell (Qed, 0 Admitted) |
+| `SpectralExtras.v` | High | Spectral constants of the 600-cell (Qed, 0 Admitted in this file; 93 total obligations across 100 files) |
 | `DiracOperator.v` | High | D = R_i satisfies the first-order condition (Qed); methodologically novel approach |
 | `EtaInvariant.v` | High | η = -2 on S³/2I — necessary condition for chirality |
 | `KODimension.v` | High | KO-dimension = 6 mod 8 — positive structural result |
@@ -35,7 +35,7 @@ After eight waves of formalisation, 340 machine-verified theorems and 4 obstruct
 | `UnimodularityAndSigma.v` | Medium | U1–U7: Qed, sigma_boundary: BT-2 reinforced |
 | `RGRunningExtras.v` | High | alpha_from_H4_refuted (Qed) — exemplary boundary finding |
 | `ChiralityAnalysis.v` | High | Honest analysis; BT-3 is based on this file |
-| **`NoGoTheorems.v`** | **High** | **32 Qed, 0 Admitted — main contribution of Wave 9.6** |
+| **`NoGoTheorems.v`** | **High** | **32 Qed, 0 Admitted in this file — main contribution of Wave 9.6 (global: 93 total obligations across 100 files)** |
 | `SpectralTripleAxioms.v` | Medium | Structure of NCG axioms |
 | `DFSpectrum.v` | High | σ = 5.62 — key number of BT-4 |
 | `EtaInvariant.v` | High | Poincaré η-invariant |
@@ -165,7 +165,7 @@ This contrasts with the practice of hiding `Admitted` or using them without expl
 ### Step 1: Immediate (Week 1)
 
 - [x] Create `no_go_theorems.md` — formulation of BT-1–4 (done)
-- [x] Create `NoGoTheorems.v` — 32 Qed, 0 Admitted (done)
+- [x] Create `NoGoTheorems.v` — 32 Qed, 0 Admitted in this file (done; global: 93 obligations)
 - [x] Update README.md: add a warning that the project has reached active boundary-mapping research programs
 - [ ] Add `Status: ARCHIVED` tag to falsified claims
 

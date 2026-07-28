@@ -12,10 +12,10 @@
 
 ## 1. Executive Summary
 
-Trinity predicts sin²θ_W = 0.2233 via the G03 formula `3φ⁻⁶π²e⁻²`. This is **not a discrepancy** — it is the **on-shell** value of the weak mixing angle, not the **MS-bar** running value measured in experiments. The two schemes differ by radiative corrections of approximately 3.4%, which is fully within the theoretical uncertainty budget of the Trinity/NCG framework (±5–8%).
+Trinity fitted formula gives sin²θ_W = 0.2233 via the G03 formula `3φ⁻⁶π²e⁻²` (post-hoc fit, not a prediction). This is **not a discrepancy** — it is the **on-shell** value of the weak mixing angle, not the **MS-bar** running value measured in experiments. The two schemes differ by radiative corrections of approximately 3.4%, which is fully within the theoretical uncertainty budget of the Trinity/NCG framework (±5–8%).
 
-**Key point:** When comparing Trinity predictions to experiment, always compare:
-- **G03 predicted value (0.2233)** → **PDG on-shell value (0.2232 ± 0.0009)** ✅ Agreement: 0.01%
+**Key point:** When comparing Trinity fitted formulas to experiment, always compare:
+- **G03 fitted formula value (0.2233)** → **PDG on-shell value (0.2232 ± 0.0009)** ✅ Numerical match: 0.01%
 - NOT → **PDG MS-bar value (0.2312)** ❌ Wrong comparison — different schemes
 
 ---
@@ -148,7 +148,7 @@ $$
 
 ### 4.1 Origin in H4-Invariant Formulas
 
-Trinity's formulas for electroweak parameters are derived from **H4 invariant ratios** involving the golden ratio $\phi$ and other transcendental constants ($e$, $\pi$). Specifically:
+Trinity's formulas for electroweak parameters are fitted to **H4 invariant ratios** involving the golden ratio $\phi$ and other transcendental constants ($e$, $\pi$). Specifically:
 
 - **G03** gives $\sin^2\theta_W = 3\phi^{-6}\pi^2 e^{-2} = 0.2233$
 - This formula was constructed from the **H4 root system geometry**, which naturally encodes mass ratios
@@ -223,7 +223,7 @@ The 3.4% difference between on-shell and MS-bar is **not a discrepancy** — it 
 | MS-bar (at $m_Z$) | $\hat{s}^2_W$ | 0.2312 | PDG 2024 electroweak fit | From gauge coupling running |
 | Effective (low-energy) | $\sin^2\theta_W^{\text{eff}}$ | 0.2385 | νN scattering, atomic PV | Process-dependent effective angle |
 
-**Key observation:** The Trinity G03 value (0.2233) agrees with the SM on-shell value (0.2235) to **0.09%**, which is excellent agreement. The 3.4% "discrepancy" with the MS-bar value is simply the scheme conversion, not a physics problem.
+**Key observation:** The Trinity G03 value (0.2233) agrees with the SM on-shell value (0.2235) to **0.09%**, which is close numerical coincidence for a fitted formula. This is not a derivation from H₄ geometry. The 3.4% "discrepancy" with the MS-bar value is simply the scheme conversion, not a physics problem.
 
 ---
 
@@ -238,7 +238,7 @@ Critics may point to:
 
 This criticism confuses two different definitions of $\sin^2\theta_W$:
 
-1. **Trinity G03 = 0.2233** is the **on-shell** value, derived from mass ratios
+1. **Trinity G03 = 0.2233** is the **on-shell** value, fitted from mass ratios
 2. **PDG 0.2312** is the **MS-bar running** value, extracted from precision asymmetries
 3. These differ by **radiative corrections of ~3.4%** in the Standard Model itself
 4. Trinity's EW02 formula explicitly accounts for this: $3\phi^{-6}\pi^2 e^{-2} / (1 + \Delta\hat{r}) = 0.2312$ ✅

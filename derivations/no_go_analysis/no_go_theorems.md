@@ -319,7 +319,7 @@ Appendix: Coq code, catalog of 25 formulas with honest tags
 - Do not claim "derivation of the Standard Model" — this is refuted.
 - Do not hide BT in appendices — they should be in the main text.
 - Do not call NF formulas "predictions" without explicit tags.
-- Do not claim that δ_CP = 65.66° is a "prediction" (it is a falsifiable statement with pending status).
+- Do not claim that δ_CP = 65.66° is a "prediction" — it is **WITHDRAWN** at >5σ (NuFIT-6.0 + T2K+NOvA 2025).
 
 ---
 
@@ -432,7 +432,7 @@ This accurately reflects what the project has done: it **honestly and formally**
 | Of which analytically proven | BT-1 (Planck data + lemma), BT-3 (structure of 2I) |
 | Trinity claims surviving | **6** (KO-dim, 2I, η, D=R_i, unimodularity, catalog) |
 | Trinity claims refuted | **8** (SM-derivation, α, Λ, σ-field, chirality, D_F spectrum, Tier-3) |
-| Status of δ_CP = 65.66° | Awaiting DUNE 2028 |
+| Status of δ_CP = 65.66° | **WITHDRAWN** (>5σ excluded by NuFIT-6.0 + T2K+NOvA 2025) |
 | Publication recommendation | **arXiv hep-th + Foundations of Physics** |
 | Proposed title | "Trinity-s3ai: An Active Boundary-Mapping Research Program on H4-Based Unification" |
 

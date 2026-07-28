@@ -1,14 +1,16 @@
+> **DISCLAIMER:** This document analyzes Wheeler's One-Electron Universe hypothesis (1940) as a speculative thought experiment connected to H4 geometry. It is NOT part of the canonical Trinity S³AI framework, makes NO rigorous derivations, and contains NO proven theorems. All claims are numerical coincidences and plausibility arguments. See [`TECH_TREE.md`](../../docs/TECH_TREE.md) for the canonical assessment.
+
 # One-Electron Universe Theory: Comprehensive Analysis and Connection to H4
 
 ## Executive Summary
 
 This analysis examines Wheeler's One-Electron Universe hypothesis (1940) in light of modern developments connecting the H4 Coxeter group, E8 quasicrystal projections, and the Standard Model of particle physics. We find compelling numerical and structural evidence that the one-electron universe's world-line possesses H4 symmetry, with the electron traversing a 600-cell lattice in spacetime. The key results include:
 
-- **The Koide formula** Q_K = 2/3 holds to 6 parts per million precision for charged leptons, naturally emerging from 600-cell geometry
-- **H4 Coxeter exponents** [1, 11, 19, 29] and E8 Sector B exponents {11, 17, 23} determine the three fermion generations
-- **Golden ratio angles** predict the Cabibbo angle (error: 0.24 deg) and PMNS mixing angles (error: 0.18-1.7 deg)
+- **The Koide formula** Q_K = 2/3 holds to 6 parts per million precision for charged leptons, numerically close to a value from 600-cell geometry (fitted coincidence, not derivation)
+- **H4 Coxeter exponents** [1, 11, 19, 29] and E8 Sector B exponents {11, 17, 23} are numerically related to fermion generation parameters (post-hoc coincidence, not derivation)
+- **Golden ratio angles** match the Cabibbo angle (error: 0.24 deg) and PMNS mixing angles (error: 0.18-1.7 deg) (fitted coincidences, not predictions)
 - **The 240 E8 roots** correspond to 240 possible states of the single electron, with 239 = |E8| - 1 representing the "missing electron" that IS the universe
-- **No fourth generation** is predicted due to stability constraints from the H4 resonant orbit structure
+- **No fourth generation** is speculated due to stability constraints from the H4 resonant orbit structure (not derived from H4)
 
 **Verdict:** The one-electron universe + H4 hypothesis is a fertile theoretical framework with several numerically verified coincidences, though challenges remain in deriving the full gauge group structure and quark mass hierarchy.
 
@@ -394,27 +396,27 @@ While E8 naturally contains the SM gauge group, deriving SU(3) x SU(2) x U(1) fr
 
 ---
 
-## 8. Novel Predictions
+## 8. Speculative Conjectures (Not Predictions)
 
-### 8.1 Prediction 1: No Fourth Generation
+### 8.1 Conjecture 1: No Fourth Generation
 
 The E8 Sector B exponents {11, 17, 23} allow only 3 stable resonances. The 4th generation would require n=23 and would be too massive to be stable.
 
 **Test:** Search for 4th generation fermions at LHC. If none found below ~50 GeV, this supports the model.
 
-### 8.2 Prediction 2: Precise Koide Formula
+### 8.2 Conjecture 2: Precise Koide Formula
 
 Q_K = 2/3 exactly. Any deviation would falsify the geometric origin.
 
 **Test:** Improved precision measurements of lepton masses (especially m_tau).
 
-### 8.3 Prediction 3: Golden Ratio in Scattering
+### 8.3 Conjecture 3: Golden Ratio in Scattering
 
 Differential cross-sections should show resonance structure at phi^n energy scales.
 
 **Test:** Analyze e+e- -> hadrons data for phi-scaling patterns.
 
-### 8.4 Prediction 4: Quasicrystal Signature in CMB
+### 8.4 Conjecture 4: Quasicrystal Signature in CMB
 
 If the vacuum has H4 quasicrystal structure, the CMB should show:
 - Non-periodic but ordered fluctuations
@@ -423,25 +425,23 @@ If the vacuum has H4 quasicrystal structure, the CMB should show:
 
 **Test:** Analysis of Planck and LiteBIRD CMB data.
 
-### 8.5 Prediction 5: Muon g-2 H4 Contribution
+### 8.5 Conjecture 5: Muon g-2 H4 Contribution
 
 The anomalous magnetic moment should contain a calculable H4 lattice contribution.
 
 **Test:** Compare g-2 anomaly with phi-derived correction formula.
 
-### 8.6 Prediction 6: Neutrino Mass Hierarchy
+### 8.6 Conjecture 6: Neutrino Mass Hierarchy
 
 Neutrino mass ratios should follow the same phi-scaling as charged leptons, predicting **normal hierarchy**.
 
 **Test:** Measure neutrino mass differences with precision experiments.
 
-### 8.7 Prediction 7: CP Violation Phase
+### 8.7 Conjecture 7: CP Violation Phase
 
-The CKM phase is predicted to be: **delta_CP = -90 degrees**
+**ANTI-POST-HOC RULE VIOLATION:** A new δ_CP formula (−90°) introduced after the original δ_CP = 65.66° was withdrawn. This is forbidden.
 
-Current measurement: delta_CP ~ -70 +/- 5 degrees (some tension exists).
-
-**Test:** Future neutrino oscillation experiments will precisely measure delta_CP.
+> **WITHDRAWN/REFUTED:** No δ_CP formula may be introduced after withdrawal. The strong CP problem remains OPEN.
 
 ---
 
@@ -481,7 +481,7 @@ Current measurement: delta_CP ~ -70 +/- 5 degrees (some tension exists).
 - Koide mass formula
 - Golden ratio scaling of physical constants
 
-The main challenges are computational: deriving precise predictions for quark masses and demonstrating how the gauge group emerges from the 600-cell lattice. The framework's strongest feature is its **falsifiability** -- several sharp predictions (Q_K = 2/3, delta_CP = -90 deg, no 4th generation) can be tested experimentally.
+The main challenges are computational: deriving precise predictions for quark masses and demonstrating how the gauge group emerges from the 600-cell lattice. The framework's speculative feature is its **falsifiability** -- several fitted formulas (Q_K = 2/3, delta_CP = WITHDRAWN, no 4th generation) can be compared with experiment.
 
 ---
 

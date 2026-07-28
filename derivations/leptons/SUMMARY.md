@@ -7,7 +7,7 @@
 
 ---
 
-## What was derived
+## What was fitted (not derived)
 
 ### The three lepton mass ratio formulas (L01–L03)
 

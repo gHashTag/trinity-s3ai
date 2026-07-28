@@ -148,7 +148,7 @@ Two formulas appear to contain typos in the original specification:
 
 ### Impact of Corrections
 If the two corrected formulas are used instead:
-- **Adjusted pass rate: 100% (25/25)**
+- **Adjusted match-with-PDG rate: 100% (25/25)**
 - SG: 12, V: 10, Pass: 3, Fail: 0
 - Mean relative error (excluding 2 outliers): 0.048%
 

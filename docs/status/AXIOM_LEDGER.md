@@ -1,3 +1,7 @@
+# LEGACY DOCUMENT (historical Wave 20 axiom ledger)
+# Current status: Superseded by Wave 24+ canonical assessment. See RESEARCH_STATUS.md and
+# TECH_TREE.md for current project state. Run `count_admitted_honest.py` for live metrics.
+
 # Axiom Ledger — Trinity S³AI (Wave 20 Honesty Refresh)
 
 **Companion to:** `COQ_HONEST_STATUS.md`, `TAUTOLOGY_AUDIT.md`  

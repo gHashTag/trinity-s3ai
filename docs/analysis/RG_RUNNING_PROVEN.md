@@ -43,7 +43,7 @@ $$\boxed{\alpha_{\text{unif}} = \frac{1}{\varphi^8}}$$
 **Numerical verification:**
 - $\varphi^8 = 46.9787...$
 - $\alpha_{\text{unif}} = 1/\varphi^8 = 0.02128624...$
-- This is confirmed by running Trinity values **upward** with 2-loop SM RGEs: the $\alpha_2 = \alpha_3$ crossing occurs at $\alpha = 0.0212788$, matching $1/\varphi^8$ to **0.03%**.
+- This is numerically matched by running Trinity values **upward** with 2-loop SM RGEs: the $\alpha_2 = \alpha_3$ crossing occurs at $\alpha = 0.0212788$, matching $1/\varphi^8$ to **0.03%**.
 
 ### 1.3 U(1) Normalization from A2$\perp$A1 Embedding
 
@@ -61,7 +61,7 @@ $$\alpha_1(\Lambda_{H4}) = \kappa^2 \cdot \alpha_{\text{unif}} = \frac{3-\varphi
 
 ### 1.4 H4 Unification Scale
 
-The unification scale is derived from the H4 geometric structure:
+The unification scale is fitted to H4 geometric structure (post-hoc):
 
 $$\boxed{\Lambda_{H4} = \varphi^{5/2} \times 10^{16} \text{ GeV} = 3.330 \times 10^{16} \text{ GeV}}$$
 
@@ -150,7 +150,7 @@ Using $\Lambda_{H4} = \varphi^{5/2} \times 10^{16}$ GeV:
 Running the **Trinity values at $m_Z$ upward** with 2-loop RGEs:
 - $\alpha_2$ and $\alpha_3$ cross at $\Lambda = 3.362 \times 10^{16}$ GeV
 - At the crossing: $\alpha_2 = \alpha_3 = 0.021279 \approx 1/\varphi^8$ (0.03% error)
-- This confirms the H4-derived unified coupling
+- This numerically matches the H4-motivated unified coupling (post-hoc fit, not a derived unification scale)
 
 ---
 
@@ -167,7 +167,7 @@ The ~1% discrepancy between 2-loop RGE output and Trinity formulas is consistent
 
 ### 5.2 The $\alpha_s$ Success
 
-The strong coupling $\alpha_s$ agrees to **0.07%**, which is remarkable. This is because:
+The strong coupling $\alpha_s$ agrees to **0.07%**. This is because:
 - $\alpha_s$ is dominated by the non-Abelian $SU(3)$ running
 - The H4 A2 subgroup directly corresponds to $SU(3)_c$
 - The 2-loop correction for $\alpha_3$ is well-controlled
@@ -195,12 +195,12 @@ shows a convergent series where each loop order brings the prediction closer to 
 
 | | Formula | Status |
 |---|---|---|
-| Unified coupling | $\alpha_{\text{unif}} = 1/\varphi^8$ | PROVEN (0.03% from upward running) |
-| U(1) normalization | $\kappa^2 = (3-\varphi)/2$ | PROVEN (0.5% from fit) |
-| Unification scale | $\Lambda_{H4} = \varphi^{5/2} \times 10^{16}$ GeV | PROVEN (0.17% from fit) |
-| $1/\alpha(m_Z)$ | $36\varphi e^2/\pi$ | PROVEN (0.96% at 2-loop) |
-| $\alpha_s(m_Z)$ | $(\sqrt{5}-2)/2$ | PROVEN (0.07% at 2-loop) |
-| $\sin^2\theta_W(m_Z)$ | $3\varphi^{-6}\pi^2 e^{-2}$ | PROVEN (0.93% at 2-loop) |
+| Unified coupling | $\alpha_{\text{unif}} = 1/\varphi^8$ | NUMERICALLY MATCHED (0.03% from upward running) |
+| U(1) normalization | $\kappa^2 = (3-\varphi)/2$ | NUMERICALLY MATCHED (0.5% from fit) |
+| Unification scale | $\Lambda_{H4} = \varphi^{5/2} \times 10^{16}$ GeV | NUMERICALLY MATCHED (0.17% from fit) |
+| $1/\alpha(m_Z)$ | $36\varphi e^2/\pi$ | NUMERICALLY MATCHED (0.96% at 2-loop) |
+| $\alpha_s(m_Z)$ | $(\sqrt{5}-2)/2$ | NUMERICALLY MATCHED (0.07% at 2-loop) |
+| $\sin^2\theta_W(m_Z)$ | $3\varphi^{-6}\pi^2 e^{-2}$ | NUMERICALLY MATCHED (0.93% at 2-loop) |
 
 ### Honest Assessment:
 
@@ -211,7 +211,7 @@ The residual ~1% errors are:
 - **Systematic**: All three observables deviate in the same direction (RGE values slightly above Trinity values), suggesting a convergent higher-order correction
 - **Addressable**: A full 3-loop + threshold calculation would likely close the gap
 
-The alternative explanation -- that three independent formulas involving $\varphi$, $\pi$, and $e$ all agree with RGE output to sub-1% by coincidence -- is statistically implausible.
+The alternative explanation -- that three independent formulas involving $\varphi$, $\pi$, and $e$ all agree with RGE output to sub-1% by coincidence -- cannot be ruled out. The honest Wave 20 MC gives $p = 0.077$ for mean relative error (not significant).
 
 ---
 
@@ -279,4 +279,4 @@ print(f"alpha_s(m_Z): Trinity={alpha_s_trinity:.6f}, RGE={alpha_s_pred:.6f}")
 
 ---
 
-*Proof completed. All 13 Lagrangian sectors of the Trinity framework are now PROVEN.*
+*All 13 Lagrangian sectors contain fitted coincidences; 3/13 have formal Coq proofs of algebraic identities; 0/26 formulas are rigorous derivations from H4 first principles.*

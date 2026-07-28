@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-**Problem:** The spectral action computation on the 600-cell gives `m_H = 87.4 GeV`, while the Trinity formula gives `m_H = 4*phi^3*e^2 = 125.20 GeV` (matching experiment) — a **43% discrepancy**.
+**Problem:** The spectral action computation on the 600-cell gives `m_H = 87.4 GeV`, while the Trinity fitted formula gives `m_H = 4*phi^3*e^2 = 125.20 GeV` (retrospective fit, not a prediction) — a **43% discrepancy**.
 
 **Root Cause:** The Python spectral action code (`spectral_action_compute.py`) uses an **ad-hoc heuristic formula** for the Higgs quartic coupling that has **no theoretical foundation** in Connes' noncommutative geometry framework. Specifically:
 
@@ -15,7 +15,7 @@
 m_H = a_4(600-cell) * e^2 / 2 = 8*phi^3 * e^2 / 2 = 4*phi^3*e^2 = 125.202 GeV
 ```
 
-This agrees with the experimental value `125.20 +/- 0.11 GeV` at **0.02 sigma** — essentially perfect.
+This numerically matches the experimental value `125.20 +/- 0.11 GeV` at **0.02 sigma** — close numerical agreement (retrospective fit, not a prediction).
 
 ---
 
@@ -58,9 +58,9 @@ This is the **Iochum-Levy-Vassilevich (ILV)** formula for finite spectral triple
 ```coq
 a4_600cell = (2*phi)^3 = 8*phi^3 = 33.88854382
 ```
-This is the **H4 invariant spectral action coefficient** derived from the Coxeter group structure.
+This is the **H4 invariant spectral action coefficient** computed from the Coxeter group structure [NUMERICAL_FIT].
 
-**What it represents:** The physically correct a_4 that, when combined with the spectral action, gives the Higgs mass.
+**What it represents:** The fitted a_4 that, when combined with the spectral action, gives the Higgs mass.
 
 ### Why These Differ
 
@@ -70,7 +70,7 @@ This is the **H4 invariant spectral action coefficient** derived from the Coxete
 | Python a_4 | 2638 | ILV finite formula | Zeta-regularized dimension |
 | Trinity a_4 | 33.89 | H4 invariant | Physical Higgs mass coefficient |
 
-These are **three different mathematical objects** that should not be equated. The correct one for the Higgs mass is the **Trinity a_4 = 8*phi^3**.
+These are **three different mathematical objects** that should not be equated. The fitted a_4 that matches the Higgs mass is the **Trinity a_4 = 8*phi^3**.
 
 ---
 
@@ -127,7 +127,7 @@ The Python formula `lambda = pi^4 * Tr(D^-4) / (4 * Tr(D^-2)^2)` was likely insp
 
 ---
 
-## 4. The Correct Spectral Action Formula
+## 4. The Fitted Spectral Action Formula
 
 ### 4.1 From Connes Spectral Action to Trinity Formula
 
@@ -316,7 +316,7 @@ m_H = 4 * phi^3 * e^2
     = (H4_degree_product / 30^3) * phi^3 * e^2
     = (14400 / 27000) * phi^3 * e^2 * (30/2)^3 / (30/2)^3
     
-Simplified: m_H = 4 * phi^3 * e^2 = 125.202 GeV  [VERIFIED]
+Simplified: m_H = 4 * phi^3 * e^2 = 125.202 GeV  [NUMERICALLY MATCHED — RETROSPECTIVE FIT, NOT DERIVED]
 ```
 
 ---
@@ -399,7 +399,7 @@ The Barrett-Connes (2012) correction showed that including:
 
 shifts the prediction to `m_H ~ 125 GeV`.
 
-The Trinity formula `m_H = 4*phi^3*e^2` effectively **encodes all these corrections** in a single H4 invariant expression.
+The Trinity fitted formula `m_H = 4*phi^3*e^2` matches the experimental value. It is a retrospective fit, not a derivation from the spectral action.
 
 ---
 
@@ -420,7 +420,7 @@ The Trinity formula `m_H = 4*phi^3*e^2` effectively **encodes all these correcti
 | `proofs/trinity/SpectralAction600Cell.v` | Coq heat kernel proof | Analyzed — correct for S^3 geometry |
 | `spectral_action_compute.py` | Python computation | Analyzed — **ad-hoc mass formula is wrong** |
 | `spectral_action_results.md` | Results summary | Analyzed — documents 87.4 GeV discrepancy |
-| `proofs/trinity/HiggsPrediction.v` | Trinity Higgs prediction | Analyzed — **correct formula confirmed** |
+| `proofs/trinity/HiggsPrediction.v` | Trinity Higgs fitted formula | Analyzed — **formula matches data** |
 
 ---
 
@@ -436,25 +436,23 @@ The Python code's mass formula `lambda = pi^4 * Tr(D^-4) / (4 * Tr(D^-2)^2)` is 
 
 ### The Fix
 
-Replace the ad-hoc formula with the **Trinity fitted formula** selected from H4 invariants to match data:
+The ad-hoc formula has no theoretical foundation. The **Trinity fitted formula** `m_H = 4φ³e²` matches experimental data but is NOT derived from the spectral action:
 
 ```
 m_H = a_4(600-cell) * e^2 / 2 = 8*phi^3 * e^2 / 2 = 4*phi^3*e^2
 ```
 
-This gives `m_H = 125.202 GeV`, matching experiment at **0.02 sigma**.
+This gives `m_H = 125.202 GeV`, numerically matching experiment at **0.02 sigma** (retrospective fit, not a prediction).
 
 ### The Deeper Meaning
 
-The 600-cell's H4 Coxeter symmetry encodes the Standard Model gauge structure. The golden ratio `phi` — appearing in the 600-cell's geometry (edge length `2/phi`, circumradius `phi`) — is not accidental. It is the **key invariant** that, when combined with the spectral action normalization `e^2`, produces the exact Higgs mass.
-
-The spectral action principle, when applied with the correct H4 invariant structure, predicts:
+The 600-cell's H4 Coxeter symmetry is structurally interesting. The golden ratio `phi` appears in the 600-cell's geometry (edge length `2/phi`, circumradius `phi`). However, **the spectral action principle gives m_H ≈ 132.9 GeV (BT-4: refuted at 55.6σ)**. The fitted formula:
 
 ```
 m_H = 4 * phi^3 * e^2 = 125.202 GeV  ~  125.20 +/- 0.11 GeV  [EXPERIMENT]
 ```
 
-This is one of the most precise theoretical predictions in particle physics, with an accuracy of **0.002%**.
+matches experiment to **0.002%**, but this is a **retrospective fit**, not a theoretical prediction. The formula was selected from H4 invariants to match the known experimental value.
 
 ---
 

@@ -1,6 +1,6 @@
 # LEGACY DOCUMENT (admitted_log.md — Wave 12 historical audit)
 # Current status: This log reflects the Admitted/Axiom audit status as of Wave 12.
-# Current canonical metrics: see COQ_HONEST_STATUS.md (1325 Qed / 25 Admitted / 73 Axiom / 7 Parameter).
+# Current canonical metrics: see COQ_HONEST_STATUS.md (1216 Qed in proofs/trinity/ / 0 real Admitted / 51 Axiom+Parameter in proofs/trinity/ / 93 total obligations globally).
 
 # admitted_log.md — Registry of all Admitted in Trinity S3AI
 
@@ -82,7 +82,7 @@ Closed via direct proof (12 CSV rows across 6 files):
 Note: the `sigma_candidate_mass_scale` closures were `Admitted Theorem` in the source (the A4 CSV classes them as Axiom-equivalent SHOULD_BE_THEOREM); converted to `Qed`.
 
 > ⚠️ **IMPORTANT**: The previous README.md claimed "0 Admitted". This is FALSE.
-> The previous admitted_log.md claimed 25 Admitted. Also FALSE.
+> The previous admitted_log.md claimed 25 Admitted. Also FALSE. [SUPERSEDED: Wave 23 correction found 0 real Admitted + 51 obligations in proofs/trinity/ (93 globally).]
 > This document reflects the true state after the A1 audit (Wave 10.4).
 
 ---

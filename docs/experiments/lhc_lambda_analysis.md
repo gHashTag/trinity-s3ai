@@ -1,12 +1,14 @@
-# Trinity Prediction vs LHC Run 3 Higgs Self-Coupling Data
+# Trinity Post-Hoc Fit vs LHC Run 3 Higgs Self-Coupling Data
+
+> **DISCLAIMER:** The formula λ = sqrt(φ)/π² is a **retrospective fit** (post-hoc coincidence) found by matching experimental data, not a prediction made before the measurement. See `PREDICTIONS_PREREGISTERED.md` for the distinction.
 
 ## Executive Summary
 
-**Key Finding:** The Trinity prediction `λ = sqrt(φ)/π²` differs from the SM prediction by only **0.49%**. This difference is **far below current LHC sensitivity** (~170% uncertainty) and even below projected HL-LHC precision (~30%). **The LHC cannot distinguish the Trinity prediction from the Standard Model.** The near-perfect agreement is remarkable: the Trinity formula, containing only fundamental mathematical constants (the golden ratio φ and π), predicts the Higgs self-coupling to within 0.5% of the SM value derived from measured particle masses.
+**Key Finding:** The Trinity fitted formula `λ = sqrt(φ)/π²` differs from the SM value by only **0.49%**. This difference is **far below current LHC sensitivity** (~170% uncertainty) and even below projected HL-LHC precision (~30%). **The LHC cannot distinguish this fitted formula from the Standard Model.** The close numerical agreement is a coincidence: the formula, containing only fundamental mathematical constants (the golden ratio φ and π), matches the Higgs self-coupling to within 0.5% of the SM value derived from measured particle masses.
 
 ---
 
-## 1. Trinity Prediction: λ = sqrt(φ)/π²
+## 1. Trinity Fitted Formula: λ = sqrt(φ)/π²
 
 ### Formula
 ```
@@ -76,7 +78,7 @@ The Higgs trilinear coupling modifier is defined as:
 | **Trinity** | **0.9951** |
 | **Deviation** | **0.49%** |
 
-**κ_λ^Trinity = 0.9951** — the Trinity prediction is essentially identical to the SM at the 0.5% level.
+**κ_λ^Trinity = 0.9951** — the Trinity fitted value is differs from the SM by 0.5% at the 0.5% level.
 
 ---
 
@@ -107,7 +109,7 @@ The Higgs trilinear coupling modifier is defined as:
   - HH → 4b: 4.5 × SM
   - HH → bbbar γγ: 11.0 × SM
 - **Note:** Analysis methods significantly improved vs Run 2
-- **Trinity verdict:** Limits far above Trinity prediction ✅
+- **Trinity verdict:** Limits far above Trinity fitted value ✅
 
 ### 4.4 LHC Run 2 Combined (arxiv:2505.20463v1, Appendix D)
 - **Method:** Single-H + double-H + triple-H combination
@@ -124,7 +126,7 @@ The Higgs trilinear coupling modifier is defined as:
 
 ### 5.2 Analysis
 
-The Trinity prediction corresponds to **κ_λ = 0.9951**, while the SM has **κ_λ = 1.0**.
+The Trinity fitted value corresponds to **κ_λ = 0.9951**, while the SM has **κ_λ = 1.0**.
 
 The deviation is:
 ```
@@ -148,7 +150,7 @@ Compare with LHC measurement precision:
 | **HL-LHC (~30% precision)** | ~±0.30 | 0.005 | **NO** ❌ |
 | **FCC-hh** | ~±3.6% → ~±2% (optimistic) | 0.005 | **NO** ❌ |
 
-**The Trinity prediction (κ_λ = 0.9951) is completely degenerate with the SM (κ_λ = 1.0) at all current and planned hadron colliders.**
+**The Trinity fitted value (κ_λ = 0.9951) is completely degenerate with the SM (κ_λ = 1.0) at all current and planned hadron colliders.**
 
 The required precision to distinguish Trinity from SM is **< 0.5%** on κ_λ. Even the most optimistic FCC-hh projections (2% precision) are insufficient by a factor of ~4.
 
@@ -158,7 +160,7 @@ The required precision to distinguish Trinity from SM is **< 0.5%** on κ_λ. Ev
 
 ### 6.1 The "Degeneracy Problem"
 
-The Trinity prediction λ_Trinity = sqrt(φ)/π² ≈ 0.1289 is remarkably close to the SM value λ_SM ≈ 0.1295. This 0.49% coincidence means:
+The Trinity fitted value λ_Trinity = sqrt(φ)/π² ≈ 0.1289 is differs from the SM value by 0.49% λ_SM ≈ 0.1295. This 0.49% coincidence means:
 
 1. **No current experiment can distinguish them** — the LHC measures κ_λ with ~100-500% uncertainty
 2. **Even HL-LHC cannot distinguish them** — projected 30% precision is 60× too coarse
@@ -178,14 +180,14 @@ Current projections:
 - FCC-hh (optimistic, 3% m_bb resolution): ~2% precision (factor of 4 too large)
 - ILC/CLIC (e+e- → ZHH): potentially ~20% precision (factor of 40 too large)
 
-**Conclusion: Testing Trinity at colliders is effectively impossible.** The 0.49% agreement is "too good to test."
+**Conclusion: Testing this fitted formula at colliders is effectively impossible.** The 0.49% agreement is "too good to test."
 
 ### 6.3 Theoretical Interpretation
 
-The formula λ = sqrt(φ)/π² encodes the Higgs self-coupling purely in terms of mathematical constants:
+The formula λ = sqrt(φ)/π² expresses the Higgs self-coupling purely in terms of mathematical constants:
 - **φ** (golden ratio) = (1+sqrt(5))/2 — a fundamental algebraic irrational
 - **π** — the circle constant
-- The combination sqrt(φ)/π² ≈ 0.1289 is tantalizingly close to the SM value 0.1295
+- The combination sqrt(φ)/π² ≈ 0.1289 is differs from the SM value by 0.49% 0.1295
 
 The residual 0.49% difference could be interpreted as:
 1. A fundamental correction from quantum effects not captured by tree-level SM
@@ -215,15 +217,15 @@ For context, many BSM scenarios predict κ_λ ≈ 2 (100% enhancement). The LHC 
 
 ## 8. Conclusions
 
-1. **The Trinity prediction λ = sqrt(φ)/π² = 0.12888 differs from the SM by only 0.49%.** This is one of the most precise "numerological" predictions in particle physics.
+1. **The Trinity fitted formula λ = sqrt(φ)/π² = 0.12888 differs from the SM by only 0.49%.** This is one of the most precise fitted coincidences in particle physics.
 
-2. **The LHC cannot distinguish Trinity from SM.** Current constraints on κ_λ span ranges of [-0.71, 6.1] or wider — the 0.005 deviation of Trinity is buried under ~100× larger experimental uncertainties.
+2. **The LHC cannot distinguish this fitted formula from the SM.** Current constraints on κ_λ span ranges of [-0.71, 6.1] or wider — the 0.005 deviation of the fitted value is buried under ~100× larger experimental uncertainties.
 
 3. **Even HL-LHC and FCC-hh cannot distinguish Trinity from SM.** The projected precision of 2-30% on κ_λ remains far above the 0.5% Trinity-SM gap.
 
 4. **The Trinity-SM degeneracy is unbreakable at any planned hadron collider.** A future lepton collider with sub-percent κ_λ precision would be needed — and none are currently planned with this capability.
 
-5. **The near-perfect agreement (0.49%) may itself be physically significant.** Whether this is deep mathematics manifest in nature or mere coincidence remains an open question — but one that collider experiments cannot answer.
+5. **The close numerical match (0.49%) is a fitted coincidence, not evidence of a physical principle.** Whether this reflects deep mathematics or mere coincidence remains an open question — but one that collider experiments cannot answer.
 
 ---
 

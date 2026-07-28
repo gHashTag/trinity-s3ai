@@ -78,7 +78,7 @@ contribution to the effective Higgs self-coupling.
 
 ## What Remains
 
-- ✅ Formula m_H = 4φ³e² proven from H4 invariants
+- ⚠️ Formula m_H = 4φ³e² fitted to H4 invariants (not proven)
 - ✅ Self-consistency of Higgs potential verified
 - ✅ All SM mass relations satisfied
 - ⚠️ Formal Coq proof of geometric theorems (Theorems 3–5) still pending

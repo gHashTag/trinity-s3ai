@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-The 60x discrepancy between Coq a_4 = (5+6phi)/(16phi) ≈ 0.568 and Trinity a_4 = 8*phi^3 ≈ 33.89 is resolved by identifying the **exact conversion factor**:
+The 60x discrepancy between Coq a_4 = (5+6phi)/(16phi) ≈ 0.568 and Trinity a_4 = 8*phi^3 ≈ 33.89 is papered over by postulating an **exact conversion factor** (not derived from first principles):
 
 ```
 Trinity a_4 = f(phi) * Coq a_4
@@ -275,7 +275,7 @@ The Trinity formula:
 a_4^Coq     = 0.5681356215
 f(phi)      = 59.64868693
 f(phi) * a_4^Coq = 0.5681356215 * 59.64868693 = 33.88854382
-a_4^Trinity = 8*phi^3 = 33.88854382  ✓ (exact match)
+a_4^Trinity = 8*phi^3 = 33.88854382  ✓ (numerical coincidence via fitted conversion factor)
 ```
 
 ### Verdict

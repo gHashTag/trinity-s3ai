@@ -21,11 +21,11 @@
 |--------|-------|
 | SM parameters covered | **27/25** (25 core + 2 neutrino mass-squared differences) |
 | SG-class precision (<0.01%) | **11** |
-| Verified (<0.1%) | **14** |
+| Match within <0.1% | **14** |
 | Pass (<1%) | **3** |
 | FAIL | **0** (all 7 previously-failed formulas corrected in v3.6) |
-| Exact (0% error) | **3** |
-| Falsifiable predictions | **4** |
+| Near-zero numerical difference (fitted) | **3** |
+| Formulas with experimental comparisons (fitted values, not predictions) | **4** |
 | Statistical significance | **p < 10⁻³²** (v3.6 claim; **Wave 20 correction**: mean error p=0.077 not sig., SG-hit density p<0.0001 sig.) |
 | Coq formalization | **4/16** files compiling |
 
@@ -80,7 +80,7 @@
 | 27 | Q02 | 12 + φ³e² | 43.24 | 43.26 (m_s/m_u) | 0.14% | Strange/up mass ratio @ 2GeV |
 | 28 | C02 | 6φ³π⁻³e⁻³ | 0.0405 | 0.0405 (\|V_cb\|) | 0.22% | CKM \|V_cb\| |
 
-### Exact (0% error) — 3 identities
+### Mathematical identities (not empirical predictions) — 3
 
 | # | ID | Formula | Value | Physical Quantity |
 |---|-----|---------|-------|-------------------|
@@ -156,7 +156,7 @@ The Jarlskog invariant J quantifies CP violation magnitude:
 
 ### Problem
 
-The spectral action computation on the 600-cell originally gave m_H = 87.4 GeV (30% error), while the Trinity formula gives **m_H = 4φ³e² = 125.202 GeV** (matching experiment).
+The spectral action computation on the 600-cell originally gave m_H = 87.4 GeV (30% error), while the Trinity fitted formula gives **m_H = 4φ³e² = 125.202 GeV** (retrospective fit, not a prediction).
 
 ### Root Cause
 
@@ -241,10 +241,10 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 | Reachable set size R | 600 |
 | Target size T | 15 |
 | C(R,T) | 3.01×10²⁹ |
-| P(exact match) | **3.32×10⁻³⁰** |
+| Naive combinatorial bound (pre-MC) | **3.32×10⁻³⁰** |
 | Bonferroni ×5 (Coxeter families) | **1.66×10⁻²⁹** |
 
-**Conclusion**: The probability of random coincidence is ~10⁻³⁰, representing overwhelming statistical evidence against the null hypothesis.
+**Conclusion**: The naive combinatorial bound gives ~10⁻³⁰. This calculation assumes formulas were predicted, not fitted, and ignores the look-elsewhere effect. The honest Wave 20 Monte Carlo gives $p = 0.077$ for mean relative error (not significant) and $p < 0.0001$ for SG-hit density (significant but post-hoc). The $10^{-30}$ bound is **invalidated**.
 
 ---
 
@@ -335,17 +335,17 @@ The factor `a₄ = 8φ³ = (2φ)³` combines the spinor dimension (8 = 2³) with
 ## 10. Honest Verdict
 
 ### What's SOLID (defensible)
-- ✅ 27/25 formulas exist and are H4-derived
+- ✅ 27/25 formulas exist as empirical fits to H4 invariants (0 rigorous derivations from first principles)
 - ✅ 11 SG-class with verifiable error calculations
 - ✅ 0 FAIL formulas (all corrected in v3.6)
 - ✅ Wave 20 MC: SG-hit density p<0.0001 (sig.); mean error p=0.077 (not sig.)
-- ✅ 4 falsifiable predictions (testable 2028–2035)
+- ✅ 4 formulas with experimental comparisons (1 withdrawn, 3 active)
 - ✅ Coq formalization (4/16 compiling, fixable)
 - ✅ GitHub repository with full transparency
 
 ### What's IMPROVED (v3.6)
 - ❌ δ_CP: WITHDRAWN (post-hoc fit, >5σ excluded by NuFIT-6.0 + T2K+NOvA 2025)
-- ✅ Higgs mass resolved: 30% error → 0.002% error
+- ✅ Higgs mass fitted: 30% error (spectral action prediction) → 0.002% error (retrospective fit)
 - ✅ All 7 failed formulas corrected and verified
 - ✅ Neutrino formulas: 99% error → SG-class precision
 

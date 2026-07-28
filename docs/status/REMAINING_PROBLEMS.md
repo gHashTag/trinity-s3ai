@@ -142,7 +142,7 @@ how many others have hidden alternatives?"
 **Timeline**: 2 weeks.
 
 ### 11. H4_TTT claim needs experimental validation
-**Status**: We claim H4-derived hyperparameters improve NN training.
+**Status**: We claim H4-motivated hyperparameters (fitted coincidences, not derived) improve NN training.
 **Risk**: LOW-MEDIUM — no training results published.
 **Fix**: Run the 5 SQL experiments, publish BPB results.
 **Timeline**: 1-2 weeks (need compute access).

@@ -6,15 +6,15 @@
 # for the honest negative result: NONE of the five investigated mechanisms gives N=3.
 # 0/26 formulas are rigorous derivations from first principles.
 
-# Derivation of Exactly 3 Fermion Generations from H4/E8 Structure
+# Investigation of 3 Fermion Generations from H4/E8 Structure (REFUTED)
 
-## Status: POSTULATED → PROVEN
+## Status: POSTULATED → NOT DERIVED (BT-2 refutes N_gen=3 from H4)
 
 ---
 
 ## Executive Summary
 
-The Standard Model postulates exactly 3 fermion generations. This document PROVES that 3 generations emerge necessarily from the H4/E8 structure through three independent mathematical mechanisms converging on S3 symmetry, combined with a topological stability criterion that excludes a 4th generation.
+The Standard Model postulates exactly 3 fermion generations. This document investigated whether 3 generations emerge from the H4/E8 structure. **Result: NONE of the five investigated mechanisms yields N=3.** BT-2 proves no 3-generation structure arises from H4. N_gen=3 remains empirical input.
 
 **Key Result:**
 ```
@@ -271,13 +271,17 @@ This explains why the LHC finds **nothing** despite having sufficient energy to 
 
 ---
 
-## 5. Theorem and Proof
+## 5. Historical Claim (REFUTED)
 
-### Theorem 1 (Main Result)
+> ⚠️ **WITHDRAWN / REFUTED** — BT-2 proves no 3-generation structure arises from H4. The following was the original (incorrect) claim, retained as a historical record of how the error was made.
 
-**The H4/E8 structure implies exactly 3 fermion generations. No 4th generation is possible within the H4 framework.**
+### Original Claim 1 (Main Result — REFUTED)
 
-### Proof
+**Claim: The H4/E8 structure implies exactly 3 fermion generations. No 4th generation is possible within the H4 framework.**
+
+**Status: REFUTED by BT-2. N_gen=3 is empirical input, not derived from H4 geometry.**
+
+### Original Argument (preserved for historical record)
 
 **PART I — Lower Bound: N_generations ≥ 3**
 
@@ -317,11 +321,11 @@ This explains why the LHC finds **nothing** despite having sufficient energy to 
 
 14. From Parts I and II: 3 ≤ N_generations ≤ 3.
 
-15. **Therefore: N_generations = 3.** ∎
+15. **Original conclusion: N_generations = 3.** ❌ **REFUTED** — No H4 mechanism yields 3 from first principles.
 
-### Corollary 1 (No 4th Generation)
+### Honest Assessment (Corrected)
 
-The H4 framework predicts that NO 4th generation exists. The coupling at n=29 (Γ = φ^(-29/2) ≈ 0.0009) is below the viability threshold, making the 4th generation dynamically invisible.
+**BT-2 refutation:** The H4 framework does NOT predict the number of fermion generations. N_gen=3 is an empirical input from the Standard Model. The "proof" above contains circular reasoning (post-hoc identification of S3 symmetry with generation structure) and the "stability criterion" is not derived from H4 axioms. See `N_GEN_HONEST_STATUS.md` for the formal negative result.
 
 **Experimental confirmation:**
 - LHC excludes t' with m > 1.4 TeV

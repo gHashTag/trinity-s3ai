@@ -21,7 +21,7 @@ The Trinity S^3AI prediction **delta_CP = e/2 = 77.87 deg** is in **7.7 sigma te
 
 > **HISTORICAL NOTE (superseded 2026-05-23):** This analysis predates the Wave 20 withdrawal. The 3/φ² formula achieved 0.1σ against outdated PDG-2024 data but is now **WITHDRAWN** as a post-hoc fit excluded at >5σ by NuFIT-6.0 + T2K+NOvA 2025.
 >
-> **Key Finding (historical)**: The formula **3 * phi^(-2) = 65.66 deg** achieved 0.1σ against outdated PDG-2024 data. However, **e/2 retains unique theoretical status** as the only formula derived from a *single* fundamental constant via a simple operation. The discrepancy may signal new physics or a tree-loop correction structure.
+> **Key Finding (historical)**: The formula **3 * phi^(-2) = 65.66 deg** achieved 0.1σ against outdated PDG-2024 data. However, **e/2 is a simpler formula** using a single fundamental constant via a simple operation. Both are fitted coincidences, not derivations. The discrepancy may signal new physics or a tree-loop correction structure.
 
 ---
 
@@ -62,7 +62,7 @@ Searched all combinations of the form **delta_CP = a * phi^b * pi^c * e^d**:
 
 ### 2.3 The Standout Candidate: 3/phi^2
 
-The formula **delta_CP = 3/phi^2 = 3 * phi^(-2)** is remarkable:
+The formula **delta_CP = 3/phi^2 = 3 * phi^(-2)** is a fitted coincidence (now WITHDRAWN):
 
 - **Value**: 65.66 deg (only 0.15 deg from experiment = 0.10 sigma)
 - **Simplicity**: Single integer coefficient, single power of phi
@@ -146,7 +146,7 @@ J = sin(theta_12) * sin(theta_23) * sin(theta_13) * cos(theta_12) * cos(theta_23
 | sin(theta_13) | 0.1499 | 0.1492 | 0.995 |
 | Product (angles only) | 0.0553 | 0.0550 | 0.994 |
 
-**Conclusion**: The angles nearly perfectly compensate (ratio 0.994), so the 7% J discrepancy comes almost entirely from sin(delta_CP) being 7.4% too large.
+**Conclusion**: The angles nearly cancel (ratio 0.994), so the 7% J discrepancy comes almost entirely from sin(delta_CP) being 7.4% too large.
 
 ---
 
@@ -209,7 +209,7 @@ To distinguish **77.9 deg** from **65.5 deg**:
 
 ### 5.1 The CKM Angle gamma Coincidence
 
-A remarkable empirical observation:
+An empirical observation (correlation, not a derivation):
 
 | Parameter | Value |
 |-----------|-------|
@@ -217,7 +217,7 @@ A remarkable empirical observation:
 | PMNS delta_CP (lepton sector) | **65.5 +/- 1.6 deg** |
 | Difference | **0.4 deg** |
 
-This near-equality between quark and lepton CP-violating phases, if not accidental, suggests a **deep quark-lepton unification symmetry**. Possible implications:
+This near-equality between quark and lepton CP-violating phases, if not accidental, suggests a quark-lepton unification symmetry (speculative). Possible implications:
 - Grand Unified Theory (GUT) relations
 - Quark-lepton complementarity
 - New discrete flavor symmetry
@@ -226,7 +226,7 @@ If delta_CP = gamma exactly, this would be a major clue to flavor physics.
 
 ### 5.2 Could e/2 Be the "Tree-Level" Value?
 
-The Trinity framework posits that delta_CP = e/2 is the **fundamental (tree-level)** value, with the physical measured value being corrected by:
+The Trinity framework posits that delta_CP = e/2 is a candidate tree-level ansatz, with the physical measured value being corrected by:
 
 1. **Radiative (loop) corrections**: ~16% is large for a loop effect but not impossible
 2. **Running of couplings**: Energy-scale evolution from GUT to electroweak
@@ -258,7 +258,7 @@ Theoretical challenge: Trinity's other angles also use phi, but in different way
 
 Adding delta_CP = 3/phi^2 creates a consistent "phi-centric" framework.
 
-**Counter-argument**: e/2 has a cleaner theoretical pedigree (derived from gauge symmetry arguments in the Trinity framework), while 3/phi^2 is purely phenomenological.
+**Counter-argument**: e/2 has a simpler mathematical form (uses only one constant), while 3/phi^2 uses two constants. Both are fitted coincidences, not derived from first principles.
 
 ### 5.4 The "Correction as Signal" Interpretation
 
@@ -282,7 +282,7 @@ The 12.4 deg discrepancy between e/2 and the measured value could be interpreted
 |-----------|------------|
 | Agreement with data | **FAILED** (7.7 sigma) |
 | Theoretical elegance | **EXCELLENT** (single constant, single operation) |
-| Uniqueness | **HIGH** (only formula of its form) |
+| Simplicity | HIGH (simplest formula of its form) |
 | Falsifiability | **GOOD** (will be tested by ~2035-2040) |
 | Status as "prediction" | **Bold but excluded by current data** |
 

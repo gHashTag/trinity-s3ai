@@ -1,8 +1,8 @@
 # Trinity S³AI — Hardware Documentation
 
 This directory contains the proof basis for the hardware claims made in the
-root [`README.md`](../README.md) §"Why $TRI Is Mined Only on TTSKY26b" and
-[`HARDWARE_ATTESTATION.md`](../../HARDWARE_ATTESTATION.md).
+root [`README.md`](../../README.md) §"Why $TRI Is Mined Only on TTSKY26b" and
+[`HARDWARE_ATTESTATION.md`](../HARDWARE_ATTESTATION.md).
 
 ## Verified Artifacts (from t27 repo)
 

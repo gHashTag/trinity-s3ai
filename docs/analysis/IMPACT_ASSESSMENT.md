@@ -5,7 +5,7 @@
 
 ## Risky Predictions Framework
 
-Trinity makes **one genuinely risky prediction** (sin²θ₁₃) and **two withdrawn/post-hoc fits** (δ_CP, m_νe). A framework that only makes safe predictions is not testable science; Trinity's track record is mixed.
+Trinity catalogs **one fitted coincidence with experimental comparison** (sin²θ₁₃) and **two withdrawn/post-hoc fits** (δ_CP, m_νe). A framework without risky predictions is not testable science; Trinity's track record is mixed.
 
 | Prediction | Risk Level | Current Tension | Experiment | Year |
 |------------|------------|-----------------|------------|------|
@@ -37,11 +37,11 @@ Either outcome is scientifically valuable.
 | Metric | Value |
 |---------|----------|
 | Formulas | 130 (25 core SM) |
-| SG-class (<0.01%) | 12 |
-| Coq files compiling | 6/16 |
+| SG-class (<0.01%) | ~44 |
+| Coq files | 56 .v in proofs/trinity/ / 1130 Qed / 51 unproven obligations (93 globally) |
 | Peer-reviewed publications | **0** |
 | Citations | **0** |
-| p-value (honest) | ~10^-6 (not 10^-30) |
+| p-value (honest Wave 20 MC) | p = 0.077 (mean error, not significant); p < 0.0001 (SG-hit density, post-hoc) |
 | Lagrangian derivation | **NO** |
 
 ---
@@ -87,13 +87,13 @@ Either outcome is scientifically valuable.
 | | Connes NCG | Trinity |
 |--|------------|---------|
 | Lagrangian | **YES** — derived from spectral action | **NO** |
-| m_H prediction | 170 GeV (WRONG) -> 125 GeV (post-hoc) | 125.2 GeV (matches) |
+| m_H | 170 GeV (WRONG) -> 125 GeV (post-hoc) | 125.2 GeV (fitted coincidence) |
 | Algebra | M3(C) + H + C (phenomenological) | H4 Coxeter (motivated) |
 | Peer review | **YES** (CMP, JNCG) | **NO** |
 | Citations | ~2000 | 0 |
 | Status | Respected mathematical physics | Initial stage |
 
-**Conclusion:** Connes did what Trinity failed to do — **derived the SM Lagrangian from geometry**. But the m_H prediction was initially wrong (170 GeV), then corrected. Trinity predicts m_H correctly from the start, but **without derivation this is curve-fitting, not prediction**.
+**Conclusion:** Connes did what Trinity failed to do — **derived the SM Lagrangian from geometry**. But the m_H prediction was initially wrong (170 GeV), then corrected. Trinity matches m_H correctly from the start, but **without derivation this is curve-fitting, not prediction**.
 
 ---
 
@@ -103,7 +103,7 @@ Either outcome is scientifically valuable.
 The formulas are curve-fitting, not a derivation from the Lagrangian. H4Lagrangian.v is labeled "CONCEPTUAL FRAMEWORK — SPECULATIVE".
 
 ### Fatal Problem 2: p-value is Meaningless
-The search space {C * phi^a * pi^b * e^c * 3^d} is INFINITE. With an infinite space, ANY p-value is achievable. HonestPValue.v proves only p < 10^-6.
+The search space {C * phi^a * pi^b * e^c * 3^d} is INFINITE. With an infinite space, ANY p-value is achievable. Wave 20 honest MC (500k trials) yields p = 0.077 for mean error (not significant) and p < 0.0001 for SG-hit density (significant but post-hoc).
 
 ### Fatal Problem 3: Predictions Evolve
 - delta_CP: 90.2 -> 77.9 -> 65.66 (swing of 25 between versions)
@@ -133,7 +133,7 @@ DUNE (2028-2032) will measure delta_CP with precision +/- 10. The Trinity δ_CP 
 - If DUNE: 180 +/- 10 -> Trinity at 11.4 -> **FULLY REFUTED**
 - If DUNE: 70 +/- 10 -> Trinity at 4.3 -> **HISTORICAL: would have been confirmed (prediction is WITHDRAWN)**
 
-**This is the most important prediction.** All other formulas are post-hoc; delta_CP = 3/phi^2 is the only genuinely pre-registered one.
+**This was the most prominent historically claimed formula.** All other formulas are post-hoc; delta_CP = 3/phi^2 was the only pre-registered one (now WITHDRAWN).
 
 ---
 
@@ -151,7 +151,7 @@ DUNE (2028-2032) will measure delta_CP with precision +/- 10. The Trinity δ_CP 
    - The formula is mathematically broken
 
 3. **Complete Coq compilation**
-   - Goal: 16/16 files, 0 Admitted
+   - Goal: all files compile with honest accounting of unproven obligations (currently 51 in proofs/trinity/, 93 globally)
    - Koide.v: psatz R approach
    - Remaining 10: unblock after Koide
 
@@ -203,7 +203,7 @@ DUNE (2028-2032) will measure delta_CP with precision +/- 10. The Trinity δ_CP 
 **"Interesting numerology with formal verification"**
 - Impulse factor: 2/10
 - Scientific status: pre-print level
-- Main difference from Koide: Coq formalization (6/16)
+- Main difference from Koide: Coq formalization (56 .v files in proofs/trinity/ / 1130 Qed / 51 unproven obligations, 93 globally)
 
 ### If Phase A is Completed
 **"Serious scientific project requiring theoretical foundation"**

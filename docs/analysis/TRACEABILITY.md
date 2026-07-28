@@ -33,7 +33,7 @@
 | HiggsPrediction.v | ✅ compiled | H01 | m_H = 4φ³e² theorem + spectral action equivalence |
 | H4GaugeEmbedding.v | ✅ compiled | structural | H4→SM gauge embedding, degree factorization |
 | UniquenessTheorem.v | ✅ compiled | L02, Q05b | Uniqueness proofs for 15, 239 in H4 derivations |
-| HonestPValue.v | ✅ compiled | all (aggregate) | p-value < 10⁻⁶ bound for 17 formulas |
+| HonestPValue.v | ✅ compiled | all (aggregate) | p-value bound outdated; Wave 20 MC: $p = 0.077$ (not significant) |
 | SpectralAction600Cell.v | ✅ compiled | H01 | Spectral action a₄ computation, Higgs mass |
 | H4Derivations.v | ⬜ uncompiled | L01-L03, Q07, G01, Q05, Q04, N01, N03, H03, H01, G03, C01, H02, G02, Q02, Q03 | 17 H4 derivation theorems |
 | Bounds_LeptonMasses.v | ⬜ uncompiled | L01, L02, L03 | Lepton mass ratio bounds |
@@ -41,7 +41,7 @@
 | Unitarity.v | ⬜ uncompiled | ν01, Σν | Neutrino mass bounds, unitarity checks |
 | Catalog42.v | ⬜ uncompiled | all 27 | 42-formula catalog (definitions) |
 | Koide.v | 🔄 7/9 lemmas | L01-L03 | Koide consistency relation |
-| Predictions.v | ⬜ uncompiled | N04, ν01, m_DM, Σν | 5 testable predictions to 2030 |
+| Predictions.v | ⬜ uncompiled | N04, ν01, m_DM, Σν | 5 formulas with experimental comparisons to 2030 (fitted values, not predictions) |
 | H4Lagrangian.v | ⬜ uncompiled | L01 | Lagrangian framework, Yukawa couplings |
 | OptimizerInvariants.v | ⬜ uncompiled | — | 5 NN hyperparameter invariants |
 | E6vsH4.v | ⬜ uncompiled | structural | E6 comparison, phi-structural proof |
@@ -147,7 +147,7 @@
 **Notes:**
 - H01 is the **only formula with FULL traceability** (compiled Coq proof + Python test)
 - HiggsPrediction.v ✅ proves H01 within 0.1σ of PDG 2024 (125.20 ± 0.11 GeV)
-- SpectralAction600Cell.v ✅ proves spectral action prediction equals Trinity formula (spectral_equals_trinity)
+- SpectralAction600Cell.v ✅ proves a definitional equivalence between two forms of the same fitted formula (spectral_equals_trinity); this is NOT a derivation from first principles
 - H4Derivations.v ⬜ has Lucas-2 derivations for H02, h/2 derivations for H03
 - H4Lagrangian.v ⬜ has L01_from_lagrangian order-of-magnitude check
 
@@ -187,7 +187,7 @@
 | verify_all_final.py | 27 formulas (L01-L03, Q01-Q07, G01-G03, N01-N04, C01-C03, H01-H03, ν02, ν03, Σν, N21, Pr) | **Canonical test suite** — 50-digit mpmath precision, Monte Carlo p-value |
 | test_comprehensive.py | 22 formulas (7 SG + 15 V-class) | Comprehensive formula registry with tolerance checks |
 | independent_verify.py | 16 formulas | Independent verification against PDG 2024 (skeptical reviewer mode) |
-| honest_pvalue_final.py | aggregate | Honest p-value computation: p < 10⁻⁶ for 17 formulas |
+| honest_pvalue_final.py | aggregate | Honest p-value computation: outdated; Wave 20 MC supersedes with $p = 0.077$ |
 | formula_corrections.py | 20+ formulas | Corrected catalog with reclassified formulas (Q05, C03, G03, N03 improvements) |
 | spectral_action_compute_corrected.py | H01 | Spectral action Higgs mass computation |
 

@@ -12,19 +12,19 @@
 | # | Sector | Status | Error | Notes |
 |---|--------|--------|-------|-------|
 | 1 | Gauge kinetic terms | ✅ PROVEN | <0.1% | H4 subgroups → SU(3)×SU(2)×U(1) |
-| 2 | Higgs self-coupling λ | ✅ PROVEN | 0.4% | λ = 0.1295 from spectral action |
-| 3 | Higgs mass m_H | ✅ PROVEN | 0.09% | m_H = 4φ³e² = 125.20 GeV |
-| 4 | Higgs potential V(Φ) | ✅ PROVEN | ~6% | Within NCG uncertainty (±5-8%) |
-| 5 | Lepton/quark masses | ✅ PROVEN | <0.01% | All 12 masses from H4 spectrum |
-| 6 | CKM mixing | ✅ PROVEN | 0.01% | |V_us| exact, hierarchy from H4 |
-| 7 | PMNS mixing | ✅ PROVEN | 0.0003% | Δm²₂₁ from (φe/π)⁶ |
-| 8 | Yukawa couplings | ✅ PROVEN | <0.1% | All 9 y_f from H4 structure |
-| 9 | Gauge couplings | ✅ PROVEN | 0.024% | 1/α = 36φe²/π |
-| 10 | 3 generations | ✅ PROVEN | exact | N_gen=3 theorem from D4 triality |
+| 2 | Higgs self-coupling λ | ⚠️ FITTED | 0.4% | λ = 0.1295 from spectral action [NUMERICAL_FIT] |
+| 3 | Higgs mass m_H | ⚠️ FITTED | 0.09% | m_H = 4φ³e² = 125.20 GeV [RETROSPECTIVE_FIT] |
+| 4 | Higgs potential V(Φ) | ⚠️ FITTED | ~6% | Within NCG uncertainty (±5-8%) [NUMERICAL_FIT] |
+| 5 | Lepton/quark masses | ⚠️ FITTED | <0.01% | All 12 masses from H4 spectrum [PHENOMENOLOGICAL_FIT] |
+| 6 | CKM mixing | ⚠️ FITTED | 0.01% | |V_us| exact [NUMERICAL_FIT] |
+| 7 | PMNS mixing | ⚠️ FITTED | 0.0003% | Δm²₂₁ from (φe/π)⁶ [NUMERICAL_FIT] |
+| 8 | Yukawa couplings | ⚠️ FITTED | <0.1% | All 9 y_f from H4 structure [PHENOMENOLOGICAL_FIT] |
+| 9 | Gauge couplings | ⚠️ FITTED | 0.024% | 1/α = 36φe²/π [NUMERICAL_FIT] |
+| 10 | 3 generations | ⚠️ NOT DERIVED | exact | N_gen=3 is empirical input (no H4 mechanism yields 3) |
 | 11 | Ghost terms | ✅ DOCUMENTED | — | BV spectral triple formalism |
-| 12 | Strong CP | ✅ SOLVED | exact | θ = 0 naturally |
+| 12 | Strong CP | ⚠️ OPEN | — | θ_QCD = 0 not derived from H4; no axion mechanism |
 | 13 | RG running | 📊 EXPERIMENTAL | — | Boundary conditions at Λ~10¹⁵ GeV |
 
-**Completeness: 12/13 PROVEN = 92.3%**
+**Completeness: 3/13 FORMALLY PROVEN, 9 FITTED/PHENOMENOLOGICAL, 1 OPEN**
 
 φ² + 1/φ² = 3 | Trinity S³AI

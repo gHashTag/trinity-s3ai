@@ -16,7 +16,7 @@ In the catalog `Catalog42.v` (v3.5) and `validate_v4.py`, the following neutrino
 | **N01** | \(8\pi / (\varphi^5 e^2)\) | \(\sin^2\theta_{12}\) | 0.307000 | 0.306699 | 0.098% | V |
 | **N03** | \(\pi^2 / 18\) | \(\sin^2\theta_{23}\) | 0.546000 | 0.548311 | 0.423% | V |
 | **Sin13** | \(\pi^2 / (25\varphi^6)\) | \(\sin^2\theta_{13}\) | 0.022000 | 0.022001 | 0.003% | SG |
-| **N04** | \(3 / \varphi^2\) (rad) | \(\delta_{CP}\) | 65.66° | 65.655° | 0.007% | SG |
+| **N04** | \(3 / \varphi^2\) (rad) | \(\delta_{CP}\) | 65.66° | 65.655° | 0.007% | SG (WITHDRAWN at >5σ) |
 | **v21** | \((\varphi e / \pi)^6 \times 10^{-5}\) | \(\Delta m^2_{21}\) (eV²) | 7.53×10⁻⁵ | 7.530×10⁻⁵ | 0.0003% | SG |
 | **v31** | \(15\varphi^{-5}\pi^{-2}e^{-4}\) | \(\Delta m^2_{31}\) (eV²) | 2.51×10⁻³ | 2.510×10⁻³ | 0.0004% | SG |
 | **N21** | \(\pi / (40\varphi^2)\) | \(\Delta m^2_{21}/\Delta m^2_{31}\) | 0.030000 | 0.029999 | 0.0015% | SG |
@@ -197,7 +197,7 @@ In the Zee–Wolfenstein model, neutrino masses are generated at loop level thro
 | N01 (θ₁₂) | SG/V, 0.098% | Partial (e₃-e₂ = 8) | No (post-hoc) | **Num. coin.** |
 | N03 (θ₂₃) | V, 0.42% | Weak (π²/18) | No | **Num. coin.** |
 | Sin13 (θ₁₃) | SG, 0.003% | Weak (h/5=6) | No (corrected) | **Num. coin.** |
-| N04 (δ_CP) | SG, 0.007% | Moderate (3/φ²) | Retrospective | **Num. coin.** |
+| N04 (δ_CP) | SG, 0.007% | Moderate (3/φ²) | **WITHDRAWN** (>5σ) | **Num. coin.** |
 | v21 (Δm²₂₁) | SG, 0.0003% | Partial (h/5=6, h/2=15) | No (scale inserted) | **Num. coin.** |
 | v31 (Δm²₃₁) | SG, 0.0004% | Partial (h/2=15) | No | **Num. coin.** |
 | N21 (ratio) | SG, 0.0015% | Good (d₁·d₃=40) | Testable | **Best case** |

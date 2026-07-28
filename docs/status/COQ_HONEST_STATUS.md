@@ -1,9 +1,15 @@
+# LEGACY DOCUMENT (historical Wave 20 Coq status)
+# Current status: Superseded by Wave 24+ canonical assessment. See RESEARCH_STATUS.md and
+# TECH_TREE.md for current project state. Internal [SUPERSEDED] annotations remain valid.
+
 # Coq Formalization — Honest Status
 
 **Status**: Canonical reconciliation of the project's Coq metrics
 **Date**: 2026-05-23
 **Companion**: [`LAGRANGIAN_HONEST_STATUS.md`](LAGRANGIAN_HONEST_STATUS.md) (Wave 1), [`delta_cp_analysis.md`](../experiments/delta_cp_analysis.md) (Wave 2 — δ_CP tension and formula audit; a future `DELTA_CP_HONEST_STATUS.md` companion is tracked in PR #22)
 **Source of ground truth**: [`admitted_log.md`](../analysis/admitted_log.md) (the project's internal audit document) + direct count on the current commit
+
+> **[SUPERSEDED by post-Wave 23 correction]** The metrics below reflect the commit state as of 2026-05-23. After running `count_admitted_honest.py` with comment-stripping, the corrected canonical metrics are: **1216 Qed in proofs/trinity/ / 0 real Admitted / 51 obligations in proofs/trinity/ (93 globally across 100 files)**. See RESEARCH_STATUS.md for current canonical assessment.
 
 ---
 
@@ -13,15 +19,15 @@ The repository advertises **five mutually inconsistent sets of Coq metrics** acr
 
 | Metric | Reality (this commit) | Most common public claim | Status of public claim |
 |---|---|---|---|
-| `.v` files | **79** (50 in `proofs/trinity/` + 3 in `proofs/clifford_cl8/` + 26 in `derivations/`) | "19/19", "23/23", "9/19", "25" | **inconsistent across docs** |
-| `Qed.` (closed theorems) | **1325** | "326 Qed", "60+ theorems QED" | **understated** |
-| `Admitted.` | **25** | "0 Admitted", "6 Admitted", "25 Admitted" | **understated** in headline; correct in `admitted_log.md` |
-| `admit.` (inline) | **18** | "0 admit" | **understated** |
-| `Axiom` declarations | **73** | not advertised | **understated** (often "0") |
-| `Parameter` declarations | **7** | not advertised | — |
-| **Total unproven obligations** | **123** | "0" or "6" or "25" | **understated by 5×–20×** |
+| `.v` files | **79** [SUPERSEDED: 56 in `proofs/trinity/` + 6 in `proofs/clifford_cl8/` + 38 in `derivations/` = 100 total] | "19/19", "23/23", "9/19", "25" | **inconsistent across docs** |
+| `Qed.` (closed theorems) | **1325** [SUPERSEDED: 1216 in proofs/trinity/ + 174 in proofs/clifford_cl8/ + derivations/ = 2098 total] | "326 Qed", "60+ theorems QED" | **understated** |
+| `Admitted.` | **25** [SUPERSEDED: post-Wave 23 correction is **0 real Admitted** after comment-stripping] | "0 Admitted", "6 Admitted", "25 Admitted" | **understated** in headline; correct in `admitted_log.md` |
+| `admit.` (inline) | **18** [SUPERSEDED: 0 real inline admit after comment-stripping] | "0 admit" | **understated** |
+| `Axiom` declarations | **73** [SUPERSEDED: 93 total Axiom/Parameter/Conjecture globally] | not advertised | **understated** (often "0") |
+| `Parameter` declarations | **7** [SUPERSEDED: included in 93 total obligations] | not advertised | — |
+| **Total unproven obligations** | **123** [SUPERSEDED: **93** total obligations globally (0 real Admitted + 93 Axiom/Parameter/Conjecture)] | "0" or "6" or "25" | **understated by 5×–20×** |
 
-**The most-advertised slogan "326 Qed / 0 Admitted = 100% verified" is false in both halves.** The real Qed count is **4× larger** (a positive fact that the project was underselling), and the real unproven-obligation count is **123, not 0**.
+**The most-advertised slogan "326 Qed / 0 Admitted = 100% verified" is false in both halves.** The real Qed count is **4× larger** (a positive fact that the project was underselling), and the real unproven-obligation count is **123, not 0** [SUPERSEDED: post-Wave 23 correction is 93 obligations globally, 0 real Admitted].
 
 ---
 
@@ -37,7 +43,7 @@ The repository advertises **five mutually inconsistent sets of Coq metrics** acr
 | `RELEASE_NOTES_v1.0-wave11.md` | "25 files" | "312 Qed" | "25 Admitted" | "**4/16 = 25%**" (with explicit note that README contradicts this) |
 | `derivations/physics_review/independent_review.md` | "23/23" (quoting README) | "326 Qed" (quoting README) | "0 Admitted" (quoting README) | (with critique of all three) |
 | **`admitted_log.md` (canonical, project-internal)** | **53 files in proofs/** | **1351 Qed** (W12.4) | **34 Admitted + 17 admit** | (not claimed) |
-| **Direct count, this commit** | **79 files total** (proofs + derivations) | **1325 Qed** | **25 Admitted + 18 admit** | (not measured here) |
+| **Direct count, this commit** | **79 files total** (proofs + derivations) [SUPERSEDED: 100 total] | **1325 Qed** [SUPERSEDED: 2098 total] | **25 Admitted + 18 admit** [SUPERSEDED: 0 real Admitted + 93 obligations] | (not measured here) |
 
 The `RELEASE_NOTES_v1.0-wave11.md` already contains the most important admission, in writing:
 
@@ -61,6 +67,8 @@ Parameter:   7
 ─────────────────
 unproven:    123   (= 25 + 18 + 73 + 7)
 ```
+
+> **Wave 23+ Correction (2026-05-31):** The `count_admitted_honest.py` honest parser (strips comments before counting) now finds **0 real `Admitted.`** outside comments/strings in `proofs/trinity/`. The 25 `Admitted.` above are all inside historical comments/TODOs. Total unproven obligations (Axiom + Parameter + Conjecture) = **93** project-wide, **51** in `proofs/trinity/`. The `Admitted.` keyword has been replaced by load-bearing `Axiom` declarations with citations.
 
 These are the numbers that should appear in any public-facing summary. They supersede the seven inconsistent versions listed above.
 
@@ -141,17 +149,17 @@ Per `admitted_log.md` §"Header-comment status":
 
 ### Caveat: even Qed-closed lemmas are not all "physics theorems"
 
-[`derivations/physics_review/independent_review.md`](../../derivations/physics_review/independent_review.md) §3.2 makes the deeper point: many of the 1325 Qed-closed lemmas are:
+[`derivations/physics_review/independent_review.md`](../../derivations/physics_review/independent_review.md) §3.2 makes the deeper point: many of the 1325 Qed-closed lemmas [SUPERSEDED: 2098 total across all directories] are:
 
 1. **Trivial reflexivity** facts (e.g. `coxeter_number_factorization : 30 = 2*3*5. reflexivity. Qed.`)
 2. **Numerical interval verifications** via the `interval` tactic — these verify *that a formula evaluates to a number in a given range*, not *that the formula follows from physical first principles*.
 3. **Definitions stated as theorems** (e.g. `H4_order = 14400` is a definition, not a derived fact).
 
-So `Qed.` count is a real signal of work done, but it is not directly proportional to "physics derived from first principles". This caveat is consistent with the Lagrangian honesty pass (Wave 1): **3 of 13 SM Lagrangian sectors are formally derived from first principles; the rest are phenomenological fits whose numerical agreement is verified in Coq via `interval`**.
+So `Qed.` count is a real signal of work done, but it is not directly proportional to "physics derived from first principles". This caveat is consistent with the Lagrangian honesty pass (Wave 1): **3 of 13 SM Lagrangian sectors have Coq-verified interval bounds on fitted formulas; none are derived from H₄ first principles. The rest are phenomenological fits whose numerical agreement is verified in Coq via `interval`**.
 
 ### Revised score
 
-A defensible score for Mathematical Rigor — preserving the strong genuine successes while accounting for the unproven obligations and the interval-tactic caveat — is in the **6–7 / 10** range, not 9/10. The strongest signals (m_H closed, gauge couplings closed, 1325 Qed, well-maintained `admitted_log.md`) are real; the weakening signals (123 obligations, blanket "0 Admitted" claims that are false, interval verification vs derivation conflation) cap the score below 9.
+A defensible score for Mathematical Rigor — preserving the strong genuine successes while accounting for the unproven obligations and the interval-tactic caveat — is in the **6–7 / 10** range, not 9/10. The strongest signals (m_H closed, gauge couplings closed, 1325 Qed [SUPERSEDED: 1216 in proofs/trinity/], well-maintained `admitted_log.md`) are real; the weakening signals (123 obligations [SUPERSEDED: 93 globally], blanket "0 Admitted" claims that are false [SUPERSEDED: post-Wave 23 correction confirms 0 real Admitted], interval verification vs derivation conflation) cap the score below 9.
 
 ---
 
@@ -187,4 +195,4 @@ The Lagrangian honesty pass (Wave 1) and the δ_CP honesty pass (Wave 2) both tu
 
 This pass lifts those four internal admissions into a single front-page document so that they cannot be contradicted by a README slogan.
 
-> A formalisation effort that produces 1325 Qed-closed lemmas and 123 honestly-tracked unproven obligations is **stronger** as a project than one that produces 326 Qed-closed lemmas and claims 0 admitted. The first is real work transparently documented; the second is a slogan that survives only as long as nobody counts.
+> A formalisation effort that produces 1325 Qed-closed lemmas [SUPERSEDED: 1216 in proofs/trinity/] and 123 honestly-tracked unproven obligations [SUPERSEDED: 93 globally] is **stronger** as a project than one that produces 326 Qed-closed lemmas and claims 0 admitted. The first is real work transparently documented; the second is a slogan that survives only as long as nobody counts.

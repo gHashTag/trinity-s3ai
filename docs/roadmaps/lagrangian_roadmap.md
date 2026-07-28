@@ -19,7 +19,7 @@
 
 ## EXECUTIVE SUMMARY
 
-The Trinity S3AI framework has made **remarkable phenomenological progress** -- 27 formulas matching experimental data to SG-class precision, Higgs mass predicted at 0.02 sigma, and a growing Coq formalization. However, the **bridge from H4 geometry to the Standard Model Lagrangian remains the weakest link** in the entire program.
+The Trinity S3AI framework has catalogued **27 fitted formulas** matching experimental data to SG-class precision, Higgs mass numerically matched at 0.02 sigma, and a growing Coq formalization. However, the **bridge from H4 geometry to the Standard Model Lagrangian remains the weakest link** in the entire program.
 
 **Bottom line**: Trinity has the *right numbers* but lacks the *right derivation*. This document maps exactly what exists, what's missing, and how to close the gap.
 
@@ -33,7 +33,7 @@ The most critical structural issue identified:
 | Python a_4 (`spectral_action_compute.py`) | 2638 (ILV) | Zeta-regularized dimension | **Combinatorial, not physical** |
 | Trinity a_4 (`HiggsPrediction.v`) | (2phi)^3 = 8phi^3 ~ 33.89 | H4 invariant coefficient | **Postulated, not derived** |
 
-The Trinity a_4 = 8phi^3 gives the correct Higgs mass (125.202 GeV), but **there is no proof that this equals the spectral action coefficient** for the 600-cell. This is the central mathematical gap.
+The Trinity a_4 = 8phi^3 matches the measured Higgs mass (125.202 GeV), but **there is no proof that this equals the spectral action coefficient** for the 600-cell. This is the central mathematical gap.
 
 ---
 
@@ -158,14 +158,14 @@ The Trinity a_4 = 8phi^3 gives the correct Higgs mass (125.202 GeV), but **there
 **What's MISSING:**
 - [ ] Rigorous derivation of a_4 = 8*phi^3 from spectral action principles
 - [ ] Rigorous derivation of the e^2 factor from cutoff function properties
-- [ ] Proof that the resolved formula is uniquely determined by H4 geometry
+- [ ] Proof that the resolved formula can be derived from H4 geometry first principles (currently open — no rigorous derivation exists)
 - [ ] Connection to Connes-Marcolli formalism (M x F product structure)
 
 **Honesty assessment**: This document provides an honest analysis of the discrepancy and correctly identifies the root cause (ad-hoc formula). However, the "resolution" is itself a redefinition rather than a derivation. The document is more honest than most about this limitation.
 
 ---
 
-### File 5: `E6vsH4.v` -- Coxeter Group Comparison (MOSTLY PROVEN)
+### File 5: `E6vsH4.v` -- Coxeter Group Comparison (PARTIAL — 4 Admitted + 1 admit)
 
 **What's PROVEN (QED):**
 - `E6_degrees_positive` -- all E6 degrees > 0
@@ -205,12 +205,12 @@ The Trinity a_4 = 8phi^3 gives the correct Higgs mass (125.202 GeV), but **there
 
 | File | Status | Key Contribution | Gap |
 |------|--------|------------------|-----|
-| `CorePhi.v` | **QED** (0 Admitted) | phi definition, phi^2=phi+1, powZ, Lucas numbers | Foundation solid |
-| `H4Derivations.v` | **QED** (0 Admitted) | 17 interval-bound theorems from H4 invariants | Derivations are numerical bounds, not physical derivations |
+| `CorePhi.v` | **QED** (0 Admitted in this file) | phi definition, phi^2=phi+1, powZ, Lucas numbers | Foundation solid (93 total obligations across 100 files) |
+| `H4Derivations.v` | **QED** (0 Admitted in this file) | 17 interval-bound theorems from H4 invariants | Derivations are numerical bounds, not physical derivations (93 total obligations across 100 files) |
 | `H4GaugeEmbedding.v` | **MIXED** (1 Admitted) | H4 subgroups -> SM gauge structure | Gauge group assignments motivated, not derived from spectral action |
-| `UniquenessTheorem.v` | **QED** (0 Admitted) | Enumeration of H4 invariant combinations | Most coefficients have multiple derivations; uniqueness claims are honest |
-| `Koide.v` | **QED** (0 Admitted) | Honest consistency check: Koide != 2/3 | H4-derived Koide = 0.6399, not 0.6667; ~4% deviation |
-| `Predictions.v` | **QED** (0 Admitted) | 5 testable predictions with interval bounds | Predictions phenomenological, not derived from Lagrangian |
+| `UniquenessTheorem.v` | **QED** (0 Admitted in this file) | Enumeration of H4 invariant combinations | Most coefficients have multiple derivations; uniqueness claims are honest (93 total obligations across 100 files) |
+| `Koide.v` | **QED** (0 Admitted in this file) | Honest consistency check: Koide != 2/3 | H4-derived Koide = 0.6399, not 0.6667; ~4% deviation (93 total obligations across 100 files) |
+| `Predictions.v` | **QED** (0 Admitted in this file) | 5 formulas with interval bounds | Formulas phenomenological, not derived from Lagrangian (93 total obligations across 100 files) |
 
 ---
 
@@ -640,7 +640,7 @@ The Trinity framework computes couplings at a single scale but doesn't derive th
 | E6 cannot explain Trinity | E6vsH4.v: E6 invariants rational, phi irrational | **PROVEN** |
 | Higgs mass = 125.202 GeV | HiggsPrediction.v: formula matches data at 0.02 sigma | **FORMULA WORKS** (not derived) |
 | 25 Tier-1 formulas match data | FORMULAS.md: 13 SG-class, 8 V-class, 3 P-class, 3 NV-class, 1 WITHDRAWN | **VERIFIED** (phenomenological) |
-| 5 testable predictions | Predictions.v: all with interval bounds | **FALSIFIABLE** |
+| 5 formulas with experimental comparisons | Predictions.v: all with interval bounds | **FALSIFIABLE** (fitted values, not predictions) |
 
 ### What's SHAKY
 
@@ -755,7 +755,7 @@ Morato's "600-Cell Spectral Triple" (referenced in H4Lagrangian.v) provides:
 | H4Derivations.v | **QED** | 0 | 17 interval-bound theorems |
 | UniquenessTheorem.v | **QED** | 0 | count_derivations, uniqueness_L01 |
 | H4GaugeEmbedding.v | **MIXED** | 1 | subgroup embeddings, coupling formulas |
-| Predictions.v | **QED** | 0 | 5 testable predictions with interval bounds |
+| Predictions.v | **QED** | 0 | 5 formulas with interval bounds (fitted values, not predictions) |
 | Koide.v | **QED** | 0 | Koide != 2/3 (honest) |
 | HiggsPrediction.v | **ADMITTED** | 3 | H01 bounds (all admitted) |
 | SpectralAction600Cell.v | **QED** | 0 | a4_total, gauge couplings, Higgs lambda (predicts wrong m_H) |

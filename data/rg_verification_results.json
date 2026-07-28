@@ -1,7 +1,7 @@
 {
   "metadata": {
     "script": "verify_rg_running.py",
-    "description": "H4\u2192m_Z RG running vs Trinity predictions",
+    "description": "H4\u2192m_Z RG running vs Trinity fitted values",
     "date": "2025",
     "Lambda_H4_GeV": 1.5e+16,
     "m_Z_GeV": 91.19,
@@ -12,7 +12,7 @@
     "alpha_unif": 0.04,
     "g_unif": 0.7089815403622064
   },
-  "trinity_predictions": {
+  "trinity_fitted_values": {
     "1_over_alpha": 137.00273342910018,
     "alpha": 0.0072991244405901335,
     "alpha_s": 0.1180339887498949,

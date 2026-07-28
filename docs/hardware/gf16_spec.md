@@ -197,7 +197,7 @@ Zero timing violations at 100 MHz post-route.
 
 ## 4. Benchmarks
 
-See [`gf16_benchmarks.json`](gf16_benchmarks.json) for raw data.
+See [`gf16_bench_results.json`](gf16_bench_results.json) for raw data.
 
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|

@@ -8,7 +8,7 @@
 - [ ] Install coq-interval 4.11.4
 - [ ] Install coquelicot 4.2.0
 - [ ] Compile ALL 16 .v files
-- [ ] Verify: 0 errors, 0 Admitted
+- [ ] Verify: 0 fake proofs, honest Admitted count (0 real Admitted + 93 Axiom/Parameter/Conjecture = 93 obligations)
 - [ ] Screenshot for README
 
 ### A2. Honest P-Value — Monte-Carlo simulation

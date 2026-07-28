@@ -344,9 +344,9 @@ value \(a_4 = (5+6\varphi)/(16\varphi)\) is confirmed by a
 formal proof in Coq.
 
 3. **Order of magnitude is correct.** 133 GeV and 125 GeV differ
-by only 6 %. For a "zero-parameter prediction"
-from pure geometry this is impressive — but insufficient for
-experimental physics.
+by only 6 %. For a "zero-parameter tree-level formula"
+from pure geometry this is an interesting coincidence — but insufficient for
+experimental physics (and BT-4 proves no rigorous derivation from H4 exists).
 
 ### Negative Aspects
 

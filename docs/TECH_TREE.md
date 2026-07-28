@@ -71,7 +71,7 @@ Boundary-mapping principle:
 ║     → ⛔ DIRECT PATH BLOCKED (boundary theorem): H4 → lepton mass hierarchy ║
 ║                                                                  ║
 ║  ✅ 14 refutation theorems (*_refuted)                           ║
-║  ✅ 1325 Qed. theorems, 25 Admitted + 123 obligations             ║
+║  ✅ 1216 Qed. theorems in proofs/trinity/, 0 real Admitted + 51 obligations  ║
 ╚══════════════════════════════════════════════════════════════════╝
                              │
          ┌───────────────────┼───────────────────┐
@@ -237,17 +237,29 @@ All predictions are fixed **before** data in `PREDICTIONS_PREREGISTERED.md` with
 | Priority | Task | Unlocks |
 |----------|------|---------|
 | 🔴 P1 | Unified a₄-coefficient derivation | Closes or opens L4 |
+<<<<<<< HEAD
 | 🔴 P1 | Lean 4: H4RootSystem.lean (red) | L2 fully green |
 | 🔴 P1 | **Stergios Pellis approval of phi-paper v2.3 §6.3 formulation** | **Unlocks `gHashTag/phi-paper` v2.3 push + arXiv submit gate (see [WAVE23_PHI_PAPER_v23_STATUS.md](../WAVE23_PHI_PAPER_v23_STATUS.md))** |
+=======
+| 🟡 P1 | Lean 4: H4RootSystem.lean (skeleton created, 4 `sorry`) | L2 partially green |
+>>>>>>> eb5d2c5 (docs: Analysis, status, and derivation language corrections)
 | 🟡 P2 | T2–T3 Admitted → Qed (Cl(8)) | Track B advances |
 | 🟡 P2 | Paper v2 on arXiv | Track C |
 | 🟡 P2 | **External MDL-formalism audit (Finkelstein / Grünwald / ReScience C)** | **Closes W5, W7, or grants peer-review for phi-paper v2.3** |
 | 🟢 P3 | Document δ_CP withdrawal transparently in all publications | Final resolution N04 (WITHDRAWN) |
 | 🟢 P3 | Snub 24-cell → three generations in Coq | Main open hypothesis |
 | 🟢 P3 | Independent validation of 500k MC protocol | Confirms or refutes Wave 20 |
+<<<<<<< HEAD
 | 🟢 P3 | **EGG-SR (Jiang 2026 ICLR) replication of 394-form class** | **Closes W6 (e-graph canonicalisation)** |
 
 ---
 
 *Version: Wave 23 | 2026-06-06 | Dmitrii Vasilev (gHashTag)*  
+=======
+| ⛔ **DONE** | Wave 24: φ-anchored hyperparameters falsified on IGLA RACE | Treatment +0.1013 BPB worse than control; see `docs/audit/PHI_ABLATION_DESIGN.md` |
+
+---
+
+*Version: Wave 24 | 2026-05-31 | Dmitrii Vasilev (gHashTag)*  
+>>>>>>> eb5d2c5 (docs: Analysis, status, and derivation language corrections)
 *Related files: [RESEARCH_STATUS.md](../RESEARCH_STATUS.md) | [EPISTEMOLOGY.md](../EPISTEMOLOGY.md) | [PREDICTIONS_PREREGISTERED.md](../PREDICTIONS_PREREGISTERED.md)*

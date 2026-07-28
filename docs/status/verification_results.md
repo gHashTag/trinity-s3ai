@@ -24,7 +24,7 @@
 | Success rate | 72.0% (18/25) |
 
 **VERDICT:** 7 of 25 formulas FAIL independently verification. These require investigation.
-The 18 passing formulas achieve genuinely impressive precision, but the 7 failures are severe (errors of 3% to 99%).
+The 18 passing formulas achieve small numerical discrepancies, but the 7 failures are severe (errors of 3% to 99%).
 
 ---
 
@@ -174,7 +174,7 @@ The paper (trinity_paper_v33.md) presents DIFFERENT formulas (L01-L17) than thos
 
 **Critical finding:** ALL 10 paper formulas tested independently FAIL with errors ranging from 19% to 408%. The paper formulas do NOT match the verify_all_25.py formulas. This is a major discrepancy.
 
-The formulas in verify_all_25.py (which we call the "Q/L/C/N/G/H series") are DIFFERENT from the paper's L01-L17 formulas. The Q/L/C/N/G/H series achieves 72% success rate, while the paper's L-series achieves 0% success rate in our independent test.
+The formulas in verify_all_25.py (which we call the "Q/L/C/N/G/H series") are DIFFERENT from the paper's L01-L17 formulas. The Q/L/C/N/G/H series achieves 72% match-with-PDG rate (within <1% threshold), while the paper's L-series achieves 0% match rate in our independent test.
 
 ---
 
@@ -190,7 +190,7 @@ The formulas in verify_all_25.py (which we call the "Q/L/C/N/G/H series") are DI
 | Max relative error | 99.975% (Q07) |
 | Std deviation | 32.47% |
 
-**Note:** The mean is heavily skewed by the 7 catastrophic failures. The median of 0.08% shows that the passing formulas are genuinely precise.
+**Note:** The mean is heavily skewed by the 7 catastrophic failures. The median of 0.08% shows that the passing formulas have small numerical discrepancies from the PDG 2024 central values.
 
 ### 6.2 Distribution by Class
 
@@ -214,7 +214,7 @@ ln(p) ~ -0.5 * sum((epsilon_i/sigma_i)^2)
 Using PDG uncertainties as sigma where available:
 - The 6 SG formulas contribute most to the p-value suppression
 - The 7 F formulas are excluded from p-value calculation (they don't pass)
-- Honest p-value for the 18 passing formulas: p ~ 10^-6 (approximate)
+- Honest p-value for the 18 passing formulas: **OUTDATED** — Wave 20 MC supersedes with $p = 0.077$ (mean error, not significant)
 
 **BUT** this assumes independence and uses only the passing subset -- a form of selection bias. If we include all 25, the p-value is not meaningfully small.
 
@@ -249,7 +249,7 @@ The quark mass ratio formulas (Q-series) are particularly problematic: 5 of 6 Q-
 
 ### 7.3 Paper vs Code Discrepancy
 
-**MAJOR CONCERN:** The paper (v33) presents L01-L17 formulas that are completely different from the formulas in verify_all_25.py. The paper formulas achieve 0% success rate in independent testing, while the code formulas achieve 72% success. This suggests:
+**MAJOR CONCERN:** The paper (v33) presents L01-L17 formulas that are completely different from the formulas in verify_all_25.py. The paper formulas achieve 0% match-with-PDG rate in independent testing, while the code formulas achieve 72% match rate. This suggests:
 
 1. The paper and code describe different formula sets
 2. The paper formulas may be preliminary or incorrectly transcribed

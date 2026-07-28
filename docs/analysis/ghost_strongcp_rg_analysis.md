@@ -159,7 +159,7 @@ where M_u and M_d are the up- and down-type quark mass matrices.
 
 > **⚠️ WITHDRAWN (Wave 6, 2026-05-23):** The entire section below presents the *original draft argument* for θ = 0. **The conclusion is withdrawn.** It is not formally proven in `proofs/` and is refuted in `HARSH_REVIEW_v49.md` §9 (smooth spectral cutoff does not see instantons; the same D_F predicts δ_CP ≠ 0 in PMNS). The text is preserved for historical transparency only. See [`STRONG_CP_HONEST_STATUS.md`](../../STRONG_CP_HONEST_STATUS.md) for the canonical reconciliation.
 
-The H4/spectral action framework provides a natural solution to the strong CP problem through **five key mechanisms**:
+The H4/spectral action framework was historically claimed to provide a natural solution to the strong CP problem through **five key mechanisms**. **This claim is WITHDRAWN:**
 
 #### Mechanism 1: Absence of theta in the Spectral Action
 
@@ -213,7 +213,7 @@ This pairing computes the instanton number n as an integer. The spectral action,
 
 ### 2.3 Does H4 Predict a Specific theta Value?
 
-**The natural prediction is theta = 0 exactly.**
+**Historical claim (WITHDRAWN):** theta = 0 was proposed as a natural boundary condition. This is NOT a derivation from H4 first principles. The strong CP problem remains OPEN.
 
 However, if we consider quantum corrections:
 
@@ -243,15 +243,13 @@ For n = 20 (natural in the H4 120-cell geometry with 600 vertices):
 
     theta_phi ~ phi^{-20} ~ 6.6 x 10^-5
 
-This still exceeds the experimental bound, confirming that:
-
-    **theta = 0 is the only consistent prediction of H4**
+This still exceeds the experimental bound. **The strong CP problem remains OPEN.** No H4 mechanism enforces theta_QCD = 0 independently of other parameters.
 
 ### 2.4 Comparison with Experimental Bound
 
 | Prediction | theta value | vs. Bound (10^-10) |
 |------------|-------------|-------------------|
-| H4 natural | 0 | Satisfied (exact) |
+| H4 historical claim | 0 | WITHDRAWN (not derived from H4) |
 | SM 7-loop | < 10^-20 | Satisfied |
 | phi^{-20} | ~ 10^-4 | **Violated** |
 | PQ axion | Dynamical -> 0 | Satisfied |
@@ -286,7 +284,7 @@ The H4/spectral action framework imposes **boundary conditions at the unificatio
 
     g_1(Lambda) = g_2(Lambda) = g_3(Lambda) = g_unif
 
-This is the grand unification condition, analogous to SU(5) GUT but emerging from geometry rather than being postulated.
+This is the grand unification condition, analogous to SU(5) GUT but postulated as a boundary condition (not derived from H4 geometry).
 
 Additional boundary conditions:
 
@@ -382,7 +380,7 @@ With singlet sigma field (post-2012):
 
 ### 3.5 Does H4 Give a Natural Unification Scale?
 
-**Yes** -- the unification scale is determined by the geometry:
+**No** -- the unification scale is postulated, not derived from H4 geometry:
 
     Lambda ~ 1 / sqrt(G_N) = M_Planck  (with gravity)
 
@@ -390,7 +388,7 @@ or:
 
     Lambda ~ 10^15 GeV  (without gravity, SM only)
 
-The H4 framework predicts **three key scales**:
+The H4 framework postulates **three key scales** (boundary conditions, not derived from H4):
 
 | Scale | Value | Physics |
 |-------|-------|---------|
@@ -399,7 +397,7 @@ The H4 framework predicts **three key scales**:
 | Lambda_GUT | ~ 10^15 GeV | Gauge unification |
 | M_Planck | ~ 10^19 GeV | Gravity unification |
 
-### 3.6 Predictions for alpha_s(m_Z) and sin^2(theta_W)
+### 3.6 Fitted Values for alpha_s(m_Z) and sin^2(theta_W)
 
 Using the H4 boundary conditions and running down from Lambda:
 
@@ -407,8 +405,8 @@ Using the H4 boundary conditions and running down from Lambda:
 |------------|---------------|------------|--------|
 | alpha_s(M_Z) | 0.11-0.12 | 0.1179 | Good |
 | sin^2(theta_W) | 0.21 | 0.2312 | 10% off |
-| m_H | 125 GeV (with singlet) | 125.1 GeV | Excellent |
-| m_top | ~ 173 GeV | 173.1 GeV | Excellent |
+| m_H | 125 GeV (with singlet) | 125.1 GeV | Fitted coincidence |
+| m_top | ~ 173 GeV | 173.1 GeV | Fitted coincidence |
 
 The sin^2(theta_W) discrepancy suggests intermediate-scale physics (as in the Pati-Salam model) that modifies the running.
 
@@ -425,7 +423,7 @@ The sin^2(theta_W) discrepancy suggests intermediate-scale physics (as in the Pa
 | Higgs field | COMPLETE | H (125 GeV) |
 | Singlet sigma | COMPLETE | sigma (see-saw) |
 | Ghost terms | **THIS WORK** | L_ghost = sum_i c-bar_i D c_i (BRST form) |
-| Strong CP | **THIS WORK** | theta = 0 (natural prediction) |
+| Strong CP | **THIS WORK** | theta = 0 (WITHDRAWN — not derived from H4) |
 | RG running | **THIS WORK** | 1-loop + 2-loop equations |
 | Gravitational terms | COMPLETE | R, R^2, R_{mu nu} R^{mu nu} |
 
@@ -449,9 +447,9 @@ with:
 
 1. **Ghost Terms**: The BV spectral triple of Iseppi and van Suijlekom provides a rigorous geometric foundation for ghost fields in the H4 framework. Ghosts are formal quantization artifacts encoded in the mixed-KO-dimension Dirac operator D_BV. The H4 ghost Lagrangian follows the standard BRST form with the Pati-Salam gauge group structure.
 
-2. **Strong CP Problem**: The H4/spectral action framework provides a **natural solution** to the strong CP problem by proposing theta = 0 as a fitted boundary condition. This arises from: (a) the absence of theta in the spectral action, (b) the reality of the Dirac operator ensuring arg[det(M)] = 0, and (c) the CP-conserving nature of the bosonic action. Quantum corrections are estimated to be < 10^-20, far below the experimental bound.
+2. **Strong CP Problem**: The H4/spectral action framework proposes theta = 0 as a fitted boundary condition. **WITHDRAWN**: This is NOT a solution to the strong CP problem. The same D_F structure that gives theta_QCD = 0 also predicts delta_CP ≠ 0 in the PMNS sector, demonstrating the inconsistency. No H4 mechanism enforces theta_QCD = 0 independently of other parameters. The strong CP problem remains **OPEN**.
 
-3. **RG Running**: The H4 framework predicts gauge coupling unification at Lambda ~ 10^15 GeV, consistent with alpha_s(M_Z) ~ 0.11-0.12 and m_H ~ 125 GeV (with singlet). Gravitational corrections can shift unification to the Planck scale. The sin^2(theta_W) prediction has a ~10% discrepancy suggesting intermediate-scale physics.
+3. **RG Running**: The H4 framework postulates gauge coupling unification at Lambda ~ 10^15 GeV, consistent with alpha_s(M_Z) ~ 0.11-0.12 and m_H ~ 125 GeV (with singlet). Gravitational corrections can shift unification to the Planck scale. The sin^2(theta_W) fitted value has a ~10% discrepancy suggesting intermediate-scale physics.
 
 4. **Axion Connection**: While the H4 framework does not naturally contain an axion (since theta = 0 removes the need), an axion-like particle could emerge from singlet sigma fluctuations with f_a ~ 10^13-10^14 GeV and m_a ~ 0.04-0.7 mu-eV.
 

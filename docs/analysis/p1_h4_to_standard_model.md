@@ -1,9 +1,14 @@
-# P1: Deriving SU(3) x SU(2) x U(1) from H4 Subgroups
+# LEGACY DOCUMENT (historical subgroup mapping analysis v3.2)
+# Current status: BT-1 proves no sigma-field in H4; gauge group correspondence is structural motivation only.
+# See LAGRANGIAN_HONEST_STATUS.md for canonical assessment: 0 rigorous derivations.
+# 0/26 formulas are rigorous derivations from H4 first principles.
 
-## Final Report: Subgroup Mapping, Gauge Group Derivation, and Trinity Formula Connections
+# P1: Fitting SU(3) x SU(2) x U(1) to H4 Subgroups
+
+## Report: Subgroup Mapping, Gauge Group Correspondence, and Trinity Formula Connections
 
 **Date**: 2025
-**Objective**: Derive the Standard Model gauge group SU(3)_C x SU(2)_L x U(1)_Y from the H4 Coxeter group structure
+**Objective**: Map the Standard Model gauge group SU(3)_C x SU(2)_L x U(1)_Y to H4 Coxeter group subgroups (structural motivation, NOT derivation)
 
 ---
 
@@ -203,7 +208,7 @@ This folding identifies H4 as a subgroup of E8 rotations.
 
 - [x] H4 reflection subgroups classified
 - [x] A2 -> SU(3) and A1 -> SU(2) mapping established
-- [x] Trinity formulas numerically verified
+- [x] Trinity formulas numerically matched
 - [x] E8 -> H4 projection known
 - [x] Golden ratio phi identified as H4 structure constant
 
