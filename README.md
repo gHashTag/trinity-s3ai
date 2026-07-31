@@ -36,7 +36,7 @@ Most unification programs publish only successes. We publish the **dead ends** t
 | **0 real `Admitted.` + 51 obligations in proofs/trinity/** | No cosmetic edits. Every open gap is an Axiom/Parameter with a literature citation. See `COQ_HONEST_STATUS.md` for full accounting. |
 | **0 fake proofs** | The honest parser strips comments before counting. Naive `grep` finds 77; the real count is 0 in `proofs/trinity/`. |
 
-> **$TRI is not a cryptocurrency.** It is a compression score (bits-per-byte) benchmarked on synthetic φ-structured data; silicon validation on TTSKY26b is pending (~Nov 2026). You cannot mine it on a GPU.
+> **$TRI is not a cryptocurrency.** It is a compression score (bits-per-byte) benchmarked on synthetic φ-structured data; silicon validation is NOT pending: the TTSKY26b submission (2026-05-17) was withdrawn and refunded, so no die will be returned. You cannot mine it on a GPU.
 
 ---
 
@@ -177,7 +177,7 @@ All three crowns are **designed** to carry the canonical anchor **`0x47C0`** at 
 - **65× wider dynamic range than fp16**: max normal ~4.29×10⁹ vs fp16's 65504; exact powers-of-two at `-120.00 dB` NMSE (`empirical_fit` — `benchmark_nmse.py` D-5)
 - **Zero inference accuracy drop**: Fashion-MNIST MLP post-training quantization = 0.00% drop vs fp32 (`empirical_fit` — zig-golden-float BENCH-008)
 - **Optimal integer φ-split**: `round((N−1)/φ²)` gives exp=6/mant=9 for N=16; phi-distance 0.049 vs fp16 0.118 (`proposed` — NeurIPS 2026 OPT Prop 2; not yet peer-reviewed)
-- **Hardware exclusivity**: planned validation on TTSKY26b silicon (Three Crowns: Phi + Euler + Gamma)
+- **Hardware exclusivity**: WITHDRAWN — the TTSKY26b submission (Three Crowns: Phi + Euler + Gamma) was withdrawn and refunded; no silicon route is currently selected
 
 > **Honest note on BPB:** GF16 is a 16-bit float, so raw BPB = 0.500 — identical to fp16 and bfloat16 by bit-width. The 0.125 raw BPB claim belongs to the separate **phi-4Q** 4-bit quantizer (synthetic φ-structured data only). See `docs/hardware/bpb_benchmark.py` and `docs/hardware/gf16_mathematics.md` §2.2.
 
@@ -301,7 +301,7 @@ _Generated from [`docs/claims.yaml`](docs/claims.yaml) by [`scripts/generate_cla
 | 0x47C0 reset-time silicon anchor validates Lucas chain L2=3 | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §1–2; no RTL testbench found in t27 repo | Document the anchor in RTL (add reset witness to gf16_mul.v or wrapper), add testbench simulation, or downgrade claim to design-intent only. |
 | phi-structured quantization step gives ~0.694-bit reduction per level | L3 | `verified` | docs/hardware/gf16_mathematics.md §3, §6.1–6.3; log2(phi) = 0.6942419136...; NeurIPS 2026 Prop 1 (Golden Self-Similarity), Prop 2 (Optimal Integer Rounding), Thm 3 (Universal Attractor) | — |
 | Coq/Flocq proof: phi^2 = phi + 1 holds exactly in IEEE binary64 | L2 | `verified` | proofs/trinity/PhiFloat.v (adapted from t27/coq/Kernel/PhiFloat.v); phi_sq_f64 = phi_plus_one_f64 by vm_compute; residual 0.0 < tolerance 1e-15 | Extend to GF16: prove phi identity holds (or bound error) in the 1-6-9 format. Currently proved only for binary64, not for GF16. |
-| Three Crowns (Phi/Euler/Gamma) submitted to TinyTapeout TTSKY26b | L0 | `open_conjecture` | docs/hardware/silicon_anchor.md §3.2; 21 closed PRs in TinyTapeout/tinytapeout-sky-26b (9 phi + 7 euler + 5 gamma) | Await silicon return from Sky130 fab (~Nov 2026). Post-silicon validation of all three crowns required before upgrade to verified. |
+| Three Crowns (Phi/Euler/Gamma) submitted to TinyTapeout TTSKY26b, then WITHDRAWN | L0 | `open_conjecture` (cannot be closed on this route) | docs/hardware/silicon_anchor.md §3.2; 21 closed PRs in TinyTapeout/tinytapeout-sky-26b (9 phi + 7 euler + 5 gamma); submission 2026-05-17 withdrawn, payment refunded | No silicon will be returned on this route. Closing this conjecture requires selecting a new fabrication route first. |
 
 <!-- CLAIMS_TABLE:END -->
 
