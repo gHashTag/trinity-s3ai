@@ -36,7 +36,7 @@ Most unification programs publish only successes. We publish the **dead ends** t
 | **0 real `Admitted.` + 51 obligations in proofs/trinity/** | No cosmetic edits. Every open gap is an Axiom/Parameter with a literature citation. See `COQ_HONEST_STATUS.md` for full accounting. |
 | **0 fake proofs** | The honest parser strips comments before counting. Naive `grep` finds 77; the real count is 0 in `proofs/trinity/`. |
 
-> **$TRI is not a cryptocurrency.** It is a compression score (bits-per-byte) benchmarked on synthetic φ-structured data; silicon validation on TTSKY26b is pending (~Nov 2026). You cannot mine it on a GPU.
+> **$TRI is not a cryptocurrency.** It is a compression score (bits-per-byte) benchmarked on synthetic φ-structured data; silicon validation is NOT pending: the TTSKY26b submission (2026-05-17) was withdrawn and refunded, so no die will be returned. You cannot mine it on a GPU.
 
 ---
 
@@ -177,7 +177,7 @@ All three crowns are **designed** to carry the canonical anchor **`0x47C0`** at 
 - **65× wider dynamic range than fp16**: max normal ~4.29×10⁹ vs fp16's 65504; exact powers-of-two at `-120.00 dB` NMSE (`empirical_fit` — `benchmark_nmse.py` D-5)
 - **Zero inference accuracy drop**: Fashion-MNIST MLP post-training quantization = 0.00% drop vs fp32 (`empirical_fit` — zig-golden-float BENCH-008)
 - **Optimal integer φ-split**: `round((N−1)/φ²)` gives exp=6/mant=9 for N=16; phi-distance 0.049 vs fp16 0.118 (`proposed` — NeurIPS 2026 OPT Prop 2; not yet peer-reviewed)
-- **Hardware exclusivity**: planned validation on TTSKY26b silicon (Three Crowns: Phi + Euler + Gamma)
+- **Hardware exclusivity**: WITHDRAWN — the TTSKY26b submission (Three Crowns: Phi + Euler + Gamma) was withdrawn and refunded; no silicon route is currently selected
 
 > **Honest note on BPB:** GF16 is a 16-bit float, so raw BPB = 0.500 — identical to fp16 and bfloat16 by bit-width. The 0.125 raw BPB claim belongs to the separate **phi-4Q** 4-bit quantizer (synthetic φ-structured data only). See `docs/hardware/bpb_benchmark.py` and `docs/hardware/gf16_mathematics.md` §2.2.
 
