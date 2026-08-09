@@ -54,3 +54,8 @@ Cargo.lock
 
 .env*
 !.env.example
+*.vo
+*.vok
+*.vos
+*.glob
+.*.aux
