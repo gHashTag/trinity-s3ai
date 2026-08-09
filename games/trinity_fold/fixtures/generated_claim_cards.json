@@ -282,6 +282,54 @@
       "tags": [
         "proof_debt"
       ]
+    },
+    {
+      "id": "golden-alphabet-forced",
+      "kind": "constraint",
+      "name": "phi alphabet forced",
+      "description": "A multiplier-free ternary datapath needs the product of two weights to fall back into the sum the datapath already forms. That requirement is r^2 = r + 1, and it has one positive root. The alphabet is determined rather than designed.",
+      "claim": "verified",
+      "layer": "L1",
+      "evidence": "derivations/golden_alphabet/GoldenAlphabet.v: phi_quadratic, phi_unique (Qed, coqchk clean, negative control run)",
+      "owner_file": "derivations/golden_alphabet/README.md",
+      "blocking_gap": "",
+      "tags": []
+    },
+    {
+      "id": "golden-alphabet-fib-step",
+      "kind": "constraint",
+      "name": "phi multiply = one add",
+      "description": "Representing a value as an integer pair (a,b) standing for a + b*phi, applying a weight is (a,b) -> (b, a+b). There is no multiplier to remove because there is none to begin with.",
+      "claim": "verified",
+      "layer": "L1",
+      "evidence": "derivations/golden_alphabet/GoldenAlphabet.v: mulphi_correct, addp_correct, negp_correct (Qed)",
+      "owner_file": "derivations/golden_alphabet/README.md",
+      "blocking_gap": "",
+      "tags": []
+    },
+    {
+      "id": "golden-alphabet-exact-linear-path",
+      "kind": "constraint",
+      "name": "linear path exact",
+      "description": "Z[phi] is a ring containing the alphabet, so every weight application and every accumulation stays in it. Elsewhere number formats are compared by the size of their rounding error; here there is none to compare.",
+      "claim": "verified",
+      "layer": "L1",
+      "evidence": "derivations/golden_alphabet/GoldenAlphabet.v: dot_exact (Qed); Z[phi] closure",
+      "owner_file": "derivations/golden_alphabet/README.md",
+      "blocking_gap": "Rounding still enters at the nonlinearity; that is outside this statement.",
+      "tags": []
+    },
+    {
+      "id": "golden-alphabet-depth-free",
+      "kind": "geometry",
+      "name": "depth needs no multiplier",
+      "description": "Rescaling between layers is a shift-and-add. A {-1,0,+1} alphabet instead needs a learned real scale per layer, and multiplying by it puts the multiplier back.",
+      "claim": "verified",
+      "layer": "L1",
+      "evidence": "derivations/golden_alphabet/GoldenAlphabet.v: phi_pow_fib (Qed, by induction)",
+      "owner_file": "derivations/golden_alphabet/README.md",
+      "blocking_gap": "",
+      "tags": []
     }
   ]
 }
