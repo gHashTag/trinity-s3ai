@@ -70,6 +70,15 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
+          # git reports %G? as N -- "no signature" -- unless SSH signature
+          # verification is configured at all, even when a signature is present.
+          # Pointing at an EMPTY allowed-signers file declares trust in nobody and
+          # changes the report from N to U, "signature present, signer unknown",
+          # which is the truth and which this gate's own policy accepts.
+          # It does not mark any key as trusted and does not weaken the check:
+          # an unsigned commit still reports N and still fails.
+          : > /tmp/allowed_signers
+          git config --global gpg.ssh.allowedSignersFile /tmp/allowed_signers
           if [ -n "$BASE_SHA" ] && [ -n "$HEAD_SHA" ]; then
             python3 scripts/check_commit_signatures.py "${BASE_SHA}..${HEAD_SHA}"
           else
