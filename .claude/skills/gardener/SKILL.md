@@ -1,5 +1,6 @@
 ---
 name: gardener
+# LEGACY: Russian-language document — translation pending
 description: |
   Садовник IGLA RACE — управление садом обучающих запусков trios-train.
   Команды: status, prune, water, harvest, fertilize, weed, trellis, compost, full.
