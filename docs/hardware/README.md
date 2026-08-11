@@ -25,7 +25,7 @@ root [`README.md`](../../README.md) §"Why $TRI Is Mined Only on TTSKY26b" and
 |-------|--------|-------------------|
 | GF16 format specified | `verified` | `gf16_spec.md` §2.1–2.4 |
 | GF16 phi-distance < f16 | `verified` | `gf16_spec.md` §2.5 |
-| FPGA 323 MHz, 35/35 RTL tests | `verified` | `gf16_benchmarks.json` |
+| FPGA 323 MHz, 35/35 RTL tests | `verified` | **EVIDENCE MISSING** — `gf16_benchmarks.json` does not exist in this repo. The only benchmark file present, `gf16_bench_results.json`, is a *software* benchmark (Zig `src/bench_*.zig`: MSE, ns/op latency) and contains no FPGA synthesis frequency and no RTL test count. |
 | BPB (bits-per-byte) advantage | `empirical_fit` | `bpb_benchmark.py` — synthetic data only |
 | φ-structured step (0.694-bit) | `verified` | `gf16_mathematics.md` §3 |
 | Optimal field size GF(2⁴) | `verified` | `gf16_mathematics.md` §2 |

@@ -141,16 +141,25 @@ GF16 draft. It carries the basic `gf16_mul` / `gf16_add` / `gf16_dot4` core.
 
 | Crown | Repo | Module | PRs in sky-26b | Status |
 |-------|------|--------|----------------|--------|
-| **Phi** (Nano) | `gHashTag/tt-trinity-phi` | `tt_um_trinity_nano` | 9 closed | **Submitted** |
-| **Euler** (Compact) | `gHashTag/tt-trinity-euler` | `tt_um_ghtag_trinity_gf16` | 7 closed | **Submitted** |
-| **Gamma** (Full) | `gHashTag/tt-trinity-gamma` | `tt_um_trinity_max_true` | 5 closed | **Submitted** |
+| **Phi** (Nano) | `gHashTag/tt-trinity-phi` | `tt_um_trinity_nano` | 9 closed | Submitted 2026-05-17 — **WITHDRAWN** |
+| **Euler** (Compact) | `gHashTag/tt-trinity-euler` | `tt_um_ghtag_trinity_gf16` | 7 closed | Submitted 2026-05-17 — **WITHDRAWN** |
+| **Gamma** (Full) | `gHashTag/tt-trinity-gamma` | `tt_um_trinity_max_true` | 5 closed | Submitted 2026-05-17 — **WITHDRAWN** |
 
 **Total: 21 closed PRs** in [TinyTapeout/tinytapeout-sky-26b](https://github.com/TinyTapeout/tinytapeout-sky-26b/pulls?q=is%3Apr+is%3Aclosed+gHashTag),
 all opened by TinyTapeoutBot, updating the three Trinity repos.
 
-### 3.3 Post-Silicon Validation Plan
+> [!IMPORTANT]
+> **WITHDRAWN.** The TTSKY26b submission (2026-05-17) was cancelled and
+> refunded, so no die will be returned. No Trinity die exists and none is
+> scheduled; no silicon route is currently selected. This matches the root
+> [`README.md`](../../README.md) ("Hardware exclusivity: WITHDRAWN") and is
+> recorded in `trinity-papers-ru` PR #18 (merged 2026-07-31).
 
-When chips return from Sky130 fab (expected ~Nov 2026 for TTSKY26b):
+### 3.3 Post-Silicon Validation Plan (not executable — no silicon route)
+
+This plan cannot be executed: the TTSKY26b submission was withdrawn and
+refunded, no die exists, and no silicon route is currently selected. It is
+kept only as the procedure that *would* apply if a die were ever returned:
 
 1. **Logic analyzer check:** Apply reset, verify `uo_out=0x47`, `uio_out=0xC0`
 2. **Clock sweep:** Increase clk from 1 MHz to 100 MHz, measure GF16 dot4
@@ -165,9 +174,11 @@ When chips return from Sky130 fab (expected ~Nov 2026 for TTSKY26b):
 - **TTSKY26b** carries the **Three Crowns** (`tt-trinity-phi`, `tt-trinity-euler`,
   `tt-trinity-gamma`) — a multi-chip family with shared phi-arithmetic DNA.
 
-Both shuttles were submitted in May 2026. The README "TTSKY26b" claim is
-**correct** for the Three Crowns. The earlier "26a only" wording in this repo
-was stale and has been corrected.
+Both shuttles were submitted in May 2026, but the TTSKY26b submission
+(2026-05-17) was withdrawn and refunded, so no Three Crowns die will be
+returned. The README status for TTSKY26b — **WITHDRAWN**, no silicon route
+currently selected — is the correct one; any wording in this repo that still
+presents TTSKY26b as awaiting silicon is stale.
 
 ---
 
