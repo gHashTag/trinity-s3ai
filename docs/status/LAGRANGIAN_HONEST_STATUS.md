@@ -122,3 +122,43 @@ Files updated in this branch:
 A theory's credibility depends more on what it *honestly says it has not yet proven* than on what it advertises as done. The internal documents `lagrangian_roadmap.md` and `HARSH_REVIEW_v49.md` were already saying the harder truth in the basement; this file lifts it to the front page.
 
 The strongest results of the project — m_H, gauge couplings, λ as Coq-verified numerical fits — survive this pass intact. They are now stated without being diluted by 10 over-claims.
+
+---
+
+## Wave 8.3 Update: e^2 factor in Trinity formula — origin investigation
+
+**Date**: 2026-06-23
+**File**: `proofs/trinity/HiggsE2Origin.v`
+
+### Finding
+
+The "e" in `m_H = 4 * phi^3 * e^2` is `exp(1)` — Napier's mathematical constant (Euler's number, e = 2.71828...). This is confirmed by the `HiggsPrediction.v` definition:
+
+```coq
+Definition H01_theoretical : R := 4 * phi^3 * (exp 1)^2.
+```
+
+Three candidate derivations were investigated and rejected:
+
+**PATH A — e^2 as H4 geometric invariant**: RULED OUT
+- `phi^4 = 6.854` is 7.24% off from `exp(1)^2 = 7.389`
+- Lucas identity `phi^4 + phi^{-4} = L(4) = 7` is 5.56% off
+- `3*pi^2/4 = 7.402` is 0.18% off but has no H4 geometric origin
+- No combination of H4 integers {2, 12, 20, 30, 1, 11, 19, 29, 120, 720, 1200, 600, 14400} produces 7.389
+
+**PATH B — e^2 = 4*pi*alpha_QED at some scale**: RULED OUT
+- Code explicitly uses `exp(1)`, not the elementary charge
+- `4*pi*alpha_em(M_Z) = 4*pi/127.94 = 0.0982` — factor 75x too small
+- Required alpha ~ 0.588 (i.e., 1/alpha ~ 1.70) has no physical meaning in this context
+
+**PATH C — empirical fit**: ACCEPTED
+- `exp(1)^2 = 7.38906`, required factor `= 125.20 / (4*phi^3) = 7.38893`
+- Agreement within 0.001 is a numerical coincidence
+- No H4 / Coxeter / spectral-triple mechanism selects `exp(1)` as the Higgs scale factor
+- Formally declared in `e2_empirical_fit` theorem (Qed)
+
+### Status update
+
+The "e^2 Mystery" flagged in `lagrangian_roadmap.md` under cross-cutting issues is now **formally investigated and closed as unresolved**: the factor is confirmed empirical. It joins `delta_CP` falsification and the `a4` 60x discrepancy as documented open problems.
+
+The numerical accuracy of the formula (0.02 sigma agreement with PDG 2024) is unaffected — it remains a verified numerical coincidence per `trinity_formula_accurate` (Qed).
