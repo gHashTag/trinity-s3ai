@@ -30,7 +30,7 @@
       "spectrum_min": -14.015601069957352,
       "spectrum_max": 14.015601069957356,
       "near_zero_modes": 0,
-      "diag_time_sec": 0.0026178749976679683,
+      "diag_time_sec": 0.0026810830022441223,
       "peak_ram_mb": 0.1603221893310547,
       "boundary_degrees": {
         "min": 5.0,
@@ -88,7 +88,7 @@
       "spectrum_min": -19.050191130625837,
       "spectrum_max": 19.050191130625834,
       "near_zero_modes": 8,
-      "diag_time_sec": 0.005062958982307464,
+      "diag_time_sec": 0.004589875010424294,
       "peak_ram_mb": 0.40857887268066406,
       "boundary_degrees": {
         "min": 4.0,
@@ -146,7 +146,7 @@
       "spectrum_min": -21.50865604300973,
       "spectrum_max": 21.503241635828854,
       "near_zero_modes": 0,
-      "diag_time_sec": 0.00844429194694385,
+      "diag_time_sec": 0.009672832995420322,
       "peak_ram_mb": 0.6405744552612305,
       "boundary_degrees": {
         "min": 4.0,
@@ -204,7 +204,7 @@
       "spectrum_min": -20.699696832470703,
       "spectrum_max": 20.699663976818407,
       "near_zero_modes": 4,
-      "diag_time_sec": 0.015279542014468461,
+      "diag_time_sec": 0.01733099999546539,
       "peak_ram_mb": 1.2637434005737305,
       "boundary_degrees": {
         "min": 5.0,
@@ -262,7 +262,7 @@
       "spectrum_min": -18.30685360458813,
       "spectrum_max": 18.299516089917063,
       "near_zero_modes": 5,
-      "diag_time_sec": 0.023054499994032085,
+      "diag_time_sec": 0.03075537500262726,
       "peak_ram_mb": 2.095919609069824,
       "boundary_degrees": {
         "min": 5.0,
@@ -320,7 +320,7 @@
       "spectrum_min": -21.63990644696809,
       "spectrum_max": 21.639365996865543,
       "near_zero_modes": 24,
-      "diag_time_sec": 0.09080879198154435,
+      "diag_time_sec": 0.07357854199653957,
       "peak_ram_mb": 4.394991874694824,
       "boundary_degrees": {
         "min": 9.0,
@@ -378,8 +378,8 @@
       "spectrum_min": -20.331042446473194,
       "spectrum_max": 20.329738614203357,
       "near_zero_modes": 20,
-      "diag_time_sec": 0.1027820419985801,
-      "peak_ram_mb": 6.6768083572387695,
+      "diag_time_sec": 0.18805137499293778,
+      "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
         "max": 12.0,
@@ -438,7 +438,7 @@
       "spectrum_min": -18.16809419194217,
       "spectrum_max": 18.16739240872898,
       "near_zero_modes": 20,
-      "diag_time_sec": 0.08019729203078896,
+      "diag_time_sec": 0.12576487500336953,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
@@ -497,7 +497,7 @@
       "spectrum_min": -20.331042446473194,
       "spectrum_max": 20.329738614203357,
       "near_zero_modes": 20,
-      "diag_time_sec": 0.08047624997561797,
+      "diag_time_sec": 0.09301941700687166,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
@@ -556,7 +556,7 @@
       "spectrum_min": -27.190072334273083,
       "spectrum_max": 27.18905516598797,
       "near_zero_modes": 20,
-      "diag_time_sec": 0.09203316696221009,
+      "diag_time_sec": 0.08319433299766388,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
@@ -615,7 +615,7 @@
       "spectrum_min": -52.93195289724483,
       "spectrum_max": 52.93163696773727,
       "near_zero_modes": 20,
-      "diag_time_sec": 0.08193762501468882,
+      "diag_time_sec": 0.08300283299467992,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
@@ -676,7 +676,7 @@
       "spectrum_min": -20.331042446473194,
       "spectrum_max": 20.329738614203357,
       "near_zero_modes": 20,
-      "diag_time_sec": 0.08821224997518584,
+      "diag_time_sec": 0.08288766599434894,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
@@ -735,7 +735,7 @@
       "spectrum_min": -20.391301889175868,
       "spectrum_max": 20.389995743168477,
       "near_zero_modes": 20,
-      "diag_time_sec": 0.13674108299892396,
+      "diag_time_sec": 0.08446674999140669,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
@@ -794,7 +794,7 @@
       "spectrum_min": -20.63564755711801,
       "spectrum_max": 20.634333490858243,
       "near_zero_modes": 0,
-      "diag_time_sec": 0.08351299999048933,
+      "diag_time_sec": 0.09050429199123755,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
@@ -853,7 +853,7 @@
       "spectrum_min": -20.948263829807615,
       "spectrum_max": 20.946942685838458,
       "near_zero_modes": 0,
-      "diag_time_sec": 0.0997854580054991,
+      "diag_time_sec": 0.11845220800023526,
       "peak_ram_mb": 6.676671028137207,
       "boundary_degrees": {
         "min": 12.0,
